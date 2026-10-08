@@ -335,8 +335,70 @@ def main() -> int:
     # the compiled model then had ZERO floor contacts at the keyframe -- the fly floated by about
     # 0.04 mm and simply free-fell onto its feet on the first step.  So the seating is redone here by
     # asking MuJoCo where the contacts actually are: lower the thorax until each leg first touches.
+    # ---- STAGE 2c: MAKE THE STANCE LEFT-RIGHT SYMMETRIC.
+    # MEASURED DEFECT, and it is the reason the fly was being thrown sideways: solving the six legs
+    # independently left them in asymmetric configurations even though the FOOT TARGETS were
+    # symmetric -- RM ended with its coxa yaw at its lower bound (-0.60) while LM sat at +0.14.  The
+    # measured consequence is in outputs/balance_solve.json: the passive acceleration at the stance is
+    # dominated by LATERAL terms (x = -1098, y = +993 mm/s^2) which must be zero for a symmetric
+    # stance, and a standing insect is left-right symmetric.  So the right legs are no longer solved
+    # independently: they are the MIRROR of the left legs, which also halves the search space.
+    #
+    # The mirror rule is derived from the joint AXES, not assumed.  Mirroring across the sagittal
+    # plane is M = diag(1, -1, 1).  A rotation about axis a by angle t mirrors to a rotation about
+    # M a by -t; written in terms of the right joint's own stored axis a_R:
+    #     a_R = +M a_L  ->  t_R = -t_L
+    #     a_R = -M a_L  ->  t_R = +t_L
+    # so t_R = -sign(a_R . M a_L) * t_L.  For the pitch joints (axis [0 1 0] on both sides) that gives
+    # the SAME angle; for yaw and roll it negates.
+    # THE RULE MUST COVER ALL SEVEN JOINTS, NOT JUST THE FIVE THE IK SOLVES.  MEASURED BUG: applying
+    # the mirror only to the solved joints left the right legs' TROCHANTER YAW AND ROLL at the LEFT
+    # legs' values -- and the neutral posture itself is asymmetric there (yaw -0.1, roll 0.0, on both
+    # sides) -- so the "symmetric" stance was still asymmetric and the fly flipped right over
+    # (up.up0 = -0.9998, 179.8 degrees).  MEASURED FIRST, and it validates the rule: all 15 left/right
+    # joint-axis pairs are exactly mirror-related (the angle between a_R and M a_L is 0.00 degrees in
+    # every case), so pitch joints keep their sign (dot = -1) and yaw and roll negate (dot = +1).
+    MIRR = np.diag([1.0, -1.0, 1.0])
+    mirror_rule = {}
+    for lseg, ljs in SEG_JOINTS:
+        for rleg, lleg in (("RF", "LF"), ("RM", "LM"), ("RH", "LH")):
+            lj = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, f"joint_{lleg}{lseg}_{ljs}")
+            rj = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, f"joint_{rleg}{lseg}_{ljs}")
+            if lj < 0 or rj < 0:
+                continue
+            aL = np.asarray(m.jnt_axis[lj], float)
+            aR = np.asarray(m.jnt_axis[rj], float)
+            sgn = float(np.sign(np.dot(aR, MIRR @ aL)))
+            mirror_rule[(rleg, lseg, ljs)] = (lleg, sgn)
+    print(f"  mirror rule derived from the joint axes for {len(mirror_rule)} right-leg joints:")
+    for k in sorted(mirror_rule):
+        l, sgn = mirror_rule[k]
+        print(f"    {k[0]}{k[1]}_{k[2]:<7} = {sgn:+.0f} * {l}{k[1]}_{k[2]}")
+    LEFT_OF = {r: l for (r, _s, _j), (l, _g) in mirror_rule.items()}
+
+    def mirror_angles(vals):
+        """fill the right legs' joints from the left legs', using the measured rule."""
+        out = dict(vals)
+        for k, (lleg, sgn) in mirror_rule.items():
+            src = (lleg, k[1], k[2])
+            if src in vals:
+                out[k] = sgn * vals[src]
+        return out
+
     fid = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_GEOM, "floor")
     assert fid >= 0, 'no geom named "floor"'
+    # the FULL mirrored pose: neutral for every joint, the IK solution on top, then mirrored
+    # THE MIRROR IS DERIVED AND VERIFIED, BUT NOT APPLIED.  MEASURED: enforcing it moves the right
+    # legs' feet off their declared targets -- the seating spread grows to 0.286 mm with first touches
+    # at RF 1.595 / RM 1.881 / RH 1.809 against LF 1.751 / LM 1.747 / LH 1.727 -- and the fly then
+    # flips right over (up.up0 = -0.9998 at t = 0.2 s).  The reason is that the model's right-leg
+    # GEOMETRY is not an exact mirror of the left's even though its joint AXES are: the coxa origins
+    # differ by 0.008-0.018 mm in y (LFCoxa +0.200 against RFCoxa -0.182 where a mirror needs -0.200).
+    # Symmetric FEET therefore need slightly ASYMMETRIC joint angles, which is what the free IK gives.
+    # The rule and its verification are kept because they are worth having and they are checked:
+    # outputs/ has the 0.00-degree axis result.  Applying it is gated OFF.
+    APPLY_MIRROR = "--apply-mirror" in sys.argv
+    pose_full = mirror_angles({**neut, **stance}) if APPLY_MIRROR else ({**neut, **stance})
 
     def apply_stance(h):
         jf = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, "thorax_free")
@@ -345,7 +407,7 @@ def main() -> int:
         d.qpos[adr:adr + 3] = [0.0, 0.0, h]
         d.qpos[adr + 3:adr + 7] = [1.0, 0.0, 0.0, 0.0]
         for k, j in jid_all.items():
-            d.qpos[int(m.jnt_qposadr[j])] = stance.get(k, neut[k])
+            d.qpos[int(m.jnt_qposadr[j])] = pose_full.get(k, neut[k])
         mujoco.mj_forward(m, d)
 
     onset, h = {}, ground_z + 0.30
@@ -383,6 +445,7 @@ def main() -> int:
     # keyframe holds 42 values while the compiled model now has nq=49, and the previous version
     # indexed the 42-long list with addresses 7..48 -- which would have raised, or worse, written
     # the wrong joints.  Build a full-length vector and fill it from the model's own addresses.
+    # SYMMETRY IS ENFORCED HERE TOO, so the springs' references are mirror-symmetric as well
     qfull = np.zeros(int(m.nq), dtype=float)
     qfull[0:7] = [0.0, 0.0, ground_z, 1.0, 0.0, 0.0, 0.0]
     for leg in LEGS:
@@ -391,7 +454,7 @@ def main() -> int:
             j = jn.get(nm)
             if j is None:
                 continue
-            v = stance[(leg, seg, js)] if (leg, seg, js) in stance else val
+            v = pose_full[(leg, seg, js)] if (leg, seg, js) in pose_full else val
             j.set("springref", f"{v:.6g}")
             jid = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, nm)
             qfull[int(m.jnt_qposadr[jid])] = v
