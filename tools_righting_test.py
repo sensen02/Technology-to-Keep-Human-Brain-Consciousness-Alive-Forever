@@ -113,6 +113,10 @@ def main() -> int:
                     help="walk normally, then invert the fly at this time (s). This is the "
                          "protocol that avoids the spawn-jam catapult.")
     ap.add_argument("--invert-height-mm", type=float, default=1.6)
+    ap.add_argument("--reflex", action="store_true",
+                    help="enable the state-dependent posture reflex (whole-body dorsal contact "
+                         "drives a coxa-pitch swing, and switches off once upright)")
+    ap.add_argument("--reflex-deg", type=float, default=120.0)
     a = ap.parse_args()
     want_arms = [x for x in a.arms.split(",") if x]
     if a.invert_at is not None:
@@ -138,6 +142,8 @@ def main() -> int:
                                  spawn_position_mm=(0.0, 0.0, 0.6), spawn_quat_wxyz=quat,
                                  invert_at_s=a.invert_at,
                                  invert_height_mm=a.invert_height_mm,
+                                 posture_reflex=bool(a.reflex),
+                                 posture_reflex_deg=float(a.reflex_deg),
                                  gl_backend=None)
                 ep = MultirateScheduler(cfg).run(want_frames=False)
                 rec, up, legs, horiz = analyse(ep, arm, label)

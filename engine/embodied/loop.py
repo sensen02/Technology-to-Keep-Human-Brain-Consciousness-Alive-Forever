@@ -181,6 +181,24 @@ class LoopConfig:
     invert_height_mm: float = 1.6
     #: extra downward/forward nudge applied at the inverting instant, mm/s (0 = none)
     invert_nudge_mm_s: float = 0.0
+
+    #: THE POSTURE REFLEX: the loop's FIRST state-dependent command, and it exists because a
+    #: static one was MEASURED not to be enough.  A fixed coxa-pitch offset of +120 degrees
+    #: takes the fly from up_z -0.872 to -0.206 after inversion and briefly reaches +0.987 --
+    #: it really does roll it upright -- and then it falls back, because the SAME command is
+    #: applied when the fly is nearly recovered as when it is flat on its back.  The right
+    #: action depends on the state, so the command must too: swing the legs down while the
+    #: dorsal side is on the ground, and get out of the way once it is not.
+    #:
+    #: The gate uses the whole-body contact channel added for exactly this purpose
+    #: (``dorsal_index`` is about +0.9 on its back and -1.0 on its feet).  Default OFF, so every
+    #: previous episode is bit-identical.
+    posture_reflex: bool = False
+    posture_reflex_deg: float = 120.0
+    posture_reflex_target: str = "coxa_pitch"
+    #: dorsal_index above this turns the reflex fully on; below it, fully off
+    posture_reflex_on: float = 0.5
+    posture_reflex_off: float = 0.1
     world_half_size_mm: float = 1000.0
     cpg_intrinsic_frequency_hz: float = 12.0
     add_tracking_camera: bool = True
@@ -578,6 +596,7 @@ class MultirateScheduler:
             commands[name] = []
 
         self._prev_spikes = None
+        reflex_log = []
         prev_speed, prev_turn = 1.0, 0.0
         first_loop_ms = None
         _inverted_done = False
@@ -707,6 +726,19 @@ class MultirateScheduler:
             prev_speed, prev_turn = float(cmd.speed_scale), float(cmd.turn)
             # ---- 5. HOLD the command while the body substeps
             self.cpg.set_command(cmd.speed_scale, cmd.turn)
+            # ---- THE POSTURE REFLEX: state-dependent, written through the SAME audited adapter.
+            # It reads the interval's OWN observation, and it is written BEFORE the body substeps,
+            # so it does not violate the causal order the scheduler enforces.
+            if cfg.posture_reflex and self.cpg is not None:
+                _wb = obs.whole_body_contact or {}
+                _di = float(_wb.get("dorsal_index", 0.0))
+                _on, _off = float(cfg.posture_reflex_on), float(cfg.posture_reflex_off)
+                _g = (_di - _off) / max(_on - _off, 1e-9)
+                _g = float(min(1.0, max(0.0, _g)))
+                self.cpg.set_posture_target(cfg.posture_reflex_target)
+                self.cpg.set_posture_bias(
+                    np.full(6, float(np.radians(cfg.posture_reflex_deg)) * _g))
+                reflex_log.append((float(t_interval), _di, _g))
             self.command_log.append((k, float(cmd.speed_scale), float(cmd.turn)))
             for _ in range(n_sub_b):
                 self.body.step()

@@ -1085,35 +1085,74 @@ class CommandedTripodCPG:
 
     #: WHICH JOINTS CARRY THE POSTURE PUSH, chosen by NAME, not by index: the femur-tibia
     #: ("knee") pitch of each leg.  Extending the knee is what straightens a leg against the
-    #: ground; the SIGN of the extension is not assumed here, it is measured (see
-    #: tools_posture_sign.py) because getting it backwards would push the fly INTO its own back.
-    # "_tibia-pitch", NOT "-tibia-pitch": MEASURED, the names are "lf_trochanterfemur-lf_tibia-
-    # pitch", so the character before "tibia" is an UNDERSCORE.  My first pattern used a hyphen
-    # and matched nothing -- and the failure was silent until the code path ran.
-    POSTURE_JOINT_SUBSTR = ("_tibia-pitch",)
+    #: ground; the SIGN of the extension is not assumed here, it is measured, because getting it
+    #: backwards would push the fly into its own back.
+    #:
+    #: "_tibia-pitch", NOT "-tibia-pitch": MEASURED, the names are "lf_trochanterfemur-lf_tibia-
+    #: pitch", so the character before "tibia" is an UNDERSCORE.  My first pattern used a hyphen
+    #: and matched nothing.
+    #: The joint a posture command acts on, SELECTABLE, because the knee was measured to be the
+    #: wrong one.  MEASURED: with the fly on its back its tarsi sit 1.06-1.86 mm ABOVE the ground
+    #: (the body rests on a single contact point on its dorsal side), so a knee offset moves feet
+    #: that touch nothing and NO knee command of any sign or spatial pattern can help.  Bringing
+    #: the feet to the ground needs the leg SWING joints at the coxa, so that is the other target.
+    POSTURE_TARGETS = {
+        "knee": "_tibia-pitch",
+        "coxa_pitch": "_coxa-pitch",
+        "coxa_roll": "_coxa-roll",
+        "trochanter_pitch": "_trochanterfemur-pitch",
+    }
 
-    def posture_rows(self):
-        """DOF rows whose joint name matches the posture target, resolved by NAME."""
-        rows = []
-        for i, nm in dof_names(self.dof_order):
-            if any(sub in nm for sub in self.POSTURE_JOINT_SUBSTR):
-                rows.append(i)
-        if not rows:
-            raise RuntimeError(
-                "no DOF matched the posture joint pattern %r; the DOF names present are %r"
-                % (self.POSTURE_JOINT_SUBSTR, [nm for _i, nm in dof_names(self.dof_order)]))
+    def posture_rows(self, target: str | None = None):
+        """{leg: DOF row} for the posture target joint, resolved by NAME, never by index."""
+        target = target or getattr(self, "posture_target", "knee")
+        if target not in self.POSTURE_TARGETS:
+            raise ValueError("unknown posture target %r; have %r"
+                             % (target, sorted(self.POSTURE_TARGETS)))
+        sub = self.POSTURE_TARGETS[target]
+        rows = {}
+        names = dict(dof_names(self.dof_order))
+        for leg in LEGS:
+            want = f"{leg}{sub}"
+            hit = [i for i, nm in names.items() if want in nm]
+            if len(hit) != 1:
+                raise RuntimeError(
+                    f"expected exactly one DOF matching {want!r}, found {hit}; DOF names are "
+                    f"{sorted(names.values())}")
+            rows[leg] = int(hit[0])
         self._posture_rows = rows
+        self.posture_target = target
         return rows
 
-    def set_posture_bias(self, bias_rad):
-        """A UNIFORM knee offset, added to the CPG's own action.  THIS IS THE THIRD COMMAND.
+    def set_posture_target(self, target: str):
+        """Switch which joint the posture command acts on.  Simpler than it sounds: the rows are
+        re-resolved BY NAME each time, so a wrong target fails loudly instead of silently
+        writing the wrong joint."""
+        self.posture_rows(target)
+        return self
 
-        The baseline and every previous episode have exactly two knobs (speed, turn); a
-        righting behaviour needs a dimension that says "push the legs out", and there was none.
-        A bias of exactly 0.0 leaves the action untouched, so default behaviour is unchanged.
+    def set_posture_bias(self, bias):
+        """PER-LEG knee offsets.  THIS IS THE THIRD COMMAND, and it has to be per-leg.
+
+        A SCALAR HERE WAS MEASURED TO BE USELESS.  Feeding the same knee offset to all six legs
+        turns out to produce no net rolling torque -- a sign sweep from -40 to +40 degrees found
+        that NO value beats zero (up_z after inversion stayed at -0.87..-0.92 for every bias).
+        That is a geometric fact, not a tuning failure: righting needs a torque about the body's
+        long axis, and a command that treats every leg identically is symmetric about exactly
+        that axis, so it cannot generate one.  The bias is therefore a per-leg vector, which is
+        what makes a left-right differential -- and therefore a roll -- expressible at all.
+
+        ``bias`` is a scalar (broadcast to all six legs, keeps the old behaviour) or a length-6
+        array in ``LEGS`` order (lf, lm, lh, rf, rm, rh).  All-zero leaves the action untouched.
         """
-        b = float(bias_rad)
-        if not math.isfinite(b):
+        if np.isscalar(bias) or (hasattr(bias, "ndim") and np.ndim(bias) == 0):
+            b = np.full(6, float(bias), dtype=float)
+        else:
+            b = np.asarray(bias, dtype=float).ravel()
+            if b.size != 6:
+                raise ValueError("posture bias must be a scalar or six values in LEGS order, "
+                                 "got %d" % b.size)
+        if not np.all(np.isfinite(b)):
             raise ValueError("posture bias must be finite")
         self.posture_bias_rad = b
         self.ledger.write("cpg_posture_bias", "command_adapter")
@@ -1121,15 +1160,19 @@ class CommandedTripodCPG:
 
     def step(self):
         act = self.ctl.step()
-        b = float(getattr(self, "posture_bias_rad", 0.0))
-        if b == 0.0:
+        b = np.asarray(getattr(self, "posture_bias_rad", np.zeros(6)), dtype=float).ravel()
+        if not np.any(b != 0.0):
             return act                      # exact identity: no array is touched
         rows = getattr(self, "_posture_rows", None) or self.posture_rows()
         ja = np.asarray(act.joint_angles, dtype=float).copy()
-        if ja.ndim != 1 or rows and max(rows) >= ja.size:
-            raise RuntimeError("posture rows %r do not index the action of size %d"
-                               % (rows, ja.size))
-        ja[rows] = ja[rows] + b
+        if ja.ndim != 1:
+            raise RuntimeError("the action's joint angles are not a vector: %r" % (ja.shape,))
+        for k, leg in enumerate(LEGS):
+            i = rows[leg]
+            if i >= ja.size:
+                raise RuntimeError("posture row %d for leg %s exceeds the action size %d"
+                                   % (i, leg, ja.size))
+            ja[i] = ja[i] + b[k]
         return type(act)(joint_angles=ja, adhesion_onoff=act.adhesion_onoff)
 
     def state(self):
