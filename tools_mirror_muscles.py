@@ -218,6 +218,31 @@ def main() -> int:
     rescale = "--rescale-lengthrange" in sys.argv
     added_lengthrange_rescale = 0
 
+    # ---- TURN OFF COLLISION BETWEEN THE FLY'S OWN PARTS, KEEP IT AGAINST THE FLOOR.
+    # MEASURED, and this is the bug that made the acoustic-looking 'silenced but still moving'
+    # result: at rest this model has SEVEN self-contacts (Thorax vs each Coxa, plus one femur-femur)
+    # all with NEGATIVE dist, i.e. the fly's own geoms interpenetrate by 0.026-0.057 mm, and the
+    # solver pushes them apart with 403 force units -- 40x the fly's weight.  Every geom in the
+    # model is (contype, conaffinity) = (1, 1), so every part can collide with every other part.
+    # The legs are therefore driven mainly by the fly's own internal stress, and the muscles (and so
+    # the neurons) are a small term next to it -- which is why zeroing ALL muscle activations still
+    # left the legs swinging by 1.8-5.4 rad.
+    #
+    # The standard MuJoCo idiom fixes it by bitmask: a pair collides iff (contype1 & conaffinity2)
+    # or (contype2 & conaffinity1).  Floor stays (1, 1); the fly's geoms become (2, 1):
+    #     fly vs fly  : (2 & 1) = 0  or  (2 & 1) = 0   -> NO collision
+    #     fly vs floor: (2 & 1) = 0  or  (1 & 1) = 1   -> collision
+    no_self_contact = "--keep-self-contact" not in sys.argv
+    n_filtered = 0
+    if no_self_contact:
+        for i, b in enumerate(root.iter("body")):
+            if (b.get("name") or "") == "ground":
+                continue
+            for g in b.findall("geom"):
+                g.set("contype", "2")
+                g.set("conaffinity", "1")
+                n_filtered += 1
+
     decisions = []
     added_sites = added_tendons = added_acts = 0
     for target in LEG_ORDER:
@@ -304,6 +329,47 @@ def main() -> int:
     n_sites = sum(1 for _ in root.find("worldbody").iter("site"))
     print(f"added: {added_tendons} tendons, {added_sites} sites, {added_acts} actuators, "
           f"{len(added_joints)} joints")
+    # ---- POSE THE ADDED JOINTS IN THE KEYFRAME, OR THE SPRINGS DRAG THE LEGS WITH NO MUSCLES.
+    # MEASURED, and this is the real answer to "why does it still move when silenced": every joint
+    # I added copied the FORELAG's springref (-2.8 for a trochanter pitch, +2.0 for a tibia pitch,
+    # +0.5 for a coxa roll) while the model's keyframe leaves those joints at 0.0.  A joint spring
+    # pulls toward its springref, so 28 springs each dragged their leg up to 2.8 rad with ALL muscle
+    # activations at zero.  Gravity was ruled out: with gravity off the excursion was 4.02 rad
+    # against 4.08 with it on.  It is the springs, and the model simply was not standing in the pose
+    # its springs expect.
+    #
+    # The fix is to pose the mirror: put the source joint's springref into the keyframe for every
+    # added joint, so the neutral pose has the mid and hind legs in the same posture as the foreleg
+    # and every spring starts at equilibrium.  It also keeps the copied ranges consistent, since the
+    # source range contains the source's own springref.
+    pose_added = "--pose-added-joints" in sys.argv
+    if pose_added and added_joints:
+        import os as _os
+        _os.environ.setdefault("MUJOCO_GL", "egl")
+        import mujoco as _mj
+        from flygym.compose.fly.musculoskeletal import _load_mjcf as _load
+        tmp2 = OUT_DIR / "_pose_probe.xml"
+        tree.write(tmp2, encoding="utf-8", xml_declaration=True)
+        _m2 = _load(str(tmp2)).compile()
+        kf = root.find("keyframe")
+        keys = list(kf.findall("key")) if kf is not None else []
+        if keys:
+            qpos = [float(v) for v in (keys[0].get("qpos") or "").split()]
+            for aj in added_joints:
+                jid = _mj.mj_name2id(_m2, _mj.mjtObj.mjOBJ_JOINT, aj["joint"])
+                if jid < 0:
+                    continue
+                adr = int(_m2.jnt_qposadr[jid])
+                src_ref = src_joints.get(aj["from"])
+                ref = float((src_ref.get("springref") or "0").split()[0]) if src_ref is not None \
+                    else 0.0
+                while len(qpos) <= adr:
+                    qpos.append(0.0)
+                qpos[adr] = ref
+                aj["keyframe_qpos_set_to"] = ref
+            keys[0].set("qpos", " ".join(f"{v:.6g}" for v in qpos))
+        tmp2.unlink(missing_ok=True)
+
     if rescale:
         # measure the rest length of every muscle in the freshly generated model, compare against
         # its LF source, and scale the declared range
@@ -335,6 +401,10 @@ def main() -> int:
         tmp.unlink(missing_ok=True)
 
     print(f"lengthrange rescaled for {added_lengthrange_rescale} muscles (flag: {rescale})")
+    print(f"added joints posed in the keyframe: {sum(1 for a in added_joints if 'keyframe_qpos_set_to' in a)}"
+          f" (flag: {pose_added})")
+    print(f"fly geoms switched to (contype=2, conaffinity=1) so the fly's parts stop colliding with "
+          f"each other but still hit the floor: {n_filtered} geoms")
     print(f"joints that were LOCKED by equality constraints in the source: {len(locked)} "
           f"({sorted(set(str(x) for x in locked))[:3]}...)")
     print(f"unlock flag given: {unlock}")
@@ -368,6 +438,8 @@ def main() -> int:
         "joints_added": added_joints,
         "locked_joints_in_source": [str(x) for x in locked],
         "unlocked": bool(unlock),
+        "self_contact_disabled": bool(no_self_contact),
+        "geoms_contact_filtered": n_filtered,
         "known_approximations": [
             "mid and hind legs have no Trochanter body, so trochanter sites are mapped to the femur",
             "site positions scaled isotropically by the segment length ratio (lengthwise fibres "

@@ -52,6 +52,15 @@ N_COMMAND_STEPS = 50              # 5 ms command clock
 REF_ANGLE_RAD = 0.30              # ILLUSTRATIVE receptor normalisation
 REF_RATE_HZ = 40.0                # ILLUSTRATIVE reference firing rate
 CURRENT_PER_DRIVE_NA = 0.02       # ILLUSTRATIVE transduction gain.
+#: SPONTANEOUS (TONIC) DRIVE, and it is not a fudge -- its absence was a real defect.  MEASURED:
+#: with the drive being the joint-angle DEVIATION from the starting pose, a leg sitting at its rest
+#: pose receives exactly zero current, its motor neurons stay silent, and its muscles receive zero
+#: activation.  Ablating those neurons then changes nothing, and it is easy to mistake that for "the
+#: neurons do not drive the leg" when it is really "the neurons were never driven".  A real
+#: mechanosensory neuron is spontaneously active and encodes ABSOLUTE joint position, not just
+#: deviation, so a tonic component belongs in the transduction.  This is still an ILLUSTRATIVE
+#: parameter, not a measured firing rate.
+TONIC_DRIVE_NA = 0.02
 # MEASURED: at 0.30 the loop RAN AWAY -- joint excursions reached 5.7 rad against joint ranges of
 # 0.48-2.5 rad and motor-neuron rates hit 2000 Hz, because sensory -> motor -> motion -> more
 # sensory is a positive feedback loop with no damping in my transduction.  The gain is turned down
@@ -67,17 +76,22 @@ def build(lesion_leg=None):
     wiring, stats, _ = build_mn_muscle_wiring(verbose=False)
     m = _load_mjcf(str(XML)).compile()
     d = mujoco.MjData(m)
+    # START FROM THE MODEL'S OWN NEUTRAL KEYFRAME, NOT qpos0.  MEASURED: qpos0 differs from the
+    # keyframe pose by 2.8 rad, so starting in qpos0 drops the legs from a pose their springs do
+    # not expect and produces a large passive transient that has nothing to do with the neurons.
+    kf = 0 if m.nkey else None
+    if kf is not None:
+        mujoco.mj_resetDataKeyframe(m, d, kf)
     mujoco.mj_forward(m, d)
-    mp = json.loads((HERE / "outputs" / "mn_muscle_map.json").read_text())
-    a2t = {r["muscle_actuator"]: r["matched_mn_type"] for r in mp["rows"]
-           if r.get("matched_mn_type")}
+    from muscle_wiring import actuator_to_mn_type
+    a2t = actuator_to_mn_type(verbose=False)     # ALL muscles in THIS model, not just the foreleg
     act_of, name_of = {}, {}
     for i in range(m.nu):
         nm = mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_ACTUATOR, i)
         name_of[i] = nm
-        t = a2t.get(nm)
-        if t:
-            act_of.setdefault((nm[:2], t), []).append(i)
+        hit = a2t.get(nm)
+        if hit:
+            act_of.setdefault(hit, []).append(i)
     jids = {leg: [] for leg in LEGS}
     for j in range(m.njnt):
         nm = mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_JOINT, j) or ""
@@ -90,7 +104,7 @@ def build(lesion_leg=None):
                 lesion_leg=lesion_leg)
 
 
-def run(lesion_leg=None, duration_s=0.30, verbose=True):
+def run(lesion_leg=None, duration_s=1.0, verbose=True):
     ctx = build(lesion_leg)
     built, tier, m, d = ctx["built"], ctx["tier"], ctx["m"], ctx["d"]
     wiring, act_of, jids = ctx["wiring"], ctx["act_of"], ctx["jids"]
@@ -112,7 +126,8 @@ def run(lesion_leg=None, duration_s=0.30, verbose=True):
             dev = float(np.mean(np.abs(q[[int(m.jnt_qposadr[j]) for j in jids[leg]]]
                                       - q0[[int(m.jnt_qposadr[j]) for j in jids[leg]]])))
             strain = min(1.0, dev / REF_ANGLE_RAD)
-            cur[sens[leg]] += CURRENT_PER_DRIVE_NA * strain
+            # tonic + deviation-driven, per leg
+            cur[sens[leg]] += TONIC_DRIVE_NA + CURRENT_PER_DRIVE_NA * strain
         # ---- ADVANCE the connectome
         spikes = tier.advance(N_NEURAL_SUB, cur)          # (N_NEURAL_SUB, n_tier) bool
         # ---- ACUTE ABLATION: zero one leg's motor neurons, and only those
@@ -138,7 +153,12 @@ def run(lesion_leg=None, duration_s=0.30, verbose=True):
             q_trace[leg].append(float(np.sum(np.abs(
                 qq[[int(m.jnt_qposadr[j]) for j in jids[leg]]]
                 - q0[[int(m.jnt_qposadr[j]) for j in jids[leg]]]))))
-    exc = {leg: (max(v) - min(v) if v else 0.0) for leg, v in q_trace.items()}
+    # ---- MEASURE THE SETTLED POSTURE, NOT THE TRANSIENT.  MEASURED: with no muscle activation the
+    # legs settle to a fixed pose (max-min over the last 0.5 s = 0.000 rad), so an excursion over
+    # the whole run is dominated by the one-time settle and hides what the neurons do.  The metric
+    # is therefore the mean |deviation from the starting pose| over the LAST 0.3 s.
+    n_settle = max(1, int(round(0.3 / (DT * N_COMMAND_STEPS))))
+    exc = {leg: float(np.mean(v[-n_settle:])) if v else 0.0 for leg, v in q_trace.items()}
     final = {leg: (v[-1] if v else 0.0) for leg, v in q_trace.items()}
     if verbose:
         print(f"lesion={lesion_leg!r}  duration={duration_s}s")
@@ -169,6 +189,13 @@ if __name__ == "__main__":
         raise SystemExit(
             "VACUOUS TEST: nothing moves even intact, so an ablation cannot demonstrate anything. "
             "Refusing to report a verdict.")
+    # A second vacuity check: if the lesioned run is bit-identical to the intact one it means the
+    # lesion was NOT APPLIED (this happened once through a leg-name mismatch), and reporting
+    # "100% of intact" would be reporting a bug as a result.
+    for r in out["runs"][1:]:
+        if all(abs(r["excursion"][l] - b[l]) < 1e-12 for l in LEGS):
+            print(f"  WARNING: the run with {r['lesion']} silenced is BIT-IDENTICAL to the intact "
+                  f"run, so the lesion had no effect anywhere.  Treat that leg as NOT TESTED.")
     for r in out["runs"][1:]:
         leg = r["lesion"]
         print(f"  silence {leg} motor neurons: its joints move "

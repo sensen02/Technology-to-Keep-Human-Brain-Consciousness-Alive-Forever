@@ -75,6 +75,53 @@ def build_mn_muscle_wiring(verbose: bool = True):
     return out, stats, built
 
 
+def actuator_to_mn_type(xml_path=None, verbose=True):
+    """{actuator name: (leg, motor-neuron type)} for ALL muscles in a model, not just the foreleg.
+
+    MEASURED BUG THIS FIXES: the loop built this map from ``outputs/mn_muscle_map.json``, which is
+    derived from the SHIPPED model and therefore contains ONLY the 15 foreleg muscles.  Every lookup
+    for an LM/RM/LH/RH actuator missed, so those 75 muscles were never driven at all -- and, worse,
+    ablating their motor neurons then changed NOTHING, which reads exactly like "the neurons do not
+    drive these legs" when the truth was "these muscles were never connected".  The map is now built
+    from the model actually being simulated, by the same name matching used everywhere else.
+    """
+    import xml.etree.ElementTree as ET
+    from tools_mn_muscle_map import tokens, canon
+    path = Path(xml_path) if xml_path else (
+        HERE / "outputs" / "muscles_six_legs" / "fruitfly_six_leg_muscles.xml")
+    root = ET.parse(path).getroot()
+    names = [a.get("name") for a in root.find("actuator").findall("general")
+             if a.get("class") == "muscle" and a.get("name")]
+    mp = json.loads((HERE / "outputs" / "mn_muscle_map_per_leg.json").read_text())
+    types_by_leg = {leg: list(info["by_type"]) for leg, info in mp["legs"].items()}
+    out, unmatched = {}, []
+    for nm in names:
+        leg = nm[:2]
+        if leg not in types_by_leg:
+            unmatched.append(nm)
+            continue
+        mt = {canon(x) for x in tokens(nm)}
+        best, bestj = None, 0.0
+        for t in types_by_leg[leg]:
+            tt = {canon(x) for x in tokens(t)}
+            if not tt:
+                continue
+            j = len(mt & tt) / len(mt | tt)
+            if j > bestj:
+                best, bestj = t, j
+        if best is None or bestj < 0.40:
+            unmatched.append(nm)
+        else:
+            out[nm] = (leg, best)
+    if verbose:
+        import collections
+        c = collections.Counter(v[0] for v in out.values())
+        print(f"actuators mapped to a motor-neuron type: {len(out)} of {len(names)}")
+        print("  per leg:", dict(sorted(c.items())))
+        print(f"  unmatched: {len(unmatched)}" + (f" e.g. {unmatched[:4]}" if unmatched else ""))
+    return out
+
+
 def muscle_activation(spikes, wiring, leg, mn_type, reference_hz, dt_s, max_rate_factor=2.0):
     """Mean firing rate of that muscle's own motor neurons, normalised to [0, 1].
 
