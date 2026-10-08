@@ -1,0 +1,409 @@
+{
+  "payload_bytes": 12260103,
+  "body_vertices": 54905,
+  "neurons": 6000,
+  "frames": 100,
+  "calcium_cells": 400,
+  "peak_RSS_KiB": 547788,
+  "all_coordinates_finite": true,
+  "fixed_geometry": {
+    "diameter_um": 7,
+    "pitch_um": 20
+  },
+  "limitations": "Three independent coordinate frames juxtaposed; NO anatomical registration or causal time synchronization",
+  "body_repair": {
+    "applied": true,
+    "source_episode": "/run/media/sensen/Data2/cell_wound_prototype/outputs/embodied_body/loop_episode_neural_modulated_seed0.npz",
+    "episode_sha256": "8e93fb65575e94a43ba0c7ae894099d5ecd27f159c733db453744342dca89288",
+    "body_before_sha256": "f59d5c8c10dc065b5a2f2d5aa0c4413aacc5a7dbac6b57245f62dc4b3545baf8",
+    "body_after_sha256": "3325f256090751dea5050ff7e83d84c640cd3eefbb3564ed4d8da758bfa8465f",
+    "unchanged_non_body_sha256": {
+      "meta": "bca8ef18ca82e385306a35891d9f39998c0aaa84289390b00b25bc11e4967581",
+      "neural": "12def37f5190b4b448d448817b12b0c5d970e25bb031a9ef116986cf485386e0",
+      "electrodes": "a1a3113118222b48f9d0d8cecfb009e771698a6ad6109288b99c9e052ff5f52b",
+      "calcium": "59d126883b0e40141fe76bda2c1a9308b5ff6e538deb92a28b54dfaaf5fc638e",
+      "bench": "15153481e819c67d60373095e73a289b4f083bb2e8bc707ca3e396b6986220d2"
+    },
+    "non_body_raw_bytes_preserved": true,
+    "validation": {
+      "world_mesh_comparisons": [
+        {
+          "state": "warmed_initial",
+          "max_vertex_error_mm": 8.378452039834296e-07
+        },
+        {
+          "state": "reset_initial",
+          "max_vertex_error_mm": 8.378452039367537e-07
+        },
+        {
+          "state": "rigid_rotation",
+          "max_vertex_error_mm": 8.378452038625155e-07
+        }
+      ],
+      "vertices_per_state": 54905,
+      "ambiguous_inputs_rejected": 2,
+      "no_self_links": true
+    },
+    "row_mapping": {
+      "method": "get_bodysegs_order + _internal_bodyids_by_fly + source-name validation",
+      "output_order": "MuJoCo compiled model order; world identity synthesized",
+      "recorded_order": [
+        {
+          "recorded_row": 0,
+          "segment": "c_thorax",
+          "model_body_id": 1
+        },
+        {
+          "recorded_row": 1,
+          "segment": "c_head",
+          "model_body_id": -1
+        },
+        {
+          "recorded_row": 2,
+          "segment": "c_rostrum",
+          "model_body_id": 2
+        },
+        {
+          "recorded_row": 3,
+          "segment": "c_haustellum",
+          "model_body_id": 3
+        },
+        {
+          "recorded_row": 4,
+          "segment": "l_eye",
+          "model_body_id": 4
+        },
+        {
+          "recorded_row": 5,
+          "segment": "r_eye",
+          "model_body_id": 5
+        },
+        {
+          "recorded_row": 6,
+          "segment": "l_pedicel",
+          "model_body_id": 6
+        },
+        {
+          "recorded_row": 7,
+          "segment": "l_funiculus",
+          "model_body_id": 7
+        },
+        {
+          "recorded_row": 8,
+          "segment": "l_arista",
+          "model_body_id": 8
+        },
+        {
+          "recorded_row": 9,
+          "segment": "r_pedicel",
+          "model_body_id": 9
+        },
+        {
+          "recorded_row": 10,
+          "segment": "r_funiculus",
+          "model_body_id": 10
+        },
+        {
+          "recorded_row": 11,
+          "segment": "r_arista",
+          "model_body_id": 11
+        },
+        {
+          "recorded_row": 12,
+          "segment": "c_abdomen12",
+          "model_body_id": 12
+        },
+        {
+          "recorded_row": 13,
+          "segment": "c_abdomen3",
+          "model_body_id": 13
+        },
+        {
+          "recorded_row": 14,
+          "segment": "c_abdomen4",
+          "model_body_id": 14
+        },
+        {
+          "recorded_row": 15,
+          "segment": "c_abdomen5",
+          "model_body_id": 15
+        },
+        {
+          "recorded_row": 16,
+          "segment": "c_abdomen6",
+          "model_body_id": 16
+        },
+        {
+          "recorded_row": 17,
+          "segment": "l_wing",
+          "model_body_id": 17
+        },
+        {
+          "recorded_row": 18,
+          "segment": "r_wing",
+          "model_body_id": 18
+        },
+        {
+          "recorded_row": 19,
+          "segment": "l_haltere",
+          "model_body_id": 19
+        },
+        {
+          "recorded_row": 20,
+          "segment": "r_haltere",
+          "model_body_id": 20
+        },
+        {
+          "recorded_row": 21,
+          "segment": "lf_coxa",
+          "model_body_id": 21
+        },
+        {
+          "recorded_row": 22,
+          "segment": "lf_trochanterfemur",
+          "model_body_id": 22
+        },
+        {
+          "recorded_row": 23,
+          "segment": "lf_tibia",
+          "model_body_id": 23
+        },
+        {
+          "recorded_row": 24,
+          "segment": "lf_tarsus1",
+          "model_body_id": 24
+        },
+        {
+          "recorded_row": 25,
+          "segment": "lf_tarsus2",
+          "model_body_id": 25
+        },
+        {
+          "recorded_row": 26,
+          "segment": "lf_tarsus3",
+          "model_body_id": 26
+        },
+        {
+          "recorded_row": 27,
+          "segment": "lf_tarsus4",
+          "model_body_id": 27
+        },
+        {
+          "recorded_row": 28,
+          "segment": "lf_tarsus5",
+          "model_body_id": 28
+        },
+        {
+          "recorded_row": 29,
+          "segment": "lm_coxa",
+          "model_body_id": 29
+        },
+        {
+          "recorded_row": 30,
+          "segment": "lm_trochanterfemur",
+          "model_body_id": 30
+        },
+        {
+          "recorded_row": 31,
+          "segment": "lm_tibia",
+          "model_body_id": 31
+        },
+        {
+          "recorded_row": 32,
+          "segment": "lm_tarsus1",
+          "model_body_id": 32
+        },
+        {
+          "recorded_row": 33,
+          "segment": "lm_tarsus2",
+          "model_body_id": 33
+        },
+        {
+          "recorded_row": 34,
+          "segment": "lm_tarsus3",
+          "model_body_id": 34
+        },
+        {
+          "recorded_row": 35,
+          "segment": "lm_tarsus4",
+          "model_body_id": 35
+        },
+        {
+          "recorded_row": 36,
+          "segment": "lm_tarsus5",
+          "model_body_id": 36
+        },
+        {
+          "recorded_row": 37,
+          "segment": "lh_coxa",
+          "model_body_id": 37
+        },
+        {
+          "recorded_row": 38,
+          "segment": "lh_trochanterfemur",
+          "model_body_id": 38
+        },
+        {
+          "recorded_row": 39,
+          "segment": "lh_tibia",
+          "model_body_id": 39
+        },
+        {
+          "recorded_row": 40,
+          "segment": "lh_tarsus1",
+          "model_body_id": 40
+        },
+        {
+          "recorded_row": 41,
+          "segment": "lh_tarsus2",
+          "model_body_id": 41
+        },
+        {
+          "recorded_row": 42,
+          "segment": "lh_tarsus3",
+          "model_body_id": 42
+        },
+        {
+          "recorded_row": 43,
+          "segment": "lh_tarsus4",
+          "model_body_id": 43
+        },
+        {
+          "recorded_row": 44,
+          "segment": "lh_tarsus5",
+          "model_body_id": 44
+        },
+        {
+          "recorded_row": 45,
+          "segment": "rf_coxa",
+          "model_body_id": 45
+        },
+        {
+          "recorded_row": 46,
+          "segment": "rf_trochanterfemur",
+          "model_body_id": 46
+        },
+        {
+          "recorded_row": 47,
+          "segment": "rf_tibia",
+          "model_body_id": 47
+        },
+        {
+          "recorded_row": 48,
+          "segment": "rf_tarsus1",
+          "model_body_id": 48
+        },
+        {
+          "recorded_row": 49,
+          "segment": "rf_tarsus2",
+          "model_body_id": 49
+        },
+        {
+          "recorded_row": 50,
+          "segment": "rf_tarsus3",
+          "model_body_id": 50
+        },
+        {
+          "recorded_row": 51,
+          "segment": "rf_tarsus4",
+          "model_body_id": 51
+        },
+        {
+          "recorded_row": 52,
+          "segment": "rf_tarsus5",
+          "model_body_id": 52
+        },
+        {
+          "recorded_row": 53,
+          "segment": "rm_coxa",
+          "model_body_id": 53
+        },
+        {
+          "recorded_row": 54,
+          "segment": "rm_trochanterfemur",
+          "model_body_id": 54
+        },
+        {
+          "recorded_row": 55,
+          "segment": "rm_tibia",
+          "model_body_id": 55
+        },
+        {
+          "recorded_row": 56,
+          "segment": "rm_tarsus1",
+          "model_body_id": 56
+        },
+        {
+          "recorded_row": 57,
+          "segment": "rm_tarsus2",
+          "model_body_id": 57
+        },
+        {
+          "recorded_row": 58,
+          "segment": "rm_tarsus3",
+          "model_body_id": 58
+        },
+        {
+          "recorded_row": 59,
+          "segment": "rm_tarsus4",
+          "model_body_id": 59
+        },
+        {
+          "recorded_row": 60,
+          "segment": "rm_tarsus5",
+          "model_body_id": 60
+        },
+        {
+          "recorded_row": 61,
+          "segment": "rh_coxa",
+          "model_body_id": 61
+        },
+        {
+          "recorded_row": 62,
+          "segment": "rh_trochanterfemur",
+          "model_body_id": 62
+        },
+        {
+          "recorded_row": 63,
+          "segment": "rh_tibia",
+          "model_body_id": 63
+        },
+        {
+          "recorded_row": 64,
+          "segment": "rh_tarsus1",
+          "model_body_id": 64
+        },
+        {
+          "recorded_row": 65,
+          "segment": "rh_tarsus2",
+          "model_body_id": 65
+        },
+        {
+          "recorded_row": 66,
+          "segment": "rh_tarsus3",
+          "model_body_id": 66
+        },
+        {
+          "recorded_row": 67,
+          "segment": "rh_tarsus4",
+          "model_body_id": 67
+        },
+        {
+          "recorded_row": 68,
+          "segment": "rh_tarsus5",
+          "model_body_id": 68
+        }
+      ],
+      "dropped_invalid_rows": [
+        {
+          "recorded_row": 1,
+          "name": "nmf/c_head",
+          "reason": "fixed body fused into parent; FlyGym -1 aliases last body",
+          "compiled_parent_id": 1
+        }
+      ]
+    },
+    "peak_RSS_KiB": 548348,
+    "execution": "model construction + built-in 0.05 s warmup; forward kinematics only; no full export or neural simulation"
+  }
+}

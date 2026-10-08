@@ -1,0 +1,5 @@
+(function(){'use strict';window.Workbench=window.Workbench||{};
+function updateShell({meshes,materials,focus,transparent,opacity,localOnly}){materials.forEach(m=>{m.opacity=transparent?(localOnly&&['neural','calcium'].includes(focus)?Math.min(opacity,.015):opacity):1;m.depthWrite=!transparent;m.transparent=m.opacity<1;});meshes.forEach(({o})=>{const n=o.userData.meshName||'';o.visible=!localOnly||!transparent||!['neural','calcium'].includes(focus)||(focus==='neural'?n.endsWith('/c_head'):n.includes('/c_abdomen'));});}
+function installControls(parent,onChange){function check(id,text,value){const l=document.createElement('label'),e=document.createElement('input');e.type='checkbox';e.id=id;e.checked=value;l.append(e,document.createTextNode(text));parent.appendChild(l);e.onchange=onChange;return e;}
+return {localOnly:check('local-shell','近景仅显示所在身体区域',true),accessible:check('accessible-colors','蓝 / 黄色盲友好配色',false),lowPower:check('low-power','低性能模式（降低像素密度）',false)};}
+window.Workbench.layers={updateShell,installControls};})();

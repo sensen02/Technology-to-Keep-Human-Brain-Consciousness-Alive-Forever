@@ -1,0 +1,150 @@
+{
+ "cellspace": {
+  "scope": "single-cell spatial reaction-diffusion; no experimental data in this project constrains intracellular gradients",
+  "D_ca_um2_s": 13.0,
+  "D_ip3_um2_s": 283.0,
+  "uniform_preservation_max_dev": 5.617728504603292e-14,
+  "wounded_peak_mean_c_uM": 14.120159873676762,
+  "convergence_orders": [
+   {
+    "between": [
+     32,
+     64
+    ],
+    "order_linf": 1.9236446422888733,
+    "order_l2": 1.9582600327441215
+   },
+   {
+    "between": [
+     64,
+     128
+    ],
+    "order_linf": 1.9636576068353757,
+    "order_l2": 1.9763914162867051
+   }
+  ],
+  "large_D_lumped_converged": true,
+  "large_D_max_rel": 0.00503040952157763
+ },
+ "vascular_oxygen": {
+  "tissue_cells": 3721,
+  "domain_um": [
+   400.0,
+   400.0
+  ],
+  "rows": [
+   {
+    "spacing_um": "40_um",
+    "mean_mmHg": 90.4303572056463,
+    "min_mmHg": 88.9360487222785,
+    "hypoxic_fraction": 0.0
+   },
+   {
+    "spacing_um": "80_um",
+    "mean_mmHg": 80.4610156600313,
+    "min_mmHg": 78.5866472888849,
+    "hypoxic_fraction": 0.0
+   },
+   {
+    "spacing_um": "160_um",
+    "mean_mmHg": 47.81402175222714,
+    "min_mmHg": 35.65445221890757,
+    "hypoxic_fraction": 0.0
+   },
+   {
+    "spacing_um": "320_um",
+    "mean_mmHg": 17.783888023504485,
+    "min_mmHg": 7.131319860271835,
+    "hypoxic_fraction": 0.19806503628056973
+   }
+  ],
+  "note": "per-spacing summary statistics only: the artefact has no 2-D or 3-D oxygen field, so this layer is a readout and no field is drawn"
+ },
+ "frontend": {
+  "file": "electrode_frontend.json",
+  "verdicts": {
+   "pass": 6,
+   "fail": 2,
+   "evidence_not_found": 1,
+   "total": 9
+  },
+  "fixed_geometry": {
+   "pitch_um": 20.0,
+   "shaft_diameter_um": 7.0,
+   "n_channels": 256,
+   "capture_radius_um": 50.0,
+   "source_mode": "soma_position",
+   "note": "pitch and diameter are FIXED USER INPUTS: not searched, not optimised, not derived from the somata. n_channels is the only free design variable."
+  }
+ },
+ "recording": {
+  "file": "electrode_recording.json",
+  "status": "hand-built tested engineering diagnostic, not validated hardware or biology",
+  "recording_only": true,
+  "fixed_geometry": {
+   "shape": "disc_annulus",
+   "diameter_um": 7.0,
+   "radius_um": 3.5,
+   "insulation_margin_um": 0.0,
+   "active_radius_um": 3.5,
+   "area_um2": 38.48451000647496,
+   "area_cm2": 3.8484510006474966e-07,
+   "area_m2": 3.848451000647496e-11,
+   "note": "",
+   "pitch_um": 20.0
+  },
+  "noise_assumptions": {
+   "voltage_white_nV_rtHz": [
+    3,
+    10,
+    30
+   ],
+   "current_white_fA_rtHz": [
+    1,
+    10,
+    100
+   ],
+   "both_1f_corner_Hz": [
+    0,
+    10,
+    100,
+    1000
+   ],
+   "nominal": [
+    10,
+    10,
+    100
+   ],
+   "uncorrelated_sources": true
+  },
+  "tests_passed": 77,
+  "tests_checks": 77
+ },
+ "stimulation": {
+  "file": "electrode_stim.json",
+  "verdicts": {
+   "PASS": 11,
+   "FAIL": 1,
+   "EVIDENCE NOT FOUND": 0,
+   "total": 12
+  },
+  "fixed_geometry": {
+   "shaft_diameter_um": 7.0,
+   "channel_pitch_um": 20.0,
+   "contact_radius_um": 3.5,
+   "channel_count": "FREE (user decision); set to 16 in this run",
+   "is_a_user_decision": true,
+   "searched_here": false
+  }
+ },
+ "tissue": {
+  "file": "electrode_tissue.json",
+  "fixed_geometry": {
+   "shaft_diameter_um": 7.0,
+   "channel_pitch_um": 20.0,
+   "n_channels_primary": 6,
+   "n_channels_is_free": true,
+   "user_fixed_not_swept": true
+  }
+ }
+}

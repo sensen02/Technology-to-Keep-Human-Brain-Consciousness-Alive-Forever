@@ -1,0 +1,34 @@
+# ---- DERIVED / REGENERABLE: never commit ----
+# PyTorch + FlyGym environments (680 MB + 737 MB).  Reproduce with the pinned requirements.
+venv/
+venv_body/
+# Third-party payloads checked out locally (3.7 GB), including pyVertexModel which no code in
+# this repository references.  Kept on disk by the owner's choice; NOT part of the source.
+vendor/
+# Downloaded datasets and model assets (14 GB).  These are inputs, not source; each is cited
+# in its own provenance sidecar under sources/ or outputs/.
+data/
+# Measurement outputs: recordings, frames, npz, figures (2.1 GB).  Samples are delivered to the
+# Desktop separately; the repository keeps the CODE and the small JSON reports.
+outputs/
+upstream/
+__pycache__/
+*.pyc
+*.pyo
+MUJOCO_LOG.TXT
+
+# ---- SECRETS: must never be committed or served ----
+.flywire_api_token
+.flywire_cookies.txt
+*.token
+*.cookies.txt
+
+# ---- large binary media that can be regenerated ----
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.gif
+*.npy
+*.npz
+*.parquet

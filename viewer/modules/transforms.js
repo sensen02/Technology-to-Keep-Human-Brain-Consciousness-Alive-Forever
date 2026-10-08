@@ -1,0 +1,7 @@
+/* Display-only uniform fitting. No anatomical registration inferred. */
+(function(){'use strict';const T=THREE;window.Workbench=window.Workbench||{};
+function fit(envelope,target,fraction=.4){const center=target.getCenter(new T.Vector3()),safe=target.clone();safe.min.lerp(center,1-fraction);safe.max.lerp(center,1-fraction);const s=envelope.getSize(new T.Vector3()),t=safe.getSize(new T.Vector3()),scale=Math.min(...['x','y','z'].map(k=>s[k]>1e-12?t[k]/s[k]:Infinity));if(!Number.isFinite(scale)||scale<=0)throw Error('Invalid schematic fit bounds');const sourceCenter=envelope.getCenter(new T.Vector3());return {center,safe,scale,sourceCenter,translation:center.clone().addScaledVector(sourceCenter,-scale)};}
+function pose(anchor,position,quaternion){if(position?.length===3&&position.every(Number.isFinite))anchor.position.fromArray(position);if(quaternion?.length===4&&quaternion.every(Number.isFinite)&&quaternion.some(v=>v!==0))anchor.quaternion.set(quaternion[1],quaternion[2],quaternion[3],quaternion[0]).normalize();else anchor.quaternion.identity();}
+function sourceToWorld(layer,um){layer.updateWorldMatrix(true,false);return layer.localToWorld(new T.Vector3(...um).multiplyScalar(.001));}
+function worldToSource(layer,world){layer.updateWorldMatrix(true,false);return layer.worldToLocal(world.clone()).multiplyScalar(1000);}
+window.Workbench.transforms={fit,pose,sourceToWorld,worldToSource};})();

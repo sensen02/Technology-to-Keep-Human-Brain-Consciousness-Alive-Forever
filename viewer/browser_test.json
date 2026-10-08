@@ -1,0 +1,180 @@
+{
+  "ready": true,
+  "errors": [],
+  "test": [
+    "orbit",
+    "cameraUpdate",
+    "scenePoints",
+    "mapping",
+    "attachments",
+    "rig",
+    "bodyMeshes",
+    "electrodeObjects",
+    "shaftLength",
+    "pickFilter",
+    "selectionPosition",
+    "sourceToWorld",
+    "setDepth",
+    "mappingDiagnostics",
+    "layers",
+    "select",
+    "clearSelection",
+    "focus",
+    "setProgress",
+    "pickAt",
+    "selectionRing",
+    "captureMesh",
+    "selected",
+    "progress",
+    "focusName",
+    "counts",
+    "activityAvailable",
+    "renderer",
+    "scene",
+    "camera",
+    "project"
+  ],
+  "canvas": 1,
+  "body": "INTEGRATED WORKBENCH / 项目服务原型\n细胞 · 神经 · 电极 3D 实验台\n项目后端 · 历史状态回放\n01 / 视角\n整只果蝇\n头部神经 / 电极\n身体上下文\n腹部上皮钙波\n\n拖动旋转 · 滚轮缩放 · Shift 拖动平移\n点击点或电极，查看实际数据。\n\n复位全身\n保存视角\n恢复视角\n快照 + 来源\n02 / 图层\n 身体 / 运动骨架\n 透明身体\n 神经元位置\n 神经元激活着色\n 电极阵列\n 示意插入方向\n 上皮伤口钙信号\n示意插入进度 \n\n插入仅沿源坐标 Z 示意，随头部身体段运动，不代表手术路径。神经 / 电极共享均匀显示缩放，保留源直径 7 µm / 间距 20 µm 比例；不是体内真实尺寸。内部视角只缩放同一场景。\n\n钙模型变量 \n胞质 Ca / µM\nER Ca / µM（ER体积）\nIP3 / µM\n损伤标记 / 无量纲\n身体不透明度 \n剖切位置（仅视图） \n近景仅显示所在身体区域\n蓝 / 黄色盲友好配色\n低性能模式（降低像素密度）\n剖切方向 \nZ\nX\nY\n03 / 数据来源与版本\n一只果蝇 · 身体附着示意 · 非解剖配准\n头部：神经 / 电极共享缩放 ｜ 腹部：上皮伤口（非脑钙波）\n按实际网格包围盒中央保守容纳，不认证组织内精确位置。独立时基，非同步测量。\n物理范围：身体 3.000 mm ｜ 神经 1000.0 µm ｜ 上皮 137.4 µm · 身体内示意缩放（非解剖配准） · 独立点神经元演示，非连接组/非实测\n低值 / 位置\n高值\n电极\n颜色按各数据集范围归一化\n神经 0.00 — 100 Hz ｜ 胞质 Ca / µM 0.0887 — 423 ｜ 灰：缺失 / 暗灰：消融储库 · 色域2–98百分位（排除消融储库）\n04 / 选择检查器\n\n点击神经元、电极通道、身体节点或上皮细胞。\n\n清除选择\n选择过滤 \n自动（透明身体让位内部）\n身体\n神经\n电极\n腹部上皮\n边界与缺失\n\n钙数据来自独立上皮伤口模型，不是脑内钙成像。\n\n真实硬件测量、插入位置与体内组织配准均未验证。此页面不能证明真实器件性能。\n\n台架状态：NOT_RUN · 测量记录 0 条 · 9 项未执行。评估检查输入，不证明物理器件验证。\n台架配置 JSON（提交到项目服务）\n原始测量 CSV（提交到项目服务）\n评估配置 + CSV\n只读查看已有报告 JSON（不评估、不上传）\n05 / 记录链检查\n电极触点 →界面阻抗 →放大器 →模拟滤波 →ADC →数字处理\n\n身体回放为胸部根相对坐标，移除了记录轨迹平移；身体 / 神经 / 上皮均为独立时基。\n\n50 µm 几何邻域（不是电场截断）\n项目服务 / 预算记录任务\n\n场景是已有数据回放，不是实时仿真。此按钮仅运行记录链预算作业，不重新导出身体或运行世界物理。\n\n正在连接项目服务…\n\n运行记录链预算\n取消当前任务\n▶ 播放\n0% · 回放\n0.5×\n1×\n2×\n独立时基归一化回放，非同步测量",
+  "interactions": [
+    {
+      "name": "actual soma/electrode geometry",
+      "pass": true
+    },
+    {
+      "name": "select electrode",
+      "pass": true
+    },
+    {
+      "name": "electrode inspector",
+      "pass": true
+    },
+    {
+      "name": "select neuron exact root string",
+      "pass": true
+    },
+    {
+      "name": "timeline state",
+      "pass": true
+    },
+    {
+      "name": "membrane value shown",
+      "pass": true
+    },
+    {
+      "name": "body focus",
+      "pass": true
+    },
+    {
+      "name": "calcium inspection",
+      "pass": true
+    },
+    {
+      "name": "hide neural",
+      "pass": true
+    },
+    {
+      "name": "section plane",
+      "pass": true
+    },
+    {
+      "name": "ER calcium field",
+      "pass": true
+    },
+    {
+      "name": "IP3 field",
+      "pass": true
+    },
+    {
+      "name": "actual body meshes",
+      "pass": true
+    }
+  ],
+  "service_interactions": {
+    "service": "服务：cell-workbench · 作业：completed · 台架：NOT_RUN",
+    "insertionFollow": true,
+    "chainRetained": true
+  },
+  "body_internal_interactions": [
+    {
+      "name": "fixed source electrode geometry",
+      "pass": true
+    },
+    {
+      "name": "selection follows full transform 0",
+      "pass": true
+    },
+    {
+      "name": "capture follows contact 0",
+      "pass": true
+    },
+    {
+      "name": "selection follows full transform 0.25",
+      "pass": true
+    },
+    {
+      "name": "capture follows contact 0.25",
+      "pass": true
+    },
+    {
+      "name": "selection follows full transform 0.7",
+      "pass": true
+    },
+    {
+      "name": "capture follows contact 0.7",
+      "pass": true
+    },
+    {
+      "name": "selection follows full transform 1",
+      "pass": true
+    },
+    {
+      "name": "capture follows contact 1",
+      "pass": true
+    },
+    {
+      "name": "internal layers follow animated body",
+      "pass": true
+    }
+  ],
+  "p123_features": [
+    {
+      "name": "manifest version loaded",
+      "pass": true
+    },
+    {
+      "name": "local shell isolates head",
+      "pass": true
+    },
+    {
+      "name": "bookmark restores focus",
+      "pass": true
+    },
+    {
+      "name": "numeric legend has units",
+      "pass": true
+    },
+    {
+      "name": "X clipping plane",
+      "pass": true
+    },
+    {
+      "name": "channel evidence explicit",
+      "pass": true
+    },
+    {
+      "name": "source transform reversible",
+      "pass": true
+    },
+    {
+      "name": "reset camera",
+      "pass": true
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "height": 506.390625,
+    "overflow": false,
+    "errors": []
+  }
+}

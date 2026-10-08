@@ -1,0 +1,100 @@
+{
+ "paracrine": {
+  "n_points": 6889,
+  "n_frames": 8,
+  "range": [
+   0.0,
+   2.7791624001764084
+  ],
+  "meta": {
+   "lambda_um": 22.3607,
+   "dx_um": 3.7317,
+   "grid_n": 83,
+   "domain_um": 306.0,
+   "wound_radius_um": 51.0,
+   "t_end_s": 600.0,
+   "scheme": "exact reaction + implicit diffusion (unconditionally stable)",
+   "dt_used_s": 3.0,
+   "n_steps": 200,
+   "source_total_rate": 593.0000000000001,
+   "frame_quantisation": "per-run min/max linear to uint8"
+  },
+  "times_s": [
+   0.0,
+   90.0,
+   180.0,
+   270.0,
+   360.0,
+   450.0,
+   540.0,
+   600.0
+  ]
+ },
+ "immune": {
+  "n_points": 4096,
+  "n_frames": 40,
+  "n_cells": 96,
+  "meta": {
+   "dx_um": 5.0,
+   "n": 64,
+   "domain_um": 320.0,
+   "wound_radius_um": 120.0,
+   "t_end_s": 600.0,
+   "dt_used_s": 0.1,
+   "n_steps": 6000,
+   "chemotaxis": true,
+   "substeps_used": 1
+  },
+  "budget": {
+   "max_relative_residual": 7.743812981836079e-15,
+   "released_total": 45100.0,
+   "remaining_debris": 15409.49977013529,
+   "taken_up_total": 29690.500229864963,
+   "cleared_total": 0.0
+  },
+  "scale_attractant": 8.306987648534589,
+  "scale_debris": 1.0,
+  "times_s": [
+   0.0,
+   15.3,
+   30.9,
+   46.2,
+   61.5,
+   76.8,
+   92.4,
+   107.7,
+   123.0,
+   138.6,
+   153.9,
+   169.2,
+   184.5,
+   200.1,
+   215.4,
+   230.7,
+   246.3,
+   261.6,
+   276.9,
+   292.2,
+   307.8,
+   323.1,
+   338.4,
+   353.7,
+   369.3,
+   384.6,
+   399.9,
+   415.5,
+   430.8,
+   446.1,
+   461.4,
+   477.0,
+   492.3,
+   507.6,
+   523.2,
+   538.5,
+   553.8,
+   569.1,
+   584.7,
+   600.0
+  ]
+ }
+}

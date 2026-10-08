@@ -1,0 +1,108 @@
+/* In-scene HUD: values without spatial coordinates live here, inside the same
+ * page and the same three.js scene, attached to named structures. This is not a
+ * second view and not a separate document. */
+#sceneHud {
+  position: fixed;
+  box-sizing: border-box;
+  right: 12px;
+  bottom: 12px;
+  width: 286px;
+  max-height: 42vh;
+  overflow: auto;
+  padding: 8px 10px;
+  border: 1px solid rgba(120, 190, 220, 0.35);
+  border-radius: 8px;
+  background: rgba(8, 16, 24, 0.82);
+  color: #cfe6f2;
+  font: 12px/1.5 "Noto Sans CJK SC", "Microsoft YaHei", system-ui, sans-serif;
+  z-index: 40;
+  backdrop-filter: blur(3px);
+}
+
+#sceneHud .hud-head {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #8fe3ff;
+  margin-bottom: 6px;
+}
+
+#sceneHud .hud-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 0;
+  cursor: pointer;
+}
+
+#sceneHud .hud-row input {
+  accent-color: #57b7d8;
+}
+
+#sceneHud .hud-label {
+  flex: 1 1 auto;
+}
+
+#sceneHud .hud-bytes {
+  color: #7c9bae;
+  font-variant-numeric: tabular-nums;
+}
+
+#sceneHud .hud-readout {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(120, 190, 220, 0.22);
+  font-variant-numeric: tabular-nums;
+  color: #e7f6ff;
+}
+
+#sceneHud .hud-warn {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(120, 190, 220, 0.22);
+  color: #ffcf8a;
+  font-size: 11px;
+}
+
+#sceneHud .hud-audit {
+  margin-top: 4px;
+  color: #8ff0b8;
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  #sceneHud {
+    width: calc(100vw - 24px);
+    max-height: 34vh;
+  }
+}
+
+#sceneHud .hud-sub {
+  color: #8fe3ff;
+  margin-top: 6px;
+}
+
+#sceneHud .hud-mono {
+  white-space: pre;
+  font-family: ui-monospace, monospace;
+  font-size: 10.5px;
+  overflow-x: auto;
+  font-variant-numeric: tabular-nums;
+  color: #d8ecf7;
+  font-size: 11px;
+}
+
+#sceneHud .hud-layers {
+  margin-top: 6px;
+  border-top: 1px solid rgba(120, 190, 220, 0.22);
+  padding-top: 6px;
+}
+
+#sceneHud summary {
+  cursor: pointer;
+  color: #8fe3ff;
+  font-size: 11px;
+}
+
+#sceneHud .hud-phys {
+  margin-top: 4px;
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "bench-1.0",
+  "config_version": "unconfigured-template-1",
+  "scope": "recording_only_bench",
+  "geometry": {
+    "diameter_um": 7,
+    "pitch_um": 20,
+    "diameter_interpretation": null,
+    "exposed_active_area_um2": null,
+    "active_area_evidence_id": null
+  },
+  "hardware": {
+    "electrode_id": null,
+    "frontend_id": null,
+    "reference_description": null,
+    "reference_evidence_id": null
+  },
+  "channels": ["CH1"],
+  "test_frequencies_hz": [1000],
+  "frequency_plan_note": "Placeholder test grid only: replace with approved bench frequency plan before evaluation; not a hardware specification.",
+  "planned_engineering_thresholds": {
+    "impedance_magnitude": {"unit": "ohm", "min": null, "max": null},
+    "impedance_phase": {"unit": "deg", "min": null, "max": null},
+    "input_noise_asd": {"unit": "V/sqrt(Hz)", "min": null, "max": null},
+    "gain": {"unit": "V/V", "min": null, "max": null},
+    "phase": {"unit": "deg", "min": null, "max": null},
+    "crosstalk": {"unit": "dB", "min": null, "max": null},
+    "alias_rejection": {"unit": "dB", "min": null, "max": null},
+    "saturation_input": {"unit": "V_peak", "min": null, "max": null},
+    "reference_noise_asd": {"unit": "V/sqrt(Hz)", "min": null, "max": null}
+  },
+  "threshold_rationale_evidence_id": null,
+  "measurement_plan_evidence_id": null
+}
