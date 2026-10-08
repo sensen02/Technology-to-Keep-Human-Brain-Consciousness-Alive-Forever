@@ -87,16 +87,40 @@
 
 ---
 
-## 5. 下一步
+## 5. 直接把这个「开关」画出来了：**阈值悬崖，中间没有分级区间**
 
-1. **查输出饱和的来源**：零输入静默（0.2 Hz）、微小输入就饱和，说明网络处在**双稳/自持**的高发放态。要查的是：tier 的边权尺度与神经元参数是否落在能产生分级反应的区间；哪些肌肉组被饱和、哪些保持静默（分布是双峰的）。**这是网络/读出问题，不是身体问题。**
-2. 只有环路能输出**分级、有图案**的激活，再谈「站立」和「静默后塌掉」的行为级消融。
-3. 中/后腿参数优化仍然排在最后。
+`diagnostics/diag_tier_transfer.py`（纯神经，不动物理）——给**全部 12,000 个神经元**注入均匀电流，测群体发放率与运动神经元组的发放率：
+
+| 注入电流 (nA) | 0 | 1e-5 | **1e-4** | 3e-4 | 1e-3 | 0.01 | 0.03 | 0.1 | 0.3 | 1.0 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 群体发放率 (Hz) | 0.02 | 0.02 | **29.1** | 22.7 | 25.7 | 37.8 | 55.9 | 97.3 | 173.3 | 299.4 |
+| **运动神经元组 (Hz)** | 0.24 | 0.24 | **104.0** | 82.8 | 88.9 | 125.9 | 134.7 | 153.8 | 172.9 | 292.3 |
+| **运动神经元中有发放的比例** | 3% | 3% | **90%** | 89% | 91% | 89% | 99% | 100% | 100% | 100% |
+
+**读出**：
+
+- **1e-5 → 1e-4 nA，只有 10 倍的变化，却让网络从静默（0.02 Hz）跳到 90% 的运动神经元在发放（104 Hz）。**
+- 从 1e-4 到 1.0 nA，**输入变了 10 000 倍，运动神经元只从 104 Hz 变到 292 Hz（2.8 倍）。**
+
+**这是一个阈值开关，不是一个分级传感器**：输入低于阈值就全静默，刚过阈值就 90% 饱和，此后输出几乎不动。**在这样一个网络里，姿态根本没有可表示的余地**——任何超过阈值的输入，肌肉拿到的都是同一个饱和图案。
+
+**也解释了为什么扫增益完全没用**：我的 `TONIC_DRIVE_NA = 0.02 nA` **比阈值高 200 倍**，缩放到 0.002 倍之后仍然是 0.00004 nA——**仍然在阈值之上**。
+
+**相关的模型参数已经找到**：`engine/neck_cut_data.py` 的 `weight_scale_uS_per_synapse = 5e-4`（突触权重尺度），它决定了这个网络的递归增益。**TierConfig 目前没有把它暴露出来**，所以下一步是把它变成可配置项（默认不变以保证历史结果逐位一致），然后找出能给出**分级**输入-输出曲线的区间。
 
 ---
 
-## 6. 复现
+## 6. 下一步
 
+1. **把 `weight_scale_uS_per_synapse` 变成可配置项**（默认保持 5e-4，历史 episode 逐位不变），并扫描它，找出网络处于**分级区间**（输出随输入单调变化、不饱和）的那一段。**这是当前唯一的阻塞点。**
+2. 在那段区间里重跑：站立、以及**静默运动神经元后是否塌掉**（第一个真正的行为级消融）。
+3. 中/后腿参数优化仍然排在最后。
+
+**注意**：`engine/embodied/loop.py` 的自检（49/49）在每次改动后都必须仍然通过。
+
+---
+
+## 7. 复现
 ```bash
 # 通路方向（纯神经测量，最便宜）
 OPENBLAS_NUM_THREADS=1 venv_body/bin/python diagnostics/diag_reflex_matrix.py
@@ -106,7 +130,10 @@ OPENBLAS_NUM_THREADS=1 venv_body/bin/python diagnostics/diag_sensory_identity.py
 MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python run_standing_load_reflex.py
 # 增益扫描
 MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 REFLEX_SWEEP=1 REFLEX_DURATION=1.2 venv_body/bin/python run_standing_load_reflex.py
+# 网络的输入-输出曲线（纯神经，找出阈值悬崖）
+OPENBLAS_NUM_THREADS=1 venv_body/bin/python diagnostics/diag_tier_transfer.py
 ```
 
 **产物**：`outputs/reflex_matrix.json`、`outputs/sensory_identity.json`、
-`outputs/standing_load_reflex.json`、`outputs/standing_load_reflex_sweep.json`
+`outputs/standing_load_reflex.json`、`outputs/standing_load_reflex_sweep.json`、
+`outputs/tier_transfer.json`
