@@ -109,10 +109,19 @@ def main() -> int:
     ap.add_argument("--duration", type=float, default=1.5)
     ap.add_argument("--arms", default="cpg_baseline,neural_modulated")
     ap.add_argument("--starts", default="upright,INVERTED")
+    ap.add_argument("--invert-at", type=float, default=None,
+                    help="walk normally, then invert the fly at this time (s). This is the "
+                         "protocol that avoids the spawn-jam catapult.")
+    ap.add_argument("--invert-height-mm", type=float, default=1.6)
     a = ap.parse_args()
     want_arms = [x for x in a.arms.split(",") if x]
-    starts = [("upright", (1.0, 0.0, 0.0, 0.0)), ("INVERTED", INVERTED)]
-    starts = [x for x in starts if x[0] in a.starts.split(",")]
+    if a.invert_at is not None:
+        # MID-RUN PROTOCOL: always spawn upright (so the loop calibrates in a VALID walking
+        # state), then turn the fly over deliberately.
+        starts = [("walk-then-inverted", (1.0, 0.0, 0.0, 0.0))]
+    else:
+        starts = [("upright", (1.0, 0.0, 0.0, 0.0)), ("INVERTED", INVERTED)]
+        starts = [x for x in starts if x[0] in a.starts.split(",")]
     print("=" * 96)
     print(f"RIGHTING TEST: same initial condition, both arms, duration {a.duration} s")
     print("=" * 96)
@@ -127,12 +136,26 @@ def main() -> int:
                 from engine.embodied.loop import LoopConfig, MultirateScheduler
                 cfg = LoopConfig(arm=arm, seed=0, duration_s=a.duration,
                                  spawn_position_mm=(0.0, 0.0, 0.6), spawn_quat_wxyz=quat,
+                                 invert_at_s=a.invert_at,
+                                 invert_height_mm=a.invert_height_mm,
                                  gl_backend=None)
                 ep = MultirateScheduler(cfg).run(want_frames=False)
                 rec, up, legs, horiz = analyse(ep, arm, label)
+                _dors = np.asarray(ep.truth.get("whole_body_dorsal_index", []), dtype=float)
+                _nwb = np.asarray(ep.truth.get("whole_body_contact_n", []), dtype=float)
+                if _dors.size == up.size:
+                    rec["dorsal_index_mean"] = float(_dors.mean())
+                    rec["dorsal_index_at_end"] = float(_dors[-1])
+                    rec["whole_body_contact_fraction"] = float((_nwb > 0).mean())
+                    rec["leg_contact_fraction"] = float(
+                        (np.asarray(ep.truth["contact_found_raw"], float) > 0).any(axis=1).mean())
                 rec["wall_s"] = round(_t.perf_counter() - t0, 1)
-                traces[(arm, label)] = {"t": [round(float(x), 4) for x in np.asarray(ep.truth["time_s"])],
-                                        "up_z": [round(float(x), 5) for x in up]}
+                traces[(arm, label)] = {
+                    "t": [round(float(x), 4) for x in np.asarray(ep.truth["time_s"])],
+                    "up_z": [round(float(x), 5) for x in up],
+                    "dorsal_index": [round(float(x), 5) for x in
+                                     np.asarray(ep.truth.get("whole_body_dorsal_index", []),
+                                                dtype=float)]}
                 out.append(rec)
                 print(f"\n{arm:<18} start={label:<9} ({rec['wall_s']}s wall)")
                 print(f"   up_z: start {rec['up_z_initial']:+.3f}  min {rec['up_z_min']:+.3f}  "
@@ -160,7 +183,7 @@ def main() -> int:
             same = (abs(a["up_z_final"] - b["up_z_final"]) < 1e-9
                     and abs(a["horizontal_travel_mm"] - b["horizontal_travel_mm"]) < 1e-9
                     and abs(a["up_z_initial"] - b["up_z_initial"]) < 1e-9)
-            if same:
+            if same and a.invert_at is None:
                 raise SystemExit(
                     f"VACUOUS TEST: the upright and inverted runs for {arm} are IDENTICAL, so "
                     "the spawn orientation did not take effect and nothing about righting has "

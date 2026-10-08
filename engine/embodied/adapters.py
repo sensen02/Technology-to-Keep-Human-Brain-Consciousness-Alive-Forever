@@ -363,6 +363,11 @@ class OwnershipLedger:
 
     ALLOWED = {
         "cpg_intrinsic_freqs": ("command_adapter",),
+        # The third command dimension, and it is registered here for the same reason as the
+        # other two: "only the command adapter writes the CPG's posture" has to be a CHECKED
+        # property, not a comment.  MEASURED: writing an unregistered resource raises
+        # OwnershipError, which is exactly what happened the first time this was added.
+        "cpg_posture_bias": ("command_adapter",),
         "body_step": ("scheduler",),
         "neural_state": ("neural",),
         "receptor_state": ("receptor_bank",),
@@ -1043,6 +1048,10 @@ class CommandedTripodCPG:
         if base_frequency_hz <= 0:
             raise ValueError("base_frequency_hz must be positive")
         self.ledger = ledger
+        # KEPT, because the posture bias resolves its target joints BY NAME against this order
+        # rather than by a hard-coded index.  MEASURED: without this the first run raised
+        # AttributeError -- the CPG controller was handed dof_order and then forgot it.
+        self.dof_order = dof_order
         self.net = make_tripod_cpg_network(timestep=timestep_s,
                                            intrinsic_frequency=base_frequency_hz,
                                            seed=seed)
@@ -1074,8 +1083,54 @@ class CommandedTripodCPG:
         self.last_command = (float(speed_scale), float(turn))
         return self
 
+    #: WHICH JOINTS CARRY THE POSTURE PUSH, chosen by NAME, not by index: the femur-tibia
+    #: ("knee") pitch of each leg.  Extending the knee is what straightens a leg against the
+    #: ground; the SIGN of the extension is not assumed here, it is measured (see
+    #: tools_posture_sign.py) because getting it backwards would push the fly INTO its own back.
+    # "_tibia-pitch", NOT "-tibia-pitch": MEASURED, the names are "lf_trochanterfemur-lf_tibia-
+    # pitch", so the character before "tibia" is an UNDERSCORE.  My first pattern used a hyphen
+    # and matched nothing -- and the failure was silent until the code path ran.
+    POSTURE_JOINT_SUBSTR = ("_tibia-pitch",)
+
+    def posture_rows(self):
+        """DOF rows whose joint name matches the posture target, resolved by NAME."""
+        rows = []
+        for i, nm in dof_names(self.dof_order):
+            if any(sub in nm for sub in self.POSTURE_JOINT_SUBSTR):
+                rows.append(i)
+        if not rows:
+            raise RuntimeError(
+                "no DOF matched the posture joint pattern %r; the DOF names present are %r"
+                % (self.POSTURE_JOINT_SUBSTR, [nm for _i, nm in dof_names(self.dof_order)]))
+        self._posture_rows = rows
+        return rows
+
+    def set_posture_bias(self, bias_rad):
+        """A UNIFORM knee offset, added to the CPG's own action.  THIS IS THE THIRD COMMAND.
+
+        The baseline and every previous episode have exactly two knobs (speed, turn); a
+        righting behaviour needs a dimension that says "push the legs out", and there was none.
+        A bias of exactly 0.0 leaves the action untouched, so default behaviour is unchanged.
+        """
+        b = float(bias_rad)
+        if not math.isfinite(b):
+            raise ValueError("posture bias must be finite")
+        self.posture_bias_rad = b
+        self.ledger.write("cpg_posture_bias", "command_adapter")
+        return self
+
     def step(self):
-        return self.ctl.step()
+        act = self.ctl.step()
+        b = float(getattr(self, "posture_bias_rad", 0.0))
+        if b == 0.0:
+            return act                      # exact identity: no array is touched
+        rows = getattr(self, "_posture_rows", None) or self.posture_rows()
+        ja = np.asarray(act.joint_angles, dtype=float).copy()
+        if ja.ndim != 1 or rows and max(rows) >= ja.size:
+            raise RuntimeError("posture rows %r do not index the action of size %d"
+                               % (rows, ja.size))
+        ja[rows] = ja[rows] + b
+        return type(act)(joint_angles=ja, adhesion_onoff=act.adhesion_onoff)
 
     def state(self):
         return {"phase_rad": np.asarray(self.net.curr_phases, float).copy(),

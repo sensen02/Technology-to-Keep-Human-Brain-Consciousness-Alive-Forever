@@ -75,7 +75,9 @@ TRUTH_FIELDS = ("time_s", "thorax_mm", "body_positions_mm", "body_rotations_wxyz
                 "joint_angles_rad", "joint_velocities_rad_s", "contact_present",
                 "contact_found_raw", "contact_forces", "contact_positions_mm",
                 "actuator_forces", "cpg_phase_rad", "cpg_magnitude",
-                "cpg_intrinsic_freqs_hz")
+                "cpg_intrinsic_freqs_hz",
+                "whole_body_contact_n", "whole_body_dorsal_index",
+                "whole_body_force_body_frame")
 OBSERVED_FIELDS = ("time_s", "force_strain_per_leg", "angle_strain_per_leg",
                    "receptor_drive_contact", "receptor_drive_proprio",
                    "current_nA_per_leg", "descending_rate_hz",
@@ -165,6 +167,20 @@ class LoopConfig:
     #: episode bit-identical; (0, 1, 0, 0) starts the fly upside down, which is how a righting
     #: test has to be posed.
     spawn_quat_wxyz: tuple = (1.0, 0.0, 0.0, 0.0)
+    #: DELIBERATE MID-RUN INVERSION, as the protocol for a righting test: walk normally first,
+    #: then be turned over.  None keeps every previous episode bit-identical.
+    #:
+    #: WHY NOT JUST SPAWN INVERTED.  MEASURED, and it is why this exists: spawning the fly
+    #: inverted at 0.6 mm put its legs in a jammed configuration against the ground, the
+    #: position servos drove them into it, and the fly was CATAPULTED to z = 396 mm, tumbled
+    #: for 0.85 s and fell back on its feet.  A test that reports "the open loop righted itself"
+    #: on the strength of that is reporting a launch, not a recovery.  Inverting a WALKING fly
+    #: from a known state avoids the jam entirely.
+    invert_at_s: "float | None" = None
+    #: height above the ground to place the fly at when inverting it, in mm
+    invert_height_mm: float = 1.6
+    #: extra downward/forward nudge applied at the inverting instant, mm/s (0 = none)
+    invert_nudge_mm_s: float = 0.0
     world_half_size_mm: float = 1000.0
     cpg_intrinsic_frequency_hz: float = 12.0
     add_tracking_camera: bool = True
@@ -564,8 +580,42 @@ class MultirateScheduler:
         self._prev_spikes = None
         prev_speed, prev_turn = 1.0, 0.0
         first_loop_ms = None
+        _inverted_done = False
         for k in range(cfg.n_intervals):
             t_interval = k * cfg.dt_command_s
+            # ---- DELIBERATE PERTURBATION: turn the fly over between intervals, never inside
+            # one.  Writing qpos between intervals keeps every tier's causal ordering intact --
+            # the body simply has a different state when the next interval READS it.
+            if (cfg.invert_at_s is not None and not _inverted_done
+                    and t_interval >= float(cfg.invert_at_s)):
+                import mujoco as _mj
+                _m, _d = self.body.model, self.body.data
+                _root = None
+                for _b in range(_m.nbody):
+                    if int(_m.body_jntnum[_b]) > 0 and int(
+                            _m.jnt_type[int(_m.body_jntadr[_b])]) == int(_mj.mjtJoint.mjJNT_FREE):
+                        _root = _b
+                        break
+                if _root is None:
+                    raise RuntimeError("invert_at_s was requested but no free-jointed body "
+                                       "exists to invert")
+                _adr = int(_m.body_jntadr[_root])
+                _qadr = int(_m.jnt_qposadr[_adr])
+                _dadr = int(_m.jnt_dofadr[_adr])
+                before = np.asarray(_d.qpos[_qadr:_qadr + 7], dtype=float).copy()
+                _d.qpos[_qadr + 2] = float(cfg.invert_height_mm)
+                _d.qpos[_qadr + 3:_qadr + 7] = [0.0, 1.0, 0.0, 0.0]      # 180 deg about x
+                _d.qvel[_dadr:_dadr + 6] = 0.0
+                _d.qvel[_dadr + 2] = -float(cfg.invert_nudge_mm_s)
+                _mj.mj_forward(_m, _d)
+                _inverted_done = True
+                ep.add_event("deliberately_inverted", float(t_interval),
+                             method="root free-joint qpos written between intervals "
+                                    "(180 deg about x), velocities zeroed",
+                             height_mm=float(cfg.invert_height_mm),
+                             qpos_before=[float(v) for v in before],
+                             qpos_after=[float(v) for v in _d.qpos[_qadr:_qadr + 7]])
+                self.tier_reset_after_perturbation = True
             obs = self.body.observe()                      # 1. READ
             if first_loop_ms is None:
                 first_loop_ms = 1000.0 * (time.perf_counter() - t_start)
@@ -586,6 +636,14 @@ class MultirateScheduler:
             truth["contact_positions_mm"].append(
                 np.asarray(obs.contact_positions_mm, float).copy())
             truth["actuator_forces"].append(np.asarray(obs.actuator_forces, float).copy())
+            # WHOLE-BODY CONTACT, recorded as a physical fact of the world.  The per-leg
+            # contact_forces above are six legs and read ZERO when the fly is on its back;
+            # this channel does not, and its sign says which side the ground is on.
+            _wb = obs.whole_body_contact or {}
+            truth["whole_body_contact_n"].append(int(_wb.get("n_contact", 0)))
+            truth["whole_body_dorsal_index"].append(float(_wb.get("dorsal_index", 0.0)))
+            truth["whole_body_force_body_frame"].append(
+                np.asarray(_wb.get("body_frame", np.zeros(3)), float).copy())
             truth["cpg_phase_rad"].append(cpg_state["phase_rad"])
             truth["cpg_magnitude"].append(cpg_state["magnitude"])
             truth["cpg_intrinsic_freqs_hz"].append(cpg_state["intrinsic_freqs_hz"])

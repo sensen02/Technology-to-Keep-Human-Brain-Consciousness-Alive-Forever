@@ -254,6 +254,10 @@ class BodyObservation:
     contact_torques: np.ndarray            # (6,3) N*mm, contact frame
     contact_positions_mm: np.ndarray       # (6,3) global
     actuator_forces: np.ndarray            # (42,) N*mm
+    #: WHOLE-BODY contact, summed into the fly's own frame (see whole_body_contact).  The
+    #: per-leg ``contact_forces`` above is six legs and is blind when the fly is on its back;
+    #: this is not.  ``dorsal_index`` carries the sign that says which side is down.
+    whole_body_contact: dict = None
 
     @property
     def contact_present(self) -> np.ndarray:
@@ -670,6 +674,94 @@ class BodyBackend:
         apply_locomotion_action(self.sim, self.fly.name, self._controller.step())
         self.sim.step()
 
+    def whole_body_contact(self) -> dict:
+        """Every contact on the fly, summed INTO THE FLY'S OWN FRAME.
+
+        WHY THIS EXISTS AND WHY IT IS IN THE BODY FRAME.  The per-leg sensor that the rest of
+        this file uses reports six legs; MEASURED, an inverted fly lying on its back has ZERO of
+        them in contact, so a controller built only on leg contact is blind in exactly the state
+        where it needs to know something.  The signal that carries the needed information is
+        not "how hard are my feet touching" but "which side of MY OWN BODY is the ground
+        pushing on": summing the contact forces and rotating them into the fly's root frame
+        makes an inverted fly read a LARGE +z (dorsal) component and an upright one a large -z
+        (ventral) component.  That single sign is what a righting behaviour would have to use.
+
+        The world normal is the FIRST ROW of ``contact.frame`` (MuJoCo stores the contact frame
+        row-major, normal first) -- MEASURED by checking that a resting sphere reports
+        sum|Fn| = m*g to four decimals, which it does only with that convention.
+        """
+        import mujoco
+        m, d = self.model, self.data
+        # THE ROOT IS THE BODY WITH THE FREE JOINT, FOUND RATHER THAN ASSUMED.  MEASURED:
+        # ``thorax_index`` is 0 in the fly-only body array the simulator returns, but the
+        # COMPILED model's body 0 is the world, so using that index here picks a jointless body
+        # and raises.  Searching for the free joint is unambiguous.
+        root = None
+        for b in range(m.nbody):
+            if int(m.body_jntnum[b]) > 0:
+                jt = int(m.jnt_type[int(m.body_jntadr[b])])
+                if jt == int(mujoco.mjtJoint.mjJNT_FREE):
+                    root = b
+                    break
+        if root is None:
+            raise RuntimeError("no free-jointed body found; cannot define a body frame")
+        R = np.asarray(d.xmat[root], dtype=float).reshape(3, 3)   # world-from-body
+
+        fly_geoms = np.zeros(m.ngeom, dtype=bool)
+        for g in range(m.ngeom):
+            b = int(m.geom_bodyid[g])
+            nm = mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_BODY, b) or ""
+            fly_geoms[g] = nm.startswith(self.fly.name.split("/")[0] + "/") or nm.startswith("nmf/")
+
+        total_world = np.zeros(3)
+        n_contact = 0
+        per_group = {"leg": np.zeros(3), "wing": np.zeros(3), "body": np.zeros(3),
+                     "other": np.zeros(3)}
+        for c in range(d.ncon):
+            con = d.contact[c]
+            g1, g2 = int(con.geom1), int(con.geom2)
+            in1, in2 = fly_geoms[g1], fly_geoms[g2]
+            if not (in1 or in2):
+                continue
+            f = np.zeros(6)
+            mujoco.mj_contactForce(m, d, c, f)
+            fr = np.asarray(con.frame, dtype=float).reshape(3, 3)
+            nrm = fr[0] / max(float(np.linalg.norm(fr[0])), 1e-12)   # first row = normal
+            # the force ON the fly: if geom2 is the fly's, the reported force acts on it
+            sign = 1.0 if in2 else -1.0
+            fw = sign * float(f[0]) * nrm
+            total_world += fw
+            n_contact += 1
+            gfly = g2 if in2 else g1
+            gn = str(mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_GEOM, gfly) or "")
+            key = ("leg" if ("tarsus" in gn or "tibia" in gn or "coxa" in gn
+                             or "trochanter" in gn)
+                   else "wing" if ("wing" in gn or "haltere" in gn)
+                   else "body" if ("thorax" in gn or "abdomen" in gn or "eye" in gn
+                                   or "rostr" in gn or "haust" in gn or "pedicel" in gn)
+                   else "other")
+            per_group[key] += fw
+        body_frame = R.T @ total_world
+        return {
+            "n_contact": int(n_contact),
+            "total_world": total_world,
+            "body_frame": body_frame,
+            # SIGN, SPELLED OUT BECAUSE I GOT IT BACKWARDS FIRST.  A contact force pushing
+            # along the body's +z comes from the body's -z side; for an UPRIGHT fly the ground
+            # pushes up, which is the body's +z, so the raw body_frame[2] is POSITIVE when the
+            # fly is on its FEET.  MEASURED: an upright fly read +0.997 raw.  The index is
+            # therefore NEGATED so that +1 means "the ground is on my dorsal side" (on my back)
+            # and -1 means "on my feet", which is the way the number will be read.
+            "dorsal_index": float(-body_frame[2] / max(float(np.linalg.norm(body_frame)), 1e-12))
+            if n_contact else 0.0,
+            "per_group_world": per_group,
+            "units": "model force units (1 unit = 1 uN); the fly's weight is 10.0485",
+            "sign_convention": ("dorsal_index = +1 means the ground is pushing on the fly's "
+                               "DORSAL side, i.e. it is ON ITS BACK; -1 means it is on its "
+                               "feet.  Verified by measurement: an upright fly reads about "
+                               "-1, not +1."),
+        }
+
     def observe(self) -> BodyObservation:
         sim, name = self.sim, self.fly.name
         bodies = np.asarray(sim.get_body_positions(name), dtype=float)
@@ -696,6 +788,7 @@ class BodyBackend:
             contact_positions_mm=positions,
             actuator_forces=np.asarray(
                 sim.get_actuator_forces(name, self._ActuatorType.POSITION), dtype=float),
+            whole_body_contact=self.whole_body_contact(),
         )
 
     # ------------------------------------------------------------------ meta
