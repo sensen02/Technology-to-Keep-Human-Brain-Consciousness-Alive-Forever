@@ -155,3 +155,67 @@ FlyGym 的 `_rebuild_neutral_keyframe` 会把 fly 子树**单独编译**，那�
 - `/run/media/sensen/Data2/cell_wound_prototype/tools_marker_render_check.py`（新，单帧渲染诊断）
 - `/run/media/sensen/Data2/cell_wound_prototype/outputs/arena/arena_bare_seed1/`（新 episode + `limb_tracking.json` + `limb_tracking_figure.png`）
 - 改：`engine/embodied/body_backend.py`、`electrode_payload.py`、`run_arena_record.py`、`arena.py`
+
+---
+
+# 续二：覆盖率提上去了，六条腿的"脚关节角"全部可测
+
+## marker 摆放规则（三轮迭代，每轮都实测）
+
+偏移方向不是随便选的，三类 segment 需要三条规则：
+
+| 类别 | 规则 | 结果 |
+|---|---|---|
+| tibia / tarsus（细、外露） | **背侧** 0.18 mm | tarsus 70–96% → **96–100%**；中/后 tibia 9–13% → **100%** |
+| 躯干（thorax / abdomen） | **背侧** 0.55 mm（要穿过厚网格） | 0% → **100%** |
+| coxa / trochanterfemur | **径向** 0.50 mm | 0–4% → 7–33%，且**间距从 0.144 mm 恢复到 0.263 mm** |
+
+**关键教训**：第一版对所有 marker 都用"背离躯干"的径向偏移。对腿来说这个方向**几乎就是沿着腿本身**（腿本来就是朝外的），于是 marker 被推进了下一节的网格里。改成背侧后，tibia/tarsus 立刻全部可测。但背侧对 coxa 是**反向的**：六个基节本来就挤在胸下，一起往上推会让它们**互相靠近**，最近间距从 0.257 mm 掉到 0.144 mm（小于 0.24 mm 直径 → 并 blob）。coxa 必须用径向，把六个朝不同方位分开。
+
+## 身份预算：12/12 全部满足
+
+| episode | 最近 marker 对 | 两端都过 0.24 mm 的骨 |
+|---|---|---|
+| seed1 | 0.409 mm | —（但 marker 直径 0.60 mm，全部并） |
+| seed2（背侧） | 0.144 mm | 6/12 |
+| **seed3（三规则）** | **0.263 mm** | **12/12** |
+
+marker 直径 **0.24 mm**（半径 0.12 mm）< 0.263 mm 最小间距 ✓
+
+## 跟踪器：两遍分配
+
+第一版跟踪器有个真实缺陷：**可见度 85–100% 的 marker，接受率只有 0–2%**。原因是没锁上的 marker 一直用陈旧的预测位置，果蝇走开后永远出不了门限，整段 episode 就丢了。
+
+修法两处：
+1. **速度外推** + 未锁定时用"躯干位移"锚定
+2. **第二遍分配**：第一遍能匹配上的 marker 给出**整只果蝇的刚体运动**，把它加到未匹配 marker 上再筛一次——腿自身的运动只是叠加在躯干运动上的一小项
+
+结果：接受数 166 → 228 → **481** / 920。
+
+## 实测关节角误差（vs 仿真器真值）
+
+| 骨 | 帧数 | 中位误差 | p95 |
+|---|---|---|---|
+| rm tibia | 15 | **0.74°** | 2.45° |
+| rf tibia | 27 | **0.81°** | 10.06° |
+| lm tibia | 24 | **1.43°** | 2.23° |
+| rh tibia | 28 | **1.45°** | 2.91° |
+| rm femur | 16 | 1.67° | 6.65° |
+| rf femur | 22 | 2.82° | 26.56° |
+| rh femur | 19 | 3.39° | 11.76° |
+| lh femur | 18 | 3.69° | 12.20° |
+
+**≥10 帧的 8 根骨，中位角误差 1.56°。** 六条腿的 tibia（就是"脚关节"）中位 **0.7–1.5°**。
+
+femur 的 p95 尾巴很大（rf 26.6°）——这就是身份失败留下的尾巴，四道闸门压低但没有清零；**中位数可信、尾部不可信**，用的时候要按 p95 而不是中位数来设阈值。
+
+## 图（已实际打开核对）
+
+`outputs/arena/arena_bare_seed3/limb_tracking_figure.png`：左图 20 个 marker 的可见性（6 个 tarsus + 5 个 tibia + 躯干全绿，6 个 trochanterfemur 仍红/橙）；右图每根骨的角度误差（绿=中位，红=到 p95 的尾巴）。
+
+## git
+
+- 仓库已初始化，**399 个文件 / 147k 行**，`.git/` 仅 11 MB。
+- `.gitignore` 排除：`venv/`、`venv_body/`、`vendor/`（3.7 GB）、`data/`（14 GB）、`outputs/`（2.1 GB）、`upstream/`、二进制媒体，以及**密钥文件**（`.flywire_api_token`、`.flywire_cookies.txt`）。
+- 已确认**没有任何密钥被暂存**。
+- remote 已指向 `git@github-brain:sensen02/Technology-to-Keep-Human-Brain-Consciousness-Alive-Forever.git`，分支 `main`，首个 commit 已建（未 push，等密钥在 GitHub 上登记）。
