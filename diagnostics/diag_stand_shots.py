@@ -27,6 +27,19 @@ TAG = os.environ.get("SHOT_TAG", "stance")
 
 def main():
     m = _load_mjcf(str(XML)).compile()
+    # optional plant calibration for the shot, so the rendered state is the one being reported
+    _mass = float(os.environ.get("SHOT_MASS_MG", "0"))
+    if _mass:
+        _f = _mass / (float(sum(m.body_mass)) * 1000.0)
+        for _b in range(m.nbody):
+            m.body_mass[_b] *= _f
+            m.body_inertia[_b] *= _f
+    _st = float(os.environ.get("SHOT_STIFF", "0"))
+    if _st:
+        for _j in range(m.njnt):
+            _nm = mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_JOINT, _j) or ""
+            if _nm.startswith("joint_"):
+                m.jnt_stiffness[_j] = _st
     d = mujoco.MjData(m)
     mujoco.mj_resetDataKeyframe(m, d, 0)
     mujoco.mj_forward(m, d)

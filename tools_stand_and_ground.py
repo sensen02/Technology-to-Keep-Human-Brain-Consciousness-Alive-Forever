@@ -447,15 +447,28 @@ def main() -> int:
     APPLY_MIRROR = "--apply-mirror" in sys.argv
     pose_full = mirror_angles({**neut, **stance}) if APPLY_MIRROR else ({**neut, **stance})
 
-    def apply_stance(h):
+    def apply_pose(pose, h):
         jf = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, "thorax_free")
         adr = int(m.jnt_qposadr[jf])
         d.qpos[:] = 0.0
         d.qpos[adr:adr + 3] = [0.0, 0.0, h]
         d.qpos[adr + 3:adr + 7] = [1.0, 0.0, 0.0, 0.0]
         for k, j in jid_all.items():
-            d.qpos[int(m.jnt_qposadr[j])] = pose_full.get(k, neut[k])
+            d.qpos[int(m.jnt_qposadr[j])] = pose.get(k, neut[k])
         mujoco.mj_forward(m, d)
+
+    def apply_stance(h):
+        apply_pose(pose_full, h)
+
+    def pose_with_coxa_pitch(offs):
+        """the solved stance with a per-leg coxa-pitch offset, mirrored if that is enabled."""
+        st = dict(stance)
+        for leg in LEGS:
+            k = (leg, "Coxa", "pitch")
+            if k in st:
+                st[k] = st[k] + float(offs.get(leg, 0.0))
+        full = {**neut, **st}
+        return mirror_angles(full) if APPLY_MIRROR else full
 
     onset, h = {}, ground_z + 0.30
     while h > ground_z - 0.40 and len(onset) < 6:
@@ -480,6 +493,54 @@ def main() -> int:
             fc += 1
     print(f"  floor contacts at the seated pose: {fc} (was 0 with the estimator)")
     assert fc > 0, "the seated pose still has no floor contact"
+
+    # ---- STAGE 2d: EQUALISE THE FEET BY THEIR MEASURED CONTACT HEIGHTS.
+    # The inverse kinematics places the feet using foot_point(), which estimates a foot's lowest point
+    # as geom_xpos - rbound, and rbound is a BOUNDING-SPHERE radius, 2-3x larger than how far the
+    # tarsus actually reaches down.  So the solved feet are only equal as measured by an estimator that
+    # is wrong by a different amount per leg, and the seating comes out 0.106 mm out of flush rather
+    # than level.  This closes the loop with MuJoCo's own collision instead: lower the fly, record the
+    # height at which each leg FIRST touches, and adjust each leg's own coxa pitch by a measured
+    # derivative until the six first-touch heights agree.  It converged 0.200 -> 0.020 mm the first time
+    # it was used, before other stages displaced it.
+    offs = {leg: 0.0 for leg in LEGS}
+    def onsets(pose):
+        got, hh = {}, ground_z + 0.40
+        while hh > ground_z - 0.60 and len(got) < 6:
+            hh -= 0.002
+            apply_pose(pose, hh)
+            for leg in leg_contact(m, d):
+                got.setdefault(leg, hh)
+        return got
+    for it in range(10):
+        pose = pose_with_coxa_pitch(offs)
+        got = onsets(pose)
+        if len(got) < 6:
+            print(f"  levelling iter {it}: only {sorted(got)} reach the floor; stopping")
+            break
+        spread = max(got.values()) - min(got.values())
+        print(f"  levelling iter {it}: first-touch spread {spread:.4f} mm  "
+              + " ".join(f"{l}={got[l]:.3f}" for l in LEGS))
+        if spread < 0.01:
+            break
+        mean = float(np.mean(list(got.values())))
+        for leg in LEGS:
+            hstep = 0.02
+            hi = onsets(pose_with_coxa_pitch({**offs, leg: offs[leg] + hstep})).get(leg, np.nan)
+            lo = onsets(pose_with_coxa_pitch({**offs, leg: offs[leg] - hstep})).get(leg, np.nan)
+            dz = (hi - lo) / (2 * hstep)
+            if np.isfinite(dz) and abs(dz) > 1e-6:
+                offs[leg] += float(np.clip(0.6 * (mean - got[leg]) / dz, -0.25, 0.25))
+    pose_full = pose_with_coxa_pitch(offs)
+    got = onsets(pose_full)
+    if len(got) == 6:
+        ground_z = min(got.values())
+        print(f"  levelled: spread {max(got.values())-min(got.values()):.4f} mm, "
+              f"seated height {ground_z:.4f} mm")
+    apply_pose(pose_full, ground_z)
+    fc = sum(1 for c in range(d.ncon) if d.contact[c].geom1 == fid or d.contact[c].geom2 == fid)
+    print(f"  floor contacts after levelling: {fc}")
+
 
     for leg in LEGS:
         print(f"    {leg}: foot ({pts[leg][0]:+.3f},{pts[leg][1]:+.3f},{pts[leg][2]:+.3f}) mm, "
@@ -576,7 +637,7 @@ def main() -> int:
            "tarsus_xy_mm": {leg: [float(v) for v in pts[leg][0]] for leg in LEGS},
            "com_mm": [float(v) for v in com],
            "keyframe_thorax_z_mm": thorax_z_mm,
-           "seating_spread_mm": float(spread),
+           "seating_spread_mm": float(max(got.values())-min(got.values())) if len(got)==6 else None,
            "first_touch_height_mm": {k: float(v) for k, v in onset.items()}, "solver": {"nfev": int(sol.nfev),
                                                           "cost": float(sol.cost)},
            "mass_mg": mass * 1000, "one_body_weight_force_units": mw,
