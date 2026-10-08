@@ -142,6 +142,82 @@ def main() -> int:
     acts = {a.get("tendon"): a for a in act_el.findall("general") if a.get("tendon")}
     print(f"\nsource muscles: {len(muscles)}, actuators: {len(acts)}")
 
+    # ---- JOINTS FOR THE LEGS THAT HAVE NONE, AND THE LOCKING PROBLEM
+    # MEASURED, and it changes the previous conclusion: the shipped model is articulated ONLY on
+    # the LEFT FORELEG.  The right foreleg HAS seven joints but all seven are held at zero by
+    # ``<equality>`` constraints, and the mid and hind legs have no joints at all.  So the shipped
+    # model has exactly ONE leg that can move, and mirroring muscles onto the other five produces
+    # tendons attached to bodies that cannot move.  Both gaps have to be closed together.
+    FORELAG_JOINTS = [                       # (source joint name, target body suffix, joint suffix)
+        ("joint_LFCoxa_yaw", "Coxa", "yaw"), ("joint_LFCoxa_pitch", "Coxa", "pitch"),
+        ("joint_LFCoxa_roll", "Coxa", "roll"),
+        ("joint_LFTrochanter_yaw", None, "yaw"), ("joint_LFTrochanter_pitch", None, "pitch"),
+        ("joint_LFTrochanter_roll", None, "roll"),
+        ("joint_LFTibia_pitch", "Tibia", "pitch"),
+    ]
+    src_joints = {}
+    for j in root.iter("joint"):
+        if j.get("name"):
+            src_joints[j.get("name")] = j
+    # the class-level joint defaults (armature/stiffness/damping) live in <default>; MuJoCo
+    # inherits them, so a new joint needs only its own attributes.
+    added_joints = []
+    for target in LEG_ORDER:
+        if target == "LF":
+            continue
+        if any(f"joint_{target}" in str(j.get("name")) for j in root.iter("joint")):
+            continue                          # RF already has joints (they are locked, see below)
+        # which body does the trochanter's job on this leg?
+        troch_body = f"{LEG_PREFIX[target]}Trochanter"
+        if troch_body not in world:
+            troch_body = f"{LEG_PREFIX[target]}Femur"
+        src_coxa = world["LFCoxa"][0], world["LFCoxa"][1]
+        tgt_coxa = world[f"{LEG_PREFIX[target]}Coxa"][0], world[f"{LEG_PREFIX[target]}Coxa"][1]
+        R_T = tgt_coxa[1] @ src_coxa[1].T
+        for jname, seg_suffix, jsuffix in FORELAG_JOINTS:
+            src_j = src_joints.get(jname)
+            if src_j is None:
+                continue
+            src_body = "LFTrochanter" if seg_suffix is None else f"LF{seg_suffix}"
+            tgt_body = troch_body if seg_suffix is None else f"{LEG_PREFIX[target]}{seg_suffix}"
+            R_s = world[src_body][1]
+            R_t = world[tgt_body][1]
+            axis = np.asarray([float(v) for v in src_j.get("axis").split()], dtype=float)
+            # the axis keeps the same ANATOMICAL meaning, so it goes through the same
+            # coxa-anchored transform the muscle sites used and is then expressed in the target
+            # body's own frame
+            axis_t = R_t.T @ R_T @ R_s @ axis
+            new_attrs = {"name": f"joint_{LEG_PREFIX[target]}{seg_suffix or 'Trochanter'}_{jsuffix}",
+                         "pos": src_j.get("pos", "0 0 0"),
+                         "axis": " ".join(f"{v:.6g}" for v in axis_t)}
+            for k in ("range", "springref", "limited", "stiffness", "damping", "armature"):
+                if src_j.get(k) is not None:
+                    new_attrs[k] = src_j.get(k)
+            ET.SubElement(body_of[tgt_body], "joint", new_attrs)
+            added_joints.append({"joint": new_attrs["name"], "body": tgt_body,
+                                 "from": jname, "axis": new_attrs["axis"],
+                                 "range": new_attrs.get("range")})
+
+    # ---- THE RIGHT FORELEG IS LOCKED.  Seven <equality> constraints hold its joints at zero, so
+    # it is rigid in the shipped model.  Mirroring muscles onto it is useless while that holds.
+    eq = root.find("equality")
+    locked = [e.get("joint1") for e in eq.findall("joint")] if eq is not None else []
+    unlock = "--unlock-locked-legs" in sys.argv
+    if unlock and eq is not None:
+        for e in list(eq.findall("joint")):
+            eq.remove(e)
+
+    # ---- RESCALE THE MUSCLE LENGTH RANGES, BECAUSE THE GEOMETRY SCALED AND THE PARAMETERS DID
+    # NOT.  MEASURED after fixing the unpacking bug: the mirrored tendons now have sensible lengths
+    # (RF 0.498 mm against LF 0.498 mm -- an essentially exact mirror) but the mid and hind ones are
+    # 0.80 and 0.89 mm where the source operates at 0.47-0.49 mm, i.e. 1.6-1.8x longer, exactly as
+    # the segment-length ratios predict.  The muscle's declared lengthrange was still the
+    # foreleg's, so the Hill model operated far outside its working range and produced forces
+    # 240-580x too large.  Each mirrored muscle's lengthrange is therefore scaled by the ratio of
+    # its OWN rest length to its source's -- measured from the compiled model, not assumed.
+    rescale = "--rescale-lengthrange" in sys.argv
+    added_lengthrange_rescale = 0
+
     decisions = []
     added_sites = added_tendons = added_acts = 0
     for target in LEG_ORDER:
@@ -178,12 +254,39 @@ def main() -> int:
                 else:
                     # a site on a SHARED body (Thorax): no scaling, the body is the same body
                     tgt_body, kind, k = body, "shared body (thorax), coxa-anchored", 1.0
-                Rs, ps = world[body]
-                Rt, pt = world[tgt_body]
+                # UNPACK IN THE ORDER parse_tree RETURNS, WHICH IS (POSITION, ROTATION).
+                # MEASURED BUG: this line read ``Rs, ps = world[body]``, i.e. the POSITION was
+                # bound to the rotation and the ROTATION to the position.  NumPy did not raise --
+                # matrix + scalar and a dot product silently broadcast -- and the result was
+                # mirrored attachment points 20-30x too far from their segment, tendons 45x too
+                # long, and muscle forces 240-580x too large.  A rigidity assertion below now
+                # makes that impossible to miss.
+                ps, Rs = world[body]
+                pt, Rt = world[tgt_body]
                 p_world_src = ps + Rs @ (k * local)
                 p_world_tgt = t_T + R_T @ p_world_src
                 new_pos = Rt.T @ (p_world_tgt - pt)
                 new_site_name = ref.replace("LF", LEG_PREFIX[target], 1)
+                # ---- THE ASSERTION THAT ACTUALLY CATCHES A SWAPPED UNPACK.
+                # A magnitude test is the WRONG check: a site on the shared Thorax genuinely
+                # moves in world space (that is the point -- it has to reach the target leg's
+                # socket), so "distance from the body origin is preserved" is false and fires on
+                # correct code.  What a swapped unpack breaks is the TYPE: the position vector
+                # gets used as a rotation and NumPy broadcasts it silently.  So the check is that
+                # whatever is used as a rotation IS a rotation, and that the points are points.
+                for _nm, _R in (("Rs", Rs), ("Rt", Rt)):
+                    _R = np.asarray(_R, dtype=float)
+                    if _R.shape != (3, 3) or abs(np.linalg.det(_R) - 1.0) > 1e-6 \
+                            or np.abs(_R @ _R.T - np.eye(3)).max() > 1e-9:
+                        _det = np.linalg.det(_R) if _R.shape == (3, 3) else float("nan")
+                        raise RuntimeError(
+                            f"{_nm} for site {ref} is not a proper rotation (shape {_R.shape}, "
+                            f"det {_det}); the body pose was almost certainly unpacked in the "
+                            "wrong order")
+                for _nm, _v in (("ps", ps), ("pt", pt)):
+                    if np.asarray(_v).shape != (3,):
+                        raise RuntimeError(f"{_nm} for site {ref} is not a 3-vector: "
+                                           f"shape {np.asarray(_v).shape}")
                 ET.SubElement(body_of[tgt_body], "site",
                               {"name": new_site_name,
                                "pos": " ".join(f"{v:.6g}" for v in new_pos)})
@@ -199,7 +302,42 @@ def main() -> int:
             added_acts += 1
 
     n_sites = sum(1 for _ in root.find("worldbody").iter("site"))
-    print(f"added: {added_tendons} tendons, {added_sites} sites, {added_acts} actuators")
+    print(f"added: {added_tendons} tendons, {added_sites} sites, {added_acts} actuators, "
+          f"{len(added_joints)} joints")
+    if rescale:
+        # measure the rest length of every muscle in the freshly generated model, compare against
+        # its LF source, and scale the declared range
+        import os as _os
+        _os.environ.setdefault("MUJOCO_GL", "egl")
+        import mujoco as _mj
+        from flygym.compose.fly.musculoskeletal import _load_mjcf as _load
+        tmp = OUT_DIR / "_rescale_probe.xml"
+        tree.write(tmp, encoding="utf-8", xml_declaration=True)
+        _m = _load(str(tmp)).compile()
+        _d = _mj.MjData(_m)
+        _mj.mj_forward(_m, _d)
+        for a in act_el.findall("general"):
+            if a.get("class") != "muscle" or not a.get("lengthrange"):
+                continue
+            nm = a.get("name")
+            src_name = "LF" + nm[2:]
+            i = _mj.mj_name2id(_m, _mj.mjtObj.mjOBJ_ACTUATOR, nm)
+            j = _mj.mj_name2id(_m, _mj.mjtObj.mjOBJ_ACTUATOR, src_name)
+            if i < 0 or j < 0:
+                continue
+            L, L0 = float(_d.actuator_length[i]), float(_d.actuator_length[j])
+            if L0 <= 0:
+                continue
+            ratio = L / L0
+            lo, hi = (float(x) for x in a.get("lengthrange").split())
+            a.set("lengthrange", f"{lo * ratio:.6g} {hi * ratio:.6g}")
+            added_lengthrange_rescale += 1
+        tmp.unlink(missing_ok=True)
+
+    print(f"lengthrange rescaled for {added_lengthrange_rescale} muscles (flag: {rescale})")
+    print(f"joints that were LOCKED by equality constraints in the source: {len(locked)} "
+          f"({sorted(set(str(x) for x in locked))[:3]}...)")
+    print(f"unlock flag given: {unlock}")
     print(f"non-one-to-one site mappings: {len(decisions)}")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -227,6 +365,9 @@ def main() -> int:
         "legs": LEG_ORDER,
         "added": {"tendons": added_tendons, "sites": added_sites, "actuators": added_acts},
         "non_one_to_one_mappings": decisions,
+        "joints_added": added_joints,
+        "locked_joints_in_source": [str(x) for x in locked],
+        "unlocked": bool(unlock),
         "known_approximations": [
             "mid and hind legs have no Trochanter body, so trochanter sites are mapped to the femur",
             "site positions scaled isotropically by the segment length ratio (lengthwise fibres "
