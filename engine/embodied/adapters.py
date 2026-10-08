@@ -209,6 +209,18 @@ class TierConfig:
     #: Which annotation super-classes constitute the visual pathway.
     visual_classes: tuple = ("visual_projection", "visual_centrifugal",
                              "optic_lobe_intrinsic")
+    #: SYNAPTIC WEIGHT SCALE, in uS per synapse.  Exposed here because it sets the
+    #: network's RECURRENT GAIN, and the measured reason it has to be adjustable is a
+    #: threshold cliff: with the shipped 5e-4, injecting a uniform current into every tier
+    #: neuron leaves the population at 0.02 Hz for 1e-5 nA and at 29 Hz with 90% of the
+    #: motor neurons firing at 104 Hz for 1e-4 nA -- a 10x change in input flips the network
+    #: from silent to 90% saturated, and a further 10,000x takes the motor neurons only from
+    #: 104 to 292 Hz.  In that regime no posture can be represented, because any input above
+    #: the threshold yields the same saturated motor pattern.  MEASURED, complete curve in
+    #: outputs/tier_transfer.json (diagnostics/diag_tier_transfer.py).
+    #: THE DEFAULT IS UNCHANGED, so every previously recorded result stays bit-identical;
+    #: passing a different value changes the tier's edges and therefore its fingerprint.
+    weight_scale_uS_per_synapse: float = 5e-4
     dt_ms: float = 0.5
     background_mean_nA: float = 0.0
     background_sd_nA: float = 0.004
@@ -238,6 +250,9 @@ class TierConfig:
         if steps < 1 or not math.isclose(steps, round(steps), rel_tol=0, abs_tol=1e-9):
             raise ValueError("the 2 ms synaptic delay is not a whole number of neural "
                              "steps at dt_ms=%r" % (self.dt_ms,))
+        _finite(self.weight_scale_uS_per_synapse, "weight_scale_uS_per_synapse")
+        if self.weight_scale_uS_per_synapse <= 0:
+            raise ValueError("weight_scale_uS_per_synapse must be strictly positive")
         _finite(self.background_mean_nA, "background_mean_nA")
         _finite(self.background_sd_nA, "background_sd_nA")
         if self.background_sd_nA < 0:
@@ -464,7 +479,8 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
     cut = build_cut_set(a, crossing)
     groups_global = presynaptic_groups(a, mech, cut)
     tcfg = TouchTierConfig(max_neurons=c.max_neurons,
-                           partner_min_synapses=c.partner_min_synapses)
+                           partner_min_synapses=c.partner_min_synapses,
+                           weight_scale_uS_per_synapse=c.weight_scale_uS_per_synapse)
     seed_mask = seeds | head_seeds | vis_seeds
     history = []
     tier = None

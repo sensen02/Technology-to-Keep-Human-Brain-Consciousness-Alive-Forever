@@ -25,6 +25,50 @@ from muscle_wiring import build_mn_muscle_wiring  # noqa: E402
 DUR_MS = float(os.environ.get("TRANSFER_MS", "500"))
 
 
+def sweep_one(scale, currents, dur_ms, mn_local):
+    """the transfer curve of the tier at one synaptic weight scale."""
+    built = build_neural_tier(TierConfig(weight_scale_uS_per_synapse=scale))
+    tier = NeuralTier(built, TierConfig(weight_scale_uS_per_synapse=scale), OwnershipLedger())
+    n = int(built["n"])
+    n_sub = int(round(dur_ms / tier.cfg.dt_ms))
+    win = n_sub * tier.cfg.dt_ms / 1000.0
+    rows = []
+    for cur in currents:
+        tier.reset()
+        sp = tier.advance(n_sub, np.full(n, cur))
+        rows.append({
+            "current_nA": cur,
+            "population_hz": float(sp.sum()) / (n * win),
+            "frac_active": float(sp.any(axis=0).mean()),
+            "mn_hz": float(sp[:, mn_local].sum()) / (mn_local.size * win),
+            "mn_frac_active": float(sp[:, mn_local].any(axis=0).mean())})
+    return rows
+
+
+def gradedness(rows):
+    """how many decades of input the output TRACKS, and where the cliff is.
+
+    A graded sensorimotor loop must change its output progressively as the input rises.  The measure
+    used here is the input span, in decades, over which the motor-neuron rate climbs from 10% to 90%
+    of its own maximum: a wide span means graded, a narrow one means a threshold switch.
+    """
+    cur = np.array([r["current_nA"] for r in rows], float)
+    mn = np.array([r["mn_hz"] for r in rows], float)
+    nz = cur > 0
+    cur, mn = cur[nz], mn[nz]
+    if mn.size == 0 or mn.max() <= 0:
+        return {"decades_10_to_90": None, "note": "no response"}
+    hi, lo = 0.9 * mn.max(), 0.1 * mn.max()
+    def first_above(t):
+        idx = np.flatnonzero(mn >= t)
+        return float(cur[idx[0]]) if idx.size else None
+    a, b = first_above(lo), first_above(hi)
+    dec = (np.log10(b / a) if (a and b and a > 0 and b > a) else None)
+    return {"decades_10_to_90": dec,
+            "input_at_10pct_hz": a, "input_at_90pct_hz": b,
+            "max_mn_hz": float(mn.max())}
+
+
 def main():
     built = build_neural_tier(TierConfig())
     cfg = TierConfig()
@@ -39,8 +83,37 @@ def main():
     print(f"tier {n} neurons, {mn.size} motor-neuron cells; {DUR_MS:.0f} ms per point")
     print(f"{'current nA':>11}{'population Hz':>15}{'frac active':>13}{'MN group Hz':>13}"
           f"{'MN frac active':>16}")
+    CURRENTS = (0.0, 3e-6, 1e-5, 3e-5, 1e-4, 3e-4, 1e-3, 3e-3, 0.01, 0.03, 0.1, 0.3, 1.0)
+    scales_env = os.environ.get("TIER_SCALES")
+    if scales_env:
+        # ---- SWEEP THE SYNAPTIC WEIGHT SCALE.  MEASURED MOTIVATION: at the shipped 5e-4 the
+        # network is a threshold switch (a 10x input change takes it from 0.02 Hz to 90% of the
+        # motor neurons firing), so no posture can be represented.  The weight scale sets the
+        # recurrent gain, and this finds the regime where the transfer curve is graded instead.
+        out = {"scales": [], "currents": list(CURRENTS), "duration_ms": DUR_MS}
+        for sc in [float(v) for v in scales_env.split(",")]:
+            print(f"\n=== weight_scale = {sc:g} uS/synapse ===")
+            rows = sweep_one(sc, CURRENTS, DUR_MS, mn)
+            g = gradedness(rows)
+            for r in rows:
+                print(f"  {r['current_nA']:>9.2e} nA  pop {r['population_hz']:>8.2f} Hz  "
+                      f"active {r['frac_active']:>6.3f}  MN {r['mn_hz']:>8.2f} Hz  "
+                      f"MN active {r['mn_frac_active']:>6.3f}")
+            print(f"  -> decades of input from 10% to 90% of max MN rate: "
+                  f"{g['decades_10_to_90']}; threshold {g['input_at_10pct_hz']}; "
+                  f"max {g['max_mn_hz']:.1f} Hz")
+            out["scales"].append({"weight_scale_uS_per_synapse": sc, "rows": rows,
+                                  "gradedness": g})
+        (HERE / "outputs" / "tier_transfer_scales.json").write_text(json.dumps(out, indent=2))
+        print(f"\nwrote {HERE / 'outputs' / 'tier_transfer_scales.json'}")
+        print("\n=== which scale is GRADED? (more decades of tracking = more graded) ===")
+        for e in out["scales"]:
+            d = e["gradedness"]["decades_10_to_90"]
+            print(f"  {e['weight_scale_uS_per_synapse']:>9.1e}  decades={d if d is None else round(d,3)}"
+                  f"  max MN {e['gradedness']['max_mn_hz']:.1f} Hz")
+        return
     rows = []
-    for cur_nA in (0.0, 1e-5, 1e-4, 3e-4, 1e-3, 3e-3, 0.01, 0.03, 0.1, 0.3, 1.0):
+    for cur_nA in CURRENTS:
         tier.reset()
         sp = tier.advance(n_sub, np.full(n, cur_nA))
         pop = float(sp.sum()) / (n * win)

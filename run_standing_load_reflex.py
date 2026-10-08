@@ -39,8 +39,24 @@ XML = Path(os.environ.get("STANDING_XML",
 LEGS = ("LF", "RF", "LM", "RM", "LH", "RH")
 LEG_TO_TIER = {"LF": "lf", "RF": "rf", "LM": "lm", "RM": "rm", "LH": "lh", "RH": "rh"}
 DT = 1e-4
-N_NEURAL_SUB = 5                 # 0.5 ms neural clock
 N_COMMAND_STEPS = 50             # 5 ms command clock
+# ---------------------------------------------------------------------------
+# THE NEURAL CLOCK COMES FROM THE TIER, NEVER FROM AN ASSUMPTION.
+# MEASURED BUG, and it inflated every rate this project has reported from these loops: the tier's
+# TierConfig.dt_ms is 0.5 ms -- identical to the engine's own LoopConfig.dt_neural_s -- but these
+# scripts assumed a 0.1 ms neural substep and used DT*N_NEURAL_SUB = 0.5 ms as the rate window while
+# calling advance(5, ...), which in fact covers 5 * 0.5 ms = 2.5 ms.  Two consequences, both real:
+#   * every firing rate, and therefore every muscle activation (min(1, rate/REF_RATE_HZ)), was 5x
+#     too high, so activations saturated far earlier than the measurements implied;
+#   * the network advanced 2.5 ms of neural time per 5 ms of physics, i.e. it ran at HALF real time.
+# The engine's own convention (LoopConfig) is neural_substeps = dt_command_s / dt_neural_s = 10.
+# The substep count and the window are now derived from the tier itself and asserted.
+# ---------------------------------------------------------------------------
+TIER_DT_MS = 0.5                      # MEASURED: TierConfig().dt_ms
+DT_COMMAND_S = DT * N_COMMAND_STEPS   # 5 ms command interval
+N_NEURAL_SUB = int(round(DT_COMMAND_S * 1000.0 / TIER_DT_MS))   # 10
+RATE_WINDOW_S = N_NEURAL_SUB * TIER_DT_MS / 1000.0             # 5 ms
+
 DURATION_S = float(os.environ.get("REFLEX_DURATION", "1.5"))
 REF_ANGLE_RAD = 0.30             # ILLUSTRATIVE receptor normalisation (unchanged)
 REF_RATE_HZ = float(os.environ.get("REF_RATE_HZ", "40.0"))     # ILLUSTRATIVE reference firing rate
@@ -156,8 +172,13 @@ def run(mode="load", lesion_all=False, lesion_legs=(), duration_s=None, verbose=
     q0 = np.asarray(d.qpos, dtype=float).copy()
     up0 = d.xmat[th].reshape(3, 3)[:, 2].copy()
     z0 = float(d.xpos[th][2])
+    assert int(tier.cfg.dt_ms * 1000) == int(TIER_DT_MS * 1000), (
+        f"the tier's dt_ms is {tier.cfg.dt_ms}, not the assumed {TIER_DT_MS}; the neural clock and "
+        "the rate window would both be wrong")
+    assert abs(N_NEURAL_SUB * TIER_DT_MS / 1000.0 - DT_COMMAND_S) < 1e-12, (
+        "the neural substeps must cover exactly one command interval")
     tier.reset()
-    n_cmd = int(round(duration_s / (DT * N_COMMAND_STEPS)))
+    n_cmd = int(round(duration_s / DT_COMMAND_S))
     rate_trace, act_trace, trace, load_trace = [], [], [], []
     for c in range(n_cmd):
         q = np.asarray(d.qpos, dtype=float)
@@ -181,7 +202,7 @@ def run(mode="load", lesion_all=False, lesion_legs=(), duration_s=None, verbose=
             a = 0.0
             if g and g["local"]:
                 sel = spikes[:, g["local"]]
-                rate = float(sel.sum()) / (sel.shape[0] * DT * N_NEURAL_SUB)
+                rate = float(sel.sum()) / (sel.shape[0] * RATE_WINDOW_S)
                 a = float(min(1.0, rate / REF_RATE_HZ))
                 rate_trace.append(rate)
             for i in acts:
@@ -219,7 +240,20 @@ if __name__ == "__main__":
         "load_gain_nA": LOAD_GAIN_NA, "angle_gain_nA": ANGLE_GAIN_NA,
         "load_ref_fraction_of_bw": LOAD_REF_FRACTION, "ref_rate_hz": REF_RATE_HZ,
         "duration_s": DURATION_S}}
-    if os.environ.get("REFLEX_SWEEP"):
+    if os.environ.get("REF_SWEEP"):
+        # SWEEP THE REFERENCE RATE.  REF_RATE_HZ is declared ILLUSTRATIVE, and the corrected clock
+        # exposed that its value was doing something indefensible: with REF_RATE_HZ=40 a motor neuron
+        # firing at 43 Hz -- which is what the loop actually produces now -- already gives its muscle
+        # FULL activation, so the muscle layer had almost no resolution.  Drosophila leg motor neurons
+        # fire up to a few hundred Hz and muscle activation is graded across that range, so the
+        # reference belongs near the top of it.  This measures the consequence instead of asserting it.
+        for ref in (40.0, 100.0, 200.0, 400.0):
+            print(f"\n=== REF_RATE_HZ {ref} (load channel) ===")
+            globals()["REF_RATE_HZ"] = ref
+            r = run("load")
+            r["tag"] = f"REF_RATE_HZ={ref}"; r["ref_rate_hz"] = ref
+            out["runs"].append(r)
+    elif os.environ.get("REFLEX_SWEEP"):
         # FIND THE REGIME WHERE THE NETWORK IS NOT SATURATED, then ask whether it stands there.
         for sc in (0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.3):
             print(f"\n=== drive_scale {sc} (both channels) ===")
@@ -241,7 +275,8 @@ if __name__ == "__main__":
     for r in out["runs"]:
         print(f"  {r['tag']:<44} {'STANDS' if r['stood'] else 'does not stand'}  "
               f"(body load {r['final']['body_bw']:.4f} bw, thorax {r['final']['thorax_z']:.4f} mm)")
-    dest = HERE / "outputs" / ("standing_load_reflex_sweep.json"
+    dest = HERE / "outputs" / ("ref_rate_sweep.json" if os.environ.get("REF_SWEEP")
+                              else "standing_load_reflex_sweep.json"
                               if os.environ.get("REFLEX_SWEEP")
                               else "standing_load_reflex.json")
     dest.write_text(json.dumps(out, indent=2, sort_keys=True, default=float))

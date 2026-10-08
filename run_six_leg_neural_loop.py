@@ -46,9 +46,24 @@ LEGS = ("LF", "RF", "LM", "RM", "LH", "RH")
 #: entry, so no muscle was ever driven and the ablation had nothing to silence.  One convention
 #: now, the model's own.
 DT = 1e-4
-N_NEURAL_SUB = 5                  # 0.5 ms neural clock
-DT_NEURAL = DT * N_NEURAL_SUB
 N_COMMAND_STEPS = 50              # 5 ms command clock
+# ---------------------------------------------------------------------------
+# THE NEURAL CLOCK COMES FROM THE TIER, NEVER FROM AN ASSUMPTION.
+# MEASURED BUG, and it inflated every rate this project has reported from these loops: the tier's
+# TierConfig.dt_ms is 0.5 ms -- identical to the engine's own LoopConfig.dt_neural_s -- but these
+# scripts assumed a 0.1 ms neural substep and used DT*N_NEURAL_SUB = 0.5 ms as the rate window while
+# calling advance(5, ...), which in fact covers 5 * 0.5 ms = 2.5 ms.  Two consequences, both real:
+#   * every firing rate, and therefore every muscle activation (min(1, rate/REF_RATE_HZ)), was 5x
+#     too high, so activations saturated far earlier than the measurements implied;
+#   * the network advanced 2.5 ms of neural time per 5 ms of physics, i.e. it ran at HALF real time.
+# The engine's own convention (LoopConfig) is neural_substeps = dt_command_s / dt_neural_s = 10.
+# The substep count and the window are now derived from the tier itself and asserted.
+# ---------------------------------------------------------------------------
+TIER_DT_MS = 0.5                      # MEASURED: TierConfig().dt_ms
+DT_COMMAND_S = DT * N_COMMAND_STEPS   # 5 ms command interval
+N_NEURAL_SUB = int(round(DT_COMMAND_S * 1000.0 / TIER_DT_MS))   # 10
+RATE_WINDOW_S = N_NEURAL_SUB * TIER_DT_MS / 1000.0             # 5 ms
+
 REF_ANGLE_RAD = 0.30              # ILLUSTRATIVE receptor normalisation
 REF_RATE_HZ = 40.0                # ILLUSTRATIVE reference firing rate
 CURRENT_PER_DRIVE_NA = 0.02       # ILLUSTRATIVE transduction gain.
@@ -115,7 +130,7 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
     q0 = np.asarray(d.qpos, dtype=float).copy()
     tier.reset()
 
-    n_cmd = int(round(duration_s / (DT * N_COMMAND_STEPS)))
+    n_cmd = int(round(duration_s / DT_COMMAND_S))
     q_trace = {leg: [] for leg in LEGS}
     act_trace, rate_trace = [], []
     for c in range(n_cmd):
@@ -139,7 +154,7 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
             a = 0.0
             if grp and grp["local"]:
                 sel = spikes[:, grp["local"]]
-                rate = float(sel.sum()) / (sel.shape[0] * DT_NEURAL)
+                rate = float(sel.sum()) / (sel.shape[0] * RATE_WINDOW_S)
                 a = float(min(1.0, rate / REF_RATE_HZ))
                 rate_trace.append(rate)
             for i in acts:
@@ -157,7 +172,7 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
     # legs settle to a fixed pose (max-min over the last 0.5 s = 0.000 rad), so an excursion over
     # the whole run is dominated by the one-time settle and hides what the neurons do.  The metric
     # is therefore the mean |deviation from the starting pose| over the LAST 0.3 s.
-    n_settle = max(1, int(round(0.3 / (DT * N_COMMAND_STEPS))))
+    n_settle = max(1, int(round(0.3 / DT_COMMAND_S)))
     exc = {leg: float(np.mean(v[-n_settle:])) if v else 0.0 for leg, v in q_trace.items()}
     final = {leg: (v[-1] if v else 0.0) for leg, v in q_trace.items()}
     if verbose:

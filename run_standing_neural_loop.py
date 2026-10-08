@@ -41,8 +41,24 @@ XML = Path(os.environ.get("STANDING_XML",
 LEGS = ("LF", "RF", "LM", "RM", "LH", "RH")
 LEG_TO_TIER = {"LF": "lf", "RF": "rf", "LM": "lm", "RM": "rm", "LH": "lh", "RH": "rh"}
 DT = 1e-4
-N_NEURAL_SUB = 5
 N_COMMAND_STEPS = 50
+# ---------------------------------------------------------------------------
+# THE NEURAL CLOCK COMES FROM THE TIER, NEVER FROM AN ASSUMPTION.
+# MEASURED BUG, and it inflated every rate this project has reported from these loops: the tier's
+# TierConfig.dt_ms is 0.5 ms -- identical to the engine's own LoopConfig.dt_neural_s -- but these
+# scripts assumed a 0.1 ms neural substep and used DT*N_NEURAL_SUB = 0.5 ms as the rate window while
+# calling advance(5, ...), which in fact covers 5 * 0.5 ms = 2.5 ms.  Two consequences, both real:
+#   * every firing rate, and therefore every muscle activation (min(1, rate/REF_RATE_HZ)), was 5x
+#     too high, so activations saturated far earlier than the measurements implied;
+#   * the network advanced 2.5 ms of neural time per 5 ms of physics, i.e. it ran at HALF real time.
+# The engine's own convention (LoopConfig) is neural_substeps = dt_command_s / dt_neural_s = 10.
+# The substep count and the window are now derived from the tier itself and asserted.
+# ---------------------------------------------------------------------------
+TIER_DT_MS = 0.5                      # MEASURED: TierConfig().dt_ms
+DT_COMMAND_S = DT * N_COMMAND_STEPS   # 5 ms command interval
+N_NEURAL_SUB = int(round(DT_COMMAND_S * 1000.0 / TIER_DT_MS))   # 10
+RATE_WINDOW_S = N_NEURAL_SUB * TIER_DT_MS / 1000.0             # 5 ms
+
 REF_ANGLE_RAD = 0.30          # ILLUSTRATIVE receptor normalisation (unchanged from the verified loop)
 REF_RATE_HZ = float(os.environ.get("REF_RATE_HZ", "40.0"))   # ILLUSTRATIVE reference firing rate
 CURRENT_PER_DRIVE_NA = 0.02   # ILLUSTRATIVE transduction gain
@@ -119,8 +135,10 @@ def run(lesion_all=False, lesion_legs=(), duration_s=None, verbose=True):
     th = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, "Thorax")
     up0 = d.xmat[th].reshape(3, 3)[:, 2].copy()
     z0 = float(d.xpos[th][2])
+    assert int(tier.cfg.dt_ms * 1000) == int(TIER_DT_MS * 1000), (
+        f"the tier's dt_ms is {tier.cfg.dt_ms}, not the assumed {TIER_DT_MS}")
     tier.reset()
-    n_cmd = int(round(duration_s / (DT * N_COMMAND_STEPS)))
+    n_cmd = int(round(duration_s / DT_COMMAND_S))
     rate_trace, act_trace, state_trace = [], [], []
     for c in range(n_cmd):
         q = np.asarray(d.qpos, dtype=float)
