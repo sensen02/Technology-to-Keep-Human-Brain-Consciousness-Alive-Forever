@@ -77,6 +77,20 @@ def build(lesion_all=False, lesion_legs=()):
     tier = NeuralTier(built, TierConfig(), OwnershipLedger())
     wiring, stats, _ = build_mn_muscle_wiring(verbose=False)
     m = _load_mjcf(str(XML)).compile()
+    # PLANT CALIBRATION, APPLIED TO THE MODEL RATHER THAN SOLVED FOR.  MEASURED: the passive joint
+    # stiffness of 0.4 uN*mm/rad was fitted by the source paper for a TETHERED model in which only one
+    # leg moves, and as a load-bearing skeleton it leaves the legs carrying only 58% of the weight at
+    # the stance (passive vertical acceleration -4149 mm/s^2).  That is a MECHANICAL PARAMETER of the
+    # model, not a controller, and this does not compute or impose any activation pattern: the fly's
+    # own loop still has to hold it up.  The constraint that keeps the claim honest is that with ZERO
+    # activation it must still NOT stand.
+    _stiff = float(os.environ.get("PLANT_STIFFNESS", "0.4"))
+    _damp = float(os.environ.get("PLANT_DAMPING", "0.02"))
+    for _j in range(m.njnt):
+        _nm = mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_JOINT, _j) or ""
+        if _nm.startswith("joint_"):
+            m.jnt_stiffness[_j] = _stiff
+            m.dof_damping[int(m.jnt_dofadr[_j])] = _damp
     d = mujoco.MjData(m)
     mujoco.mj_resetDataKeyframe(m, d, 0)
     mujoco.mj_forward(m, d)
@@ -236,11 +250,31 @@ def run(mode="load", lesion_all=False, lesion_legs=(), duration_s=None, verbose=
 
 
 if __name__ == "__main__":
-    out = {"xml": str(XML), "runs": [], "params": {
+    out = {"xml": str(XML), "runs": [], "plant": {
+        "stiffness": float(os.environ.get("PLANT_STIFFNESS", "0.4")),
+        "damping": float(os.environ.get("PLANT_DAMPING", "0.02"))}, "params": {
         "load_gain_nA": LOAD_GAIN_NA, "angle_gain_nA": ANGLE_GAIN_NA,
         "load_ref_fraction_of_bw": LOAD_REF_FRACTION, "ref_rate_hz": REF_RATE_HZ,
         "duration_s": DURATION_S}}
-    if os.environ.get("REF_SWEEP"):
+    if os.environ.get("PLANT_SWEEP"):
+        # THE JUDGE IS THE FLY'S OWN LOOP, NOT A SOLVER.  No activation pattern is computed or imposed
+        # anywhere: the connectome drives the muscles from the tarsi's load and the joints' angles, and
+        # the question is simply whether the fly ends up standing.  Each setting is also checked for the
+        # constraint that ZERO activation must still fail, so the posture cannot be the springs'.
+        for stiff in (float(v) for v in os.environ["PLANT_SWEEP"].split(",")):
+            globals()["_PLANT"] = stiff
+            os.environ["PLANT_STIFFNESS"] = str(stiff)
+            print(f"\n=== plant stiffness {stiff} (the loop is the judge) ===")
+            passive = run("none")
+            print(f"    [zero activation at this stiffness: body {passive['final']['body_bw']:.4f} bw, "
+                  f"thorax {passive['final']['thorax_z']:.4f} mm -> "
+                  + ("STANDS: rejected, the posture would be the springs"
+                     if passive["stood"] else "collapses, so a stand here would be neural") + "]")
+            r = run("both")
+            r["tag"] = f"stiffness {stiff}"; r["plant_stiffness"] = stiff
+            r["passive"] = passive["final"]; r["passive_stood"] = passive["stood"]
+            out["runs"].append(r)
+    elif os.environ.get("REF_SWEEP"):
         # SWEEP THE REFERENCE RATE.  REF_RATE_HZ is declared ILLUSTRATIVE, and the corrected clock
         # exposed that its value was doing something indefensible: with REF_RATE_HZ=40 a motor neuron
         # firing at 43 Hz -- which is what the loop actually produces now -- already gives its muscle
@@ -275,7 +309,8 @@ if __name__ == "__main__":
     for r in out["runs"]:
         print(f"  {r['tag']:<44} {'STANDS' if r['stood'] else 'does not stand'}  "
               f"(body load {r['final']['body_bw']:.4f} bw, thorax {r['final']['thorax_z']:.4f} mm)")
-    dest = HERE / "outputs" / ("ref_rate_sweep.json" if os.environ.get("REF_SWEEP")
+    dest = HERE / "outputs" / ("plant_sweep.json" if os.environ.get("PLANT_SWEEP")
+                              else "ref_rate_sweep.json" if os.environ.get("REF_SWEEP")
                               else "standing_load_reflex_sweep.json"
                               if os.environ.get("REFLEX_SWEEP")
                               else "standing_load_reflex.json")
