@@ -214,9 +214,18 @@ def main() -> int:
     #   out, middle legs the most lateral, hind legs rearward and out -- with the hexagon sized so
     #   that the COM's projection is well inside it and every leg stays under ~70% of its own
     #   length.  NOT measured for this specimen and not claimed to be a recorded stance.
-    TARGETS_BODY = {"LF": (+0.35, +0.60), "RF": (+0.35, -0.60),
-                    "LM": (-0.50, +0.85), "RM": (-0.50, -0.85),
-                    "LH": (-1.35, +0.60), "RH": (-1.35, -0.60)}
+    # WIDENED, BECAUSE THE MEASURED FAILURE MODE IS ROLL, NOT SAG.  MEASURED: pushing one sixth of
+    # body weight onto a single foot makes the fly ROLL (the thorax's up-vector falls to 0.45-0.74,
+    # i.e. 42-63 degrees of tilt) rather than compress the leg, and four to five of the six feet leave
+    # the floor.  Raising the leg-joint stiffness 40x and correcting the mass 2.44x reduces the sag but
+    # the roll remains, so what the leg set lacks is ROTATIONAL stiffness about the body's long axis.
+    # A wider stance is what supplies it -- the legs act as angled struts -- and the previous feet at
+    # +-0.60 and +-0.85 mm barely sat outside a body whose half-width is about 0.65 mm.  The targets are
+    # therefore pushed outward to near the legs' own reach, and the joint-limit penalty above keeps the
+    # coxae off their stops while they do it.
+    TARGETS_BODY = {"LF": (+0.30, +1.00), "RF": (+0.30, -1.00),
+                    "LM": (-0.45, +1.30), "RM": (-0.45, -1.30),
+                    "LH": (-1.20, +1.00), "RH": (-1.20, -1.00)}
     PK = (("Coxa", "yaw"), ("Coxa", "pitch"), ("Coxa", "roll"),
           ("Trochanter", "pitch"), ("Tibia", "pitch"))
     key_of = [(leg, seg, js) for leg in LEGS for seg, js in PK]
@@ -289,6 +298,23 @@ def main() -> int:
             r.extend(((p - tgt_world(leg, x[0])) / 0.05).tolist())   # foot at its target
         for i, k in enumerate(key_of):
             r.append(0.15 * (x[1 + i] - neut[k]) / 0.3)     # stay near the declared posture
+        # KEEP EVERY JOINT OFF ITS LIMITS.  MEASURED, and it is the reason the fly was standing on two
+        # legs: the previous stance drove NINE coxa joints onto their range bounds (LMCoxa_pitch and
+        # roll at 100%, RMCoxa_yaw at 0%, LMCoxa/roll/pitch, LHCoxa yaw/pitch/roll and RHCoxa_pitch at
+        # 100%), and a joint sitting on its stop has NO travel left, so its spring can supply no torque
+        # at all -- the leg becomes a rigid strut.  The mid legs took 84.7% of the body weight and the
+        # forelegs, which were not against a stop and were therefore compliant, took 3.8%; the right
+        # foreleg's vertical stiffness measured exactly zero.  A pose that pins the coxae is not a
+        # stance, whatever the foot positions look like, so proximity to either bound is penalised.
+        MARGIN = 0.12
+        for i, k in enumerate(key_of):
+            lo, hi = (float(v) for v in m.jnt_range[jid[k]])
+            span = hi - lo
+            if span <= 0:
+                continue
+            q = x[1 + i]
+            r.append(3.0 * max(0.0, MARGIN - (q - lo) / span) / MARGIN)
+            r.append(3.0 * max(0.0, MARGIN - (hi - q) / span) / MARGIN)
         r.append(0.02 * (x[0] - 1.5) / 0.3)
         return np.array(r)
 
