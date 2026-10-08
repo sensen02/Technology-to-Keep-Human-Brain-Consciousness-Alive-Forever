@@ -94,7 +94,14 @@ MuJoCo 对自由关节的方程是 `M·qacc = qfrc_applied + qfrc_actuator + qfr
 
 ---
 
-## 3b. 为什么果蝇自己站不起来：**控制器是开环的**
+## 3b. 为什么（这一支里）果蝇自己站不起来：**这一支的控制器是开环的**
+
+> **重要限定，写在这里以免误导**：下面说的是 `arm="cpg_baseline"`，也就是 `run_arena_record.py` /
+> `run_tactile_record.py` 用的那一支——**本文件所有运动学与触觉数字都出自这一支**。仓库另有一支
+> `arm="neural_modulated"`（`engine/embodied/loop.py`、`run_vision_into_tier.py`），**闭环是存在的**：
+> 接触力 + 关节角 → 机械感受器 → NeuralTier（真实 BANC 连接体）→ 解码器 → CPG → 身体，自检 49/49
+> 通过。但即使在那一支，连接体只**调制** CPG 的频率与左右不对称，**不产生步态**。
+> 把这一支的开环性质说成"整个项目是开环的"是我的错误。
 
 **不是重力问题，是控制器问题**，而且是代码级别的确定事实：
 
