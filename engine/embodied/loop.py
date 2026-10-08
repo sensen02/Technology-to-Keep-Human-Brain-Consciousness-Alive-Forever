@@ -161,6 +161,10 @@ class LoopConfig:
     forced_rate_mode: str = "none"
     forced_rate_delta_hz: float = 15.0
     spawn_position_mm: tuple = (0.0, 0.0, 0.5)
+    #: Spawn ORIENTATION, passed straight to the body.  Default identity keeps every previous
+    #: episode bit-identical; (0, 1, 0, 0) starts the fly upside down, which is how a righting
+    #: test has to be posed.
+    spawn_quat_wxyz: tuple = (1.0, 0.0, 0.0, 0.0)
     world_half_size_mm: float = 1000.0
     cpg_intrinsic_frequency_hz: float = 12.0
     add_tracking_camera: bool = True
@@ -351,6 +355,14 @@ class MultirateScheduler:
         self.body = BodyBackend(BodyConfig(
             seed=self.cfg.seed, timestep_s=self.cfg.dt_body_s,
             spawn_position_mm=tuple(float(v) for v in self.cfg.spawn_position_mm),
+            # THE SPAWN ORIENTATION MUST BE PASSED HERE OR THE RIGHTING TEST IS VACUOUS.
+            # MEASURED: an earlier patch of mine tried to add this line by matching
+            # "spawn_position_mm=cfg.spawn_position_mm", which does not exist in this file --
+            # str.replace matched nothing and FAILED SILENTLY, so the inverted and upright runs
+            # came out bit-identical and "the fly recovered" was an artefact of the fly never
+            # having been inverted.  The check in the righting test now compares the two runs'
+            # traces, which is what caught it.
+            spawn_quat_wxyz=tuple(float(v) for v in self.cfg.spawn_quat_wxyz),
             world_half_size_mm=self.cfg.world_half_size_mm,
             cpg_intrinsic_frequency_hz=self.cfg.cpg_intrinsic_frequency_hz,
             add_tracking_camera=self.cfg.add_tracking_camera,

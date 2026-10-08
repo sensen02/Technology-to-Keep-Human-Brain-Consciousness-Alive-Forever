@@ -55,6 +55,12 @@ class BodyConfig:
     fly_name: str = "nmf"
     timestep_s: float = 1e-4
     spawn_position_mm: tuple = (0.0, 0.0, 0.5)
+    #: SPAWN ORIENTATION as a quaternion (w, x, y, z), IDENTITY by default so every previous
+    #: result is bit-identical.  This exists so an episode can START the fly in a chosen pose --
+    #: specifically INVERTED, which is the only honest way to ask whether a controller can right
+    #: itself: the perturbation has to be an initial condition, not a mid-run poke, or the
+    #: answer depends on the poke.  A 180-degree rotation about x is (0, 1, 0, 0).
+    spawn_quat_wxyz: tuple = (1.0, 0.0, 0.0, 0.0)
     #: Visual half-extent of the ground plane, in MM (FlyGym's own default is
     #: 1000).  The plane is INFINITE for collision -- MuJoCo planes always are --
     #: so a value smaller than the walk distance does NOT break the physics, but
@@ -184,6 +190,12 @@ class BodyConfig:
         if len(self.spawn_position_mm) != 3 or not all(
                 math.isfinite(float(v)) for v in self.spawn_position_mm):
             raise ValueError("spawn_position_mm must be three finite numbers")
+        if len(self.spawn_quat_wxyz) != 4 or not all(
+                math.isfinite(float(v)) for v in self.spawn_quat_wxyz):
+            raise ValueError("spawn_quat_wxyz must be four finite numbers")
+        _qn = math.sqrt(sum(float(v) ** 2 for v in self.spawn_quat_wxyz))
+        if abs(_qn - 1.0) > 1e-6:
+            raise ValueError("spawn_quat_wxyz must be a UNIT quaternion (norm %r)" % _qn)
         if not math.isfinite(self.world_half_size_mm) or self.world_half_size_mm <= 0:
             raise ValueError("world_half_size_mm must be positive and finite")
         if not math.isfinite(self.cpg_intrinsic_frequency_hz) or \
@@ -206,7 +218,9 @@ class BodyConfig:
         return self
 
     def units(self):
-        return {"spawn_position_mm": MM, "world_half_size_mm": MM,
+        return {"spawn_position_mm": MM, "spawn_quat_wxyz": ("unit quaternion (w,x,y,z); "
+                "(0,1,0,0) is the fly INVERTED about x"),
+                "world_half_size_mm": MM,
                 "timestep_s": SECONDS, "cpg_intrinsic_frequency_hz": "Hz",
                 "joint_stiffness": "N*mm/rad", "joint_damping": "N*mm*s/rad",
                 "actuator_gain": "N*mm/rad", "gravity": "mm/s^2 (= -9810)",
@@ -420,7 +434,8 @@ class BodyBackend:
         self.world.add_fly(
             self.fly,
             spawn_position=[float(v) for v in self.cfg.spawn_position_mm],
-            spawn_rotation=Rotation3D("quat", [1.0, 0.0, 0.0, 0.0]))
+            spawn_rotation=Rotation3D("quat",
+                                      [float(v) for v in self.cfg.spawn_quat_wxyz]))
         # A tracking camera must be added BEFORE compiling: it is attached
         # inside the fly's root body, and this fly ships with no cameras at all
         # (verified: model.ncam == 0).  Without it Renderer(...) raises
@@ -720,6 +735,7 @@ class BodyBackend:
             "geometry_note": GEOMETRY_NOTE,
             "fly_config": {k: getattr(self.cfg, k) for k in
                            ("fly_name", "timestep_s", "spawn_position_mm",
+                            "spawn_quat_wxyz",
                             "world_half_size_mm", "cpg_intrinsic_frequency_hz",
                             "joint_stiffness", "joint_damping", "actuator_gain",
                             "add_adhesion", "seed")},
