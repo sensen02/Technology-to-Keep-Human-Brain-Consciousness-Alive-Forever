@@ -63,13 +63,13 @@ def main() -> int:
             sel = m & (prim == t)
             per_type[str(t)] = {"n": int(sel.sum()),
                                 "ids": [int(x) for x in root[sel][:64]]}
-        table[f"{leg}{side}"] = {"nerve": n, "n_muscle_named_mn": int(m.sum()),
+        table[f"{side}{leg}"] = {"nerve": n, "n_muscle_named_mn": int(m.sum()),
                                  "by_type": per_type,
                                  "all_mn_like": int(((nerve == n) &
                                                      np.array([is_muscle_named(s) or
                                                                str(s).startswith("MN")
                                                                for s in prim])).sum())}
-        print(f"{leg + side:<8}{n:<34}{int(m.sum()):>17}")
+        print(f"{side + leg:<8}{n:<34}{int(m.sum()):>17}")
 
     # for each model muscle, which per-leg MN groups can drive it
     print(f"\n{'muscle actuator':<40}" + "".join(f"{k:>8}" for k in table))
