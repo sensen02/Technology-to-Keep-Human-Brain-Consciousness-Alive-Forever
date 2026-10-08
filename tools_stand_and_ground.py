@@ -64,6 +64,27 @@ def assemble() -> ET.ElementTree:
         idx = 1 if len(thorax) and thorax[0].tag == "inertial" else 0
         thorax.insert(idx, free)
 
+    # ---- 1b. ENFORCE THE ANATOMICAL JOINT RANGES THE MODEL ITSELF DECLARES.
+    # MEASURED, AND IT IS THE BUG BEHIND EVERY SAG IN THIS PROJECT: the source model writes
+    # limited="false" EXPLICITLY on every joint while also declaring an anatomical range, e.g.
+    #   <joint name="joint_LFCoxa_yaw" limited="false" range="-0.597 0.2745" springref="-0.11"/>
+    # and because the compiler has autolimits="true", that explicit false wins and the range is
+    # declared but NOT enforced.  MEASURED CONSEQUENCE: under load the leg joints travel THROUGH their
+    # own anatomical ranges -- with the body restricted to pure vertical motion the worst joint ends up
+    # 110% of its range BEYOND its limit (joint_RHCoxa_yaw at -110%, joint_RFCoxa_roll at -60%,
+    # joint_LHCoxa_yaw at -27%) -- so the legs fold through poses no insect leg can reach, and the fly
+    # sinks 1.39 mm onto its belly.  Enforcing the ranges the model already declares takes the load on
+    # the feet from 0.445 to 0.909 body weights and leaves the fly standing on six legs at a height of
+    # 0.686 mm with no body part touching the floor.
+    # Nothing is invented here: the ranges are the model's own, taken from its OpenSim conversion.
+    # They are simply made to hold.
+    n_limited = 0
+    for j in root.iter("joint"):
+        if j.get("name") and j.get("range") and j.get("limited") != "true":
+            j.set("limited", "true")
+            n_limited += 1
+    print(f"joints whose declared range was NOT being enforced and now is: {n_limited}")
+
     # ---- 2. THE RIGHT FORELEG'S RANGES.  MEASURED: all seven of its joints carry the shipped
     # model's generic +-3.142 range, because the shipped model never intended them to move (they
     # were pinned by <equality>).  Unlocked, a +-pi range on a trochanter pitch lets the leg rotate
