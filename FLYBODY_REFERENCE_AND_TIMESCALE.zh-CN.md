@@ -125,7 +125,13 @@
 
 ---
 
-## 5. 复现与产物（全路径）
+## 5. 图
+
+`/run/media/sensen/Data2/cell_wound_prototype/outputs/model_branches/flybody_loop/flybody_reference_timescale.png`
+（已用视图逐张确认）：左＝躯干自身被动响应（质心+三条铰链实测曲线）；中＝通道电流份额与消融后剩余驱动；
+右＝τ 扫描与被标记的"躯干自身时间常数"。
+
+## 6. 复现与产物（全路径）
 
 ```bash
 cd /run/media/sensen/Data2/cell_wound_prototype

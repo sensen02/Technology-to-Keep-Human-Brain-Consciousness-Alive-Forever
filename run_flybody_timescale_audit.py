@@ -151,6 +151,8 @@ def joint_responses(model, seated):
         damping = float(model.dof_damping[dof])
         rows[hinge] = dict(
             joint=hinge, qpos_adr=adr,
+            trace_times_s=[round(t, 4) for t in times],
+            trace_deviation_rad=[round(v, 6) for v in values],
             published_servo_gain=gain, joint_damping=damping,
             tau_from_gain_and_damping_s=(damping/gain if gain else None),
             initial_excursion_rad=JOINT_DISPLACEMENT_RAD, **decay)
