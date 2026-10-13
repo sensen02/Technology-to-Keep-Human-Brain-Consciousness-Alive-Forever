@@ -115,11 +115,19 @@ def build_body(kind, tibia_sign='declared'):
             joint_group[leg_key(leg)] = group
             if abs(model.jnt_qposadr[tib_id] - adr[tib]) != 0:
                 pass  # the tibia hinge is inside the group by construction of the table
-        hinge_qpos = {}
+        hinge_qpos, role_hinge = {}, {}
         for leg in LEGS:
-            for name in translation['sensory_translation'][leg]['multi_joint_group']:
+            group = translation['sensory_translation'][leg]['multi_joint_group']
+            for name in group:
                 hinge_qpos[name] = int(model.jnt_qposadr[mujoco.mj_name2id(
                     model, mujoco.mjtObj.mjOBJ_JOINT, name)])
+            tag, side = body_mod.LEG_TAG[leg]
+            coxa = f'coxa_abduct_{tag}_{side}'
+            hinge_qpos[coxa] = int(model.jnt_qposadr[mujoco.mj_name2id(
+                model, mujoco.mjtObj.mjOBJ_JOINT, coxa)])
+            role_hinge[leg_key(leg)] = dict(
+                tibia=translation['sensory_translation'][leg]['tibia_hinge'],
+                coxa=coxa, group=group)
         contact = {}
         for g in range(model.ngeom):
             name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, g) or ''
@@ -136,6 +144,7 @@ def build_body(kind, tibia_sign='declared'):
         return dict(kind=kind, xml=str(xml), xml_sha256=sha256(xml), model=model,
                     thorax_id=model.body('thorax').id,
                     muscle_index=muscle_index, sign_override=sign_override, hinge_qpos=hinge_qpos,
+                    role_hinge=role_hinge,
                     tibia_sign_variant=tibia_sign if sign_override else 'declared',
                     seated=seated, joints=tables, contact_geoms=contact, floor=floor,
                     joint_group=joint_group, weight=weight, weight_per_leg=weight/len(LEGS),
@@ -144,6 +153,12 @@ def build_body(kind, tibia_sign='declared'):
         model, seated, gate, joints, geom_leg = closure.prepare_body()
         floor = cp.floor_geom_id(model)
         contact = {leg_key(leg): [g for g, l in geom_leg.items() if l == leg] for leg in LEGS}
+        # The canonical body has no separate tarsus, and its coxa hinge about the body's vertical
+        # axis is the one NAMED `Coxa_roll` (measured earlier: at the symmetric zero configuration the
+        # canonical Coxa_yaw/pitch/roll axes are exactly the world X/Y/Z axes, so the horizontal swing
+        # is Coxa_roll).  Declared, because the two models' naming conventions are permuted.
+        role_hinge = {leg_key(leg): dict(tibia=f'joint_{leg}Tibia_pitch',
+                                         coxa=f'joint_{leg}Coxa_roll') for leg in LEGS}
         weight = float(model.body_mass.sum()*abs(model.opt.gravity[2]))
         return dict(kind=kind, xml=str(cp.CANONICAL_XML), xml_sha256=cp.sha256_file(cp.CANONICAL_XML),
                     model=model, seated=seated, joints=joints, contact_geoms=contact, floor=floor,
@@ -152,12 +167,19 @@ def build_body(kind, tibia_sign='declared'):
                                                  'Trochanter_yaw', 'Trochanter_pitch',
                                                  'Trochanter_roll')] for leg in LEGS},
                     weight=weight, weight_per_leg=weight/len(LEGS), translation=None,
-                    thorax_id=model.body('Thorax').id,
+                    thorax_id=model.body('Thorax').id, role_hinge=role_hinge,
                     gate=gate, nq=int(model.nq), nu=int(model.nu))
     raise ValueError(f'unknown body kind {kind!r}')
 
 
-def observe(body, data, force_normaliser):
+def observe(body, data, force_normaliser, roles=None):
+    """`roles` is a DECLARED quantity map: it names which hinge feeds the slot the encoder reads for
+    each posture channel.  The published account of the fly's receptors puts the hair plates on the
+    thorax-coxa joint (CxHP8 encodes coxa rotation over a ~149 deg span, Pratt et al. 2026) and the
+    chordotonal organ on the femur-tibia joint, so a run that follows the literature points the
+    hair-plate slot at the coxa hinge and the position slot at the femur-tibia hinge.  None keeps the
+    project's historical choice (a mean over the leg's mapped hinges)."""
+
     """The same three sensory quantities the canonical front end has always used, per leg.
 
     Force is divided by `force_normaliser` (the body's own per-leg weight share) so both bodies
@@ -184,10 +206,25 @@ def observe(body, data, force_normaliser):
     for leg in LEGS:
         key = leg_key(leg)
         j = body['joints'][key]
+        roles = roles or {}
+        roles = {k: v for k, v in roles.items()}
+        if j.get('tib_q') is None:
+            pass
+        tib_q, tib_v = j['tib_q'], j['tib_v']
+        group_q = j['q']
+        role_hinge = body.get('role_hinge', {}).get(key, {})
+        if roles.get('hairplate') == 'coxa' and role_hinge.get('coxa'):
+            name = role_hinge['coxa']
+            coxa_adr = body['hinge_qpos'][name]
+            group_q = [coxa_adr]
+        if roles.get('claw') == 'tibia' and role_hinge.get('tibia'):
+            name = role_hinge['tibia']
+            tib_q = body['hinge_qpos'][name]
+            tib_v = tib_q
         out[key] = closure.ChannelQuantities(
-            tibia_joint_dev_rad=float(data.qpos[j['tib_q']]-body['reference'][j['tib_q']]),
-            tibia_joint_vel_rad_s=float(data.qvel[j['tib_v']]),
-            multi_joint_dev_rad=float(np.mean(data.qpos[j['q']]-body['reference'][j['q']])),
+            tibia_joint_dev_rad=float(data.qpos[tib_q]-body['reference'][tib_q]),
+            tibia_joint_vel_rad_s=float(data.qvel[tib_v]),
+            multi_joint_dev_rad=float(np.mean(data.qpos[group_q]-body['reference'][group_q])),
             contact_force_norm=float(force[key]/force_normaliser),
             foot_contact=float(touch[key]))
     return out
@@ -276,7 +313,8 @@ def height_mm(body, data):
 def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
             drive_fraction=DRIVE_FRACTION, dc_mode='off', freeze_after_interval=None,
             drive_polarity=1.0, filter_tau_s=None, push=None, channel_signs=None,
-            channel_ablation=None, club_quantity='zero', record_extra=None):
+            channel_ablation=None, club_quantity='zero', channel_config=None, sensory_roles=None,
+            record_extra=None):
     import mujoco
     model = body['model']
     intervals = grid_steps(duration, DT_COMMAND)
@@ -290,7 +328,11 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
     data.ctrl[:] = 0.0
     mujoco.mj_forward(model, data)
     body['reference'] = body['seated'].copy()
-    encoder = closure.ChannelSensoryEncoder(groups, int(built['n']), closure.ChannelConfig())
+    # `channel_config` is a DECLARED translation-layer override of the encoder's own normalisers (the
+    # four numbers that set the RELATIVE strength of the channels, since they all share one current
+    # scale).  None keeps the published configuration exactly.
+    encoder = closure.ChannelSensoryEncoder(groups, int(built['n']),
+                                            channel_config or closure.ChannelConfig())
     # `filter_tau_s` is a DECLARED translation-layer knob (the decoder's own population-rate filter,
     # 5 ms in every primary run); a different value is a sensitivity run and never a tuned result.
     decoder = MotorOutput(manifest,
@@ -307,7 +349,7 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
     frozen_command = np.zeros(int(manifest['n_actuators']))
     for k in range(intervals):
         t = k*DT_COMMAND
-        quantities = observe(body, data, body['weight_per_leg'])
+        quantities = observe(body, data, body['weight_per_leg'], roles=sensory_roles)
         current, channels = encoder.encode(quantities)
         # The SAME declared experimenter stimulus the canonical closure uses, applied identically
         # to both bodies and never aimed at a motor pool: a local tactile input on the left front
@@ -336,7 +378,7 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
                       'contact_force_norm', 'foot_contact')
             if club_quantity not in fields:
                 raise ValueError(f'club_quantity {club_quantity!r} is not one of {fields} or zero')
-            cfg = closure.ChannelConfig()
+            cfg = channel_config or closure.ChannelConfig()
             for leg, q in quantities.items():
                 value = float(getattr(q, club_quantity))
                 if club_quantity in ('tibia_joint_dev_rad', 'multi_joint_dev_rad'):

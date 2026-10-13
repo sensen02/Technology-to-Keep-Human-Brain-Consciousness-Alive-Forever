@@ -119,5 +119,90 @@ class SourcedParameterGateTests(unittest.TestCase):
         self.assertEqual(default, 'zero')
 
 
+class SourcedArtefactTests(unittest.TestCase):
+    """The artifacts the sourced normalisers and roles actually produced."""
+
+    @classmethod
+    def setUpClass(cls):
+        import run_flybody_loop as loop
+        cls.out = loop.OUT
+        cls.config = json.loads((cls.out/'sourced_sensory_config.json').read_text())
+        cls.audit = json.loads((cls.out/'flybody_sourced_sensory_run.json').read_text())['measured']
+        cls.geometry = json.loads((cls.out/'flybody_joint_geometry.json').read_text())['measured']
+        cls.literature = json.loads(
+            (loop.HERE/'data/literature_sensory_parameters.json').read_text())
+
+    def test_the_angle_and_velocity_normalisers_are_half_the_cited_spans(self):
+        import math
+        claw = self.literature['channels']['claw_position']['published_range']
+        hook = self.literature['channels']['hook_direction']['published_range']
+        self.assertAlmostEqual(self.config['reference_angle_rad'],
+                               math.radians((claw['high']-claw['low'])/2), places=9)
+        self.assertAlmostEqual(self.config['reference_velocity_rad_s'],
+                               math.radians((hook['high']-hook['low'])/2), places=9)
+        self.assertIn('half of the published range', self.config['derivation']
+                      ['reference_angle_rad']['arithmetic'])
+
+    def test_the_force_normaliser_is_refused_not_invented(self):
+        self.assertIsNone(self.literature['force_normaliser_channel'])
+        self.assertIsNone(self.config['reference_force'])
+        self.assertIn('force_normaliser_channel', self.config['refused_without_source'])
+        self.assertIn('club_quantity', self.literature)
+        self.assertEqual(self.config['club_quantity'], 'zero')
+        self.assertNotIn('club_quantity', self.config['refused_without_source'])
+
+    def test_the_filter_window_is_sourced_and_its_rule_stated(self):
+        window = self.literature['filter_tau_window_ms']
+        self.assertLess(window['low'], window['high'])
+        self.assertAlmostEqual(self.config['filter_tau_s'],
+                               (window['low']*window['high'])**.5/1000.0, places=12)
+        note = self.config['derivation']['filter_tau_s']['note']
+        self.assertIn('not a published rule', note)
+
+    def test_the_seated_pose_sits_at_the_published_reference_angle(self):
+        summary = self.geometry['seated_angle_summary']
+        # the femoral chordotonal organ's published minimal-activity angle is about 80-90 deg, and the
+        # model's own neutral stance is measured here, not assumed
+        self.assertTrue(75.0 < summary['mean_deg'] < 100.0)
+        for leg, row in self.geometry['per_leg'].items():
+            lo, hi = row['femur_tibia_angle_range_deg']
+            self.assertLess(lo, 30.0, leg)
+            self.assertGreater(hi, 150.0, leg)
+            self.assertTrue(-60.0 < row['hinge_to_anatomical_angle_deg_per_rad'] < -54.0, leg)
+
+    def test_sourcing_the_parameters_improves_the_stance_but_not_the_reference(self):
+        summary = self.audit['summary']
+        published = summary['published_config_historical_roles']
+        sourced = summary['sourced_normalisers_literature_roles']
+        self.assertGreater(sourced['standing_measured']['n_claw_contacts'],
+                           published['standing_measured']['n_claw_contacts'])
+        self.assertEqual(sourced['standing_measured']['n_claw_contacts'], 6)
+        self.assertEqual(sourced['failed_checks'], ['quiet'])
+        self.assertGreater(sourced['height_mean_last_50ms_mm'],
+                           published['height_mean_last_50ms_mm'])
+        # THE KEY REGRESSION: no configuration, sourced or not, has a single restoring hinge
+        for key, row in summary.items():
+            self.assertEqual(row['n_restoring'], 0, key)
+            self.assertGreater(row['median_correlation'], .5, key)
+
+    def test_the_literature_roles_are_measurably_inert_because_that_channel_is_tiny(self):
+        summary = self.audit['summary']
+        a = summary['sourced_normalisers_historical_roles']
+        b = summary['sourced_normalisers_literature_roles']
+        self.assertAlmostEqual(a['mean_abs_drive'], b['mean_abs_drive'], places=12)
+        self.assertLess(b['channel_current_shares']['hairplate_angle'], .02)
+
+    def test_the_tau_window_does_not_decide_the_filter(self):
+        # with SOURCED normalisers the fastest filter gives the best stance, which reverses the
+        # earlier finding that was measured with unsourced normalisers; the artifact must keep both
+        window = self.audit['tau_window']
+        runs = window['runs']
+        best = max(runs.values(), key=lambda r: r['n_claw_contacts'])
+        self.assertEqual(best['filter_tau_s'], .005)
+        self.assertGreaterEqual(best['n_claw_contacts'],
+                                max(r['n_claw_contacts'] for r in runs.values()))
+        self.assertIn('not a published rule', window['reading'])
+
+
 if __name__ == '__main__':
     unittest.main()

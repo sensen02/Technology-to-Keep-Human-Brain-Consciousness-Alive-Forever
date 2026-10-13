@@ -59,6 +59,9 @@ CONVERSION = {'mm_per_model_length': 10.0, 'mg_per_model_mass': 1000.0,
               'uN_per_model_force': 10.0,
               'note': '1 model length = 1 cm; 1 model mass = 1 g; 1 model force = 1 g*cm/s^2 = 1e-5 N'}
 LEG_OF_TAG = {'T1': 'F', 'T2': 'M', 'T3': 'H'}
+#: Inverse map, used by anything that has to name a FlyBody element for one of this project's legs.
+LEG_TAG = {'LF': ('T1', 'left'), 'RF': ('T1', 'right'), 'LM': ('T2', 'left'),
+           'RM': ('T2', 'right'), 'LH': ('T3', 'left'), 'RH': ('T3', 'right')}
 CANONICAL_LEGS = ('LF', 'RF', 'LM', 'RM', 'LH', 'RH')
 
 

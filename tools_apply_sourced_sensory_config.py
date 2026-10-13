@@ -112,6 +112,19 @@ def main():
             value=reference_force, from_channel=force_channel, arithmetic=arithmetic,
             source=entry_f['source'], quantity=entry_f['quantity'], note=entry_f.get('note'))
 
+    filter_window = doc.get('filter_tau_window_ms')
+    filter_tau = None
+    if filter_window:
+        require_source(filter_window, 'filter_tau_window_ms', 'source')
+        low_ms, high_ms = float(filter_window['low']), float(filter_window['high'])
+        if not 0 < low_ms < high_ms:
+            fail('filter_tau_window_ms needs 0 < low < high')
+        filter_tau = (low_ms*high_ms)**.5/1000.0      # declared rule: geometric mean of the window
+        derivation['filter_tau_s'] = dict(
+            value=filter_tau, from_channel='filter_tau_window_ms',
+            arithmetic=f'geometric mean of the published window {low_ms:g}-{high_ms:g} ms',
+            source=filter_window['source'], quantity='motor-command filter time constant',
+            note=filter_window.get('note'))
     club = doc.get('club_quantity')
     if club is None:
         fail('club_quantity is not declared; the club organ channel stays at zero until a source '
@@ -128,12 +141,19 @@ def main():
         reference_angle_rad=reference_angle_rad,
         reference_velocity_rad_s=reference_velocity_rad_s,
         reference_force=reference_force,
+        filter_tau_s=filter_tau,
+        filter_tau_window_ms=(doc.get('filter_tau_window_ms') or {}).get('low') and
+                             [doc['filter_tau_window_ms']['low'], doc['filter_tau_window_ms']['high']],
         club_quantity=club,
         channel_quantity_map=doc.get('channel_quantity_map', {}),
         derivation=derivation,
+        # 'zero' is NOT a refusal for the club channel: the literature says that organ is the
+        # vibration-sensitive subtype and no vibration stimulus is modelled, so zero is the sourced
+        # choice and the citation for it is in its channel entry.
         refused_without_source=[k for k in ('angle_normaliser_channel', 'velocity_normaliser_channel',
-                                           'force_normaliser_channel', 'club_quantity')
-                                if doc.get(k) in (None, 'zero')],
+                                           'force_normaliser_channel', 'filter_tau_window_ms')
+                                if not doc.get(k)] + ([] if doc.get('club_quantity') else
+                                                      ['club_quantity']),
         what_this_does_not_support=[
             'A published tuning range is not this project\'s calibration: it sets the magnitude at '
             'which a channel reaches one unit, and nothing about the cell-level tuning, the sign, or '

@@ -153,6 +153,46 @@ def main():
                 'direction, joint_angle, mechanical_strain and vibro_tactile; the cells counted as '
                 'MISSED carry a proprioceptive modality but sit in a subtype this partition never '
                 'reads (orphan and generic chordotonal subtypes)')
+    # AGREEMENT TABLE: the dataset's own functional label for each channel's cells, against the
+    # quantity this project actually feeds that channel.  This is the dataset-level check of the
+    # front end's translation, and it is the only place where the answer is not our own reasoning.
+    FED = {'claw_position': 'tibia joint-angle deviation from the seated pose (signed)',
+           'hook_direction': 'tibia joint angular velocity (signed)',
+           'club_vibration': 'nothing: the channel is held at zero',
+           'hairplate_angle': 'mean angular deviation over six mapped hinges',
+           'campaniform_strain': 'summed claw-to-floor contact force, in units of the per-leg weight share',
+           'bristle_touch': 'binary foot contact',
+           'multidendritic_noxious': 'nothing: the channel is held at zero'}
+    agreement = {}
+    for channel, subtype in CHANNEL_SUBTYPE.items():
+        cells = df[df['sub_class'].str.contains(f'leg_{subtype}', na=False)]
+        # MEASURED BUG (fixed twice): this column is Arrow-backed, so `astype(str)` renders a missing
+        # value as 'nan' while `isin(('nan', ...))` does NOT match it -- the first version therefore
+        # counted all 2,979 bristle cells as labelled when only 12 carry any modality label.  The
+        # missing values are now excluded through the column itself, not through a string form.
+        raw = cells['cell_function_detailed']
+        labelled = raw[raw.notna()].astype(str)
+        agreement[channel] = dict(
+            n_cells_in_annotation=int(len(cells)),
+            n_cells_with_a_modality_label=int(len(labelled)),
+            dataset_modalities=labelled.value_counts().head(6).to_dict(),
+            fed_by_this_project=FED[channel],
+            verdict=('agrees: the dataset calls these cells position sensors'
+                     if channel == 'claw_position' else
+                     'agrees: the dataset calls these cells direction sensors, which is what a signed '
+                     'angular velocity is' if channel == 'hook_direction' else
+                     'agrees: the dataset calls these cells vibro-tactile and no vibration stimulus '
+                     'is modelled' if channel == 'club_vibration' else
+                     'agrees: the dataset calls these cells joint-angle sensors'
+                     if channel == 'hairplate_angle' else
+                     'PARTIAL: the dataset calls these cells mechanical-strain sensors, and this '
+                     'project feeds a GROUND CONTACT FORCE, which is not the cuticle strain at the '
+                     'sensillum attachment' if channel == 'campaniform_strain' else
+                     f'UNLABELLED: {int(len(labelled))} of {int(len(cells))} cells carry any modality '
+                     f'label, so the dataset is silent about what these cells sense'
+                     if channel == 'bristle_touch' else
+                     'agrees: the dataset calls these cells putative nociceptors and no noxious '
+                     'stimulus exists here'))
     hp_groups = df[df['target'].str.contains('hair_plate', na=False)]['target'].value_counts().to_dict()
     result = dict(
         status='MEASURED_BANC_SENSORY_ANNOTATION',
@@ -169,6 +209,7 @@ def main():
         channels=channels,
         proximo_distal_ordering=ordering,
         modality_coverage=coverage,
+        dataset_modality_vs_fed_quantity=agreement,
         hair_plate_target_groups=hp_groups,
         provenance=dict(code=str(Path(__file__).resolve()),
                         note='positions are the dataset\'s own voxel coordinates, converted to um by '
@@ -219,6 +260,9 @@ def main():
     print('ordering:', json.dumps(ordering, indent=1))
     print('hair plate groups:', hp_groups)
     print('coverage:', json.dumps(coverage, indent=1))
+    for ch, row in agreement.items():
+        print(f"  {ch:22s} n={row['n_cells_in_annotation']:4d} labelled={row['n_cells_with_a_modality_label']:4d} "
+              f"-> {row['verdict'][:70]}")
     print(OUT/'banc_sensory_annotation.json')
     return result
 

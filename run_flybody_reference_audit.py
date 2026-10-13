@@ -110,7 +110,7 @@ def channel_currents(summary, cfg):
 
 
 def run(body_kind, built, manifest, groups, seated_height_mm, *, channel_signs=None,
-        channel_ablation=None, duration=DURATION, push=None, **kwargs):
+        channel_ablation=None, duration=DURATION, push=None, sensory_roles=None, **kwargs):
     body = loop.build_body(body_kind, 'declared')
     extra = lambda d, b=body: drive_audit.assess(b, d, b['weight_per_leg'])
     push_spec = None
@@ -119,13 +119,14 @@ def run(body_kind, built, manifest, groups, seated_height_mm, *, channel_signs=N
                          note="world-frame force on the thorax as a fraction of this body's own weight")
     summary, trajectory, activation, _ = loop.episode(
         body, built, manifest, groups, 'normal', duration, push=push_spec,
-        channel_signs=channel_signs, channel_ablation=channel_ablation, record_extra=extra,
-        **kwargs)
+        channel_signs=channel_signs, channel_ablation=channel_ablation,
+        sensory_roles=sensory_roles, record_extra=extra, **kwargs)
     hinges, drive, deviation = drive_audit.matrices(summary)
     coupling = drive_audit.correlation_report(hinges, drive, deviation)
     heights = np.array([r['height_mm'] for r in summary['records']])
     times = np.array([r['time_start_s'] for r in summary['records']])
-    row = dict(escape_time_s=summary['escape_time_s'], final_height_mm=summary['final_height_mm'],
+    row = dict(sensory_roles=sensory_roles, escape_time_s=summary['escape_time_s'],
+               final_height_mm=summary['final_height_mm'],
                final_state=summary['records'][-1].get('extra', {}),
                mean_abs_drive=float(np.mean(np.abs(drive))),
                mean_abs_drive_per_hinge={h: round(float(np.mean(np.abs(drive[:, j]))), 6)
