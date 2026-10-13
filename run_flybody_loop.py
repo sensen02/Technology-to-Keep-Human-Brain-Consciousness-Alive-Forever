@@ -275,7 +275,8 @@ def height_mm(body, data):
 
 def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
             drive_fraction=DRIVE_FRACTION, dc_mode='off', freeze_after_interval=None,
-            drive_polarity=1.0, filter_tau_s=None, push=None, record_extra=None):
+            drive_polarity=1.0, filter_tau_s=None, push=None, channel_signs=None,
+            channel_ablation=None, record_extra=None):
     import mujoco
     model = body['model']
     intervals = grid_steps(duration, DT_COMMAND)
@@ -317,6 +318,22 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
         if stimulus_on:
             for i in groups['lf']['bristle_touch']:
                 current[int(i)] += .3
+        # DECLARED SENSORY CONVENTIONS.  `channel_signs` multiplies one channel's input current by a
+        # declared sign (this project already records that channel polarity is an UNVALIDATED
+        # declared assumption, and that every channel here is treated as SINGLE-SIGNED, which no
+        # evidence supports); `channel_ablation` removes a channel's input entirely so its
+        # contribution to the motor drive can be measured.  Neither touches the connectome: the
+        # cells, their synapses and their weights are unchanged.
+        if channel_signs:
+            for channel, sign in channel_signs.items():
+                for leg in groups:
+                    for i in groups[leg].get(channel, []):
+                        current[int(i)] *= sign
+        if channel_ablation:
+            for channel in channel_ablation:
+                for leg in groups:
+                    for i in groups[leg].get(channel, []):
+                        current[int(i)] = 0.0
         if arm == 'sensory_cut':
             current[:] = 0
         sp = np.zeros((neural_steps, int(built['n'])), dtype=bool)

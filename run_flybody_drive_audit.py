@@ -256,7 +256,11 @@ def lagged_correlation(drive, deviation, lags=LAGS):
             continue
         curve[lag] = float(np.corrcoef(a, b)[0, 1])
     if not curve:
-        return dict(lags_ms={}, peak_lag_intervals=None, r_at_peak=None, r_at_zero=None)
+        # MEASURED BUG (fixed): this early return omitted peak_lag_ms and the caller indexed it, so an
+        # ablation that flattened a hinge's drive to a constant crashed the report instead of being
+        # reported as "no defined coupling".
+        return dict(lags_ms={}, peak_lag_intervals=None, peak_lag_ms=None, r_at_peak=None,
+                    r_at_zero=None, reading='no coupling is defined for this hinge')
     peak = max(curve, key=lambda k: abs(curve[k]))
     return dict(lags_ms={str(k*5): round(v, 4) for k, v in sorted(curve.items())},
                 peak_lag_intervals=peak, peak_lag_ms=peak*5,

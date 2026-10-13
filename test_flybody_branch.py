@@ -17,6 +17,14 @@ import run_flybody_loop as loop_run
 import tools_flybody_translation as translation_run
 
 PUBLISHED_CANONICAL_ESCAPE_S = 0.023199999999999915   # the tarsus-branch baseline artifact
+JOINT_DISPLACEMENT = .10      # the joint displacement the time-scale measurement applies
+
+
+def pytest_median(values):
+    """The median the audit declares as its sourced value (kept here so the test re-derives it)."""
+    ordered = sorted(values)
+    middle = len(ordered)//2
+    return ordered[middle] if len(ordered) % 2 else .5*(ordered[middle-1]+ordered[middle])
 
 
 class FlyBodyBodyTests(unittest.TestCase):
@@ -335,6 +343,108 @@ class FlyBodyDriveAuditTests(unittest.TestCase):
                        'no behaviour may be claimed'):
             self.assertIn(phrase, text)
         self.assertIn('NOT A PRODUCT', self.doc['label'])
+
+
+class FlyBodyTimescaleTests(unittest.TestCase):
+    """The body supplies the time scale; whether the sourced value works is then measured."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.doc = json.loads((loop_run.OUT/'flybody_timescale_audit.json').read_text())
+        cls.m = cls.doc['measured']
+
+    def test_the_two_independent_measurements_of_the_hinge_time_constant_agree(self):
+        s = self.m['summaries']
+        crossing = s['hinge_tau_one_over_e']['median_s']
+        analytic = s['hinge_damping_over_gain']['median_s']
+        self.assertEqual(s['hinge_tau_one_over_e']['n'], 36)
+        self.assertLess(abs(crossing - analytic)/analytic, .1,
+                        'the measured 1/e crossing and damping/gain must agree within 10%')
+        self.assertEqual(self.m['tau_sourced_s'],
+                         pytest_median([crossing, analytic]))
+
+    def test_the_exponential_fits_are_reported_as_unusable(self):
+        # the free response includes a static droop and a slow drift, so the log-linear fit is not
+        # an exponential; the artifact must keep the r2 and the empty well-fitted set visible.
+        self.assertEqual(self.m['summaries']['well_fitted_only']['n'], 0)
+        worst = min(r['fit_r2'] for r in self.m['joint_time_constants'].values()
+                    if r['fit_r2'] is not None)
+        self.assertLess(worst, .9)
+
+    def test_the_whole_body_does_not_settle_in_three_hundred_ms(self):
+        # the trace and this field are in MODEL units (cm for FlyBody); the displacement was 0.005 cm
+        # and the body ends BELOW where it was pushed, i.e. it never comes back at all.
+        com = self.m['com_response']
+        self.assertIsNone(com['tau_fit_s'])
+        self.assertGreater(abs(com['residual_at_end']), abs(com['initial_excursion']))
+        self.assertAlmostEqual(com['residual_at_end']*10, com['trace_deviation_mm'][-1], places=4)
+
+    def test_every_hinge_sags_statically_under_its_own_weight(self):
+        residuals = [abs(r['residual_at_end']) for r in self.m['joint_time_constants'].values()]
+        # measured range 0.00058..0.02637 rad for a 0.10 rad displacement: every hinge keeps a static
+        # offset under its own weight, and none returns to the commanded neutral.
+        self.assertGreater(min(residuals), 1e-4)
+        self.assertLess(max(residuals), JOINT_DISPLACEMENT/3)
+
+    def test_the_sourced_time_constant_does_not_restore_the_stance(self):
+        runs = self.m['closure_at_each_tau']
+        sourced = next(r for r in runs.values() if r['is_the_sourced_value'])
+        self.assertFalse(sourced['standing']['standing_under_this_projects_criteria'])
+        self.assertIn('feet_down', sourced['standing']['failed_checks'])
+        self.assertGreater(max(r['height_mean_last_50ms_mm'] for r in runs.values()),
+                           sourced['height_mean_last_50ms_mm'])
+        text = ' '.join(self.doc['what_this_does_not_support'])
+        self.assertIn('tuning and must be labelled as such', text)
+
+
+class FlyBodyReferenceTests(unittest.TestCase):
+    """Where the drive comes from, and whether a sign convention can install a reference."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.doc = json.loads((loop_run.OUT/'flybody_reference_audit.json').read_text())
+        cls.m = cls.doc['measured']
+        cls.att = cls.m['attribution']['runs']
+
+    def test_only_the_contact_force_channel_keeps_the_drive_alive(self):
+        self.assertEqual(self.att['ablate_campaniform_strain']['drive_fraction_of_baseline'], 0.0)
+        for channel in ('claw_position', 'hook_direction', 'hairplate_angle', 'bristle_touch'):
+            self.assertGreater(self.att[f'ablate_{channel}']['drive_fraction_of_baseline'], .5,
+                               channel)
+        self.assertEqual(self.att['ablate_all_five']['drive_fraction_of_baseline'], 0.0)
+
+    def test_the_harm_is_carried_by_the_joint_deviation_channel(self):
+        row = self.att['ablate_claw_position']
+        self.assertGreater(row['drive_fraction_of_baseline'], .5)     # most of the drive survives
+        self.assertTrue(row['standing']['standing_under_this_projects_criteria'])
+        self.assertFalse(self.att['none_ablated']['standing']
+                         ['standing_under_this_projects_criteria'])
+
+    def test_the_declared_normalisers_make_the_contact_channel_dominant(self):
+        currents = self.att['none_ablated']['channel_currents']
+        means = currents['per_channel']['mean_abs_current_nA']
+        shares = currents['per_channel']['share_of_total_current']
+        self.assertAlmostEqual(sum(shares.values()), 1.0, places=3)
+        self.assertGreater(means['campaniform_strain'], 3*means['claw_position'])
+        derived = currents['derived_what_parity_would_need']
+        self.assertGreater(derived['contact_over_tibia_deviation_current_ratio'], 3)
+        self.assertLess(derived['reference_angle_rad_for_tibia_deviation_parity'], .15)
+        self.assertIn('NOT A RECOMMENDATION', derived['note'])
+
+    def test_no_sign_convention_installs_a_reference(self):
+        runs = self.m['conventions']['runs']
+        self.assertEqual(len(runs), 4)
+        for name, row in runs.items():
+            self.assertEqual(row['restoring_verdict']['n_restoring'], 0, name)
+            self.assertFalse(row['restoring_verdict']['is_restoring'], name)
+            self.assertFalse(row['standing']['standing_under_this_projects_criteria'], name)
+        self.assertEqual(self.m['reference_convention'], {})
+
+    def test_the_caveats_about_channels_are_explicit(self):
+        text = ' '.join(self.doc['what_this_does_not_support'])
+        self.assertIn('NO neuron-level evidence', text)
+        self.assertIn('single-signed', text)
+        self.assertIn('not a corrected connectome', text)
 
 
 if __name__ == '__main__':
