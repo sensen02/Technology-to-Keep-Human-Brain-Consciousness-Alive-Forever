@@ -276,7 +276,7 @@ def height_mm(body, data):
 def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
             drive_fraction=DRIVE_FRACTION, dc_mode='off', freeze_after_interval=None,
             drive_polarity=1.0, filter_tau_s=None, push=None, channel_signs=None,
-            channel_ablation=None, record_extra=None):
+            channel_ablation=None, club_quantity='zero', record_extra=None):
     import mujoco
     model = body['model']
     intervals = grid_steps(duration, DT_COMMAND)
@@ -324,6 +324,31 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
         # evidence supports); `channel_ablation` removes a channel's input entirely so its
         # contribution to the motor drive can be measured.  Neither touches the connectome: the
         # cells, their synapses and their weights are unchanged.
+        # DECLARED CLUB-CHANNEL SOURCE, added HERE and not in the encoder on purpose: the encoder is a
+        # core file whose hash several historical artifacts pin in their provenance, so a branch
+        # experiment must not invalidate them.  'zero' keeps the historical behaviour exactly (the
+        # club chordotonal organ is annotated vibro-tactile and no vibration stimulus exists here);
+        # any other value names one of the quantities the front end already measures, normalised by
+        # the same declared normalisers, and is fed to that channel's cells.
+        club_fed = 0.0
+        if club_quantity != 'zero':
+            fields = ('tibia_joint_dev_rad', 'tibia_joint_vel_rad_s', 'multi_joint_dev_rad',
+                      'contact_force_norm', 'foot_contact')
+            if club_quantity not in fields:
+                raise ValueError(f'club_quantity {club_quantity!r} is not one of {fields} or zero')
+            cfg = closure.ChannelConfig()
+            for leg, q in quantities.items():
+                value = float(getattr(q, club_quantity))
+                if club_quantity in ('tibia_joint_dev_rad', 'multi_joint_dev_rad'):
+                    value /= cfg.reference_angle_rad
+                elif club_quantity == 'tibia_joint_vel_rad_s':
+                    value /= cfg.reference_velocity_rad_s
+                elif club_quantity == 'contact_force_norm':
+                    value /= cfg.reference_force
+                ids = groups[leg]['club_vibration']
+                if len(ids):
+                    current[np.asarray(ids, int)] += cfg.current_nA_per_unit*value
+                    club_fed += abs(cfg.current_nA_per_unit*value)
         if channel_signs:
             for channel, sign in channel_signs.items():
                 for leg in groups:
@@ -392,6 +417,8 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
                             external_lf_touch_stimulus=bool(stimulus_on),
                             external_push_applied=bool(push_steps_applied),
                             external_push_body_steps=push_steps_applied,
+                            club_quantity=club_quantity,
+                            club_current_fed_nA=round(club_fed, 6),
                             frozen_command=(freeze_after_interval is not None
                                             and k >= freeze_after_interval),
                             drive_values=({k2: round(v, 6) for k2, v in drive_values.items()}
