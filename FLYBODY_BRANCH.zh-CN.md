@@ -37,7 +37,11 @@
 |---|---|---|---|
 | 规范 FlyMimic/Miller 体 | 逃逸 **23.20 ms** | 14.90 ms | 回路把塌陷**推迟** 8.3 ms（有帮助） |
 | FlyBody（保留发布伺服） | 逃逸 **119.10 ms**（末高 1.0752 mm） | **200 ms 内从不逃逸**（保持 1.0836 mm） | 回路让这个躯干**变差**了：它本来能自己站住 |
-| FlyBody（伺服→力矩电机） | 逃逸 **101.40 ms**（末高 0.5262 mm） | 27.60 ms | 回路把塌陷**推迟** 74 ms，但两者都倒 |
+| FlyBody（伺服→力矩电机） | 逃逸 **133.50 ms**（末高 0.5372 mm） | 27.60 ms | 回路把塌陷**推迟** 106 ms，但两者都倒 |
+
+> **修正记录（本轮发现并修复的真 bug）**：力矩变体此前**没有**应用 `drive_fraction` 幅度声明
+> （伺服路径应用了），两个变体的幅度约定不一致。修复后力矩体的数字全部改变（101.40 → 133.50 ms）。
+> 上表已是修正后的数字；`flybody_closure_200ms*.json` 已重跑。
 
 一句话：**换躯干不打断回路，但把「谁在支撑身体」这件事暴露了。** FlyBody 之所以能站，是因为它**发布模型自带
 的逐关节位置伺服**（`force = gain*(ctrl − qpos)`，`ctrl=0` 就是中性姿态），不是因为它被神经回路驱动。
@@ -129,16 +133,26 @@ FlyBody 结构：`nq=109, nv=108, nu=78, njnt=103, na=0`（**没有肌肉、没�
 
 ## 6. 变体：用实测胫节符号修正后腿（独立标注）
 
-把两条后腿的胫节驱动符号按几何校验翻正后重跑：
+把两条后腿的胫节驱动符号按几何校验翻正后重跑（数字为修正幅度约定后）：
 
 - FlyBody 保留伺服：normal 逃逸 **129.10 ms**（末高 0.8608 mm，比声明的 119.10 / 1.0752 稍差）
-- FlyBody 力矩电机：normal 逃逸 **96.20 ms**（末高 0.6354 mm，稍好）
+- FlyBody 力矩电机：normal **从不跌破 90% 高度线**（末高 1.3256 mm）
 - 规范体：**完全不变**（它没有覆盖项）
 
-结论：符号缺陷是真实缺陷，但**不是**回路在 FlyBody 上表现变差的主因；两种方向各有小幅好坏，没有救场。
+**但这不等于"站住了"**：后续驱动审计（`FLYBODY_DRIVE_AUDIT.zh-CN.md` §3）实测该构型
+**只有 1 只爪触地、末段高度 1.514 mm（超出中性高度 ±15% 带）、最后 50 ms 横移 0.127 mm**——
+它是被扭矩甩起来的状态，五条站立判据全不通过。高度判据单独看会给出相反结论。
+
 产物后缀 `_tibiasign_measured`，**永不与声明版本混用**。
 
 ---
+
+## 6b. 下一轮：驱动审计（同目录另一份报告）
+
+`FLYBODY_DRIVE_AUDIT.zh-CN.md` 用同一套代码只改**声明性翻译旋钮**回答"为什么害事"：
+害处来自驱动的**波动**（只留均值即站住、放慢 τ=5→20 ms 即站住、同一扰动下只有无驱动或只留均值的臂能恢复），
+而驱动在 **36/36** 个铰链上与偏差**同相强化**（峰值滞后 +5 ms = 一拍回路延迟）——
+即**没有姿态参考的延迟正反馈**。力矩躯干上没有任何构型通过站立判据。
 
 ## 7. 结论与建议（按证据排序）
 
@@ -176,6 +190,8 @@ cd /run/media/sensen/Data2/cell_wound_prototype
 ./venv_body/bin/python run_flybody_loop.py --duration 0.2        # 声明翻译的闭环
 ./venv_body/bin/python run_flybody_loop.py --duration 0.2 --tibia-sign measured
 ./venv_body/bin/python tools_flybody_branch_figure.py            # 汇总图
+./venv_body/bin/python run_flybody_drive_audit.py                # 驱动审计（见另一份报告）
+./venv_body/bin/python tools_flybody_audit_figure.py             # 审计六联图
 ./venv_body/bin/python run_branch_regressions.py                 # 137 项回归（含本分支）
 ```
 
@@ -189,6 +205,8 @@ cd /run/media/sensen/Data2/cell_wound_prototype
 - `/run/media/sensen/Data2/cell_wound_prototype/run_flybody_loop.py`
 - `/run/media/sensen/Data2/cell_wound_prototype/tools_flybody_branch_figure.py`
 - `/run/media/sensen/Data2/cell_wound_prototype/test_flybody_branch.py`
+- `/run/media/sensen/Data2/cell_wound_prototype/run_flybody_drive_audit.py`
+- `/run/media/sensen/Data2/cell_wound_prototype/tools_flybody_audit_figure.py`
 
 **输入**
 - `/run/media/sensen/Data2/cell_wound_prototype/upstream/flybody/`（+ `PROVENANCE.json`、`LICENSE`）
@@ -202,6 +220,7 @@ cd /run/media/sensen/Data2/cell_wound_prototype
 - `.../flybody_loop/flybody_closure_200ms.json` / `.npz` / `.png`
 - `.../flybody_loop/flybody_closure_200ms_tibiasign_measured.json` / `.npz` / `.png`
 - `.../flybody_loop/flybody_branch_summary.png`
+- `.../flybody_loop/flybody_drive_audit.json` / `.png`（驱动审计 + 六联图）
 - `/run/media/sensen/Data2/cell_wound_prototype/outputs/model_branches/branch_regressions.json`（137 项，0 失败）
 
 **备份**

@@ -213,17 +213,19 @@ class FlyBodyClosureTests(unittest.TestCase):
             self.assertIn(entry['tibia_hinge'], entry['multi_joint_group'])
             self.assertTrue(all('tarsus' not in n for n in entry['multi_joint_group']))
 
-    def test_the_measured_tibia_sign_variant_changes_the_outcome_but_does_not_rescue_it(self):
+    def test_the_measured_tibia_sign_variant_changes_the_outcome_without_rescuing_it(self):
         path = loop_run.OUT / 'flybody_closure_200ms_tibiasign_measured.json'
         self.assertTrue(path.is_file(), 'the measured-sign variant artifact is missing')
         other = json.loads(path.read_text())['measured']
         self.assertEqual(other['tibia_sign_variant'], 'measured')
         declared = self.m['configurations']
         for kind in ('flybody_servo', 'flybody_torque'):
-            a = declared[kind]['arms']['normal']['escape_time_s']
-            b = other['configurations'][kind]['arms']['normal']['escape_time_s']
-            self.assertIsNotNone(a)
-            self.assertIsNotNone(b)
+            self.assertIsNotNone(declared[kind]['arms']['normal']['escape_time_s'])
+        # the measured sign does change the torque body's height trace a lot (it stops crossing the
+        # 90% line at all), and it still does not produce a stance -- that is measured in the drive
+        # audit artifact, which this module checks below.
+        self.assertIsNone(other['configurations']['flybody_torque']['arms']['normal']
+                          ['escape_time_s'])
         self.assertEqual(other['configurations']['canonical']['arms']['normal']['escape_time_s'],
                          declared['canonical']['arms']['normal']['escape_time_s'],
                          'the canonical body has no tibia override and must be unchanged')
@@ -233,6 +235,106 @@ class FlyBodyClosureTests(unittest.TestCase):
         text = ' '.join(self.doc['what_this_does_not_support'])
         self.assertIn('not evidence that the connectome made it stand', text)
         self.assertIn('loses muscle-level resolution', text)
+
+
+class FlyBodyDriveAuditTests(unittest.TestCase):
+    """The translation-layer diagnostic: amplitude, offset, reference, bandwidth, recovery."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.path = loop_run.OUT / 'flybody_drive_audit.json'
+        cls.doc = json.loads(cls.path.read_text())
+        cls.m = cls.doc['measured']
+
+    def test_the_audit_is_internally_consistent(self):
+        self.assertEqual(self.m['gains_scanned'][0], 0.0)
+        self.assertEqual(self.m['gains_scanned'][-1], .5)
+        for key, row in self.m['configurations'].items():
+            self.assertTrue(row['runs']['normal_gain0']['identical_to_silence'],
+                            f'{key}: zero amplitude did not reproduce the silenced arm')
+
+    def test_the_height_metric_alone_cannot_see_a_launched_body(self):
+        # MEASURED FINDING, asserted so it cannot be lost: the one run that never crosses the 90%
+        # line is a body with one claw touching, 1.5 mm up and drifting -- not a stance.
+        row = self.m['held_configuration']['flybody_torque|measured']['runs']['normal']
+        self.assertIsNone(row['escape_time_s'])
+        self.assertFalse(row['standing']['standing_under_this_projects_criteria'])
+        measured = row['standing']['measured']
+        self.assertLessEqual(measured['n_claw_contacts'], 2)
+        self.assertGreater(measured['height_mean_last_50ms_mm'],
+                           1.15*self.m['published_neutral_height_mm'])
+        self.assertIn('at_height', row['standing']['failed_checks'])
+        self.assertIn('feet_down', row['standing']['failed_checks'])
+
+    def test_nothing_holds_the_torque_body_up_under_this_projects_criteria(self):
+        for key, row in self.m['held_configuration'].items():
+            if not key.startswith('flybody_torque'):
+                continue
+            for run, r in row['runs'].items():
+                self.assertFalse(r['standing']['standing_under_this_projects_criteria'],
+                                 f'{key}/{run} unexpectedly passed the standing checklist')
+
+    def test_the_published_servo_body_stands_when_the_drive_is_slow_or_absent(self):
+        servo = self.m['held_configuration']['flybody_servo|declared']['runs']
+        self.assertTrue(servo['spike_output_silence']['standing']
+                        ['standing_under_this_projects_criteria'])
+        self.assertTrue(servo['static_brace_mean_only']['standing']
+                        ['standing_under_this_projects_criteria'])
+        self.assertFalse(servo['normal']['standing']['standing_under_this_projects_criteria'])
+        runs = self.m['configurations']['flybody_servo|declared']['runs']
+        self.assertTrue(runs['normal_gain0.125']['standing']
+                        ['standing_under_this_projects_criteria'])
+        self.assertFalse(runs['normal_gain0.5']['standing']
+                         ['standing_under_this_projects_criteria'])
+        self.assertFalse(runs['normal_running_mean']['standing']
+                         ['standing_under_this_projects_criteria'])
+
+    def test_the_harm_scales_with_the_drive_bandwidth(self):
+        runs = self.m['bandwidth_scan']['flybody_servo|declared']['runs']
+        self.assertFalse(runs['tau_5ms']['standing']['standing_under_this_projects_criteria'])
+        for tau in ('tau_20ms', 'tau_40ms'):
+            self.assertTrue(runs[tau]['standing']['standing_under_this_projects_criteria'],
+                            f'{tau} should restore the stance')
+            self.assertGreater(runs[tau]['height_mean_last_50ms_mm'],
+                               runs['tau_5ms']['height_mean_last_50ms_mm'])
+
+    def test_recovery_from_an_identical_perturbation(self):
+        runs = self.m['push_recovery']['flybody_servo|declared']['runs']
+        for run, row in runs.items():
+            self.assertTrue(row['push']['force_model'][0] != 0)
+            self.assertEqual(len(row['height_series_mm']), len(row['height_series_times_s']))
+        self.assertTrue(runs['spike_output_silence']['returned_to_band'])
+        self.assertTrue(runs['static_brace_mean_only']['returned_to_band'])
+        self.assertFalse(runs['normal']['returned_to_band'])
+
+    def test_the_drive_carries_no_posture_reference(self):
+        servo = self.m['configurations']['flybody_servo|declared']['posture_reference']
+        plain = servo['declared_translation']
+        self.assertEqual(plain['n_restoring_negative'], 0)
+        self.assertEqual(plain['n_reinforcing_positive'], plain['n_hinges'])
+        self.assertGreater(plain['median_correlation'], .5)
+        self.assertEqual(plain['median_peak_lag_ms'], 5.0)
+        for key, row in self.m['configurations'].items():
+            ref = row['posture_reference']['declared_translation']
+            self.assertGreater(ref['median_correlation'], 0, key)
+
+    def test_the_polarity_probe_is_recorded_as_having_no_discriminating_power(self):
+        probe = self.m['polarity_probe']['flybody_servo|declared']['runs']
+        plus = probe['polarity_+1']['posture_reference']['median_correlation']
+        minus = probe['polarity_-1']['posture_reference']['median_correlation']
+        # a global sign flip flips the drive AND the response, so the correlation is invariant;
+        # the probe therefore cannot test the sign, and the artifact must say so.
+        self.assertLess(abs(plus - minus), .05)
+        self.assertFalse(probe['polarity_-1']['standing']['standing_under_this_projects_criteria'])
+        text = ' '.join(self.doc['what_this_does_not_support'])
+        self.assertIn('NO discriminating power', text)
+
+    def test_the_audit_does_not_claim_a_fix_or_a_behaviour(self):
+        text = ' '.join(self.doc['what_this_does_not_support'])
+        for phrase in ('SENSITIVITY measurement', 'declared interventions',
+                       'no behaviour may be claimed'):
+            self.assertIn(phrase, text)
+        self.assertIn('NOT A PRODUCT', self.doc['label'])
 
 
 if __name__ == '__main__':

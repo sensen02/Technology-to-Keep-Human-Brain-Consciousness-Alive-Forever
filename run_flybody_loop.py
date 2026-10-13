@@ -115,6 +115,11 @@ def build_body(kind, tibia_sign='declared'):
             joint_group[leg_key(leg)] = group
             if abs(model.jnt_qposadr[tib_id] - adr[tib]) != 0:
                 pass  # the tibia hinge is inside the group by construction of the table
+        hinge_qpos = {}
+        for leg in LEGS:
+            for name in translation['sensory_translation'][leg]['multi_joint_group']:
+                hinge_qpos[name] = int(model.jnt_qposadr[mujoco.mj_name2id(
+                    model, mujoco.mjtObj.mjOBJ_JOINT, name)])
         contact = {}
         for g in range(model.ngeom):
             name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, g) or ''
@@ -129,7 +134,8 @@ def build_body(kind, tibia_sign='declared'):
                          if tibia_sign == 'measured' else {})
         weight = float(model.body_mass.sum()*abs(model.opt.gravity[2]))
         return dict(kind=kind, xml=str(xml), xml_sha256=sha256(xml), model=model,
-                    muscle_index=muscle_index, sign_override=sign_override,
+                    thorax_id=model.body('thorax').id,
+                    muscle_index=muscle_index, sign_override=sign_override, hinge_qpos=hinge_qpos,
                     tibia_sign_variant=tibia_sign if sign_override else 'declared',
                     seated=seated, joints=tables, contact_geoms=contact, floor=floor,
                     joint_group=joint_group, weight=weight, weight_per_leg=weight/len(LEGS),
@@ -146,6 +152,7 @@ def build_body(kind, tibia_sign='declared'):
                                                  'Trochanter_yaw', 'Trochanter_pitch',
                                                  'Trochanter_roll')] for leg in LEGS},
                     weight=weight, weight_per_leg=weight/len(LEGS), translation=None,
+                    thorax_id=model.body('Thorax').id,
                     gate=gate, nq=int(model.nq), nu=int(model.nu))
     raise ValueError(f'unknown body kind {kind!r}')
 
@@ -186,40 +193,75 @@ def observe(body, data, force_normaliser):
     return out
 
 
-def project(activation, body, activation_scale=1.0):
+def project(activation, body, drive_fraction=DRIVE_FRACTION, dc_mode='off', dc_state=None,
+            drive_polarity=1.0):
     """Canonical muscle activations (one per canonical actuator) -> this body's ctrl vector.
 
+    Returns (ctrl, drive) where `drive` is the unitless signed value each translated hinge was
+    actually given before the per-hinge span is applied, so an audit can decompose it afterwards.
+
+    Declared knobs, all at the translation layer and none of them touching the connectome:
+      drive_fraction  scales each hinge's amplitude, defined uniformly as a fraction of HALF THE
+                      DECLARED CONTROL RANGE of that variant (the published servo range for the
+                      servo variant, the variant's own -1..1 for the torque variant)
+      drive_polarity  +1 or -1, a DIAGNOSTIC PROBE only: it multiplies the whole drive by a
+                      declared sign.  It is not a fix and it proves nothing about which sign is
+                      anatomically right; only the tibia has a geometric sign check in this project.
+      dc_mode         'off' keeps the drive as it is; 'running_mean' subtracts, from each hinge's
+                      drive, the mean of that hinge's OWN completed earlier intervals (a causal
+                      high-pass variant); 'running_mean_only' REPLACES the drive by that mean (the
+                      static-brace test).  Both use only completed earlier intervals, no future
+                      sample and no new sensory quantity, and both are interventions, not fixes.
     `body['sign_override']` is empty for the declared translation and carries the measured tibia
     sign for the explicitly labelled variant; it is never applied silently.
     """
-    """Canonical muscle activations (one per canonical actuator) -> this body's ctrl vector."""
     import mujoco
     model = body['model']
     ctrl = np.zeros(model.nu)
     if body['kind'] == 'canonical':
         # The canonical body keeps its published semantics exactly: one activation per muscle
         # actuator, handed over unclamped so MuJoCo's own declared control range applies.
-        return np.asarray(activation, float).copy()
+        return np.asarray(activation, float).copy(), {}
+    if dc_mode not in ('off', 'running_mean', 'running_mean_only'):
+        raise ValueError(f'unknown dc_mode {dc_mode!r}')
     translation = body['translation']
-    drive = translation['compiled_drive_matrix']
+    drive_matrix = translation['compiled_drive_matrix']
     torque = body['kind'] == 'flybody_torque'
+    index = body['muscle_index']
+    drive_values = {}
     applied = 0
-    for hinge, entry in drive.items():
+    for hinge, entry in drive_matrix.items():
         idx, coeffs, muscles = entry['actuator_index'], entry['coefficients'], entry['muscles']
-        index = body['muscle_index']
         override = body.get('sign_override', {}).get(hinge, 1)
-        value = override*sum(c*activation[index[m]]
-                             for c, m in zip(coeffs, muscles))/entry['coefficient_norm']
-        lo, hi = entry['ctrlrange']
+        raw = drive_polarity*override*sum(c*activation[index[m]]
+                                          for c, m in zip(coeffs, muscles))/entry['coefficient_norm']
+        value = raw
+        if dc_mode in ('running_mean', 'running_mean_only'):
+            if dc_state is None:
+                raise ValueError('dc_mode needs a dc_state dict')
+            history = dc_state.setdefault(hinge, [])
+            mean_of_history = sum(history)/len(history) if history else 0.0
+            # 'running_mean' keeps only the fluctuation; 'running_mean_only' keeps only the mean,
+            # which is the static-brace test: if a constant per-hinge command alone holds the body
+            # up, then what holds it is a brace and not feedback.
+            value = (raw - mean_of_history if dc_mode == 'running_mean' else mean_of_history)
+            history.append(raw)
+        drive_values[hinge] = value
         if torque:
-            ctrl[idx] = float(np.clip(value, -1.0, 1.0))
+            # MEASURED BUG (fixed): this path used to hand over the raw value, so the declared
+            # drive_fraction was silently ignored on the torque variant and the two variants did
+            # not share one amplitude convention.  The torque variant declares ctrlrange -1..1, so
+            # its half-range is 1 and the same rule applies: amplitude = drive_fraction * half of
+            # the DECLARED control range of that variant.
+            ctrl[idx] = float(np.clip(drive_fraction*value, -1.0, 1.0))
         else:
-            span = DRIVE_FRACTION*.5*(hi-lo)
+            lo, hi = entry['ctrlrange']
+            span = drive_fraction*.5*(hi-lo)
             ctrl[idx] = float(np.clip(span*value, lo, hi))
         applied += 1
-    if applied != len(drive):
+    if applied != len(drive_matrix):
         raise AssertionError('not every translated hinge was written')
-    return ctrl
+    return ctrl, drive_values
 
 
 def height_mm(body, data):
@@ -231,7 +273,9 @@ def height_mm(body, data):
                  * 10.0)
 
 
-def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1):
+def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
+            drive_fraction=DRIVE_FRACTION, dc_mode='off', freeze_after_interval=None,
+            drive_polarity=1.0, filter_tau_s=None, push=None, record_extra=None):
     import mujoco
     model = body['model']
     intervals = grid_steps(duration, DT_COMMAND)
@@ -246,7 +290,11 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
     mujoco.mj_forward(model, data)
     body['reference'] = body['seated'].copy()
     encoder = closure.ChannelSensoryEncoder(groups, int(built['n']), closure.ChannelConfig())
-    decoder = MotorOutput(manifest, MotorOutputConfig())
+    # `filter_tau_s` is a DECLARED translation-layer knob (the decoder's own population-rate filter,
+    # 5 ms in every primary run); a different value is a sensitivity run and never a tuned result.
+    decoder = MotorOutput(manifest,
+                          MotorOutputConfig() if filter_tau_s is None
+                          else MotorOutputConfig(filter_tau_s=filter_tau_s))
     net = ConductanceNetwork(int(built['n']), ConductanceParams(), dt_ms=DT_NEURAL*1000)
     net.set_connectivity(built['edges']['We']*.2, built['edges']['Wi']*.2)
     pending = np.zeros(int(manifest['n_actuators']))
@@ -254,6 +302,8 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
     h0 = height_mm(body, data)
     escape = None
     motor_indices = sorted({i for row in manifest['rows'] for i in row['local_indices']})
+    dc_state = {}
+    frozen_command = np.zeros(int(manifest['n_actuators']))
     for k in range(intervals):
         t = k*DT_COMMAND
         quantities = observe(body, data, body['weight_per_leg'])
@@ -276,13 +326,30 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
         if arm == 'spike_output_silence':
             sp[:] = False
         applied_activation = pending.copy()
+        # DECLARED INTERVENTION: repeat one interval's command forever after the freeze point.  It
+        # removes sensory feedback from the motor path completely while keeping the spike-driven
+        # translation, so "is the body held up by feedback or by a static pattern of torques?" can
+        # be asked at all.  It is not a controller and never claims to be one.
+        if freeze_after_interval is not None and k >= freeze_after_interval:
+            applied_activation = frozen_command.copy()
         if arm == 'motor_cut' and t >= CUT_S:
             applied_activation[:] = 0.0
         if arm == 'replay':
             applied_activation = np.asarray(replay[k], float).copy()
-        ctrl = project(applied_activation, body)
+        ctrl, drive_values = project(applied_activation, body, drive_fraction=drive_fraction,
+                                     dc_mode=dc_mode, dc_state=dc_state,
+                                     drive_polarity=drive_polarity)
         data.ctrl[:] = ctrl
+        push_steps_applied = 0
         for _ in range(body_steps):
+            # EXTERNAL PERTURBATION: an experimenter-applied world-frame force on the thorax, given
+            # as a fraction of THIS body's own weight and applied identically in every arm.  It is
+            # not a neural command and never targets a motor pool; it exists so "does the loop
+            # change recovery" can be asked at all, and it is cleared every step.
+            data.xfrc_applied[:] = 0.0
+            if push is not None and push['start_s'] <= data.time < push['end_s']:
+                data.xfrc_applied[body['thorax_id'], :3] = push['force_model']
+                push_steps_applied += 1
             mujoco.mj_step(model, data)
             mujoco.mj_forward(model, data)
             if escape is None and height_mm(body, data) < .9*h0:
@@ -297,13 +364,25 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
         if any(warnings):
             raise RuntimeError(f'MuJoCo warnings in {arm}: {warnings}')
         pending, trace = decoder.consume(sp, spike_dt_s=DT_NEURAL, start_s=t, end_s=t+DT_COMMAND)
+        if freeze_after_interval is not None and k == freeze_after_interval:
+            frozen_command = pending.copy()
         h = height_mm(body, data)
-        records.append(dict(time_start_s=t, time_end_s=float(data.time),
+        record = dict(time_start_s=t, time_end_s=float(data.time),
                             decoder=trace, raw_motor_spikes_before_any_silence=raw_motor_spikes,
                             emitted_motor_spikes=int(sp[:, motor_indices].sum()),
                             sensory_current_min_nA=float(current.min()),
                             sensory_current_max_nA=float(current.max()),
                             external_lf_touch_stimulus=bool(stimulus_on),
+                            external_push_applied=bool(push_steps_applied),
+                            external_push_body_steps=push_steps_applied,
+                            frozen_command=(freeze_after_interval is not None
+                                            and k >= freeze_after_interval),
+                            drive_values=({k2: round(v, 6) for k2, v in drive_values.items()}
+                                          or None),
+                            hinge_deviation_rad=({name: round(float(data.qpos[adr]
+                                                                   - body['reference'][adr]), 6)
+                                                  for name, adr in body.get('hinge_qpos', {}).items()}
+                                                 or None),
                             applied_activation_sum=float(applied_activation.sum()),
                             applied_activation_max=float(applied_activation.max()),
                             flybody_ctrl_sum=float(ctrl.sum()),
@@ -316,7 +395,13 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
                                 contact_force_norm=round(q.contact_force_norm, 5),
                                 foot_contact=q.foot_contact)
                                 for leg, q in quantities.items()} if k % 10 == 0 or k < 2 else None),
-                            channel_record=channels if (k % 10 == 0 or k < 2) else None))
+                            channel_record=channels if (k % 10 == 0 or k < 2) else None)
+        if record_extra is not None:
+            # Caller-supplied measurement of the LIVE physics at this interval (contact state,
+            # drift, whatever the caller needs).  It reads the simulator and never writes to it,
+            # so it cannot change any trajectory.
+            record['extra'] = record_extra(data)
+        records.append(record)
         trajectories.append(np.r_[data.qpos.copy(), data.qvel.copy()])
         commands.append(applied_activation)
         spikes_out.append(sp.sum(axis=0))
@@ -327,14 +412,16 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1)
         np.array(trajectories), np.array(commands), np.array(spikes_out)
 
 
-def run_configuration(kind, built, manifest, groups, duration, tibia_sign='declared'):
+def run_configuration(kind, built, manifest, groups, duration, tibia_sign='declared',
+                      drive_fraction=DRIVE_FRACTION, dc_mode='off'):
     body = build_body(kind, tibia_sign)
     out, arrays = {}, {}
     baseline_activation = None
     for arm in ARM_NAMES:
         body = build_body(kind, tibia_sign)   # fresh model and data per arm: no state can leak
         summary, traj, ctrl, spikes = episode(body, built, manifest, groups, arm, duration,
-                                              replay=baseline_activation)
+                                              replay=baseline_activation,
+                                              drive_fraction=drive_fraction, dc_mode=dc_mode)
         out[arm] = summary
         arrays[arm] = dict(trajectory=traj, activation=ctrl, spike_counts=spikes)
         if arm == 'normal':
@@ -361,7 +448,8 @@ def run_configuration(kind, built, manifest, groups, duration, tibia_sign='decla
         print(f'  {kind:16s} {arm:22s} escape={out[arm]["escape_time_s"]} '
               f'final={out[arm]["final_height_mm"]:.4f}mm act_sum={arrays[arm]["activation"].sum():.3f}',
               flush=True)
-    return dict(kind=kind, tibia_sign_variant=tibia_sign, xml=body['xml'],
+    return dict(kind=kind, tibia_sign_variant=tibia_sign, drive_fraction=drive_fraction,
+                dc_mode=dc_mode, xml=body['xml'],
                 xml_sha256=body['xml_sha256'],
                 sign_override=body.get('sign_override', {}),
                 nu=int(body['nu']), nq=int(body['nq']), weight_model_units=body['weight'],
@@ -402,7 +490,7 @@ def figure(result, path):
 
 
 def main(duration=.05, kinds=('canonical', 'flybody_servo', 'flybody_torque'),
-         tibia_sign='declared', guard_report=None):
+         tibia_sign='declared', drive_fraction=DRIVE_FRACTION, dc_mode='off', guard_report=None):
     import mujoco
     OUT.mkdir(parents=True, exist_ok=True)
     started = time.time()
@@ -430,7 +518,8 @@ def main(duration=.05, kinds=('canonical', 'flybody_servo', 'flybody_torque'),
           f'canonical muscles driven by pools', flush=True)
     configurations, all_arrays = {}, {}
     for kind in kinds:
-        summary, arrays = run_configuration(kind, built, manifest, groups, duration, tibia_sign)
+        summary, arrays = run_configuration(kind, built, manifest, groups, duration, tibia_sign,
+                                           drive_fraction=drive_fraction, dc_mode=dc_mode)
         configurations[kind] = summary
         all_arrays.update({f'{kind}_{k}': v for k, v in arrays.items()})
     result = dict(
@@ -441,12 +530,19 @@ def main(duration=.05, kinds=('canonical', 'flybody_servo', 'flybody_torque'),
                  'body\'s behaviour?',
         duration_s=duration,
         tibia_sign_variant=tibia_sign,
+        drive_fraction=drive_fraction, dc_mode=dc_mode,
         clocks=dict(body_dt_s=DT_BODY, neural_dt_s=DT_NEURAL, command_dt_s=DT_COMMAND,
                     body_steps_per_command=int(round(DT_COMMAND/DT_BODY)),
                     neural_steps_per_command=int(round(DT_COMMAND/DT_NEURAL))),
         declared_translation=dict(
-            drive_fraction=DRIVE_FRACTION,
-            drive_fraction_meaning='a saturated projection reaches half of the published hinge range',
+            drive_fraction=drive_fraction,
+            drive_fraction_meaning='a saturated projection reaches this fraction of half the '
+                                   'published hinge range; the primary run uses 0.5 and any other '
+                                   'value is a declared sensitivity run, never a tuned result',
+            dc_mode=dc_mode,
+            dc_mode_meaning='off = the drive is used as projected; running_mean = each hinge keeps '
+                            'its own causal high-passed drive (the mean of its own completed earlier '
+                            'intervals is subtracted), an intervention on the translation layer only',
             sensory='canonical front end unchanged; the same three quantities per leg, read from the '
                     'hinges and claw geoms named by the translation tables',
             force_unit='each body\'s own per-leg weight share (the commensurate normaliser this '
@@ -486,6 +582,9 @@ def main(duration=.05, kinds=('canonical', 'flybody_servo', 'flybody_torque'),
             'published model, not a published model.',
             'FlyBody has no muscle, no attachment site and no activation state, so nothing here '
             'restores muscle-level motor resolution.',
+            'The drive_fraction and dc_mode knobs are DECLARED translation variants used for '
+            'sensitivity and intervention tests; neither is tuned to make a body stand, and a '
+            'variant that stands says nothing about the connectome having a posture reference.',
             'The transferred motor SIGN is verified geometrically only for the tibia, and on the '
             'hind legs it FAILS that check (the canonical flexor projects the extension way).  The '
             'declared translation keeps the transferred sign and reports the defect; the '
@@ -494,7 +593,13 @@ def main(duration=.05, kinds=('canonical', 'flybody_servo', 'flybody_torque'),
             'No walking, gait or escape behaviour is claimed, and no standing criterion of this '
             'project is asserted for FlyBody beyond the height trace it reports.',
         ])
-    tag = '' if tibia_sign == 'declared' else '_tibiasign_measured'
+    tag = ''
+    if tibia_sign != 'declared':
+        tag += '_tibiasign_measured'
+    if dc_mode != 'off':
+        tag += f'_{dc_mode}'
+    if drive_fraction != DRIVE_FRACTION:
+        tag += f'_gain{drive_fraction:g}'
     np.savez_compressed(OUT/f'flybody_closure_{int(duration*1000)}ms{tag}.npz', **all_arrays)
     cp.write_result(OUT/f'flybody_closure_{int(duration*1000)}ms{tag}.json', question=result['question'],
                     status='PASS', measured={k: result[k] for k in
@@ -523,12 +628,15 @@ if __name__ == '__main__':
     parser.add_argument('--duration', type=float, default=.05)
     parser.add_argument('--kinds', default='canonical,flybody_servo,flybody_torque')
     parser.add_argument('--tibia-sign', default='declared', choices=('declared', 'measured'))
+    parser.add_argument('--drive-fraction', type=float, default=DRIVE_FRACTION)
+    parser.add_argument('--dc-mode', default='off', choices=('off', 'running_mean'))
     parser.add_argument('--budget-mb', type=float, default=4608.0)
     args = parser.parse_args()
     with mg.guarded_run('flybody_loop', need_mb=2200.0, cap_mb=args.budget_mb) as _rep:
         try:
             main(duration=args.duration, kinds=tuple(args.kinds.split(',')),
-                 tibia_sign=args.tibia_sign, guard_report=_rep)
+                 tibia_sign=args.tibia_sign, drive_fraction=args.drive_fraction,
+                 dc_mode=args.dc_mode, guard_report=_rep)
         except Exception:
             traceback.print_exc()
             raise
