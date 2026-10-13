@@ -18,6 +18,8 @@ Run:
     cd /run/media/sensen/Data2/cell_wound_prototype
     OPENBLAS_NUM_THREADS=1 venv_body/bin/python tools_reality_check.py
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).  This file
+    # reports the RATIO to body weight precisely because the absolute value is not a load.
 from __future__ import annotations
 
 import json

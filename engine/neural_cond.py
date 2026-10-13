@@ -1,7 +1,9 @@
 """Conductance point tier, explicit units and illustrative parameters.
 
 C[nF] dV[mV]/dt[ms] = g[uS]*(E-V)[mV] + I[nA] - adaptation[nA].
-Backward Euler voltage with exact exponential conductance/adaptation decay.
+Default backward Euler voltage, optional frozen-coefficient exact voltage.
+Both split exact exponential conductance/adaptation decay and end-step spikes;
+frozen_exact is not an exact continuous-time conductance-network solution.
 Threshold/reset and adaptation are reductions, NOT calibrated fly physiology.
 Matrices carry nonnegative conductance increments, indexed (post, pre).
 No transmitter-to-sign inference: caller must supply receptor assumptions.
@@ -46,7 +48,10 @@ class ConductanceParams:
 
 
 class ConductanceNetwork:
-    def __init__(self, n_neurons, params=None, dt_ms=0.1):
+    def __init__(self, n_neurons, params=None, dt_ms=0.1, voltage_method='backward_euler'):
+        if voltage_method not in ('backward_euler', 'frozen_exact'):
+            raise ValueError('unknown voltage integration method')
+        self.voltage_method = voltage_method
         if int(n_neurons) != n_neurons or n_neurons < 1:
             raise ValueError('positive integer neuron count required')
         self.n = int(n_neurons)
@@ -122,7 +127,16 @@ class ConductanceNetwork:
         rhs = (p.capacitance_nF / dt * self.v + p.leak_uS * p.rest_mV
                + self.ge * p.exc_reversal_mV + self.gi * p.inh_reversal_mV
                + I - self.adaptation)
-        self.v[active] = (rhs / (p.capacitance_nF / dt + G))[active]
+        if self.voltage_method == 'backward_euler':
+            self.v[active] = (rhs / (p.capacitance_nF / dt + G))[active]
+        else:
+            # Exact only for coefficients frozen at interval start. Conductance
+            # decay, adaptation and end-step threshold events remain split.
+            drive = (p.leak_uS * p.rest_mV + self.ge * p.exc_reversal_mV
+                     + self.gi * p.inh_reversal_mV + I - self.adaptation)
+            equilibrium = drive / G
+            fraction = -np.expm1(-dt * G / p.capacitance_nF)
+            self.v[active] += ((equilibrium - self.v) * fraction)[active]
         self.v[own & ~active] = p.reset_mV
         spiked = active & (self.v >= p.threshold_mV)
         self.steps += 1

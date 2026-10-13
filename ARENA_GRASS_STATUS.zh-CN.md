@@ -100,11 +100,19 @@ MuJoCo 的 `mju_quat2Mat` 给出的矩阵，其**列**是相机轴（x 右、y �
 | `tools_marker_visibility.py` | 标记到底渲染出来了吗（有/无标记两版对比） |
 | `tools_marker_discriminate.py` | 尺寸/紧致度/色度三种判据能否分开标记与草叶高光 |
 | `tools_marker_find.py` | 亮团块都在哪，离投影多远（并存图） |
-| `tools_axis_probe.py` | 图像轴的实际方向（放已知偏移的标记看落点） |
-| `tools_one_marker.py` | 一个标记、一台相机的最小复现 |
+| `tools_axis_probe2.py` | 图像轴的实际方向（已知 3D 位移看落点；**最终有效结论 cos=1.000 出自它**） |
 | `tools_dlt_check.py` | 从图像反算的 P 与解析 P 逐行对比 |
 | `tools_cam_pose_dump.py` | 编译后相机位姿（重建应使用这个） |
 | `tools_arena_calib_check.py` | 把投影画到真实帧上，直接看 |
+
+> **更正批注（后加，2026-10-08）**：上表原先还列有 `tools_axis_probe.py` 与 `tools_one_marker.py`，
+> **两者已删除**。它们建立在被推翻的前提上（"列错数十 px ⇒ 图像轴约定错"）。真实根因是
+> **`set_renderer(camera_res=(width, height))` 的长宽互换**（`camera_res` 是 `(height, width)`），
+> 使 `fy` 写成 214.45 而非 171.56（**长 25%**），随后又被定位为录像端写死的 `max_px=60`。
+> 删除依据与保留理由见 `REPAIR_AND_MISLEADING_AUDIT.zh-CN.md` 第 2、4 节与删除清单。
+> 本文件第 3.1 节"声明 `xyaxes` 与编译后相机位姿不一致 ⚠️ 查清但未解决"这一状态**已过期**：
+> MuJoCo 的 `mju_quat2Mat` 给出的矩阵其**列**是相机轴这一结论已经实测确认（+x/+y/+z 位移 cos = **1.000**），
+> 代码与 artefact 的 `R_convention` 字段均按此实现，**不再是未解决项**。
 
 ---
 

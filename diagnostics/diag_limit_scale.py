@@ -86,7 +86,7 @@ def run(lim_tc, stiff=0.4, mass_mg=2.49427, freeze_rot=True, contact_tc=None, du
         if pos < worst:
             worst, wn = pos, nm
     return {"limit_timeconst": lim_tc, "joint_stiffness": stiff, "mass_mg": mass_mg,
-            "contact_timeconst": contact_tc, "sag_mm": z0 - float(d.xpos[th][2]),
+            "contact_timeconst": contact_tc, "sag_model": z0 - float(d.xpos[th][2]),
             "thorax_z": float(d.xpos[th][2]), "leg_bw": leg / mw, "body_bw": body / mw,
             "legs_down": len(legs), "worst_joint": wn, "worst_joint_margin": worst,
             "stands": bool(body < 1e-3 and len(legs) == 6 and d.xpos[th][2] > 1.6),

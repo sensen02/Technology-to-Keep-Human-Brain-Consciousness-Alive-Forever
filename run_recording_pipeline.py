@@ -39,6 +39,7 @@ Run (BODY environment):
     OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
       venv_body/bin/python run_recording_pipeline.py --seeds 0,1 --seconds 4
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).
 from __future__ import annotations
 
 import argparse

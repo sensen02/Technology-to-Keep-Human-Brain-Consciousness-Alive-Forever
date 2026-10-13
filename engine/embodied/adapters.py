@@ -47,16 +47,32 @@ receptor:  the receptor models in ``engine.receptors`` return
                -> injected as the tier's external current.
            Both factors are ILLUSTRATIVE and are recorded in the episode metadata.
 
-CONTACT-FORCE CALIBRATION IS UNRESOLVED (recorded, not hidden)
---------------------------------------------------------------
-``BodyObservation.contact_forces`` is documented by the backend as "N".  The model
-is a millimetre model (``gravity = -9810 mm/s^2``), whose consistent force unit is
-kg*mm/s^2 = mN, and the measured per-leg magnitudes (~27 per leg, ~164 summed over
-six legs) do NOT sum to the body weight (0.0010243 kg * 9.81 m/s^2 = 0.01005 N =
-10.05 mN).  So the channel's ABSOLUTE scale does not balance against the body's own
-mass and this module therefore uses only its RELATIVE pattern, against a single
-pre-registered reference value that is recorded in every episode's metadata.
+CONTACT-FORCE ABSOLUTE SCALE: UNIT ERROR FIXED, RESIDUAL FACTOR OF ~16 STILL UNEXPLAINED
+---------------------------------------------------------------------------------------
+The UNIT is now settled and it was previously wrong by 1000x.  The model is a
+millimetre model (``gravity = -9810 mm/s^2``) whose MASS unit is GRAMS, not kilograms:
+read as kg the fly would be 1.024 g, a thousand times a real *Drosophila*, whereas read
+as grams it is 1.02431 mg, which is right for a fly.  The consistent force unit is
+therefore ``g*mm/s^2 = 1e-6 N = 1 uN``, and the body weight is
+``1.02431e-3 g * 9810 mm/s^2 = 10.0485 uN``, NOT "0.01005 N = 10.05 mN" as this note
+claimed before.  MEASURED confirmation: with the actuators off and the fly settled, the
+six legs' summed normal force is 6.59-15.31 model units against a weight of 10.0485.
+
+The RESIDUAL problem is real and is NOT a unit problem.  ``BodyObservation.contact_forces``
+reports ~27 per leg and ~164 summed over six legs, which against a weight of 10.0485 model
+units is **~16x body weight**.  A body at rest must be held up by its own weight and it is
+(see the settled measurement above), so this channel is not measuring external load alone --
+the standing figure of 13-25x that was measured separately is consistent with the channel
+carrying the POSITION SERVOS' INTERNAL STRESS as well as the ground reaction.  This module
+therefore still uses only the channel's RELATIVE pattern, against a single pre-registered
+reference value recorded in every episode's metadata, and no absolute force from this channel
+may be quoted as a biological load.
 """
+    # DOWNGRADED INPUT: `force_channel`.  MechanoReceptorBank -- the SensoryDrive seam -- takes its
+    # input from the contact-force channel, which engine/embodied/force_channel.py declares a
+    # NON_PHYSICAL_LOAD (measured 4.29-12.16x body weight, cause unidentified).  The drive's
+    # MAGNITUDE is therefore not physical either; only its structure and its dependence on body
+    # state are.  No 'the body sensed X newtons' claim is supportable.
 from __future__ import annotations
 
 from dataclasses import dataclass, asdict
@@ -222,6 +238,7 @@ class TierConfig:
     #: passing a different value changes the tier's edges and therefore its fingerprint.
     weight_scale_uS_per_synapse: float = 5e-4
     dt_ms: float = 0.5
+    voltage_method: str = 'backward_euler'
     background_mean_nA: float = 0.0
     background_sd_nA: float = 0.004
     background_seed: int = 0
@@ -239,6 +256,8 @@ class TierConfig:
             raise ValueError("growth_iterations must be an integer")
         if not 1 <= self.growth_iterations <= 4:
             raise ValueError("growth_iterations must lie in [1, 4]")
+        if self.voltage_method not in ('backward_euler', 'frozen_exact'):
+            raise ValueError('unknown voltage integration method')
         _finite(self.dt_ms, "dt_ms")
         if not 0 < self.dt_ms <= 1.0:
             raise ValueError("neural dt must lie in (0, 1] ms")
@@ -301,6 +320,21 @@ class ReceptorConfig:
     contact_weight: float = 1.0
     proprio_weight: float = 0.5
     current_nA_per_drive: float = 0.05
+    #: SUB-TYPE-CHANNEL MODE (neural rebuild, round 40).  When True the bank stops
+    #: computing ONE sign-blind scalar per leg and broadcasts it to the whole nerve, and
+    #: instead partitions each leg's mechanosensory cells into the seven channels the
+    #: dataset itself labels (`cell_sub_class` in data/banc888/banc_888_meta.feather),
+    #: feeding each channel the signed physical quantity its label implies:
+    #:   claw->position (signed tibia angle), hook->direction (signed tibia velocity),
+    #:   hair_plate->joint_angle (signed), campaniform->strain (force magnitude),
+    #:   bristle->touch (binary), club/multidendritic->declared ZERO (no model quantity).
+    #: Measured defect this replaces: |angle - reference| cannot distinguish flexion from
+    #: extension, and ~75% of the receiving cells are contact/taste cells, not proprioceptors.
+    channel_mode: bool = False
+    #: per-channel current scale, nA per unit of normalised channel quantity.  The value is
+    #: the one the rebuild measured as the first to produce any tier spikes at all
+    #: (1e-3 and 3e-2 nA gave zero over 100 ms at 600 driven cells).
+    channel_current_nA_per_unit: float = 3e-1
 
     def validate(self):
         for name in ("receptor_gain_mV", "receptor_tau_ms", "kT", "k_gate", "dG",
@@ -580,7 +614,61 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
                          "left/right channel would be undefined (left=%d right=%d)"
                          % (left_readout.size, right_readout.size))
 
+    # PER-LEG READOUT GROUPS -- the 2-knob motor channel lifted to one knob per leg.  The rule is
+    # the SAME one the left/right split above already uses (synapse-weighted targets), extended from
+    # two sides to six legs, so no new assumption is introduced: a readout neuron is assigned to the
+    # leg whose motor neurons it reaches most strongly.
+    #
+    # MEASURED, and it is the number that decides whether a 6-knob command is even definable:
+    # of 195 readout neurons, 83 (43 %) reach at least one leg's motor neurons and 112 (57 %) reach
+    # NONE.  Every leg is non-empty -- lf 12, lm 9, lh 19, rf 21, rm 15, rh 7 -- so six channels are
+    # definable, but the 112 ungrouped cells carry no leg-specific command and are COUNTED here
+    # rather than quietly dropped.
+    _LEG_NERVE = {"lf": "left_prothoracic_leg_nerve", "lm": "left_mesothoracic_leg_nerve",
+                  "lh": "left_metathoracic_leg_nerve", "rf": "right_prothoracic_leg_nerve",
+                  "rm": "right_mesothoracic_leg_nerve", "rh": "right_metathoracic_leg_nerve"}
+    _nstr = np.array([str(x) for x in nerve])
+    _W = np.zeros((readout_local.size, len(_LEG_NERVE)))
+    for _k, _lg in enumerate(_LEG_NERVE):
+        _mot = np.flatnonzero(is_motor & (_nstr == _LEG_NERVE[_lg]))
+        _m = np.isin(post, _mot)
+        _W[:, _k] = np.bincount(pre[_m], weights=syn[_m].astype(float),
+                                minlength=n)[readout_global]
+    _tot = _W.sum(axis=1)
+    _dom = np.where(_tot > 0, _W.argmax(axis=1), -1)
+    readout_per_leg = {lg: readout_local[_dom == _k] for _k, lg in enumerate(_LEG_NERVE)}
+    n_ungrouped = int((_dom < 0).sum())
+    # A LEG MAY HAVE NO READOUT, AND THAT IS A PROPERTY OF THE TIER COMPOSITION -- not a bug to be
+    # worked around by inventing a channel.  MEASURED, and this is how the conflict surfaced:
+    # enabling `include_visual_route` changes the descent set enough that leg `lh` gets ZERO
+    # descending neurons reaching its motor neurons (sizes become lf 1, lm 2, lh 0, rf 5, rm 3,
+    # rh 4).  The first version of this code RAISED, which was the right instinct -- never invent a
+    # channel with no input -- but it made the two configurations mutually exclusive, so a platform
+    # that wants vision could not have the six-knob command.  The repair keeps the honesty and drops
+    # the exclusivity: the leg is marked UNAVAILABLE and its channel is left NEUTRAL, so a consumer
+    # can always see which legs are actually driven.
+    _empty = sorted(lg for lg, idx in readout_per_leg.items() if idx.size == 0)
+    leg_readout_coverage = {
+        "rule": ("a descending readout neuron is assigned to the leg whose motor neurons receive "
+                 "the largest synapse weight from it -- the same rule the left/right split uses"),
+        "per_leg_n_neurons": {lg: int(idx.size) for lg, idx in readout_per_leg.items()},
+        "unavailable_legs": _empty,
+        "unavailable_leg_meaning": (
+            "these legs have NO descending readout reaching their motor neurons under this tier "
+            "composition, so their per-leg command channel carries no information.  It is reported "
+            "here and left NEUTRAL in the command; it is never filled with a guessed value."),
+        "n_readout_total": int(readout_local.size),
+        "n_assigned_to_a_leg": int(readout_local.size - n_ungrouped),
+        "n_ungrouped_no_leg_motor_target": n_ungrouped,
+        "ungrouped_share": float(n_ungrouped / max(readout_local.size, 1)),
+        "motor_neurons_per_leg": {lg: int((is_motor & (_nstr == nm)).sum())
+                                  for lg, nm in _LEG_NERVE.items()},
+        "caveat": ("the 112 ungrouped descending cells carry no leg-specific command under this "
+                   "rule; they are excluded from the six channels and counted here"),
+    }
+
     coverage = {
+        "leg_readout": leg_readout_coverage,
         "selection_rule": tier["selection_rule"],
         "growth_iterations": c.growth_iterations,
         "growth_history": history,
@@ -681,6 +769,7 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
         "descending_local": desc_local, "readout_local": readout_local,
         "readout_left": left_readout, "readout_right": right_readout,
         "readout_tie": tie_readout, "readout_bias": bias,
+        "readout_per_leg": readout_per_leg, "leg_readout_coverage": leg_readout_coverage,
         "coverage": coverage,
         "fingerprint": _digest(gi, edges["We"].indptr, edges["We"].indices,
                                edges["We"].data, edges["Wi"].indptr, edges["Wi"].indices,
@@ -700,7 +789,7 @@ class NeuralTier:
         self.ledger = ledger
         self.n = int(built["n"])
         self.net = ConductanceNetwork(self.n, ConductanceParams(),
-                                      self.cfg.dt_ms).set_connectivity(
+                                      self.cfg.dt_ms, voltage_method=self.cfg.voltage_method).set_connectivity(
             built["edges"]["We"], built["edges"]["Wi"])
         self.rng = np.random.default_rng(self.cfg.background_seed)
         self.background_nA = self.rng.normal(self.cfg.background_mean_nA,
@@ -708,13 +797,18 @@ class NeuralTier:
         self.readout_local = np.asarray(built["readout_local"])
         self.left = np.asarray(built["readout_left"])
         self.right = np.asarray(built["readout_right"])
+        # PER-LEG readout groups, so the motor channel can carry one knob per leg instead of two
+        # global ones.  Same rule as left/right (synapse-weighted targets), applied to six legs.
+        self.readout_per_leg = {k: np.asarray(v) for k, v in
+                                built.get("readout_per_leg", {}).items()}
+        self.leg_readout_coverage = dict(built.get("leg_readout_coverage", {}))
         self.sensory = {k: np.asarray(v) for k, v in built["sensory"].items()}
         self.steps = 0
 
     def reset(self):
         """Return to the exact rest state, with the same background draw."""
         self.net = ConductanceNetwork(self.n, ConductanceParams(),
-                                      self.cfg.dt_ms).set_connectivity(
+                                      self.cfg.dt_ms, voltage_method=self.cfg.voltage_method).set_connectivity(
             self.built["edges"]["We"], self.built["edges"]["Wi"])
         self.rng = np.random.default_rng(self.cfg.background_seed)
         self.background_nA = self.rng.normal(self.cfg.background_mean_nA,
@@ -753,11 +847,18 @@ class NeuralTier:
         total = sp[:, self.readout_local].sum()
         left = sp[:, self.left].sum()
         right = sp[:, self.right].sum()
-        return {
+        out = {
             "total_hz": float(total) / (self.readout_local.size * window_s),
             "left_hz": float(left) / (self.left.size * window_s),
             "right_hz": float(right) / (self.right.size * window_s),
         }
+        # ONE KEY PER LEG, normalised by that leg's own group size so that the 7-neuron group (rh)
+        # and the 21-neuron group (rf) are comparable.  Adding these keys here means `calibrate`
+        # picks up a per-leg reference rate automatically, with no second code path.
+        for leg, idx in self.readout_per_leg.items():
+            if idx.size:
+                out[f"leg_{leg}_hz"] = float(sp[:, idx].sum()) / (idx.size * window_s)
+        return out
 
 
 # ---------------------------------------------------------------------------
@@ -776,7 +877,7 @@ class MechanoReceptorBank:
     name = "receptor_bank"
 
     def __init__(self, sensory_groups, leg_angle_rows, n_neurons, config: ReceptorConfig,
-                 dt_ms, ledger: OwnershipLedger, seed=0):
+                 dt_ms, ledger: OwnershipLedger, seed=0, built_roots=None):
         self.cfg = config.validate()
         self.dt_ms = float(dt_ms)
         if self.dt_ms <= 0:
@@ -805,10 +906,33 @@ class MechanoReceptorBank:
             self.proprio[leg] = MechanoReceptor(1, gain_mV=self.cfg.receptor_gain_mV,
                                                 dt_ms=self.dt_ms, seed=100 + seed + i, **kw)
         self.reference_angles = None
+        # SUB-TYPE-CHANNEL MODE (see ReceptorConfig.channel_mode).  The partition comes from
+        # the dataset's own `cell_sub_class` column; a cell the tier does not contain simply
+        # cannot be driven and is reported instead of being redistributed.
+        self.channel_encoder = None
+        self.channel_stats = None
+        if self.cfg.channel_mode:
+            from .sensory_channels import ChannelConfig, ChannelSensoryEncoder, channel_index_map
+            tier_roots = (built_roots if built_roots is not None else
+                          np.arange(self.n))  # fallback keeps the partition well defined
+            cg, st = channel_index_map(self.n, tier_roots)
+            self.channel_encoder = ChannelSensoryEncoder(
+                cg, self.n,
+                ChannelConfig(current_nA_per_unit=self.cfg.channel_current_nA_per_unit,
+                              reference_force=self.cfg.reference_force,
+                              reference_angle_rad=self.cfg.reference_angle_rad))
+            self.channel_stats = st
+            self._prev_angles = None
 
     # -- reference pose -----------------------------------------------------
     def set_reference_pose(self, joint_angles_rad):
         q = np.asarray(joint_angles_rad, float)
+        if self.channel_encoder is not None and q.ndim == 1:
+            # the channel encoder needs the same reference; it is set here so the two paths
+            # cannot drift apart
+            self.channel_encoder.set_reference_pose(np.concatenate([q, np.zeros(66 - q.size)])
+                                                    if q.size < 66 else q)
+            self._prev_angles = None
         if q.ndim != 1 or q.size < 66:
             raise ValueError("the reference pose must be the full joint-angle vector "
                              "returned by the body (>= 66 hinge angles)")
@@ -833,6 +957,8 @@ class MechanoReceptorBank:
         if angles.ndim != 1 or angles.size < 66:
             raise ValueError("expected the full joint-angle vector (>= 66 hinge angles), "
                              "got shape %r" % (angles.shape,))
+        if self.channel_encoder is not None:
+            return self._channel_stimuli(angles, forces)
         force_strain = np.zeros(6)
         angle_strain = np.zeros(6)
         for leg in LEGS:
@@ -844,9 +970,80 @@ class MechanoReceptorBank:
             angle_strain[i] = min(max(dev / self.cfg.reference_angle_rad, 0.0), 1.0)
         return force_strain, angle_strain
 
+    def _channel_stimuli(self, angles, forces):
+        """Sub-type-channel stimuli.  Returns the SAME two (6,) arrays as the legacy path, so
+        every downstream consumer keeps working, but each is now a SIGNAGE-CARRYING aggregate:
+
+            angle_strain[leg] = mean over the leg's proprioceptive channels of the SIGNED
+                                normalised deviation (talus/claw position, hair-plate angle,
+                                hook velocity contribution), so a flexion and an equal
+                                extension no longer map to the same number;
+            force_strain[leg] = contact-force magnitude, unchanged in meaning.
+
+        The rich per-channel detail goes into the drive record, so nothing here is silent.
+        """
+        enc = self.channel_encoder
+        dt_ms = float(self.dt_ms)
+        force_strain = np.zeros(6)
+        angle_strain = np.zeros(6)
+        per_leg_q = {}
+        for leg in LEGS:
+            i = LEG_INDEX[leg]
+            rows = self.rows[leg]
+            # rows[6] is the tibia DOF inside the leg's own 7-DOF block (measured: the leg
+            # block is coxa yaw/pitch/roll, trochanter yaw/pitch/roll, tibia pitch)
+            tib_row = int(rows[-1])
+            dev = angles[rows] - self.reference_angles[rows]
+            if self._prev_angles is None:
+                vel = 0.0
+            else:
+                d = (angles[tib_row] - self._prev_angles[tib_row])
+                vel = float(d) / (dt_ms / 1000.0)
+            from .sensory_channels import ChannelQuantities
+            q = ChannelQuantities(tibia_joint_dev_rad=float(dev[-1]),
+                                  tibia_joint_vel_rad_s=float(vel),
+                                  multi_joint_dev_rad=float(dev.mean()),
+                                  contact_force_norm=float(np.linalg.norm(forces[i])),
+                                  foot_contact=1.0 if float(np.linalg.norm(forces[i])) > 0
+                                  else 0.0)
+            per_leg_q[leg] = q
+            force_strain[i] = min(max(q.contact_force_norm / self.cfg.reference_force, 0.0), 1.0)
+            signed = np.mean([q.tibia_joint_dev_rad / self.cfg.reference_angle_rad,
+                              q.multi_joint_dev_rad / self.cfg.reference_angle_rad,
+                              q.tibia_joint_vel_rad_s / 10.0])
+            angle_strain[i] = np.clip(signed, -1.0, 1.0)
+        self._prev_angles = np.array(angles, float).copy()
+        self._channel_quantities = per_leg_q
+        return force_strain, angle_strain
+
     def transduce(self, obs):
         """One interval of transduction.  Returns (current_nA, drive dict)."""
         force_strain, angle_strain = self.stimuli(obs)
+        if self.channel_encoder is not None:
+            current, chrec = self.channel_encoder.encode(self._channel_quantities)
+            if not np.all(np.isfinite(current)):
+                raise ValueError("channel transduction produced non-finite current")
+            self.ledger.write("receptor_state", "receptor_bank")
+            # `current_nA_per_leg` is what the loop records as an OBSERVED quantity
+            # (loop.py:724, and the contract table at loop.py:108 ties it to
+            # contact_forces + joint_angles_rad).  In channel mode there is no single
+            # per-leg drive: the current is delivered per CHANNEL, so the per-leg value
+            # reported here is the SUM OF THE MAGNITUDES delivered to that leg's channels,
+            # which is an observable total and not a signed drive.  The signed per-channel
+            # values live in `channel_record`.
+            per_leg_total = np.zeros(6)
+            for leg in LEGS:
+                i = LEG_INDEX[leg]
+                tot = 0.0
+                for ch, idx in self.channel_encoder.groups[leg].items():
+                    if idx.size:
+                        tot += float(np.abs(current[idx]).sum())
+                per_leg_total[i] = tot
+            return current, {"force_strain": force_strain, "angle_strain": angle_strain,
+                             "channel_mode": True, "channel_record": chrec,
+                             "channel_stats": self.channel_stats,
+                             "current_nA_per_leg": per_leg_total,
+                             "drive_contact": np.zeros(6), "drive_proprio": np.zeros(6)}
         drive_contact = np.zeros(6)
         drive_proprio = np.zeros(6)
         for leg in LEGS:
@@ -890,6 +1087,19 @@ class Command:
     delta_left_hz: float
     delta_right_hz: float
     forced: bool = False
+    #: One intrinsic-frequency scale PER LEG, in LEGS order.  Empty when the scalar path is used, so
+    #: a historical episode is bit-identical and the two channels remain distinguishable in the
+    #: record.  These carry defaults, so they MUST come after every field without one -- dataclasses
+    #: reject a defaulted field followed by an undefaulted one, which is how this was caught.
+    freq_scale_per_leg: tuple = ()
+    rate_per_leg_hz: tuple = ()
+    delta_per_leg_hz: tuple = ()
+    #: The leg name for each entry of the three tuples above.  Without this, "six knobs" is six
+    #: numbers whose meaning depends on a convention the reader has to guess.
+    per_leg_order: tuple = ()
+    #: Legs whose per-leg channel carries NO information in this tier composition.  Their entries
+    #: above are neutral (1.0) and must not be read as "commanded to nominal".
+    per_leg_unavailable: tuple = ()
 
     def clip_report(self, cfg: DecodeConfig):
         return {"speed_scale_clipped": bool(self.speed_scale <= cfg.s_min
@@ -931,6 +1141,7 @@ class CommandDecoder:
         self.forced = None
         self.calibration = None
         self._read = self._left = self._right = None
+        self._per_leg = None
         if tier is not None:
             self.bind_readout(tier)
 
@@ -982,9 +1193,28 @@ class CommandDecoder:
             raise ValueError("source_interval must be an integer")
         forced = forced_rate is not None
         if forced:
-            if set(forced_rate) != {"total_hz", "left_hz", "right_hz"}:
-                raise ValueError("forced rate must give total_hz, left_hz, right_hz")
-            raw = {k: float(v) for k, v in forced_rate.items()}
+            # A channel the caller does NOT force is forced to its own REFERENCE rate, i.e. to
+            # neutral.  MEASURED reason, and it took two attempts: demanding the three-key triple
+            # rejected callers that correctly supplied the new per-leg keys, and demanding that every
+            # filtered key be supplied broke the callers that predate the per-leg channel.  Neither
+            # is right, because "unspecified" has an obvious neutral meaning here: `self.rate0[k]` is
+            # the pre-registered reference the calibration measured, so defaulting to it makes a
+            # three-key forced rate behave EXACTLY as it did before the per-leg channel existed --
+            # including in the zero-modulation equivalence test, which is the point.
+            # THREE RULES, and the third is a regression this file already caused once: relaxing the
+            # contract to accept the per-leg keys ALSO stopped refusing malformed input, and the loop
+            # self-test caught it (15 refusal cases became 14).  So the old strictness is restored
+            # exactly for the old surface, and only the new channel is optional.
+            _REQUIRED = {"total_hz", "left_hz", "right_hz"}
+            unknown = sorted(set(forced_rate) - set(self.filt))
+            if unknown:
+                raise ValueError("forced rate names unknown channel(s) %r; known: %r"
+                                 % (unknown, sorted(self.filt)))
+            missing = sorted(_REQUIRED - set(forced_rate))
+            if missing:
+                raise ValueError("forced rate must give total_hz, left_hz, right_hz; missing %r"
+                                 % (missing,))
+            raw = {k: float(forced_rate.get(k, self.rate0[k])) for k in self.filt}
             for v in raw.values():
                 if not math.isfinite(v) or v < 0:
                     raise ValueError("forced rates must be finite and nonnegative")
@@ -997,12 +1227,53 @@ class CommandDecoder:
         s = min(max(s, self.cfg.s_min), self.cfg.s_max)
         a = self.cfg.k_turn * math.tanh(
             (d["left_hz"] - d["right_hz"]) / self.cfg.rate_scale_hz)
+        # PER-LEG CHANNEL.  THE SAME ASSUMED MAP, APPLIED SIX TIMES: the speed-scale form is reused
+        # verbatim with each leg's own rate delta, so no new gain and no new form is introduced.
+        # A leg whose group was never calibrated is left out rather than defaulted, so a missing
+        # channel cannot masquerade as "neutral".
+        # LEGS ORDER, NOT ALPHABETICAL.  MEASURED, and the acceptance test caught it: `sorted()`
+        # gives lf, lh, lm, rf, rh, rm, so silencing lm moved entry 2 -- which `set_command_freqs`
+        # documents as lh.  A channel whose index meaning does not match its declared meaning is the
+        # same class of silent failure as a unit error, so the order is taken from LEGS itself and
+        # the names are carried alongside the values.
+        leg_keys = [f"leg_{lg}_hz" for lg in LEGS if f"leg_{lg}_hz" in self.filt]
+        scales, rates, deltas = [], [], []
+        # THE VECTOR IS ALWAYS SIX ENTRIES IN LEGS ORDER, whatever the tier composition.  MEASURED
+        # BUG, caught by the S2 acceptance test: the first version of this availability handling
+        # APPENDED only the legs that had a readout, so with the visual route enabled it produced a
+        # FIVE-element tuple whose names were the five available legs -- while `set_command_freqs`
+        # requires exactly six in LEGS order.  The vector and its index meaning had drifted apart,
+        # which is the same class of failure as a unit error.  So every leg gets an entry, an
+        # unavailable leg is EXACTLY 1.0 (neutral), and `per_leg_order` is always LEGS.
+        by_leg = {}
+        unavailable = []
+        for lg in LEGS:
+            key = f"leg_{lg}_hz"
+            if key in self.filt:
+                dk = d[key]
+                sk = 1.0 + self.cfg.k_speed * math.tanh(dk / self.cfg.rate_scale_hz)
+                by_leg[lg] = (min(max(sk, self.cfg.s_min), self.cfg.s_max),
+                              self.filt[key], dk)
+            else:
+                # no readout for this leg -> NEUTRAL, and named as unavailable rather than guessed
+                by_leg[lg] = (1.0, 0.0, 0.0)
+                unavailable.append(lg)
+        scales = [by_leg[lg][0] for lg in LEGS]
+        rates = [by_leg[lg][1] for lg in LEGS]
+        deltas = [by_leg[lg][2] for lg in LEGS]
         return Command(source_interval=source_interval, speed_scale=float(s),
                        turn=float(a), rate_total_hz=self.filt["total_hz"],
                        rate_left_hz=self.filt["left_hz"],
                        rate_right_hz=self.filt["right_hz"],
                        delta_total_hz=d["total_hz"], delta_left_hz=d["left_hz"],
-                       delta_right_hz=d["right_hz"], forced=forced)
+                       delta_right_hz=d["right_hz"], forced=forced,
+                       freq_scale_per_leg=tuple(float(v) for v in scales),
+                       rate_per_leg_hz=tuple(float(v) for v in rates),
+                       delta_per_leg_hz=tuple(float(v) for v in deltas),
+                       # the ORDER is part of the payload: a consumer that assumes a different one
+                       # is a silent index mismatch, so the names travel with the numbers
+                       per_leg_order=tuple(LEGS),
+                       per_leg_unavailable=tuple(unavailable))
 
     def rate_hz(self, spikes):
         if self._read is None:
@@ -1011,14 +1282,20 @@ class CommandDecoder:
         if sp.ndim != 2:
             raise ValueError("spikes must be a 2-D interval matrix")
         window_s = sp.shape[0] * self.dt_ms / 1000.0
-        return {"total_hz": float(sp[:, self._read].sum()) / (self._read.size * window_s),
-                "left_hz": float(sp[:, self._left].sum()) / (self._left.size * window_s),
-                "right_hz": float(sp[:, self._right].sum()) / (self._right.size * window_s)}
+        out = {"total_hz": float(sp[:, self._read].sum()) / (self._read.size * window_s),
+               "left_hz": float(sp[:, self._left].sum()) / (self._left.size * window_s),
+               "right_hz": float(sp[:, self._right].sum()) / (self._right.size * window_s)}
+        for leg, idx in (self._per_leg or {}).items():
+            if idx.size:
+                out[f"leg_{leg}_hz"] = float(sp[:, idx].sum()) / (idx.size * window_s)
+        return out
 
     def bind_readout(self, tier: NeuralTier):
         self._read = np.asarray(tier.readout_local)
         self._left = np.asarray(tier.left)
         self._right = np.asarray(tier.right)
+        self._per_leg = {k: np.asarray(v) for k, v in
+                         getattr(tier, "readout_per_leg", {}).items()} or None
         return self
 
     def neutral(self):
@@ -1080,6 +1357,32 @@ class CommandedTripodCPG:
         # what set_command(1.0, 0.0) would write, so NO write happens here: the
         # ownership ledger then shows exactly one command write per outer step.
         return
+
+    def set_command_freqs(self, freq_scale_per_leg):
+        """Write ONE intrinsic-frequency scale PER LEG, in LEGS order.
+
+        WHY A SEPARATE METHOD RATHER THAN A NEW ARGUMENT ON ``set_command``.  The scalar path is what
+        every recorded episode used, and its neutrality check is an exact float identity
+        (``speed_scale == 1.0 and turn == 0.0`` reproduces the baseline bit for bit).  Adding a
+        second channel to the same call would put a vector-shaped possibility next to that identity
+        and make "this episode used the old channel" a matter of reading the call site.  Two methods
+        keep the two channels distinguishable in the record.
+
+        The CPG's own representation is ALREADY a length-6 vector (``self.base = np.ones(6) * base``
+        and ``intrinsic_freqs`` is written as ``f[:3]``/``f[3:]``), so lifting the motor channel from
+        two knobs to six needs no change to the plant -- only to what is allowed to reach it.
+        """
+        f = np.asarray(freq_scale_per_leg, dtype=float)
+        if f.shape != (6,):
+            raise ValueError("freq_scale_per_leg must have exactly 6 entries in LEGS order "
+                             f"(lf, lm, lh, rf, rm, rh); got shape {f.shape}")
+        if not np.all(np.isfinite(f)) or np.any(f <= 0):
+            raise ValueError("per-leg frequency scales must be finite and positive")
+        self.net.intrinsic_freqs = self.base * f
+        self.n_writes += 1
+        self.ledger.write("cpg_intrinsic_freqs", "command_adapter")
+        self.last_command = ("per_leg", tuple(float(v) for v in f))
+        return self
 
     def set_command(self, speed_scale, turn):
         if not (math.isfinite(speed_scale) and math.isfinite(turn)):

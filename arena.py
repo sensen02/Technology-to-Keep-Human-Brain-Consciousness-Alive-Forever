@@ -46,7 +46,38 @@ import numpy as np
 
 __all__ = ["CAMERA_RING", "FIDUCIAL_MARKERS", "arena_cameras",
            "arena_camera_report", "marker_report", "ARENA_CENTRE_MM",
-           "MARKER_RADIUS_MM"]
+           "MARKER_RADIUS_MM", "marker_grey", "MARKER_GREY_PROVENANCE"]
+
+
+#: HOW A RENDERED FRAME BECOMES A GREY IMAGE, IN ONE PLACE.
+#:
+#: MEASURED, AND IT IS WHY THE TWO MARKER CLASSES COULD NOT BE TOLD APART.  The recorders used
+#: ``img.mean(axis=2)``, the arithmetic mean of R, G and B, while ``engine/embodied/natural_scene.py``
+#: uses the standard luminance weights below.  The markers are EMISSIVE AND WARM -- high red, low
+#: blue -- so the arithmetic mean UNDERSTATES them: MEASURED on one 640x800 frame, the brightest
+#: marker pixel reaches 243 under the mean and 250.9 under luminance, and it is never 255 either way.
+#: With the detection threshold at 240 the consequence is not cosmetic: under the mean only the
+#: saturated core of each fiducial survives, so a 0.30 mm fiducial and a 0.12 mm fly marker both come
+#: out at 3-30 px and their size distributions OVERLAP completely (largest gap 0 px), which makes any
+#: area-based separation of the two classes impossible.  Under luminance the same frame gives
+#: fiducials 54-205 px against fly markers 3-26 px -- a clean 28 px gap.
+#:
+#: The ratio the radii predict is 6.25x and the measured blob ratio is smaller (about 2x), because
+#: anti-aliased edges at a fixed threshold do not scale like pi*r^2.  So "separable" is judged by the
+#: existence of a GAP, not by a ratio -- see `limb_tracking.marker_size_threshold`.
+MARKER_GREY_PROVENANCE = (
+    "standard luminance 0.299 R + 0.587 G + 0.114 B, the same weights "
+    "engine/embodied/natural_scene.py already uses.  Declared here so the recorder and every "
+    "detector that re-reads its PNGs cannot drift into two different definitions, which is exactly "
+    "what had happened.")
+
+
+def marker_grey(img: np.ndarray) -> np.ndarray:
+    """(H, W, 3) uint8/float RGB -> (H, W) grey, by the ONE conversion this project declares."""
+    a = np.asarray(img, dtype=np.float64)
+    if a.ndim != 3 or a.shape[2] < 3:
+        raise ValueError(f"expected an (H, W, 3) RGB image, got shape {a.shape}")
+    return 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]
 
 #: Arena centre in world coordinates, mm.  The fly is spawned here.
 ARENA_CENTRE_MM = (0.0, 0.0, 0.0)

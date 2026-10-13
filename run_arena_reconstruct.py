@@ -61,6 +61,11 @@ sys.path.insert(0, str(HERE))
 LEG_NAMES = ("lf", "lm", "lh", "rf", "rm", "rh")
 BODY_MARKERS = ("c_thorax", "c_rostrum", "c_abdomen3")
 
+#: The frame HEIGHT at which every pixel gate in this file was tuned.  A gate is a physical
+#: tolerance, so it must be scaled by the frame height before use at another resolution; see
+#: ``gate_px_at_rows``.  200 keeps every already-recorded 160x200 / 200-row result bit-for-bit.
+GATE_REFERENCE_ROWS = 200
+
 
 class PinholeCamera:
     """A camera with a declared pose and no distortion, as the renderer provides it."""
@@ -114,6 +119,28 @@ class PinholeCamera:
         self.K = K
         self.P = K @ np.hstack([R.T, t[:, None]])
 
+    def depth_mm(self, pts_mm) -> np.ndarray:
+        """Distance in front of the camera, mm.  Negative/NaN behind it."""
+        p = np.atleast_2d(np.asarray(pts_mm, dtype=float))
+        cam = (self.R.T @ (p - self.pos).T).T
+        return -cam[:, 2]
+
+    def expected_area_px(self, pts_mm, radius_mm: float) -> np.ndarray:
+        """How many pixels a marker of THIS radius should cover at THAT depth, per point.
+
+        WHY THIS EXISTS RATHER THAN A FIXED SIZE THRESHOLD.  MEASURED: a global area cut cannot
+        separate the arena's 0.30 mm fiducials from the fly's 0.12 mm markers, because perspective
+        makes a fly marker close to a camera as large as a fiducial far from it -- the two size
+        distributions were measured to nearly touch (fly markers up to 37 px, fiducials from 39 px).
+        The physically meaningful test is not the area, it is the area RELATIVE to what the declared
+        radius predicts at that point's own depth: ``pi * (r * f / depth)^2``.  A fly marker seen at
+        the same depth as a fiducial comes out 6.25x smaller in area, which is a rejection, and the
+        projection is the same one ``project`` uses, so no second camera model is introduced.
+        """
+        d = self.depth_mm(pts_mm)
+        r_px = float(radius_mm) * self.fy / d
+        return float(math.pi) * r_px * r_px
+
     def project(self, pts_mm: np.ndarray) -> np.ndarray:
         """World mm -> (row, col).  Points behind the camera return NaN.
 
@@ -147,8 +174,21 @@ class PinholeCamera:
         # garbage (MEASURED: the marker at (0,0,0.5) landed at column -2827 instead of 94).
         depth = -cam[:, 2]
         safe = np.where(np.abs(depth) < 1e-9, np.nan, depth)
-        col = self.W / 2.0 + self.fx * cam[:, 0] / safe
-        row = self.H / 2.0 - self.fy * cam[:, 1] / safe
+        # THE MEASURED PER-CAMERA OFFSET IS APPLIED HERE, and this line is the fix for a defect
+        # that made the ENTIRE CALIBRATION INERT.  MEASURED: `load_projection_offsets` folds the
+        # offset into `cam.K`'s principal point, but this method computes col/row from `W/2` and
+        # `H/2` directly and never reads `K`, so `camera_offsets.json` had NO effect on any
+        # projection.  It went unnoticed because stack A's offset is about 1.5 px at 640 rows --
+        # smaller than every gate in the chain -- while the newly observable stack B episode has a
+        # 4.0 px offset, which no gate could absorb: the health gate scored it 0 % with the offset
+        # loaded and 0 % without it, because the two are the same thing.
+        #
+        # Convention taken from the calibration's own residual, which fits `(col_proj + dx) -
+        # col_obs` and `(row_proj + dy) - row_obs`: col takes offset_px[0] and row takes
+        # offset_px[1].  Cameras built without an offsets file carry (0.0, 0.0).
+        off = getattr(self, "offset_px", (0.0, 0.0))
+        col = self.W / 2.0 + self.fx * cam[:, 0] / safe + float(off[0])
+        row = self.H / 2.0 - self.fy * cam[:, 1] / safe + float(off[1])
         return np.stack([row, col], axis=1)
 
     def as_dict(self) -> dict:
@@ -329,9 +369,69 @@ def angle_between(u: np.ndarray, v: np.ndarray) -> float:
     return math.degrees(math.acos(c))
 
 
+def blobs_from_png(path, thr: float = 240.0, min_px: int = 3):
+    """(rows, cols) of the saturated blobs in ONE frame, detected from the IMAGE itself.
+
+    WHY THIS EXISTS RATHER THAN READING ``px/``.  The recorded ``px/`` table is produced by the
+    recorder's own detector, and that detector applied a blob-AREA filter whose upper bound was
+    once hard-coded at 60 px -- a number valid only for a 200-ROW frame.  At 640x800 a 0.30 mm
+    fiducial covers about 490 px, so it was rejected as "too large" and the recorded table kept
+    only grass specks.  MEASURED on the episode that was recorded that way: of 2160
+    marker-projection / camera / frame combinations, only 1.4 % had ANY candidate within 3 px,
+    against 93-94 % on the three episodes recorded after the recorder was fixed.  A reconstruction
+    that trusts ``px/`` therefore cannot be corrected by any gate change -- the fiducials are
+    simply absent from the table.
+
+    The IMAGES are unaffected by that bug, and both the calibration
+    (``run_arena_calibrate.py``) and ``tools_limb_eval.py`` already detect from them, which is
+    exactly why those two produced valid results on the very episode the reconstruction could not
+    use.  This function is that same detection, so the reconstruction no longer depends on the
+    recorder's filter.
+
+    Threshold 240 reproduces the calibration's own choice: the fiducials saturate at 255 while
+    grass highlights peak near 200, and a connected component of >= 3 px removes single-pixel
+    speckle.  No expected position is used -- that belongs to the ASSOCIATION step, not here.
+    """
+    from PIL import Image
+    from scipy import ndimage
+    from arena import marker_grey
+    img = marker_grey(np.asarray(Image.open(path).convert("RGB"), dtype=float))
+    lab, n = ndimage.label(img >= float(thr))
+    rows, cols = [], []
+    for i in range(1, n + 1):
+        yy, xx = np.nonzero(lab == i)
+        if len(yy) >= int(min_px):
+            rows.append(float(yy.mean()))
+            cols.append(float(xx.mean()))
+    return np.asarray(rows, dtype=float), np.asarray(cols, dtype=float)
+
+
+def gate_px_at_rows(max_px: float, rows: int) -> float:
+    """Convert a gate expressed in pixels AT THE REFERENCE HEIGHT into this frame's pixels.
+
+    MEASURED REASON THIS EXISTS, and it is the whole high-resolution failure.  The gate values
+    in this file (2.5, 3.0, 4.0) were tuned on 160x200 and 800x640... on frames whose HEIGHT was
+    200 rows.  A gate is a PHYSICAL tolerance: it is the same marker displacement in millimetres
+    whatever the sensor.  Keeping the number while quadrupling the row count therefore quadruples
+    the physical tolerance, and the association stops discriminating -- MEASURED, at 640x800 the
+    ratio is 4x smaller in mm per pixel, and a gate of a few pixels either admits nothing or
+    admits the wrong blob, which is exactly what produced a 2387 mm world RMS on a static
+    constellation while the same code gave 0.883 mm at 200 rows.
+
+    Normalising by rows makes the physical gate INVARIANT: at ``rows == GATE_REFERENCE_ROWS``
+    the returned value is ``max_px`` bit-for-bit, so every result already recorded at the
+    reference height is unchanged, and a higher-resolution frame gets a proportionally
+    tighter tolerance instead of a silently looser one.
+    """
+    r = int(rows)
+    if r <= 0:
+        return float(max_px)
+    return float(max_px) * (float(r) / float(GATE_REFERENCE_ROWS))
+
+
 def associate_static(cands: dict[str, tuple[np.ndarray, np.ndarray]],
                      cams: list[PinholeCamera], declared_mm: np.ndarray,
-                     max_px: float = 3.0 or 3.0) -> dict:
+                     max_px: float = 3.0, normalise_gate: bool = True) -> dict:
     """Assign detected blobs to the DECLARED static fiducials, by projection + gating.
 
     THE ASSOCIATION IS THE WEAK LINK IN EVERY MULTI-CAMERA PIPELINE, so it is done here
@@ -342,9 +442,14 @@ def associate_static(cands: dict[str, tuple[np.ndarray, np.ndarray]],
     the fiducials are static and their positions are declared -- which is exactly what
     fiducials are for -- and it is not available for the fly markers, whose association
     is done by reconstruction consistency instead.
+
+    ``max_px`` is a pixel count AT ``GATE_REFERENCE_ROWS`` and is scaled per camera by that
+    camera's own frame height (see ``gate_px_at_rows``).  Pass ``normalise_gate=False`` only
+    to reproduce a historical run.
     """
     assigned: dict[int, list[tuple[int, float, float]]] = {}
     missed: list[int] = []
+    gates_used = {}
     for k in range(len(declared_mm)):
         views = []
         for ci, cam in enumerate(cams):
@@ -353,10 +458,13 @@ def associate_static(cands: dict[str, tuple[np.ndarray, np.ndarray]],
             rows, cols = cands[cam.name]
             if len(rows) == 0:
                 continue
+            gate = gate_px_at_rows(max_px, cam.H) if normalise_gate else float(max_px)
+            if cam.name not in gates_used:
+                gates_used[cam.name] = gate
             proj = cam.project(declared_mm[k])[0]
             d = np.hypot(rows - proj[0], cols - proj[1])
             i = int(np.argmin(d))
-            if d[i] <= max_px:
+            if d[i] <= gate:
                 views.append((ci, float(rows[i]), float(cols[i])))
         if len(views) >= 2:
             assigned[k] = views
@@ -364,7 +472,10 @@ def associate_static(cands: dict[str, tuple[np.ndarray, np.ndarray]],
             missed.append(k)
     return {"assigned": assigned, "missed": missed,
             "n_markers": int(len(declared_mm)),
-            "n_assigned": len(assigned)}
+            "n_assigned": len(assigned),
+            "gate_px_reference": float(max_px),
+            "gate_px_per_camera": gates_used,
+            "gate_normalised_by_rows": bool(normalise_gate)}
 
 
 def reconstruct_static(cands: dict[str, tuple[np.ndarray, np.ndarray]],
@@ -629,8 +740,15 @@ def main() -> int:
     ap.add_argument("--episodes", nargs="+", required=True)
     ap.add_argument("--out-suffix", default="")
     ap.add_argument("--max-px", type=float, default=4.0,
-                    help="association gate for the STATIC fiducials, pixels")
+                    help="association gate for the STATIC fiducials, in pixels AT THE REFERENCE "
+                         "FRAME HEIGHT (200 rows); it is scaled by the frame height before use")
+    ap.add_argument("--blobs", choices=("png", "recorded"), default="png",
+                    help="where the candidate blobs come from.  'png' (default) re-detects them "
+                         "from the frame images, which is immune to the recorder's blob-area "
+                         "filter; 'recorded' reads the px/ group of episode.npz, which on one "
+                         "episode of this project provably contains no fiducials at all")
     args = ap.parse_args()
+    blobs = args.blobs
 
     geom_path = HERE / "outputs" / "arena" / "arena_geometry.json"
     geom = json.loads(geom_path.read_text())
@@ -667,6 +785,16 @@ def main() -> int:
                           np.asarray(z[key_o], dtype=np.int64))
 
         def cands_at(frame: int) -> dict:
+            if blobs == "png":
+                # DETECT FROM THE IMAGE, per frame and per camera.  See blobs_from_png for the
+                # measured reason this is the default: the recorded px/ table of one episode in
+                # this project provably lacks the fiducials, because the recorder's blob-area
+                # filter was hard-coded for a different frame height.
+                frames = {}
+                for c in [cc.name for cc in cams]:
+                    f = d / "frames" / c / f"f{frame:05d}.png"
+                    frames[c] = blobs_from_png(f) if f.exists() else (np.zeros(0), np.zeros(0))
+                return frames
             out = {}
             for c, (rows, cols, off) in px_flat.items():
                 a, b = int(off[frame]), int(off[frame + 1])
@@ -676,18 +804,20 @@ def main() -> int:
         out = {"episode": d.name, "camera_pose_source": pose_source,
                "cameras": [c.as_dict() for c in cams],
                "n_frames": n_frames, "marker_body_segments": segs,
-               "inputs_read": ["arena_geometry.json", "markers.json",
-                               "episode.npz [px/* only]"]}
+               "blob_source": ("png re-detection (threshold 240, >=3 px connected component)"
+                               if blobs == "png" else "recorded episode.npz [px/* only]"),
+               "inputs_read": (["arena_geometry.json", "markers.json", "frames/**/*.png"]
+                               if blobs == "png" else
+                               ["arena_geometry.json", "markers.json",
+                                "episode.npz [px/* only]"])}
         # Frame 0: full static chain, as the worked example
         cands0 = cands_at(0)
-        # THE GATE SCALES WITH THE IMAGE, because it is a PIXEL quantity and the frames can be
-        # 640x800 or 160x200.  MEASURED: the arena's own constants fit a 640x800 image, but a
-        # caller passing a larger --max-px was silently overridden by the function default and
-        # the high-resolution run triangulated ZERO fiducials while the calibration at the same
-        # gate found 11-12 markers per camera.
-        # the gate is a PIXEL quantity; the arena's stored numbers assume a 200-row image
-        # SMALLER at higher resolution: a fixed pixel gate has to be tightened in proportion,
-        # so the caller value is used as given but recorded alongside the frame size
+        # THE GATE IS A PHYSICAL TOLERANCE, so it scales WITH the frame height, not against it.
+        # MEASURED, and the earlier comment here argued the opposite: a gate of a few pixels was
+        # tuned on 200-row frames, and keeping that number while quadrupling the row count makes the
+        # tolerance four times looser in millimetres, so the association stops discriminating.
+        # `associate_static` now does the scaling itself via gate_px_at_rows, which is the identity
+        # at the reference height; `gate` below is therefore the REFERENCE-height value.
         gate = float(args.max_px)
         static = reconstruct_static(cands0, cams, declared, max_px=gate)
         out["static_frame0"] = static

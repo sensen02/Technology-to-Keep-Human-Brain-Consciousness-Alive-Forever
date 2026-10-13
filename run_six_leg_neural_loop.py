@@ -82,14 +82,31 @@ TONIC_DRIVE_NA = 0.02
 # until the excursions sit inside the anatomical ranges; it is a loop gain, not a controller.
 
 
-def build(lesion_leg=None):
+def build(lesion_leg=None, *, observable=False, ring_rotation_deg=0.0, fly_markers=False):
     from engine.embodied.adapters import (NeuralTier, OwnershipLedger, TierConfig,
                                           build_neural_tier)
     from flygym.compose.fly.musculoskeletal import _load_mjcf
     built = build_neural_tier(TierConfig())
     tier = NeuralTier(built, TierConfig(), OwnershipLedger())
     wiring, stats, _ = build_mn_muscle_wiring(verbose=False)
-    m = _load_mjcf(str(XML)).compile()
+    _spec = _load_mjcf(str(XML))
+    _marker_report: dict = {}
+    if observable or fly_markers:
+        # OPT-IN OBSERVABILITY, default OFF so every existing result is bit-identical.  It adds the
+        # arena's declared fiducials and camera ring to THIS model, so the same camera -> geometry
+        # chain that sees stack A can see the body that muscles drive -- while it is moving.
+        from tools_make_stackb_observable import attach_observation_geometry
+        attach_observation_geometry(_spec, ring_rotation_deg)
+        observable = True
+    if fly_markers:
+        # THE FLY'S OWN MARKERS, WITHOUT WHICH `limb_tracking.py` CANNOT RUN ON THIS EPISODE.  It
+        # reads `truth/marker_fly_world_mm`; the arena fiducials alone give camera geometry and the
+        # body's POSITION only, which is why the earlier delivery had to say that limb kinematics
+        # were not established.  Offsets are MEASURED from this model's own geoms, not copied from
+        # stack A -- see `attach_fly_markers`.
+        from tools_make_stackb_observable import attach_fly_markers
+        _marker_report = attach_fly_markers(_spec)
+    m = _spec.compile()
     d = mujoco.MjData(m)
     # START FROM THE MODEL'S OWN NEUTRAL KEYFRAME, NOT qpos0.  MEASURED: qpos0 differs from the
     # keyframe pose by 2.8 rad, so starting in qpos0 drops the legs from a pose their springs do
@@ -116,11 +133,51 @@ def build(lesion_leg=None):
                 for leg in LEGS}
     return dict(built=built, tier=tier, wiring=wiring, stats=stats, m=m, d=d,
                 act_of=act_of, name_of=name_of, jids=jids, mn_local=mn_local,
-                lesion_leg=lesion_leg)
+                lesion_leg=lesion_leg, observable=observable,
+                marker_report=_marker_report or None)
 
 
-def run(lesion_leg=None, duration_s=1.0, verbose=True):
-    ctx = build(lesion_leg)
+def make_in_loop_stimulus(ctx, **kwargs):
+    """Build an `InLoopStimulus` FOR THE TIER THIS `ctx` ACTUALLY HOLDS.
+
+    The electrode places its contacts relative to the tier neurons' soma positions, so a stimulus
+    built from a DIFFERENT build of the tier would silently address the wrong neurons -- it would
+    still inject current, still change spikes, and still look like it worked.  Passing the `ctx`
+    through here is what removes that possibility: `run()` hands its own context to the factory, so
+    the electrode and the network it stimulates are the same objects.
+    """
+    from engine.embodied.electrode_in_loop import (InLoopElectrode, InLoopStimulus,
+                                                   SomaPositions)
+    built = ctx["built"]
+    gi = np.asarray(built["global_index"], dtype=np.int64)
+    roots = np.asarray(built["data"]["root_ids"], dtype=np.int64)[gi]
+    elec = InLoopElectrode(SomaPositions.from_banc(roots), n_tier_neurons=int(built["n"]),
+                           n_channels=4, dt_neural_ms=float(TIER_DT_MS))
+    return InLoopStimulus(elec, **kwargs), elec
+
+
+def run(lesion_leg=None, duration_s=1.0, verbose=True, frame_sink=None,
+        frame_stride=1, observable=False, ring_rotation_deg=0.0, spike_sink=None,
+        fly_markers=False, stimulus=None, stim_sink=None):
+    # `observable` MUST BE FORWARDED, not just declared: MEASURED, `run` built its own context with
+    # the default, so the model it stepped had NO camera ring and a 640-wide framebuffer while the
+    # caller believed it had asked for observability -- and the renderer then failed with
+    # "Image width 800 > framebuffer width 640".
+    # AN UNKNOWN LEG KEY MUST REFUSE, NOT SILENTLY SKIP.  MEASURED, and it is the exact vacuity this
+    # file's own docstring warns about: `lesion_leg="lf"` (lower case) does not match this module's
+    # key `"LF"`, so `mn_local.get(lesion_leg)` returned None, the `and` short-circuited, and the
+    # ablation was SKIPPED -- leaving the lesioned run BIT-IDENTICAL to the intact one.  A caller
+    # that passed the lower-case name got a clean-looking null result that meant nothing.  The
+    # vacuity warning below only PRINTS, and only when verbose; refusing here is what makes the
+    # mistake impossible to miss.
+    if lesion_leg is not None and lesion_leg not in LEGS:
+        raise ValueError(
+            "lesion_leg must be one of %r (this module's own keys, upper case); got %r.  An "
+            "unrecognised key used to be skipped silently, which produced a lesioned run identical "
+            "to the intact one and would have been read as 'the neurons do not drive this leg'."
+            % (tuple(LEGS), lesion_leg))
+    ctx = build(lesion_leg, observable=observable, ring_rotation_deg=ring_rotation_deg,
+                fly_markers=fly_markers)
     built, tier, m, d = ctx["built"], ctx["tier"], ctx["m"], ctx["d"]
     wiring, act_of, jids = ctx["wiring"], ctx["act_of"], ctx["jids"]
     mn_local = ctx["mn_local"]
@@ -130,9 +187,35 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
     q0 = np.asarray(d.qpos, dtype=float).copy()
     tier.reset()
 
+    # ---- THE STIMULUS SEAM, INSIDE THE LOOP WHERE MUSCLES ARE DRIVEN BY NEURONS.
+    #
+    # Until now `NeuralStimulus` had only ever been exercised against a tier advanced in isolation:
+    # two identical networks, one stimulated, spikes compared.  That proves the current reaches the
+    # membrane, and it proves nothing about whether it reaches a MUSCLE.  Here the stimulated tier is
+    # the one whose motor-neuron firing IS the muscle activation, so the chain a stimulus has to
+    # travel is the whole point of the platform: electrode -> tier -> motor neurons -> muscles ->
+    # body motion -> back to the electrode and the cameras.
+    #
+    # THE STIMULUS IS BUILT FROM `ctx` VIA A FACTORY, when a factory is given, so the electrode can
+    # never address a different build of the tier than the one being stepped.  A pre-built stimulus
+    # is also accepted, and then its tier width is checked instead.
+    st = None
+    if stimulus is not None:
+        st = stimulus(ctx) if callable(stimulus) else stimulus
+        if hasattr(st, "__len__") and not hasattr(st, "current_nA"):
+            st, _elec = st
+        if int(getattr(st.electrode, "n_tier_neurons", -1)) != n_tier:
+            raise ValueError(
+                f"the stimulus addresses a tier of {st.electrode.n_tier_neurons} neurons but this "
+                f"build has {n_tier}; it would inject current into the wrong neurons.  Build it with "
+                "`make_in_loop_stimulus` so it is tied to this context.")
+        if not callable(getattr(st, "current_nA", None)):
+            raise TypeError("stimulus must provide current_nA(t_ms, n_neurons)")
+
     n_cmd = int(round(duration_s / DT_COMMAND_S))
     q_trace = {leg: [] for leg in LEGS}
     act_trace, rate_trace = [], []
+    stim_trace: list[dict] = []
     for c in range(n_cmd):
         # ---- READ the body, TRANSDUCE into per-leg receptor currents
         q = np.asarray(d.qpos, dtype=float)
@@ -144,10 +227,42 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
             # tonic + deviation-driven, per leg
             cur[sens[leg]] += TONIC_DRIVE_NA + CURRENT_PER_DRIVE_NA * strain
         # ---- ADVANCE the connectome
-        spikes = tier.advance(N_NEURAL_SUB, cur)          # (N_NEURAL_SUB, n_tier) bool
+        if st is None:
+            # THE DEFAULT PATH IS UNCHANGED, so every existing episode stays bit-identical.  With a
+            # stimulus the interval cannot be advanced in one call, because the injected current
+            # changes from substep to substep (that is what a waveform IS), so the loop steps one
+            # substep at a time and adds the stimulus current to the sensory drive at each.
+            spikes = tier.advance(N_NEURAL_SUB, cur)      # (N_NEURAL_SUB, n_tier) bool
+        else:
+            spikes = np.zeros((N_NEURAL_SUB, n_tier), dtype=bool)
+            row = {"interval": int(c), "t0_ms": float(c * N_NEURAL_SUB * float(TIER_DT_MS)),
+                   "n_substeps_nonzero": 0, "charge_nA_ms": 0.0, "peak_abs_nA": 0.0,
+                   "n_neurons_nonzero": 0}
+            for k in range(N_NEURAL_SUB):
+                t_ms = (c * N_NEURAL_SUB + k) * float(TIER_DT_MS)
+                inj = np.asarray(st.current_nA(t_ms, n_tier), dtype=float)
+                spikes[k] = tier.advance(1, cur + inj)
+                nz = int((inj != 0).sum())
+                if nz:
+                    row["n_substeps_nonzero"] += 1
+                    # CHARGE, NOT JUST AMPLITUDE: the waveform is sampled, so what the tissue
+                    # receives is the sum over substeps of current x dt, and that is the number the
+                    # charge ceiling is about.
+                    row["charge_nA_ms"] += float(inj.sum()) * float(TIER_DT_MS)
+                    row["peak_abs_nA"] = max(row["peak_abs_nA"], float(np.abs(inj).max()))
+                    row["n_neurons_nonzero"] = max(row["n_neurons_nonzero"], nz)
+            stim_trace.append(row)
+            if stim_sink is not None:
+                stim_sink(row, spikes, c)
         # ---- ACUTE ABLATION: zero one leg's motor neurons, and only those
         if lesion_leg is not None and mn_local.get(lesion_leg):
             spikes[:, mn_local[lesion_leg]] = False
+        # ---- THE SPIKES ARE OFFERED TO AN OBSERVER, AFTER the lesion has been applied, so a
+        # recorder sees what the BODY was actually driven by.  A recorder that read the pre-lesion
+        # spikes would report activity that never reached a muscle, which is the opposite of the
+        # causal claim an electrode is supposed to support.
+        if spike_sink is not None:
+            spike_sink(spikes, c)
         # ---- MNs -> muscle activations (no state-to-action function anywhere)
         for (leg, mtype), acts in act_of.items():
             grp = wiring.get(leg, {}).get(mtype)
@@ -168,6 +283,12 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
             q_trace[leg].append(float(np.sum(np.abs(
                 qq[[int(m.jnt_qposadr[j]) for j in jids[leg]]]
                 - q0[[int(m.jnt_qposadr[j]) for j in jids[leg]]]))))
+        # ---- AN OBSERVATION HOOK, called AFTER the body has moved for this interval.  It is a
+        # callback rather than a renderer inside this file so that the loop keeps ONE
+        # implementation: a second copy of the sensorimotor chain would drift from this one, and the
+        # drift would be invisible in whichever copy was not being read.
+        if frame_sink is not None and (c % max(int(frame_stride), 1) == 0):
+            frame_sink(m, d, c, act_trace)
     # ---- MEASURE THE SETTLED POSTURE, NOT THE TRANSIENT.  MEASURED: with no muscle activation the
     # legs settle to a fixed pose (max-min over the last 0.5 s = 0.000 rad), so an excursion over
     # the whole run is dominated by the one-time settle and hides what the neurons do.  The metric
@@ -185,7 +306,22 @@ def run(lesion_leg=None, duration_s=1.0, verbose=True):
                   f"max {np.max(rate_trace):.2f} Hz  (reference {REF_RATE_HZ} Hz)")
     return {"lesion": lesion_leg, "excursion": exc, "final": final,
             "rate_mean": float(np.mean(rate_trace)) if rate_trace else 0.0,
-            "n_cmd": n_cmd, "stats": ctx["stats"]}
+            "n_cmd": n_cmd, "stats": ctx["stats"],
+            # THE STIMULUS SEAM'S OWN RECORD, empty when no stimulus was attached.  `intervals_with_
+            # current` and the total charge are what make "the stimulus ran" auditable rather than
+            # inferred from the spikes having moved.
+            "stimulus": ({
+                "mode": getattr(st, "mode", None),
+                "amplitude_nA": float(getattr(getattr(st, "wave", None), "amplitude_nA", 0.0)),
+                "capture_radius_um": float(getattr(st, "capture_um", 0.0)),
+                "n_recruited_neurons": int(getattr(st, "n_recruited", 0)),
+                "n_intervals": len(stim_trace),
+                "n_intervals_with_current": int(sum(1 for r in stim_trace
+                                                    if r["n_substeps_nonzero"])),
+                "total_charge_nA_ms": float(sum(r["charge_nA_ms"] for r in stim_trace)),
+                "peak_abs_nA": float(max((r["peak_abs_nA"] for r in stim_trace), default=0.0)),
+                "per_interval": stim_trace,
+            } if st is not None else None)}
 
 
 if __name__ == "__main__":

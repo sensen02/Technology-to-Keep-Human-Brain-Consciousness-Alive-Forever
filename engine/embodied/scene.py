@@ -61,11 +61,17 @@ Measured on the installed stack (FlyGym 2.1.0 / MuJoCo 3.9.0, model units mm):
   FlyGym's ``flygym.utils.mjcf.add_actuator`` sets this correctly.  MuJoCo names
   containing ``/`` are legal (FlyGym itself uses ``nmf/...``), but the elements
   added here avoid ``/`` so their names are unambiguous.
-* The compiled model's total ``body_mass`` sums to ``1.0243e-3 kg`` and gravity
-  is ``-9810 mm/s^2``, so the model's weight is ``10.05 mN``.  A real
-  *Drosophila* is about three orders of magnitude lighter; this model is not
-  mass-accurate to a real fly, which is recorded here because the capillary
-  magnitude below is quoted as a fraction of the *model's* weight.
+* The compiled model's total ``body_mass`` sums to ``1.02431e-3`` and gravity is
+  ``-9810 mm/s^2``.  THE MASS UNIT IS GRAMS, NOT KILOGRAMS: read as kg the fly
+  would weigh 1.024 g, a thousand times a real *Drosophila*.  Read as grams it
+  weighs **1.02431 mg**, which is right for a fly, so the model IS mass-accurate
+  and the force unit is ``g*mm/s^2 = 1e-6 N = 1 uN``, giving a weight of
+  ``10.0485 uN``.  MEASURED CONFIRMATION: with the actuators off and the fly
+  settled, the six legs' summed normal force is 6.59-15.31 model units against a
+  weight of 10.0485 model units.  An earlier version of this note called the mass
+  kilograms and concluded the model was "three orders of magnitude" heavier than a
+  real fly; that was a unit error, and every force derived from it was 1000x too
+  large.
 
 HONESTY BOUNDARY ON NUMBERS
 ---------------------------
@@ -78,6 +84,9 @@ explicit ``sweep_range``, and they encode *directions of change* (tarsal pads
 grip more than cuticle; rough ground perturbs more than a plane) rather than
 measured material properties.  Do not quote them as literature values.
 """
+    # PRODUCER of `force_channel`: the values below are MODEL FORCE UNITS, and the channel is a
+    # NON_PHYSICAL_LOAD (engine/embodied/force_channel.py; measured 4.29-12.16x body weight).
+    # One model force unit is 1 MICRO-NEWTON -- see the note at CAPILLARY_FORCE_uN.
 from __future__ import annotations
 
 import dataclasses
@@ -124,9 +133,12 @@ PROVENANCE_CLASSES: tuple[str, ...] = (
 _SWEEP_REQUIRED = (ASSUMED, ENGINEERING_DEFAULT)
 
 MODEL_UNITS_NOTE = (
-    "model units are millimetres, seconds, radians and kilograms "
+    "model units are millimetres, seconds, radians and GRAMS "
     "(mujoco_globals.yaml: gravity [0,0,-9810] mm/s^2); the force unit is "
-    "therefore kg*mm/s^2 = 1e-3 N = mN")
+    "therefore g*mm/s^2 = 1e-6 N = uN.  Read as kilograms the model fly would be "
+    "1.024 g, a thousand times a real fly, so grams is the unit that makes the "
+    "mass physical (1.02431 mg); units are corroborated by the settled-fly force "
+    "balance below")
 
 _YEAR_RE = re.compile(r"(?:18|19|20)\d{2}")
 
@@ -388,7 +400,7 @@ class CapillaryConfig:
     fabricated physical model.  The report carries a warning to that effect.
     """
     enabled: bool = False
-    secretion_force_mN: float = 0.0
+    secretion_force_uN: float = 0.0
     humidity: float = 0.0
     applies_to: tuple[str, ...] = LEG_ORDER
     provenance: str = ASSUMED
@@ -397,15 +409,15 @@ class CapillaryConfig:
         if self.provenance not in PROVENANCE_CLASSES:
             raise ValueError(f"capillary.provenance {self.provenance!r} is not a "
                              f"provenance class")
-        if not math.isfinite(float(self.secretion_force_mN)) or self.secretion_force_mN < 0:
-            raise ValueError("capillary.secretion_force_mN must be finite and >= 0")
+        if not math.isfinite(float(self.secretion_force_uN)) or self.secretion_force_uN < 0:
+            raise ValueError("capillary.secretion_force_uN must be finite and >= 0")
         if not 0.0 <= float(self.humidity) <= 1.0:
             raise ValueError("capillary.humidity must be in [0, 1] (relative humidity)")
         unknown = [leg for leg in self.applies_to if leg not in LEG_ORDER]
         if unknown:
             raise ValueError(f"capillary.applies_to contains unknown legs {unknown}")
-        if self.enabled and self.secretion_force_mN <= 0:
-            raise ValueError("capillary is enabled but secretion_force_mN is 0")
+        if self.enabled and self.secretion_force_uN <= 0:
+            raise ValueError("capillary is enabled but secretion_force_uN is 0")
 
 
 @dataclass(frozen=True)
@@ -576,11 +588,20 @@ ROUGHNESS_SCATTER_RADIUS_MM = 0.03
 ROUGHNESS_SCATTER_HALF_EXTENT_MM = 15.0
 
 #: ASSUMED (NOT cited).  Magnitude as a fraction of the MODEL's own weight
-#: (measured 10.05 mN): 0.05 mN per leg x 6 legs = 3% of body weight.  A real
-#: Drosophila is ~1000x lighter than this model, so this is a placeholder whose
-#: only defensible content is "small compared with body weight"; hence ASSUMED
-#: plus a sweep range rather than a citation.
-CAPILLARY_FORCE_MN = 0.05
+#: (measured 10.0485 uN): 0.05 uN per leg x 6 legs = 3% of body weight.  The ratio
+#: is unit-independent, which is why it survives the uN correction above; the
+#: placeholder character is unchanged -- its only defensible content is "small
+#: compared with body weight", hence ASSUMED plus a sweep range, not a citation.
+#: MODEL FORCE UNITS, WHICH ARE MICRO-NEWTONS -- NOT MILLINEWTONS, AND THE NAME USED TO SAY mN.
+#: `engine/embodied/scene.py` already records `model.weight_total = 10.0485` in the ledger with the
+#: unit "uN" (1.02431e-3 g * 9810 mm/s^2), so the model's force unit is fixed by the project's own
+#: ledger.  MEASURED CONSEQUENCE OF THE OLD LABEL: `outputs/embodied_body/scene_selftest.json` reported
+#: `mean_normal_force_mN` of 1.674 for a blank stance and 22.551 under a natural CPG.  Read as mN
+#: those are 167x and 2245x body weight, which no stance can be; read as uN they are 0.17x and 2.24x,
+#: which is what a stance looks like.  The values were always model units and only the LABEL was
+#: wrong -- the same 1000x family as `MODEL_FORCE_TO_N = 1.0e-3`, in a name instead of a constant,
+#: and a name is what a consumer converts with.
+CAPILLARY_FORCE_uN = 0.05
 CAPILLARY_HUMIDITY = 0.6
 
 ADHESION_GAIN = 40.0
@@ -641,13 +662,14 @@ def _build_parameter_ledger() -> ParameterLedger:
                source="model.geom_contype (ground plane and all fly geoms), " + measured)
     led.record("model.gravity", -9810.0, "mm/s^2", MEASURED_LOCAL,
                source="model.opt.gravity and mujoco_globals.yaml, " + measured)
-    led.record("model.body_mass_total", 1.0243e-3, "kg", MEASURED_LOCAL,
+    led.record("model.body_mass_total", 1.02431e-3, "g", MEASURED_LOCAL,
                source="sum(model.body_mass), " + measured)
-    led.record("model.weight_total", 10.048, "mN", MEASURED_LOCAL,
+    led.record("model.weight_total", 10.0485, "uN", MEASURED_LOCAL,
                source="measured body_mass_total * |model.opt.gravity|, " + measured)
     led.record("capillary.force_fraction_of_model_weight", 0.0299, "dimensionless",
                MEASURED_LOCAL,
-               source="6 * secretion_force_mN / model.weight_total, this session")
+               source="6 * secretion_force_uN / model.weight_total, this session (both MODEL UNITS; "
+                      "the ledger entry model.weight_total states the unit as uN)")
 
     # -- ASSUMED: the author's choices where no number was verified ------
     led.record_vector("natural.friction.tarsus", FRICTION_TARSUS,
@@ -658,7 +680,7 @@ def _build_parameter_ledger() -> ParameterLedger:
                       "dimensionless (sliding, torsional, rolling)", ASSUMED,
                       source="hand-chosen direction-of-change, no source verified",
                       sweep_range=(0.1, 0.8))
-    led.record("natural.capillary.secretion_force_mN", CAPILLARY_FORCE_MN, "mN per leg",
+    led.record("natural.capillary.secretion_force_uN", CAPILLARY_FORCE_uN, "uN per leg",
                ASSUMED,
                source="hand-chosen placeholder, no source verified; see module docstring",
                sweep_range=(0.0, 0.5))
@@ -811,7 +833,7 @@ _NATURAL_ROUGHNESS = RoughnessConfig(
     scatter_half_extent_mm=ROUGHNESS_SCATTER_HALF_EXTENT_MM)
 
 _NATURAL_CAPILLARY = CapillaryConfig(
-    enabled=True, secretion_force_mN=CAPILLARY_FORCE_MN,
+    enabled=True, secretion_force_uN=CAPILLARY_FORCE_uN,
     humidity=CAPILLARY_HUMIDITY, applies_to=LEG_ORDER, provenance=ASSUMED)
 
 _NATURAL = SceneConfig(
@@ -1034,7 +1056,7 @@ class SceneApplicationReport:
     n_hfield: int
     n_objects: int
     roughness_peak_to_peak_mm: float
-    capillary_force_mN: float
+    capillary_force_uN: float
     warnings: tuple[str, ...] = ()
     # -- extras that make the report usable instead of merely present ---
     pair_rows_applied: dict[str, tuple[float, float, float, float, float]] = \
@@ -1508,21 +1530,22 @@ def apply_scene(world, fly, cfg: SceneConfig,
     cap_force = 0.0
     if cfg.capillary is not None and cfg.capillary.enabled:
         cap = cfg.capillary
-        cap_force = float(cap.secretion_force_mN) * len(cap.applies_to)
+        cap_force = float(cap.secretion_force_uN) * len(cap.applies_to)
         for leg in cap.applies_to:
             body_name = f"{fly_name}/{leg}_tarsus5"
             fg_add_actuator(spec, "adhesion",
                             name=f"{CAPILLARY_ACTUATOR_PREFIX}{leg}_tarsus5",
-                            body=body_name, gain=float(cap.secretion_force_mN),
+                            body=body_name, gain=float(cap.secretion_force_uN),
                             ctrlrange=(0.0, 1.0))
             n_cap += 1
         warnings.append(
             "the capillary term is an ADDITIONAL mjACT_ADHESION actuator per leg "
-            "(gain = secretion_force_mN, ctrl driven to 1) applying a normal "
+            "(gain = secretion_force_uN, ctrl driven to 1) applying a normal "
             "attraction force.  Its magnitude is ASSUMED, not measured or cited: "
-            f"{cap.secretion_force_mN} mN/leg x {len(cap.applies_to)} legs = "
-            f"{cap_force:.4f} mN against a measured model weight of 10.048 mN "
-            "(a real Drosophila is ~1000x lighter than this model).")
+            f"{cap.secretion_force_uN} uN/leg x {len(cap.applies_to)} legs = "
+            f"{cap_force:.4f} uN against a measured model weight of 10.0485 uN "
+            "(the model fly is mass-accurate at 1.02431 mg; the field name still says "
+            "'mN' for compatibility and is read as uN).")
         warnings.append(
             f"capillary.humidity={cap.humidity} is recorded as METADATA ONLY and does "
             "NOT enter the physics: no humidity-to-force law was verified, and "
@@ -1566,7 +1589,7 @@ def apply_scene(world, fly, cfg: SceneConfig,
         n_geoms=0, n_lights=len(cfg.lights), n_hfield=n_hfield,
         n_objects=len(cfg.objects),
         roughness_peak_to_peak_mm=float(roughness_p2p),
-        capillary_force_mN=float(cap_force),
+        capillary_force_uN=float(cap_force),
         warnings=tuple(warnings),
         pair_rows_applied={k: tuple(v) for k, v in pair_rows.items()},
         geom_priority_applied={k: int(v) for k, v in cfg.geom_priority_by_class.items()},
@@ -1663,8 +1686,8 @@ def drive_capillary_actuators(model, data, cfg: SceneConfig) -> dict:
         data.ctrl[i] = 1.0
     gains = [float(model.actuator_gainprm[i][0]) for i in idx]
     return {"names": list(names), "missing": missing, "indices": idx,
-            "gains_mN": gains, "n_driven": len(idx),
-            "nominal_force_mN": float(sum(gains))}
+            "gains_uN": gains, "n_driven": len(idx),
+            "nominal_force_uN": float(sum(gains))}
 
 
 def measure_ground_contact_forces(model, data,
@@ -1694,30 +1717,30 @@ def measure_ground_contact_forces(model, data,
         fr = np.asarray(c.friction, dtype=float)
         rows.append({
             "geom1": n1, "geom2": n2,
-            "normal_force_mN": float(f[0]),
-            "tangential_force_mN": float(np.linalg.norm(f[1:3])),
-            "force_norm_mN": float(np.linalg.norm(f[:3])),
+            "normal_force_uN": float(f[0]),
+            "tangential_force_uN": float(np.linalg.norm(f[1:3])),
+            "force_norm_uN": float(np.linalg.norm(f[:3])),
             "friction_row": [float(v) for v in fr],
             "sliding_mu": float(fr[0]),
             "dist_mm": float(c.dist),
         })
     if not rows:
         return {"n_ground_contacts": 0, "contacts": [],
-                "mean_normal_force_mN": None, "mean_tangential_force_mN": None,
+                "mean_normal_force_uN": None, "mean_tangential_force_uN": None,
                 "mean_sliding_mu": None, "distinct_friction_rows": []}
-    tang = [r["tangential_force_mN"] for r in rows]
-    nrm = [r["normal_force_mN"] for r in rows]
+    tang = [r["tangential_force_uN"] for r in rows]
+    nrm = [r["normal_force_uN"] for r in rows]
     mu = [r["sliding_mu"] for r in rows]
     return {
         "n_ground_contacts": len(rows),
         "contacts": rows,
-        "mean_normal_force_mN": float(np.mean(nrm)),
-        "mean_tangential_force_mN": float(np.mean(tang)),
+        "mean_normal_force_uN": float(np.mean(nrm)),
+        "mean_tangential_force_uN": float(np.mean(tang)),
         "mean_sliding_mu": float(np.mean(mu)),
         "distinct_friction_rows": sorted({tuple(round(v, 9) for v in r["friction_row"])
                                           for r in rows}),
-        "sum_tangential_force_mN": float(np.sum(tang)),
-        "sum_normal_force_mN": float(np.sum(nrm)),
+        "sum_tangential_force_uN": float(np.sum(tang)),
+        "sum_normal_force_uN": float(np.sum(nrm)),
     }
 
 

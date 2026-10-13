@@ -37,6 +37,8 @@ Assertions that cannot be evaluated on this stack are printed as
 ``EVIDENCE NOT FOUND`` with the reason; they are counted separately and are
 never silently counted as passes.
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).  The force
+    # assertions below are order-of-magnitude and structural, not load claims.
 from __future__ import annotations
 
 import hashlib
@@ -191,8 +193,8 @@ def rollout(cfg, report, sim, model, data, *, use_cpg: bool, steps: int = ROLLOU
             found = np.asarray(sim.get_ground_contact_info(FLY_NAME)[0], float)
             legs.append(float((found > 0).sum()))
             cf = S.measure_ground_contact_forces(model, data, report.ground_geom_names)
-            tang.append(cf["mean_tangential_force_mN"])
-            nrm.append(cf["mean_normal_force_mN"])
+            tang.append(cf["mean_tangential_force_uN"])
+            nrm.append(cf["mean_normal_force_uN"])
             mu.append(cf["mean_sliding_mu"])
             if cfg.capillary is not None and cfg.capillary.enabled:
                 names = S.capillary_actuator_names(cfg)
@@ -233,16 +235,16 @@ def rollout(cfg, report, sim, model, data, *, use_cpg: bool, steps: int = ROLLOU
         "mean_legs_in_contact": _mean(legs),
         "min_legs_in_contact": float(min(legs)) if legs else None,
         "max_legs_in_contact": float(max(legs)) if legs else None,
-        "mean_tangential_force_mN": _mean(tang),
-        "mean_normal_force_mN": _mean(nrm),
+        "mean_tangential_force_uN": _mean(tang),
+        "mean_normal_force_uN": _mean(nrm),
         "mean_sliding_mu": _mean(mu),
         "n_samples": len(heights_mean),
         "n_samples_missing_contact_force": sum(1 for v in tang if v is None
                                                or not np.isfinite(v)),
         "horizontal_displacement_mm": (float(np.linalg.norm(xy[-1] - xy[0]))
                                        if len(xy) > 1 else None),
-        "mean_capillary_actuator_force_mN": _mean(capillary_force_samples),
-        "capillary_actuator_force_last_sample_mN": capillary_actuator_force_last,
+        "mean_capillary_actuator_force_uN": _mean(capillary_force_samples),
+        "capillary_actuator_force_last_sample_uN": capillary_actuator_force_last,
         "capillary_actuator_gain_last_sample": capillary_gain_last,
         "final_qpos_sha256": hashlib.sha256(qpos.tobytes()).hexdigest(),
     }
@@ -635,7 +637,7 @@ def main() -> int:
         rolls[f"stance_{key}"] = r
         print(f"  stance {key}: height {r['mean_body_height_mm']:.4f} mm, "
               f"legs {r['mean_legs_in_contact']:.3f}, "
-              f"tangential {r['mean_tangential_force_mN']:.4f} mN, mu {r['mean_sliding_mu']}",
+              f"tangential {r['mean_tangential_force_uN']:.4f} mN, mu {r['mean_sliding_mu']}",
               flush=True)
 
     cpg_ok = True
@@ -653,7 +655,7 @@ def main() -> int:
             print(f"  cpg {key}: height {r['mean_body_height_mm']:.4f} mm, "
                   f"legs {r['mean_legs_in_contact']:.3f}, "
                   f"travel {r['horizontal_displacement_mm']:.3f} mm, "
-                  f"tangential {r['mean_tangential_force_mN']:.4f} mN, "
+                  f"tangential {r['mean_tangential_force_uN']:.4f} mN, "
                   f"mu {r['mean_sliding_mu']}", flush=True)
     result["rollouts"] = rolls
 
@@ -688,7 +690,7 @@ def main() -> int:
           "for every sample in both scenes",
           rolls["stance_blank"]["n_samples_missing_contact_force"] == 0
           and rolls["stance_natural"]["n_samples_missing_contact_force"] == 0
-          and rolls["stance_blank"]["mean_tangential_force_mN"] is not None,
+          and rolls["stance_blank"]["mean_tangential_force_uN"] is not None,
           "reconstructed as |(f1,f2)| in MuJoCo's contact frame via mj_contactForce")
 
     if not cpg_ok:
@@ -716,14 +718,14 @@ def main() -> int:
               != rolls["cpg_natural"]["final_qpos_sha256"],
               "final qpos hashes differ")
 
-    cap_force = rolls["stance_natural"]["mean_capillary_actuator_force_mN"]
+    cap_force = rolls["stance_natural"]["mean_capillary_actuator_force_uN"]
     check("capillary: the actuators exist, are driven to ctrl=1 and report the "
           "expected measured output force",
           cap_force is not None
-          and abs(cap_force - 6 * S.CAPILLARY_FORCE_MN) < 1e-9,
-          f"measured sum(data.actuator_force) = {cap_force} mN vs expected "
-          f"{6 * S.CAPILLARY_FORCE_MN} mN; per-actuator "
-          f"{rolls['stance_natural']['capillary_actuator_force_last_sample_mN']} mN with "
+          and abs(cap_force - 6 * S.CAPILLARY_FORCE_uN) < 1e-9,
+          f"measured sum(data.actuator_force) = {cap_force} uN vs expected "
+          f"{6 * S.CAPILLARY_FORCE_uN} uN; per-actuator "
+          f"{rolls['stance_natural']['capillary_actuator_force_last_sample_uN']} uN with "
           f"gainprm={rolls['stance_natural']['capillary_actuator_gain_last_sample']} "
           f"(MuJoCo's actuator_force already equals gainprm[0]*ctrl)")
     evidence_not_found(

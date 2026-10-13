@@ -274,8 +274,8 @@ def s0_model_probe(b, label):
         label=label, ngeom=int(m.ngeom), nlight=int(m.nlight), nhfield=int(m.nhfield),
         ntex=int(m.ntex), nmat=int(m.nmat), npair=int(m.npair), nu=int(m.nu),
         nsensor=int(m.nsensor), ncam=int(m.ncam), nbody=int(m.nbody),
-        total_mass_kg=float(np.asarray(m.body_mass).sum()),
-        weight_mN=float(np.asarray(m.body_mass).sum() *
+        total_mass_g=float(np.asarray(m.body_mass).sum()),
+        weight_uN=float(np.asarray(m.body_mass).sum() *
                         abs(float(np.asarray(m.opt.gravity)[2]))),
         gravity_mm_s2=[float(v) for v in np.asarray(m.opt.gravity)],
         timestep_s=float(m.opt.timestep), stat_extent_mm=float(m.stat.extent),

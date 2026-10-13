@@ -125,6 +125,8 @@ by default, and NO measured kinetics are invented for any named molecule.  There
 is no sleep state, no survival rule, no viability rule, no consciousness claim and
 no effect of this module on the motor command (it only reads).
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).  Used here
+    # as a driver SIGNAL, not as a load.
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict

@@ -83,8 +83,10 @@ def probe(stiff, mass_mg, weld_k=None, total_mass=True):
 def main():
     print("=== leg vertical stiffness, body welded, extra load = 1/6 body weight ===")
     res = {"cases": []}
-    for mass_mg in (2.49427, 1.0):
-        for stiff in (0.4, 4.0, 16.0):
+    _masses = [float(v) for v in os.environ.get('WELD_MASSES', '2.49427,1.0').split(',')]
+    _stiffs = [float(v) for v in os.environ.get('WELD_STIFFS', '0.4,4.0,16.0').split(',')]
+    for mass_mg in _masses:
+        for stiff in _stiffs:
             rows, F, mw = probe(stiff, mass_mg, weld_k=1e7)
             ks = [r["vertical_stiffness_uN_per_mm"] for r in rows.values()
                   if r["vertical_stiffness_uN_per_mm"]]

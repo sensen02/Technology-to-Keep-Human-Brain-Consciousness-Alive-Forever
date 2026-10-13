@@ -31,6 +31,8 @@ HONEST LIMITS (printed on each figure)
 
 Run: ./venv_body/bin/python render_touch_xray.py
 """
+    # Reads `force_channel`: the contact-force channel is a NON_PHYSICAL_LOAD
+    # (engine/embodied/force_channel.py).  Rendered as a SIGNAL; the numbers are not loads.
 from __future__ import annotations
 
 import json

@@ -22,6 +22,8 @@ demo CPG does, in both arms); that the assumed map from firing rate to CPG knobs
 correct; that the receptor kinetics are Drosophila's; that any of this is a fly
 behaving; or anything about experience, perception or consciousness.
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).  Assertions
+    # here may use the SIGN and the ORDER OF MAGNITUDE, never an absolute load.
 from __future__ import annotations
 
 import json

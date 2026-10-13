@@ -39,6 +39,8 @@ WHAT THE TWO ARMS ARE
                       left/right asymmetry.  The connectome does NOT generate the
                       gait here and no result may be described that way.
 """
+    # Reads `force_channel`: recorded into observations as a SIGNAL only.  See
+    # engine/embodied/force_channel.py -- the magnitude is not physical.
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
@@ -112,6 +114,24 @@ OBSERVED_PROVENANCE = {
     "time_s": ((),
                "the scheduler's own interval timestamp, not a body measurement"),
 }
+
+
+def _tier_root_ids(built):
+    """The tier's root ids, or None when the build does not publish them.
+
+    MEASURED BUG (fixed): this was written as
+        self.built.get("tier", {}).get("root_ids") or self.built.get("root_ids")
+    which raises "The truth value of an array with more than one element is ambiguous"
+    the first time the loop is actually constructed, because `or` evaluates the array's
+    truthiness.  The receptor bank is constructed here, so ANY loop run hit it: the bug was
+    invisible until a full episode was run, which is exactly why this round runs one.
+    """
+    if not isinstance(built, dict):
+        return None
+    tier = built.get("tier")
+    if isinstance(tier, dict) and tier.get("root_ids") is not None:
+        return tier["root_ids"]
+    return built.get("root_ids")
 
 
 def truth_only_names():
@@ -441,7 +461,10 @@ class MultirateScheduler:
             self.receptors = MechanoReceptorBank(
                 self.built["sensory"], self.angle_rows, self.tier.n,
                 self.cfg.receptor, dt_ms=self.cfg.dt_command_s * 1000.0,
-                ledger=self.ledger, seed=self.cfg.seed)
+                ledger=self.ledger, seed=self.cfg.seed,
+                # the tier's own root ids, so the sub-type-channel partition can address the
+                # cells the tier actually contains (channel mode only; unused otherwise)
+                built_roots=_tier_root_ids(self.built))
             self.sensor_map_audit = sensor_matrix_row_map(self.built["sensory"],
                                                           self.angle_rows)
         self.calibration = None

@@ -19,9 +19,15 @@ trusting the fly's own markers:
     fully removed;
   * what rotates a bone is the DIFFERENCE between the errors of two nearby points, so the
     component of that difference PERPENDICULAR to the pair axis, divided by the separation,
-    IS an angle error.  Measuring it from 5.5 mm down to the closest pairs, and reading the
-    product (angle x separation), gives the local error scale at any separation -- including
-    a 0.705 mm bone, which is far smaller than any fiducial pair.
+    IS an angle error.
+
+A claim that used to stand here -- that the product (angle x separation) is a constant and can
+therefore be carried from a 6-12 mm fiducial baseline down to a 0.705 mm bone -- is MEASURED
+FALSE by this file's own output: the product spans a factor of ~14x across the pairs.  The
+error is not one local position error, so the linear extrapolation below is reported as
+UNSUPPORTED and must not be quoted as a measurement.  The defensible per-bone number is the
+tracker's direct measurement in limb_tracking.json (limb_tracking.py), which needs no
+extrapolation because it measures the bone's own two endpoints.
 
 Run:
     cd /run/media/sensen/Data2/cell_wound_prototype
@@ -248,10 +254,15 @@ def main() -> int:
     ds = np.asarray([r["separation_mm"] for r in pairs])
     ang = np.asarray([r["angle_deg"] for r in pairs])
     const = float(np.median(ang * ds))
+    spread = float(np.max(ang * ds) / max(float(np.min(ang * ds)), 1e-12))
+    extra_supported = bool(spread <= 2.0)
     print(f"\n  angle x separation product: median {const:.4f} deg*mm "
-          f"(range {np.min(ang * ds):.4f} to {np.max(ang * ds):.4f})")
-    print("  A product that is CONSTANT means the error behaves like one local position error,"
-          "\n  not like a rigid offset -- so it can be read at any separation.")
+          f"(range {np.min(ang * ds):.4f} to {np.max(ang * ds):.4f}), "
+          f"spread {spread:.2f}x")
+    print("  THE PRODUCT IS NOT CONSTANT, so the error is NOT one local position error and the"
+          "\n  product CANNOT be carried from a 6-12 mm fiducial pair down to a 0.7 mm bone."
+          "\n  The bone table below is therefore flagged UNSUPPORTED, and the number to quote is"
+          "\n  the tracker's direct per-bone measurement in limb_tracking.json.")
     sel = [(r["angle_deg"] * r["separation_mm"]) for r in pairs
            if r["both_well_measured"] and r["separation_mm"] <= 8.0]
     const_good = float(np.median(sel)) if sel else float("nan")
@@ -267,8 +278,11 @@ def main() -> int:
     print(f"\n  ==> local position error at any scale: {math.radians(1) * const:.5f} mm "
           f"(= {math.radians(1) * const * 1000:.1f} um per degree of bone rotation)")
 
-    print(f"\n=== THE ANSWER: joint-angle error for a real bone ===")
+    print(f"\n=== THE ANSWER: joint-angle error for a real bone "
+          f"({'SUPPORTED' if extra_supported else 'UNSUPPORTED EXTRAPOLATION'}) ===")
     print(f"{'bone':<16} {'length mm':>10} {'angle error deg':>16} {'equivalent tip err um':>23}")
+    if not extra_supported:
+        print("  (these rows assume the product is constant; it is not -- do not quote them)")
     rows_out = []
     for nm, L in (("femur front", FEMUR_MM[0]), ("femur mid", FEMUR_MM[1]),
                   ("femur hind", FEMUR_MM[2]), ("tibia front", TIBIA_MM[0]),
@@ -320,6 +334,13 @@ def main() -> int:
                              "max": float(np.nanmax(rms))},
         "static_pairs": pairs,
         "angle_times_separation_deg_mm": const,
+        "angle_times_separation_spread": spread,
+        "bone_angle_extrapolation_supported": extra_supported,
+        "bone_angle_error_deg_note": (
+            "UNSUPPORTED EXTRAPOLATION unless bone_angle_extrapolation_supported is true: "
+            "the angle x separation product is not constant across the fiducial pairs, so "
+            "these rows may not be carried down to a 0.7 mm bone.  The defensible per-bone "
+            "number is the tracker's direct measurement in limb_tracking.json."),
         "angle_times_separation_deg_mm_well_measured": const_good,
         "well_measured_markers": sorted(good),
         "per_marker_error_mm": per_marker,

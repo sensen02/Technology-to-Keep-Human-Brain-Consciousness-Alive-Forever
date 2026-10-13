@@ -16,6 +16,8 @@ Run:
     cd /run/media/sensen/Data2/cell_wound_prototype
     venv/bin/python run_tactile_figures.py --rig tether --seed 1
 """
+    # Reads `force_channel`: a NON_PHYSICAL_LOAD (engine/embodied/force_channel.py).  The figures
+    # must not label the y axis as a load, and no absolute force may be quoted.
 from __future__ import annotations
 
 import argparse

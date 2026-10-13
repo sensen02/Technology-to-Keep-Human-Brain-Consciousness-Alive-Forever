@@ -7,6 +7,8 @@ Writes viewer/scene/*.bin + viewer/scene/manifest.json. Nothing else is
 touched. Every layer records its provenance, units, clock and byte size, and a
 transform audit proves the CNS map is rigid and distance preserving.
 """
+    # Reads `force_channel` through the scene: a NON_PHYSICAL_LOAD
+    # (engine/embodied/force_channel.py).
 from __future__ import annotations
 
 import argparse

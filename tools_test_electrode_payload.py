@@ -159,9 +159,24 @@ def test_mujoco_injection() -> None:
               approx(got, want, rtol=1e-6), f"added {got:.6e} kg, wanted {want:.6e}")
         check(f"load {frac}: signature changed",
               sig["mass_sha1"] != ref["mass_sha1"])
-        check(f"load {frac}: both attachment bodies present",
-              len(rep["body_names_added"]) == len(
-                  [s for s in rep["per_site"] if s["mass_kg"] > 0]))
+        # THIS CHECK USED TO ASSERT THE OPPOSITE, AND THE DESIGN CHANGED UNDER IT.  It required
+        # `len(rep["body_names_added"]) == n_sites_with_mass`, i.e. one new body per attachment
+        # site.  That design was ABANDONED after being measured to destroy the fly: with a payload
+        # attached the compiled model came back with nbody 69 -> 66, no body containing "rostrum"
+        # and one eye instead of two, and the loss grew with the number of added bodies (64 bodies
+        # and ZERO eyes with five).  The payload is now applied to the compiled model's OWN body
+        # masses (`apply_payload_to_model`), so the assertion that matches the design is the safety
+        # property that motivated the redesign: nothing is added or removed.
+        #
+        # WHY THIS WENT UNNOTICED, which is the reason the unified runner exists: under the CPU
+        # environment this whole MuJoCo section is SKIPPED and the test reports PASS.  It only
+        # fails once it runs under the interpreter it actually needs.
+        check(f"load {frac}: no body added or removed",
+              sig["n_body"] == ref["n_body"],
+              f"nbody {sig['n_body']} vs reference {ref['n_body']}")
+        check(f"load {frac}: payload added no attachment bodies (mass-edit design)",
+              len(rep["body_names_added"]) == 0,
+              f"body_names_added={rep['body_names_added']!r}")
 
     # sham: same machinery, inert mass
     be = BodyBackend(BodyConfig(electrode_payload=ElectrodePayloadConfig(

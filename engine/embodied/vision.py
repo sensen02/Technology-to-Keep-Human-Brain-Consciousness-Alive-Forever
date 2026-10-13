@@ -462,6 +462,16 @@ class OmmatidiaFrontEnd:
 
         self.fly_name = fly_name
         self.bound = True
+        # RE-INITIALISE THE STATE NOW THAT THE OMMATIDIA COUNT IS KNOWN.  MEASURED DEFECT, and it
+        # made this whole front end unusable: `__init__` sets `n_ommatidia = 0` and then calls
+        # `reset()`, which builds `_hp` as zeros((2, 0)) and `_perm` as permutations of length 0.
+        # `bind()` is what discovers the real count (721) and it did NOT rebuild them, so the first
+        # `read()` on a freshly bound front end always died with
+        #     ValueError: operands could not be broadcast together with shapes (2,721) (2,0)
+        # Nothing could ever have used this module: that is very likely WHY the visual channel was
+        # never wired into the loop, and it is why the loop's report says "NO VISION is implemented"
+        # rather than naming a missing feature.
+        self.reset()
         self.bind_report = {
             "fly_name": fly_name,
             "model_ncam": (int(model.ncam) if model is not None else None),
@@ -505,6 +515,14 @@ class OmmatidiaFrontEnd:
         if not self.bound:
             raise RuntimeError("bind(sim, fly_name) must be called before read()")
         n = int(self.n_ommatidia)
+        # A STATE THAT DOES NOT MATCH THE OMMATIDIA COUNT IS A DEFECT, not something to broadcast
+        # through.  Naming the fix turns a silent numpy shape error into an instruction.
+        if np.asarray(self._hp).shape != (2, n):
+            raise RuntimeError(
+                "visual state does not match the ommatidia count: _hp is %r but n_ommatidia is %d. "
+                "This happens when the front end was bound without re-initialising its state; call "
+                "bind() (which resets) or reset() before read()."
+                % (np.asarray(self._hp).shape, n))
 
         if not self.config.enabled:
             return self._zero_features(time_s, note="visual pathway disabled by config")

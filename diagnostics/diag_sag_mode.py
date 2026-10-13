@@ -69,7 +69,7 @@ def run(mode, mass_mg=None, dur=1.5):
         else:
             body += abs(f[0])
     return {"mode": mode, "mass_mg": mass_mg or float(sum(m.body_mass)) * 1000,
-            "sag_mm": z0 - float(d.xpos[th][2]), "tilt_deg": float(np.degrees(
+            "sag_model": z0 - float(d.xpos[th][2]), "tilt_deg": float(np.degrees(
                 np.arccos(np.clip(up @ up0, -1, 1)))),
             "thorax_z": float(d.xpos[th][2]), "leg_bw": leg / mw, "body_bw": body / mw,
             "legs_down": len(legs)}

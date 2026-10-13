@@ -162,9 +162,12 @@ def main():
             c3.append({"item": "loop limitations as declared by the run itself",
                        "status": lim})
     c3.append({"item": "contact-force absolute calibration",
-               "status": "UNRESOLVED: the backend labels the channel in N, the mm model implies "
-                         "mN, and the measured six-leg sum (~164) does not balance the 10.05 mN "
-                         "body weight; only the relative pattern is used"})
+               "status": "UNIT ERROR FIXED 2026-10-08 (was 1000x: the mm model's mass unit is "
+                         "GRAMS, so the force unit is 1e-6 N = uN and the body weight is "
+                         "10.0485 uN, corroborated by the settled-fly force balance).  A "
+                         "RESIDUAL ~16x body weight remains in the reported six-leg sum (~164) "
+                         "and is attributed to the channel carrying position-servo internal "
+                         "stress rather than external load; only the relative pattern is used"})
     c3.append({"item": "surgery damage radius",
                "status": "UNQUANTIFIED (value null, modelled nowhere)"})
     c3.append({"item": "parenchymal electrode damage radius and sheath breach criterion",

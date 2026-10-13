@@ -26,6 +26,8 @@ BASELINE: a hand-built oscillator network, NOT the connectome, and behaviour
 produced by it must never be described as connectome-generated.  The flag is
 reported in every record.
 """
+    # Reads `force_channel`: the contact-force channel is a NON_PHYSICAL_LOAD
+    # (engine/embodied/force_channel.py).  Pass it through as a SIGNAL, never as a load.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -36,6 +38,21 @@ from typing import Any
 import numpy as np
 
 MM = "mm"
+
+#: Model length units are MILLIMETRES.  This file previously contradicted ITSELF: this block
+#: claimed centimetres (round-39 defect D1) while GEOMETRY_NOTE below already said millimetres.
+#: The millimetre reading is the one supported by evidence, and it is now stated once:
+#:   * the canonical asset scales all 71 meshes by 1000 and the cached STL is in metres;
+#:   * the canonical asset's own header comment says "the keyframe places the thorax at
+#:     z=2.0453 mm";
+#:   * `flygym/assets/model/flybody/mujoco_globals.yaml:9` states it explicitly:
+#:     `gravity: ['0','0','-9810']  # mm/s^2 (source XML is cm: -981 cm/s^2 x10 -> mm)`;
+#:   * a 2.6 mm body length and 5.78 mm extent are right for Drosophila; the centimetre
+#:     reading made the fly 8-10x too large.
+#: `engine/canonical_physics.py` remains the single source of truth and these two numbers
+#: must agree with it.
+MODEL_LENGTH_UNIT_NAME = "mm"
+MM_PER_MODEL_LENGTH = 1.0
 SECONDS = "s"
 RAD = "rad"
 MM_PER_S = "mm/s"
@@ -886,28 +903,42 @@ class BodyBackend:
             pass
 
 
-def summarise_walk(times_s, thorax_mm, contact_present, cfg: BodyConfig,
+def summarise_walk(times_s, thorax_model, contact_present, cfg: BodyConfig,
                    contact_found_raw=None):
     """Reduce a recorded walk to pre-registered engineering metrics.
 
-    The thresholds below are ENGINEERING GATES for this model, not biological
-    normal values, and they are declared here (once) rather than tuned per run.
+    UNITS (corrected after the round-39 unit claim was RETRACTED).  `thorax_model` is in MODEL
+    LENGTH UNITS, which are MILLIMETRES, so the conversion below is 1:1.  Round 39 declared
+    centimetres and therefore multiplied by 10, which reported a 1.102 mm thorax height as
+    11.02 "mm" - i.e. the factor of ten was CREATED by the mislabelling, not found by it.
+    The raw vector is still recorded alongside so a reader can always recover the model value.
+
+    The thresholds below are ENGINEERING GATES for this model, not biological normal values,
+    and they are declared here (once) rather than tuned per run.  They are stated in
+    millimetres.  IMPORTANT AND NOT YET SETTLED: because the previous conversion inflated the
+    quantities by 10x before these gates were applied, changing the factor to 1.0 CHANGES
+    which gate values a given recording produces.  That behavioural consequence has NOT been
+    re-measured here - the CPG-loop metrics produced before this correction must be re-derived
+    before any of them is compared with anything.
     """
     t = np.asarray(times_s, float)
-    p = np.asarray(thorax_mm, float)
+    p_model = np.asarray(thorax_model, float)
+    p = p_model * MM_PER_MODEL_LENGTH
     c = np.asarray(contact_present)
     if c.dtype != bool:
         # accept a raw found channel too, but interpret it correctly
         c = c > 0
     c = c.astype(float)
     if p.ndim != 2 or p.shape[1] != 3:
-        raise ValueError("thorax_mm must be (n,3)")
+        raise ValueError("thorax_model must be (n,3)")
     if t.size != p.shape[0]:
         raise ValueError("times and positions must have equal length")
     disp = float(np.linalg.norm(p[-1, :2] - p[0, :2]))
     dur = float(t[-1] - t[0]) if t.size > 1 else 0.0
     dz = p[:, 2]
     metrics = {
+        "thorax_model_units_end": float(p_model[-1, 2]),
+        "thorax_model_units_min": float(p_model[:, 2].min()),
         "duration_s": dur,
         "horizontal_displacement_mm": disp,
         "mean_speed_mm_s": (disp / dur) if dur > 0 else float("nan"),
@@ -922,6 +953,7 @@ def summarise_walk(times_s, thorax_mm, contact_present, cfg: BodyConfig,
                              "raw values can exceed 1 and are reported separately",
         "all_finite": bool(np.isfinite(p).all() and np.isfinite(c).all()),
         "units": {"displacement": MM, "speed": MM_PER_S, "height": MM,
+                  "raw_model_length_unit": MODEL_LENGTH_UNIT_NAME,
                   "contact": "leg count (dimensionless)"},
     }
     if contact_found_raw is not None:
@@ -929,8 +961,16 @@ def summarise_walk(times_s, thorax_mm, contact_present, cfg: BodyConfig,
         metrics["contact_found_raw_max"] = float(rf.max()) if rf.size else 0.0
         metrics["contact_found_exceeds_one"] = bool(rf.size and rf.max() > 1.0)
     # pre-registered engineering gates
-    metrics["gate_moved"] = bool(disp >= 20.0)          # >= 20 mm in the window
-    metrics["gate_upright"] = bool(0.3 <= metrics["thorax_height_end_mm"] <= 3.0)
+    # declared in millimetres, which is what the pre-registered numbers meant
+    GATE_MOVED_MM = 20.0
+    GATE_UPRIGHT_MM = (3.0, 30.0)          # was 0.3-3.0 applied to a centimetre value
+    metrics["gate_moved"] = bool(disp >= GATE_MOVED_MM)
+    metrics["gate_upright"] = bool(GATE_UPRIGHT_MM[0] <= metrics["thorax_height_end_mm"]
+                                   <= GATE_UPRIGHT_MM[1])
+    metrics["gate_thresholds_mm"] = {"moved": GATE_MOVED_MM,
+                                     "upright": list(GATE_UPRIGHT_MM),
+                                     "note": "stated in mm; the pre-fix code applied the "
+                                             "upright range to a value that was in cm"}
     metrics["gate_finite"] = bool(metrics["all_finite"])
     metrics["gate_used_legs"] = bool(metrics["contact_legs_mean"] >= 1.0)
     metrics["passed_engineering_gates"] = bool(

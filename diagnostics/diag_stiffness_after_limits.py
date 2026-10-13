@@ -76,7 +76,7 @@ def run(stiff, mass_mg, dur=4.0, freeze_rot=True):
     at_rest = vz < 0.5
     stands = bool(at_rest and body < 1e-3 and len(legs) == 6)
     return {"stiffness": stiff, "mass_mg": mass_mg, "seated_z": z0,
-            "thorax_z": float(d.xpos[th][2]), "sag_mm": z0 - float(d.xpos[th][2]),
+            "thorax_z": float(d.xpos[th][2]), "sag_model": z0 - float(d.xpos[th][2]),
             "vz": vz, "at_rest": bool(at_rest), "leg_bw": leg / mw, "body_bw": body / mw,
             "legs_down": len(legs), "nonleg": sorted(nb),
             "worst_joint": wn, "worst_joint_margin": worst if worst < 1e9 else None,

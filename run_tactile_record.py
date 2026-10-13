@@ -31,6 +31,9 @@ Run (BODY environment):
     OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \\
       venv_body/bin/python run_tactile_record.py --seeds 0,1 --seconds 4
 """
+    # PRODUCER of `force_channel`: `truth/normal_force_N` IS in newtons, and the channel is a
+    # NON_PHYSICAL_LOAD (engine/embodied/force_channel.py; measured 4.29-12.16x body weight).
+    # One model force unit is 1 MICRO-NEWTON, so model units = the array x 1e6.
 from __future__ import annotations
 
 import argparse
@@ -88,11 +91,28 @@ def measure_tip_geometry(backend) -> dict:
                        "millimetres to metres")}
 
 
-#: Model force units.  The model uses MILLIMETRES as its length unit (gravity is -9810,
-#: and the fly's mass is 1.02e-3 kg), so a force of one model unit is kg*mm/s^2 = 1e-3 N =
-#: one MILLINEWTON.  Every force this file reports is converted explicitly from model units to
-#: newtons here, once, rather than at each use.
-MODEL_FORCE_TO_N = 1.0e-3
+#: Model force units.  MEASURED, and this constant was WRONG BY 1000x until it was re-derived.
+#: The model's total mass attribute sums to 1.02431e-3.  Interpreted in KILOGRAMS that makes the
+#: fly 1.024 g -- a thousand times a real Drosophila (~1 mg) -- so the mass unit is GRAMS and the
+#: fly weighs 1.02431 mg.  With millimetres and seconds, one model force unit is therefore
+#:     g * mm/s^2 = 1e-6 N = one MICROnewton,
+#: not one millinewton.  The old comment here asserted "the fly's mass is 1.02e-3 kg", which is
+#: self-refuting: it made the model fly a thousand times too heavy and then used that to pick the
+#: force unit.
+#:
+#: INDEPENDENT CONFIRMATION, and this is what settles it: with the actuators off and the fly
+#: settled on the floor, the sum of the six legs' normal forces measures 6.59 / 8.85 / 11.60 /
+#: 15.31 model units over four checkpoints, while the body weight is
+#:     m*g = 1.02431e-3 * 9810 = 10.0485 model units.
+#: A body at rest must be held up by its own weight, and it is -- in MODEL units.  So the model
+#: unit is the micronewton; the old 1e-3 only relabelled it.
+#:
+#: CONSEQUENCE, which is why this matters: every force previously reported from this file was
+#: 1000x too large, INCLUDING the "walking GRF = 11,400x body weight" figure.  Recomputed with the
+#: correct unit the walking total normal force is a MEAN of 2.89x body weight and a PEAK of 25.6x.
+#: A steady gait should show ~1x, so the residual discrepancy is a factor of ~3, not four orders
+#: of magnitude.  See TACTILE_RECORDING.zh-CN.md.
+MODEL_FORCE_TO_N = 1.0e-6
 
 
 def _tarsal_forces(be, geom_names, legs=LEG_NAMES) -> tuple[np.ndarray, np.ndarray, np.ndarray]:

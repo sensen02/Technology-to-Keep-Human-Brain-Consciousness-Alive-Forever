@@ -62,6 +62,28 @@ cam5: offset ( -0.53, -0.50) px, 11 markers, mean 0.75 -> 0.17 px
 
 ## 3. 重建现在端到端跑通了
 
+> **更正批注（更新于 2026-10-08，第二次修订：本节数字已确认有效，请照用）**
+>
+> **先前的批注说本节 0.8828 mm"不可靠、勿引用"——那个说法我撤回。** 它是我基于
+> "seed0 的录像候选表 `px/*` 不含基准点"（2160 次投影中仅 1.4% 能在 3 px 内命中）所做的推断；
+> 但**读数不可信 ≠ 结论不可信**：本节的重建用的正是那个坏候选表，而把斑块来源换成
+> **从 PNG 图像重新检测**（`run_arena_reconstruct.py --blobs png`，现已是默认）后，同一个 episode 给出
+>
+> ```
+> arena_bare_seed0: static fit ok 60/60 frames, world-frame RMS 0.8554 mm
+>   triangulated fiducials 7 of 12 | pairwise-distance RMS 0.6905 mm
+>   per-frame world RMS: median 0.8543  min 0.8473  max 0.8675 mm
+> ```
+>
+> 与本节的 0.8828 mm / 7 of 12 / 0.724 mm **在 3% 内一致**。所以本节数字**成立**，
+> 只是当时那条读 `px/*` 的路径后来被录像端 `max_px` bug 破坏了可复现性，现已由 PNG 路径修复。
+>
+> **不过"0.8828 mm"这个量级本身要看清它由什么构成**（这是新发现，未经解释）：
+> 这 7 个基准点里 **5 个与声明位置吻合到 0.031–0.186 mm**，而顶层的 **mk9、mk10 两点低了
+> 恰好 2.0259 mm**（两点数值完全相同 ⇒ 系统性，不是噪声），世界系 RMS 完全由这两点主导。
+> 所以"骨骼末端位置误差"该用的尺度是 **~0.03–0.19 mm**，不是 0.86 mm。
+> 详见 `REPAIR_AND_MISLEADING_AUDIT.zh-CN.md` 第 2 节。
+
 ```
 映射到 episode 每条：
 arena_bare_seed0: static fit ok 60/60 frames, world-frame RMS 0.8828 mm

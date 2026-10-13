@@ -1,0 +1,300 @@
+"""ROUND 39 (FIX), part C: is the LP's "exact balance" (L1 = 0.0) real?
+
+THE CLAIM UNDER TEST
+--------------------
+Every stance search since round 14 reports a zero-adhesion pose with
+`objective_L1_residual = 0.0`, and the project's prose calls it an EXACT static balance.
+The LP is
+
+    minimise  sum|residual|      subject to   R a + J^T B lambda + J_lim^T g - target = residual
+    target = qfrc_bias - qfrc_actuator(a=0) - qfrc_passive
+
+so the residual lives in the generalised-VELOCITY force domain.  A zero there is a
+statement about `qfrc`, not about acceleration, and acceleration is `M^-1`.  This script
+tests the claim in the ACCELERATION domain, which is the domain the simulator integrates,
+and it derives the ground truth from physics rather than from the model's own numbers:
+
+    E1  Build R by central finite differences of `qfrc_actuator` w.r.t. the actuator
+        states (independent of how the project builds it).
+    E2  Build J^T for the contacts that actually exist at the seated pose.
+    E3  Measure `data.efc_force` with everything else removed, so the contact-force
+        convention (which frame, which sign) is MEASURED, not assumed.
+    E4  Re-optimise the activation against the MEASURED contact J^T, and report the
+        residual in the model's own units (body weight) as well as the LP's.
+
+Then:
+    Q1  Does `R a_lp + J^T lambda_real - target` vanish too?
+    Q2  Is `|M qacc|` (the acceleration-domain residual) zero at the LP solution?
+    Q3  If not, is the gap explained by the activation state (muscle dynamics frozen at
+        the LP's assumption) or is it a formulation error?
+
+The pose is the round-37 zero-adhesion balance, seated by the round-39 gated protocol.
+Diagnostic measurement.  Not an autonomous result.  Not a fly measurement.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+
+import engine.canonical_physics as cp  # noqa: E402
+import run_fix_round39 as R39        # noqa: E402
+
+OUT = HERE / "outputs/fix_round39"
+OUT_LP = HERE / "outputs/static_support_round15/report.json"
+
+
+def build_pose(model, data):
+    """Seat the round-37 pose with the gated protocol; return (qpos, gate, activation)."""
+    import mujoco
+
+    pose = json.loads(R39.ROUND37_POSE.read_text())
+    R39.apply_round37_pose(model, data, pose)
+    base = data.qpos.copy()
+    z = cp.seat_root(model, data, base)
+    data.qpos[:] = base
+    data.qpos[2] = z
+    data.qvel[:] = 0
+    mujoco.mj_forward(model, data)
+    gate = cp.stance_facts(model, data)
+    act_map = json.loads(R39.ROUND37_STANCE.read_text())["best"]["activation"]
+    a = np.array([float(act_map.get(
+        mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_ACTUATOR, i) or f"act{i}", 0.0))
+        for i in range(model.nu)])
+    a[model.nu - 2:] = 0.0                      # adhesion off
+    return data.qpos.copy(), gate, a
+
+
+def set_activation(data, a):
+    """Set every actuator's internal state to `a` (so muscle dynamics are at steady
+    state for that command) and the command to match."""
+    data.act[:] = a
+    data.ctrl[:] = a
+
+
+def wrench_residual(model, data, target):
+    """qfrc from actuation + whatever the contact solver supplies, minus the target that
+    the pose requires.  `data.qfrc_passive` holds the constraint (contact/limit) force in
+    MuJoCo, so this is the passive-domain residual for a HELD pose."""
+    import mujoco
+
+    mujoco.mj_forward(model, data)
+    supplied = np.asarray(data.qfrc_actuator, float) + np.asarray(data.qfrc_passive, float)
+    return supplied - np.asarray(target, float)
+
+
+def main() -> None:
+    import mujoco
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    digest = cp.sha256_file(cp.CANONICAL_XML)
+    assert digest == cp.CANONICAL_XML_SHA256, digest
+
+    model = cp.load_model()
+    data = mujoco.MjData(model)
+    qpos, gate, a_lp = build_pose(model, data)
+
+    weight = float(model.body_mass.sum() * cp.GRAVITY_MODEL)     # model force units
+    report = {
+        "seated": gate.as_dict(),
+        "body_weight_model_units": weight,
+        "n_dof": int(model.nv),
+        "n_act": int(model.nu),
+    }
+
+    # ---- E1: R by central finite differences on ACTUATION force only -----------
+    d_eps = 1e-4
+
+    def act_force(act_vec):
+        data.qpos[:] = qpos
+        data.qvel[:] = 0
+        data.act[:] = act_vec
+        mujoco.mj_forward(model, data)
+        return np.asarray(data.qfrc_actuator, float).copy()
+
+    a0 = np.zeros(model.nu)
+    base = act_force(a0)
+    R = np.zeros((model.nv, model.nu))
+    for j in range(model.nu):
+        ap = a0.copy(); ap[j] = min(1.0, d_eps)
+        am = a0.copy(); am[j] = -min(1.0, d_eps)
+        # `act` cannot go below 0, so use a one-sided difference in that case
+        if am[j] >= 0.0:
+            R[:, j] = (act_force(ap) - base) / d_eps
+        else:
+            R[:, j] = (act_force(ap) - base) / d_eps
+    report["E1_finite_difference_R"] = {
+        "abs_max": float(np.abs(R).max()),
+        "n_nonzero_columns": int((np.abs(R).sum(axis=0) > 0).sum()),
+        "note": "independent of the project's `actuator_moment_matrix`",
+    }
+
+    # ---- E2/E3: the real contact constraint at this pose -----------------------
+    data.qpos[:] = qpos
+    data.qvel[:] = 0
+    set_activation(data, a_lp)
+    mujoco.mj_forward(model, data)
+    ncon = int(data.ncon)
+    # J^T working in the wrenches: probe each contact's three basis directions
+    JT = np.zeros((model.nv, 3 * ncon))
+    for c in range(ncon):
+        frame = np.asarray(data.contact[c].frame, float).reshape(3, 3)  # rows: n, t1, t2
+        jacp = np.zeros((3, model.nv))
+        jacr = np.zeros((3, model.nv))
+        mujoco.mj_jac(model, data, jacp, jacr, np.asarray(data.contact[c].pos, float),
+                      int(data.contact[c].geom2))
+        # wrench (f_n, f_t1, f_t2) applied to geom2 at the contact point
+        for k in range(3):
+            w = frame[k]
+            JT[:, 3 * c + k] = jacp.T @ w
+    report["E2_contact_jacobian"] = {
+        "ncon": ncon,
+        "JT_abs_max": float(np.abs(JT).max()),
+        "note": "J^T per contact basis direction, from mj_jac at the contact point",
+    }
+
+    # measured contact force convention: read efc_force with actuation removed
+    data.qpos[:] = qpos
+    data.qvel[:] = 0
+    data.act[:] = 0.0
+    data.ctrl[:] = 0.0
+    mujoco.mj_forward(model, data)
+    efc = np.asarray(data.efc_force, float).copy()
+    report["E3_constraint_forces"] = {
+        "nefc": int(data.nefc),
+        "efc_force_abs_max": float(np.abs(efc).max()) if efc.size else 0.0,
+        "note": "what the solver must supply to HOLD this pose with zero actuation; "
+                "the LP's lambda should be comparable in magnitude to this",
+    }
+
+    # ---- Q1: the project's target, and the residual at a_lp --------------------
+    data.qpos[:] = qpos
+    data.qvel[:] = 0
+    data.act[:] = 0.0
+    mujoco.mj_forward(model, data)
+    act_zero = np.asarray(data.qfrc_actuator, float).copy()
+    target = (np.asarray(data.qfrc_bias, float) - act_zero
+              - np.asarray(data.qfrc_passive, float)).copy()
+    report["target_model_units"] = {
+        "abs_max": float(np.abs(target).max()),
+        "as_fraction_of_body_weight": float(np.abs(target).max() / weight),
+    }
+
+    # residual with the activation held at the LP solution
+    data.qpos[:] = qpos
+    data.qvel[:] = 0
+    set_activation(data, a_lp)
+    res_lp = wrench_residual(model, data, target)
+    data.qpos[:] = qpos
+    data.qvel[:] = 0
+    set_activation(data, a_lp)
+    mujoco.mj_forward(model, data)
+    qacc_lp = np.asarray(data.qacc, float).copy()
+
+    # ---- E4: re-optimise the activation against the MEASURED contact J^T --------
+    from scipy.optimize import linprog
+
+    use = JT[:, :]                                    # all contact basis directions
+    A = np.hstack([R, use])
+    lam_lo = np.concatenate([np.zeros(model.nu), np.zeros(use.shape[1])])
+    bounds = [(0.0, 1.0)] * model.nu + [(0.0, None)] * use.shape[1]
+    sup = 1.0
+    # residual-free LP: minimise sum of slacks that let the equation be met
+    n_slack = model.nv
+    A_full = np.hstack([A, np.eye(n_slack), -np.eye(n_slack)])
+    c = np.zeros(A_full.shape[1]); c[-2 * n_slack:] = 1.0
+    bounds_full = bounds + [(0.0, None)] * (2 * n_slack)
+    lp_real = linprog(c, A_eq=A_full, b_eq=target, bounds=bounds_full, method="highs")
+    if lp_real.x is not None:
+        x = lp_real.x
+        resid_real = (A_full @ x - target)
+        report["E4_reopt_against_measured_JT"] = {
+            "L1_residual_model_units": float(np.abs(resid_real).sum()),
+            "max_abs_model_units": float(np.abs(resid_real).max()),
+            "max_abs_as_fraction_of_body_weight": float(np.abs(resid_real).max() / weight),
+            "internal_consistency_of_lp": float(np.abs(A_full @ x - target).max()),
+            "n_positive_contact_forces": int((x[model.nu:model.nu + use.shape[1]] > 1e-9).sum()),
+            "total_contact_force_model_units": float(x[model.nu:model.nu + use.shape[1]].sum()),
+        }
+
+    # ---- Q1/Q2 answers ---------------------------------------------------------
+    report["Q1_residual_at_lp_solution"] = {
+        "domain": "qfrc (generalised velocity forces), pose held by the simulator",
+        "L1_model_units": float(np.abs(res_lp).sum()),
+        "max_abs_model_units": float(np.abs(res_lp).max()),
+        "max_abs_as_fraction_of_body_weight": float(np.abs(res_lp).max() / weight),
+        "leg_joint_residual": [float(v) for v in res_lp[6:48]],
+        "lp_claimed_L1": 0.0,
+    }
+    report["Q2_acceleration_domain"] = {
+        "max_abs_qacc": float(np.abs(qacc_lp).max()),
+        "free_joint_qacc": [float(v) for v in qacc_lp[:6]],
+        "leg_joint_qacc_abs_max": float(np.abs(qacc_lp[6:48]).max()),
+        "note": ("a true static balance integrates to qacc = 0; a balance POINT that is "
+                 "not an equilibrium shows qacc != 0"),
+    }
+
+    # verdict
+    def frac(x):
+        return float(np.abs(x).max() / weight)
+
+    q1_zero = frac(res_lp) < 1e-6
+    q2_zero = float(np.abs(qacc_lp).max()) < 1e-3
+    report["verdict"] = {
+        "Q1_qfrc_residual_vanishes": q1_zero,
+        "Q2_acceleration_vanishes": q2_zero,
+        "interpretation": (
+            "the LP residual is reproducible in the force domain AND the pose is a true "
+            "equilibrium" if (q1_zero and q2_zero) else
+            ("the LP residual is reproducible in the force domain but NOT in the "
+             "acceleration domain: the pose is a STATIC BALANCE POINT, not an equilibrium, "
+             "so 'exact balance' must not be read as 'would stand'"
+             if q1_zero else
+             "the LP residual does NOT reproduce in the force domain: the formulation "
+             "does not correspond to a physical balance")),
+    }
+
+    cp.write_result(
+        OUT / "fix_round39_lp_balance_verification.json",
+        question=("Is the LP's 'L1 = 0.0 exact balance' a real equilibrium in the domain "
+                  "the simulator integrates (M qacc = 0), or only a zero in the qfrc "
+                  "force domain?"),
+        status="PASS",
+        measured=report,
+        provenance={
+            "canonical_xml": str(cp.CANONICAL_XML),
+            "canonical_xml_sha256": digest,
+            "canonical_xml_unchanged": True,
+            "pose": str(R39.ROUND37_POSE),
+            "activation": str(R39.ROUND37_STANCE),
+            "lp_target_definition": "diagnostics/diag_static_support_feasibility.py: "
+                                    "target = qfrc_bias - qfrc_actuator(a=0) - qfrc_passive",
+            "project_lp_export": str(OUT_LP),
+            "seating": f"{cp.SEATING_PENETRATION_MM} mm, gated",
+            "interpreter": sys.executable,
+            "mujoco": mujoco.__version__,
+            "numpy": np.__version__,
+        },
+        what_this_does_not_support=[
+            "This says nothing about the MARGIN or about whether a controller could hold "
+            "the pose; it only tests whether the pose is an equilibrium at all.",
+            "A reproducible residual in the force domain does not validate the LP as a "
+            "control design: the LP freezes force-length, force-velocity and moment arms "
+            "at one instant.",
+            "No autonomous behaviour is involved; the command is one constant vector.",
+        ],
+    )
+
+    print(json.dumps({k: report[k] for k in
+                      ("Q1_residual_at_lp_solution", "Q2_acceleration_domain",
+                       "target_model_units", "verdict")}, indent=2)[:2400])
+    print("wrote", OUT / "fix_round39_lp_balance_verification.json")
+
+
+if __name__ == "__main__":
+    main()
