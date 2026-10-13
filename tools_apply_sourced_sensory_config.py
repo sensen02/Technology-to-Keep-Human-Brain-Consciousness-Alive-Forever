@@ -146,6 +146,7 @@ def main():
                              [doc['filter_tau_window_ms']['low'], doc['filter_tau_window_ms']['high']],
         club_quantity=club,
         channel_quantity_map=doc.get('channel_quantity_map', {}),
+        refuted_quantities=doc.get('refutations', {}),
         derivation=derivation,
         # 'zero' is NOT a refusal for the club channel: the literature says that organ is the
         # vibration-sensitive subtype and no vibration stimulus is modelled, so zero is the sourced

@@ -192,6 +192,23 @@ class SourcedArtefactTests(unittest.TestCase):
         self.assertAlmostEqual(a['mean_abs_drive'], b['mean_abs_drive'], places=12)
         self.assertLess(b['channel_current_shares']['hairplate_angle'], .02)
 
+    def test_the_load_channel_quantity_is_recorded_as_refuted_and_a_variant_replaces_it(self):
+        refutations = self.audit['refuted_quantities']
+        self.assertIn('campaniform_strain', refutations)
+        entry = refutations['campaniform_strain']
+        self.assertIn('Saltin et al. 2025', entry['refuted_by'])
+        self.assertIn('MUSCLE TENSION', entry['refuted_by'])
+        self.assertIn('MODEL-INTERNAL', entry['implemented_variant'])
+        # the variant ran, kept the loop alive, and moved the load channel's share upward
+        summary = self.audit['summary']
+        tension = summary['sourced_normalisers_literature_roles_tension_load']
+        ground = summary['sourced_normalisers_literature_roles']
+        self.assertGreater(tension['channel_current_shares']['campaniform_strain'],
+                           ground['channel_current_shares']['campaniform_strain'])
+        self.assertGreater(tension['channel_current_shares']['campaniform_strain'], .5)
+        self.assertGreaterEqual(tension['standing_measured']['n_claw_contacts'], 5)
+        self.assertIn('quiet', tension['failed_checks'])
+
     def test_the_tau_window_does_not_decide_the_filter(self):
         # with SOURCED normalisers the fastest filter gives the best stance, which reverses the
         # earlier finding that was measured with unsourced normalisers; the artifact must keep both

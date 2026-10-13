@@ -81,6 +81,15 @@ def main(guard_report=None):
     runs['published_config_historical_roles'] = do_run(published_cfg, None)
     runs['sourced_normalisers_historical_roles'] = do_run(sourced_cfg, None)
     runs['sourced_normalisers_literature_roles'] = do_run(sourced_cfg, literature_roles)
+    # The published Drosophila analysis REFUTES the load channel's present quantity (Saltin et al.
+    # 2025: a walking ground reaction force moves the femoral campaniform transduction site by less
+    # than the NompC noise floor, so that field encodes muscle tension).  This variant feeds the
+    # model's muscle-tension analogue instead: the leg's summed absolute actuator torque over a
+    # MODEL-INTERNAL scale (its weight-share times its hip-to-claw distance).
+    tension_roles = {'hairplate': 'coxa', 'campaniform': 'actuator_torque'}
+    runs['sourced_normalisers_literature_roles_tension_load'] = do_run(sourced_cfg, tension_roles)
+    runs['sourced_normalisers_literature_roles_tension_load_with_perturbation'] = do_run(
+        sourced_cfg, tension_roles, duration=.4, push=PUSH)
     runs['published_config_historical_roles_with_perturbation'] = do_run(
         published_cfg, None, duration=.4, push=PUSH)
     runs['sourced_normalisers_literature_roles_with_perturbation'] = do_run(
@@ -129,6 +138,7 @@ def main(guard_report=None):
                  'mapping the literature actually supports?',
         seated_height_mm=seated_height_mm,
         sourced_config=sourced,
+        refuted_quantities=sourced.get('refuted_quantities'),
         summary=summary,
         tau_window=dict(published_window_ms=tau_window, sourced_rule_value_s=sourced.get('filter_tau_s'),
                         runs={k: dict(filter_tau_s=v['filter_tau_s'],
@@ -167,7 +177,7 @@ def main(guard_report=None):
         ])
     cp.write_result(OUT/'flybody_sourced_sensory_run.json', question=result['question'], status='PASS',
                     measured={k: result[k] for k in ('seated_height_mm', 'sourced_config', 'summary',
-                                                     'tau_window')},
+                                                     'tau_window', 'refuted_quantities')},
                     provenance=result['provenance'],
                     units=dict(time='s', height='mm', angle='rad', current='nA',
                                normaliser='published span, converted to rad or rad/s'),

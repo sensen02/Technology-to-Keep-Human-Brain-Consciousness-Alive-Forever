@@ -128,6 +128,18 @@ def build_body(kind, tibia_sign='declared'):
             role_hinge[leg_key(leg)] = dict(
                 tibia=translation['sensory_translation'][leg]['tibia_hinge'],
                 coxa=coxa, group=group)
+        actuators_per_leg = {leg_key(leg): [i for i in range(model.nu)
+                                            if (mujoco.mj_id2name(
+                                                model, mujoco.mjtObj.mjOBJ_ACTUATOR, i) or ''
+                                                ).endswith(f'_{body_mod.LEG_TAG[leg][0]}_'
+                                                           f'{body_mod.LEG_TAG[leg][1]}')
+                                            and not (mujoco.mj_id2name(
+                                                model, mujoco.mjtObj.mjOBJ_ACTUATOR, i) or ''
+                                                ).startswith('adhere_')]
+                              for leg in LEGS}
+        actuator_torque_capacity = {leg: float(sum(model.actuator_gear[i][0]
+                                                   for i in idx))
+                                    for leg, idx in actuators_per_leg.items()}
         contact = {}
         for g in range(model.ngeom):
             name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, g) or ''
@@ -144,7 +156,8 @@ def build_body(kind, tibia_sign='declared'):
         return dict(kind=kind, xml=str(xml), xml_sha256=sha256(xml), model=model,
                     thorax_id=model.body('thorax').id,
                     muscle_index=muscle_index, sign_override=sign_override, hinge_qpos=hinge_qpos,
-                    role_hinge=role_hinge,
+                    role_hinge=role_hinge, actuators_per_leg=actuators_per_leg,
+                    actuator_torque_capacity=actuator_torque_capacity,
                     tibia_sign_variant=tibia_sign if sign_override else 'declared',
                     seated=seated, joints=tables, contact_geoms=contact, floor=floor,
                     joint_group=joint_group, weight=weight, weight_per_leg=weight/len(LEGS),
@@ -202,6 +215,34 @@ def observe(body, data, force_normaliser, roles=None):
                 force[leg] += float(np.linalg.norm(vec[:3]))
                 touch[leg] = 1.0
                 break
+    # DECLARED LOAD-CHANNEL QUANTITY.  The published Drosophila-specific analysis (Saltin et al.
+    # 2025, J R Soc Interface 22:20240559) computes that a walking ground reaction force moves the
+    # femoral campaniform transduction site by LESS than the NompC thermal-noise floor, <2 deg of
+    # femur bending, and concludes that field encodes MUSCLE TENSION rather than ground reaction
+    # force.  So a run that follows the literature feeds this channel the model's own analogue of
+    # muscle tension: the summed absolute actuator torque of that leg, normalised by the sum of that
+    # leg's published actuator force limits (a MODEL-INTERNAL scale, not a published number).
+    actuator_force, support_torque = None, None
+    if (roles or {}).get('campaniform') == 'actuator_torque':
+        import mujoco as _mj
+        actuator_force = {k: float(sum(abs(data.actuator_force[i])
+                                       for i in body['actuators_per_leg'][k]))
+                          for k in body['actuators_per_leg']}
+        # MODEL-INTERNAL SCALE, not a published number: the torque a leg must produce to carry its own
+        # share of the body weight about the hip, weight-share times the hip-to-claw distance.  It is
+        # recorded as model-internal because no published Drosophila torque normaliser exists.
+        if 'support_torque' not in body:
+            scale = {}
+            for leg in LEGS:
+                tag, side = body_mod.LEG_TAG[leg]
+                hip = data.xpos[body['model'].body(f'coxa_{tag}_{side}').id]
+                claw = data.xpos[body['model'].body(f'claw_{tag}_{side}').id]
+                scale[leg_key(leg)] = float(body['weight_per_leg']
+                                            * np.linalg.norm(claw - hip))
+            body['support_torque'] = scale
+            body['support_torque_note'] = ('weight_share x hip-to-claw distance, measured at the '
+                                           'first observation; model-internal scale')
+        support_torque = body['support_torque']
     out = {}
     for leg in LEGS:
         key = leg_key(leg)
@@ -225,7 +266,9 @@ def observe(body, data, force_normaliser, roles=None):
             tibia_joint_dev_rad=float(data.qpos[tib_q]-body['reference'][tib_q]),
             tibia_joint_vel_rad_s=float(data.qvel[tib_v]),
             multi_joint_dev_rad=float(np.mean(data.qpos[group_q]-body['reference'][group_q])),
-            contact_force_norm=float(force[key]/force_normaliser),
+            contact_force_norm=(float(actuator_force[key]/support_torque[key])
+                                if actuator_force is not None
+                                else float(force[key]/force_normaliser)),
             foot_contact=float(touch[key]))
     return out
 
