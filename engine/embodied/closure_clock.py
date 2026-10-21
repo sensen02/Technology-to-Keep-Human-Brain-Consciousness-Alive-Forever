@@ -11,6 +11,17 @@ def grid_steps(value, step, *, name='duration', allow_zero=False):
     return n
 
 
+def body_clock_steps(body_dt, neural_dt, command_dt, duration):
+    """Validate a body grid without changing neural/command clocks."""
+    grid_steps(neural_dt, body_dt, name='neural interval')
+    per_command = grid_steps(command_dt, body_dt, name='command interval')
+    total = grid_steps(duration, body_dt)
+    intervals = grid_steps(duration, command_dt)
+    if total != intervals * per_command:
+        raise ValueError('inconsistent body/command duration')
+    return per_command, total
+
+
 def push_steps(push, duration, body_dt):
     """Half-open interval in BODY steps, never quantized to command intervals."""
     if push is None:return None

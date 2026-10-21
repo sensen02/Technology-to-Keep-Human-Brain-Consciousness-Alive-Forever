@@ -17,5 +17,16 @@ def scalar_limit_report(names,addresses,types,limited,ranges,qpos,tolerance_rad=
     return dict(checked_scalar_joints=checked,within_declared_scalar_ranges=not failures,violations=failures,
                 pose_modified=False,interpretation='Strict scalar range diagnostic, separate from contact gate; soft-limit dynamics remain native. Not a claim asset is invalid.')
 
+def validate_explicit_qpos(value, nq):
+    """Copy a saved canonical free-root pose, never normalize or repair it."""
+    q = np.asarray(value)
+    if q.shape != (nq,) or q.dtype.kind not in 'iuf' or not np.isfinite(q).all():
+        raise ValueError('explicit qpos requires finite real [nq]')
+    q = q.astype(float, copy=True)
+    if not np.isfinite(q).all() or nq < 7 or not np.isclose(np.linalg.norm(q[3:7]), 1., rtol=0, atol=1e-10):
+        raise ValueError('explicit free-root qpos requires a unit quaternion; no automatic normalization')
+    return q
+
+
 def model_limit_report(model,qpos):
     return scalar_limit_report([model.joint(j).name for j in range(model.njnt)],model.jnt_qposadr,model.jnt_type,model.jnt_limited,model.jnt_range,qpos)

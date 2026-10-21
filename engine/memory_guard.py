@@ -187,7 +187,10 @@ def guarded_run(label: str, *, need_mb: float, cap_mb: float, lock: bool = True,
         if lock:
             stack.enter_context(single_flight(lock_name or HEAVY_JOB_LOCK, wait_s=wait_s))
         info["start"] = require_available_mb(need_mb, label)
-        info["previous_soft_limit_mb"] = cap_address_space_mb(cap_mb)
+        previous_limit = cap_address_space_mb(cap_mb)
+        # JSON has no Infinity; null explicitly denotes an unlimited previous cap.
+        info["previous_soft_limit_mb"] = previous_limit if previous_limit != float('inf') else None
+        info["previous_soft_limit_unlimited"] = previous_limit == float('inf')
         info["start"]["VmPeak_mb"], info["start"]["VmRSS_mb"], info["start"]["VmSize_mb"] = \
             current_vm_mb()
         t0 = time.time()

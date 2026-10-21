@@ -25,7 +25,8 @@ from engine.embodied.adapters import build_neural_tier, TierConfig
 from engine.embodied.sensory_channels import ChannelSensoryEncoder, ChannelQuantities, ChannelConfig, channel_index_map, LEGS, LOOKUP
 from engine.embodied.motor_output import build_motor_manifest, MotorOutput, MotorOutputConfig
 from engine.neural_cond import ConductanceNetwork, ConductanceParams
-from engine.embodied.closure_clock import grid_steps, push_steps
+from engine.embodied.closure_clock import grid_steps, push_steps, body_clock_steps
+from engine.embodied.motor_cadence_schedule import motor_windows
 
 OUT = HERE / 'outputs/neural_muscle_closure'
 POOLS = HERE / 'outputs/neural_rebuild/neural_rebuild_11_mn_pools.json'
@@ -34,16 +35,22 @@ DT_NEURAL = .0005
 DT_COMMAND = .005
 
 
-def prepare_body():
+def prepare_body(initial_qpos=None, body_dt_s=DT_BODY):
     import mujoco
     assert cp.sha256_file(cp.CANONICAL_XML) == cp.CANONICAL_XML_SHA256
     model = cp.load_model()
-    if not np.isclose(model.opt.timestep, DT_BODY):
-        raise ValueError('canonical body timestep differs from declared clock')
+    body_clock_steps(body_dt_s, DT_NEURAL, DT_COMMAND, DT_COMMAND)
+    # Explicit numerical integration setting only; canonical XML stays untouched.
+    model.opt.timestep = float(body_dt_s)
     data = mujoco.MjData(model)
-    r39.apply_round37_pose(model, data, json.loads(r39.ROUND37_POSE.read_text()))
-    base = data.qpos.copy()
-    base[2] = cp.seat_root(model, data, base)
+    if initial_qpos is None:
+        r39.apply_round37_pose(model, data, json.loads(r39.ROUND37_POSE.read_text()))
+        base = data.qpos.copy()
+        base[2] = cp.seat_root(model, data, base)
+    else:
+        from engine.embodied.initial_pose_contract import validate_explicit_qpos
+        base = validate_explicit_qpos(initial_qpos, model.nq)
+        # Exact saved initialization: no seating, clipping or pose correction.
     data.qpos[:] = base
     data.qvel[:] = 0
     data.act[:] = 0  # declared initial state, never overwritten during integration
@@ -97,15 +104,41 @@ def observe_quantities(model, data, reference, joints, geom_leg):
     return result
 
 
+def make_motor_decoder(manifest, motor_translator=None):
+    """Select a frozen MN-only translator; never fit or read body state here."""
+    if motor_translator is None:
+        return MotorOutput(manifest, MotorOutputConfig())
+    from engine.embodied.motor_translation import FiniteMotorTranslator
+    return FiniteMotorTranslator.load(manifest, motor_translator)
+
+
 def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, duration, replay=None,
-            stride=10, full_detail_intervals=20, push=None):
+            stride=10, full_detail_intervals=20, push=None, external_touch=True,
+            disabled_channels=(), evidence=None, motor_translator=None, body_observer=None,
+            body_dt_s=DT_BODY, motor_dt_s=DT_COMMAND):
+    """Run the legacy four-value episode; optionally fill a caller-owned evidence dict.
+
+    Evidence is observational only. Currents are copied after every intervention,
+    before the first neural step, and held for the entire command interval.
+    """
+    if motor_dt_s != DT_COMMAND:
+        return _episode_split_motor(model, seated, joints, geom_leg, built, manifest,
+                                    groups, arm, duration, replay=replay, push=push,
+                                    external_touch=external_touch, disabled_channels=disabled_channels,
+                                    evidence=evidence, motor_translator=motor_translator,
+                                    body_observer=body_observer, body_dt_s=body_dt_s,
+                                    motor_dt_s=motor_dt_s)
     import mujoco
+    unknown_channels = set(disabled_channels) - set(groups[LEGS[0]])
+    if unknown_channels:
+        raise ValueError(f'unknown disabled sensory channels: {sorted(unknown_channels)}')
     intervals = grid_steps(duration, DT_COMMAND)
-    body_steps = grid_steps(DT_COMMAND, DT_BODY)
-    if not np.isclose(model.opt.timestep, DT_BODY, rtol=0, atol=1e-15):
+    body_dt = float(body_dt_s)
+    body_steps, _ = body_clock_steps(body_dt, DT_NEURAL, DT_COMMAND, duration)
+    if not np.isclose(model.opt.timestep, body_dt, rtol=0, atol=1e-15):
         raise ValueError('episode body timestep differs from declared clock')
     neural_steps = grid_steps(DT_COMMAND, DT_NEURAL)
-    window = push_steps(push, duration, DT_BODY)
+    window = push_steps(push, duration, body_dt)
     if stride < 1:
         raise ValueError('record stride must be >= 1')
     d = mujoco.MjData(model)
@@ -117,12 +150,25 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
     thorax = model.body('Thorax').id
     h0 = float(d.xpos[thorax, 2])
     enc = ChannelSensoryEncoder(groups, int(built['n']), ChannelConfig())
-    decoder = MotorOutput(manifest, MotorOutputConfig())
+    decoder = make_motor_decoder(manifest, motor_translator)
     net = ConductanceNetwork(int(built['n']), ConductanceParams(), dt_ms=DT_NEURAL*1000)
     net.set_connectivity(built['edges']['We']*.2, built['edges']['Wi']*.2)
     pending = np.zeros(model.nu)
     source = -1
     records, trajectories, commands, spike_counts = [], [], [], []
+    if evidence is not None:
+        evidence.clear()
+        evidence.update(
+            schema_version=1, dt_body_s=body_dt, dt_neural_s=DT_NEURAL,
+            dt_command_s=DT_COMMAND,
+            input_held_convention='Observe body at interval start; apply touch, disabled channels, sensory cut in that order; hold exact resulting current for all neural steps in [start,end).',
+            activation_convention='End-of-interval MuJoCo activation; identical to trajectory activation suffix.',
+            command_convention='controls are applied during [start,end); decoded_next_controls are decoded at end for the next interval; initial source=-1; replay uses baseline applied row k.',
+            sensory_current_nA=np.empty((intervals, int(built['n'])), dtype=float),
+            interval_start_s=np.empty(intervals), interval_end_s=np.empty(intervals),
+            applied_source_interval=np.empty(intervals, dtype=np.int64),
+            decoded_next_controls=np.empty((intervals, model.nu)),
+            activation=np.empty((intervals, d.act.size)))
     # Compact diagnostic raster: only mapped motor and explicitly stimulated sensory cells.
     # Preserves 0.5ms spike timing without storing a full-tier raster in every arm.
     probe_indices = sorted({i for row in manifest['rows'] for i in row['local_indices']} |
@@ -136,12 +182,25 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
         current, channels = enc.encode(quantities)
         # Declared experimenter's local tactile stimulus, never motor-targeted.
         # Compare it to a matched sensory-cut arm: zero all input currents there.
-        stimulus_on = arm != 'no_external_touch' and .005 <= t < .015
+        stimulus_on = external_touch and arm != 'no_external_touch' and .005 <= t < .015
         if stimulus_on:
             for i in groups['lf']['bristle_touch']:
                 current[int(i)] += .3
+        for leg in LEGS:
+            for channel in disabled_channels:
+                current[np.asarray(groups[leg][channel], dtype=int)] = 0
         if arm == 'sensory_cut':
             current[:] = 0
+        if evidence is not None:
+            evidence['sensory_current_nA'][k] = current
+            evidence['interval_start_s'][k] = t
+        actual_input = {
+            leg: {channel: dict(count=len(indices),
+                               sum_nA=float(current[np.asarray(indices, dtype=int)].sum()),
+                               min_nA=float(current[np.asarray(indices, dtype=int)].min()) if len(indices) else 0.,
+                               max_nA=float(current[np.asarray(indices, dtype=int)].max()) if len(indices) else 0.)
+                  for channel, indices in channels_for_leg.items()}
+            for leg, channels_for_leg in groups.items()}
         sp = np.zeros((neural_steps, int(built['n'])), dtype=bool)
         for j in range(neural_steps):
             sp[j] = net.step(current_nA=current)
@@ -168,6 +227,9 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
                 push_applied_steps += 1
             mujoco.mj_step(model, d)
             mujoco.mj_forward(model, d)
+            if body_observer is not None:
+                # Observational hook; caller must not modify model/data or commands.
+                body_observer(model, d)
             if escape is None and d.xpos[thorax, 2] < .9*h0:
                 escape = float(d.time)
         if not all(np.all(np.isfinite(x)) for x in (d.qpos,d.qvel,d.act)):
@@ -182,18 +244,26 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
                                          connected=not(arm == 'motor_cut' and t+DT_COMMAND >= cut_s))
         if source >= k:
             raise AssertionError('future spikes applied to body')
+        if evidence is not None:
+            evidence['interval_end_s'][k] = float(d.time)
+            evidence['applied_source_interval'][k] = source
+            evidence['decoded_next_controls'][k] = pending
+            evidence['activation'][k] = d.act
         record = dict(time_start_s=t, time_end_s=float(d.time), applied_source_interval=source,
                       source_completed_by_s=t, decoder=trace,
                       probe_raw_spike_events_step_column=probe_raw_events,
                       probe_emitted_spike_events_step_column=np.argwhere(sp[:, probe_indices]).tolist(),
                       command_origin='offline_normal_replay' if arm == 'replay' else 'previous_completed_neural_interval',
                       mujoco_warning_counts=warnings,
-                      sensory_current_min_nA=float(current.min()), sensory_current_max_nA=float(current.max()),
+                      actual_network_input_by_channel=actual_input,
+                       disabled_channels=list(disabled_channels),
+                       total_network_spikes=int(sp.sum()),
+                       sensory_current_min_nA=float(current.min()), sensory_current_max_nA=float(current.max()),
                       external_lf_touch_stimulus=stimulus_on,
                       external_push_applied=bool(push_applied_steps),
                       external_push_body_steps=push_applied_steps,
-                      external_push_duration_s=push_applied_steps*DT_BODY,
-                      external_push_impulse_model=(np.asarray(push['force_model'])*push_applied_steps*DT_BODY).tolist() if push else [0.0,0.0,0.0],
+                      external_push_duration_s=push_applied_steps*body_dt,
+                      external_push_impulse_model=(np.asarray(push['force_model'])*push_applied_steps*body_dt).tolist() if push else [0.0,0.0,0.0],
                       motor_spikes=int(sp[:,motor_indices].sum()),
                       active_control_count=int(np.count_nonzero(applied)),
                       native_control_floor_clamp_count=int(np.sum((applied < model.actuator_ctrlrange[:,0]) & model.actuator_ctrllimited)),
@@ -218,10 +288,157 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
                 final_height_model=float(d.xpos[thorax,2]), records=records), np.array(trajectories), np.array(commands), np.array(spike_counts)
 
 
+def _episode_split_motor(model, seated, joints, geom_leg, built, manifest, groups, arm,
+                         duration, *, replay, push, external_touch, disabled_channels,
+                         evidence, motor_translator, body_observer, body_dt_s, motor_dt_s):
+    """Keep one sensory current per 5ms while decoding completed 1ms MN blocks.
+
+    The default 5ms episode above remains byte-for-byte on its historical path.
+    The split path deliberately supports normal, sensory/no-touch and motor cut;
+    replay and externally pushed diagnostic arms require a separately declared
+    motor-resolution replay contract rather than silent resampling.
+    """
+    import mujoco
+    if arm not in ('normal', 'no_external_touch', 'sensory_cut', 'motor_cut',
+                   'spike_output_silence') or replay is not None or push is not None:
+        raise ValueError('1ms motor path requires a declared replay/push contract for this arm')
+    unknown_channels = set(disabled_channels) - set(groups[LEGS[0]])
+    if unknown_channels:
+        raise ValueError(f'unknown disabled sensory channels: {sorted(unknown_channels)}')
+    windows = motor_windows(duration, sensory_dt_s=DT_COMMAND,
+                            neural_dt_s=DT_NEURAL, motor_dt_s=motor_dt_s)
+    body_dt = float(body_dt_s)
+    steps_per_motor, _ = body_clock_steps(body_dt, DT_NEURAL, motor_dt_s, duration)
+    if not np.isclose(model.opt.timestep, body_dt, rtol=0, atol=1e-15):
+        raise ValueError('episode body timestep differs from declared clock')
+    d = mujoco.MjData(model)
+    d.qpos[:] = seated
+    d.qvel[:] = 0
+    d.act[:] = 0
+    d.ctrl[:] = 0
+    mujoco.mj_forward(model, d)
+    thorax = model.body('Thorax').id
+    h0 = float(d.xpos[thorax, 2])
+    enc = ChannelSensoryEncoder(groups, int(built['n']), ChannelConfig())
+    decoder = make_motor_decoder(manifest, motor_translator)
+    net = ConductanceNetwork(int(built['n']), ConductanceParams(), dt_ms=DT_NEURAL*1000)
+    net.set_connectivity(built['edges']['We']*.2, built['edges']['Wi']*.2)
+    motor_indices = sorted({i for row in manifest['rows'] for i in row['local_indices']})
+    probe_indices = sorted(set(motor_indices) |
+                           {int(i) for i in groups['lf']['bristle_touch']})
+    pending = np.zeros(model.nu)
+    current = None
+    sensory_times, sensory_currents = [], []
+    motor_applied, motor_decoded, motor_sources, motor_spikes = [], [], [], []
+    motor_event_ticks, motor_event_local_indices = [], []
+    motor_activations, motor_heights = [], []
+    escape = None
+    cut_s = .015
+    for index, window in enumerate(windows):
+        start_s, end_s = window.start_tick*DT_NEURAL, window.end_tick*DT_NEURAL
+        if index == 0 or window.sensory_index != windows[index-1].sensory_index:
+            sensory_t = window.sensory_index*DT_COMMAND
+            quantities = observe_quantities(model, d, seated, joints, geom_leg)
+            current, _ = enc.encode(quantities)
+            if external_touch and arm != 'no_external_touch' and .005 <= sensory_t < .015:
+                for i in groups['lf']['bristle_touch']:
+                    current[int(i)] += .3
+            for leg in LEGS:
+                for channel in disabled_channels:
+                    current[np.asarray(groups[leg][channel], dtype=int)] = 0
+            if arm == 'sensory_cut':
+                current[:] = 0
+            sensory_times.append(sensory_t)
+            sensory_currents.append(current.copy())
+        # Apply previous completed MN block BEFORE advancing either network or body.
+        applied = pending.copy()
+        if arm == 'motor_cut' and start_s >= cut_s:
+            applied[:] = 0
+        d.ctrl[:] = applied
+        sp = np.zeros((window.end_tick-window.start_tick, int(built['n'])), dtype=bool)
+        for j in range(len(sp)):
+            sp[j] = net.step(current_nA=current)
+        if arm == 'spike_output_silence':
+            sp[:] = False
+        for _ in range(steps_per_motor):
+            mujoco.mj_step(model, d)
+            mujoco.mj_forward(model, d)
+            if body_observer is not None:
+                body_observer(model, d)
+            if escape is None and d.xpos[thorax, 2] < .9*h0:
+                escape = float(d.time)
+        if abs(d.time-end_s) > 1e-10 or abs(net.t_ms/1000-end_s) > 1e-10:
+            raise AssertionError('body/neural clock drift or simulator reset')
+        if not all(np.all(np.isfinite(x)) for x in (d.qpos,d.qvel,d.act)):
+            raise FloatingPointError('nonfinite body in motor split path')
+        if any(int(w.number) for w in d.warning):
+            raise RuntimeError('MuJoCo warnings in motor split path')
+        pending, trace = decoder.consume(sp, spike_dt_s=DT_NEURAL,
+                                         start_s=start_s, end_s=end_s,
+                                         connected=not(arm == 'motor_cut' and end_s >= cut_s))
+        motor_applied.append(applied.copy())
+        motor_sources.append(-1 if window.apply_source_end_tick is None else
+                             window.apply_source_end_tick)
+        motor_spikes.append(sp.sum(axis=0))
+        events = np.argwhere(sp[:, motor_indices])
+        motor_event_ticks.append((events[:, 0] + window.start_tick + 1).astype(np.int64))
+        motor_event_local_indices.append(np.asarray(motor_indices, dtype=np.int64)[events[:, 1]])
+        motor_decoded.append(pending.copy())
+        motor_activations.append(d.act.copy())
+        motor_heights.append(float(d.xpos[thorax, 2]))
+    if evidence is not None:
+        evidence.clear()
+        evidence.update(schema_version=2, dt_body_s=body_dt, dt_neural_s=DT_NEURAL,
+                        dt_sensory_s=DT_COMMAND, dt_motor_s=motor_dt_s,
+                        sensory_sample_start_s=np.asarray(sensory_times),
+                        motor_start_s=np.asarray([w.start_tick*DT_NEURAL for w in windows]),
+                        motor_end_s=np.asarray([w.end_tick*DT_NEURAL for w in windows]),
+                        sensory_current_nA=np.asarray(sensory_currents),
+                        motor_sensory_index=np.asarray([w.sensory_index for w in windows], dtype=int),
+                        motor_source_end_tick=np.asarray(motor_sources, dtype=int),
+                        motor_event_complete_ticks=tuple(motor_event_ticks),
+                        motor_event_local_indices=tuple(motor_event_local_indices),
+                        motor_decoded_next_controls=np.asarray(motor_decoded),
+                        motor_applied_controls=np.asarray(motor_applied),
+                        motor_activation_end=np.asarray(motor_activations),
+                        motor_height_end_model=np.asarray(motor_heights),
+                        motor_observation_end_s=np.asarray([w.end_tick*DT_NEURAL for w in windows]))
+    return (dict(arm=arm, scope='1ms motor scheduling, sensory held 5ms',
+                 escape_time_s=escape, initial_height_model=h0,
+                 final_height_model=float(d.xpos[thorax, 2])),
+            np.r_[d.qpos.copy(), d.qvel.copy(), d.act.copy()][None, :],
+            np.asarray(motor_applied), np.asarray(motor_spikes))
+
+
+def initial_foot_contact_legs(model, seated, geom_leg):
+    """Return actual floor–tarsus contact identities, not a load or balance claim."""
+    import mujoco
+    data = mujoco.MjData(model)
+    data.qpos[:] = seated
+    mujoco.mj_forward(model, data)
+    return sorted({geom_leg[g] for contact in data.contact
+                   for g, other in ((int(contact.geom1), int(contact.geom2)),
+                                    (int(contact.geom2), int(contact.geom1)))
+                   if g in geom_leg and model.geom_type[other] == mujoco.mjtGeom.mjGEOM_PLANE})
+
+
+def require_six_foot_initial_contacts(model, seated, geom_leg):
+    """S5 new-run preflight only: reject missing feet without moving the pose."""
+    present = initial_foot_contact_legs(model, seated, geom_leg)
+    if set(present) != set(LEGS):
+        raise ValueError(f'INITIAL_POSE_REJECTED: six foot-plane contacts required; '
+                         f'present={present}, missing={sorted(set(LEGS)-set(present))}')
+    return present
+
+
 def main(guard_report=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--duration', type=float, default=.05)
     parser.add_argument('--record-stride', type=int, default=10)
+    parser.add_argument('--motor-translator', type=Path, default=None,
+                        help='frozen FiniteMotorTranslator JSON; no runtime fitting or body-state inputs')
+    parser.add_argument('--initial-state', type=Path, default=None,
+                        help='required explicit saved NPZ qpos; historical round37 pose is invalid for new closure runs')
     parser.add_argument('--push-weight-fraction', type=float, default=0.0,
                         help='external world-frame force on the thorax as a FRACTION of the '
                              "model's own total weight (mass_sum * |gravity|), measured at "
@@ -248,9 +465,17 @@ def main(guard_report=None):
                      'end_s': (args.push_at_ms+args.push_duration_ms)/1000.0,
                      'weight_fraction': float(args.push_weight_fraction)}
     import mujoco
+    if args.initial_state is None:
+        raise ValueError('INITIAL_POSE_REJECTED: --initial-state is required for new closure runs; '
+                         'historical round37 entry violates native scalar joint ranges')
+    with np.load(args.initial_state, allow_pickle=False) as saved:
+        explicit_qpos = saved['qpos'].copy()
+    model, seated, gate, joints, geom_leg = prepare_body(initial_qpos=explicit_qpos)
+    from run_motor_body_integration import require_legal_initial_pose
+    require_legal_initial_pose(gate)  # Before any output or costly neural build; never clip/repair.
+    initial_contact_legs = require_six_foot_initial_contacts(model, seated, geom_leg)
     OUT.mkdir(parents=True, exist_ok=True)
     started = time.time()
-    model, seated, gate, joints, geom_leg = prepare_body()
     # MEASURED BUG (fixed): this block first read `model.body_mass` BEFORE `prepare_body()` ran,
     # so the run died with UnboundLocalError - and only when the script was actually executed,
     # because a syntax check cannot see it.  The perturbation magnitude needs the compiled model,
@@ -265,6 +490,12 @@ def main(guard_report=None):
     built = build_neural_tier(TierConfig(background_mean_nA=0, background_sd_nA=0))
     names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_ACTUATOR,i) for i in range(model.nu)]
     manifest = build_motor_manifest(json.loads(POOLS.read_text()), built['tier']['root_ids'], names)
+    # Validate mapping identity before episodes; each episode starts fresh history.
+    selected_decoder = make_motor_decoder(manifest, args.motor_translator)
+    translator_provenance = (asdict(MotorOutputConfig()) if args.motor_translator is None else dict(
+        kind='frozen_finite_mn_only', file=str(args.motor_translator.resolve()),
+        sha256=cp.sha256_file(args.motor_translator), mapping_digest=selected_decoder.mapping_digest,
+        memory_horizon_s=.04, runtime_fit=False, bias=False, body_input=False))
     groups, sensory_stats = channel_index_map(int(built['n']), built['tier']['root_ids'])
     from engine.embodied.channel_connectivity import channel_connectivity
     connectivity = channel_connectivity(built['edges']['We'], built['edges']['Wi'], groups,
@@ -281,10 +512,17 @@ def main(guard_report=None):
                       connectome_sha256=cp.sha256_file(HERE/'data/flywire/banc_connectome.npz'),
                       source_feather_sha256=cp.sha256_file(HERE/'data/banc888/banc_888_meta.feather'),
                       network_weights_scale=.2, background_current_nA=0,
-                      motor_translation=asdict(MotorOutputConfig()), sensory_translation=asdict(ChannelConfig()),
-                      initialization='gated round37 qpos, zero qvel and activation; no LP bias',
+                      motor_translation=translator_provenance, sensory_translation=asdict(ChannelConfig()),
+                      initialization='legal explicit saved qpos, zero qvel and activation; no LP bias',
+                       initial_state=dict(path=str(args.initial_state.resolve()),
+                                          sha256=cp.sha256_file(args.initial_state),
+                                          initial_contact_legs=initial_contact_legs,
+                                          scope='six geometric foot-plane contacts only; no load/balance or full anatomy qualification'),
                       sensory_geometry='explicit canonical joint names; sum magnitudes of foot-plane contact forces per leg',
                       activation='MuJoCo only; native positive ctrl lower bound preserved and reported')
+    if args.motor_translator is not None:
+        provenance['code_hashes'].update({str(p.resolve()):cp.sha256_file(p) for p in (
+            HERE/'engine/embodied/motor_translation.py', args.motor_translator)})
     # Stage companions together; publish a verified complete bundle only after success.
     staged = OUT / '.staging' / uuid.uuid4().hex
     staged.mkdir(parents=True, exist_ok=False)
@@ -320,7 +558,8 @@ def main(guard_report=None):
     for arm in ('normal','no_external_touch','sensory_cut','motor_cut','spike_output_silence','replay','normal_repeat'):
         summary, traj, ctrl, spikes = episode(model,seated,joints,geom_leg,built,manifest,groups,
                                               arm,args.duration,replay=baseline_commands,
-                                              stride=args.record_stride, push=push)
+                                              stride=args.record_stride, push=push,
+                                               motor_translator=args.motor_translator)
         summaries[arm] = summary
         all_arrays[arm+'_trajectory'] = traj
         all_arrays[arm+'_controls'] = ctrl

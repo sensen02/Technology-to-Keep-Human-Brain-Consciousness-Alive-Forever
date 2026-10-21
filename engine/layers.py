@@ -33,6 +33,8 @@ numerical statement, not an approximation that should be quoted as biology.
 from __future__ import annotations
 
 import math
+from collections.abc import Mapping
+from copy import deepcopy
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -104,6 +106,15 @@ class Pipeline:
         self._providers: dict[str, tuple[Layer, str]] = {}
         self.wired = False
         self.log = []
+        self._failure_reason = None
+
+    @property
+    def failed(self):
+        return self._failure_reason is not None
+
+    @property
+    def failure_reason(self):
+        return self._failure_reason
 
     # ------------------------------------------------------------------
     def add(self, layer):
@@ -116,6 +127,9 @@ class Pipeline:
 
     def remove(self, name):
         self.layers = [l for l in self.layers if l.name != name]
+        # The provider table describes the old stack; validate again before run.
+        self._providers = {}
+        self.wired = False
         return self
 
     def by_name(self, name):
@@ -127,8 +141,15 @@ class Pipeline:
     # ------------------------------------------------------------------
     def wire(self):
         """Validate the stack: feed-forward only, units compatible."""
+        # Never expose a partially validated table, including after a failed rewire.
+        self.wired = False
         self._providers = {}
+        providers = {}
+        names = set()
         for i, layer in enumerate(self.layers):
+            if layer.name in names:
+                raise WiringError(f"duplicate layer name {layer.name!r}")
+            names.add(layer.name)
             if not layer.enabled:
                 continue
             # 1. requirements must already be provided by EARLIER layers
@@ -136,9 +157,9 @@ class Pipeline:
                 if port in layer.provides:
                     raise FeedforwardViolation(
                         f"{layer.name} both requires and provides {port!r}")
-                if port not in self._providers:
+                if port not in providers:
                     later = [l.name for l in self.layers[i + 1:]
-                             if port in l.provides]
+                             if l.enabled and port in l.provides]
                     if later:
                         raise FeedforwardViolation(
                             f"{layer.name} requires {port!r}, which is only "
@@ -147,22 +168,36 @@ class Pipeline:
                             f"back to ground truth.")
                     raise WiringError(
                         f"{layer.name} requires {port!r}, which nothing provides.")
-                prov_layer, prov_unit = self._providers[port]
-                if self.strict_units and unit and prov_unit:
+                prov_layer, prov_unit = providers[port]
+                if self.strict_units:
                     try:
-                        Quantity(1.0, prov_unit).to(unit)
-                    except UnitError as exc:
+                        factor = Quantity(1.0, prov_unit).to(unit).value
+                        scale, _ = unit_of(unit)
+                        if (not math.isfinite(factor) or factor <= 0
+                                or not math.isfinite(scale) or scale <= 0):
+                            raise UnitError("unit scale must be finite and positive")
+                    except (UnitError, OverflowError, ZeroDivisionError) as exc:
                         raise WiringError(
                             f"{layer.name} requires {port!r} in {unit!r} but "
                             f"{prov_layer.name} provides it in {prov_unit!r} "
                             f"({exc})")
             # 2. publish
             for port, unit in layer.provides.items():
-                if port in self._providers:
+                if self.strict_units:
+                    try:
+                        scale, _ = unit_of(unit)
+                        if not math.isfinite(scale) or scale <= 0:
+                            raise UnitError("unit scale must be finite and positive")
+                    except (UnitError, OverflowError) as exc:
+                        raise WiringError(
+                            f"{layer.name} provides {port!r} with invalid unit "
+                            f"{unit!r} ({exc})") from exc
+                if port in providers:
                     raise WiringError(
                         f"{port!r} is provided twice: by "
-                        f"{self._providers[port][0].name} and {layer.name}")
-                self._providers[port] = (layer, unit)
+                        f"{providers[port][0].name} and {layer.name}")
+                providers[port] = (layer, unit)
+        self._providers = providers
         self.wired = True
         return self
 
@@ -182,38 +217,131 @@ class Pipeline:
 
         `duration` and `dt_outer` are Quantities with time units.  Returns
         (state, trace) where trace is a list of per-step dicts of scalar
-        summaries for the monitoring layer.
+        summaries for the monitoring layer. Clocks must be finite time
+        quantities; step sizes must be positive. Zero duration is a no-op
+        (no initialization, layer steps, or callbacks).
+
+        Contracts are revalidated and snapshotted for each run. Changes made
+        during a run take effect on the next run. Each hook gets private input
+        copies (also across substeps), so local mutation cannot write upstream.
+        Strict mode rescales numeric inputs to each consumer's required unit;
+        published state remains in provider units. Quantity outputs are normalized
+        to raw numbers in their declared units. Factor-one inputs retain their
+        raw type; nonnumeric payloads are supported only without rescaling.
+        strict_units=False explicitly bypasses conversion and normalization.
+
+        This is not transactional. Any runtime failure permanently fails this
+        Pipeline; recovery requires a NEW Pipeline and NEW layer instances.
+        There is no reset/rollback guarantee, nor global enforcement against
+        reusing damaged layers in another Pipeline. Successful repeated runs
+        retain the layer's lifecycle semantics. Preflight errors remain retryable.
         """
-        if not self.wired:
-            self.wire()
-        dur_s = duration.si
-        dt_s = (dt_outer or duration).si
+        if self.failed:
+            raise RuntimeError(
+                f"pipeline failed ({self.failure_reason}); recovery requires "
+                "a NEW Pipeline and NEW layer instances")
+        # Layer declarations and enabled/strict_units remain publicly mutable.
+        self.wire()
+        dur_s = self._time_seconds(duration, "duration", allow_zero=True)
+        dt_s = (self._time_seconds(dt_outer, "dt_outer")
+                if dt_outer is not None else dur_s)
+        active = [l for l in self.layers if l.enabled]
+        strict_units = self.strict_units
+        contracts = {id(l): (dict(l.requires), dict(l.provides)) for l in active}
+        input_units = {
+            id(l): {k: (self._providers[k][1], unit)
+                    for k, unit in contracts[id(l)][0].items()}
+            for l in active
+        }
+        # Validate every clock before initialization or any numerical mutation.
+        layer_dt = {id(l): self._time_seconds(l.target_dt, f"{l.name}.target_dt")
+                    for l in active}
+        state = dict(state or {})
+        if dur_s == 0:
+            return state, []
         n_outer = max(1, int(math.ceil(dur_s / dt_s)))
         dt_s = dur_s / n_outer
 
-        state = dict(state or {})
-        active = [l for l in self.layers if l.enabled]
-        for l in active:
-            l.initialize({k: state.get(k) for k in l.requires})
-
-        trace = []
-        for step in range(n_outer):
-            # a layer may only see the ports it declared
+        phase = "initialization"
+        try:
             for l in active:
-                dt_layer = l.target_dt.si
-                n_sub = max(1, int(math.ceil(dt_s / dt_layer)))
-                sub_dt = Quantity(dt_s / n_sub, "s")
-                inputs = {k: state.get(k) for k in l.requires}
-                outs = None
-                for _ in range(n_sub):
-                    outs = l.step(sub_dt, inputs)
-                    l.n_steps += 1
-                if outs:
-                    state.update(outs)
-            if on_step is not None:
-                on_step(step, state)
-            trace.append(self._scalars(state))
-        return state, trace
+                phase = f"{l.name}.initialize"
+                l.initialize(self._read_inputs(state, input_units[id(l)], strict_units))
+
+            trace = []
+            for step in range(n_outer):
+                # a layer may only see the ports it declared
+                for l in active:
+                    phase = f"{l.name}.step"
+                    dt_layer = layer_dt[id(l)]
+                    n_sub = max(1, int(math.ceil(dt_s / dt_layer)))
+                    sub_dt = Quantity(dt_s / n_sub, "s")
+                    required, provided = contracts[id(l)]
+                    inputs = self._read_inputs(state, input_units[id(l)], strict_units)
+                    outs = None
+                    for _ in range(n_sub):
+                        outs = l.step(sub_dt, deepcopy(inputs))
+                        if outs is not None:
+                            if not isinstance(outs, Mapping):
+                                raise WiringError(
+                                    f"{l.name} step must return a mapping or None")
+                            outs = dict(outs)
+                            undeclared = outs.keys() - provided.keys()
+                            if undeclared:
+                                raise WiringError(
+                                    f"{l.name} returned undeclared ports "
+                                    f"{sorted(undeclared, key=repr)!r}")
+                            if strict_units:
+                                # Validate ALL values before publishing any of them.
+                                outs = {k: (v.to(provided[k]).value
+                                            if isinstance(v, Quantity) else v)
+                                        for k, v in outs.items()}
+                        l.n_steps += 1
+                    if outs is not None:
+                        state.update(outs)
+                if on_step is not None:
+                    phase = "on_step callback"
+                    on_step(step, state)
+                phase = "trace summary"
+                trace.append(self._scalars(state))
+            return state, trace
+        except BaseException as exc:
+            self._failure_reason = f"{phase}: {type(exc).__name__}: {exc}"
+            raise
+
+    @staticmethod
+    def _read_inputs(state, units, strict_units):
+        inputs = {}
+        for port, (provider_unit, required_unit) in units.items():
+            value = state.get(port)
+            if strict_units and value is not None:
+                # Seed state uses the same provider-unit convention as publication.
+                if isinstance(value, Quantity):
+                    value = value.to(provider_unit).value
+                factor = Quantity(1.0, provider_unit).to(required_unit).value
+                if factor != 1.0:
+                    try:
+                        array = np.asarray(value)
+                        if array.dtype.kind not in "iufc":
+                            raise TypeError("expected numeric scalar, array or list")
+                        scaled = array * factor
+                        value = scaled.item() if scaled.ndim == 0 else scaled
+                    except (TypeError, ValueError) as exc:
+                        raise WiringError(
+                            f"cannot rescale nonnumeric port {port!r} from "
+                            f"{provider_unit!r} to {required_unit!r}") from exc
+            inputs[port] = value
+        return deepcopy(inputs)
+
+    @staticmethod
+    def _time_seconds(value, name, allow_zero=False):
+        if not isinstance(value, Quantity):
+            raise TypeError(f"{name} must be a Quantity with time units")
+        seconds = value.to("s").value
+        if not math.isfinite(seconds) or seconds < 0 or (seconds == 0 and not allow_zero):
+            bound = "nonnegative" if allow_zero else "positive"
+            raise ValueError(f"{name} must be finite and {bound}")
+        return seconds
 
     @staticmethod
     def _scalars(state):

@@ -75,6 +75,23 @@ class MotorManifestValidationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             MotorOutput(m)
 
+    def test_unresolved_source_identity_retained_without_wiring(self):
+        src, roots, names = fixture()
+        unresolved = next(r for r in src['measured']['unresolved']
+                          if r['actuator'] == names[-1])
+        unresolved.update(leg='LF', side='left', muscle_target='test_muscle')
+        m = build_motor_manifest(src, roots, names)
+        row = m['rows'][-1]
+        self.assertEqual({key: row[key] for key in ('leg', 'side', 'muscle_target')},
+                         dict(leg='LF', side='left', muscle_target='test_muscle'))
+        self.assertEqual(row['status'], 'unresolved')
+        self.assertEqual(row['local_indices'], [])
+        self.assertEqual(row['pool_root_ids'], [])
+        out = MotorOutput(m)
+        spikes = np.ones((1, len(roots)), dtype=bool)
+        ctrl, _ = out.consume(spikes, spike_dt_s=.0005, start_s=0, end_s=.0005)
+        self.assertEqual(ctrl[-1], 0)
+
     def test_numpy_integer_counts_order_and_collections_valid(self):
         for indices in ([0, np.int64(2)], (0, 2), np.array([0, 2], np.int32),
                         np.array([0, 2], np.uint64)):

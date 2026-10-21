@@ -25,6 +25,7 @@ import os
 import platform
 import subprocess
 import sys
+import tempfile
 import time
 
 __all__ = ["RunRecord"]
@@ -134,15 +135,39 @@ class RunRecord:
     def hash(self):
         blob = json.dumps(
             {k: v for k, v in self.data.items()
-             if k not in ("created_utc", "outputs")},
+             if k not in ("created_utc", "outputs", "record_hash")},
             sort_keys=True, default=str).encode()
         return hashlib.sha256(blob).hexdigest()[:16]
 
     def write(self, path):
-        self.data["record_hash"] = self.hash()
-        os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-        with open(path, "w") as fh:
-            json.dump(self.data, fh, indent=2, ensure_ascii=False, default=str)
+        """Publish a complete UTF-8 record, preserving the old file on failure.
+
+        Replacement is atomic on the destination filesystem; this is not a
+        guarantee of directory durability after sudden power loss.
+        """
+        digest = self.hash()
+        document = dict(self.data, record_hash=digest)
+        # Serialize before opening any file: conversion failures must not
+        # truncate an earlier valid record or publish a hash in memory.
+        payload = json.dumps(document, indent=2, ensure_ascii=False, default=str)
+        destination = os.path.abspath(path)
+        parent = os.path.dirname(destination)
+        os.makedirs(parent, exist_ok=True)
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8",
+                                             dir=parent, prefix=".run-record-",
+                                             suffix=".tmp", delete=False) as fh:
+                temporary = fh.name
+                fh.write(payload)
+                fh.flush()
+                os.fsync(fh.fileno())
+            os.replace(temporary, destination)
+            temporary = None
+        finally:
+            if temporary is not None:
+                os.unlink(temporary)
+        self.data["record_hash"] = digest
         return path
 
     def markdown_claim_boundary(self):

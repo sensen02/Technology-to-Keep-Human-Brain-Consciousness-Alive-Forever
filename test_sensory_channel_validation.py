@@ -33,13 +33,11 @@ class ValidInputTests(unittest.TestCase):
         self.assertEqual(len(record['unmodelled_channels']), 2)
         self.assertEqual(record['scale_nA_per_unit'], .5)
 
-    def test_shared_indices_across_channels_and_legs_add(self):
+    def test_shared_indices_across_channels_and_legs_are_rejected(self):
         groups = {'lf': {'claw_position': [0], 'bristle_touch': [0]},
                   'rf': {'bristle_touch': [0]}}
-        current, _ = ChannelSensoryEncoder(groups, 2).encode({
-            'lf': ChannelQuantities(tibia_joint_dev_rad=.3, foot_contact=1.),
-            'rf': ChannelQuantities(foot_contact=1.)})
-        np.testing.assert_allclose(current, [.9, 0.])
+        with self.assertRaisesRegex(ValueError, 'overlap'):
+            ChannelSensoryEncoder(groups, 2)
 
     def test_integer_lists_tuples_arrays_and_empty_groups(self):
         for indices in ([0, 2], (0, 2), np.array([0, 2], dtype=np.int32),

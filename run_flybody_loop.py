@@ -186,12 +186,13 @@ def build_body(kind, tibia_sign='declared'):
 
 
 def observe(body, data, force_normaliser, roles=None):
-    """`roles` is a DECLARED quantity map: it names which hinge feeds the slot the encoder reads for
-    each posture channel.  The published account of the fly's receptors puts the hair plates on the
-    thorax-coxa joint (CxHP8 encodes coxa rotation over a ~149 deg span, Pratt et al. 2026) and the
-    chordotonal organ on the femur-tibia joint, so a run that follows the literature points the
-    hair-plate slot at the coxa hinge and the position slot at the femur-tibia hinge.  None keeps the
-    project's historical choice (a mean over the leg's mapped hinges)."""
+    """`roles` selects declared model quantities, NOT a verified per-root anatomical mapping.
+
+    CxHP8 evidence does not justify mapping every hairplate to coxa: runtime annotations also
+    contain trochanter plates. The all-coxa option is therefore a diagnostic hypothesis only.
+    None keeps the historical mean over mapped hinges. Femur-tibia organ evidence likewise
+    does not establish per-root polarity. This function tests wiring, not biological validity.
+    """
 
     """The same three sensory quantities the canonical front end has always used, per leg.
 
@@ -215,13 +216,10 @@ def observe(body, data, force_normaliser, roles=None):
                 force[leg] += float(np.linalg.norm(vec[:3]))
                 touch[leg] = 1.0
                 break
-    # DECLARED LOAD-CHANNEL QUANTITY.  The published Drosophila-specific analysis (Saltin et al.
-    # 2025, J R Soc Interface 22:20240559) computes that a walking ground reaction force moves the
-    # femoral campaniform transduction site by LESS than the NompC thermal-noise floor, <2 deg of
-    # femur bending, and concludes that field encodes MUSCLE TENSION rather than ground reaction
-    # force.  So a run that follows the literature feeds this channel the model's own analogue of
-    # muscle tension: the summed absolute actuator torque of that leg, normalised by the sum of that
-    # leg's published actuator force limits (a MODEL-INTERNAL scale, not a published number).
+    # DIAGNOSTIC LOAD PROXY ONLY. Saltin et al. 2025 concerns a specific femoral CS field,
+    # not every runtime campaniform root. Summed absolute actuator force is a model-internal
+    # proxy, not measured muscle tension or a verified field-specific sensory response.
+    # The normaliser below is weight-share x hip-to-claw distance, NOT actuator force limits.
     actuator_force, support_torque = None, None
     if (roles or {}).get('campaniform') == 'actuator_torque':
         import mujoco as _mj
@@ -260,8 +258,11 @@ def observe(body, data, force_normaliser, roles=None):
             group_q = [coxa_adr]
         if roles.get('claw') == 'tibia' and role_hinge.get('tibia'):
             name = role_hinge['tibia']
-            tib_q = body['hinge_qpos'][name]
-            tib_v = tib_q
+            joint_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, name)
+            if joint_id < 0:
+                raise ValueError(f'Unknown tibia role joint: {name}')
+            tib_q = int(model.jnt_qposadr[joint_id])
+            tib_v = int(model.jnt_dofadr[joint_id])
         out[key] = closure.ChannelQuantities(
             tibia_joint_dev_rad=float(data.qpos[tib_q]-body['reference'][tib_q]),
             tibia_joint_vel_rad_s=float(data.qvel[tib_v]),
@@ -351,6 +352,15 @@ def height_mm(body, data):
     thorax = body['model'].body('thorax').id
     return float((float(data.subtree_com[thorax][2]) - float(data.geom_xpos[body['floor']][2]))
                  * 10.0)
+
+
+def channel_current_summary(current, groups):
+    """Measure the actual vector passed to net.step, after all branch interventions."""
+    return {leg: {channel: dict(n_cells=len(ids),
+                              sum_nA=float(np.sum(current[np.asarray(ids, dtype=int)])),
+                              min_nA=float(np.min(current[np.asarray(ids, dtype=int)])) if len(ids) else None,
+                              max_nA=float(np.max(current[np.asarray(ids, dtype=int)])) if len(ids) else None)
+                  for channel, ids in channels.items()} for leg, channels in groups.items()}
 
 
 def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
@@ -499,6 +509,8 @@ def episode(body, built, manifest, groups, arm, duration, replay=None, stride=1,
                             emitted_motor_spikes=int(sp[:, motor_indices].sum()),
                             sensory_current_min_nA=float(current.min()),
                             sensory_current_max_nA=float(current.max()),
+                             actual_network_input_by_channel=channel_current_summary(current, groups),
+                             sensory_roles=dict(sensory_roles or {}),
                             external_lf_touch_stimulus=bool(stimulus_on),
                             external_push_applied=bool(push_steps_applied),
                             external_push_body_steps=push_steps_applied,

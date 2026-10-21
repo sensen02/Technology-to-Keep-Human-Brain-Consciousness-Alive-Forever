@@ -20,7 +20,6 @@ reaches one "unit" of its own physical range.
 """
 from __future__ import annotations
 import json
-import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -171,4 +170,4 @@ def main():
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    main()

@@ -1,0 +1,9 @@
+# Simulation environment; parser-only requirements.txt deliberately stays small.
+-r requirements.txt
+flygym==2.1.0
+mujoco==3.9.0
+imageio==2.38.0
+imageio-ffmpeg==0.6.0
+# Audit tables and optional CDP browser verification
+pandas==3.0.6
+websockets==15.0.1

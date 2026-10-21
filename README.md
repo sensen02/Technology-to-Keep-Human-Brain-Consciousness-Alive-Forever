@@ -6,7 +6,40 @@
 
 ---
 
-## 现在能跑通什么（都有实测数字）
+## 长期目标与持续追踪
+
+后续工作先读 `/run/media/sensen/Data2/cell_wound_prototype/GOAL_ROADMAP.zh-CN.md`（目标与验收路线）和 `/run/media/sensen/Data2/cell_wound_prototype/GOAL_TRACKER.zh-CN.md`（进度、证据与下一步）。项目级 `/run/media/sensen/Data2/cell_wound_prototype/AGENTS.md` 要求每轮更新追踪记录。当前优先交付为新版闭环证据包、固定输入数值诊断、脑—腹神经索—肌肉缺口清单；提示文件不等于无人值守调度。
+
+## 当前神经直接驱动实验入口（优先阅读）
+
+**用户要求禁止算法控制运动：以下入口不使用 CPG、PD、姿态控制器或预设运动命令。**
+身体接触/关节观测 → 感觉通道电流 → BANC 脉冲网络 → 运动细胞池 → 肌肉激活 → MuJoCo 身体 → 下一轮观测。
+脉冲到肌肉的速率滤波是声明的接口假设，不是目标运动控制器，也尚未获得生物学标定。
+
+```bash
+# 仿真依赖，不要只装下方解析侧 requirements.txt
+venv_body/bin/pip install -r requirements-body.txt
+# 默认 50 ms，当前入口含八臂（含重复与重放基线）；结果路径打印到终端
+MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python run_experiment_platform.py --duration .05
+# 隔离各模块，防止进程级内存上限污染后续测试
+MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python tools_run_tests.py --output outputs/experiment_platform/tests.json
+```
+
+入口明确使用**编译模型零控制下限派生分支**，冻结 XML 不改；初始化姿态仅投影到原标量关节范围，不按站立表现搜索，不在运行中修正姿态。背景电流为零、未知感觉通道禁用。机械外力是实验刺激，不是运动驱动；重放臂仅作为对照。
+
+此前记录的实际运行：六臂完成，零下限/感觉切断/运动切断/输出静默检查通过，正常臂存在运动脉冲与肌肉命令。当前入口已包含八臂；代码入口更新不等于八臂已重新完成验收。
+**但正常臂约 34.4 ms 跌破初始胸部高度的 90%，尚未稳定站立或自主行走；步长收敛与生物映射仍未解决，不宣称平台目标全部完成。**
+详情与失败清单见 [EXPERIMENT_PLATFORM_STATUS.zh-CN.md](EXPERIMENT_PLATFORM_STATUS.zh-CN.md)。
+
+工程回归不等于实验重现：历史结果校验必须区分冻结归档字节的完整性和当前源码的新鲜度。不能把当前源码摘要填入旧产物来制造通过；归档匹配也不证明环境、大型输入或历史数值实验已重现。
+
+只读归档入口：`/run/media/sensen/Data2/cell_wound_prototype/tools_verify_historical_sources.py`。默认核对五个历史源码目录和当前闭环源码ZIP；可指定结果JSON路径。`--output` 只允许在项目及历史输入目录之外新建文件，不覆盖已有文件。退出码0只表示所选归档字节匹配，不表示当前源码一致或实验已复现。
+
+`Pipeline` 严格模式按端口单位在下游读取边界转换数值，保存状态仍使用上游声明单位；`strict_units=False` 是显式绕过单位检查/转换，不可作为严格验收。运行时层或回调失败后，同一管线拒绝重跑：需要新建管线及层实例，不保证自动回滚。接线和时钟前置校验失败仍可修正后重试；成功运行后的重复调用是否清零由各层生命周期定义。
+
+以下表格和快速开始包含历史 CPG 基线，**不满足本次“禁止算法控制运动”的要求**，仅供历史测量复现，不作为默认闭环入口。
+
+## 现在能跑通什么（历史记录，有各自限制）
 
 | 层 | 内容 | 状态 |
 |---|---|---|

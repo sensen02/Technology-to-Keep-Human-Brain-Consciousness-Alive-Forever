@@ -25,6 +25,7 @@ cannot mistake one for the other.
 from __future__ import annotations
 
 import json
+import math
 import traceback
 from dataclasses import dataclass, field
 from typing import Callable
@@ -103,12 +104,18 @@ class CheckSuite:
             try:
                 out = c.fn()
                 if isinstance(out, tuple):
-                    err, tol = float(out[0]), float(out[1] if len(out) > 1 else c.tolerance)
+                    err = float(out[0])
+                    tol = out[1] if len(out) > 1 else None
                     detail = str(out[2]) if len(out) > 2 else ""
                 else:
-                    err, tol, detail = float(out), c.tolerance, ""
+                    err, tol, detail = float(out), None, ""
                 if tol is None:
                     tol = c.tolerance if c.tolerance is not None else 1e-12
+                tol = float(tol)
+                if not math.isfinite(err) or err < 0:
+                    raise ValueError("error must be finite and nonnegative")
+                if not math.isfinite(tol) or tol < 0:
+                    raise ValueError("tolerance must be finite and nonnegative")
                 results.append(CheckResult(c.name, c.kind, err, tol, err <= tol,
                                            c.description, detail))
             except Exception as exc:
@@ -136,6 +143,8 @@ class CheckSuite:
 
     def require_all_passed(self, results=None):
         results = results if results is not None else self.run()
+        if not results:
+            raise ChecksFailed("no checks were run")
         bad = [r for r in results if not r.passed]
         if bad:
             raise ChecksFailed(

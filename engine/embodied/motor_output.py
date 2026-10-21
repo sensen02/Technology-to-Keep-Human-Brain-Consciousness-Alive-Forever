@@ -29,9 +29,15 @@ def build_motor_manifest(pool_result, tier_root_ids, actuator_names):
     for ai, name in enumerate(names):
         r = by_name.get(name)
         if r is None:
+            source = missing[name]
+            # Preserve identities explicitly present in the source, even when the
+            # motor pool is unresolved. Never infer an anatomical connection from
+            # the actuator name, and never create control indices for this row.
+            identity = {key: source[key] for key in ('leg', 'side', 'muscle_target')
+                        if key in source}
             rows.append(dict(actuator=name, actuator_index=ai, local_indices=[],
                              pool_root_ids=[], tier_root_ids=[], status='unresolved',
-                             source_annotation=missing[name]))
+                             source_annotation=source, **identity))
             continue
         pool = sorted(set(int(v) for v in r['pool_root_ids']))
         identity = (r['leg'], r['side'], r['muscle_target'])

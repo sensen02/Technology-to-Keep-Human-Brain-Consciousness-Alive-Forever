@@ -12,26 +12,49 @@ from engine.embodied.audit_provenance import inspect_audit
 
 class SelectiveTests(unittest.TestCase):
     def test_overlap_preserves_other_summands_and_records(self):
-        groups={'lf':{'claw_position':[0], 'hook_direction':[0], 'hairplate_angle':[1],
-                      'campaniform_strain':[0], 'bristle_touch':[0]}}
-        enc=ChannelSensoryEncoder(groups,3)
+        enc=ChannelSensoryEncoder({'lf':{'claw_position':[0], 'hook_direction':[1],
+            'hairplate_angle':[2], 'campaniform_strain':[3], 'bristle_touch':[4]}},5)
         quantities={'lf':ChannelQuantities(tibia_joint_dev_rad=.3,tibia_joint_vel_rad_s=20,
                                           multi_joint_dev_rad=-.3,contact_force_norm=4,foot_contact=1)}
-        current,record=enc.encode(quantities); saved=copy.deepcopy(record)
-        out,modified=a.subtract_channels(current,record,enc.groups,a.PROPRIO)
+        disjoint,record=enc.encode(quantities)
+        # Only the subtraction fixture overlaps: combine the disjoint summands
+        # after encoding, retaining the full encoder record (one cell per channel).
+        groups=copy.deepcopy(enc.groups)
+        for channel in ('claw_position','hook_direction','campaniform_strain','bristle_touch'):
+            groups['lf'][channel]=np.array([0])
+        groups['lf']['hairplate_angle']=np.array([1])
+        current=np.array([disjoint[[0,1,3,4]].sum(),disjoint[2],0.])
+        saved=copy.deepcopy(record)
+        out,modified=a.subtract_channels(current,record,groups,a.PROPRIO)
         np.testing.assert_allclose(out,[1.5,0,0],atol=1e-15)
         self.assertEqual(record,saved)
         self.assertEqual({k:v for k,v in modified.items() if k!='intervention'},saved)
-        out2,_=a.subtract_channels(current,record,enc.groups,('campaniform_strain',))
+        out2,_=a.subtract_channels(current,record,groups,('campaniform_strain',))
         np.testing.assert_allclose(out2,[1.2,-.3,0],atol=1e-15)
         self.assertFalse(a.overlap_audit(groups)['disjoint'])
 
     def test_zero_selected_and_empty_unchanged(self):
-        enc=ChannelSensoryEncoder({'lf':{'claw_position':[0],'bristle_touch':[0]}},2)
-        current,record=enc.encode({'lf':ChannelQuantities(foot_contact=1)})
+        enc=ChannelSensoryEncoder({'lf':{'claw_position':[0],'bristle_touch':[1]}},2)
+        disjoint,record=enc.encode({'lf':ChannelQuantities(foot_contact=1)})
+        # The selected zero-valued claw shares the nonzero touch summand only
+        # in this synthetic subtraction fixture, never in the production encoder.
+        groups=copy.deepcopy(enc.groups)
+        groups['lf']['bristle_touch']=np.array([0])
+        current=np.array([disjoint.sum(),0.])
+        self.assertFalse(a.overlap_audit(groups)['disjoint'])
         for selected in ((),a.PROPRIO,('campaniform_strain',)):
-            out,_=a.subtract_channels(current,record,enc.groups,selected)
+            out,_=a.subtract_channels(current,record,groups,selected)
             self.assertEqual(out.tobytes(),current.tobytes())
+
+    def test_production_encoder_rejects_overlapping_groups(self):
+        for groups,n in (
+            ({'lf':{'claw_position':[0], 'hook_direction':[0], 'hairplate_angle':[1],
+                    'campaniform_strain':[0], 'bristle_touch':[0]}},3),
+            ({'lf':{'claw_position':[0],'bristle_touch':[0]}},2),
+        ):
+            with self.subTest(groups=groups):
+                with self.assertRaisesRegex(ValueError,'neuron index overlap'):
+                    ChannelSensoryEncoder(groups,n)
 
     def test_context_restores_on_exception(self):
         original=a.clo.ChannelSensoryEncoder
