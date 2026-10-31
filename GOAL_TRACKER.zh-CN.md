@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第66轮：用 **coxa 尺度掩膜** 做近端几何源——静态效果与股节掩膜相当（0.27% vs 0.24%），可行 23 vs 29
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-per-muscle-proximal/20261031T040000Z/`（`MODEL_MEDIUM.xml`、`BUILD_LOG.json`、`RESULT.json`、`REFINE_MEDIUM.json`、`VERDICT.json`、`SCRIPTS/`、`MANIFEST_SHA256.json`）。
+- **做法**：改用 **coxa 尺度**的 AI 掩膜（`mask_03`，0.463 mm、**9 束**）作为近端肌肉几何源（此前用股节掩膜），共 **108 条**束（9×2 组×6 腿）。
+- **静态**：5.97% → **0.27%**（股节掩膜版为 0.24%）；随机搜索 316 构型 → **23 个可行**（股节掩膜版 29 个）。
+- **结论**：**换源节段不改变静态结论**；两者数量级一致。判决 **`A_COXA_SCALE_MASK_WORKS_AS_WELL_AS_THE_FEMUR_MASK_STATICALLY`**。
+- **未测成的**：可行构型处的**机体接触数**（探针误取了激活数组）⇒ **"趴伏程度"仍未量化**，这是下一步的具体动作。
+- **下一步**：在搜索中**同时记录**每个可行构型的机体接触数与着地足数，找**机体接触最少**的可行构型 ⇒ 直接回答"是否存在非趴伏的可行姿态"。
+- 预算：模型构建 1、LP 2 + 316 次搜索、渲染 0；墙钟约 3 分钟。清理：`/tmp/rm.log`、`/tmp/md.log` 已删。
+
 ## P3 / 第65轮：1 ms 更新周期——**质心略升（0.540→0.592）但支撑仍靠机体接触**；跟踪速度只是二阶因素
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-quasistatic-1ms/20261031T030000Z/`（`RESULT.json`、`VERDICT.json`、`SCRIPTS/quasistatic_1ms.py`、`MANIFEST_SHA256.json`）。
 - **对比（400 ms）**：5 ms 周期 → com_min 0.540 / com_end 0.619 / support 0.075 / 触地 2.15 / 末 slack 0.175；**1 ms 周期 → com_min 0.592 / com_end 0.636 / support 0.058 / 触地 2.59 / 末 slack 0.285**。
