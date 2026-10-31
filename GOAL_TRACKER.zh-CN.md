@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第70轮：站姿鲁棒性过滤——**28/29 在 ±5 µm 扰动下仍可行（其中 20 个非趴伏）** ⇒ 静态不边缘，失败是动力学问题
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-robust-stance/20261031T080000Z/`（`ROBUST.json`、`VERDICT.json`、`SCRIPTS/robust.py`、`MANIFEST_SHA256.json`）。
+- **做法**：对 29 个可行站姿，分别在**身体 ±5 µm**（各 3 个采样）下重解锥 LP。
+- **结果**：**28/29 仍可行**；其中 **20 个是 nonfoot=0 的非趴伏站姿** 且鲁棒。
+- **重要更正**：这**推翻了第69轮"站姿是边缘解"的判断**——静态上它是**鲁棒**的，不是刀锋平衡。
+- **结论**：**动态失败不是静态边缘性**，而是**速度/接触冲量**侧的问题（现实中身体并非静止，第一步积分给出的冲量该站姿吸收不了）。判决 `THE_FEASIBLE_STANCES_ARE_STATICALLY_ROBUST_SO_THE_DYNAMIC_FAILURE_IS_DYNAMIC`。
+- **下一步**：给站姿一个**初速度**（体竖直速度 ±1、±5、±20 µm/s），找"站姿还能吸收"的**阈值**——这就是站立控制器真正的验收判据。
+- 预算：LP 29×7=203 次、渲染 0；墙钟约 40 s。清理：`/tmp/rb.log` 已删。
+
 ## P3 / 第69轮：软化接触（solref 0.002→0.02，73 个 geom）——**硬接触弹飞、软接触下沉，站姿是"边缘解"**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-soft-contact/20261031T070000Z/`（`MODEL_SOFT.xml`、`FOOT_LOADS_SOFT.json`、`VERDICT.json`、`SCRIPTS/foot_soft.py`、`MANIFEST_SHA256.json`）。
 - **对比（同一非趴伏站姿，100 ms）**：硬接触 → COM 末值 **0.533**、机体接触最多 **10**、四足 1–3 ms 卸载；**软接触 → COM 末值 0.428、机体接触最多 52**、卸载时刻变为 LF/RF/RH 1 ms、LM 43、RM 50、LH 63 ms。
