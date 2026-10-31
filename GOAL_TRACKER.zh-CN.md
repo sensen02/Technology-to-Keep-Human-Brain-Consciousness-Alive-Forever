@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第59轮：在实测近端神经 harness 上训练 RNN 翻译层——**分数 +4.2%，但质心不变（仍塌）**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`TRAIN_LAYER.json`、`TRAIN_VERDICT.json`、`SCRIPTS/train_layer.py`、`MANIFEST_SHA256.json`）。
+- **设置**：第58轮 harness（210 执行器、194 可用、185 全覆盖、声明式共支配）；RNN 层 hidden 8、**约 3.7k 参数**；CEM **8×3 = 24 次 rollout**，每次 0.15 s PD 预热 + 0.05 s 神经阶段。
+- **结果**：基线 score **0.470**（support 0.386、com_end 0.339、触地 1.27）；训练后最好 **0.490**（support 0.401、**com_end 0.345**、触地 1.28）⇒ 分数 **+4.2%**，**质心几乎不动（+0.6pp）**。
+- **判决 `TRAINED_LAYER_GIVES_A_MARGINAL_SCORE_GAIN_BUT_THE_NEURAL_LOOP_STILL_COLLAPSES`**：增益来自支撑与接触，**不是把身体撑住**。
+- **重要对照**：同一模型**静态可行（29/316）**、且**常量静态激活**的动态（50 ms **0.566**、400 ms **0.247 不塌**）**优于神经驱动**（0.386/0.339）⇒ **瓶颈在"神经命令路径"，不在力学**。
+- **下一步**：①用静态解**热启动**神经运动输出（声明式），让网络在其周围调制；②扩大层容量与训练预算（24 次 rollout 对 3.7k 参数太少）。
+- 预算：harness 1 次、rollout 25 次（约 2 分钟）、渲染 0。清理：`/tmp/tl.log`、`/tmp/_np_base.py` 已删。
+
 ## P3 / 第58轮（阶段2 完成）：神经闭环**已在 210 执行器实测模型上跑通**（194 可用 / 185 全覆盖），但**未训练时塌**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`NEURAL_TRIAL.json`、`VERDICT.json`、`POOLS_PROXIMAL.json`、`INHERITANCE.json`、`STATUS.json`、`SCRIPTS/neural_proximal.py`、`MANIFEST_SHA256.json`）。
 - **解除阻断的方式（声明式）**：`build_motor_manifest` 要求每个 motor-pool root 只有**一个** `(muscle, leg, side)` 身份；因此 120 条实测束改用**CO-INNERVATION**——与同腿基础肌肉**完全相同的身份**（同一批神经元共驱动），逐条记录在 `INHERITANCE.json`。**这是声明，不是实测神经支配。**
