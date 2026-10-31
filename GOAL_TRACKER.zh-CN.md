@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 第64轮：沿轨迹每 5 ms 重解锥 LP（准静态调度）——**400 ms 质心保持 0.54–0.62（历史最好持续值），但靠身体接触支撑**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-quasistatic-lp/20261031T020000Z/`（`RESULT.json`、`VERDICT.json`、`SCRIPTS/quasistatic_lp.py`、`MANIFEST_SHA256.json`）。
+- **做法**：每 5 ms 从**当前状态**重解锥 LP 并施加解出的激活，共 80 次求解，总 400 ms（第40轮同类做法当时没有可行静态解可跟，现在有）。
+- **结果**：`support_mean 0.075`、`support_end 0.013`、**`com_min 0.540`、`com_end 0.619`**、触地均值 2.15（最大 5）；**first_slack = 0.0（起始可行）→ last_slack 0.175（漂移后不可行）**。
+- **对比**：第56轮静态解 400 ms 质心 0.545；第61轮 α=0.8 50 ms 质心 0.377；**第62轮神经 400 ms 质心 0.144**；**本轮 400 ms 质心 0.619 = 历史最好的持续值**。
+- **但**：足部支撑只有 0.075、机体接触 2.15/样本 ⇒ **身体是靠"自己腿段趴在地上"撑住的，不是靠足部承重**。
+- **判决 `QUASI_STATIC_LP_KEEPS_THE_BODY_UP_FOR_400MS_BUT_BY_BODY_CONTACT_NOT_BY_FEET`**。
+- **下一步**：①把更新周期从 5 ms 缩到 1 ms，并加"不可行即换构型类"的触发；②**根本问题**是可行构型都是"趴伏"的，要减少机体接触必须得到**非趴伏的可行构型** ⇒ 需要逐肌肉测量（AI 逐段切 coxa/trochanter）。
+- 预算：LP 80 次、forward 约 210×80 + 32000 身体步、渲染 0；墙钟约 60 s。清理：`/tmp/qs.log` 已删。
+
 ## P3 / 第63轮：逐腿消融（400 ms）——**没有单一"坏腿"**，两种命令源**逐腿不一致**才是问题
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-ablation/20261031T010000Z/`（`ABLATION_400MS.json`、`ABLATION_VERDICT.json`、`SCRIPTS/ablation_400ms.py`、`MANIFEST_SHA256.json`）。
 - **做法**：400 ms 神经阶段；只让**一条腿**接受神经命令、其余五腿保持静态解，六条腿各跑一次；另有全静态（α=1）与全神经（α=0）参照。
