@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第61轮：**凸组合 α=0.8 → 机体触地 0 次、支撑 0.707，全场最好**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`BLEND_SWEEP.json`、`BLEND_VERDICT.json`、`SCRIPTS/blend_sweep.py`、`MANIFEST_SHA256.json`）。
+- **设置**：`ctrl = clip((1−a)·ctrl_neural + a·静态解, 0, 1)`；网络权重置零，**只扫比例**（隔离混合效应）。
+- **扫描结果**（0.05 s 神经阶段）：α=0.0（纯神经）score 0.470 / com_end 0.339 / **触地 19**；α=0.4 0.646；α=0.6 0.939（触地 8）；**α=0.8 score 1.085、支撑 0.707、com_min 0.377、机体触地 0（nonfoot_max=0）**；α=1.0（纯静态）0.353 / 触地 18。
+- **关键发现**：**两端都更差，中间 α=0.8 最好** ⇒ 不是简单折中，而是**真实交互**：神经命令在调制一个"单独用会过驱动"的静态解。
+- **诚实口径**：静态侧是**声明式预置**，所以这是"**神经 + 声明预置**"，**不是神经自主**；本轮**未训练**网络权重（只改比例）。判决 **`CONVEX_BLEND_AT_0_8_GIVES_ZERO_BODY_CONTACT_AND_THE_BEST_DYNAMICS_SO_FAR`**。
+- **下一步**：在 α=0.8 基础上**训练网络权重**，看能否继续提升；并测试更长时程（400 ms）下 α=0.8 是否仍无触地。
+- 预算：harness 1 次、rollout 7 次（约 1 分钟）、渲染 0。清理：`/tmp/bl.log`、`/tmp/_np_base.py` 已删。
+
 ## P3 / 第60轮：静态解"热启动"神经命令路径（加性偏置）——**更差**（0.470→0.373），原因是饱和
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`WARMSTART_LAYER.json`、`WARMSTART_VERDICT.json`、`SCRIPTS/train_warmstart.py`、`MANIFEST_SHA256.json`）。
 - **做法（声明式预置）**：`ctrl = clip(ctrl_neural + 静态解偏置 + 0.5·tanh(网络), 0, 1)`；静态偏置取自第56轮 `FEASIBLE_ACT.npy`（**58 个执行器非零、均值 0.165**）。
