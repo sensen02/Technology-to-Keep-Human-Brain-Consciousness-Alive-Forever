@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 A（2026-10-31T213146Z）：旧基线**逐位复现**，但两批存档构型里**没有任何合格站姿** ⇒ 标定三姿态必须重新生成
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-calibration-gate/20261031T213146Z/`（`PREREGISTRATION.json`、`GATE_A.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/calibration_gate.py`）；桌面副本 `/home/sensen/Desktop/S5_CALIBRATION_GATE.zh-CN.md`。
+- **Q1 复现 = EXACT**：旧锥 LP 原样、同构型，`over_weight` 三处差值**全为 0.0**（pose2 `0.0020845200497971368`、167 `0.014533960988549456`、224 `0.015372575190897613`）。唯一改动是加载方式（归档 XML 的相对 meshdir 缺失，改 `MjSpec` 内存指向既有网格缓存；71 网格，nq49/nv48/nu210/na210），故数值差异不能归因加载器。
+- **Q2 实质新结论**：按跑前预登记判据（≥4 足着地、零非跗节接地、穿透 ≤0.02 mm），两批关节合法候选（A：67/81/89/108/203；B：67/70/104/120/217/218）**合格数 A=0、B=0**。足端确实落地（2–6 足），但**穿透 0.25–0.94 mm**；B 的 70/104 另有 1–3 处非跗节接地；身体自接触全为 0。
+- **原因在采样源码**：`SCRIPTS/round71_main.py` 第139–146行只做 `qpos[2] += uniform(-0.35,0.05)` 加关节噪声，**不裁剪关节范围、不落地放置** ⇒ 这批样本是残差排名样本，不是站姿。
+- **对旧结论的影响**：第72轮 `GROUP_AUTHORITY` 的 ×2/×5/×20 与第75轮恢复源值对照都在**同一非合格样本**上做，作为“哪组肌肉卡住”的组内诊断仍成立，但**不能当“某标度下能站住”的证据**。
+- 判决 `THE_HISTORICAL_BASELINE_REPRODUCES_EXACTLY_BUT_NEITHER_ARCHIVED_SAMPLE_CONTAINS_AN_ADMISSIBLE_STANCE_SO_THE_CALIBRATION_POSTURES_MUST_BE_REGENERATED`。
+- **下一最小动作**：先写“站姿生成”预登记（关节范围内采样并记录是否触边 → 有界下降至跗节接触 → 上述三条判据 → 生成/验证两批独立编号），再用新合格姿态做统一 s 联合求解（原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘；关节被动/质量/几何/限位/dt 不动）。
+- 预算：LP 3+11 次、`mj_forward` 14 次、墙钟 1.7 s；未求解 s、未跑足端专用 LP、未做动力学/训练。验证：Q1 逐位相等 + 资格规则从原始审计行独立重算一致。清理：无临时文件、冻结目录零写入。
+
 ## P3 / 开发计划轮（2026-10-31T212521Z）：读 DSH 原会话日志并复核 → **承重标定入口前移出三道门禁：旧三构型全部关节越限、旧缩放不是统一肌力缩放、旧 LP 不足为足端承重证据**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-development-plan/20261031T212521Z/`（`PLAN.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_DEVELOPMENT_PLAN.zh-CN.md`。
 - **日志终点核实**：原会话原始事件日志 `/home/sensen/.dsh/sessions/--run-media-sensen-Data2--/session-ad005831-f674-4625-9c44-8bb5bfc1e829/session.jsonl.zstd`（78 turn）流式解码；最后实质回复为 seq 1122925 撤回“须刷新会话”的误判，承重标定**自始未运行**；授权已在 seq 1117194 给出，工具阻塞是历史现象，非当前结论。分支 `session-451d891e-…` 首条记录 parentSession 指向上者，其缓存终点不得当作原会话进度。本会话 `get_goal` 为 null，未冒用历史目标 `goal-4d1b7892…`。
