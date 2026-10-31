@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B2f（2026-10-31T233340Z）：把后足附着侧按同侧中足迁移 —— **符号只修好一半，静态平衡仍未达成**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-side-repair/20261031T233340Z/`（`PREREGISTRATION.json`、`REPAIR_RESULT.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`REPAIR_EFFECT.png`、`MODEL_HIND_SIDE.xml`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_SIDE_REPAIR.zh-CN.md`。
+- **做法**：源模型 SHA256 复验一致后，只迁移附着点**局部坐标**（LM→LH、RM→RH，共 10 个 site）；力/质量/关节范围/执行器/求解器一律未动，派生模型 `MODEL_HIND_SIDE.xml` 单独存放。
+- **结果**：`trochanter_extensor` 翻正、`sterno-tergo-trochanter_extensor_a` **仍为负**（该 MTU 有 Coxa×2 + Femur×1 三个附着点，整体局部坐标迁移不足以搬动净力矩）⇒ 后足正扭矩执行器 **1→2**（预测是 3）。
+- **平衡**：三姿态残差 **23.767 → 23.218（仅 2.3%）**，留出批 **0/10** ⇒ 判据 t≤1 远未达到。
+- **能力对比**：LH+RH 正扭矩能力 **1.85 → 2.24**（model units × 激活），而 B2c 里真正闭合平衡的合成修复提供 **40** ⇒ **差近一个数量级**。
+- 判决 `TRANSFERRING_THE_MID_LEG_SIDE_GEOMETRY_ONTO_THE_FLIPPED_HIND_MTUS_FIXES_ONLY_HALF_OF_THE_SIGN_PROBLEM_AND_DOES_NOT_RESTORE_STATIC_BALANCE_SO_THE_BINDING_DEFICIT_IS_THE_MAGNITUDE_OF_POSITIVE_DIRECTION_AUTHORITY_NOT_JUST_ITS_SIDE`。
+- **链条收口（B2→B2f）**：统一标度无效 → 合成拮抗可闭合 → 实测解剖没有该拮抗（3.15 µN vs 需 20）→ 模型后足符号不一致 → **修侧别只补到 2.24/40** ⇒ 缺口是**正向权威的量级**，而非只缺侧别。
+- **下一步二选一**：①换站姿族（不同足位/着地足数），因为缺口是量级性的；②承认该模型**静态站不住**，带此明确标注进入门禁 C 动力学评估。**仍未自主站立/行走。**
+
 ## P3 / 门禁 B2e（2026-10-31T232826Z）：后足 1:15 不对称**是模型缺陷，不是解剖事实** —— 两根原生伸肌在后足翻了符号
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-model-attach/20261031T232826Z/`（`PREREGISTRATION.json`、`TROCHANTER_SIGNS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TROCHANTER_SIGNS.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_MODEL_ATTACH.zh-CN.md`。
 - **符号表（三个合格姿态逐位相同 ⇒ 构造属性）**：`sterno-tergo-trochanter_extensor_a` 与 `trochanter_extensor` 在 **LF/LM/RF/RM 为 `+`、LH/RH 为 `−`**（同侧前后翻转，左右镜像解释不了）⇒ **不一致**；`sterno-tergo-trochanter_extensor_b`、`trochanter_flexor_a/_b`、`accesory_trochanter_flexor` 六腿一致。
