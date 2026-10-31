@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 第58轮（阶段2）：神经闭环接入实测近端模型——**被 manifest 的"每个 pool 只许一个身份"挡住**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`STATUS.json`、`POOLS_PROXIMAL.json` 194 resolved + 16 unresolved、`INHERITANCE.json`、`SCRIPTS/neural_proximal.py`、`MANIFEST_SHA256.json`）。
+- **做了什么**：为 210 执行器模型写了独立 harness（编译 `MODEL_PROXIMAL.xml` → 12k 神经元 tier → 用 `POOLS_PROXIMAL.json` 建 manifest → 声明式 PD 预热 0.15 s → 神经阶段）；pool 守卫**声明式绕过**并记录（新池 = 可信基础池 + 120 条继承记录）。
+- **阻断点（具体）**：`build_motor_manifest` 强制**每个 motor-pool root 只能对应一个 (muscle, leg, side) 身份**；让 120 条实测束与基础肌肉**共用同一批神经元**直接违反该约束（`ValueError: conflicting muscle/leg/side identities for root …`）。
+- **这是真实建模决策**：共用一个运动池＝"同一个神经元驱动两块肌肉"，框架刻意禁止，除非声明 shared-pool 模式。
+- **下一步唯一动作**：给实测束**各自一个合成 root**（镜像继承池）或给 manifest builder 加**显式共支配标志**（写进 harness 记录），然后重跑神经试验。
+- 预算：模型加载 1、神经元 tier 1、0 身体步（在被阻断前未进入仿真）、0 渲染；墙钟约 40 s。清理：`/tmp/np.log` 已删。
+
 ## P3 / 第58轮（阶段1/2）：把运动 manifest 扩到 210 执行器的实测近端模型
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`POOLS_PROXIMAL.json` 210 条、`INHERITANCE.json` 120 条映射、`STATUS.json`）。owner "可以"（做真实神经闭环）。
 - **完成**：为第55轮模型的 120 条 `MPX_*` 执行器各生成一条运动池记录，**继承同腿基础肌肉的 motor pool**（`inherits_from` 逐条记录），总执行器 **90 → 210**。口径：**DECLARED INHERITANCE，不是实测神经支配**。
