@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第72轮：方位/符号审计 —— **静载缺口 = 基节–胸部肌力差 2–3 倍**（不是方位错、不是 trochanter/膝肌不够），并撤回"实测近端转移"的来源表述
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-sidedness-audit/20261031T110000Z/`（`REPORT.zh-CN.md`、`PREDECLARED.json`、`AUDIT.json`、`GROUP_AUTHORITY.json`、`COXA_FINE_SWEEP.json`、`RESULT_AUDIT.json`、`VERDICT.json`、`GROUP_AUTHORITY.png`、`MODEL_coxa_x*.xml`、`MODEL_TROCH_T0_*.xml`、`SCRIPTS/`）。
+- **来源更正（读源码确认）**：第55轮 `build_proximal.py` 第140–141、156–158、178–179 行——方位 `np.linspace(-π,π,10)`、半径 `np.linspace(0.10,0.22,10)`、沿轴分数 0.05/0.15、0.2/0.85 **全是手写**；唯一实测输入是束数 10。再加第71轮的符号反 ⇒ **"实测近端转移闭合静载缺口（5.97→0.24 %W、29/316 可行）"撤回**。
+- **实测解剖（业主 VFB）也闭合不了**：trochanter 肌 27+2 细胞/腿按实测几何、收缩符号进模型 ⇒ **0/240 可行**，最好构型 3.628→**2.900 %W**；推符号 1.525 %W 仍 0/240。**方位旋转 0/45/90/135° 结果四位小数完全相同**（模型 site 坐标确实不同，已写入 `azimuth_invariance_check`）⇒ 结论与未定的 VFB→模型配准无关。
+- **缺口定位（同一 240 构型、同一锥 LP、W=24.4464）**：基线 0/240、3.628 %W、中位 11.834；**仅基节–胸部肌 ×2 / ×5 / ×20 ⇒ 0.038 / 0 / 0 %W、可行 0/1/2**；**trochanter 肌 ×2/×5/×20 ⇒ 0.203 %W 与中位 10.621 完全不变**；**膝肌 ×2/×5/×20 ⇒ 0.2085 %W 不变**；基节肌细扫 ×1.25/1.5/1.75/2/**3** ⇒ 0.153/0.112/0.073/0.038/**0（首次精确可行）**。判决 `THE_STATIC_DEFICIT_IS_A_COXA_THORAX_FORCE_SCALE_DEFICIT_OF_2_TO_3X`。
+- **更正 3 条**：①"缺口与力量级无关"只对推符号成立，收缩符号下 ×2–3 就够；②"缺口方向在 42 条腿铰里"→ 更精确是**基节–胸部 3 个自由度上的幅度不足**；③中位构型恒为 10.1–11.8 %W ⇒ 多数构型失败与肌力无关（接触/可达性，本轮未定位）。
+- **业主资源包边界**：`muscle_labels.csv` 只有 29 trochanter + 97 femur 细胞，**没有基节肌**；femur 类全在膝/股内（膝已饱和），故该包**无法**补上真正卡的这一块。
+- **下一步**：给基节肌一个有来源的力标度（PCSA×比张力 或 体质量标定），把 ×2–3 与 NOT_ESTABLISHED 对齐；再逐块（Miller 28–33）单元件 ×k 找卡点；之后才做初速度阈值（±1/±5/±20 µm/s）。预算：LP 约 3400 次、构建模型 20+5 个、渲染 1；墙钟约 12 min。清理：13 个可再生模型变体 + `/tmp` 探针与日志（详见 `CLEANUP_LEDGER.json`）。
+
 ## P3 / 第71轮：补 femur muscle 3（21 细胞）—— **它是模型已有伸肌的方向复制品（余弦 1.000000），0 个新可行构型、动力学零变化**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-femur3-extensor/20261031T100000Z/`（`REPORT.zh-CN.md`、`VFB_EXTENSOR_GEOMETRY.json`、`RESULT_FEMUR3.json`、`BASE_REFERENCE.json`、`VERDICT.json`、`FEMUR3_VS_MEASURED.png`、`BUILD_LOG_FEMUR3.json`、`MODEL_FEMUR3.xml`、`MODEL_PROXIMAL_PULL.xml`、`PREDECLARED.json`、`PREDECLARED_ADDENDUM_SIGN.json`、`SCRIPTS/`）。
 - **实测（只用业主 VFB/Kuan2020 网格，126 个 obj，µm）**：股节跨度 519.6 µm；femur-2 附着帽 (0.070, +0.052, −0.072)→(0.875, +0.050, +0.008)，femur-3 为 (0.042, +0.022, −0.078)→(0.855, +0.053, −0.040)，**同侧（背侧）、沿轴差 ≤0.028 股节长度 ≈15 µm、径向差 ≤0.048 ≈25 µm**。
