@@ -1,35 +1,19 @@
 # 目标进度与证据追踪
 
-## P3 / 门禁 B2（2026-10-31T214600Z）：统一肌力标度**救不了**三个合格站姿 —— 缺口是 `Trochanter_pitch` 的 **1:15 单侧出力**，不是幅度
+## P3 / 门禁 B2（2026-10-31T214600Z，**已按修正求解器整体重算**）：统一肌力标度救不了三个合格站姿，**放大严格更差**；随后 B2c 定位到 `Trochanter_pitch` 的 1:15 单侧出力
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-unified-scale/20261031T214600Z/`（`PREREGISTRATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`AFFINITY_CHECK.json`、`SCALE_SOLUTION.json`、`CONE_MODES.json`、`FRICTION_PROBE.json`、`DOF_SHARE.json`、`AUTHORITY_ASYM.json`、`SCALE_CURVE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_UNIFIED_SCALE.zh-CN.md`。
-- **判据（跑前预登记，未放宽）**：三姿态共享一个 s，残差带 1% 体重，仅足端接触、逐接触 mu、内接菱形锥，s∈[1,50]。**联合 LP 在全区间不可行**；最小-最大残差在 **s≈2.0 = 54.5 %W**，之后单调变差（s=5 → 119.7、s=10 → 240.0、s=50 → 1208.3 个 1%W 单位）。
-- **仿射性先验证**：原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘后 `a0` 与 `B` 与 s 成正比，相对误差 ≤ **3e-16** ⇒ LP 线性化合法，结论不是近似造成。
-- **接触自检**：六跗节可精确平衡根节 6 自由度（t=0）⇒ 矩阵朝向/符号正确。**三锥一致**：菱形/16 边形/方锥均为 54.488，结论不依赖内接锥选择。
-- **摩擦是地板但不是全部**：去摩擦后降到 s=2 时 3.1/2.5/1.6 %W，但该解需 |ft|/fn=2.0–4.6 且出现负法向力（fn=−30.9）⇒ 非物理，不采信。
-- **决定性机制**：`Trochanter_pitch` 只有 **1 根肌肉给正扭矩、15 根给负扭矩**（三姿态一致）。统一放大把强侧主动+被动一起乘 s，弱侧那 1 根跟不上 ⇒ 残差随 s 上升。这解释了为何第72轮"单独放大胸–基节组 ×2–3 有效"而**统一放大无效**。
-- **本轮修掉两个实现错误**（旧结果已重跑、未留过时文件）：①残差带下行松弛系数被同时取反 ⇒ 全部误判不可行；②接触力变量块从第 0 列起，覆盖前 18 个激活列 ⇒ 数值失真。修正后与手算构建一致（单姿 s=2：47.661）。
-- 判决 `NO_UNIFORM_MUSCLE_FORCE_SCALE_ADMITS_A_FOOT_ONLY_STATIC_BALANCE_OF_THE_ADMISSIBLE_TRIO_AND_SCALING_ABOVE_S_APPROX_2_MAKES_IT_WORSE`；留出批**未评估**（无 s* 可评估，据实记为失败）。0 `mj_step`、0 训练。
-- **下一步**：①**B2b** 在同一足端求解器上重做**分组**缩放（胸–基节/基节–转节/膝），检验第72轮结论；②**B2c** 直指 `Trochanter_pitch` 的 1:15 不对称（补拮抗执行器或按解剖重分配），任何全局标度都修不了；③有静态可行配置后才进入门禁 C。
+- **判据未放宽**（三姿态共享一个 s、残差带 1% 体重、仅足端接触、逐接触 mu 菱形锥、s∈[1,50]）。**联合 LP 全区间不可行**；三姿态最小-最大残差：s=1 **23.77**、1.25 29.66、1.5 35.66、2.0 47.66、3 71.66、5 119.71、10 239.95、50 1208.25 ⇒ **s=1 最好，放大单调变差**。
+- 仿射性 ≤3e-16（`a0`、`B` ∝ s）；菱形/16 边形/方锥三锥一致（23.767）；六跗节可精确平衡根节 6 自由度（t=0）⇒ 接触矩阵正确；无摩擦解要求 |ft|/fn=2.0–4.6 且 fn<0 ⇒ 非物理不采信。
+- **本轮修掉三个实现错误并全量重跑**：①残差带下行松弛系数被取反；②接触力变量块从第 0 列起覆盖 18 个激活列；③**多姿态 bounds 交错写入**（z₁,f₁,z₂,f₂…）而布局是"先全 z 后全 f" ⇒ 后续姿态 z 无界、接触力被压进 [a_min·s, s]。初版"最小 s≈2、54.5 %W"即由此产生，已作废并更正为 s=1、23.77。
+- 判决 `NO_UNIFORM_MUSCLE_FORCE_SCALE_ADMITS_A_FOOT_ONLY_STATIC_BALANCE_OF_THE_ADMISSIBLE_TRIO_AND_SCALING_UP_MAKES_IT_STRICTLY_WORSE`；留出批因无 s* 未评估（据实记失败）。0 `mj_step`、0 训练。
 
-## P3 / 门禁 B1（2026-10-31T213534Z）：合格站姿**可由逐腿求解生成** —— 标定三姿 + 10 个独立验证姿已建立
-- 证据 `/home/sensen/Desktop/engine修复验收/s5-posture-generation/20261031T213534Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`GENERATION.json`、`POSTURE_VERIFY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`POSTURES_{CALIBRATION,HELDOUT,SPARES}.npy`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_POSTURE_GENERATION.zh-CN.md`。
-- **判据从未放宽**（≥4 跗节着地、零非跗节接地、穿透 ≤0.02 mm、关节限位内），但**三次采样方案全部 0 合格**并各自留档：v1 全范围均匀采样 0/60；v2 ±0.10 rad 胫节微扰 0/120（**0.10 rad ≈ 60 µm 抬高**，六足不可能共面）；v3 ±0.003 rad + 高度扫描 0/60。
-- **v3 失败时测到的关键事实**：项目自己存档的“可行站姿”**也没有落地放置** —— 第67轮参考姿在自身高度下跗节穿地 **0.10–0.32 mm**（79 接触）。⇒ 整体升降永远救不回共面，必须**逐腿解**。
-- **v4（成功）**：逐腿对 `Tibia_pitch` 二分求“刚好接触”边界（9 档身体高度，40 次二分，容差 1e-5 rad）⇒ 生成批 **10/10**、留出批 **10/10** 合格；标定三姿按预声明排序（穿透升序）为生成批 idx 0/1/2（z=1.0755/1.1255/1.1255），另 7 个备用。
-- **独立验证**（新模型实例+新 MjData，从 `.npy` 重算）：20/20 全合格、20/20 六足着地、零非跗节接地、**零关节越限**、最大穿透 **0.0**、两批**零重复**、标定排序一致。
-- **两处更正**：①第67轮起 29 个 `feasible` 是旧 LP 判据产物（只查接触存在、不查穿透），**不能当落地承重站姿引用**；②逐腿求解只是**几何构造**（合法关节值搜索），不是控制器、不是神经结果，不得计入行为学结论。
-- 判决 `ADMISSIBLE_STANCES_CAN_BE_GENERATED_AND_THE_CALIBRATION_SET_NOW_EXISTS`；预算 `mj_forward` 约 4 万次、墙钟约 5 s（v4 1.2 s）；0 LP、0 `mj_step`、0 训练。
-- **下一最小动作 = 门禁 B2**：在标定三姿上做统一肌力标度 s 的联合 LP（原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘；关节被动/质量/几何/限位/dt 不动），先用 s/mid/max 验证仿射性；仅足端 geom、逐接触 mu、保守内锥、W 与 W·L_ref 分别归一；留出批做未参与标定的检验。
-
-## P3 / 门禁 A（2026-10-31T213146Z）：旧基线**逐位复现**，但两批存档构型里**没有任何合格站姿** ⇒ 标定三姿态必须重新生成
-- 证据 `/home/sensen/Desktop/engine修复验收/s5-calibration-gate/20261031T213146Z/`（`PREREGISTRATION.json`、`GATE_A.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/calibration_gate.py`）；桌面副本 `/home/sensen/Desktop/S5_CALIBRATION_GATE.zh-CN.md`。
-- **Q1 复现 = EXACT**：旧锥 LP 原样、同构型，`over_weight` 三处差值**全为 0.0**（pose2 `0.0020845200497971368`、167 `0.014533960988549456`、224 `0.015372575190897613`）。唯一改动是加载方式（归档 XML 的相对 meshdir 缺失，改 `MjSpec` 内存指向既有网格缓存；71 网格，nq49/nv48/nu210/na210），故数值差异不能归因加载器。
-- **Q2 实质新结论**：按跑前预登记判据（≥4 足着地、零非跗节接地、穿透 ≤0.02 mm），两批关节合法候选（A：67/81/89/108/203；B：67/70/104/120/217/218）**合格数 A=0、B=0**。足端确实落地（2–6 足），但**穿透 0.25–0.94 mm**；B 的 70/104 另有 1–3 处非跗节接地；身体自接触全为 0。
-- **原因在采样源码**：`SCRIPTS/round71_main.py` 第139–146行只做 `qpos[2] += uniform(-0.35,0.05)` 加关节噪声，**不裁剪关节范围、不落地放置** ⇒ 这批样本是残差排名样本，不是站姿。
-- **对旧结论的影响**：第72轮 `GROUP_AUTHORITY` 的 ×2/×5/×20 与第75轮恢复源值对照都在**同一非合格样本**上做，作为“哪组肌肉卡住”的组内诊断仍成立，但**不能当“某标度下能站住”的证据**。
-- 判决 `THE_HISTORICAL_BASELINE_REPRODUCES_EXACTLY_BUT_NEITHER_ARCHIVED_SAMPLE_CONTAINS_AN_ADMISSIBLE_STANCE_SO_THE_CALIBRATION_POSTURES_MUST_BE_REGENERATED`。
-- **下一最小动作**：先写“站姿生成”预登记（关节范围内采样并记录是否触边 → 有界下降至跗节接触 → 上述三条判据 → 生成/验证两批独立编号），再用新合格姿态做统一 s 联合求解（原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘；关节被动/质量/几何/限位/dt 不动）。
-- 预算：LP 3+11 次、`mj_forward` 14 次、墙钟 1.7 s；未求解 s、未跑足端专用 LP、未做动力学/训练。验证：Q1 逐位相等 + 资格规则从原始审计行独立重算一致。清理：无临时文件、冻结目录零写入。
+## P3 / 门禁 B2c（2026-10-31T231925Z）：卡点 = `Trochanter_pitch` 的**单侧出力**；补拮抗后静态平衡**精确成立**（三姿 + 留出 10/10）
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-antagonist/20261031T231925Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`DIAGNOSIS.json`、`ANTAGONIST_GRID_V1.json`、`ANTAGONIST_GRID_V2.json`、`DIAGNOSIS_AFTER_REPAIR.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_ANTAGONIST.zh-CN.md`。
+- **诊断**：三姿态一致 —— `Trochanter_pitch` 上 **1 根执行器给正扭矩、15 根给负扭矩**；`Tibia_pitch` 在部分姿态为 2:0 单侧。
+- **两臂测试**（判据仍为 t≤1）：**单侧**（只加 −F 增益）在 F=5…320 上**一位不变**（s=1 23.767 / s=2 47.661 / s=3 71.663）⇒ 缺的是**相反方向**；**双向**拮抗 s=1 → 3.932、**s=2 → 0.0 可行**，F_syn ≥20（≈0.82 体重/腿）即饱和；**留出批 10/10 t=0 可行**。
+- 判决 `A_DECLARED_SYNTHETIC_BILATERAL_TROCHANTER_PITCH_ANTAGONIST_AT_S_2_CLOSES_THE_FOOT_ONLY_STATIC_BALANCE_OF_THE_TRIO_AND_ALL_TEN_HELD_OUT_STANCES`。
+- **边界**：合成执行器是**工程构造**，不是解剖、力值不是生物测量；静态 LP 可行**不是站立/行走/神经控制**（本轮 0 `mj_step`）。
+- **下一最小动作（解剖学问题）**：业主包 VFB 标注里 `trochanter muscle 2` 只有 **2 个细胞**，是最可能的拮抗候选 —— 核对该肌的附着侧与可产生扭矩方向，再决定是"补一根有来源的拮抗肌"还是"该关节的模型拓扑需要修正"；之后才进入门禁 C（50 ms → 400 ms 动力学、逐足载荷、滑移、初速度阈值）。
 
 ## P3 / 开发计划轮（2026-10-31T212521Z）：读 DSH 原会话日志并复核 → **承重标定入口前移出三道门禁：旧三构型全部关节越限、旧缩放不是统一肌力缩放、旧 LP 不足为足端承重证据**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-development-plan/20261031T212521Z/`（`PLAN.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_DEVELOPMENT_PLAN.zh-CN.md`。
