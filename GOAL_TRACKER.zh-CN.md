@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 第67轮：**存在"非趴伏"的可行站姿（0 机体接触 + 6 足全着地）**，且静态可行
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-sprawl/20261031T050000Z/`（`SPRAWL.json`、`DYN_STAND.json`、`STAND_QPOS.npy`、`VERDICT.json`、`SCRIPTS/sprawl.py`、`SCRIPTS/dyn_stand.py`、`MANIFEST_SHA256.json`）。
+- **趴伏度测量**：29 个可行构型中，**6 个是 nonfoot=0 且 loaded_feet=6**（`least_sprawled` 列表前六项均为 `(0, 6)`）⇒ **此前"可行解都是趴伏"的判断错误，已更正**。
+- **该站姿**：静止 slack **0.0**、**仅 42 个执行器激活**（不是靠蛮力）；动态（常量静态激活）：**50 ms 支撑 0.504、质心 0.585–0.612、机体接触 ≤3**；400 ms 质心 0.508–0.546，但**足部卸载（loaded_feet_min=0）**、机体接触最多 6。
+- **判决 `A_NON_SPRAWLED_STANDING_POSE_EXISTS_AND_IS_STATICALLY_FEASIBLE`**：**真正的站姿存在且静态可行**；失败点是**约 100 ms 内足部卸载**。
+- **下一步**：**逐足载荷跟踪前 100 ms**，找出哪几只脚先卸载、为什么（摩擦 / 关节范围 / LP 在等价支撑点之间切换）。
+- 预算：搜索 316 次 LP、动态 0.45 s 仿真、渲染 0；墙钟约 3 分钟。清理：`/tmp/sp.log`、`/tmp/ds.log` 已删；`SPRAWL.json` 已从第55轮目录移到本轮目录（避免污染旧证据）。
+
 ## P3 / 第66轮：用 **coxa 尺度掩膜** 做近端几何源——静态效果与股节掩膜相当（0.27% vs 0.24%），可行 23 vs 29
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-per-muscle-proximal/20261031T040000Z/`（`MODEL_MEDIUM.xml`、`BUILD_LOG.json`、`RESULT.json`、`REFINE_MEDIUM.json`、`VERDICT.json`、`SCRIPTS/`、`MANIFEST_SHA256.json`）。
 - **做法**：改用 **coxa 尺度**的 AI 掩膜（`mask_03`，0.463 mm、**9 束**）作为近端肌肉几何源（此前用股节掩膜），共 **108 条**束（9×2 组×6 腿）。
