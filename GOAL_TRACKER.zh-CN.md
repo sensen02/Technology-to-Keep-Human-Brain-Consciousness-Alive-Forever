@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第60轮：静态解"热启动"神经命令路径（加性偏置）——**更差**（0.470→0.373），原因是饱和
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`WARMSTART_LAYER.json`、`WARMSTART_VERDICT.json`、`SCRIPTS/train_warmstart.py`、`MANIFEST_SHA256.json`）。
+- **做法（声明式预置）**：`ctrl = clip(ctrl_neural + 静态解偏置 + 0.5·tanh(网络), 0, 1)`；静态偏置取自第56轮 `FEASIBLE_ACT.npy`（**58 个执行器非零、均值 0.165**）。
+- **结果**：基线 score 0.470（com_end 0.339）→ 训练最好 **0.373（com_end 0.275）**，**明显更差**。
+- **诊断**：**加性混合饱和**——解码器本身已给出较大 ctrl，再加 0.5 级偏置后大量执行器被 clip 到 1.0，腿部过驱动。
+- **判决 `ADDITIVE_WARM_START_MAKES_IT_WORSE`**。
+- **下一步**：改成**凸组合** `ctrl = (1−a)·neural + a·static`，扫 a∈[0,1]。已知静态解单独是最好的动态结果（50 ms 0.566），要回答的是"是否有任何混合优于它"。
+- 预算：harness 1 次、rollout 25 次（约 2.5 分钟）、渲染 0。清理：`/tmp/ws.log`、`/tmp/_np_base.py` 已删。
+
 ## P3 / 第59轮：在实测近端神经 harness 上训练 RNN 翻译层——**分数 +4.2%，但质心不变（仍塌）**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`TRAIN_LAYER.json`、`TRAIN_VERDICT.json`、`SCRIPTS/train_layer.py`、`MANIFEST_SHA256.json`）。
 - **设置**：第58轮 harness（210 执行器、194 可用、185 全覆盖、声明式共支配）；RNN 层 hidden 8、**约 3.7k 参数**；CEM **8×3 = 24 次 rollout**，每次 0.15 s PD 预热 + 0.05 s 神经阶段。
