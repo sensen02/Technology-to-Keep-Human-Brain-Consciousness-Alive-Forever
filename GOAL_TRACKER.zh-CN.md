@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B2e（2026-10-31T232826Z）：后足 1:15 不对称**是模型缺陷，不是解剖事实** —— 两根原生伸肌在后足翻了符号
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-model-attach/20261031T232826Z/`（`PREREGISTRATION.json`、`TROCHANTER_SIGNS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TROCHANTER_SIGNS.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_MODEL_ATTACH.zh-CN.md`。
+- **符号表（三个合格姿态逐位相同 ⇒ 构造属性）**：`sterno-tergo-trochanter_extensor_a` 与 `trochanter_extensor` 在 **LF/LM/RF/RM 为 `+`、LH/RH 为 `−`**（同侧前后翻转，左右镜像解释不了）⇒ **不一致**；`sterno-tergo-trochanter_extensor_b`、`trochanter_flexor_a/_b`、`accesory_trochanter_flexor` 六腿一致。
+- **直接后果**：后足同时丢掉两根 `+` 扭矩执行器 ⇒ 只剩 **1 正 / 15 负**（前足 LF 5 正、RF 10 正）。**门禁 B2c 的 1:15 由此产生。**
+- **测量束同样不一致**：正/负束 LF 2/8、LM 0/10、LH 0/10、**RF 7/3**、RM 0/10、RH 0/10 ⇒ 与第72轮"方位/半径/沿轴分数是手写"一致，束的附着侧未按实测确定。
+- 判决 `THE_TROCHANTER_PITCH_SIGN_PATTERN_IS_INCONSISTENT_ACROSS_LEGS_IN_THE_MODEL … SO THE HIND-LEG 1-VS-15 ASYMMETRY IS A MODEL DEFECT RATHER THAN AN ANATOMICAL FACT`（P24/P25 均 PASS）。
+- **链条收口**：B2（统一 s 无效）→ B2c（补双向拮抗即可精确撑住）→ B2d（实测没有够力的拮抗肌，3.15 vs 需 20 µN）→ **B2e（模型把后足两根伸肌放到了错误一侧）**。⇒ 缺口来源是**资产附着错误**，而非动物缺肌肉、也非力幅度不足。
+- **下一最小动作（门禁 B2f）**：按同侧前/中足几何重建后足 `sterno-tergo-trochanter_extensor_a` 与 `trochanter_extensor` 的附着侧（只迁移侧别、不发明力值），**不加任何合成拮抗**重跑 B2c 判据，看三姿态残差能否从 23.77 降到 ≤1。
+
 ## P3 / 门禁 B2d（2026-10-31T232507Z）：实测 `trochanter muscle 2` **不是**缺的那根拮抗肌（力只够 ~1/6）；muscle 1 其实**绕轴一圈**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-anatomy/20261031T232507Z/`（`PREREGISTRATION.json`、`TROCHANTER_ANATOMY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TROCHANTER_RADIAL.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_ANATOMY.zh-CN.md`。
 - **实测（业主包 VFB/Kuan2020 网格，29 个 trochanter 细胞，只读）**：muscle 1 = **27 细胞**，V 94 694 µm³、纤维长 63.0 µm、PCSA 1 530.7 µm²、**F0 = 42.9 µN**；muscle 2 = **2 细胞**，V 6 240 µm³、长 55.8 µm、PCSA 112.6 µm²、**F0 = 3.15 µN**（= muscle 1 的 7.4%）。
