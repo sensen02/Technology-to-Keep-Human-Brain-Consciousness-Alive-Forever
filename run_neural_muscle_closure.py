@@ -82,6 +82,15 @@ def prepare_body(initial_qpos=None, body_dt_s=DT_BODY):
     return model, base, gate, joints, geom_leg
 
 
+def resolve_sensory_reference(initial_qpos, sensory_reference_qpos=None):
+    """Owned frozen reference; explicit reference never follows physical placement."""
+    initial = np.asarray(initial_qpos, dtype=float)
+    reference = initial if sensory_reference_qpos is None else np.asarray(sensory_reference_qpos, dtype=float)
+    if initial.ndim != 1 or reference.shape != initial.shape or not np.isfinite(reference).all() or not np.isfinite(initial).all():
+        raise ValueError('initial/reference must be aligned finite qpos vectors')
+    return reference.copy()
+
+
 def observe_quantities(model, data, reference, joints, geom_leg):
     import mujoco
     force = {leg: 0.0 for leg in LEGS}
@@ -115,19 +124,21 @@ def make_motor_decoder(manifest, motor_translator=None):
 def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, duration, replay=None,
             stride=10, full_detail_intervals=20, push=None, external_touch=True,
             disabled_channels=(), evidence=None, motor_translator=None, body_observer=None,
-            body_dt_s=DT_BODY, motor_dt_s=DT_COMMAND):
+            body_dt_s=DT_BODY, motor_dt_s=DT_COMMAND, sensory_reference_qpos=None):
     """Run the legacy four-value episode; optionally fill a caller-owned evidence dict.
 
     Evidence is observational only. Currents are copied after every intervention,
     before the first neural step, and held for the entire command interval.
     """
+    sensory_reference = resolve_sensory_reference(seated, sensory_reference_qpos)
     if motor_dt_s != DT_COMMAND:
         return _episode_split_motor(model, seated, joints, geom_leg, built, manifest,
                                     groups, arm, duration, replay=replay, push=push,
                                     external_touch=external_touch, disabled_channels=disabled_channels,
                                     evidence=evidence, motor_translator=motor_translator,
                                     body_observer=body_observer, body_dt_s=body_dt_s,
-                                    motor_dt_s=motor_dt_s)
+                                    motor_dt_s=motor_dt_s,
+                                    sensory_reference_qpos=sensory_reference)
     import mujoco
     unknown_channels = set(disabled_channels) - set(groups[LEGS[0]])
     if unknown_channels:
@@ -178,7 +189,7 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
     cut_s = .015
     for k in range(intervals):
         t = k*DT_COMMAND
-        quantities = observe_quantities(model, d, seated, joints, geom_leg)
+        quantities = observe_quantities(model, d, sensory_reference, joints, geom_leg)
         current, channels = enc.encode(quantities)
         # Declared experimenter's local tactile stimulus, never motor-targeted.
         # Compare it to a matched sensory-cut arm: zero all input currents there.
@@ -290,7 +301,8 @@ def episode(model, seated, joints, geom_leg, built, manifest, groups, arm, durat
 
 def _episode_split_motor(model, seated, joints, geom_leg, built, manifest, groups, arm,
                          duration, *, replay, push, external_touch, disabled_channels,
-                         evidence, motor_translator, body_observer, body_dt_s, motor_dt_s):
+                         evidence, motor_translator, body_observer, body_dt_s, motor_dt_s,
+                         sensory_reference_qpos=None):
     """Keep one sensory current per 5ms while decoding completed 1ms MN blocks.
 
     The default 5ms episode above remains byte-for-byte on its historical path.
@@ -299,6 +311,7 @@ def _episode_split_motor(model, seated, joints, geom_leg, built, manifest, group
     motor-resolution replay contract rather than silent resampling.
     """
     import mujoco
+    sensory_reference = resolve_sensory_reference(seated, sensory_reference_qpos)
     if arm not in ('normal', 'no_external_touch', 'sensory_cut', 'motor_cut',
                    'spike_output_silence') or replay is not None or push is not None:
         raise ValueError('1ms motor path requires a declared replay/push contract for this arm')
@@ -338,7 +351,7 @@ def _episode_split_motor(model, seated, joints, geom_leg, built, manifest, group
         start_s, end_s = window.start_tick*DT_NEURAL, window.end_tick*DT_NEURAL
         if index == 0 or window.sensory_index != windows[index-1].sensory_index:
             sensory_t = window.sensory_index*DT_COMMAND
-            quantities = observe_quantities(model, d, seated, joints, geom_leg)
+            quantities = observe_quantities(model, d, sensory_reference, joints, geom_leg)
             current, _ = enc.encode(quantities)
             if external_touch and arm != 'no_external_touch' and .005 <= sensory_t < .015:
                 for i in groups['lf']['bristle_touch']:
@@ -489,7 +502,8 @@ def main(guard_report=None):
                          'weight, applied identically in every arm')
     built = build_neural_tier(TierConfig(background_mean_nA=0, background_sd_nA=0))
     names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_ACTUATOR,i) for i in range(model.nu)]
-    manifest = build_motor_manifest(json.loads(POOLS.read_text()), built['tier']['root_ids'], names)
+    from engine.embodied.runtime_pool_guard import load_runtime_pool
+    manifest = build_motor_manifest(load_runtime_pool(POOLS), built['tier']['root_ids'], names)
     # Validate mapping identity before episodes; each episode starts fresh history.
     selected_decoder = make_motor_decoder(manifest, args.motor_translator)
     translator_provenance = (asdict(MotorOutputConfig()) if args.motor_translator is None else dict(

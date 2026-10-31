@@ -73,10 +73,21 @@ class MotorOutputConfig:
     filter_tau_s: float = 0.005
     rate_for_full_control_hz: float = 100.0
     max_control: float = 1.0
+    #: PER-ACTUATOR TRANSLATION-LAYER GAIN (S233).  A nonnegative vector of length n_actuators that scales the
+    #: filtered rate BEFORE the clip: ctrl = clip(gain * rate / rate_for_full_control, 0, max_control).
+    #: None means all ones, which reproduces every earlier result bit for bit (asserted in S233).
+    #: This is a declared translation-layer calibration: it has no state feedback, no pose reference, no bias and
+    #: no sign change.  Gains may be zero, which EXTINGUISHES an actuator and must be archived by name.
+    per_actuator_gain: tuple | None = None
 
     def validate(self):
-        if not all(math.isfinite(x) and x > 0 for x in asdict(self).values()):
+        others = {k: v for k, v in asdict(self).items() if k != 'per_actuator_gain'}
+        if not all(math.isfinite(x) and x > 0 for x in others.values()):
             raise ValueError('positive finite translation parameters required')
+        g = self.per_actuator_gain
+        if g is not None:
+            if len(g) == 0 or any((not math.isfinite(float(x))) or float(x) < 0 for x in g):
+                raise ValueError('per_actuator_gain must be a nonempty vector of finite nonnegative numbers')
         if self.max_control > 1:
             raise ValueError('max control exceeds normalized muscle range')
         return self
@@ -146,8 +157,14 @@ class MotorOutput:
                 self.rates = decay*self.rates + (1-decay)*instantaneous
         else:
             self.rates[:] = 0
-        ctrl = np.clip(self.rates / self.config.rate_for_full_control_hz,
-                       0, self.config.max_control)
+        rate = self.rates / self.config.rate_for_full_control_hz
+        gain = self.config.per_actuator_gain
+        if gain is not None:
+            gvec = np.asarray(gain, float)
+            if gvec.shape != rate.shape:
+                raise ValueError('per_actuator_gain must have one entry per actuator')
+            rate = rate * gvec
+        ctrl = np.clip(rate, 0, self.config.max_control)
         self.elapsed_s = float(end_s)
         self.interval += 1
         return ctrl, dict(source_interval=self.interval, source_start_s=float(start_s),

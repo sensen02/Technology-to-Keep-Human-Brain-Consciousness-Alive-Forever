@@ -1,0 +1,75 @@
+{
+  "round": "S291",
+  "passed": false,
+  "status": "STOP_HISTORICAL_SAMPLE_SEMANTICS_NOT_ESTABLISHED",
+  "candidate_gains_authorized": false,
+  "gain_new": null,
+  "reason": "Historical clipped-array gain algebra is established, but the exact historical source neural interval/filter-state provenance for zero-based sample17 is not established by available saved runner/timestamp records. The instruction requires stopping rather than guessing a current semantic sample or searching another row.",
+  "established_historical_formula": {
+    "apex_index_0based": 17,
+    "array": "S254 CTRL_A0_gate_default.npz ctrl[17] (byte-identical S253 CTRL_N0_gate_default.npz)",
+    "array_shape": [200,90],
+    "time_base_field": "per_ms",
+    "historical_reported_peak_t_ms": 17.0,
+    "historical_reported_substep_index": 170,
+    "source_unit_gain": "S254 PREREG A0 per_actuator_gain=None; S253 N0 default MotorOutputConfig exactly S246 L0",
+    "denominator_hz_declaration": 450.0,
+    "gain_formula": "S254 perrow_apex[i] = target[i] / saved_unitgain_POSTCLIP_ctrl[17,i] when target>0 and ctrl>0; otherwise0",
+    "clip_distinction": "The archived calibration divides by a saved clipped unit-gain command, not recorded raw/filtered rate or unbounded preclip. S254 file does not save rates/preclip. Current code's rates/450 is preclip and clip(rates/450,0,1) is unitgain postclip. These formulas differ for preclip>1.",
+    "S255_formula": "v1 = 1.236819199 * S254 perrow_apex",
+    "S255_scale": 1.236819199,
+    "target_origin": "S244 CMD_A3_sym_matched diagnostic replay target, not biological calibration",
+    "numeric_reconstruction_max_abs_error": 0.0
+  },
+  "unestablished_prerequisites": [
+    "Actual S254/S253/S246 generating runner source with per-row neural tick/source/application ordering was not found in their saved archives or project paths searched.",
+    "Historical CTRL NPZ contains only ctrl,names,time_base; no neural source_start/source_end/valid_from/application times, raw rates, filtered rates or preclip.",
+    "Reported row17/17ms does not alone resolve whether row records sampling start, neural interval end or historical anticipatory application phase.",
+    "Exact historical filter recurrence/state reset and parameter provenance cannot be fully verified from available historical runner snapshot. Current code filter5ms cannot be retroactively treated as historical frozen source proof.",
+    "Thus same ordinal17 in current causal capture is not asserted to be the historically matching semantic sample. No alternate row was searched."
+  ],
+  "current_unambiguous_recording_semantics": {
+    "baseline": "/home/sensen/Desktop/engine修复验收/s289-decoder-range-support/20261026T173400Z/decoder_original/",
+    "decoder_formula": "preclip=(own filtered_rate_hz /450)*V1; command=clip(preclip,0,1)",
+    "filter_tau_s": 0.005,
+    "neural_dt_s": 0.0005,
+    "filter_recurrence": "state=exp(-.0005/.005)*state+(1-exp(-.0005/.005))*raw_rate for each of two samples per interval, zero initial state",
+    "ordinal_index17_source_start_ms": 17.0,
+    "ordinal_index17_source_end_ms": 18.0,
+    "ordinal_index17_valid_from_ms": 18.0,
+    "ordinal_index17_neural_sample_times_ms": [17.5,18.0],
+    "ordinal_index17_actual_application_ms": [18.0,19.0],
+    "warning": "These establish current ordinal17 only, not a historical-to-current semantic match."
+  },
+  "per_channel": [
+    {"index":55,"actuator":"RMF_accesory_trochanter_flexor","target":0.40406365962738583,"scaled_target":0.49975369184535195,"historical_postclip_ctrl17":0.0,"gain_old":0.0,"current_ordinal17_filtered_rate_hz":351.98930025739287,"current_ordinal17_unitgain_preclip":0.7821984450164285,"current_ordinal17_unitgain_postclip":0.7821984450164285,"current_ordinal17_denominator_positive":true,"gain_new":null,"reason_no_gain":"Required historical semantic sample match not established; no candidate value assigned"},
+    {"index":62,"actuator":"LHC_pleural_remotor_and_abductor","target":0.47292881384905766,"scaled_target":0.5849274367288115,"historical_postclip_ctrl17":0.0,"gain_old":0.0,"current_ordinal17_filtered_rate_hz":280.35948934272335,"current_ordinal17_unitgain_preclip":0.6230210874282741,"current_ordinal17_unitgain_postclip":0.6230210874282741,"current_ordinal17_denominator_positive":true,"gain_new":null,"reason_no_gain":"Required historical semantic sample match not established; no candidate value assigned"}
+  ],
+  "formula_distinctions_without_execution": {
+    "reproduce_old_formula": "If a historical semantic source sample were established, scaled target / clip(current own unitgain preclip,0,1) would reproduce the historical denominator choice; this is not executed or authorized here.",
+    "corrected_unclipped_formula": "scaled target / current own unitgain PRECLIP would directly target the current MotorOutput multiply-before-clip formula; changing historical clipped denominator to this would be a separately declared correction, not an exact old-formula reproduction.",
+    "no_decision": "No formula/sample is promoted into executable candidate gains because prerequisite failed."
+  },
+  "calls": {"model_load":0,"forward":0,"physics_step":0,"neural_tick":0,"tier_build":0,"network_init":0},
+  "modifications": ["Only this JSON was created; historical sources/assets unchanged"],
+  "failures": ["One glob path containing literal wildcard directory s246* returned not found; corrected to glob under actual archive root, no dynamic operations"],
+  "sources_sha256": {
+    "/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/PREREG.json":"0dba60170fe41620bab546181f4aae2492de6f1c112783f2e72a28448dca120d",
+    "/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/PATTERN_FEASIBILITY.json":"4394bb56850d9fa83f6f1fdab59d19805292662ef8440de00b7ce403817a93b6",
+    "/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/CTRL_A0_gate_default.npz":"d71948afd4b61075d2a2470f860dc0d139ba5e3e92503f3b183b8670f427886f",
+    "/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/ARM_VECTORS.json":"9780d57e227044a7995a5d4127d76d25a92178b368047313173441b16ff23c63",
+    "/home/sensen/Desktop/engine修复验收/s253-suppression-only/20261025T220043907094Z/PREREG.json":"05c6e558dc5d4ff912f2823936894344f49a630fc849a4325f63d5a1b860f472",
+    "/home/sensen/Desktop/engine修复验收/s253-suppression-only/20261025T220043907094Z/CTRL_N0_gate_default.npz":"d71948afd4b61075d2a2470f860dc0d139ba5e3e92503f3b183b8670f427886f",
+    "/home/sensen/Desktop/engine修复验收/s244-chirality-of-the-5-of-6-arm/20261025T205824474993Z/CMD_A3_sym_matched.npz":"ec8520eed4e12a7213afc97600d977b573c11a030ca065bb5f88fda58ac49604",
+    "/home/sensen/Desktop/engine修复验收/s255-static-gain-can-it-sustain/20261025T221308522972Z/ARM_VECTORS.json":"e462c1d9041a5eac3bb2ba30477ef3d14aa48b3e6f0ab02a6a4d216df7c402e2",
+    "/home/sensen/Desktop/engine修复验收/s255-advisor-probes/20261025T220959577006345Z/derive_s255.py":"0b1996f5e1c9ce23a5bd78aeb9c6817f890aff68e7a8a07618f8b1d38fddd0d2",
+    "/home/sensen/Desktop/engine修复验收/s254-advisor-probes/20261025T220438352314028Z/probe.py":"c9fdd87ac9c19ca305688afb6979d67568a85c1b6a0f99b2689c11ff5acfbd37",
+    "/home/sensen/Desktop/engine修复验收/s246-ignition-delay/20261025T211321737135Z/PREREG.json":"a747f2ecf5bd25f22f22424a776c228ffcbe6b2a8fe4bf6a8898596c5fa4c0b1",
+    "/home/sensen/Desktop/engine修复验收/s289-decoder-range-support/20261026T173400Z/decoder_original/NEURAL.npz":"81e877e3fb61f162b8e5682d5043aefbad588efc7f8863cdb4081a5a93a3625d",
+    "/home/sensen/Desktop/engine修复验收/s289-decoder-range-support/20261026T173400Z/decoder_original/COMMAND_TIMING.npz":"0529dce80bf856150670f505bf14286cc6d5cddf7b569148068a3a77bba6d865",
+    "/home/sensen/Desktop/engine修复验收/s289-decoder-range-support/20261026T173400Z/decoder_original/DECODER_CONFIG.json":"48f8735d0a6e8e489826f4890ee60df29d7dcf8103c077b6425b36e43b3b0a6b",
+    "/run/media/sensen/Data2/cell_wound_prototype/run_s289_decoder_range_support.py":"1b563e871a2c8c36e6438324c729a740b275f801af25679b293f668f1ee04099",
+    "/run/media/sensen/Data2/cell_wound_prototype/engine/embodied/motor_output.py":"cbe0149f01fff2d9a3618da5cbaa20d7e9cda97c5d9baffe349b8a5071597c17",
+    "/run/media/sensen/Data2/cell_wound_prototype/outputs/neural_rebuild/neural_rebuild_11_mn_pools.json":"3244c8c1470ad3009dd3e12fc64b11f97d1672b8bda811f9ceacf0221e1dd94c"
+  }
+}

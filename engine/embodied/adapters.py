@@ -201,6 +201,16 @@ class TierConfig:
     max_neurons: int = 12000
     partner_min_synapses: float = 10.0
     growth_iterations: int = 2
+    #: Conductance sign rule for the edge set.  Default 'annotation' is the historical,
+    #: frozen behaviour (fingerprint 5ab78f55...); 'counterfactual_ach' is a DECLARED
+    #: assumption that also signs every mechanosensory presynaptic row as excitatory.
+    #: It changes the network identity and must never be reported as a repair.
+    sign_mode: str = "annotation"
+    #: DECLARED transmitter-prediction fill (S268).  Only rows with an EMPTY
+    #: ann_nt_verified label are filled, and the number of filled rows that already
+    #: carried a label is reported and is zero.  'none' is bit-identical to the
+    #: historical network (fingerprint 5ab78f55...).
+    sign_fill: str = "none"
     #: seed set = body-route mechanosensory neurons whose ANNOTATED nerve is a leg
     #: nerve.  Vision/antennal (head-route) mechanosensory seeds are EXCLUDED because
     #: this loop has no head sensation at all; the exclusion is counted and reported.
@@ -527,7 +537,7 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
                         "tier_neurons": int(tier["n"]),
                         "cap_binding": bool(tier["counts"]["partners_truncated_by_cap"])})
         seed_mask = np.asarray(tier["keep_mask"])
-    edges = build_edges(a, tier, cut, "annotation", "intact", tcfg)
+    edges = build_edges(a, tier, cut, c.sign_mode, "intact", tcfg, sign_fill=c.sign_fill)
 
     local_of_global = np.asarray(tier["local_of_global"])
     nn = int(tier["n"])

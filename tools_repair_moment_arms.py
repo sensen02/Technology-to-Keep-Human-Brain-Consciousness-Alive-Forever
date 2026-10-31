@@ -354,12 +354,15 @@ def verify(path: Path, *, n_pose: int = 200, seed: int = 0,
 
     # how wide a neighbourhood of the keyframe does the repair hold over?
     q0 = np.array(d.qpos, float).copy()
-    leg_dofs = [dof for _jid, dof in leg_joints(m).values()]
+    # qvel DOF addresses index moment-arm columns, NOT qpos.  A free root
+    # contributes 7 qpos versus 6 DOFs; using dofadr here perturbs root quaternion
+    # component 6 and misses the final hinge. Keep these address spaces separate.
+    leg_qpos = [int(m.jnt_qposadr[jid]) for jid, _dof in leg_joints(m).values()]
     rng = np.random.default_rng(seed)
     counts, worst_pose, worst_pose_oneway = [], 0, []
     for _ in range(n_pose):
         d.qpos[:] = q0
-        d.qpos[leg_dofs] += rng.uniform(-0.08, 0.08, size=len(leg_dofs))
+        d.qpos[leg_qpos] += rng.uniform(-0.08, 0.08, size=len(leg_qpos))
         mujoco.mj_forward(m, d)
         d.act[:] = 1.0
         mujoco.mj_forward(m, d)
@@ -448,8 +451,15 @@ def main(argv: list[str] | None = None) -> int:
           f"bidirectional {ps['bidirectional_min']}..{ps['bidirectional_max']} "
           f"(median {ps['bidirectional_median']}), worst one-way count {ps['worst_one_way_count']}"
           + (f" {ps['worst_one_way_joints']}" if ps['worst_one_way_joints'] else ""))
-    res["status"] = ("PASS" if (res["bidirectional_at_keyframe"] == 42
-                                and res["arm_matches_reference_on_repaired_joints"]) else "FAIL")
+    # Keep the historical keyframe criterion explicit, but do not report a
+    # global PASS when the requested neighbourhood sweep loses coverage.
+    keyframe_ok = (res["bidirectional_at_keyframe"] == 42
+                   and res["arm_matches_reference_on_repaired_joints"])
+    sweep_ok = ps["n_poses"] > 0 and ps["worst_one_way_count"] == 0
+    res["keyframe_status"] = "PASS" if keyframe_ok else "FAIL"
+    res["sweep_status"] = "PASS" if sweep_ok else "FAIL"
+    res["status"] = "PASS" if keyframe_ok and sweep_ok else "FAIL"
+    res["overall"] = res["status"]
     if a.report:
         Path(a.report).write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"wrote {a.report}")

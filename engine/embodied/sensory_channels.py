@@ -108,14 +108,34 @@ class ChannelSensoryEncoder:
     channel was fed, so any downstream claim can be traced to a signed physical quantity.
     """
 
-    def __init__(self, channel_groups, n_neurons: int, config: ChannelConfig | None = None):
+    def __init__(self, channel_groups, n_neurons: int, config: ChannelConfig | None = None,
+                 per_channel_weight: dict | None = None, allow_signed_weights: bool = False):
         self.cfg = config or ChannelConfig()
         self._validate_config()
+        # Declared per-channel calibration weight, default 1.0 for every channel.  A weight of
+        # exactly 1.0 reproduces the previous arithmetic bit for bit (x * 1.0 == x in IEEE754),
+        # which the S266 gate arm proves against the archived run.
+        self.per_channel_weight = {ch: 1.0 for ch in CHANNEL_SPEC}
+        if per_channel_weight is not None:
+            if not isinstance(per_channel_weight, dict):
+                raise ValueError("per_channel_weight must be a dict of channel -> weight")
+            for ch, w in per_channel_weight.items():
+                if ch not in CHANNEL_SPEC:
+                    raise ValueError(f"unknown channel in per_channel_weight: {ch!r}")
+                lowest = -np.inf if allow_signed_weights else 0.
+                if (isinstance(w, (bool, np.bool_)) or not np.isscalar(w) or not np.isrealobj(w)
+                        or not np.isfinite(w) or w < lowest):
+                    raise ValueError(f"per_channel_weight[{ch!r}] must be a finite scalar"
+                                     + ("" if allow_signed_weights else " >= 0"))
+                self.per_channel_weight[ch] = float(w)
         if (isinstance(n_neurons, (bool, np.bool_))
                 or not isinstance(n_neurons, (int, np.integer)) or n_neurons < 0):
             raise ValueError("n_neurons must be a nonnegative integer, not bool")
         self.n = int(n_neurons)
         self.groups = {}
+        # Lookup assigns each sensory cell one leg/channel identity. This does
+        # not prohibit adding an external stimulus to that cell's input later.
+        index_owner = {}
         for leg in LEGS:
             self.groups[leg] = {}
             for ch in CHANNEL_SPEC:
@@ -132,6 +152,11 @@ class ChannelSensoryEncoder:
                     raise ValueError(f"channel group {leg}/{ch} is not a valid index set")
                 if len(set(values)) != values.size:
                     raise ValueError(f"channel group {leg}/{ch} contains duplicate indices")
+                for i in values:
+                    if i in index_owner:
+                        raise ValueError(
+                            f"neuron index overlap: {i} in {index_owner[i]} and {leg}/{ch}")
+                    index_owner[i] = f"{leg}/{ch}"
                 # Own validated identities; caller mutation must not reroute input.
                 idx = np.array(values, dtype=np.int64, copy=True)
                 self.groups[leg][ch] = idx
@@ -278,13 +303,15 @@ class ChannelSensoryEncoder:
                                                           "dataset_function": fn,
                                                           "value": 0.0})
                 idx = self.groups[leg][ch]
+                w = self.per_channel_weight[ch]
                 if idx.size:
                     with np.errstate(over="ignore", invalid="ignore"):
-                        current[idx] += cfg.current_nA_per_unit * float(v)
+                        current[idx] += cfg.current_nA_per_unit * float(v) * w
                     if not np.all(np.isfinite(current[idx])):
                         raise ValueError(f"{leg}/{ch} produces nonfinite current")
                 leg_record[ch] = {"value": float(v), "signed": signed, "modelled": modelled,
-                                  "n_cells": int(idx.size), "dataset_function": fn}
+                                  "n_cells": int(idx.size), "dataset_function": fn,
+                                  "weight": float(w)}
             record["per_leg"][leg] = leg_record
         return current, record
 

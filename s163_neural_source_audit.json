@@ -1,0 +1,922 @@
+{
+  "scope": "S163/P1/P2 independent source and saved-numpy audit, no model/physics/neuron execution",
+  "new_engine_calls": {
+    "load": 0,
+    "forward": 0,
+    "step": 0,
+    "neural_ticks": 0
+  },
+  "max_final_v_node": {
+    "local_index": 945,
+    "root_id": "720575941430177161",
+    "sensory_membership": [
+      {
+        "leg": "rf",
+        "channel": "hook_direction"
+      }
+    ],
+    "readout_membership": false,
+    "delta_S162_minus_S154_mV": -39.6912820402041,
+    "arms": {
+      "S154": {
+        "v": -65.0,
+        "ge": 0.0,
+        "gi": 0.0,
+        "adaptation": 0.0,
+        "refractory_until_ms": 0.0,
+        "spike_count": 0,
+        "PREcount": 0,
+        "release_spikes": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "release_current_nA": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "final_gap_mV": 15.0
+      },
+      "S162": {
+        "v": -104.6912820402041,
+        "ge": 0.0,
+        "gi": 0.0,
+        "adaptation": 0.0,
+        "refractory_until_ms": 0.0,
+        "spike_count": 0,
+        "PREcount": 0,
+        "release_spikes": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "release_current_nA": [
+          0.0,
+          -0.18363657862259863,
+          -0.38701822970297733,
+          -0.5122622626127409,
+          -0.5886801612101807
+        ],
+        "final_gap_mV": 54.6912820402041
+      }
+    }
+  },
+  "arms": {
+    "S154": {
+      "metadata_final": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 82.5,
+          "steps": 165
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "metadata_cold": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 0.0,
+          "steps": 0
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "metadata_release": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 80.0,
+          "steps": 160
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "release_tick_count": 5,
+      "PRE_total_spikes": 70496,
+      "release_total_spikes": [
+        83,
+        20,
+        11,
+        2884,
+        17
+      ],
+      "readout_union_n": 206,
+      "readout_PRE_spikes": 256,
+      "readout_release_spikes": [
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "readout_final_v_range_mV": [
+        -68.72076000965254,
+        -50.10027421823974
+      ],
+      "readout_final_gap_range_mV": [
+        0.10027421823973981,
+        18.720760009652537
+      ],
+      "readout_eligible_next_start": 200,
+      "readout_refractory_next_start": 6,
+      "readout_adaptation_range_nA": [
+        0.0,
+        0.0184122716604413
+      ],
+      "FIR_saved_reconstruction_maxabs": 0.0,
+      "decode_reconstruction_maxabs": 0.0,
+      "pool_drive_min": 0.0,
+      "pool_drive_max": 1.0045682403373766,
+      "pool_drive_above_1": 3,
+      "decoded_range": [
+        0.0,
+        1.0
+      ],
+      "applied_range": [
+        0.0,
+        0.5
+      ],
+      "mapped_actuators": 74,
+      "weights_shape": [
+        66,
+        5
+      ],
+      "weights_range": [
+        0.08979055178021957,
+        0.18483479399906344
+      ]
+    },
+    "S162": {
+      "metadata_final": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 82.5,
+          "steps": 165
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "metadata_cold": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 0.0,
+          "steps": 0
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "metadata_release": {
+        "neural_scalars": {
+          "voltage_method": "backward_euler",
+          "n": 17099,
+          "dt": 0.5,
+          "delay_steps": 4,
+          "_ring_i": 0,
+          "t_ms": 80.0,
+          "steps": 160
+        },
+        "neural_configs": {
+          "p": {
+            "capacitance_nF": 0.02,
+            "leak_uS": 0.001,
+            "rest_mV": -65.0,
+            "threshold_mV": -50.0,
+            "reset_mV": -65.0,
+            "exc_reversal_mV": 0.0,
+            "inh_reversal_mV": -70.0,
+            "exc_tau_ms": 3.0,
+            "inh_tau_ms": 8.0,
+            "adaptation_tau_ms": 100.0,
+            "adaptation_increment_nA": 0.002,
+            "refractory_ms": 2.0,
+            "delay_ms": 2.0
+          }
+        }
+      },
+      "release_tick_count": 5,
+      "PRE_total_spikes": 70496,
+      "release_total_spikes": [
+        83,
+        20,
+        11,
+        2884,
+        17
+      ],
+      "readout_union_n": 206,
+      "readout_PRE_spikes": 256,
+      "readout_release_spikes": [
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "readout_final_v_range_mV": [
+        -68.72076000965254,
+        -50.10027421823974
+      ],
+      "readout_final_gap_range_mV": [
+        0.10027421823973981,
+        18.720760009652537
+      ],
+      "readout_eligible_next_start": 200,
+      "readout_refractory_next_start": 6,
+      "readout_adaptation_range_nA": [
+        0.0,
+        0.0184122716604413
+      ],
+      "FIR_saved_reconstruction_maxabs": 0.0,
+      "decode_reconstruction_maxabs": 0.0,
+      "pool_drive_min": 0.0,
+      "pool_drive_max": 1.0045682403373766,
+      "pool_drive_above_1": 3,
+      "decoded_range": [
+        0.0,
+        1.0
+      ],
+      "applied_range": [
+        0.0,
+        0.5
+      ],
+      "mapped_actuators": 74,
+      "weights_shape": [
+        66,
+        5
+      ],
+      "weights_range": [
+        0.08979055178021957,
+        0.18483479399906344
+      ]
+    }
+  },
+  "saved_inventory": {
+    "S154": {
+      "TRAJECTORY.npz": [
+        "time",
+        "qpos",
+        "qvel",
+        "act",
+        "ctrl",
+        "contacts",
+        "foot_force",
+        "nonfoot_depth",
+        "limit_excess",
+        "actuator_force",
+        "actuator_length",
+        "actuator_velocity",
+        "qacc",
+        "qfrc_actuator",
+        "qfrc_passive",
+        "qfrc_constraint",
+        "qfrc_bias",
+        "qfrc_applied",
+        "xfrc_applied",
+        "Ma",
+        "RHS",
+        "residual",
+        "actuator_force_residual",
+        "warnings",
+        "actuator_moment",
+        "actuator_moment_raw",
+        "moment_raw",
+        "moment_rownnz",
+        "moment_rowadr",
+        "moment_colind",
+        "body_mass",
+        "body_xpos",
+        "body_xipos",
+        "body_cvel_raw",
+        "body_spatial_velocity_world",
+        "body_linear_velocity_world",
+        "body_object_acceleration_raw6_world",
+        "body_com_jacp",
+        "body_com_jacdot",
+        "body_jac_velocity_world",
+        "body_linear_acceleration_world",
+        "com_acceleration_world",
+        "com_mass_times_acceleration_world",
+        "com_position_world",
+        "com_velocity_world",
+        "com_momentum_world",
+        "gravity_force_world",
+        "gravity_torque_about_com",
+        "contact_force_world",
+        "contact_torque_about_com",
+        "applied_force_world",
+        "applied_torque_about_com",
+        "external_force_world",
+        "external_torque_about_com",
+        "contact_ncon",
+        "contact_geom_ids",
+        "contact_body_ids",
+        "contact_pos_world",
+        "contact_frame",
+        "contact_dist",
+        "contact_force_raw6",
+        "contact_force_on_geom2_world",
+        "contact_intrinsic_torque_on_geom2_world",
+        "contact_torque_on_geom2_about_com",
+        "contact_external_mask",
+        "contact_external_sign",
+        "contact_dim",
+        "contact_friction",
+        "root_vz",
+        "native_mass_packed",
+        "native_qacc_warmstart",
+        "native_energy",
+        "signed_power_passive",
+        "signed_power_actuator",
+        "signed_power_constraint",
+        "signed_power_muscle_by_actuator",
+        "qfrc_contact_rows",
+        "signed_power_contact_rows",
+        "signed_power_noncontact_constraint",
+        "contact_valid_mask",
+        "spikes",
+        "features",
+        "applied",
+        "decoded",
+        "current",
+        "weights",
+        "actuator_pool",
+        "six_gates",
+        "all_six_gates",
+        "load_ratio",
+        "root_angle_rad",
+        "external_impulse_world",
+        "contact_impulse_world",
+        "com_momentum_change_world"
+      ],
+      "STOP_FULL_STATE.npz": [
+        "time",
+        "qpos",
+        "qvel",
+        "act",
+        "ctrl",
+        "contacts",
+        "foot_force",
+        "nonfoot_depth",
+        "limit_excess",
+        "actuator_force",
+        "actuator_length",
+        "actuator_velocity",
+        "qacc",
+        "qfrc_actuator",
+        "qfrc_passive",
+        "qfrc_constraint",
+        "qfrc_bias",
+        "qfrc_applied",
+        "xfrc_applied",
+        "Ma",
+        "RHS",
+        "residual",
+        "actuator_force_residual",
+        "warnings",
+        "actuator_moment",
+        "actuator_moment_raw",
+        "moment_raw",
+        "moment_rownnz",
+        "moment_rowadr",
+        "moment_colind",
+        "body_mass",
+        "body_xpos",
+        "body_xipos",
+        "body_cvel_raw",
+        "body_spatial_velocity_world",
+        "body_linear_velocity_world",
+        "body_object_acceleration_raw6_world",
+        "body_com_jacp",
+        "body_com_jacdot",
+        "body_jac_velocity_world",
+        "body_linear_acceleration_world",
+        "com_acceleration_world",
+        "com_mass_times_acceleration_world",
+        "com_position_world",
+        "com_velocity_world",
+        "com_momentum_world",
+        "gravity_force_world",
+        "gravity_torque_about_com",
+        "contact_force_world",
+        "contact_torque_about_com",
+        "applied_force_world",
+        "applied_torque_about_com",
+        "external_force_world",
+        "external_torque_about_com",
+        "contact_ncon",
+        "contact_geom_ids",
+        "contact_body_ids",
+        "contact_pos_world",
+        "contact_frame",
+        "contact_dist",
+        "contact_force_raw6",
+        "contact_force_on_geom2_world",
+        "contact_intrinsic_torque_on_geom2_world",
+        "contact_torque_on_geom2_about_com",
+        "contact_external_mask",
+        "contact_external_sign",
+        "contact_dim",
+        "contact_friction",
+        "root_vz",
+        "native_mass_packed",
+        "native_qacc_warmstart",
+        "native_energy",
+        "signed_power_passive",
+        "signed_power_actuator",
+        "signed_power_constraint",
+        "signed_power_muscle_by_actuator",
+        "qfrc_contact_rows",
+        "signed_power_contact_rows",
+        "signed_power_noncontact_constraint"
+      ],
+      "NEURAL_FINAL.npz": [
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count",
+        "FIR_history",
+        "release_features",
+        "release_decoded"
+      ],
+      "INITIALIZATION.npz": [
+        "spikes",
+        "features",
+        "decoded",
+        "warmup_spikes",
+        "warmup_features",
+        "warmup_decoded",
+        "current",
+        "history",
+        "release_features",
+        "release_decoded",
+        "weights",
+        "body_qpos",
+        "body_qvel",
+        "body_act",
+        "body_ctrl",
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count"
+      ],
+      "NEURAL_COLD.npz": [
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count"
+      ]
+    },
+    "S162": {
+      "TRAJECTORY.npz": [
+        "time",
+        "qpos",
+        "qvel",
+        "act",
+        "ctrl",
+        "contacts",
+        "foot_force",
+        "nonfoot_depth",
+        "limit_excess",
+        "actuator_force",
+        "actuator_length",
+        "actuator_velocity",
+        "qacc",
+        "qfrc_actuator",
+        "qfrc_passive",
+        "qfrc_constraint",
+        "qfrc_bias",
+        "qfrc_applied",
+        "xfrc_applied",
+        "Ma",
+        "RHS",
+        "residual",
+        "actuator_force_residual",
+        "warnings",
+        "actuator_moment",
+        "actuator_moment_raw",
+        "moment_raw",
+        "moment_rownnz",
+        "moment_rowadr",
+        "moment_colind",
+        "body_mass",
+        "body_xpos",
+        "body_xipos",
+        "body_cvel_raw",
+        "body_spatial_velocity_world",
+        "body_linear_velocity_world",
+        "body_object_acceleration_raw6_world",
+        "body_com_jacp",
+        "body_com_jacdot",
+        "body_jac_velocity_world",
+        "body_linear_acceleration_world",
+        "com_acceleration_world",
+        "com_mass_times_acceleration_world",
+        "com_position_world",
+        "com_velocity_world",
+        "com_momentum_world",
+        "gravity_force_world",
+        "gravity_torque_about_com",
+        "contact_force_world",
+        "contact_torque_about_com",
+        "applied_force_world",
+        "applied_torque_about_com",
+        "external_force_world",
+        "external_torque_about_com",
+        "contact_ncon",
+        "contact_geom_ids",
+        "contact_body_ids",
+        "contact_pos_world",
+        "contact_frame",
+        "contact_dist",
+        "contact_force_raw6",
+        "contact_force_on_geom2_world",
+        "contact_intrinsic_torque_on_geom2_world",
+        "contact_torque_on_geom2_about_com",
+        "contact_external_mask",
+        "contact_external_sign",
+        "contact_dim",
+        "contact_friction",
+        "root_vz",
+        "native_mass_packed",
+        "native_qacc_warmstart",
+        "native_energy",
+        "signed_power_passive",
+        "signed_power_actuator",
+        "signed_power_constraint",
+        "signed_power_muscle_by_actuator",
+        "qfrc_contact_rows",
+        "signed_power_contact_rows",
+        "signed_power_noncontact_constraint",
+        "contact_valid_mask",
+        "spikes",
+        "features",
+        "applied",
+        "decoded",
+        "current",
+        "weights",
+        "actuator_pool",
+        "six_gates",
+        "all_six_gates",
+        "load_ratio",
+        "root_angle_rad",
+        "external_impulse_world",
+        "contact_impulse_world",
+        "com_momentum_change_world"
+      ],
+      "STOP_FULL_STATE.npz": [
+        "time",
+        "qpos",
+        "qvel",
+        "act",
+        "ctrl",
+        "contacts",
+        "foot_force",
+        "nonfoot_depth",
+        "limit_excess",
+        "actuator_force",
+        "actuator_length",
+        "actuator_velocity",
+        "qacc",
+        "qfrc_actuator",
+        "qfrc_passive",
+        "qfrc_constraint",
+        "qfrc_bias",
+        "qfrc_applied",
+        "xfrc_applied",
+        "Ma",
+        "RHS",
+        "residual",
+        "actuator_force_residual",
+        "warnings",
+        "actuator_moment",
+        "actuator_moment_raw",
+        "moment_raw",
+        "moment_rownnz",
+        "moment_rowadr",
+        "moment_colind",
+        "body_mass",
+        "body_xpos",
+        "body_xipos",
+        "body_cvel_raw",
+        "body_spatial_velocity_world",
+        "body_linear_velocity_world",
+        "body_object_acceleration_raw6_world",
+        "body_com_jacp",
+        "body_com_jacdot",
+        "body_jac_velocity_world",
+        "body_linear_acceleration_world",
+        "com_acceleration_world",
+        "com_mass_times_acceleration_world",
+        "com_position_world",
+        "com_velocity_world",
+        "com_momentum_world",
+        "gravity_force_world",
+        "gravity_torque_about_com",
+        "contact_force_world",
+        "contact_torque_about_com",
+        "applied_force_world",
+        "applied_torque_about_com",
+        "external_force_world",
+        "external_torque_about_com",
+        "contact_ncon",
+        "contact_geom_ids",
+        "contact_body_ids",
+        "contact_pos_world",
+        "contact_frame",
+        "contact_dist",
+        "contact_force_raw6",
+        "contact_force_on_geom2_world",
+        "contact_intrinsic_torque_on_geom2_world",
+        "contact_torque_on_geom2_about_com",
+        "contact_external_mask",
+        "contact_external_sign",
+        "contact_dim",
+        "contact_friction",
+        "root_vz",
+        "native_mass_packed",
+        "native_qacc_warmstart",
+        "native_energy",
+        "signed_power_passive",
+        "signed_power_actuator",
+        "signed_power_constraint",
+        "signed_power_muscle_by_actuator",
+        "qfrc_contact_rows",
+        "signed_power_contact_rows",
+        "signed_power_noncontact_constraint"
+      ],
+      "NEURAL_FINAL.npz": [
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count",
+        "FIR_history",
+        "release_features",
+        "release_decoded"
+      ],
+      "INITIALIZATION.npz": [
+        "spikes",
+        "features",
+        "decoded",
+        "warmup_spikes",
+        "warmup_features",
+        "warmup_decoded",
+        "current",
+        "history",
+        "release_features",
+        "release_decoded",
+        "weights",
+        "body_qpos",
+        "body_qvel",
+        "body_act",
+        "body_ctrl",
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count"
+      ],
+      "NEURAL_COLD.npz": [
+        "_ring",
+        "v",
+        "ge",
+        "gi",
+        "adaptation",
+        "refractory_until_ms",
+        "spike_count"
+      ]
+    }
+  },
+  "source_evidence": [
+    {
+      "path": "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0049_neural_cond.py",
+      "sha256": "f4e6d5af5473a187f3da521273e606d726bd5df6272df214457e14e9aa289499",
+      "quotes": [
+        {
+          "start": 1,
+          "end": 9,
+          "text": "1: \"\"\"Conductance point tier, explicit units and illustrative parameters.\n2: \n3: C[nF] dV[mV]/dt[ms] = g[uS]*(E-V)[mV] + I[nA] - adaptation[nA].\n4: Default backward Euler voltage, optional frozen-coefficient exact voltage.\n5: Both split exact exponential conductance/adaptation decay and end-step spikes;\n6: frozen_exact is not an exact continuous-time conductance-network solution.\n7: Threshold/reset and adaptation are reductions, NOT calibrated fly physiology.\n8: Matrices carry nonnegative conductance increments, indexed (post, pre).\n9: No transmitter-to-sign inference: caller must supply receptor assumptions."
+        },
+        {
+          "start": 17,
+          "end": 30,
+          "text": "17: class ConductanceParams:\n18:     capacitance_nF: float = 0.02\n19:     leak_uS: float = 0.001\n20:     rest_mV: float = -65.0\n21:     threshold_mV: float = -50.0\n22:     reset_mV: float = -65.0\n23:     exc_reversal_mV: float = 0.0\n24:     inh_reversal_mV: float = -70.0\n25:     exc_tau_ms: float = 3.0\n26:     inh_tau_ms: float = 8.0\n27:     adaptation_tau_ms: float = 100.0\n28:     adaptation_increment_nA: float = 0.002\n29:     refractory_ms: float = 2.0\n30:     delay_ms: float = 2.0"
+        },
+        {
+          "start": 63,
+          "end": 78,
+          "text": "63:         d = self.p.delay_ms / self.dt\n64:         if d < 1 or not np.isclose(d, round(d), rtol=0, atol=1e-9):\n65:             raise ValueError('delay must be an integer number of steps, at least one')\n66:         self.delay_steps = int(round(d))\n67:         self._ring = np.zeros((self.delay_steps + 1, self.n), dtype=bool)\n68:         self._ring_i = 0\n69:         self.v = np.full(self.n, self.p.rest_mV)\n70:         self.ge = np.zeros(self.n)\n71:         self.gi = np.zeros(self.n)\n72:         self.adaptation = np.zeros(self.n)\n73:         self.refractory_until_ms = np.zeros(self.n)\n74:         self.spike_count = np.zeros(self.n, dtype=np.int64)\n75:         self.We = sparse.csr_matrix((self.n, self.n))\n76:         self.Wi = sparse.csr_matrix((self.n, self.n))\n77:         self.t_ms = 0.0\n78:         self.steps = 0"
+        },
+        {
+          "start": 99,
+          "end": 155,
+          "text": "99:     def step(self, current_nA=0.0, exc_events_uS=0.0, inh_events_uS=0.0,\n100:              enabled=None):\n101:         \"\"\"Events arrive at interval START, returned spikes at interval END.\n102: \n103:         A spike emitted at t arrives at t+delay. External increments are immediate.\n104:         ``enabled`` assigns point-tier ownership; disabled cells do not spike or\n105:         integrate. Incoming events to disabled targets are discarded, so a hybrid\n106:         coordinator must route those edges to their detailed owner instead.\n107:         Disabled voltage/adaptation are frozen. This is a fixed-ownership API,\n108:         not a state-transfer protocol for dynamic coarse/fine switching.\n109:         \"\"\"\n110:         I = self._vector(current_nA, 'current')\n111:         ee = self._vector(exc_events_uS, 'exc events', True)\n112:         ei = self._vector(inh_events_uS, 'inh events', True)\n113:         own = np.ones(self.n, bool) if enabled is None else np.asarray(enabled)\n114:         if own.shape != (self.n,) or own.dtype != np.dtype(bool):\n115:             raise ValueError('ownership mask must be a boolean vector of neuron count')\n116:         p, dt = self.p, self.dt\n117:         # Slot at step k contains spikes emitted at end of step k-delay-1.\n118:         # Reuse the consumed slot in a delay+1 ring: end->start delay is exact.\n119:         arrivals = self._ring[self._ring_i].copy()\n120:         self._ring[self._ring_i] = False\n121:         self.ge += self.We @ arrivals + ee\n122:         self.gi += self.Wi @ arrivals + ei\n123:         self.ge[~own] = 0\n124:         self.gi[~own] = 0\n125:         active = own & (self.t_ms + 1e-10 >= self.refractory_until_ms)\n126:         G = p.leak_uS + self.ge + self.gi\n127:         rhs = (p.capacitance_nF / dt * self.v + p.leak_uS * p.rest_mV\n128:                + self.ge * p.exc_reversal_mV + self.gi * p.inh_reversal_mV\n129:                + I - self.adaptation)\n130:         if self.voltage_method == 'backward_euler':\n131:             self.v[active] = (rhs / (p.capacitance_nF / dt + G))[active]\n132:         else:\n133:             # Exact only for coefficients frozen at interval start. Conductance\n134:             # decay, adaptation and end-step threshold events remain split.\n135:             drive = (p.leak_uS * p.rest_mV + self.ge * p.exc_reversal_mV\n136:                      + self.gi * p.inh_reversal_mV + I - self.adaptation)\n137:             equilibrium = drive / G\n138:             fraction = -np.expm1(-dt * G / p.capacitance_nF)\n139:             self.v[active] += ((equilibrium - self.v) * fraction)[active]\n140:         self.v[own & ~active] = p.reset_mV\n141:         spiked = active & (self.v >= p.threshold_mV)\n142:         self.steps += 1\n143:         self.t_ms = self.steps * dt\n144:         self.v[spiked] = p.reset_mV\n145:         self.refractory_until_ms[spiked] = self.t_ms + p.refractory_ms\n146:         self.spike_count += spiked\n147:         self.adaptation[own] *= np.exp(-dt / p.adaptation_tau_ms)\n148:         self.adaptation[spiked] += p.adaptation_increment_nA\n149:         self.ge *= np.exp(-dt / p.exc_tau_ms)\n150:         self.gi *= np.exp(-dt / p.inh_tau_ms)\n151:         # Delay >= one step; next slot is consumed after delay full intervals.\n152:         # An extra slot is needed to distinguish start from end timestamps.\n153:         self._ring[self._ring_i] = spiked\n154:         self._ring_i = (self._ring_i + 1) % len(self._ring)\n155:         return spiked"
+        }
+      ]
+    },
+    {
+      "path": "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/SOURCE_FREEZE/PRIVATE_RUNNER_SOURCE.py",
+      "sha256": "c8c5b17e3e70a1c155ae679712182568a1d689b2e62501e9182ca6ca884d17ca",
+      "quotes": [
+        {
+          "start": 185,
+          "end": 188,
+          "text": "185:         built = build_neural_tier(); a = built['data']\n186:         tier = retain_motor_endpoints(a, downstream_union(a, built['global_index'], ['720575941433155799','720575941566493282'], hops=2, max_neurons=20000), ['720575941391252886','720575941511883985','720575941497037218','720575941559306355'])\n187:         roots = a['root_ids'][tier['global_index']]; assert len(roots) == 17099\n188:         edges = build_edges(a, tier, built['cut']); groups, _ = channel_index_map(len(roots), roots)"
+        },
+        {
+          "start": 225,
+          "end": 237,
+          "text": "225:             d = mj.MjData(m); d.qpos[:] = q  # Sole pose write.\n226:             net = ConductanceNetwork(len(roots), dt_ms=.5)\n227:             net.set_connectivity(edges['We']*.2, edges['Wi']*.2)\n228:             dec = FiniteMotorTranslator(manifest, arm_weights); enc = ChannelSensoryEncoder(groups, len(roots))\n229:             assert not dec.history.any() and net.steps == 0 and net.t_ms == 0\n230:             atomic_npz(dest/'NEURAL_COLD.npz', **{k:v.copy() for k,v in vars(net).items() if isinstance(v,np.ndarray)})\n231:             atomic_json(dest/'NEURAL_COLD_META.json', neural_meta(net))\n232:             connectivity = {}\n233:             for name in ('We', 'Wi'):\n234:                 matrix = getattr(net, name).tocsr()\n235:                 for field in ('data','indices','indptr'): connectivity[name+'_'+field] = getattr(matrix,field)\n236:                 connectivity[name+'_shape'] = np.asarray(matrix.shape)\n237:             atomic_npz(dest/'CONNECTIVITY.npz', **connectivity)"
+        },
+        {
+          "start": 294,
+          "end": 309,
+          "text": "294:             initial_current, _ = enc.encode(initial_observed)\n295:             atomic_json(dest/'INITIAL_OBSERVATION.json',raw_observation_record(initial_observed)[0])\n296:             warmsp, warmf, warmu = [], [], []\n297:             for j in range(PRE):\n298:                 reserve(neural_ticks=1); sp = net.step(current_nA=initial_current).copy()\n299:                 u, info = dec.consume(sp[None,:],spike_dt_s=.0005,start_s=j*.0005,end_s=(j+1)*.0005)\n300:                 warmsp.append(sp); warmf.append(info['pool_features']); warmu.append(u)\n301:             release_features = np.stack([dec.history[lo:hi].mean(0) for lo,hi in dec.BINS],axis=1)\n302:             pooled = np.clip((release_features*arm_weights).sum(1),0,1)\n303:             release_ctrl = np.zeros(m.nu); mapped = dec.actuator_pool >= 0\n304:             release_ctrl[mapped] = pooled[dec.actuator_pool[mapped]]\n305:             atomic_npz(dest/'INITIALIZATION.npz',spikes=np.asarray(warmsp,dtype=bool),features=np.asarray(warmf),decoded=np.asarray(warmu),warmup_spikes=np.asarray(warmsp,dtype=bool),warmup_features=np.asarray(warmf),warmup_decoded=np.asarray(warmu),\n306:                 current=initial_current,history=dec.history,release_features=release_features,release_decoded=release_ctrl,\n307:                 weights=arm_weights,body_qpos=d.qpos,body_qvel=d.qvel,body_act=d.act,body_ctrl=d.ctrl,\n308:                 **{k:v for k,v in vars(net).items() if isinstance(v,np.ndarray)})\n309:             atomic_json(dest/'NEURAL_RELEASE_META.json',neural_meta(net))"
+        },
+        {
+          "start": 338,
+          "end": 373,
+          "text": "338:             for tick in range(TICKS):\n339:                 if stop_reasons: break\n340:                 if tick % 1 == 0:\n341:                     assert abs(d.time-tick*.0005) < 1e-12\n342:                     observed = observe_quantities(m,d,sensory_ref,joints,geom_leg)\n343:                     current, encoding_record = enc.encode(observed)\n344:                     refresh_times.append(float(d.time))\n345:                     atomic_json(dest/f'OBSERVATION_{tick:02d}.json',raw_observation_record(observed)[0])\n346:                     atomic_json(dest/f'ENCODING_{tick:02d}.json',dict(\n347:                         schema='S162 raw OBSERVATION unchanged; encoder record retained separately',\n348:                         tick=tick, physical_sample_time_s=float(d.time),\n349:                         body_last_step_index=tick*20, current_nA=current.tolist(),\n350:                         features=encoding_record, raw_file=f'OBSERVATION_{tick:02d}.json'))\n351:                     sensory_schedule.append(dict(tick=tick, physical_sample_time_s=float(d.time),\n352:                         body_last_step_index=tick*20, held_from_tick=None,\n353:                         held_current_between_ticks=False, refreshed_every_tick=True,\n354:                         source_start_s=(PRE+tick)*.0005,source_end_s=(PRE+tick+1)*.0005,\n355:                         order='current integrated body -> observe -> encode -> neural -> decode -> immediate ctrl -> 20 RK4 body substeps'))\n356:                 currents.append(current.copy()); reserve(neural_ticks=1)\n357:                 sp = net.step(current_nA=current).copy()\n358:                 start,end = (PRE+tick)*.0005,(PRE+tick+1)*.0005\n359:                 u,info = dec.consume(sp[None,:],spike_dt_s=.0005,start_s=start,end_s=end)\n360:                 assert abs(net.t_ms/1000-end) < 1e-12 and dec.interval == PRE+tick\n361:                 assert abs(d.time-tick*.0005) < 1e-12\n362:                 spikes.append(sp); features.append(info['pool_features']); commands.append(u.copy())\n363:                 schedule.append(dict(tick=tick,source_start_s=start,source_end_s=end,\n364:                     physical_start_s=float(d.time),planned_physical_end_s=(tick+1)*.0005,\n365:                     source_offset_s=.08,consume_id=dec.interval))\n366:                 d.ctrl[:] = 0.5 * u\n367:                 for sub in range(substeps):\n368:                     require_no_callbacks(callback_snapshot(mj))\n369:                     assert not d.qfrc_applied.any() and not d.xfrc_applied.any()\n370:                     reserve(step=1,forward=1); mj.mj_step(m,d); mj.mj_forward(m,d)\n371:                     row = sample(); rows.append(row)\n372:                     stop_reasons = s142_reasons(row, q, m)\n373:                     if stop_reasons: break"
+        },
+        {
+          "start": 376,
+          "end": 399,
+          "text": "376:             arrays.update(spikes=np.asarray(spikes),features=np.asarray(features),\n377:                 applied=0.5*np.asarray(commands),decoded=np.asarray(commands),current=np.asarray(currents),\n378:                 weights=arm_weights,actuator_pool=dec.actuator_pool.copy())\n379:             weight_native = float(m.body_mass.sum()*abs(m.opt.gravity[2]))\n380:             load = arrays['foot_force'][:,:,2].sum(1)/weight_native\n381:             quat = arrays['qpos'][:,3:7]; norms = np.linalg.norm(quat,axis=1)\n382:             angle = 2*np.arccos(np.clip(np.abs(quat@quat[0])/(norms*norms[0]),0,1))\n383:             gates = np.column_stack((arrays['qpos'][:,2]/s146_original_q[2] >= .85,angle <= .35,\n384:                 np.count_nonzero(arrays['contacts'] > 0,axis=1) >= 3,load >= .8,\n385:                 arrays['nonfoot_depth'] <= 1e-12,arrays['limit_excess'] <= 1e-6))\n386:             arrays.update(six_gates=gates,all_six_gates=gates.all(1),load_ratio=load,root_angle_rad=angle)\n387:             # Actual-time trapezoid impulse, including stop sample; NOT work or elastic energy.\n388:             for force_key, output_key in [('external_force_world','external_impulse_world'),\n389:                                          ('contact_force_world','contact_impulse_world')]:\n390:                 f = arrays[force_key]\n391:                 arrays[output_key] = np.vstack([np.zeros(3),np.cumsum(\n392:                     .5*(f[1:]+f[:-1])*np.diff(arrays['time'])[:,None],axis=0)])\n393:             arrays['com_momentum_change_world'] = arrays['com_momentum_world']-arrays['com_momentum_world'][0]\n394:             atomic_npz(dest/'TRAJECTORY.npz',**arrays)\n395:             atomic_json(dest/'SCHEDULE.json',schedule)\n396:             atomic_json(dest/'SENSORY_SCHEDULE.json',sensory_schedule)\n397:             atomic_json(dest/'NEURAL_FINAL_META.json',neural_meta(net))\n398:             atomic_npz(dest/'NEURAL_FINAL.npz',**{k:v.copy() for k,v in vars(net).items() if isinstance(v,np.ndarray)},\n399:                 FIR_history=dec.history,release_features=release_features,release_decoded=release_ctrl)"
+        }
+      ]
+    },
+    {
+      "path": "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0087_sensory_channels.py",
+      "sha256": "85fe4e5cbef021263b242ce26d5db140f7ede319907cb4a5f71b0c0a2fdd9ccf",
+      "quotes": [
+        {
+          "start": 255,
+          "end": 297,
+          "text": "255:     def encode(self, per_leg: dict) -> tuple:\n256:         \"\"\"`per_leg[leg]` is a ChannelQuantities.  Returns (current_nA, record).\"\"\"\n257:         # Config and quantities are mutable dataclasses: validate at the boundary\n258:         # as well as construction, including quantities for currently empty groups.\n259:         self._validate_config()\n260:         cfg = self.cfg\n261:         current = np.zeros(self.n)\n262:         record = {\"per_leg\": {}, \"unmodelled_channels\": [], \"scale_nA_per_unit\":\n263:                   cfg.current_nA_per_unit}\n264:         for leg in LEGS:\n265:             q = per_leg.get(leg)\n266:             if q is None:\n267:                 continue\n268:             for name in (\"tibia_joint_dev_rad\", \"tibia_joint_vel_rad_s\",\n269:                          \"multi_joint_dev_rad\", \"contact_force_norm\", \"foot_contact\"):\n270:                 self._require_finite_scalar(getattr(q, name), f\"{leg}/{name}\")\n271:             vals = {\n272:                 \"claw_position\": q.tibia_joint_dev_rad / cfg.reference_angle_rad,\n273:                 \"hook_direction\": q.tibia_joint_vel_rad_s / cfg.reference_velocity_rad_s,\n274:                 \"hairplate_angle\": q.multi_joint_dev_rad / cfg.reference_angle_rad,\n275:                 \"campaniform_strain\": q.contact_force_norm / cfg.reference_force,\n276:                 \"bristle_touch\": q.foot_contact,\n277:                 \"club_vibration\": 0.0,\n278:                 \"multidendritic_noxious\": 0.0,\n279:             }\n280:             leg_record = {}\n281:             for ch, v in vals.items():\n282:                 self._require_finite_scalar(v, f\"{leg}/{ch} normalized quantity\")\n283:                 _, fn, signed, modelled = CHANNEL_SPEC[ch]\n284:                 if not modelled:\n285:                     record[\"unmodelled_channels\"].append({\"leg\": leg, \"channel\": ch,\n286:                                                           \"dataset_function\": fn,\n287:                                                           \"value\": 0.0})\n288:                 idx = self.groups[leg][ch]\n289:                 if idx.size:\n290:                     with np.errstate(over=\"ignore\", invalid=\"ignore\"):\n291:                         current[idx] += cfg.current_nA_per_unit * float(v)\n292:                     if not np.all(np.isfinite(current[idx])):\n293:                         raise ValueError(f\"{leg}/{ch} produces nonfinite current\")\n294:                 leg_record[ch] = {\"value\": float(v), \"signed\": signed, \"modelled\": modelled,\n295:                                   \"n_cells\": int(idx.size), \"dataset_function\": fn}\n296:             record[\"per_leg\"][leg] = leg_record\n297:         return current, record"
+        },
+        {
+          "start": 320,
+          "end": 352,
+          "text": "320: def channel_index_map(n_neurons: int, tier_root_ids, *, lookup_path: Path = LOOKUP):\n321:     \"\"\"Partition tier-local indices into (leg, channel) from the EXPORTED lookup.\n322: \n323:     `tier_root_ids` is the tier's root-id vector in tier-local order (the tier publishes it).\n324:     Returns (channel_groups, stats).  A cell the tier does not contain simply does not appear:\n325:     a partial partition is REPORTED, never padded.\n326: \n327:     The dataset read itself lives in `tools_export_sensory_channel_lookup.py` because reading\n328:     the feather needs pandas, and the interpreter that runs MuJoCo here does not have pandas\n329:     (measured: venv_body has mujoco without pandas; venv has pandas without mujoco).\n330:     \"\"\"\n331:     lu = load_lookup(lookup_path)\n332:     by_root = lu[\"leg_channel_by_root\"]\n333:     local_of_root = {int(r): i for i, r in enumerate(np.asarray(tier_root_ids))}\n334:     groups = {leg: {ch: [] for ch in CHANNEL_SPEC} for leg in LEGS}\n335:     matched = unmatched = 0\n336:     for root_s, pair in by_root.items():\n337:         leg, ch = pair[0], pair[1]\n338:         if leg not in groups or ch not in groups[leg]:\n339:             continue\n340:         li = local_of_root.get(int(root_s))\n341:         if li is None:\n342:             unmatched += 1\n343:             continue\n344:         groups[leg][ch].append(li)\n345:         matched += 1\n346:     stats = {\"cells_placed\": matched, \"leg_sensory_cells_outside_tier\": unmatched,\n347:              \"n_neurons\": int(n_neurons),\n348:              \"n_dataset_cells_with_a_channel\": len(by_root),\n349:              \"lookup\": str(lookup_path),\n350:              \"note\": \"a cell that is in the dataset but not in the tier cannot be driven; that \"\n351:                      \"count is reported rather than redistributed\"}\n352:     return groups, stats"
+        }
+      ]
+    },
+    {
+      "path": "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0104_motor_translation.py",
+      "sha256": "5d20bd0051e8c3d066ed64a6827059113923e3aa5c7c00e42ec258dc39121aae",
+      "quotes": [
+        {
+          "start": 12,
+          "end": 29,
+          "text": "12: class FiniteMotorTranslator:\n13:     DT = .0005\n14:     BINS = ((0,5),(5,10),(10,20),(20,40),(40,80))\n15:     MAX_WEIGHT = 4.\n16: \n17:     def __init__(self, manifest, weights=None):\n18:         validated=MotorOutput(manifest)\n19:         self.n,self.nu=validated.n,validated.nu\n20:         self.pools=sorted({tuple(sorted(g.tolist())) for g in validated.groups if len(g)})\n21:         lookup={p:i for i,p in enumerate(self.pools)}\n22:         self.actuator_pool=np.array([lookup.get(tuple(sorted(g.tolist())),-1) for g in validated.groups])\n23:         identity={'n':self.n,'rows':[{k:r.get(k) for k in ('actuator','actuator_index','local_indices','tier_root_ids','pool_root_ids')} for r in manifest['rows']]}\n24:         self.mapping_digest=hashlib.sha256(json.dumps(identity,sort_keys=True).encode()).hexdigest()\n25:         self._weights=np.tile([.4,.25,.2,.1,.05],(len(self.pools),1)) if weights is None else np.asarray(weights,float).copy()\n26:         if self._weights.shape!=(len(self.pools),5) or not np.isfinite(self._weights).all() or np.any((self._weights<0)|(self._weights>self.MAX_WEIGHT)):\n27:             raise ValueError('weights require shape pools x5, finite and within [0,4]')\n28:         self._weights.flags.writeable=False\n29:         self.reset()"
+        },
+        {
+          "start": 35,
+          "end": 59,
+          "text": "35:     def reset(self):\n36:         self.history=np.zeros((80,len(self.pools)))\n37:         self.elapsed_s=0.;self.interval=-1\n38: \n39:     def consume(self, spikes, *, spike_dt_s, start_s, end_s, connected=True):\n40:         sp=np.asarray(spikes)\n41:         if sp.ndim!=2 or sp.shape[1]!=self.n or sp.shape[0]<1 or not np.all((sp==0)|(sp==1)):\n42:             raise ValueError('binary finite time x neuron spikes required')\n43:         if not all(math.isfinite(v) for v in (spike_dt_s,start_s,end_s)) or not math.isclose(spike_dt_s,self.DT,rel_tol=0,abs_tol=1e-15):\n44:             raise ValueError('fixed 0.5ms neural ticks required')\n45:         if not math.isclose(start_s,self.elapsed_s,rel_tol=0,abs_tol=1e-12) or not math.isclose(end_s-start_s,len(sp)*self.DT,rel_tol=0,abs_tol=1e-12):\n46:             raise ValueError('contiguous completed source intervals required')\n47:         counts=np.array([sp[:,p].sum() for p in self.pools],dtype=int)\n48:         if connected:\n49:             activity=np.column_stack([sp[:,p].mean(axis=1)/self.DT/100 for p in self.pools]) if self.pools else np.zeros((len(sp),0))\n50:             self.history=np.concatenate((activity[::-1],self.history),axis=0)[:80]\n51:         else:self.history.fill(0)\n52:         features=np.stack([self.history[lo:hi].mean(axis=0) for lo,hi in self.BINS],axis=1)\n53:         pooled=np.clip((features*self._weights).sum(axis=1),0,1)\n54:         ctrl=np.zeros(self.nu);mapped=self.actuator_pool>=0;ctrl[mapped]=pooled[self.actuator_pool[mapped]]\n55:         self.elapsed_s=float(end_s);self.interval+=1\n56:         return ctrl,{'source_interval':self.interval,'source_start_s':float(start_s),'source_end_s':float(end_s),\n57:             'valid_from_s':float(end_s),'connected':bool(connected),'pool_spike_counts':counts.tolist(),\n58:             'pool_features':features.tolist(),'memory_horizon_s':.04,'mapping_digest':self.mapping_digest,\n59:             'note':'finite causal FIR, no bias; engineering translation not anatomy'}"
+        }
+      ]
+    }
+  ],
+  "input_hashes": {
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/NEURAL_FINAL.npz": "15d4ac328372ce2e00d3d44942bebcbef46a0c42801e9794d80db2260daac73e",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/INITIALIZATION.npz": "f4499621982a04263e6ec91ec56235bdd8e6efbe6ce9bb3dfc6325f014f4c0b3",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/TRAJECTORY.npz": "96e850c5a64ccb9bee3892b3314e952294d355b38a0a7a9531d554f5dd0e8d0b",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/NEURAL_COLD.npz": "d7bc592de87f962e1916fe2327fcf0b47800b5c86eef8dd6a360753c67941dd0",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/NEURAL_COLD_META.json": "5cecb7c82c84348fcd9681f595bac8de6f0c4c472e3644eb7be1abc678dd3a71",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/NEURAL_FINAL_META.json": "878c078a5f2a600e81997e04b993b1dbdcd2d164ade60ce6e87ae22f0c8f4930",
+    "/home/sensen/Desktop/engine修复验收/s154-activation-rate/20261024T215751775489Z/init80ms/NEURAL_RELEASE_META.json": "88b5af4617140e973486e3bcfc6e13c6c35ebfece9d2b790412049871dcffc2e",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/NEURAL_FINAL.npz": "0b4b5daaf70387a22c1c27e6e434df3891dfc71167526b39f26b308727fef681",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/INITIALIZATION.npz": "f4499621982a04263e6ec91ec56235bdd8e6efbe6ce9bb3dfc6325f014f4c0b3",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/TRAJECTORY.npz": "4dc8cc1b6eb4eb815423daa25b4e4f0ec5bbae0c88f089651f265d927cb18867",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/NEURAL_COLD.npz": "d7bc592de87f962e1916fe2327fcf0b47800b5c86eef8dd6a360753c67941dd0",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/NEURAL_COLD_META.json": "5cecb7c82c84348fcd9681f595bac8de6f0c4c472e3644eb7be1abc678dd3a71",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/NEURAL_FINAL_META.json": "878c078a5f2a600e81997e04b993b1dbdcd2d164ade60ce6e87ae22f0c8f4930",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/NEURAL_RELEASE_META.json": "88b5af4617140e973486e3bcfc6e13c6c35ebfece9d2b790412049871dcffc2e",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0049_neural_cond.py": "f4e6d5af5473a187f3da521273e606d726bd5df6272df214457e14e9aa289499",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/SOURCE_FREEZE/PRIVATE_RUNNER_SOURCE.py": "c8c5b17e3e70a1c155ae679712182568a1d689b2e62501e9182ca6ca884d17ca",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0087_sensory_channels.py": "85fe4e5cbef021263b242ce26d5db140f7ede319907cb4a5f71b0c0a2fdd9ccf",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0104_motor_translation.py": "5d20bd0051e8c3d066ed64a6827059113923e3aa5c7c00e42ec258dc39121aae",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0003_MANIFEST.json": "9718c04126c6f961aafe32b9b020c86e90b1728d15cf8b3b68ca33267640c523",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/init80ms/ENCODER_PARAMETERS.json": "fde76e2664669576151a1e002e909dd0d1bce013be960681ab053a09a32dd4a7"
+  },
+  "limitations": [
+    "No per-tick voltage/ge/gi/adaptation/refractory trajectory is saved in actual TRAJECTORY; do not recover or reconstruct hidden neural dynamics.",
+    "Final gap is an algebraic terminal post-reset voltage gap, not the missing pre-reset candidate crossing margin.",
+    "Fixed threshold -50mV, dynamically gated by refractory eligibility; adaptation changes current, not the numeric threshold.",
+    "No new run, no parameter change, no physics conclusion or calibrated biological units."
+  ]
+}

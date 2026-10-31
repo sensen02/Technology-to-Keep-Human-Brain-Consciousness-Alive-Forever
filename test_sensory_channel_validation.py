@@ -2,8 +2,8 @@
 
 These are ordinary regression tests, NOT expectedFailure-decorated tests: failures
 on the pre-fix encoder are measured validation gaps, not implemented repairs.
-Cross-channel/cross-leg index sharing remains intentional; duplicates *within*
-a single channel group are rejected. Finite signed quantities are not clipped.
+Cross-channel/cross-leg index sharing violates the lookup partition contract;
+external stimulus summation on a cell remains allowed. Finite signed quantities are not clipped.
 Run: python -m unittest -v test_sensory_channel_validation
 """
 import unittest

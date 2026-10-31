@@ -112,6 +112,17 @@ PUBLISHED_ANCHORS = {
 }
 
 SIGN_MODES = ('annotation', 'counterfactual_ach')
+SIGN_FILL_MODES = ('none', 'mechanosensory', 'bristle_only', 'sham_matched', 'all_empty')
+
+
+def _bristle_mask(a):
+    """Dataset neurons whose root id the sensory lookup assigns to bristle_touch."""
+    import json as _json
+    from pathlib import Path as _P
+    p = _P(__file__).resolve().parents[1] / 'outputs/neural_rebuild/sensory_channel_lookup.json'
+    d = _json.loads(p.read_text())['leg_channel_by_root']
+    roots = {int(k) for k, v in d.items() if v[1] == 'bristle_touch'}
+    return np.isin(np.asarray(a['root_ids']), list(roots))
 CUT_MODES = ('intact', 'sham', 'neck_cut', 'descending_only')
 ACTIVATED_ROUTES = ('both', 'body_only', 'head_only')
 
@@ -1134,7 +1145,7 @@ def presynaptic_groups(a, mech, cut):
 # ---------------------------------------------------------------------------
 # step 5 -- signed conductance edges and one paired scenario run
 # ---------------------------------------------------------------------------
-def build_edges(a, tier, cut, sign_mode='annotation', cut_mode='intact', config=None):
+def build_edges(a, tier, cut, sign_mode='annotation', cut_mode='intact', config=None, sign_fill='none'):
     """Signed conductance edge set of the tier for one (sign_mode, cut_mode).
 
     Sign rule: pure ``ann_nt_verified`` presynaptic label only. Every excluded row
@@ -1163,13 +1174,41 @@ def build_edges(a, tier, cut, sign_mode='annotation', cut_mode='intact', config=
     lab = ver[pre]
     pure = (lab == PURE_EXC_LABEL) | np.isin(lab, list(PURE_INH_LABELS))
 
+    # ---- DECLARED transmitter-prediction fill (S268) -----------------------
+    # sign_fill fills rows that carry NO transmitter label at all with the
+    # predicted excitatory class.  It never overrides an existing label: the
+    # count of rows it touches whose label is non-empty is reported and must be
+    # zero.  sign_fill='none' is bit-identical to the historical behaviour.
+    if sign_fill not in SIGN_FILL_MODES:
+        raise ValueError('sign_fill must be one of ' + repr(SIGN_FILL_MODES))
+    empty = (ver[pre] == '')   # per ROW: the label of the row's presynaptic cell
+    if sign_fill == 'none':
+        fill_cell = np.zeros_like(forced_cell)
+    elif sign_fill == 'mechanosensory':
+        fill_cell = forced_cell
+    elif sign_fill == 'bristle_only':
+        fill_cell = forced_cell & _bristle_mask(a)
+    elif sign_fill == 'sham_matched':
+        fill_cell = ~forced_cell
+    elif sign_fill == 'all_empty':
+        # every empty-labelled presynaptic row inside the tier is signed with the
+        # predicted transmitter; nothing already labelled is touched (checked below)
+        fill_cell = np.ones_like(forced_cell)
+    else:
+        raise ValueError('unreachable')
+    fill_row_mask = inside & empty & fill_cell[pre] & ~pure
+    if sign_fill == 'sham_matched':
+        idx = np.flatnonzero(fill_row_mask)
+        fill_row_mask = np.zeros_like(fill_row_mask)
+        fill_row_mask[idx[:47581]] = True
     if sign_mode == 'annotation':
-        select = inside & pure
+        select = inside & (pure | fill_row_mask)
     else:
         select = inside & (pure | forced_cell[pre])
     rows = np.flatnonzero(select)
-    labels = (np.where(forced_cell[pre[rows]], PURE_EXC_LABEL, ver[pre[rows]])
-              if sign_mode == 'counterfactual_ach' else ver[pre[rows]])
+    filled_rows = fill_row_mask[rows]
+    labels = np.where(filled_rows | (forced_cell[pre[rows]] if sign_mode == 'counterfactual_ach' else False),
+                      PURE_EXC_LABEL, ver[pre[rows]])
 
     severed = cut['row_masks']['all']
     asc_severed = cut['row_masks']['ascending_side']
@@ -1236,7 +1275,13 @@ def build_edges(a, tier, cut, sign_mode='annotation', cut_mode='intact', config=
     return {'We': We, 'Wi': Wi, 'exc_rows': exc_rows, 'inh_rows': inh_rows,
             'kept_rows': kept_rows, 'removed_rows': rows[removed],
             'removal_row_mask': removal_mask, 'excluded': excluded,
-            'sign_mode': sign_mode, 'cut_mode': cut_mode,
+            'sign_mode': sign_mode, 'cut_mode': cut_mode, 'sign_fill': sign_fill,
+            'filled_rows': int(filled_rows.sum()),
+            'filled_synapses': int(syn[rows[filled_rows]].sum()) if rows.size else 0,
+            'overridden_annotated_rows': int((filled_rows & (ver[pre[rows]] != '')).sum()),
+            'sign_flipped_rows': int((filled_rows & np.isin(ver[pre[rows]], list(PURE_INH_LABELS))).sum()),
+            # in-tier rows only: the dataset-wide (~select) count has a different denominator
+            'post_fill_excluded_rows': int(inside.sum() - kept_rows.size),
             'nnz_exc': int(We.nnz), 'nnz_inh': int(Wi.nnz),
             'sum_exc_uS': float(We.data.sum()), 'sum_inh_uS': float(Wi.data.sum())}
 

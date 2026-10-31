@@ -1,0 +1,67 @@
+{
+  "round": "S290",
+  "scope": "READ_ONLY provenance and saved-array inspection; no model/neural imports or calls; historical files untouched",
+  "loading_chain": [
+    {"path":"/run/media/sensen/Data2/cell_wound_prototype/run_s289_decoder_range_support.py","lines":"26-31,219-228,288,394-395","evidence":"Frozen XML and S244 command order; loads S255 ARM_VECTORS v1 verbatim; builds current motor manifest from current pools + tier roots; decoder uses recorded own rates divided by450/900 then multiplied by v1 then clipped."},
+    {"path":"/run/media/sensen/Data2/cell_wound_prototype/engine/embodied/motor_output.py","lines":"13-68,151-167","evidence":"Unresolved pools get local_indices=[]; resolved roots filtered by actual tier presence; no anatomical connection inferred from names; mean over present tier cells; gains may mask otherwise active rates."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s255-advisor-probes/20261025T220959577006345Z/derive_s255.py","lines":"6-11,28-33","evidence":"v1=1.236819199*S254 perrow_apex. Offline archived-array equality verified max abs error0."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/PREREG.json","lines":"25-29","evidence":"perrow_apex calibrated against S244 A3 replay shape, not a biological muscle gain measurement."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/PATTERN_FEASIBILITY.json","lines":"8-11,135-145","evidence":"apex row0based17;26 zero gains; unexpressible rows55,62. Independently recomputed gain=target/CTRL_A0_gate_default[17] where both positive, else0; max abs error0."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s244-chirality-of-the-5-of-6-arm/20261025T205824474993Z/PREREG.json","lines":"6-7,22-26","evidence":"A3 is explicitly DIAGNOSTIC_NOT_NEURAL command replay; replay-derived gain zeros do not establish biological disablement."}
+  ],
+  "actual_assets": {
+    "gains":"/home/sensen/Desktop/engine修复验收/s255-static-gain-can-it-sustain/20261025T221308522972Z/ARM_VECTORS.json",
+    "upstream_gains":"/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/ARM_VECTORS.json",
+    "calibration_source_rates":"/home/sensen/Desktop/engine修复验收/s254-per-row-gain/20261025T220602503017Z/CTRL_A0_gate_default.npz",
+    "replay_target_and_order":"/home/sensen/Desktop/engine修复验收/s244-chirality-of-the-5-of-6-arm/20261025T205824474993Z/CMD_A3_sym_matched.npz",
+    "pools":"/run/media/sensen/Data2/cell_wound_prototype/outputs/neural_rebuild/neural_rebuild_11_mn_pools.json",
+    "current_saved_activity":"/home/sensen/Desktop/engine修复验收/s289-decoder-range-support/20261026T173400Z/decoder_original/NEURAL.npz",
+    "xml":"/run/media/sensen/Data2/engine修复验收/s27-graded-dose/20261023T035715Z/MODEL_CALIB_H_VERIFIED.xml"
+  },
+  "summary": {
+    "actuators":90,"gain_zero":26,"gain_nonzero":64,
+    "zero_due_replay_target_zero":24,"zero_due_positive_target_but_silent_calibration_source":2,
+    "zero_and_current_pool_unresolved":16,"zero_and_current_pool_resolved":10,
+    "interpretation":"All26 are inherited declared translation-layer zero masks, not26 missing neural mappings or26 broken muscles.24 follow replay target zero;55/62 were unexpressible in old calibration window despite positive targets.16 also have unresolved current annotation;10 have resolved current pools and nonzero actual S289 raw and filtered rates, while command remains0. Origin of S244 target zero as a biological rationale is NOT_ESTABLISHED; do not call zeros anatomical defects or authorize enabling them from this audit."
+  },
+  "per_zero_actuator": [
+    {"index":3,"name":"LFC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":9,"name":"LFF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":1000,"S289_filtered_rate_max_hz":428.3615992396668,"S289_ctrl_max":0},
+    {"index":18,"name":"RFC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":24,"name":"RFF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":1000,"S289_filtered_rate_max_hz":460.694718398211,"S289_ctrl_max":0},
+    {"index":30,"name":"LMC_tergopleural_promotor_a","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":31,"name":"LMC_tergopleural_promotor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":33,"name":"LMC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":36,"name":"LMC_sternal_adductor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":39,"name":"LMF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":666.6666666666666,"S289_filtered_rate_max_hz":426.5769413939101,"S289_ctrl_max":0},
+    {"index":45,"name":"RMC_tergopleural_promotor_a","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":46,"name":"RMC_tergopleural_promotor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":47,"name":"RMC_pleural_remotor_and_abductor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":48,"name":"RMC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":54,"name":"RMF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":666.6666666666666,"S289_filtered_rate_max_hz":426.5769413939101,"S289_ctrl_max":0},
+    {"index":55,"name":"RMF_accesory_trochanter_flexor","gain":0,"zero_reason":"positive_replay_target_but_silent_old_calibration_source","replay_target":0.40406365962738583,"old_apex_source_ctrl":0,"mapping":"resolved","S289_raw_rate_max_hz":1333.3333333333333,"S289_filtered_rate_max_hz":468.3665715591618,"S289_ctrl_max":0},
+    {"index":60,"name":"LHC_tergopleural_promotor_a","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":61,"name":"LHC_tergopleural_promotor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":62,"name":"LHC_pleural_remotor_and_abductor","gain":0,"zero_reason":"positive_replay_target_but_silent_old_calibration_source","replay_target":0.47292881384905766,"old_apex_source_ctrl":0,"mapping":"resolved","S289_raw_rate_max_hz":2000,"S289_filtered_rate_max_hz":483.7102778810637,"S289_ctrl_max":0},
+    {"index":63,"name":"LHC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":69,"name":"LHF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":1000,"S289_filtered_rate_max_hz":460.694718398211,"S289_ctrl_max":0},
+    {"index":74,"name":"LHTibia_extensor_93932","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":1000,"S289_filtered_rate_max_hz":460.694718398211,"S289_ctrl_max":0},
+    {"index":75,"name":"RHC_tergopleural_promotor_a","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":76,"name":"RHC_tergopleural_promotor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target exists but not on this leg/side"},
+    {"index":78,"name":"RHC_pleural_promotor","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"unresolved","mapping_reason":"target absent from BANC entirely"},
+    {"index":84,"name":"RHF_sterno-tergo-trochanter_extensor_b","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":666.6666666666666,"S289_filtered_rate_max_hz":426.5769413939101,"S289_ctrl_max":0},
+    {"index":89,"name":"RHTibia_extensor_93932","gain":0,"zero_reason":"inherited_replay_target_zero","mapping":"resolved","S289_raw_rate_max_hz":2000,"S289_filtered_rate_max_hz":483.7102778810637,"S289_ctrl_max":0}
+  ],
+  "mechanical_evidence": {
+    "XML_direct":"All90 actuator transmissions are spatial tendon site paths, not signed fixed-joint coefficients; XML670-1074 tendon section,1075 onward actuator section. Name alone does not prove antagonism.",
+    "valid_archived_signed_moments":"/home/sensen/Desktop/engine修复验收/s84-mechanical-mapping/20261023T201631Z/initial_MECHANICS.npz",
+    "other_reference_poses":["/home/sensen/Desktop/engine修复验收/s84-mechanical-mapping/20261023T201631Z/first_activation_MECHANICS.npz","/home/sensen/Desktop/engine修复验收/s84-mechanical-mapping/20261023T201631Z/formal_start_MECHANICS.npz"],
+    "shape":"moment(90,48),qpos(49); rows grounded by ACTUATOR_MAPPING.csv, DOF labels by STATE_JOINT_FORCES.csv",
+    "identity_evidence":"/home/sensen/Desktop/engine修复验收/s84-mechanical-mapping/20261023T201631Z/PREREG.json:18-24 same frozen XML SHA256 6e77df89b742c16d1a8b4a2bd3f4e99e0a909c291f0a67ff0515ec11ecabc2a4",
+    "sign_semantics":"audit.py18-23 captures dense MuJoCo actuator_moment;43-48 validates moment.T@actuator_force=qfrc_actuator. Opposite moment signs on same DOF establish pose-local opposing transmission directions, not universal biological agonist labels or current S289 torque cancellation. muscle actuator force sign must also be considered.",
+    "compiled_gear_evidence":"/home/sensen/Desktop/engine修复验收/s84-mechanical-mapping/20261023T201631Z/ACTUATOR_MAPPING.csv:2-91 records transmission3 spatial tendon and gear[1,0,0,0,0,0] in matching actuator order.",
+    "rejected_other_pose_evidence":"/run/media/sensen/Data2/cell_wound_prototype/outputs/tendon_fidelity_round17/moment_arms.npz has source XML SHA65d3904d... per route_fidelity.json5-7, not frozen6e77...; do not directly use it for this model identity."
+  },
+  "failure_notes":["One attempted text read outputs/tendon_fidelity_round17/report.json returned not found; correct file route_fidelity.json discovered/read. No simulator or neural execution occurred."],
+  "calls":{"model_load":0,"forward":0,"physics_step":0,"neural_tick":0}
+}

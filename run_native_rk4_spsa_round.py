@@ -1,0 +1,677 @@
+"""S2/S4: one bounded native-RK4 SPSA round, research only.
+
+Self-contained derivative of run_native_rk4_full_baseline.py with the s82
+run_formal_translation_training.py orchestration. Saved s92 baseline is read
+only, never rerun. Up to three fresh continuous400ms arms, one seed9301
+independent330 direction; no backtracking, fourth direction or automatic resume.
+No model compilation, neural or body calls on import or --help.
+"""
+from pathlib import Path
+import argparse
+import csv
+import dataclasses
+import fcntl
+import hashlib
+import json
+import os
+import sys
+import traceback
+
+ROOT = Path(__file__).resolve().parent
+MODEL = Path('/run/media/sensen/Data2/engine修复验收/s27-graded-dose/20261023T035715Z/MODEL_CALIB_H_VERIFIED.xml')
+INITIAL = Path('/run/media/sensen/Data2/engine修复验收/s7-posture-ik/20261023T021141Z/DERIVED_INITIAL.npz')
+ENDPOINTS = Path('/run/media/sensen/Data2/engine修复验收/s4-endpoints/20261023T011559Z')
+BASE_RUN = Path('/home/sensen/Desktop/engine修复验收/s92-rk4-full-baseline/20261023T210730Z/run')
+BASELINE = BASE_RUN/'baseline400ms/TRAJECTORY.npz'
+DERIVED_FROM = ROOT/'run_native_rk4_full_baseline.py'
+TRAINING_FROM = ROOT/'run_formal_translation_training.py'
+OUTPUT = Path('/home/sensen/Desktop/engine修复验收/s93-rk4-spsa/20261023T211511Z/run')
+BODY_DT, NEURAL_DT, COMMAND_DT = .0001, .0005, .005
+BLOCKS, PHYSICS_PER_BLOCK, SAMPLES = 80, 50, 4001
+SEED, DELTA, MAX_STEP, TOLERANCE = 9301, .01, .005, 1e-12
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as f:
+        for chunk in iter(lambda: f.read(1024*1024), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def sync_dir(path):
+    fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def atomic_json(path, obj):
+    path = Path(path)
+    tmp = path.with_suffix(path.suffix+'.tmp')
+    with tmp.open('w') as f:
+        json.dump(obj, f, indent=2, ensure_ascii=False, allow_nan=False)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+    sync_dir(path.parent)
+
+
+def atomic_npz(path, **arrays):
+    import numpy as np
+    path = Path(path)
+    tmp = path.with_suffix(path.suffix+'.tmp')
+    with tmp.open('wb') as f:
+        np.savez(f, **arrays)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+    sync_dir(path.parent)
+
+
+def atomic_csv(path, fields, rows):
+    path = Path(path)
+    tmp = path.with_suffix(path.suffix+'.tmp')
+    with tmp.open('w', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+    sync_dir(path.parent)
+
+
+def numeric_model_snapshot(model):
+    # Exactly the s92 stable exposed numeric snapshot algorithm.
+    import numpy as np
+    fields = {}
+    for prefix, obj in (('model', model), ('opt', model.opt)):
+        for key in dir(obj):
+            if key.startswith('_'):
+                continue
+            value = getattr(obj, key)
+            if isinstance(value, np.ndarray):
+                fields[prefix+'.'+key] = dict(shape=list(value.shape), dtype=str(value.dtype),
+                    sha256=hashlib.sha256(value.tobytes()).hexdigest())
+            elif isinstance(value, (bool, int, float, np.integer, np.floating)):
+                fields[prefix+'.'+key] = value.item() if isinstance(value, np.generic) else value
+    return fields
+
+
+def callback_snapshot(mj):
+    result = {}
+    for name in ('control', 'act_dyn', 'act_gain', 'act_bias', 'passive'):
+        getter = getattr(mj, 'get_mjcb_'+name, None)
+        if getter is None:
+            if name == 'control':
+                raise RuntimeError('required get_mjcb_control getter not exposed')
+            result[name] = dict(exposed=False, identity=None)
+            continue
+        callback = getter()
+        result[name] = dict(exposed=True, identity=None if callback is None else
+            dict(id=id(callback), module=getattr(callback, '__module__', None),
+                 qualname=getattr(callback, '__qualname__', None), repr=repr(callback)))
+    return result
+
+
+def require_no_callbacks(snapshot):
+    if not snapshot['control']['exposed'] or any(v['identity'] is not None for v in snapshot.values()):
+        raise RuntimeError('callbacks forbidden: no hidden controls/dynamics/gain/bias/passive forces')
+
+
+def raw_observation_record(observed):
+    import numpy as np
+    flattened = {}
+
+    def convert(value, path):
+        if dataclasses.is_dataclass(value):
+            value = dataclasses.asdict(value)
+        if isinstance(value, dict):
+            return {str(k): convert(v, path+[str(k)]) for k, v in value.items()}
+        if isinstance(value, (list, tuple, np.ndarray)):
+            arr = np.asarray(value)
+            if arr.dtype.kind not in 'biuf' or not np.isfinite(arr).all():
+                raise ValueError('raw sensory observation must be finite numeric data')
+            flattened['rawobs_'+'_'.join(path)] = arr.copy()
+            return arr.tolist()
+        if isinstance(value, (bool, int, float, np.integer, np.floating, np.bool_)):
+            if not np.isfinite(value):
+                raise ValueError('nonfinite raw sensory observation')
+            flattened['rawobs_'+'_'.join(path)] = np.asarray(value).copy()
+            return value.item() if isinstance(value, np.generic) else value
+        raise TypeError('unsupported raw sensory quantity '+repr(type(value)))
+
+    return convert(observed, []), flattened
+
+
+def longest_sample_span_ms(good, time_s):
+    """Longest contiguous true run: last sample minus first, isolated true=0."""
+    import numpy as np
+    good, time_s = np.asarray(good, bool), np.asarray(time_s, float)
+    if good.ndim != 1 or time_s.shape != good.shape or not np.isfinite(time_s).all():
+        raise ValueError('aligned finite sample clock required')
+    if np.any(np.diff(time_s) <= 0):
+        raise ValueError('strictly increasing sample clock required')
+    padded = np.r_[False, good, False].astype(np.int8)
+    starts = np.flatnonzero(np.diff(padded) == 1)
+    ends = np.flatnonzero(np.diff(padded) == -1)-1
+    return float(np.max((time_s[ends]-time_s[starts])*1000, initial=0.))
+
+
+def support_spans(arrays, weight_native):
+    """Same unchanged formal engineering gate, only adds span diagnostics."""
+    import numpy as np
+    q = arrays['qpos']; v = arrays['qvel']
+    norms = np.linalg.norm(q[:, 3:7], axis=1)
+    height = q[:, 2]/q[0, 2]
+    angle = 2*np.arccos(np.clip(abs(q[:, 3:7]@q[0, 3:7])/(norms*norms[0]), 0, 1))
+    legs = (arrays['contacts'] > 0).sum(1)
+    load = arrays['foot_force'][:, :, 2].sum(1)/weight_native
+    good = ((height >= .85) & (angle <= .35) & (legs >= 3) & (load >= .8) &
+            (arrays['nonfoot_depth'] <= 1e-12) & (arrays['limit_excess'] <= 1e-6))
+    return {name: longest_sample_span_ms(good[sl], arrays['time'][sl]) for name, sl in
+            [('preparation', slice(0, 2001)), ('formal', slice(2000, 4001))]}
+
+
+def acceptance(baseline, candidate, tolerance=TOLERANCE):
+    """Custom preregistered decision; loss never enters acceptance."""
+    checks = {}
+    for phase in ('preparation', 'formal'):
+        b, c = baseline[phase], candidate[phase]
+        checks[phase] = {k: bool(c[k] >= b[k]-tolerance) if k == 'min_height_ratio'
+            else bool(c[k] <= b[k]+tolerance) for k in ('min_height_ratio',
+            'max_downward_velocity', 'max_angle_rad', 'max_nonfoot_depth', 'max_joint_limit_excess')}
+    b, c = baseline['formal'], candidate['formal']
+    nonworsening = {k: bool(c[k] >= b[k]-tolerance) for k in ('support_ms', 'longest_support_ms')}
+    strict = {k: bool(c[k] > b[k]+tolerance) for k in ('support_ms', 'longest_support_ms')}
+    accepted = all(all(x.values()) for x in checks.values()) and all(nonworsening.values()) and any(strict.values())
+    return dict(tolerance=tolerance, safety_nonworsening=checks,
+        formal_support_nonworsening=nonworsening, formal_support_strict_improvement=strict,
+        accepted=bool(accepted), decision='ELIGIBLE_FOR_LATER_VALIDATION' if accepted else
+        'REJECT_FORMAL_TRAINING_UPDATE', loss_used_for_acceptance=False,
+        note='Relative improvement only, not continuous support, autonomous preparation or walking')
+
+
+def parser():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--output', type=Path, default=OUTPUT, help='Fixed fresh output: '+str(OUTPUT))
+    return p
+
+
+def run(args):
+    import numpy as np
+    import mujoco as mj
+    from engine.embodied.adapters import build_neural_tier
+    from engine.embodied.command_tier import downstream_union
+    from engine.embodied.motor_endpoints import retain_motor_endpoints
+    from engine.embodied.sensory_channels import ChannelSensoryEncoder, channel_index_map, LEGS
+    from engine.embodied.motor_translation import FiniteMotorTranslator
+    from engine.embodied.grounded_training import propose_weights
+    from engine.embodied.formal_training import score_formal
+    from engine.neck_cut_data import build_edges
+    from engine.neural_cond import ConductanceNetwork
+    from run_neural_muscle_closure import observe_quantities
+
+    out = args.output
+    if out != OUTPUT or not out.is_absolute() or out.exists():
+        raise ValueError('fixed fresh output required; no automatic resume')
+    # Parent PREREG is immutable input, not generated/modified by this writer.
+    if not (OUTPUT.parent/'PREREG.json').is_file():
+        raise ValueError('parent PREREG.json must exist before starting')
+    out.mkdir(parents=True, exist_ok=False)
+    sync_dir(out.parent)
+    lock = (out/'WRITER.lock').open('x')
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    caps = dict(neural_ticks=2400, physics_steps=12000, initial_forward=3, diagnostic_forward=12000)
+    reserved, completed = dict.fromkeys(caps, 0), dict.fromkeys(caps, 0)
+    ledger = dict(caps=caps, reserved=reserved, completed=completed, active=None,
+        total_forward_cap=12003, recovery='NO_AUTOMATIC_RESUME; uncommitted reservations stay charged',
+        scope='public calls only; RK4 native internal stages add work, no neural calls in stages')
+    timing = dict(blocks=80, duration_s=.4, body_dt_s=BODY_DT, neural_dt_s=NEURAL_DT,
+        command_dt_s=COMMAND_DT, samples=4001, neural_ticks_per_block=10, physics_steps_per_block=50,
+        schedule='observe encode -> 10 neural ticks -> old pending 50 physics steps -> consume -> next pending',
+        phase='continuous first200ms preparation, last200ms formal; labels only, no reset',
+        scoring_windows='preparation samples0:2001; formal samples2000:4001; shared boundary sample',
+        FIR='DT=.0005 bins ((0,5),(5,10),(10,20),(20,40),(40,80)); unchanged sensory encoding')
+    atomic_json(out/'LEDGER.json', ledger)
+    atomic_json(out/'PREREG.json', dict(evaluations_max=3, candidates=['round00_plus','round00_minus','round00_updated'],
+        derived_from=str(DERIVED_FROM), training_from=str(TRAINING_FROM), timing=timing,
+        baseline_path=str(BASELINE), baseline_usage='saved s92 read-only; zero rerun calls',
+        seed=SEED, independent_parameters=330, perturbation_weight=DELTA, max_update_weight=MAX_STEP,
+        direction='np.random.default_rng(9301).choice([-1.,1.],size=original.shape)',
+        probes='clip(original +/- .01*direction, np.finfo(float).eps, 4); preserve original zero mask',
+        optimizer='grounded_training.propose_weights(original,lp,lm,wp,wm,k=0,max_step=.005)',
+        objective='unchanged existing formal_training.score_formal loss ONLY',
+        acceptance='updated only: both-window five safety extrema nonworsening; formal cumulative AND longest nonworsening, at least one strictly improved; tolerance1e-12; loss not acceptance',
+        longest='contiguous good samples last-first; isolated good sample0ms',
+        duplicates='bitwise identical weights reuse existing baseline/arm score and trajectory, zero calls, disclose',
+        cold_state='fresh network/FIR/body; initial q only; zero v/act/ctrl/pending; no phase reset',
+        sole_model_change='same XML compile once; Euler -> RK4 only; dt .0001; exact s92 before/after',
+        prohibited='no fourth direction, backtrack, hidden controls, pose or act overwrite, callbacks/delay/history/plugin',
+        stopping='warning/nonfinite immediately save partial evidence and stop all arms; no autoresume',
+        caps=caps, total_forward_cap=12003, behavior_claim='NONE', physical_units='NOT_ESTABLISHED'))
+    shared_paths = [MODEL, INITIAL, ENDPOINTS/'MANIFEST.json', ENDPOINTS/'FROZEN_WEIGHTS.json',
+        ROOT/'engine/embodied/grounded_training.py', ROOT/'engine/embodied/motor_translation.py',
+        ROOT/'engine/embodied/sensory_channels.py', ROOT/'engine/neural_cond.py',
+        ROOT/'engine/embodied/adapters.py', ROOT/'engine/embodied/command_tier.py',
+        ROOT/'engine/embodied/motor_endpoints.py', ROOT/'engine/neck_cut_data.py',
+        ROOT/'run_neural_muscle_closure.py', ROOT/'outputs/neural_rebuild/sensory_channel_lookup.json']
+    paths = shared_paths + [Path(__file__).resolve(), DERIVED_FROM, TRAINING_FROM,
+        ROOT/'engine/embodied/formal_training.py', BASE_RUN/'INPUT_HASHES.json', BASE_RUN/'SETUP.json',
+        BASE_RUN/'MODEL_PROVENANCE.json', BASE_RUN/'baseline400ms/RESULT.json', BASELINE,
+        OUTPUT.parent/'PREREG.json']
+
+    def reserve(name, block, delta):
+        if ledger['active'] is not None:
+            raise RuntimeError('uncommitted reservation; refusing more calls')
+        if any(reserved[k]+v > caps[k] for k, v in delta.items()):
+            raise RuntimeError('hard call cap exceeded')
+        for key, value in delta.items():
+            reserved[key] += value
+        ledger['active'] = dict(evaluation=name, block=block, delta=delta,
+            start_s=max(block, 0)*COMMAND_DT, end_s=(block+1)*COMMAND_DT if block >= 0 else 0.)
+        atomic_json(out/'LEDGER.json', ledger)
+
+    def commit():
+        for key, value in ledger['active']['delta'].items():
+            completed[key] += value
+        ledger['active'] = None
+        atomic_json(out/'LEDGER.json', ledger)
+
+    try:
+        callbacks_before = callback_snapshot(mj)
+        require_no_callbacks(callbacks_before)
+        atomic_json(out/'CALLBACKS_BEFORE.json', callbacks_before)
+        if mj.__version__ != '3.9.0' or mj.mj_versionString() != '3.9.0':
+            raise RuntimeError('requires installed/native MuJoCo3.9.0 as s92')
+        identities = {str(p): sha(p) for p in paths}
+        historical = json.loads((BASE_RUN/'INPUT_HASHES.json').read_text())
+        actual = {str(p): identities[str(p)] for p in shared_paths}
+        if len(actual) != 14 or any(historical[p] != h for p, h in actual.items()):
+            raise ValueError('shared14 input/source hashes differ from s92')
+        if historical[str(DERIVED_FROM)] != identities[str(DERIVED_FROM)]:
+            raise ValueError('s92 derivative source hash differs')
+        atomic_json(out/'INPUT_HASHES.json', identities)
+        atomic_json(out/'SHARED_SOURCE_CHECK.json', dict(passed=True, shared=actual,
+            baseline_run=str(BASE_RUN), derivative_sha256=identities[str(DERIVED_FROM)]))
+        manifest = json.loads((ENDPOINTS/'MANIFEST.json').read_text())
+        original = np.array(json.loads((ENDPOINTS/'FROZEN_WEIGHTS.json').read_text())['weights'], float)
+        if (original.shape != (66,5) or not np.isfinite(original).all() or
+                np.count_nonzero(original) != 330 or np.any((original <= 0) | (original > 4))):
+            raise ValueError('expected original330 positive bounded weights')
+        active = original > 0
+        with np.load(INITIAL, allow_pickle=False) as initial:
+            q, sensory_ref = initial['new_qpos'].copy(), initial['sensory_reference_qpos'].copy()
+        if q.shape != (49,) or sensory_ref.shape != (49,) or not np.isfinite([q,sensory_ref]).all():
+            raise ValueError('invalid fixed initial/reference')
+        baseline_result = json.loads((BASE_RUN/'baseline400ms/RESULT.json').read_text())
+        if baseline_result['trajectory_sha256'] != identities[str(BASELINE)]:
+            raise ValueError('s92 saved trajectory hash differs from RESULT')
+        with np.load(BASELINE, allow_pickle=False) as saved:
+            baseline_arrays = {k: saved[k].copy() for k in saved.files}
+        if (baseline_arrays['qpos'].shape != (4001,49) or
+                baseline_arrays['weights'].tobytes() != original.tobytes() or
+                not np.array_equal(baseline_arrays['qpos'][0], q) or
+                any(np.any(baseline_arrays[k][0]) for k in ('qvel','act','ctrl')) or
+                np.any(baseline_arrays['warnings']) or
+                not np.allclose(baseline_arrays['time'], np.arange(SAMPLES)*BODY_DT, rtol=0, atol=1e-12) or
+                any(not np.isfinite(a).all() for a in baseline_arrays.values())):
+            raise ValueError('s92 baseline weights/cold state/clock/finite identity mismatch')
+        provenance = json.loads((BASE_RUN/'MODEL_PROVENANCE.json').read_text())
+        m = mj.MjModel.from_xml_path(str(MODEL))
+        if ((m.nu,m.nq,m.nv) != (90,49,48) or m.opt.timestep != BODY_DT or
+                m.opt.integrator != mj.mjtIntegrator.mjINT_EULER or
+                np.count_nonzero(m.geom_type == mj.mjtGeom.mjGEOM_MESH) != 71):
+            raise ValueError('unexpected original full body/dt/Euler')
+        if np.any(m.actuator_delay) or np.any(m.actuator_history) or m.nplugin != 0 or np.any(m.actuator_plugin != -1):
+            raise RuntimeError('delay/history/plugin forbidden')
+        atomic_json(out/'NATIVE_INPUT_PATH_CHECK.json', dict(actuator_delay=m.actuator_delay.tolist(),
+            actuator_history=m.actuator_history.tolist(), actuator_historyadr=m.actuator_historyadr.tolist(),
+            nplugin=int(m.nplugin), actuator_plugin=m.actuator_plugin.tolist(), no_delay_history_plugins=True))
+        before = numeric_model_snapshot(m)
+        if before != provenance['before'] or provenance['xml_sha256'] != identities[str(MODEL)]:
+            raise RuntimeError('compiled before snapshot differs from s92')
+        m.opt.integrator = mj.mjtIntegrator.mjINT_RK4  # ONLY model-field assignment.
+        after = numeric_model_snapshot(m)
+        changed = [k for k in before if before[k] != after[k]]
+        if before.keys() != after.keys() or changed != ['opt.integrator'] or after != provenance['after']:
+            raise RuntimeError('sole integrator change / exact s92 after snapshot failed')
+        atomic_json(out/'MODEL_PROVENANCE.json', dict(xml_path=str(MODEL), xml_sha256=identities[str(MODEL)],
+            before=before, after=after, changed_numeric_fields=changed, s92_before_equal=True, s92_after_equal=True,
+            original_timestep_s=BODY_DT, runtime_timestep_s=float(m.opt.timestep),
+            original_integrator=int(before['opt.integrator']), runtime_integrator=int(m.opt.integrator),
+            no_other_model_field_changes=True, baseline_provenance_sha256=identities[str(BASE_RUN/'MODEL_PROVENANCE.json')]))
+        weight_native = float(m.body_mass.sum()*abs(m.opt.gravity[2]))
+        old_setup = json.loads((BASE_RUN/'SETUP.json').read_text())
+        if weight_native != old_setup['weight_native'] or old_setup['leg_order'] != list(LEGS):
+            raise ValueError('native weight/leg order differs from s92')
+
+        def score_arrays(arrays):
+            score = score_formal(arrays, weight_native)  # ONLY optimization objective, unchanged.
+            spans = support_spans(arrays, weight_native)
+            for phase in spans:
+                score[phase]['longest_support_ms'] = spans[phase]
+            if not np.isfinite(float(score['loss'])):
+                raise ValueError('nonfinite formal score')
+            return score
+
+        baseline_score = score_arrays(baseline_arrays)
+        baseline_record = dict(name='saved_s92_baseline', **baseline_score,
+            trajectory_path=str(BASELINE), trajectory_sha256=identities[str(BASELINE)], simulation_calls=0)
+        atomic_json(out/'BASELINE_RESCORE.json', baseline_record)
+        built = build_neural_tier()
+        a = built['data']
+        tier = retain_motor_endpoints(a, downstream_union(a,built['global_index'],
+            ['720575941433155799','720575941566493282'],hops=2,max_neurons=20000),
+            ['720575941391252886','720575941511883985','720575941497037218','720575941559306355'])
+        roots = a['root_ids'][tier['global_index']]
+        if len(roots) != 17099:
+            raise ValueError('unexpected neural tier')
+        edges = build_edges(a,tier,built['cut'])
+        groups,_ = channel_index_map(len(roots),roots)
+        atomic_npz(out/'TIER_AND_CONNECTIVITY.npz',roots=roots,
+            **{prefix+'_'+key:value for prefix,mat in [('We',edges['We']),('Wi',edges['Wi'])]
+               for key,value in [('data',mat.tocsr().data),('indices',mat.tocsr().indices),
+                                ('indptr',mat.tocsr().indptr),('shape',np.array(mat.shape))]})
+        joints, geom_leg = {}, {}
+        for leg in LEGS:
+            js = [j for j in range(m.njnt) if (mj.mj_id2name(m,mj.mjtObj.mjOBJ_JOINT,j) or '').lower().startswith('joint_'+leg)]
+            tib = next(j for j in js if 'tibia' in mj.mj_id2name(m,mj.mjtObj.mjOBJ_JOINT,j).lower())
+            joints[leg] = dict(q=[int(m.jnt_qposadr[j]) for j in js], tib_q=int(m.jnt_qposadr[tib]), tib_v=int(m.jnt_dofadr[tib]))
+        for g in range(m.ngeom):
+            nn = (mj.mj_id2name(m,mj.mjtObj.mjOBJ_GEOM,g) or '').lower()
+            bd = (mj.mj_id2name(m,mj.mjtObj.mjOBJ_BODY,int(m.geom_bodyid[g])) or '').lower()
+            for leg in LEGS:
+                if 'tars' in nn+bd and (nn.startswith(leg) or bd.startswith(leg)):
+                    geom_leg[g] = leg
+        floors = np.flatnonzero(m.geom_type == mj.mjtGeom.mjGEOM_PLANE)
+        if len(floors) != 1:
+            raise ValueError('expected one floor')
+        floor = int(floors[0])
+        limited = np.flatnonzero(m.jnt_limited)
+        qa = m.jnt_qposadr[limited]
+        spec = mj.mjtState.mjSTATE_INTEGRATION
+        atomic_json(out/'SETUP.json', dict(neurons=len(roots), leg_order=list(LEGS), weight_native=weight_native,
+            physical_units='NOT_ESTABLISHED', timing=timing, source_hashes=identities,
+            mapping_digest=FiniteMotorTranslator(manifest,original).mapping_digest,
+            neural_parameters=dataclasses.asdict(ConductanceNetwork(len(roots),dt_ms=.5).p),
+            dependencies=dict(python=sys.version,numpy=np.__version__,mujoco=mj.__version__,native=mj.mj_versionString())))
+
+        def check_invariants():
+            require_no_callbacks(callback_snapshot(mj))
+            if numeric_model_snapshot(m) != after or m.opt.timestep != BODY_DT:
+                raise RuntimeError('runtime model changed')
+
+        def sample(d, phase):
+            contacts = np.zeros(6,dtype=np.int32)
+            force = np.zeros((6,3))
+            depth = 0.
+            for ci in range(d.ncon):
+                c = d.contact[ci]
+                g1,g2 = int(c.geom1),int(c.geom2)
+                if floor not in (g1,g2):
+                    continue
+                foot = g2 if g1 == floor else g1
+                if foot in geom_leg:
+                    leg = LEGS.index(geom_leg[foot])
+                    if c.dist < 0:
+                        contacts[leg] += 1
+                    f = np.zeros(6)
+                    mj.mj_contactForce(m,d,ci,f)
+                    force[leg] += (1 if g1 == floor else -1)*c.frame.reshape(3,3).T@f[:3]
+                else:
+                    depth = max(depth,-float(c.dist))
+            excess = np.maximum(np.maximum(m.jnt_range[limited,0]-d.qpos[qa],d.qpos[qa]-m.jnt_range[limited,1]),0)
+            return dict(qpos=d.qpos.copy(),qvel=d.qvel.copy(),act=d.act.copy(),ctrl=d.ctrl.copy(),
+                contacts=contacts,foot_force=force,nonfoot_depth=depth,limit_excess=float(excess.max(initial=0)),
+                warnings=np.array([w.number for w in d.warning]),time=float(d.time),phase=phase,
+                actuator_force=d.actuator_force.copy(),actuator_length=d.actuator_length.copy(),
+                actuator_velocity=d.actuator_velocity.copy())
+
+        finite_keys = ('qpos','qvel','act','ctrl','foot_force','nonfoot_depth','limit_excess','time',
+                       'actuator_force','actuator_length','actuator_velocity')
+        results = []
+        cache = [(original.copy(), baseline_record)]
+        fresh_evaluations = 0
+
+        def evaluate(weights, name):
+            nonlocal fresh_evaluations
+            if identities != {str(p):sha(p) for p in paths}:
+                raise RuntimeError('source/input changed before evaluation')
+            weights = np.asarray(weights, float)
+            if (weights.shape != original.shape or not np.isfinite(weights).all() or
+                    np.any(weights[~active] != 0) or np.any(weights[active] < np.finfo(float).eps) or np.any(weights > 4)):
+                raise ValueError('invalid candidate weights/mask/bounds')
+            dest = out/name
+            dest.mkdir(exist_ok=False)
+            sync_dir(out)
+            # Exact bytes, not allclose: nearly duplicate floating-point points still run.
+            for prior_weights, prior in cache:
+                if weights.dtype == prior_weights.dtype and weights.shape == prior_weights.shape and weights.tobytes() == prior_weights.tobytes():
+                    record = dict(prior, name=name, reused_from=prior['name'], fresh_simulation=False,
+                        simulation_calls=0, weights_bitwise_identical=True)
+                    atomic_npz(dest/'WEIGHTS.npz', weights=weights)
+                    atomic_json(dest/'REUSE.json', record)
+                    atomic_json(dest/'RESULT.json', record)
+                    results.append(record)
+                    atomic_json(out/'EVALUATIONS.json', results)
+                    return record
+            if fresh_evaluations >= 3:
+                raise RuntimeError('fourth evaluation forbidden')
+            fresh_evaluations += 1
+            net = ConductanceNetwork(len(roots),dt_ms=.5)
+            net.set_connectivity(edges['We']*.2,edges['Wi']*.2)
+            dec = FiniteMotorTranslator(manifest,weights)
+            if dec.DT != NEURAL_DT or dec.BINS != ((0,5),(5,10),(10,20),(20,40),(40,80)):
+                raise RuntimeError('FIR timing changed')
+            enc = ChannelSensoryEncoder(groups,len(roots))
+            check_invariants()
+            d = mj.MjData(m)
+            d.qpos[:] = q  # Sole pose write; no act/velocity overwrite, phase reset or auxiliary forces.
+            pending = np.zeros(90)
+            if d.qvel.any() or d.act.any() or d.ctrl.any() or d.time != 0 or d.xfrc_applied.any() or d.qfrc_applied.any() or dec.history.any():
+                raise RuntimeError('noncold initial state')
+            reserve(name,-1,dict(initial_forward=1))
+            mj.mj_forward(m,d)
+            initial_row = sample(d,0)
+            atomic_npz(dest/'INITIAL.npz',**initial_row,weights=weights)
+            if not all(np.isfinite(initial_row[k]).all() for k in finite_keys) or np.any(initial_row['warnings']):
+                atomic_json(dest/'INVALID.json',dict(block=-1,reason='invalid_initial_state'))
+                raise RuntimeError('invalid initial state saved; reservation charged')
+            check_invariants()
+            commit()
+            rows, block_data, shard_index = [initial_row], [], []
+            raw_schema = None
+            for block in range(BLOCKS):
+                check_invariants()
+                reserve(name,block,dict(neural_ticks=10,physics_steps=50,diagnostic_forward=50))
+                observed = observe_quantities(m,d,sensory_ref,joints,geom_leg)
+                rawobs, raw_arrays = raw_observation_record(observed)
+                schema = {k:v.shape for k,v in raw_arrays.items()}
+                if len(schema) != 30 or (raw_schema is not None and schema != raw_schema):
+                    raise RuntimeError('expected stable30-field raw observation schema')
+                raw_schema = schema
+                atomic_json(dest/f'rawobs_{block:03d}.json',dict(block=block,observation_time_s=float(d.time),
+                    quantities=rawobs,source='actual observe_quantities before encode',flattened_names=sorted(raw_arrays)))
+                current,_ = enc.encode(observed)
+                if current.shape != (17099,) or not np.isfinite(current).all():
+                    atomic_npz(dest/'INVALID_CURRENT.npz',current=current,**raw_arrays)
+                    raise RuntimeError('invalid current saved; stop all arms')
+                # Original outer-clock neural calls only. Inspect each tick before next call.
+                spike_rows = []
+                for tick in range(10):
+                    spike = net.step(current_nA=current).copy()
+                    neural_state = {k:v for k,v in vars(net).items() if isinstance(v,np.ndarray)}
+                    if (not np.isfinite(spike).all() or any(not np.isfinite(v).all() for v in neural_state.values())):
+                        atomic_npz(dest/'INVALID_NEURAL.npz',current=current,spike=spike,**neural_state)
+                        atomic_json(dest/'INVALID.json',dict(block=block,tick=tick,reason='nonfinite_neural'))
+                        raise RuntimeError('nonfinite neural state saved; stop all arms')
+                    spike_rows.append(spike)
+                spikes = np.array(spike_rows,dtype=bool)
+                applied = pending.copy()
+                d.ctrl[:] = applied
+                new_rows, invalid = [], None
+                for sub in range(PHYSICS_PER_BLOCK):
+                    require_no_callbacks(callback_snapshot(mj))
+                    if d.xfrc_applied.any() or d.qfrc_applied.any() or not np.array_equal(d.ctrl,applied):
+                        raise RuntimeError('unexpected force or hidden command')
+                    mj.mj_step(m,d)
+                    # Do not issue even a diagnostic forward after a warning/nonfinite step.
+                    if np.any([w.number for w in d.warning]) or any(not np.isfinite(x).all() for x in (d.qpos,d.qvel,d.act,d.ctrl)):
+                        invalid = dict(block=block,substep=sub,reason='warning_or_nonfinite_after_step')
+                        new_rows.append(sample(d,int(block >= 40)))
+                        break
+                    require_no_callbacks(callback_snapshot(mj))
+                    mj.mj_forward(m,d)
+                    require_no_callbacks(callback_snapshot(mj))
+                    row = sample(d,int(block >= 40))
+                    new_rows.append(row)
+                    if (not all(np.isfinite(row[k]).all() for k in finite_keys) or np.any(row['warnings']) or
+                            not np.array_equal(row['ctrl'],applied) or d.xfrc_applied.any() or d.qfrc_applied.any()):
+                        invalid = dict(block=block,substep=sub,reason='nonfinite_warning_hidden_command_or_force')
+                        break
+                if invalid is not None:
+                    # Stop before consume/any further neural or body call; preserve partial raw shard.
+                    data = {key:np.array([r[key] for r in new_rows]) for key in initial_row}
+                    data.update(current=current,spikes=spikes,applied=applied,pending_before=applied,
+                        pending_unconsumed=pending.copy(),observation_time_s=np.asarray(block*COMMAND_DT),**raw_arrays)
+                    atomic_npz(dest/f'block_{block:03d}.npz',**data)
+                    atomic_json(dest/'INVALID.json',dict(**invalid,decoded_and_features_valid=False,
+                        note='consume not called; decoded/features/pending_after absent, not fabricated'))
+                    raise RuntimeError('partial invalid shard saved; reservation charged; stop all arms')
+                pending, info = dec.consume(spikes,spike_dt_s=.0005,start_s=block*.005,end_s=(block+1)*.005)
+                data = {key:np.array([r[key] for r in new_rows]) for key in initial_row}
+                data.update(current=current,spikes=spikes,applied=applied,decoded=pending,
+                    pending_before=applied.copy(),pending_after=pending.copy(),
+                    observation_time_s=np.asarray(block*COMMAND_DT),features=np.asarray(info['pool_features']),**raw_arrays)
+                shard = dest/f'block_{block:03d}.npz'
+                atomic_npz(shard,**data)
+                shard_index.append(dict(block=block,path=str(shard),sha256=sha(shard),start_s=block*.005,end_s=(block+1)*.005,
+                    rawobs_path=str(dest/f'rawobs_{block:03d}.json'),rawobs_sha256=sha(dest/f'rawobs_{block:03d}.json')))
+                atomic_json(dest/'SHARDS.json',shard_index)
+                if not np.isfinite(pending).all() or not np.isfinite(info['pool_features']).all():
+                    atomic_json(dest/'INVALID.json',dict(block=block,reason='nonfinite_decoded_or_features'))
+                    raise RuntimeError('invalid decoded shard saved; reservation charged; stop all arms')
+                check_invariants()
+                body = np.empty(mj.mj_stateSize(m,spec))
+                mj.mj_getState(m,d,body,spec)
+                snapshot = {key:value for key,value in vars(net).items() if isinstance(value,np.ndarray)}
+                atomic_npz(dest/'LATEST_STATE.npz',body_integration=body,FIR_history=dec.history,
+                    pending=pending,pending_before=applied,pending_after=pending,weights=weights,**snapshot)
+                scalars = {key:value for key,value in vars(net).items() if isinstance(value,(int,float,str))}
+                atomic_json(dest/'LATEST_STATE_META.json',dict(block=block,neural_scalars=scalars,start_s=block*.005,end_s=(block+1)*.005,
+                    FIR_elapsed_s=dec.elapsed_s,FIR_interval=dec.interval,state_spec='mjSTATE_INTEGRATION',state_size=int(body.size),
+                    pending_aliases=dict(applied='pending_before',decoded='pending_after',final_pending_applied=False if block == 79 else None),
+                    snapshot_sha256=sha(dest/'LATEST_STATE.npz'),shard=str(shard),shard_sha256=sha(shard),input_hashes=identities,
+                    encoder='stateless unchanged config/reference',model_snapshot_equal=True,callbacks_none=True,complete_block=True,automatic_resume=False))
+                rows.extend(new_rows)
+                block_data.append(data)
+                commit()
+            arrays = {key:np.array([r[key] for r in rows]) for key in initial_row}
+            for key in ('spikes','current','applied','decoded','features','pending_before','pending_after','observation_time_s',*raw_arrays):
+                arrays[key] = np.array([b[key] for b in block_data])
+            arrays['weights'] = weights
+            shapes = dict(qpos=(4001,49),qvel=(4001,48),act=(4001,90),ctrl=(4001,90),contacts=(4001,6),
+                foot_force=(4001,6,3),nonfoot_depth=(4001,),limit_excess=(4001,),time=(4001,),phase=(4001,),
+                warnings=(4001,len(d.warning)),weights=(66,5),actuator_force=(4001,90),actuator_length=(4001,90),
+                actuator_velocity=(4001,90),current=(80,17099),spikes=(80,10,17099),features=(80,66,5),
+                applied=(80,90),decoded=(80,90),pending_before=(80,90),pending_after=(80,90),observation_time_s=(80,))
+            shapes.update({key:(BLOCKS,)+shape for key,shape in raw_schema.items()})
+            if set(arrays) != set(shapes) or len(shard_index) != BLOCKS or any(arrays[k].shape != s for k,s in shapes.items()):
+                raise RuntimeError('incomplete trajectory/raw/neural/actual actuator records')
+            if (not np.allclose(arrays['time'],np.arange(SAMPLES)*BODY_DT,rtol=0,atol=1e-12) or
+                    not np.array_equal(arrays['phase'],np.r_[np.zeros(2001,dtype=int),np.ones(2000,dtype=int)]) or
+                    not np.array_equal(arrays['observation_time_s'],np.arange(BLOCKS)*COMMAND_DT) or
+                    np.any(arrays['warnings']) or any(not np.isfinite(v).all() for v in arrays.values())):
+                raise RuntimeError('continuous clock/phase/finite mismatch')
+            if (not np.array_equal(arrays['pending_before'],arrays['applied']) or
+                    not np.array_equal(arrays['pending_after'],arrays['decoded']) or np.any(arrays['applied'][0]) or
+                    not np.array_equal(arrays['applied'][1:],arrays['decoded'][:-1])):
+                raise RuntimeError('old pending ordering mismatch')
+            for block in range(BLOCKS):
+                if not np.array_equal(arrays['ctrl'][block*50+1:(block+1)*50+1],np.broadcast_to(arrays['applied'][block],(50,90))):
+                    raise RuntimeError('physical held command mismatch')
+            check_invariants()
+            atomic_npz(dest/'TRAJECTORY.npz',**arrays)
+            score = score_arrays(arrays)
+            record = dict(name=name,**score,trajectory_path=str(dest/'TRAJECTORY.npz'),trajectory_sha256=sha(dest/'TRAJECTORY.npz'),
+                fresh_simulation=True,reused_from=None,simulation_calls=dict(neural_ticks=800,physics_steps=4000,explicit_forward=4001))
+            atomic_json(dest/'RESULT.json',record)
+            results.append(record)
+            cache.append((weights.copy(),record))
+            atomic_json(out/'EVALUATIONS.json',results)
+            return record
+
+        direction = np.random.default_rng(SEED).choice([-1.,1.],size=original.shape)
+        wp = np.clip(original+DELTA*direction,np.finfo(float).eps,4.)
+        wm = np.clip(original-DELTA*direction,np.finfo(float).eps,4.)
+        wp[~active] = wm[~active] = 0
+        atomic_npz(out/'DIRECTION.npz',original=original,direction=direction,active=active,wp=wp,wm=wm)
+        atomic_json(out/'DIRECTION.json',dict(seed=SEED,delta=DELTA,original=original.tolist(),direction=direction.tolist(),
+            active=active.tolist(),wp=wp.tolist(),wm=wm.tolist(),independent_parameters=int(active.sum())))
+        plus = evaluate(wp,'round00_plus')
+        minus = evaluate(wm,'round00_minus')
+        lp,lm = float(plus['loss']),float(minus['loss'])
+        new = np.asarray(propose_weights(original,lp,lm,wp,wm,k=0,max_step=MAX_STEP),float)
+        # Mirror the existing implementation EXACTLY; do not substitute SPSA delta approximation.
+        separation = wp-wm
+        secant = np.divide(lp-lm,separation,out=np.zeros_like(original),where=active)
+        gradient = secant.copy()  # Same secant, named alias; not a gradient proof.
+        raw_step = -.05/(0+1)**.602 * secant
+        scale = min(1.,MAX_STEP/max(float(np.max(np.abs(raw_step))),np.finfo(float).tiny))
+        scaled_step = scale*raw_step
+        expected_new = np.clip(original+scaled_step,np.finfo(float).eps,4.)
+        expected_new[~active] = 0
+        effective_delta = new-original
+        if (new.shape != original.shape or new.tobytes() != expected_new.tobytes() or not np.isfinite(new).all() or
+                np.any(new[~active] != 0) or np.any(new[active] < np.finfo(float).eps) or np.any(new > 4) or
+                np.max(np.abs(effective_delta)) > MAX_STEP+1e-12):
+            raise ValueError('optimizer exact formula/bounds/mask/maxstep mismatch')
+        audit = dict(original=original,direction=direction,active=active,wp=wp,wm=wm,separation=separation,
+            raw_secant=secant,gradient=gradient,raw_step=raw_step,scaled_step=scaled_step,
+            new=new,effective_delta=effective_delta)
+        atomic_npz(out/'UPDATE.npz',**audit,lp=np.asarray(lp),lm=np.asarray(lm),scale=np.asarray(scale),k=np.asarray(0),max_step=np.asarray(MAX_STEP))
+        atomic_json(out/'UPDATE.json',dict(**{k:v.tolist() for k,v in audit.items()},weights=original.tolist(),
+            rawsecant=secant.tolist(),rawstep=raw_step.tolist(),delta=effective_delta.tolist(),
+            lp=lp,lm=lm,k=0,max_step=MAX_STEP,scale=scale,
+            formula=dict(raw_secant='divide(lp-lm,wp-wm,out=zeros_like(w),where=w>0)',gradient='raw_secant alias; simultaneous secant is not gradient proof',
+                raw_step='-.05/(k+1)**.602 * raw_secant',scale='min(1.,max_step/max(float(max(abs(raw_step))),finfo(float).tiny))',
+                new='clip(w+scale*raw_step,finfo(float).eps,4.); new[w<=0]=0',effective_delta='new-w'),
+            formula_bitwise_verified=True))
+        fields = ['flat_index','pool','bin']+list(audit)+['lp','lm','scale','k','max_step']
+        atomic_csv(out/'UPDATE330.csv',fields,[dict(flat_index=i,pool=i//5,bin=i%5,
+            **{key:value.ravel()[i].item() for key,value in audit.items()},lp=lp,lm=lm,scale=scale,k=0,max_step=MAX_STEP) for i in range(330)])
+        updated = evaluate(new,'round00_updated')
+        comparisons = {record['name']:acceptance(baseline_record,record) for record in results}
+        decision = dict(selected_arm='round00_updated',selection_rule='fixed updated arm only; never choose best arm',
+            baseline=baseline_record,all_arms=results,comparisons=comparisons,
+            **acceptance(baseline_record,updated),behavior_claim='NONE',deployment=False)
+        atomic_json(out/'ACCEPTANCE.json',decision)
+        expected_calls = dict(neural_ticks=800*fresh_evaluations,physics_steps=4000*fresh_evaluations,
+            initial_forward=fresh_evaluations,diagnostic_forward=4000*fresh_evaluations)
+        if reserved != expected_calls or completed != expected_calls or ledger['active'] is not None:
+            raise RuntimeError('exact fresh-arm call ledger mismatch')
+        if identities != {str(p):sha(p) for p in paths}:
+            raise RuntimeError('source/input changed during experiment')
+        check_invariants()
+        callbacks_end = callback_snapshot(mj)
+        if callbacks_end != callbacks_before:
+            raise RuntimeError('callbacks changed')
+        atomic_json(out/'CALLBACKS_END.json',callbacks_end)
+        atomic_json(out/'MODEL_END_CHECK.json',dict(passed=True,snapshot=numeric_model_snapshot(m),matches_after=True,s92_after_equal=True,callbacks_none=True))
+        atomic_json(out/'SUMMARY.json',dict(status='BOUNDED_EXPERIMENT_COMPLETE',baseline_rescore=baseline_record,
+            evaluations=results,accepted=decision['accepted'],acceptance_path=str(out/'ACCEPTANCE.json'),
+            fresh_evaluations=fresh_evaluations,ledger=ledger,weight_native=weight_native,
+            behavior_claim='NONE',physical_units='NOT_ESTABLISHED',deployment=False,automatic_resume=False,
+            note='All three arms reported, not best-arm selection; loss not acceptance; no additional direction/backtrack/run.'))
+    except BaseException as exc:
+        atomic_json(out/'ERROR.json',dict(type=type(exc).__name__,message=str(exc),traceback=traceback.format_exc(),ledger=ledger,automatic_resume=False))
+        raise
+    finally:
+        lock.close()
+
+
+if __name__ == '__main__':
+    run(parser().parse_args())

@@ -48,7 +48,8 @@ class ConductanceParams:
 
 
 class ConductanceNetwork:
-    def __init__(self, n_neurons, params=None, dt_ms=0.1, voltage_method='backward_euler'):
+    def __init__(self, n_neurons, params=None, dt_ms=0.1, voltage_method='backward_euler',
+                 threshold_offset_mV=None):
         if voltage_method not in ('backward_euler', 'frozen_exact'):
             raise ValueError('unknown voltage integration method')
         self.voltage_method = voltage_method
@@ -57,6 +58,13 @@ class ConductanceNetwork:
         self.n = int(n_neurons)
         self.p = params or ConductanceParams()
         self.p.validate()
+        offset = np.zeros(self.n) if threshold_offset_mV is None else np.asarray(threshold_offset_mV, float)
+        if offset.shape != (self.n,) or not np.isfinite(offset).all():
+            raise ValueError('threshold_offset_mV must be a finite per-neuron vector')
+        if np.any(self.p.reset_mV >= self.p.threshold_mV + offset):
+            raise ValueError('effective threshold must remain above reset')
+        self.threshold_offset_mV = offset.copy()
+        self.threshold_offset_mV.flags.writeable = False
         self.dt = float(dt_ms)
         if not np.isfinite(self.dt) or self.dt <= 0:
             raise ValueError('positive finite dt required')
@@ -138,7 +146,7 @@ class ConductanceNetwork:
             fraction = -np.expm1(-dt * G / p.capacitance_nF)
             self.v[active] += ((equilibrium - self.v) * fraction)[active]
         self.v[own & ~active] = p.reset_mV
-        spiked = active & (self.v >= p.threshold_mV)
+        spiked = active & (self.v >= p.threshold_mV + self.threshold_offset_mV)
         self.steps += 1
         self.t_ms = self.steps * dt
         self.v[spiked] = p.reset_mV

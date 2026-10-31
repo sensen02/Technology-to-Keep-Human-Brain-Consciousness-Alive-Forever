@@ -1,0 +1,867 @@
+{
+  "scope": "S168/P1-P3 independent offline root/muscle provenance; no engine/neural/optimization, no mapping/tracker edits",
+  "input_sha256": {
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE.json": "6f532946ad5ad2b24c293776c55a72fbe171a1ea929ec3eaabd80563eb70bbd9",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0003_MANIFEST.json": "9718c04126c6f961aafe32b9b020c86e90b1728d15cf8b3b68ca33267640c523",
+    "/home/sensen/Desktop/engine修复验收/s162-fast-sensory/20261024T224135142077Z/BOUND_INPUT_FREEZE/0005_banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_neurons.csv.gz": "40a2201554a8c34d2c4b07c8322543a07c1b3faf5acafbac363fd1a3d0fa617f",
+    "/run/media/sensen/Data2/cell_wound_prototype/data/banc888/banc_888_meta.feather": "86ccf5df0c67419f8c5f43e93a7ed38d23a080e9f7fde26737290252f3780098",
+    "/home/sensen/Desktop/engine修复验收/s163-sensory-readout-audit/20261024T224712953805523Z/GRAPH_90_MUSCLE_MAPPING.csv": "471ff42bf52ad7c39cfa26c2b1f3aa99613da513df453c13e5ab01fdec020492",
+    "/home/sensen/Desktop/engine修复验收/s163-sensory-readout-audit/20261024T224712953805523Z/GRAPH_ALL_NEURONS.csv": "3ba8278d717dbb21da4c2e0a8e8ca1a8d0c38f58e17ea2b7c9d515a3f67d117c"
+  },
+  "counts": {
+    "full_frozen_neurons": 153962,
+    "tier_neurons": 17099,
+    "v888_annotations": 188508,
+    "raw_csv_annotations": 158262,
+    "unmapped_actuators": 16
+  },
+  "root_handling": "Raw CSV/feather IDs stay decimal strings; frozen int64 IDs use exact int then str; never float",
+  "tier_global_local_root_check": "PASS all 17099 rows; full dataset root uniqueness PASS",
+  "candidates": [
+    {
+      "actuator_index": 3,
+      "actuator": "LFC_pleural_promotor",
+      "leg": "LF",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [
+        {
+          "root_id": "720575941668683687",
+          "root_888": "720575941668683687",
+          "full_frozen_dataset_index": 147338,
+          "tier_local_index": 16348,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "left",
+            "nerve": "left_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+        },
+        {
+          "root_id": "720575941506261538",
+          "root_888": "720575941506261538",
+          "full_frozen_dataset_index": 54253,
+          "tier_local_index": 6087,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "left",
+            "nerve": "left_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+        },
+        {
+          "root_id": "720575941582911865",
+          "root_888": "720575941582911865",
+          "full_frozen_dataset_index": 111113,
+          "tier_local_index": 12380,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "left",
+            "nerve": "left_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+        },
+        {
+          "root_id": "720575941498960546",
+          "root_888": "720575941498960546",
+          "full_frozen_dataset_index": 48794,
+          "tier_local_index": 5475,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "left",
+            "nerve": "left_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+        }
+      ],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 18,
+      "actuator": "RFC_pleural_promotor",
+      "leg": "RF",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [
+        {
+          "root_id": "720575941518204888",
+          "root_888": "720575941518204888",
+          "full_frozen_dataset_index": 63658,
+          "tier_local_index": 7084,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "right",
+            "nerve": "right_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_pleural_promotor,tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+        },
+        {
+          "root_id": "720575941428654255",
+          "root_888": "720575941428654255",
+          "full_frozen_dataset_index": 7589,
+          "tier_local_index": 857,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "right",
+            "nerve": "right_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+        },
+        {
+          "root_id": "720575941556297811",
+          "root_888": "720575941556297811",
+          "full_frozen_dataset_index": 91733,
+          "tier_local_index": 10243,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "right",
+            "nerve": "right_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "MNfl54_DProN,tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+        },
+        {
+          "root_id": "720575941592225831",
+          "root_888": "720575941592225831",
+          "full_frozen_dataset_index": 115572,
+          "tier_local_index": 12923,
+          "motor_identity": {
+            "v888_super_class": "motor",
+            "v888_cell_class": "leg_motor_neuron",
+            "raw_super_class": "motor",
+            "raw_class": "leg_motor_neuron"
+          },
+          "muscle_evidence": {
+            "peripheral_target_type": "tergopleural_promotor_muscle",
+            "body_part_effector": "front_leg",
+            "side": "right",
+            "nerve": "right_dorsal_prothoracic_nerve",
+            "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+          },
+          "raw_primary_type": "tergopleural_promotor",
+          "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+        }
+      ],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 30,
+      "actuator": "LMC_tergopleural_promotor_a",
+      "leg": "LM",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 31,
+      "actuator": "LMC_tergopleural_promotor_b",
+      "leg": "LM",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 33,
+      "actuator": "LMC_pleural_promotor",
+      "leg": "LM",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 36,
+      "actuator": "LMC_sternal_adductor",
+      "leg": "LM",
+      "muscle_target": "sternal_adductor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 45,
+      "actuator": "RMC_tergopleural_promotor_a",
+      "leg": "RM",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 46,
+      "actuator": "RMC_tergopleural_promotor_b",
+      "leg": "RM",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 47,
+      "actuator": "RMC_pleural_remotor_and_abductor",
+      "leg": "RM",
+      "muscle_target": "pleural_remotor_and_abductor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 48,
+      "actuator": "RMC_pleural_promotor",
+      "leg": "RM",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 60,
+      "actuator": "LHC_tergopleural_promotor_a",
+      "leg": "LH",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 61,
+      "actuator": "LHC_tergopleural_promotor_b",
+      "leg": "LH",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 63,
+      "actuator": "LHC_pleural_promotor",
+      "leg": "LH",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 75,
+      "actuator": "RHC_tergopleural_promotor_a",
+      "leg": "RH",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 76,
+      "actuator": "RHC_tergopleural_promotor_b",
+      "leg": "RH",
+      "muscle_target": "tergopleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    },
+    {
+      "actuator_index": 78,
+      "actuator": "RHC_pleural_promotor",
+      "leg": "RH",
+      "muscle_target": "pleural_promotor_muscle",
+      "manifest_status": "unresolved",
+      "original_declared_pool_root_ids": [],
+      "actual_motor_named_leg_muscle_sources": [],
+      "n_exact_v888_sources": 0,
+      "n_exact_full_frozen_sources": 0,
+      "n_exact_tier_sources": 0,
+      "lexical_alias_leads_not_innervation_authorization": [],
+      "classification": "NO_ACTUAL_ANNOTATED_SOURCE_IN_INSPECTED_SNAPSHOTS",
+      "safe_minimal_repair_authorized": false
+    }
+  ],
+  "actual_target_annotation_universe_across_all_legs": [
+    {
+      "root_id": "720575941503422187",
+      "root_888": "720575941503422187",
+      "full_frozen_dataset_index": 51419,
+      "tier_local_index": 5747,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "sternal_adductor_muscle",
+        "body_part_effector": "hind_leg",
+        "side": "right",
+        "nerve": "right_first_abdominal_nerve",
+        "cell_type_alias_not_sufficient_alone": "sternal_adductor_MetaAN"
+      },
+      "raw_primary_type": "sternal_adductor",
+      "raw_alternative_types": "sternal_adductor,sternal_adductor_MetaAN"
+    },
+    {
+      "root_id": "720575941611945389",
+      "root_888": "720575941611945389",
+      "full_frozen_dataset_index": 125511,
+      "tier_local_index": 14090,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "sternal_adductor_muscle",
+        "body_part_effector": "hind_leg",
+        "side": "left",
+        "nerve": "left_first_abdominal_nerve",
+        "cell_type_alias_not_sufficient_alone": "sternal_adductor_MetaAN"
+      },
+      "raw_primary_type": "sternal_adductor",
+      "raw_alternative_types": "sternal_adductor,sternal_adductor_MetaAN"
+    },
+    {
+      "root_id": "720575941518204888",
+      "root_888": "720575941518204888",
+      "full_frozen_dataset_index": 63658,
+      "tier_local_index": 7084,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_pleural_promotor,tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+    },
+    {
+      "root_id": "720575941499964555",
+      "root_888": "720575941499964555",
+      "full_frozen_dataset_index": 49440,
+      "tier_local_index": 5543,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "sternal_adductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_prothoracic_accessory_nerve",
+        "cell_type_alias_not_sufficient_alone": "sternal_adductor_ProAN"
+      },
+      "raw_primary_type": "sternal_adductor",
+      "raw_alternative_types": "sternal_adductor,sternal_adductor_ProAN"
+    },
+    {
+      "root_id": "720575941668683687",
+      "root_888": "720575941668683687",
+      "full_frozen_dataset_index": 147338,
+      "tier_local_index": 16348,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+    },
+    {
+      "root_id": "720575941506261538",
+      "root_888": "720575941506261538",
+      "full_frozen_dataset_index": 54253,
+      "tier_local_index": 6087,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+    },
+    {
+      "root_id": "720575941582911865",
+      "root_888": "720575941582911865",
+      "full_frozen_dataset_index": 111113,
+      "tier_local_index": 12380,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+    },
+    {
+      "root_id": "720575941527847608",
+      "root_888": "720575941527847608",
+      "full_frozen_dataset_index": 69868,
+      "tier_local_index": 7815,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "sternal_adductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_prothoracic_leg_nerve",
+        "cell_type_alias_not_sufficient_alone": "sternal_adductor"
+      },
+      "raw_primary_type": "sternal_adductor",
+      "raw_alternative_types": "sternal_adductor"
+    },
+    {
+      "root_id": "720575941548546696",
+      "root_888": "720575941548546696",
+      "full_frozen_dataset_index": 85793,
+      "tier_local_index": 9548,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_prothoracic_accessory_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor"
+    },
+    {
+      "root_id": "720575941498960546",
+      "root_888": "720575941498960546",
+      "full_frozen_dataset_index": 48794,
+      "tier_local_index": 5475,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor"
+    },
+    {
+      "root_id": "720575941494164864",
+      "root_888": "720575941494164864",
+      "full_frozen_dataset_index": 46057,
+      "tier_local_index": 5165,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "left",
+        "nerve": "left_prothoracic_accessory_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor"
+    },
+    {
+      "root_id": "720575941537495489",
+      "root_888": "720575941537495489",
+      "full_frozen_dataset_index": 77764,
+      "tier_local_index": 8704,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "hind_leg",
+        "side": "left",
+        "nerve": "left_metathoracic_leg_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor_dorsomedial_ribbon"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor_dorsomedial_ribbon"
+    },
+    {
+      "root_id": "720575941553503460",
+      "root_888": "720575941553503460",
+      "full_frozen_dataset_index": 89230,
+      "tier_local_index": 9993,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "middle_leg",
+        "side": "left",
+        "nerve": "left_mesothoracic_leg_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor_MesoLN_dorsal_5"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor_MesoLN_dorsal_5"
+    },
+    {
+      "root_id": "720575941593715569",
+      "root_888": "720575941593715569",
+      "full_frozen_dataset_index": 116556,
+      "tier_local_index": 13048,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_prothoracic_accessory_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor_miller_29"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor_miller_29"
+    },
+    {
+      "root_id": "720575941691007896",
+      "root_888": "720575941691007896",
+      "full_frozen_dataset_index": 151479,
+      "tier_local_index": 16868,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_prothoracic_accessory_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor_miller_29"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor_miller_29"
+    },
+    {
+      "root_id": "720575941428654255",
+      "root_888": "720575941428654255",
+      "full_frozen_dataset_index": 7589,
+      "tier_local_index": 857,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+    },
+    {
+      "root_id": "720575941562065920",
+      "root_888": "720575941562065920",
+      "full_frozen_dataset_index": 95996,
+      "tier_local_index": 10753,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "pleural_remotor_and_abductor_muscle",
+        "body_part_effector": "hind_leg",
+        "side": "right",
+        "nerve": "right_metathoracic_leg_nerve",
+        "cell_type_alias_not_sufficient_alone": "pleural_remotor_and_abductor_dorsomedial_ribbon"
+      },
+      "raw_primary_type": "pleural_remotor_abductor",
+      "raw_alternative_types": "pleural_remotor_abductor,pleural_remotor_and_abductor_dorsomedial_ribbon"
+    },
+    {
+      "root_id": "720575941644474312",
+      "root_888": "720575941644474312",
+      "full_frozen_dataset_index": 139718,
+      "tier_local_index": 15644,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "sternal_adductor_muscle",
+        "body_part_effector": "middle_leg",
+        "side": "right",
+        "nerve": "right_mesothoracic_leg_nerve",
+        "cell_type_alias_not_sufficient_alone": "sternal_adductor_MesoLN_dorsal_5"
+      },
+      "raw_primary_type": "sternal_adductor",
+      "raw_alternative_types": "sternal_adductor,sternal_adductor_MesoLN_dorsal_5"
+    },
+    {
+      "root_id": "720575941556297811",
+      "root_888": "720575941556297811",
+      "full_frozen_dataset_index": 91733,
+      "tier_local_index": 10243,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "MNfl54_DProN,tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+    },
+    {
+      "root_id": "720575941592225831",
+      "root_888": "720575941592225831",
+      "full_frozen_dataset_index": 115572,
+      "tier_local_index": 12923,
+      "motor_identity": {
+        "v888_super_class": "motor",
+        "v888_cell_class": "leg_motor_neuron",
+        "raw_super_class": "motor",
+        "raw_class": "leg_motor_neuron"
+      },
+      "muscle_evidence": {
+        "peripheral_target_type": "tergopleural_promotor_muscle",
+        "body_part_effector": "front_leg",
+        "side": "right",
+        "nerve": "right_dorsal_prothoracic_nerve",
+        "cell_type_alias_not_sufficient_alone": "tergopleural_promotor_pleural_promotor_miller_28_30"
+      },
+      "raw_primary_type": "tergopleural_promotor",
+      "raw_alternative_types": "tergopleural_promotor,tergopleural_promotor_pleural_promotor_miller_28_30"
+    }
+  ],
+  "conclusion_zh": "16项原pool均空，并非已声明源被17099裁掉。全153962冻结数据与188508行v888原始注释中，未找到这些缺失项对应的motor+明确腿/侧+peripheral_target_type来源；LF/RF组合type别名有现存tier roots，但真实target只tergopleural，不能借别名补pleural。其余相同肌肉只在其他腿有注释，不能复制。未授权任何补映射；仅限已检查快照，不声称真实生物中没有该肌肉神经。",
+  "motor_identity_vs_innervation": "motor/leg_motor_neuron confirms motor identity only, not target muscle. Alias-only/other-leg matches are not innervation evidence.",
+  "execution": {
+    "model_load": 0,
+    "forward": 0,
+    "physics_step": 0,
+    "neural_step": 0,
+    "optimization": 0,
+    "prior_schema_inspection_failure": "venv_body pandas feather inspection exit1 missing pyarrow; switched to existing venv with pyarrow, no installation"
+  },
+  "input_hashes_unchanged_after_check": true,
+  "script_sha256": "b143daec9c7301fbf4b32d2c2c761b02ca04e395ec0036cd8cca63b726993b21"
+}
