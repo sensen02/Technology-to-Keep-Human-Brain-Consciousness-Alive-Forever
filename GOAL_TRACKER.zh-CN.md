@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 开发计划轮（2026-10-31T212521Z）：读 DSH 原会话日志并复核 → **承重标定入口前移出三道门禁：旧三构型全部关节越限、旧缩放不是统一肌力缩放、旧 LP 不足为足端承重证据**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-development-plan/20261031T212521Z/`（`PLAN.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_DEVELOPMENT_PLAN.zh-CN.md`。
+- **日志终点核实**：原会话原始事件日志 `/home/sensen/.dsh/sessions/--run-media-sensen-Data2--/session-ad005831-f674-4625-9c44-8bb5bfc1e829/session.jsonl.zstd`（78 turn）流式解码；最后实质回复为 seq 1122925 撤回“须刷新会话”的误判，承重标定**自始未运行**；授权已在 seq 1117194 给出，工具阻塞是历史现象，非当前结论。分支 `session-451d891e-…` 首条记录 parentSession 指向上者，其缓存终点不得当作原会话进度。本会话 `get_goal` 为 null，未冒用历史目标 `goal-4d1b7892…`。
+- **本轮新证据（决定性，改变下一步）**：用编译模型 `jnt_limited/jnt_type/jnt_qposadr/jnt_range` 逐项核对，旧“最优三构型”**均越限** —— 2 号 3 处（最大 0.12257 rad）、167 号 2 处（0.12254）、224 号 6 处（0.29410）。第一批 240 构型中**仅 5 个关节合法**（67/81/89/108/203），第二批**仅 6 个**（67/70/104/120/217/218）。⇒ 2/167/224 **只能作历史诊断**，不能作为承重标定三姿态，也不得裁剪 qpos 后仍称原构型。
+- **统一缩放口径纠正**：`force_repair_test.py` 的 `set_f0()`（第27–46行）只改原生 `gainprm[2]`，**未同步 `biasprm[2]`**、且跳过 120 根 MPX ⇒ 第75轮“全部恢复源值更差”只能称**主动 F0 恢复对照**；真正统一 s 须原生两者同乘 s、MPX 负增益同乘 s，并保持关节被动/质量/几何/限位/dt 不变，且用编译后参数与实际力核验比例。
+- **旧 LP 不足为承重证据**：`build_femur3.make_lp`（第236–244行）接受 world 与任意腿前缀 body 的接触（胫/股/基节撑地也可算支撑）、忽略 body–body 自接触、**摩擦取全模型 max 且用外接方锥**（角落可达 √2·mu）、单侧雅可比未显式翻身号；slack 又混合平动与力矩单位。⇒ 新品须单列“仅足端 geom + 逐接触 mu + 保守内锥 + 非法接触/穿透诊断 + W 与 W·L_ref 分别归一”，与旧算法结果分列。
+- **旧断言收回**：①“统一 s≈2–3 让最好三姿态可行”无依据 —— `GROUP_AUTHORITY.json` 显示 coxa×5 时三姿态 slack/W = 0 / 0.0049419684 / 0.0153725752，coxa×20 仍只有 2/167 可行、224 不变；旧 ×2–3 只是“单独放大胸–基节主动力使 pose2 首次过旧 LP”。②历史 29 个可行、±5 µm 鲁棒、50 ms 支撑均属**推版**，不可继承到收缩版或新标定版。③单姿态力臂合理不等于全范围正确。
+- **本轮只做只读核查与规划**：0 次 LP、0 次 `mj_forward`/`mj_step`、0 训练、0 下载；模型加载二次失败已查明（归档目录缺相对网格，改用 `MjSpec` 内存指向既有缓存 `/home/sensen/.cache/flygym_assets/neuromechfly_musculoskeletal_meshes_20260623a`，71 网格逐一核存在后编译，nq49/nv48/nu210/na210，原生肌肉 90 经 class 继承确认）。六项输入 SHA256 与 `MANIFEST_SHA256.json` 全对；两数组 (240,49) float64 有限。
+- **下一最小动作**：在新 UTC 时间戳目录写预登记 → 用旧算法在 s=1 复现 2/167/224 历史残差（标注历史诊断）→ 在 5 个关节合法候选上审计足端接触/非足接触/穿透并按预登记规则选标定三姿态（B 的 6 个留作独立验证）→ 才做统一 s 的联合 LP。**承重标定不是解剖测量；当前仍未自主站立/行走。**
+- 清理：无删除（未产生临时模型、脚本、解压日志或重复图）；历史冻结目录零写入。
+
 ## P3 / 看图交付（非轮次，2026-10-31T15:00Z）：把 AI 肌肉分割的图整理成能直接看的成品 —— 顺手查出「9 个掩膜只有 6 个独立」
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-ai-segmentation-view/20261031T150000Z/`（`README.zh-CN.md`、`总览_AI肌肉分割_ITK-SNAP.png`、`总览_VFB_126块肌肉.png`、`VIEW_VERIFY.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/{compose_view,compose_vfb_view,verify_view}.py`）；桌面直看副本 `/home/sensen/Desktop/总览_AI肌肉分割_ITK-SNAP.png`、`/home/sensen/Desktop/总览_VFB_126块肌肉.png`。
 - **起因**：业主想看"ITK-SNAP 那张 AI 划分肌肉的图"。两套都给：第52–53轮我自己跑的 nnInteractive 掩膜（`/home/sensen/Desktop/engine修复验收/s5-ai-segmentation/20261030T180000Z/`）+ VFB 公开的 126 块肌肉（`/home/sensen/果蝇腿部3D模型_含肌肉分组与标注/Drosophila_Leg_3D_Resources/02_VFB/muscles/*/thumbnail.png`，模型 90 条肌肉的来源）。
