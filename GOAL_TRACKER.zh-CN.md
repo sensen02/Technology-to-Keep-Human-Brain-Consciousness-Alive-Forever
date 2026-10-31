@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 第69轮：软化接触（solref 0.002→0.02，73 个 geom）——**硬接触弹飞、软接触下沉，站姿是"边缘解"**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-soft-contact/20261031T070000Z/`（`MODEL_SOFT.xml`、`FOOT_LOADS_SOFT.json`、`VERDICT.json`、`SCRIPTS/foot_soft.py`、`MANIFEST_SHA256.json`）。
+- **对比（同一非趴伏站姿，100 ms）**：硬接触 → COM 末值 **0.533**、机体接触最多 **10**、四足 1–3 ms 卸载；**软接触 → COM 末值 0.428、机体接触最多 52**、卸载时刻变为 LF/RF/RH 1 ms、LM 43、RM 50、LH 63 ms。
+- **判读**：软化**消除了起始过约束**（首采样足力 0.46–42 → 0.25–13），但**身体下沉更多**（0.533→0.428）。
+- **判决 `THE_STANCE_IS_MARGINAL_EITHER_WAY_HARD_CONTACTS_BOUNCE_SOFT_CONTACTS_SINK`**：该可行站姿是**边缘解**，只能在理想刚体接触下平衡。
+- **下一步**：**筛选"鲁棒可行"构型**——要求构型在**身体 ±5 µm 扰动**下仍可行，而不是只在理想接触处可行。这是对现有 29 个构型的**便宜过滤**，是自然的下一轮。
+- 预算：模型重建 1（73 geom 软化）、LP 1 次、8000 身体步、渲染 0；墙钟约 60 s。清理：`/tmp/fs.log` 已删。
+
 ## P3 / 第68轮：逐足载荷跟踪（前 100 ms）——**站姿在静止时就"过约束"，1–3 ms 内四足卸载**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-foot-loads/20261031T060000Z/`（`FOOT_LOADS.json`、`VERDICT.json`、`SCRIPTS/foot_loads.py`、`MANIFEST_SHA256.json`）。
 - **逐足结果**（卸载时刻）：**LF 1 ms、RH 1 ms、RF 2 ms、LM 3 ms**；**RM 31 ms、LH 41 ms** 保持最久；RH 起始载荷仅 0.76（几乎没吃上力）。
