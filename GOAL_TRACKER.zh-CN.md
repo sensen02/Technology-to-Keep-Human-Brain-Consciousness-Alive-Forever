@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第62轮：α=0.8 的 400 ms 验证——**50 ms 很好，400 ms 仍塌**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`BLEND_400MS.json`、`BLEND_400MS_VERDICT.json`、`SCRIPTS/blend_400ms.py`）。
+- **结果（0.40 s 神经阶段）**：α=0.0 支撑 0.113/com_end 0.155/触地 19；**α=0.8 支撑 0.116/com_min 0.138/com_end 0.144/触地最大 8**；α=1.0 支撑 0.237/com_end 0.140/触地 18。
+- **对比 50 ms**：α=0.8 在 50 ms 是 **支撑 0.707、触地 0**；到 400 ms 塌到 COM 0.14 ⇒ **那是瞬态，不是持续保持**。α=0.8 仍把触地压到最低（8 vs 19/18）⇒ **延后塌陷但没阻止**。
+- **判决 `THE_ALPHA_0_8_BLEND_HOLDS_FOR_50MS_BUT_COLLAPSES_BY_400MS`**。
+- **重要参照**：第56轮**纯静态激活（无神经）** 在 400 ms 支撑 **0.247**，**优于本轮任何神经比例**（最好的 α=1.0 只能到 0.237 且触地 18）⇒ 神经命令仍在**削弱**静态解。
+- **下一步**：以第56轮静态激活动态为基准，定位"神经命令里哪一部分在破坏它"（逐腿/逐组消融）。
+- 预算：rollout 4 次 × 0.40 s 仿真（约 2 分钟）、渲染 0。清理：`/tmp/b4.log`、`/tmp/_np_base.py` 已删。
+
 ## P3 / 第61轮：**凸组合 α=0.8 → 机体触地 0 次、支撑 0.707，全场最好**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`BLEND_SWEEP.json`、`BLEND_VERDICT.json`、`SCRIPTS/blend_sweep.py`、`MANIFEST_SHA256.json`）。
 - **设置**：`ctrl = clip((1−a)·ctrl_neural + a·静态解, 0, 1)`；网络权重置零，**只扫比例**（隔离混合效应）。
