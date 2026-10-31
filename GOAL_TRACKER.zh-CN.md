@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 第68轮：逐足载荷跟踪（前 100 ms）——**站姿在静止时就"过约束"，1–3 ms 内四足卸载**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-foot-loads/20261031T060000Z/`（`FOOT_LOADS.json`、`VERDICT.json`、`SCRIPTS/foot_loads.py`、`MANIFEST_SHA256.json`）。
+- **逐足结果**（卸载时刻）：**LF 1 ms、RH 1 ms、RF 2 ms、LM 3 ms**；**RM 31 ms、LH 41 ms** 保持最久；RH 起始载荷仅 0.76（几乎没吃上力）。
+- **关键诊断**：**首个采样点的六足竖直力之和 ≈ 3.3 倍体重** ⇒ **静止构型是"过约束/接触穿透"的**，第一步积分就释放储存的能量、把脚弹开。COM 100 ms 末值为 0.533（只落了一点，随后靠机体接触撑住，最多 10 处）。
+- **判决 `THE_STANCE_IS_OVER_CONSTRAINED_AT_REST_AND_THE_TRANSIENT_UNLOADS_THE_FEET`**。
+- **下一步**：静止解是**运动学理想化**（多个接触点带穿透）；需要**带间隙的静止构型**或**软化接触（solref）**，再重跑同一套逐足跟踪。
+- 预算：LP 1 次、8000 身体步、0 渲染；墙钟约 50 s。清理：`/tmp/fl.log` 已删。
+
 ## P3 / 第67轮：**存在"非趴伏"的可行站姿（0 机体接触 + 6 足全着地）**，且静态可行
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-sprawl/20261031T050000Z/`（`SPRAWL.json`、`DYN_STAND.json`、`STAND_QPOS.npy`、`VERDICT.json`、`SCRIPTS/sprawl.py`、`SCRIPTS/dyn_stand.py`、`MANIFEST_SHA256.json`）。
 - **趴伏度测量**：29 个可行构型中，**6 个是 nonfoot=0 且 loaded_feet=6**（`least_sprawled` 列表前六项均为 `(0, 6)`）⇒ **此前"可行解都是趴伏"的判断错误，已更正**。
