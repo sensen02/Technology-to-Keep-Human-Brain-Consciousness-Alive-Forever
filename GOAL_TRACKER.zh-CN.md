@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 第57轮（收口）：git 提交并推送 + 清理
+- **提交**：`d07a017`（745 文件、+101169/-11475）—— 第37–56轮全部工作（锥 LP 约定更正与作废、被测量杠杆矩阵、AI 测量流水线、近端实测束闭合静态缺口、可行构型动态）；随后 `1b12397` 清理残留脚本。**已推送** `origin/main`（`fc77e65..d07a017`、`d07a017..1b12397`），工作树干净（`git status` 0 条）。
+- **提交身份**：仓库既有身份 `prototype <prototype@local>`（未改全局配置）。
+- **清理（本轮内确认无用并实际删除）**：
+  - `/tmp/fm.json`、`/tmp/fm2.json`、`/tmp/fm_best_combined_cvt3.xml`、`/tmp/fm_best_combined_cvt3_torque.xml`、`/tmp/fm_full.osim`（第51轮查 FlyMimic 仓库的临时下载/缓存）
+  - `…/s5-real-measurement/20261029T150000Z/NRRD/CTscan_full.nrrd`（**616 MB，可再生**：`make_nrrd.py` 一行重建；已把说明写进 `NRRD_INFO.json` 的 `note_full_removed`；描迹实际用的是 `CTscan_legs.nrrd` 仍保留）
+  - `run_physics_bound.py`（项目根残留的第46轮脚本）→ 已归档到 `…/s5-physics-bound/20261029T170000Z/SCRIPTS/`（sha `27ce430e…`）并从仓库删除，归档说明见该目录 `CLEANUP_NOTE.json`
+  - 各轮 `/tmp/*.log`、`/tmp` 探针脚本（此前各轮已随手删除）
+- **未删（确认仍需保留）**：桌面 30 份 `*.zh-CN.md` 交付报告、`engine修复验收/` 下全部证据目录（54 GB）、CC0 微 CT 源数据（591 MB TIFF）、`/run/media/sensen/Data2/itksnap_rocm`（**用户自己的 ROCm 工具部署**，不属本任务清理范围）、`CTscan_legs.nrrd`（描迹在用）。
+- **未做**：未清理仓库内与本次任务无关、但属他人/历史工作的文件（745 条已全部提交，但不删）——如需精简需你另行确认。
+
 ## P3 / 第56轮：可行构型动态——**50 ms 支撑 0.566（历史最高）、400 ms 仍 0.247 不塌**
 - 核心说明 `/home/sensen/Desktop/S5_PROXIMAL_DYNAMICS.zh-CN.md`；证据 `/home/sensen/Desktop/engine修复验收/s5-proximal-dynamics/20261030T220000Z/`（`DYNAMICS.json`、`FEASIBLE_QPOS.npy`、`FEASIBLE_ACT.npy`、`VERDICT.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）。owner "可以"。
 - **设置**：第55轮模型（120 条 AI 实测近端束）的**静态可行构型**上，用**静态 LP 激活当常量指令**（不训练、无外力、无参考轨迹）。
