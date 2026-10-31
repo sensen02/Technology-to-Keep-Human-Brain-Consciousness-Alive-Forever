@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 第74轮：需求侧 —— 真实蝇站姿膝角 **51–71°**，模型站 **78°（前足 121°）**；**强加真实膝角救不了站姿**（比自由膝角更差）
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-stance-demand/20261031T130000Z/`（`REPORT.zh-CN.md`、`STANCE_DEMAND.json`、`KNEE_CONSTRAINED_SEARCH.json`、`RESULT_DEMAND.json`、`VERDICT.json`、`STANCE_KNEE.png`、`SCRIPTS/`）。
+- **真实参考**（本项目既有、只读、未改）：`/home/sensen/Desktop/engine修复验收/real-freewalking-3d/20261027T150000Z/`，685 帧 @800 Hz 公开标记点重建；**单位/坐标轴仍未建立 ⇒ 只用量纲一量**（三点内角、足距/体长）。**站姿帧由数据自判**（足端在体坐标系的位移速度取该腿自身最低 35%），每腿约 240/685 帧。
+- **实测站姿膝内角中位**：T1L 60.7 / T2L 60.4 / T3L 61.4 / T1R 70.7 / T2R 51.3 / T3R 59.8（均值 **60.7°**），足端半径 1.40–1.56 体长。
+- **模型膝角**：最好可行姿态 LF 120.7 / LM 65.0 / LH 57.1 / RF 115.0 / RM 61.4 / RH 47.8（均值 **77.8°**），另一可行站姿均值 79.8° ⇒ 模型更直且**前/后足高度不对称**，真实蝇六腿几乎一致。
+- **不是限位问题**：六腿 `Tibia_pitch` 合法范围 [0.479, 2.502] rad 对应内角 ~153°→~37–42°，真实 51–71° 可达。
+- **决定性对照（各 60 构型、≥5 足着地、同一随机种子）**：真实膝角 推版 **0/60、最好 3.79 %W**、收缩版 **0/60、2.81 %W**；自由膝角对照 推版 0/60、**2.94 %W**、收缩版 0/60、**0.70 %W** ⇒ **强加真实膝角更差**，需求侧不成立。判决 `THE_REAL_KNEE_ANGLE_DOES_NOT_RESCUE_THE_STANCE_SO_THE_DEMAND_SIDE_IS_NOT_THE_LIMIT`。
+- **链条现状**：72（基节–胸部肌力 ×2–3）成立、73（力有来源 σ=28 mN/mm²；单位 mm–g–µN；体重 2.5 倍不是原因）成立、74（真实膝角不是原因）成立 ⇒ **唯一未解释项 = 基节–胸部肌群本身**，其 PCSA 不在业主 VFB 包内（包内只有 29 trochanter + 97 femur 细胞），须找独立来源。
+- 预算：LP 4×60=240 次 + 60×4 地面放置搜索；墙钟约 15 min（含三次实现修正：膝角二分范围限在合法区间、地面平面在 **world** 体而非 `ground` 体、放置搜索改成有界上升/下降）。清理：5 个探针与日志（见 `CLEANUP_LEDGER.json`），本轮未新建任何模型资产。
+
 ## P3 / 第73轮：力标度溯源 —— **力的来源是真的（σ=28 mN/mm²）、单位由密度测试定死（质量 g／力 µN）、"体重大 2.5 倍"被否证、膝肌比实测弱 16–23 倍**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-force-scale-provenance/20261031T120000Z/`（`REPORT.zh-CN.md`、`FORCE_SCALE.json`、`DENSITY_UNITS.json`、`MASS_SCALE.json`、`PREREGISTRATION_NOTE.json`、`SCRIPTS/`）。
 - **力的来源（可引用，业主包内）**：`03_Papers/FlyMimic_paper.pdf` p.4「F0 = PCSA × **28 mN/mm²**」（界：跳肌 37、IFM 9）；「每足 15 MTU = 7 胸 + 6 基节 + 2 股」与模型一一对应；论文自陈「最大等长力与收缩速度**非直接测量**」⇒ 量级弱约束。
