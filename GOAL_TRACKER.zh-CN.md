@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 看图交付（非轮次，2026-10-31T15:00Z）：把 AI 肌肉分割的图整理成能直接看的成品 —— 顺手查出「9 个掩膜只有 6 个独立」
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-ai-segmentation-view/20261031T150000Z/`（`README.zh-CN.md`、`总览_AI肌肉分割_ITK-SNAP.png`、`总览_VFB_126块肌肉.png`、`VIEW_VERIFY.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/{compose_view,compose_vfb_view,verify_view}.py`）；桌面直看副本 `/home/sensen/Desktop/总览_AI肌肉分割_ITK-SNAP.png`、`/home/sensen/Desktop/总览_VFB_126块肌肉.png`。
+- **起因**：业主想看"ITK-SNAP 那张 AI 划分肌肉的图"。两套都给：第52–53轮我自己跑的 nnInteractive 掩膜（`/home/sensen/Desktop/engine修复验收/s5-ai-segmentation/20261030T180000Z/`）+ VFB 公开的 126 块肌肉（`/home/sensen/果蝇腿部3D模型_含肌肉分组与标注/Drosophila_Leg_3D_Resources/02_VFB/muscles/*/thumbnail.png`，模型 90 条肌肉的来源）。
+- **独立复核（自解析 NIfTI-1 + NRRD，不用 nibabel）**：① 9/9 掩膜体素数逐位对上 `BATCH_INDEX.json`；② 9/9 掩膜内部 μCT 均值 82.2–94.7 vs 同 bbox 背景 55.9–65.7（逐个 +18.1～+36.5 灰度级）⇒ 掩膜确实压在亮结构上，不是空转。
+- **新发现的不一致（本轮唯一实质新结论）**：9 个掩膜两两 IoU 有 3 对非零且近乎完全嵌套 —— `mask_05 ⊂ mask_02`（5 710/5 714 = 99.93 %）、`mask_04 ⊂ mask_08`（5 968/5 969 = 99.98 %）、`mask_06 ⊂ mask_03`（28 412/29 424 = 96.56 %）⇒ **独立掩膜只有 6 个**，当时批处理去重没拦住。第52–53轮结论（能批量出掩膜、单点 ≤2.25 s）不受影响（与掩膜个数无关），但"9 个种子 9 个掩膜"应改述为"9 个通过 QC、6 个独立"。
+- **另一处措辞更正**：探针的 3 个掩膜只有体素数留档（72 324/71 659/74 315，差 ≤3.7 %），体素数据没存 ⇒ 图上"三者互相重叠"已改述为"无法复核"。
+- **未改动任何旧证据**；是否把上面这条回写进第52–53轮 `VERDICT.json` 与 `/home/sensen/Desktop/S5_AI_SEGMENTATION_PIPELINE.zh-CN.md` 标为**待确认**（改历史记录需业主点头）。
+- 清理：无（出图脚本中间版本被最终版就地覆盖，`/tmp` 无遗留）。新增文件全在 `s5-ai-segmentation-view/20261031T150000Z/` 内，未动第52–53轮任何一个字节。
+
 ## P3 / 第75轮：独立源头 = 业主包里的 OpenSim 原模型 —— **它也没有更多胸–基节肌力**；力臂正常；缺的 ×2–3 是**承重标定缺口**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-torque-authority/20261031T140000Z/`（`REPORT.zh-CN.md`、`TORQUE_AUTHORITY.json`、`FORCE_REPAIR_TEST.json`、`RESULT_SOURCE.json`、`VERDICT.json`、`SOURCE_VS_ASSET.png`、`SCRIPTS/`）。
 - **源头**：`/home/sensen/果蝇腿部3D模型_含肌肉分组与标注/Drosophila_Leg_3D_Resources/01_FlyMimic/FlyMimic-main/flymimic/assets/models/opensim/best_combined.osim`（MuJoCo 资产的祖先），逐肌肉 `max_isometric_force`（= PCSA×28 mN/mm²）。**只有同样的 15 MTU（7 胸–基节 + 6 基节–转节 + 2 膝），没有额外胸部肌群** ⇒ 第72轮的 ×2–3 **无法从源补出**。
