@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 第75轮：独立源头 = 业主包里的 OpenSim 原模型 —— **它也没有更多胸–基节肌力**；力臂正常；缺的 ×2–3 是**承重标定缺口**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-torque-authority/20261031T140000Z/`（`REPORT.zh-CN.md`、`TORQUE_AUTHORITY.json`、`FORCE_REPAIR_TEST.json`、`RESULT_SOURCE.json`、`VERDICT.json`、`SOURCE_VS_ASSET.png`、`SCRIPTS/`）。
+- **源头**：`/home/sensen/果蝇腿部3D模型_含肌肉分组与标注/Drosophila_Leg_3D_Resources/01_FlyMimic/FlyMimic-main/flymimic/assets/models/opensim/best_combined.osim`（MuJoCo 资产的祖先），逐肌肉 `max_isometric_force`（= PCSA×28 mN/mm²）。**只有同样的 15 MTU（7 胸–基节 + 6 基节–转节 + 2 膝），没有额外胸部肌群** ⇒ 第72轮的 ×2–3 **无法从源补出**。
+- **资产比源更强**：F0 比值 胸–基节 **×1.31**（逐肌肉 0.21–1.88）、基节–转节 **×1.59**、膝 **×1.90**；总质量 0.002494271951 vs 0.002494271478（同一身体）。
+- **两个有据修复都被否证**（同 240 构型）：全部恢复源值 ⇒ 最好构型 **0.2085 → 0.9187 %W（差 4.4×）**；只修 `LFC_sternal_anterior_rotator`（源 50.19 → 资产 10.58，×4.74）⇒ **0.2085 %W 不变**。
+- **力臂正常**：实测 0.015–0.099 mm，对应节段半径 0.039–0.067 mm ⇒ 不是力臂伪影。
+- **源论文自陈**（`03_Papers/FlyMimic_paper.pdf` §6）：「body–body and body–environment contact forces were omitted during training」，唯一接触测试是「left foreleg muscle-driven while the remaining legs were position-controlled」⇒ **这套肌肉参数从未被六腿纯肌肉承重约束过**。
+- 判决 `THE_SOURCE_DOES_NOT_SUPPLY_THE_MISSING_THORAX_COXA_TORQUE_SO_A_DECLARED_LOAD_BEARING_CALIBRATION_IS_REQUIRED`。链条收口：72（基节–胸部 ×2–3）、73（力有来源/体重非因）、74（真实膝角无救）、75（源无更多力）四条全部成立。
+- **下一步**：预登记的**承重标定** —— 统一肌力标度 s，取使抽样最好 3 构型恰好可行的最小 s（已知 ≈2–3），所有下游评估（动力学/±5 µm/初速度阈值）都在该 s 下跑并显式标注「承重标定，非解剖测量」。
+- 预算：LP 3×240、力臂测量 90 执行器×42 dof 单点差分、OSIM 解析 1；墙钟约 3 min。清理：`/tmp/osim`、`/tmp/r75`、`MODEL_baseline.xml`（见 `CLEANUP_LEDGER.json`）。
+
 ## P3 / 第74轮：需求侧 —— 真实蝇站姿膝角 **51–71°**，模型站 **78°（前足 121°）**；**强加真实膝角救不了站姿**（比自由膝角更差）
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-stance-demand/20261031T130000Z/`（`REPORT.zh-CN.md`、`STANCE_DEMAND.json`、`KNEE_CONSTRAINED_SEARCH.json`、`RESULT_DEMAND.json`、`VERDICT.json`、`STANCE_KNEE.png`、`SCRIPTS/`）。
 - **真实参考**（本项目既有、只读、未改）：`/home/sensen/Desktop/engine修复验收/real-freewalking-3d/20261027T150000Z/`，685 帧 @800 Hz 公开标记点重建；**单位/坐标轴仍未建立 ⇒ 只用量纲一量**（三点内角、足距/体长）。**站姿帧由数据自判**（足端在体坐标系的位移速度取该腿自身最低 35%），每腿约 240/685 帧。
