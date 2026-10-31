@@ -1,5 +1,24 @@
 # 目标进度与证据追踪
 
+## P3 / 第71轮：补 femur muscle 3（21 细胞）—— **它是模型已有伸肌的方向复制品（余弦 1.000000），0 个新可行构型、动力学零变化**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-femur3-extensor/20261031T100000Z/`（`REPORT.zh-CN.md`、`VFB_EXTENSOR_GEOMETRY.json`、`RESULT_FEMUR3.json`、`BASE_REFERENCE.json`、`VERDICT.json`、`FEMUR3_VS_MEASURED.png`、`BUILD_LOG_FEMUR3.json`、`MODEL_FEMUR3.xml`、`MODEL_PROXIMAL_PULL.xml`、`PREDECLARED.json`、`PREDECLARED_ADDENDUM_SIGN.json`、`SCRIPTS/`）。
+- **实测（只用业主 VFB/Kuan2020 网格，126 个 obj，µm）**：股节跨度 519.6 µm；femur-2 附着帽 (0.070, +0.052, −0.072)→(0.875, +0.050, +0.008)，femur-3 为 (0.042, +0.022, −0.078)→(0.855, +0.053, −0.040)，**同侧（背侧）、沿轴差 ≤0.028 股节长度 ≈15 µm、径向差 ≤0.048 ≈25 µm**。
+- **建成 MTU（免全局配准的差分转移：以模型自身 femur-2 的 site 为锚，加实测相对位移；21 细胞各自横向扇形，远端汇到共享腱膜 site；插入点与 femur-2 共用=假定；力=等单细胞力，21/15 倍）**：6 腿 × 21 = **126 根束**。
+- **结果（同一 240 构型、同一锥 LP）**：基线 0/240、最小缺口 3.63 %W；+120 束（推）=19/240、0.00 %W；+120 束（收缩）=0/240、0.21 %W；**再加 femur-3 = 0/240、0.21 %W（一位不变）**；第二独立样本 240 构型同样 0 新增、0.663 %W 不变。
+- **为什么零贡献**：femur-3 每根束**只有 1 个自由度非零**（两端都在 femur 体上，`|p1−p2|` 刚性 ⇒ 广义力零），只剩 p2→胫节插入一段 ⇒ 等价"再加一条与原生伸肌完全同向的力臂"；径向差别在模型里动力学惰性（股节无关节）。余弦 **mean=min=1.000000**，预测 P1/P2 成立，`FEMUR3_IS_A_DIRECTIONAL_DUPLICATE`。
+- **更正业主报告的 4 点**已并入 `/home/sensen/Desktop/engine修复验收/s5-vfb-muscle-audit/20261031T090000Z/VFB_AUDIT.json`（93932=femur 2 不是 3；股节覆盖 26.8 % 不是 33 %；缺的伸肌是 femur 3 共 21 细胞）。
+- 预算：VFB 网格测量 126 obj×1 次、模型构建 2 次、锥 LP 240×3+240×2+29×3+240（基线）≈ 1560 次、50 ms 动力学 16×4000 步、渲染 1；墙钟约 12 min。清理：`BUILD_LOG.json`（中间版）、`__pycache__`、`/tmp` 三个探针与 `/tmp/r71/`（日志已归档）。
+- **下一步**：先做"方位/符号审计"（用 VFB depressor/levator 参考逐根判定 120 束该在哪一侧），再做初速度阈值实验；femur-3 暂不列入待补清单。物理单位 NOT_ESTABLISHED。
+
+## P3 / 更正（第71轮发现）：第52–70轮 120 根实测束执行器**符号反了** —— 收缩符号下 29 个"可行站姿"**全部不可行**
+- **发现路径**：本轮 femur-3 束的符号自检（M3）出现余弦 **−0.984**，追查后确认为符号问题，不是几何错误。详见 `/home/sensen/Desktop/engine修复验收/s5-femur3-extensor/20261031T100000Z/PREDECLARED_ADDENDUM_SIGN.json` 与 `RESULT_FEMUR3.json` 的 `M0_sign_check`。
+- **事实**：MuJoCo 肌肉（dyntype=muscle, biastype=muscle）输出**负**执行力（`LFTibia_extensor_93932` act=1 → `actuator_force=−298.81`，`joint_LFTibia_pitch` qfrc=−9.845，dL/dq=+0.03295，符合 qfrc=force×dL/dq；官方文档 "The negative sign is because positive muscle activation generates pulling force"）。第52–55轮束用 `dyntype=filter, biastype=none, gainprm=+100` ⇒ 执行力 **+100** ⇒ 腱被拉长 ⇒ **推**，物理身份是"目标肌肉的拮抗肌"。
+- **自检**：同一根 `MPX_LF_B01` 正增益 qfrc(dof 9/10/11)=(−0.820,+0.228,+0.463)，翻符号后全反号。
+- **范围**：仅 `MODEL_PROXIMAL.xml` 的 120 根束；90 块原生肌肉不受影响。
+- **后果**：第55轮"5.97 %W→0.24 %W、29/316 可行"**只在"推"符号下成立**；收缩符号下 **0/29**（这些站姿缺口最大 23.0 %W）、240 新构型 **0 可行**（最小 0.21 %W，第二样本 0.663 %W）。**第56–70轮全部动力学/支撑结论（50 ms support≈0.5、足 1–3 ms 卸踩、软接触下沉、±5 µm 鲁棒）都属于"推版模型"**，对模型本身仍有效，但**不能当作"实测肌肉能站住"的证据**。
+- **等价性提醒**：「符号反」与「附着方位镜像」在单铰上数学等价 ⇒ 真正待测的是**这 120 根束该在关节哪一侧**；业主这份 VFB 资源可定（depressor/levator 参考）。
+- **撤回/改写**："实测近端束闭合静载缺口、存在 29 个静态可行站姿" → 改为"**在推（拮抗）符号下**闭合；收缩符号下 0 可行、最小残留 0.21 %W"。
+
 ## P3 / 第70轮：站姿鲁棒性过滤——**28/29 在 ±5 µm 扰动下仍可行（其中 20 个非趴伏）** ⇒ 静态不边缘，失败是动力学问题
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-robust-stance/20261031T080000Z/`（`ROBUST.json`、`VERDICT.json`、`SCRIPTS/robust.py`、`MANIFEST_SHA256.json`）。
 - **做法**：对 29 个可行站姿，分别在**身体 ±5 µm**（各 3 个采样）下重解锥 LP。
