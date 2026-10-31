@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 第65轮：1 ms 更新周期——**质心略升（0.540→0.592）但支撑仍靠机体接触**；跟踪速度只是二阶因素
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-quasistatic-1ms/20261031T030000Z/`（`RESULT.json`、`VERDICT.json`、`SCRIPTS/quasistatic_1ms.py`、`MANIFEST_SHA256.json`）。
+- **对比（400 ms）**：5 ms 周期 → com_min 0.540 / com_end 0.619 / support 0.075 / 触地 2.15 / 末 slack 0.175；**1 ms 周期 → com_min 0.592 / com_end 0.636 / support 0.058 / 触地 2.59 / 末 slack 0.285**。
+- **判读**：质心**略升**（min +5.2pp、end +1.7pp），但**足部支撑反而略降、机体接触上升** ⇒ 身体被"自己的腿段"托得更多；且 **slack 仍从 0 发散到 0.285**，1 ms 也跟不上姿态漂移。
+- **结论**：**跟踪速度是二阶因素**；一阶问题是**可行构型全是趴伏的**。判决 `FASTER_TRACKING_HELPS_THE_COM_SLIGHTLY_BUT_THE_SUPPORT_STILL_COMES_FROM_BODY_CONTACT`。
+- **下一步（唯一有决定性的杠杆）**：**逐肌肉测量**（AI 逐个切 coxa/trochanter 段），得到**非趴伏的可行构型**，而不是现在的"单掩膜分摊"几何。
+- 预算：LP 400 次、forward 约 210×400 + 32000 身体步、渲染 0；墙钟约 75 s。清理：`/tmp/q1.log` 已删。
+
 ## P3 / 第64轮：沿轨迹每 5 ms 重解锥 LP（准静态调度）——**400 ms 质心保持 0.54–0.62（历史最好持续值），但靠身体接触支撑**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-quasistatic-lp/20261031T020000Z/`（`RESULT.json`、`VERDICT.json`、`SCRIPTS/quasistatic_lp.py`、`MANIFEST_SHA256.json`）。
 - **做法**：每 5 ms 从**当前状态**重解锥 LP 并施加解出的激活，共 80 次求解，总 400 ms（第40轮同类做法当时没有可行静态解可跟，现在有）。
