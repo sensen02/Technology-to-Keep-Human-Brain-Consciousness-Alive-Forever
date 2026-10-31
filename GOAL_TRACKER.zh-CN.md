@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B2d（2026-10-31T232507Z）：实测 `trochanter muscle 2` **不是**缺的那根拮抗肌（力只够 ~1/6）；muscle 1 其实**绕轴一圈**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-anatomy/20261031T232507Z/`（`PREREGISTRATION.json`、`TROCHANTER_ANATOMY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TROCHANTER_RADIAL.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_ANATOMY.zh-CN.md`。
+- **实测（业主包 VFB/Kuan2020 网格，29 个 trochanter 细胞，只读）**：muscle 1 = **27 细胞**，V 94 694 µm³、纤维长 63.0 µm、PCSA 1 530.7 µm²、**F0 = 42.9 µN**；muscle 2 = **2 细胞**，V 6 240 µm³、长 55.8 µm、PCSA 112.6 µm²、**F0 = 3.15 µN**（= muscle 1 的 7.4%）。
+- **空间关系**：两组平均径向相距 **24.4 µm = 2.60 个合并标准差**（可分）；但 muscle 1 的**合向量长 R=0.185、跨角 350.4°** ⇒ 它**绕着腿轴一圈**，muscle 2 才是单侧（**R=0.970、跨 27.9°**，距轴 22.7 µm）。
+- **自我更正**：预登记里"在另一侧"判据用的是平均径向余弦，实测 −1.000 看着完美对立，但那只是"退化向量(vs)明确向量"（muscle 1 平均径向仅 1.68 µm）⇒ 判据记 `NOT_INFORMATIVE`，改用环形合向量长。**不能读成两块肌肉分居两侧。**
+- **力判据不成立**：B2c 的合成修复需要 **≥20 model force units**，muscle 2 只有 **3.15** ⇒ **差约 6.3 倍**（P23 FAIL）。
+- 判决 `TROCHANTER_MUSCLE_2_IS_A_SMALL_LATERAL_GROUP_ABOUT_SIX_TIMES_TOO_WEAK_TO_BE_THE_MISSING_ANTAGONIST_AND_MUSCLE_1_SURROUNDS_THE_AXIS_SO_THE_MODEL_1_VS_15_ASYMMETRY_IS_NOT_EXPLAINED_BY_TWO_OPPOSING_SIDES`。
+- **推论**：B2c 证明"补双向拮抗就能静态撑住"，B2d 证明**实测解剖里没有够力的那根** ⇒ 缺口更可能是**模型自身的附着/映射问题**，不是"少一块肌肉"。
+- **下一最小动作（不需要新解剖数据）**：在模型自身里逐腿量 6 根 coxa–trochanter MTU 附着点相对 `Trochanter_pitch` 轴的符号，核实"唯一 +扭矩的那 1 根"是否映射异常；若 6 根全在同侧，按实测（两组位置与力）重分配后再跑 B2c 判据。
+
 ## P3 / 门禁 B2（2026-10-31T214600Z，**已按修正求解器整体重算**）：统一肌力标度救不了三个合格站姿，**放大严格更差**；随后 B2c 定位到 `Trochanter_pitch` 的 1:15 单侧出力
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-unified-scale/20261031T214600Z/`（`PREREGISTRATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`AFFINITY_CHECK.json`、`SCALE_SOLUTION.json`、`CONE_MODES.json`、`FRICTION_PROBE.json`、`DOF_SHARE.json`、`AUTHORITY_ASYM.json`、`SCALE_CURVE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_UNIFIED_SCALE.zh-CN.md`。
 - **判据未放宽**（三姿态共享一个 s、残差带 1% 体重、仅足端接触、逐接触 mu 菱形锥、s∈[1,50]）。**联合 LP 全区间不可行**；三姿态最小-最大残差：s=1 **23.77**、1.25 29.66、1.5 35.66、2.0 47.66、3 71.66、5 119.71、10 239.95、50 1208.25 ⇒ **s=1 最好，放大单调变差**。
