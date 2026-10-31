@@ -1,5 +1,11 @@
 # 目标进度与证据追踪
 
+## P3 / 第58轮（阶段1/2）：把运动 manifest 扩到 210 执行器的实测近端模型
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`POOLS_PROXIMAL.json` 210 条、`INHERITANCE.json` 120 条映射、`STATUS.json`）。owner "可以"（做真实神经闭环）。
+- **完成**：为第55轮模型的 120 条 `MPX_*` 执行器各生成一条运动池记录，**继承同腿基础肌肉的 motor pool**（`inherits_from` 逐条记录），总执行器 **90 → 210**。口径：**DECLARED INHERITANCE，不是实测神经支配**。
+- **未完成（本轮到此为止）**：神经闭环运行本身——需要为 `MODEL_PROXIMAL.xml` 新建 harness（`r45_lib` 的 build/pool/manifest 路径写死为基础模型），再对第47轮 RNN 翻译层做 CEM，目标改为"支撑 + 不塌"。**这是下一步的唯一动作**。
+- 停止原因：本轮预算（上下文）用尽；已完成的部分可复核、可续跑。
+
 ## P3 / 第57轮：实测近端模型上的时变激活搜索（CEM 60 rollout）——**质心升、支撑降，未超常量解**
 - 核心说明 `/home/sensen/Desktop/S5_PROXIMAL_TIMING.zh-CN.md`；证据 `/home/sensen/Desktop/engine修复验收/s5-proximal-timing/20261030T230000Z/`（`RESULT.json`、`VERDICT.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）。owner "可以实施"。
 - **设置**：第55轮模型 + 第56轮静态可行构型；`ctrl(t)=act_static×boost(leg,bin)`（6×10=60 参数，boost∈[0,2]）；CEM 12×5=**60 次 50 ms rollout**；无参考轨迹/相位/外力。
