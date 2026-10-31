@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B2（2026-10-31T214600Z）：统一肌力标度**救不了**三个合格站姿 —— 缺口是 `Trochanter_pitch` 的 **1:15 单侧出力**，不是幅度
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-unified-scale/20261031T214600Z/`（`PREREGISTRATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`AFFINITY_CHECK.json`、`SCALE_SOLUTION.json`、`CONE_MODES.json`、`FRICTION_PROBE.json`、`DOF_SHARE.json`、`AUTHORITY_ASYM.json`、`SCALE_CURVE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_UNIFIED_SCALE.zh-CN.md`。
+- **判据（跑前预登记，未放宽）**：三姿态共享一个 s，残差带 1% 体重，仅足端接触、逐接触 mu、内接菱形锥，s∈[1,50]。**联合 LP 在全区间不可行**；最小-最大残差在 **s≈2.0 = 54.5 %W**，之后单调变差（s=5 → 119.7、s=10 → 240.0、s=50 → 1208.3 个 1%W 单位）。
+- **仿射性先验证**：原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘后 `a0` 与 `B` 与 s 成正比，相对误差 ≤ **3e-16** ⇒ LP 线性化合法，结论不是近似造成。
+- **接触自检**：六跗节可精确平衡根节 6 自由度（t=0）⇒ 矩阵朝向/符号正确。**三锥一致**：菱形/16 边形/方锥均为 54.488，结论不依赖内接锥选择。
+- **摩擦是地板但不是全部**：去摩擦后降到 s=2 时 3.1/2.5/1.6 %W，但该解需 |ft|/fn=2.0–4.6 且出现负法向力（fn=−30.9）⇒ 非物理，不采信。
+- **决定性机制**：`Trochanter_pitch` 只有 **1 根肌肉给正扭矩、15 根给负扭矩**（三姿态一致）。统一放大把强侧主动+被动一起乘 s，弱侧那 1 根跟不上 ⇒ 残差随 s 上升。这解释了为何第72轮"单独放大胸–基节组 ×2–3 有效"而**统一放大无效**。
+- **本轮修掉两个实现错误**（旧结果已重跑、未留过时文件）：①残差带下行松弛系数被同时取反 ⇒ 全部误判不可行；②接触力变量块从第 0 列起，覆盖前 18 个激活列 ⇒ 数值失真。修正后与手算构建一致（单姿 s=2：47.661）。
+- 判决 `NO_UNIFORM_MUSCLE_FORCE_SCALE_ADMITS_A_FOOT_ONLY_STATIC_BALANCE_OF_THE_ADMISSIBLE_TRIO_AND_SCALING_ABOVE_S_APPROX_2_MAKES_IT_WORSE`；留出批**未评估**（无 s* 可评估，据实记为失败）。0 `mj_step`、0 训练。
+- **下一步**：①**B2b** 在同一足端求解器上重做**分组**缩放（胸–基节/基节–转节/膝），检验第72轮结论；②**B2c** 直指 `Trochanter_pitch` 的 1:15 不对称（补拮抗执行器或按解剖重分配），任何全局标度都修不了；③有静态可行配置后才进入门禁 C。
+
 ## P3 / 门禁 B1（2026-10-31T213534Z）：合格站姿**可由逐腿求解生成** —— 标定三姿 + 10 个独立验证姿已建立
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-posture-generation/20261031T213534Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`GENERATION.json`、`POSTURE_VERIFY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`POSTURES_{CALIBRATION,HELDOUT,SPARES}.npy`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_POSTURE_GENERATION.zh-CN.md`。
 - **判据从未放宽**（≥4 跗节着地、零非跗节接地、穿透 ≤0.02 mm、关节限位内），但**三次采样方案全部 0 合格**并各自留档：v1 全范围均匀采样 0/60；v2 ±0.10 rad 胫节微扰 0/120（**0.10 rad ≈ 60 µm 抬高**，六足不可能共面）；v3 ±0.003 rad + 高度扫描 0/60。
