@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B1（2026-10-31T213534Z）：合格站姿**可由逐腿求解生成** —— 标定三姿 + 10 个独立验证姿已建立
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-posture-generation/20261031T213534Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`GENERATION.json`、`POSTURE_VERIFY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`POSTURES_{CALIBRATION,HELDOUT,SPARES}.npy`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_POSTURE_GENERATION.zh-CN.md`。
+- **判据从未放宽**（≥4 跗节着地、零非跗节接地、穿透 ≤0.02 mm、关节限位内），但**三次采样方案全部 0 合格**并各自留档：v1 全范围均匀采样 0/60；v2 ±0.10 rad 胫节微扰 0/120（**0.10 rad ≈ 60 µm 抬高**，六足不可能共面）；v3 ±0.003 rad + 高度扫描 0/60。
+- **v3 失败时测到的关键事实**：项目自己存档的“可行站姿”**也没有落地放置** —— 第67轮参考姿在自身高度下跗节穿地 **0.10–0.32 mm**（79 接触）。⇒ 整体升降永远救不回共面，必须**逐腿解**。
+- **v4（成功）**：逐腿对 `Tibia_pitch` 二分求“刚好接触”边界（9 档身体高度，40 次二分，容差 1e-5 rad）⇒ 生成批 **10/10**、留出批 **10/10** 合格；标定三姿按预声明排序（穿透升序）为生成批 idx 0/1/2（z=1.0755/1.1255/1.1255），另 7 个备用。
+- **独立验证**（新模型实例+新 MjData，从 `.npy` 重算）：20/20 全合格、20/20 六足着地、零非跗节接地、**零关节越限**、最大穿透 **0.0**、两批**零重复**、标定排序一致。
+- **两处更正**：①第67轮起 29 个 `feasible` 是旧 LP 判据产物（只查接触存在、不查穿透），**不能当落地承重站姿引用**；②逐腿求解只是**几何构造**（合法关节值搜索），不是控制器、不是神经结果，不得计入行为学结论。
+- 判决 `ADMISSIBLE_STANCES_CAN_BE_GENERATED_AND_THE_CALIBRATION_SET_NOW_EXISTS`；预算 `mj_forward` 约 4 万次、墙钟约 5 s（v4 1.2 s）；0 LP、0 `mj_step`、0 训练。
+- **下一最小动作 = 门禁 B2**：在标定三姿上做统一肌力标度 s 的联合 LP（原生 `gainprm[2]`+`biasprm[2]` 同乘、MPX 负增益同乘；关节被动/质量/几何/限位/dt 不动），先用 s/mid/max 验证仿射性；仅足端 geom、逐接触 mu、保守内锥、W 与 W·L_ref 分别归一；留出批做未参与标定的检验。
+
 ## P3 / 门禁 A（2026-10-31T213146Z）：旧基线**逐位复现**，但两批存档构型里**没有任何合格站姿** ⇒ 标定三姿态必须重新生成
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-calibration-gate/20261031T213146Z/`（`PREREGISTRATION.json`、`GATE_A.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/calibration_gate.py`）；桌面副本 `/home/sensen/Desktop/S5_CALIBRATION_GATE.zh-CN.md`。
 - **Q1 复现 = EXACT**：旧锥 LP 原样、同构型，`over_weight` 三处差值**全为 0.0**（pose2 `0.0020845200497971368`、167 `0.014533960988549456`、224 `0.015372575190897613`）。唯一改动是加载方式（归档 XML 的相对 meshdir 缺失，改 `MjSpec` 内存指向既有网格缓存；71 网格，nq49/nv48/nu210/na210），故数值差异不能归因加载器。
