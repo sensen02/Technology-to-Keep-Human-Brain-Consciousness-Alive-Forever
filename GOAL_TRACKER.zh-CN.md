@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 第58轮（阶段2 完成）：神经闭环**已在 210 执行器实测模型上跑通**（194 可用 / 185 全覆盖），但**未训练时塌**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`NEURAL_TRIAL.json`、`VERDICT.json`、`POOLS_PROXIMAL.json`、`INHERITANCE.json`、`STATUS.json`、`SCRIPTS/neural_proximal.py`、`MANIFEST_SHA256.json`）。
+- **解除阻断的方式（声明式）**：`build_motor_manifest` 要求每个 motor-pool root 只有**一个** `(muscle, leg, side)` 身份；因此 120 条实测束改用**CO-INNERVATION**——与同腿基础肌肉**完全相同的身份**（同一批神经元共驱动），逐条记录在 `INHERITANCE.json`。**这是声明，不是实测神经支配。**
+- **跑通结果**（0.15 s PD 预热 + **0.05 s 神经阶段**，16000 身体步 / 400 神经步，7.8 s）：`support_mean 0.376`、`support_end 1.328`、**`com_min 0.145`**、`com_end 0.331`、**`nonfoot_max 17`**。
+- **解读**：神经环路确实端到端驱动了 210 个执行器（194 可用、185 全覆盖），但**未训练时行为是塌陷**：质心掉到起始的 14.5%、17 处机体接触；末段支撑 1.33 是"身体已垮、腿在蹬地"，不是撑住。
+- **判决 `NEURAL_LOOP_RUNS_ON_THE_MEASURED_MODEL_BUT_COLLAPSES_WITHOUT_A_TRAINED_LAYER`**。
+- **下一步（唯一动作）**：在这套 harness 上训练第47轮的 RNN 翻译层，目标＝支撑 + 不塌；**未训练基线已测得**（support_mean 0.376、COM 0.145）。
+- 预算：模型加载 1、神经元 tier 1、身体步 16000、神经步 400、渲染 0；墙钟 7.8 s。清理：`/tmp/np*.log` 已删。
+
 ## P3 / 第58轮（阶段2）：神经闭环接入实测近端模型——**被 manifest 的"每个 pool 只许一个身份"挡住**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-proximal/20261031T000000Z/`（`STATUS.json`、`POOLS_PROXIMAL.json` 194 resolved + 16 unresolved、`INHERITANCE.json`、`SCRIPTS/neural_proximal.py`、`MANIFEST_SHA256.json`）。
 - **做了什么**：为 210 执行器模型写了独立 harness（编译 `MODEL_PROXIMAL.xml` → 12k 神经元 tier → 用 `POOLS_PROXIMAL.json` 建 manifest → 声明式 PD 预热 0.15 s → 神经阶段）；pool 守卫**声明式绕过**并记录（新池 = 可信基础池 + 120 条继承记录）。
