@@ -1,5 +1,20 @@
 # 目标进度与证据追踪
 
+## 持续goal第2轮（2026-11-01T184041Z）：接触分辨率不稳；实际MN—肌肉交接链可追溯但早期招募稀少
+- 起点源码9187d3714dbecbcbc8f0bdcd837e0f16b94ab628，goal保持active；S1/S5尚无新版稳定步行基线。本轮不重复全90肌刺激/增益滤波网格。
+- **接触步长诊断**：新目录 `/home/sensen/Desktop/engine修复验收/s5-contact-resolution/20261101T184041Z/`，核心脚本 `/run/media/sensen/Data2/cell_wound_prototype/tools/diagnose_s5_contact_resolution.py`。从上轮保存行走初态恢复，原0.1ms仅校验20ms/200步，qpos/qvel/ctrl/载荷/root/feet与旧轨迹最大差全部0。然后仅两条新2s积分：dt0.05/0.025ms，保持控制参数及物理时间定义，原0.1ms全长轨迹直接复用。
+- **结果**：root dx由0.1ms的3.012947降至0.05ms的0.145467、0.025ms的0.235469；COM最低比0.826578/0.818525（原0.892763），足路径效率最小0.025847/0.043354（原0.281408）。完整接触均时0.05ms为2.066–3.983ms、0.025ms为1.134–4.194ms；后腿事件数随细化增加。两细化臂无MuJoCo warning，但不代表收敛。六腿命令仍8次变号/s。**原3.013mm结果显著依赖数值分辨率，不作为可靠步态基线；短接触未消除，不能单纯归为瞬时神经高频驱动。**
+- 接触尺度补充：55个显式接触pair的solref时间常数0.0002s，原/两细步长分别仅覆盖2/4/8步；共同0.1ms网格的fine/coarse RMS比root0.044462、COM0.043620、feet0.045227，宏观轨迹差异显著缩小，但后足接触事件仍增加。不能仅据宏观收缩宣称接触已收敛。下一步只需有依据的一条0.0125ms同初态诊断，不做控制参数网格。
+- 接触执行源码与交付防护版分开：实际运行源码完整保存在本轮EXECUTED_diagnose_s5_contact_resolution.py，SOURCE_CHANGE_LEDGER记录运行后防护/端点分析变更，未重积分。独立验证469模型数组仅dt不同，初态一致，两臂各5状态forward位置/支撑重算差0。父直接读两臂原始NPZ重算位移、COM与足路径效率一致，全数组finite。
+- **S3/S4复用真实肌肉记录**：新目录 `/home/sensen/Desktop/engine修复验收/s3-mn-muscle-chain/20261101T184041Z/` 的PREREGISTRATION/AUDIT/CHAIN_ARRAYS为核心必需，REPORT为重要辅助；核心源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_mn_muscle_chain.py`。绑定旧121000Z实际交接MODEL sha3470c72f…，不是canonical65d/210派生275d/NeuroMechFly motor身体。
+- **链路验证通过但不等于行为**：700个1ms窗，74可命令肌肉/66独立非空共享池/202唯一运动池细胞；池计数逐项重构、rate/100裁剪及前窗pending延迟、BODY端步命令对齐误差0。原记录没有0.5ms子步脉冲顺序，采用所有兼容放电顺序的指数rate上下界，最大浮点越界5.68e-14，不能称精确脉冲重放。当前源码hash与原decoder/handover一致；实际神经We/Wi还乘0.2，不可混用最近六通道原网络饱和族。
+- **早期实测**：撤辅助后前5ms新运动池脉冲0；前15ms仅6脉冲/5细胞；700ms2657脉冲/136细胞。前15ms实际命令无clip饱和，仍有预热遗留pending、rate及act，故不能说无输出/冷启动，也不能用700ms峰rate335.586Hz解释最初失撑。0/5/15ms正Fz足数3/3/2，非足均0；少脉冲与失撑共现尚未证明因果。
+- **仅补缺的静态观测**：同三个保存状态共1加载/9forward/0身体step/0神经step；实际肌力与保存值误差0，moment.T×force误差8.88e-16。active力/被动力分离已存；90独立执行器各关节正负分量上界包含16未映射肌肉且未绑定共享池，不能称MN可达力矩锥或承重能力。未恢复求解器warmstart，不能把肌力复算升级成接触/加速度复现。
+- **身份边界**：旧记录未存完整12000root次序/运行权重指纹，MAPPING只能支撑局部索引内部一致。未来新实验必须补全网络身份，不能声称原档已完整认证。
+- 命令均用 `/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python -B` 与PYTHONDONTWRITEBYTECODE=1（物理诊断MUJOCO_GL=egl）；新链审计退出0，父及独立代理只读数组验证通过。独立代理首次裸python不存在exit127后改绝对路径退出0，无新增模拟。当前无图像输入能力，图像如生成仍未目视，不交付视频成功声明。
+- 下一最小动作：接触诊断结果收敛前不调神经去迎合旧步态；定位控制/粘附/接触几何对数值敏感性的贡献。神经侧从保存边界和感觉电流做身份明确的定向重放，先检验可复现，再区分早期无新MN脉冲的输入/网络因素；不重新跑长时倒地或无依据增益扫描。
+- 清理：无确认废弃文件，未删除历史记录；所有新结果含失败边界，目标仍未完成。
+
 ## 持续goal第1轮（2026-11-01T183002Z）：算法基线逐步记录揭示短接触；肌肉与网络身份对齐
 - 起点源码92adcdc6f03fa99c6bd1aaa7e88217533317fc57；goal保持active。S1/S5仍未通过，不能将旧算法PASS直接作为新验收基线。
 - **唯一新步行模拟**：原样导入冻结walk_push.run(gain=1,grip=False,a_sweep=0,push_frac=0)，只在独立MjData克隆上forward观测，真实控制不改；2s/20001样本/dt0.1ms，保存qpos/qvel/ctrl、PD与腿驱动分项、实际执行器力、足端/COM、63221逐接触记录、原生模型MJB及环境身份。无外推，MuJoCo warning为0。核心目录 `/home/sensen/Desktop/engine修复验收/s5-baseline-recording/20261101T183002Z/`；核心源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/record_s5_baseline.py`。
