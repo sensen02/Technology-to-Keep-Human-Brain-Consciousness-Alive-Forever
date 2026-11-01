@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 视频干净版（2026-11-01T15:13Z）：**青色柱状物 = 接触力箭头，已关闭**
+- **含义已实测确认**：只开 `mjVIS_CONTACTPOINT` → 彩色像素 1,065、RGB(187,130,55) **橙** = 接触点；只开 `mjVIS_CONTACTFORCE` → 33,382 像素、RGB(158,202,202) **青** = 接触力箭头。
+- **旋钮无效的记录**：`m.vis.map.force` 0.004→0.0004→0.00002 都试过，柱体在画面上的像素量基本不变（12,079→11,184）⇒ 该旋钮**不能**缩短这些柱体，故改为**关闭柱体、只留橙点**。
+- 正式视频：`/home/sensen/Desktop/S5_GAIT_WALK_自由行走.mp4`（增益 1、无外推、**+4.60 mm**）、`/home/sensen/Desktop/S5_GAIT_WALK_1.0倍体重外推.mp4`（增益 16、1.0 倍体重、**+5.46 mm**）+ 两份分帧图；箭头参考版留在证据目录。
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-gait-video/20261101T150323Z/`（`REPORT.zh-CN.md`、`GAIT_WALK_{free,push100}_{pointonly,arrows}.mp4`、四张分帧、六张 `VIS_*.png`、`SCRIPTS/{render_video,probe_vis}.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）。
+- **清理（已实际删除）**：带长柱体的旧版两条 mp4 与两张分帧图（被干净版/箭头参考版取代）；桌面误命名的 `_分帧.jpg` 重复件。
+
 ## 可视样本（2026-11-01T150323Z）：`S5-GAIT-1.1` 行走视频
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-gait-video/20261101T150323Z/`（`GAIT_WALK_gain01_push000.mp4`、`GAIT_WALK_gain16_push100.mp4`、两张分帧图、`VIDEO_META.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/render_video.py`）；清单 8 文件。
 - **桌面副本**：`/home/sensen/Desktop/S5_GAIT_WALK_自由行走.mp4`（增益 1、无外推，3 s 位移 **+4.60 mm**）、`/home/sensen/Desktop/S5_GAIT_WALK_1.0倍体重外推.mp4`（增益 16、**+x 1.0 倍体重外推**，3 s 位移 **+5.46 mm**）、两份分帧图。
