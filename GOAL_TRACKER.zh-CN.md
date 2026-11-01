@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十四步（2026-11-01T144641Z）：压滑移 —— **结论翻转：不是滑行，是我的度量错了**（第 13 步滑移结论撤回）
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-slip-reduction/20261101T144641Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`SLIP{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_SLIP_REDUCTION.zh-CN.md`。
+- **前两次"失败"**：粘附增益 1→4 与支撑抓地项 ⇒ 滑移 1.59–3.18 mm；加支撑相后扫（0→1.0）⇒ **滑移/位移比恒为 1.00–1.17**。
+- **破案线索**：**任何干预下比值都不动（≈1.0）⇒ 是度量坏了**，不是滑行。
+- **错误原因**：我按"相对 t=0 的位移"量滑移，把**摆动相移动**也算进去了。正确口径 = **同一次连续接触期内**的位移。
+- **修正后（八档全 PASS）**：单次接触滑移 **0.295–0.404 mm < 0.5 mm**，滑移/位移比 **0.10–0.30**（正是"足踩住、身体越过"的真行走特征）；最佳 `sweep0.6_gain1.0`：位移 **3.098 mm**、交替 **−0.93**、COM 0.97、非足 0、滑移 **0.313 mm**。
+- 判决 `WITH_A_CORRECT_PER_CONTACT_SLIP_METRIC_THE_GAIT_IS_SLIP_FREE_WITHIN_0_40_MM_AND_ALL_EIGHT_CONTROLLER_ARMS_MEET_THE_FULL_WALKING_CRITERION_SO_THE_EARLIER_SKATING_CONCLUSION_IS_WITHDRAWN`。
+- **撤回项**：第 13 步判决 `…SLIDES_ITS_FEET_AND_FAILS_ANY_SLIP_RULE…` **撤回**（度量假象）；其位移/交替/COM 数字仍成立，**滑移数字与"滑行"结论不成立**。**第 13 步的行走推力上限仍未建立**，需用修正度量重测。
+- **教训**：一个指标在两种完全不同的干预下都不响应 ⇒ 立即怀疑度量本身；**今后对"不响应干预"的指标一律视为可疑**。
+
 ## 路线 A 第十三步（2026-11-01T074430Z）：行走鲁棒性 —— **发现"走其实是半滑行"（0.71 mm）；FSM 臂未复现**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-gait-robustness/20261101T074430Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`ROBUSTNESS{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_GAIT_ROBUSTNESS.zh-CN.md`。
 - **先分开两个变体**：**V_OSC**（正弦 tripod 振荡器 A=1.0/f=4Hz）与 **V_FSM**（载荷状态机 + 两计时器，第 10 步 v3）—— 规格里此前混列。
