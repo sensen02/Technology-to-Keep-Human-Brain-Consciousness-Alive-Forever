@@ -1,5 +1,11 @@
 # 目标进度与证据追踪
 
+## 可视样本（2026-11-01T165359Z）：**神经在环行走视频**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-video/20261101T165359Z/`（`NEURAL_GAIT_shapegain0p8.mp4`、分帧图、`REPORT.zh-CN.md`、`VIDEO_META.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/render_neural_gait.py`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_GAIT_神经在环行走.mp4`、`/home/sensen/Desktop/S5_NEURAL_GAIT_神经在环行走_分帧.png`、`/home/sensen/Desktop/S5_NEURAL_GAIT_REPORT.zh-CN.md`。
+- **录制窗内 100% 网络驱动**：`u_L = clip(0.8×(v_L − 运行均值), −1, +1)`，`v_L` 为该腿 readout 群平均膜电位（BANC 层级在环 0.5 ms 推进），感觉电流来自该腿接触力。
+- **数字**：2 s 位移 **+1.345 mm**；同配置判据窗 **0.779 mm / 交替 −0.52 / COM 0.71 / 零非足 / 滑移 0.000**；零感觉电流对照 **0.007 mm**。
+- **边界**：预热 0.8 s 由算法驱动；粘附时序为算法门控；受体为声明式最小律；无"自激式"感觉闭环；非动物结论。
+
 ## 路线 A 第十九步（2026-11-01T152818Z，v9/v10）：**第一个神经在环步态成立**
 - 驱动律：`u_L = clip(gain ×(v_L − 运行均值), −1, +1)`，逐腿**连续**由膜电位塑形。
 - **增益扫描（判据同 S5-GAIT-1.1）**：0.05→0.030 mm、0.1→0.142、0.2→0.313、0.3→0.483、**0.5→0.637（交替 −0.49）PASS**、**0.8→0.779（−0.52）PASS**、**1.2→0.835（−0.51）PASS**；COM 0.71、零非足、滑移 0.000。
