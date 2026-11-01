@@ -1,5 +1,20 @@
 # 目标进度与证据追踪
 
+## 持续goal第10轮（2026-11-01T211209Z）：跟进用户同个体微调设想，取得并核验BANC fly73原始行为
+- 起点f1f049d06f8c134cae703f7c2364d41bec77cb12，干净工作树。用户提出寻找连接体同一只果蝇的行为记录、考虑SNN训练对齐，本轮按S1真实运动依据/S3身份/S4行为校准推进；没有改变最终自主物理行走目标，也没有直接开始微调或修改SNN。
+- **已实际取得同个体数据**：`/home/sensen/Desktop/engine修复验收/s4-banc-individual-behavior/20261101T211209Z/`。官方paper DOI10.1038/s41586-026-10735-w、Dataverse DOI10.7910/DVN/7WTH1N的behavior.zip描述指向官方GCS behavior/目录；直接按generation固定下载该解包树的17个非空对象，共365283167字节（不再存一份ZIP重复占用）。每个长度/官方base64MD5/本地SHA256核对，全部一致。下载bash33 exit0已收取。
+- **身份不是猜测**：原作者BANC_Behavior.ipynb明确写BANC来自本2020-10-25实验fly73，代码索引72。该批96只/99426帧；原始二进制、MAT v7.3 HDF元数据、例子CSV、Notebook/PDF与群体图都保留ORIGINAL。该17对象树无视频文件，也无六腿3D/足力/EMG/同步神经活动，不以轨迹资料冒充逐腿神经真值。当前SNN是BANC子网络，不是FAFB，也不是完整个体神经系统。
+- **582与偏好分母的实际差别**：原始583个非零臂记录→582相邻转移（410右）。MARGO参考analyze_ymaze先删除第一个非零臂记录再作差，所以偏好使用后581转移/409右，409/581=.7039586919104991，匹配官方CSV rBias=.703958692；CSV n_turns却是582。全批96只计数误差0、偏好最大误差4.94e-10，不能把582强塞作rBias分母。公开MARGO代码固定commit4e76312dff341b934b3d75e23cd57b08e6eb02f5，不声称证明它就是2020运行源码。MAT ROI方向fly73=0，臂差−1/+2计右，事件时间明确使用到达臂对应原始帧。
+- **时间精度纠正**：原始float32 dt按float64累计7200.072940856s；历史float32逐步累计7202.696777344s，复现CSV7202.697，末端差2.623836488s来自累计精度，不是多录2.6秒。保留两条时间轴，后续训练用原dt的float64累计。目标15Hz，实际平均13.809Hz，最长dt26.703688s，124个dt>.2s，不插值跨缺口伪造动作。
+- **单位与追踪质量**：MAT明确pixels，mm_per_pix=1.0不能当毫米标定。原xy与CSV最大舍入差.00005pixel。无头尾的ellipse orientation不直接当运动航向。fly73坐标有限99202帧/无效224；dropped_frames为little-endian bit-packed，按位解析全部96列合计与MAT num_dropped精确一致，fly73=532；联合有限且未drop有效98811帧，两个mask分别保留。
+- **已交可用数据**：FLY73_ALIGNED.npz包含个体逐帧dt/双时间/xy/speed/体轴/area/轴长/质量mask/事件及切分；TURN_EVENTS.csv保留582事件并标included_in_upstream_rBias；COHORT_RECOMPUTE.json保留96行原始复算；未执行作者Notebook/MATLAB代码。
+- **微调规格与简单基线**：TRAINING_SPEC.zh-CN.md列明回路覆盖→可复现可训练SNN→条件行为→实际身体闭环的顺序，保留连接mask/递质符号，不以高层轨迹生成器替代神经元。前.6/中.2/后.2的连续时间划分对应偏好事件295/134/152，训练204右/p=.691525；常量训练偏置在验证/留出NLL .603804/.591914，均匀基线.693147。SNN不能仅调总体70%就称学到个体行为。此为单动物时间留出，汇总已经查看，不能称独立动物验证或完全盲测。
+- 个体连接体+同行为不等于当前3470虚拟身体也已完成同个体解剖/肌力标定；训练不能把身体不可执行性全吸收到神经参数，机械缺口与行为校准仍分列。无逐神经元实测感觉，重建任务输入须声明，行为相似亦不能唯一识别内部神经状态。
+- **三个新仓库工具（核心必需）**：`/run/media/sensen/Data2/cell_wound_prototype/tools/fetch_banc_individual_behavior.py`、`/run/media/sensen/Data2/cell_wound_prototype/tools/audit_banc_individual_behavior.py`、`/run/media/sensen/Data2/cell_wound_prototype/tools/verify_banc_individual_behavior.py`。正式主分析与独立验证exit0；0物理模型加载/身体步/神经步/SNN训练。
+- **失败与环境记录**：探索stdin检查先后遇scipy不支持MAT v7.3、h5py缺失、HDF Group/Dataset访问、BOM字段名、括号SyntaxError，均exit1且未产出被采用指标；修正后正式工具一次运行通过。h5py3.15.1 --no-deps仅安装到本包REPRO_ENV，主venv未改。运行显式venv_body/bin/python -B、PYTHONDONTWRITEBYTECODE=1，独立验证不用h5py，改用stdlib字节步进/struct/每帧bit索引，完整事件/双时间/drop及7个质心帧、切分均验证。
+- **封存与清理**：17原始文件再次验证MD5/SHA256/长度；142项总清单（含隔离HDF依赖与三个仓库工具）全部hash核验通过。实际删除59个pip生成__pycache__字节码，每个先验证对应.py存在，完整删除台账CLEANUP_LEDGER.json；数据/依赖源与库/用户资料未删，没有重复ZIP。核心必需为原始/来源/派生数据与验证；重要辅助为REPORT/TRAINING_SPEC/隔离环境/清单。没有新图像渲染或目视通过声明。
+- **下一最小动作**：先审计当前BANC tier是否覆盖与Y迷宫转向相关的中央复合体、感觉/下降/VNC通路及可训练参数身份，明确leg-touch主选子图的缺口；复用已保存神经重放验证可微实现的一致性，再预登记小参数集训练和上述时间留出。不得用常量右偏、外置策略或轨迹回放替代自主SNN物理行走；此前身体支撑与接触模型缺口保留，不宣称通过行为数据核验已完成目标。
+
 ## 持续goal第9轮（2026-11-01T205953Z）：分开接触近似、全身支撑几何与肌肉可达域
 - 起点b37490c2fe8b87a4629126a1e6bde29810fcd0c6，干净工作树，完整目标仍未自主支撑/行走。本轮只读保存姿态并运行固定态LP，不新增姿态搜索/物理积分/神经步/视频。
 - **S1/S2/S5主审计**：`/home/sensen/Desktop/engine修复验收/s5-stance-contact-relaxations/20261101T205953Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_stance_contact_relaxations.py`。固定两个姿态：上轮185LP的最好点与k=.9软接触最好点；同MODEL3470c72f，plant不改。每姿态零/一/非均匀激活3forward，重建主动A、肌肉被动/关节被动/bias，0step。
