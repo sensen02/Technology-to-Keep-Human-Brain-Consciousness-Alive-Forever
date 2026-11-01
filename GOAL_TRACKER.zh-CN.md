@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 带通尝试（2026-11-01T165704Z）：**2–8 Hz 带通 + 相位驱动粘附 —— 仍是抖振，神经步态不成立**
+- 增益 2/5/10 全部失败：单次接触 **1.0–1.1 ms**（目标 ≥60）、变号 **48–65 次/s**（目标 ≤20）、路径效率 **0.22–0.24**（目标 ≥0.5）、COM **0.59–0.66**（目标 ≥0.9）；位移虽增至 0.99–1.40 mm 但性质仍是抖振。
+- 判决 `NEITHER_A_LOW_PASS_NOR_A_2_8_HZ_BAND_PASS_WITH_HYSTERESIS_TURNS_THE_MEMBRANE_POTENTIAL_DRIVE_INTO_A_GAIT_THE_SIGNAL_PRODUCES_CHATTER_AT_EVERY_GAIN_TESTED_AND_NO_NEURAL_GAIT_CLAIM_IS_MADE`。
+- **两因**：①各腿膜电位偏差**无统一相位**（各按自身噪声开关）；②驱动**始终顶到 ±0.5 上限**，幅度不承载步态形状；滤波只改频率不改性质。
+- **建议两条**：**(a) 部分接管**（算法生成步态、网络调速/门控，第 9 步实测 +17~49%，真实可交付）；**(b) 网络内显式振荡器**（6 个互抑制单元，须声明为合成建模）。
+- 证据同 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-check/20261101T165704Z/`（新增 `SCRIPTS/check_bp.py`、`CHECK_gain{2p0,5p0,10p0}.json`）；清单 **11 文件**；桌面 `S5_NEURAL_核对与撤回.zh-CN.md` 已更新。
+
 ## 修法尝试（2026-11-01T165704Z）：**低通 25 ms + 迟滞 0.15 —— 抖振降 10 倍，仍全部不达标**
 - 实测（增益 0.8）：单次接触均值 **0.84 → 2.11 ms**（目标 ≥60）；驱动变号 **610 → 57.5 次/s**（目标 ≤20）；路径效率 0.189（目标 ≥0.5）；COM 最低 0.70（目标 ≥0.9）⇒ **新判据全不达**。
 - 判决更新 `THE_NEURAL_GAIT_REMAINS_CHATTER_AFTER_LOW_PASS_AND_HYSTERESIS_THE_FIX_REDUCES_THE_CHATTER_FREQUENCY_BY_AN_ORDER_OF_MAGNITUDE_BUT_MISSES_EVERY_NEW_CRITERION_SO_NO_GAIT_CLAIM_IS_MADE`。
