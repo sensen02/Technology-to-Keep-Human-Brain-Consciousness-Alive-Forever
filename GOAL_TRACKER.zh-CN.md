@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第六步（2026-11-01T060405Z）：闭环（足端载荷反馈）—— **只有能抓住地面时才翻倍**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-closed-loop/20261101T060405Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`CLOSED_LOOP.json`、`CLOSED_LOOP_ADHESION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`CLOSED_LOOP.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_CLOSED_LOOP.zh-CN.md`。
+- **⚠️ CLOSED-LOOP DIAGNOSTIC ONLY**：声明式工程反射（读实测足端载荷）；不是神经回路/连接组结论/行走。
+- **反射律**：`u_L = −clip(k_load·load_L, 0, 0.5)`，k_load=2.0、载荷按体重份额归一、20 ms 一阶滤波、负号=第四步实测"踩下"方向；**构造上无抬起相位**。
+- **结果**：无粘附 开环 0.25 W / 闭环 **0.25 W（无提升）**；加粘附 开环 0.25 W / 闭环 **0.50 W**。逐档（+粘附）：0.25 W 两者撑住；**0.50 W 开环失败（剩 3 足）而闭环撑住**；1.00 W 两者失败。
+- **判读**：**单独任何一项只有 0.25 W，两者合起来 0.50 W** ⇒ **粘附与闭环反馈互补而非替代**；且**站姿反射不能产生迈步**（无抬起相位，足不离地）。
+- 判决 `THE_FOOT_LOAD_REFLEX_DOUBLES_THE_SUSTAINED_PUSH_ONLY_WHEN_THE_FEET_CAN_GRIP_SO_ADHESION_AND_CLOSED_LOOP_FEEDBACK_ARE_COMPLEMENTARY_NOT_SUBSTITUTES`；P82 PASS、**P83 无粘附 FAIL / 有粘附 PASS**、P84 PASS、**P85 FAIL**、P86 PASS。
+- **实现失误已记录**：粘附版脚本最初重复调用 `add_leg_adhesion`，被 flygym 在产出任何数字前拒绝（无脏数据）。
+- **现状**：身体→命令通路已在线存在；**缺的仍是"抬起相位"**（步态发生器）。下一步：在闭环基础上加抬起相位（六腿相位振荡或由网络提供），再谈行走。
+
 ## 路线 A 第五步（2026-11-01T055957Z）：归档尖峰接到六通道 —— **全线打通、站姿保持；但尖峰里没有步态结构**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-connectome-wiring/20261101T055957Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`WIRING{,_V2,_V3,_V4}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`WIRING.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_CONNECTOME_WIRING.zh-CN.md`。
 - **⚠️ REPLAY WIRING TEST**：用上一轮归档尖峰驱动身体，映射为声明式规则；不是新网络结果、不是闭合感觉回路、不是行走。
