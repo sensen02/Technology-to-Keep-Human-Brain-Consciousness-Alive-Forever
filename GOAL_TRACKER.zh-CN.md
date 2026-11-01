@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B9（2026-11-01T031134Z）：粘附假说**否证** —— 有帮助但差 3–10 倍
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-adhesion/20261101T031134Z/`（`PREREGISTRATION.json`、`ADHESION_SUMMARY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`ADHESION_EFFECT.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_ADHESION.zh-CN.md`。
+- **做法**：同一足端 LP 上给每个跗节接触加**拉变量 `m∈[0,α]`**（`fn=fn_pos−m`，摩擦锥只作用于压缩部分），α 按体重倍数网格；**方法校验 α=0 复现门禁 B2 的 23.767**。
+- **结果（判据 t≤1）**：s=1 从 23.77 降到 **9.93 饱和**（α=1/2/4W 全一样）；s=2 降到 5.77（1W）→3.93（2W）→**3.12（4W）**。⇒ **即使每足拉 4 倍体重，残差仍为判据的 3–10 倍**。
+- 判决 `ADHESION_IS_A_CONTRIBUTOR_BUT_NOT_THE_MISSING_ELEMENT_EVEN_FOUR_BODY_WEIGHTS_OF_PULL_PER_FOOT_LEAVES_THE_STANCE_THREE_TO_TEN_TIMES_ABOVE_THE_CRITERION`。
+- **两处自我更正**：①首版实现多姿态变量块偏移有 bug（α=0 给 51.36），被本轮方法校验拦下并修正；②我本轮开头说"旧 LP 本来就允许拉"是**错的** —— 内接菱形锥下 `fn<0` 不可行，旧 LP 确实纯推（并已提取门禁 B2 最优解的接触法向力核验 fn≥0）。
+- **含义**：粘附把缺口缩小 2.4–2.6 倍 ⇒ 接触方向**有份量但不是主因**；**接触/摩擦/粘附这一整类解释被排除**。剩余候选只有：肌肉集幅度（B2d 实测 3.15 µN vs 需 20）或骨架结构（B7 四条腿缺转节体）。
+- **静态路线总账（B2–B9 九轮）**：统一标度 23.77 → 12 族站姿 22.87–39.71 → 附着侧迁移 23.22 → 实测几何重建 17.93–18.21 → **加粘附（4W/足）3.12–9.93** → 仅合成双向拮抗达 **0**（解剖给不出）。**结论：该模型在现有肌肉+骨架+接触规则下无法静态立于足上。**
+
 ## P3 / 门禁 B8（2026-11-01T022340Z，路线 A）：用实测几何重建中/后足附着 —— 残差 23.77→**18.2**，仍未修好且后足符号更差
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-measured-attachments/20261101T022340Z/`（`PREREGISTRATION.json`、`MEASURED_ATTACH.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MODEL_MEASURED_muscle1.xml`、`MODEL_MEASURED_muscle2.xml`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MEASURED_ATTACHMENTS.zh-CN.md`。
 - **做法**：用第71轮已测 VFB 几何（muscle 1：along −0.2637→−0.0799、r 0.1233→0.0660；muscle 2：−0.2078→−0.0938、0.0279→0.0311，股节跨度单位），**只借 along/半径、保留各 MTU 自身方位**（肌肉组↔MTU 名对应未建立，不编造），每臂重建 44 site。
