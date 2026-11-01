@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## 路线 A 第七步（2026-11-01T062236Z）：加抬起相位 —— **仍未迈步，但三个原因逐一量化**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-stepping/20261101T062236Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`STEPPING{,_V3,_V4}.json`、`THRESHOLD.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`STEPPING.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_STEPPING.zh-CN.md`。
+- **⚠️ SYNTHETIC PATTERN GENERATOR - DIAGNOSTIC ONLY**：振荡器为声明式工程信号，不是神经回路/连接组结论；任何运动**不是**动物证据。
+- **四版定位**：**v1** tripod 振荡器（A 0.15–0.40 × f 2/4/8）+ 第六步反射、粘附常开 ⇒ **足从未离地**（duty 全 1.00、位移 ≤0.001 mm）；**v2 阈值扫描** ⇒ 首次离地阈值 粘附 0:**u=0.10** / 0.2:**0.25** / 1.0:**永不（0.5 也不行）**；**v3** 摆动相释放粘附 ⇒ 仍 duty 1.00，暴露**反射在摆动相仍下压**（−0.50+0.40<0）；**v4** 反射只在支撑相 ⇒ **足开始离地**（dutyA 0.92–0.95、dutyB 0.97–0.98），位移 0.027–0.068 mm、交替 −0.09/−0.11。
+- **三个原因（全有数字）**：①粘附钉住超出抬起权限；②反射在摆动相对消抬起；③前两条修好后**抬起权限仍不足**（比判据低 7–18 倍）。
+- 判决 `A_DECLARED_TRIPOD_OSCILLATOR_DOES_NOT_YET_PRODUCE_STEPPING_ON_THIS_INTERFACE_AND_THE_THREE_INGREDIENT_FAILURES_ADHESION_PINNING_UNGATED_REFLEX_AND_INSUFFICIENT_LIFT_AUTHORITY_ARE_NOW_QUANTIFIED`；P87/P88 FAIL、P90/P91/P94/P95 PASS。
+- **下一步已明确**：**提高抬起权限**（增大 bias 幅值或允许振荡器超 u≤0.5），重跑 v4 协议；若足真离地且 tripod 交替出现，剩余问题变成**推进力**而非迈步。
+
 ## 路线 A 第六步（2026-11-01T060405Z）：闭环（足端载荷反馈）—— **只有能抓住地面时才翻倍**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-closed-loop/20261101T060405Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`CLOSED_LOOP.json`、`CLOSED_LOOP_ADHESION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`CLOSED_LOOP.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_CLOSED_LOOP.zh-CN.md`。
 - **⚠️ CLOSED-LOOP DIAGNOSTIC ONLY**：声明式工程反射（读实测足端载荷）；不是神经回路/连接组结论/行走。
