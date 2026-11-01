@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十八步（2026-11-01T152818Z）：**先算法预热、再神经接管** —— 架构打通，网络却是"全或无"器件
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-warmup/20261101T152818Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`WARMUP_HANDOVER.json`、`SWEEP_0p005/0p02/0p05/0p1.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_WARMUP.zh-CN.md`。
+- **架构（本项目第一个真正在环的网络-身体实验）**：身体（`S5-GAIT-1.1`）**算法驱动 0.8 s 预热**；期间每腿接触力→最小受体电流→该腿感觉群（623–808 神经元）→**BANC 层级每 0.5 ms 在线推进**→每腿 readout（lf12/lm9/lh19/rf21/rm15/rh7）速率→**接管 1.2 s 由网络速率跨越触发摆动**。
+- **结果**：网络确实在环（建网 2.4 s、0.29 ms/区间；电流使 readout 从静默→饱和）**但取不出渐变指令**：增益 0.005 → 全静默；0.02+ → **饱和 333–1429 Hz**（每步放电），**无中间敏感区**；速率-接触相关性四个增益下全为 **−0.11~+0.11**；预热节律 1.26–2.62（<3×）；接管位移 **0.018 mm**（未走）。
+- **零电流对照**：−0.001 mm，但交替 **−0.20 vs −0.71** ⇒ **网络不是装饰品**（确实改变行为），只是信号不可用。T12 部分、T13/T14 FAIL、T15 PASS（有影响但非步态指令）。
+- 判决 `THE_WARMUP_THEN_HANDOVER_ARCHITECTURE_IS_BUILT_AND_RUNS_BUT_THIS_TIER_IS_AN_ALL_OR_NONE_THRESHOLD_DEVICE_WITH_NO_GRADED_CONTACT_ENCODING_AND_NO_GAIT_RHYTHM_SO_THE_HANDOVER_CANNOT_WORK_YET`。
+- **要成立缺三样**：①加**背景抑制**或缩小耦合让层级离开全或无区（输入变成调制而非募集）；②**扩大每腿 readout**（7–21 太少）；③若必须先有节律，则需**网络内振荡器**（合成 CPG，须标注）。
+- **回答业主的架构疑问（重要）**：目前**没有任何一步是"网络感知 + 网络控制"** —— 控制相位一直是算法；网络只在最末端拿到身体感觉并被要求给出定时，且它的输出是阈值的、不可用。
+
 ## 路线 A 第十七步（上）（2026-11-01T152036Z）：**归档网络活动无步态节律** ⇒ 相位无法交给现成网络
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-phase/20261101T152036Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`SPECTRAL{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_PHASE.zh-CN.md`。
 - **判据（跑前声明）**：2–8 Hz 带内 **峰值 PSD > 中位数 3 倍**为"有节律"，条件需 **≥3/6 腿**达标；窗长 **150 ms**（2 Hz 下不足一周期，已预先声明不可靠）。
