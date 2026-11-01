@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第四步（2026-11-01T055454Z）：系留重测 —— **单腿通道分离 ≈50×**；自由站姿驱动上界 **u = 0.5**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-tethered-selectivity/20261101T055454Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`TETHERED_SELECTIVITY{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TETHERED_SELECTIVITY.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TETHERED_SELECTIVITY.zh-CN.md`。
+- **⚠️ INTERFACE VALIDATION ONLY**：声明式工程通道 + 合成驱动；不是神经控制/连接组结论/行走。
+- **先修掉我自己的接口缺陷**：第三步的 **+4.0/−4.0** 让两条 pitch 关节方向相反、近似等长收缩 ⇒ 系留变化仅 ~0.002 rad、u 扫到 2.0 都"撑住"（其实没动）。预登记 **C0 标定**：对每个带 bias 的 pitch 关节单施 +5.0 力矩 20 ms 并**实测**足端垂直位移定符号 —— 12 个关节**全部 sign = −1**（正力矩使跗节下移），正 u 现在**抬起**足端。
+- **T4 系留选择性**：被驱动腿 **0.1241–0.1244 rad** vs 其余腿 0.0021–0.0024 rad ⇒ **≈50×**，**6/6 通过 3× 规则**，对角最大 ✓ ⇒ **第三步的"选择性不达标"被解释并撤回**（那是静不定下的载荷再分配，不是通道设计问题）。
+- **T6 自由站姿上界**：u=0.3/0.5 **保持**；0.75/1.0 **非足接地失败**；1.5/2.0 **无法达稳态** ⇒ **上界 u = 0.5**。
+- 预测：P68/P69/P70/P71/P72 **全部 PASS**。
+- 判决 `WITH_THE_LOAD_PATH_FIXED_THE_PER_LEG_MOTOR_CHANNELS_SEPARATE_AT_ABOUT_50X_SO_THE_STEP_3_SELECTIVITY_SHORTFALL_WAS_LOAD_REDISTRIBUTION_NOT_CHANNEL_DESIGN_AND_THE_FREE_STANCE_COORDINATED_DRIVE_BOUND_IS_U_EQUALS_0_5`。
+- **接口现状**：每腿一个驱动通道，符号已实测标定，系留可分 ~50×，自由站姿可用范围 0 ≤ u ≤ 0.5。**下一步才是接连接组驱动**（P1/P3），并需在该范围内做节奏/反馈设计。
+
 ## 路线 A 第三步（2026-11-01T055218Z）：电机接口迁到完整身体 —— **能撑住、方向对，但单腿区分度不达 3×**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-motor-interface/20261101T055218Z/`（`PREREGISTRATION.json`、`MOTOR_INTERFACE.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MOTOR_INTERFACE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MOTOR_INTERFACE.zh-CN.md`。
 - **⚠️ INTERFACE VALIDATION ONLY**：六个 motor unit 是**声明式工程通道**（非已识别 MN），驱动为合成；不是神经控制/连接组结论/行走。
