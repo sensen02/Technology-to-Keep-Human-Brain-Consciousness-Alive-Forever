@@ -1,5 +1,22 @@
 # 目标进度与证据追踪
 
+## 持续goal第11轮（2026-11-01T212622Z）：行为微调前置审计，定位接口版本遗漏并生成root888候选
+- 起点2e078e2d5fc09ee2a1a5eccccba7040bbe87d440；本轮服务S3回路/身份、S4行为训练准备，完整物理行走目标仍未完成。没有构建tier/network、没有神经/身体积分、没有训练SNN或修改运行权重。数据侧另有5次逻辑回归拟合，仅离线验收基线，不接入runtime。
+- **主coverage审计**：`/home/sensen/Desktop/engine修复验收/s4-banc-behavior-circuit-coverage/20261101T212622Z/`；工具 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_banc_behavior_circuit_coverage.py`。复用第3/5轮保存的12000 rootids及实际We143175/Wi148811，不重build；fingerprint5ab78f550d682e2849749587cb6f7551、*0.2与native包矩阵逐值相等；另按raw ACh/GABA/glutamate规则独立重构实际权值精确。拓扑可达不是动态行为证明。
+- **注释快照键确证**：feather188508行81列、cache153962，实际连接体ID与root_888唯一键全覆盖；root_id只有139342/cache、11561/tier匹配且有重复，不能以此误报神经元缺失。只读借用已有venv中的pyarrow（body环境缺该包），无安装或base环境修改。
+- cache/tier统计：中央复合体class2876/10（10全为GFC2输出标签，不命名为已证转向回路）；CX root_region候选1568/2（位置标签非完整投射）；视觉machinery79438/11、视觉function7554/0、photoreceptor1838/0；DN1315/194、AN1847/774；VNC intrinsic12827/5927；motor805/393、leg_motor391/353；脑感觉7637/3。全feather/cache/tier三分母分别保存，不能把glia等全表分母叫纯神经元数。
+- 当前实际感觉lookup3788接收者、其中3431非零输入，另外振动/伤害357通道接收者恒0。编码只有claw角度/hook速度/hairplate关节均值/camp接触力模长/bristle二值接触，没有视觉/maze-wall/heading接口。当前runner是MN池经MotorOutput驱动90肌肉，不是旧DN读出调外置CPG速度。
+- 全cache原始图的脑感觉/视觉/CX候选都有到1297DN→12796VNC→767MN的布尔路径；tier原始图少量脑感觉/视觉可到193DN→5927VNC→393MN，但实际已赋号mask下同阶段路径到DN为0。实际3431腿感觉输入不强制绕脑时仍可到202读出MN；强制DN→VNC则DN6/VNC0，该人为阶段限制不等于全部运动链断裂。保留3480逐边路径见证/13路由结果，不把标签/原始边等同已激活回路。
+- **实际身份遗漏**：两个历史exporter读取root_id（来源及执行快照已保存）。当前感觉lookup源hash与feather相同，按root_id规则完整重生3903键逐项相等；27条真正感觉源行root键版本不同，原实际接收者没有腿/通道冲突，主要是遗漏。motor208池根里2旧键不在cache/tier而新888键已在tier。早期宽筛3904/28的统计已被精确规则3903/27纠正。
+- **已实现可审查候选导出**：`/home/sensen/Desktop/engine修复验收/s4-banc888-interface-candidates/20261101T212622Z/`；新工具 `/run/media/sensen/Data2/cell_wound_prototype/tools/export_banc888_interface_candidates.py` 与 `/run/media/sensen/Data2/cell_wound_prototype/tools/verify_banc888_interface_candidates.py`。显式root_888唯一非空快照键、同注释规则/别名/74映射/16未解析，生成两份新JSON，不覆盖旧运行表/旧exporter。感觉tier3788→3814净+26，MN读出202→204；不是新增虚构连接，也没补造16缺失肌肉映射。
+- 候选status=CANDIDATE_NOT_RUNTIME、runtime_allowed=false，实际调用生产guard确认拒绝，未改trust anchor。这是新接口进入同态重放前的完整性门，不是待人类逐次审批。主导出bash40 exit0并收取；独立重建3903感觉分配/74池语义/原16unresolved/源hash通过。独立验证首次因root888原字符串索引与int请求类型不一致exit1，执行源/原因保存VERIFY_FIRST_ATTEMPT/VERIFY_CORRECTION；规范int64后exit0，未重导出或运行模型。
+- **数据可预测性基线**：`/home/sensen/Desktop/engine修复验收/s4-banc-causal-baselines/20261101T212622Z/`；工具 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_banc_causal_behavior_baselines.py`、`/run/media/sensen/Data2/cell_wound_prototype/tools/verify_banc_causal_behavior_baselines.py`。只用前三次已发生转向、已知来路、上一次已完成间隔；不使用目标臂/当前间隔/未来坐标。需要3次历史后合格579事件（训练293/验证134/留出152），标准化/参数只训练段拟合；5个L2候选由验证NLL选lambda1。
+- 留出NLL：训练常量.592241、上一转向Markov .585509、历史逻辑回归 .532721；留出分类准确率均.723684。逻辑回归相对常量配对差−.0595201，固定block16/1000次圆形块bootstrap描述区间[−.085526,−.034548]，不当独立动物或神经机制证据。评估每步输入真实历史，非自由生成行为，更非SNN/身体控制。新进程标量特征/指标/梯度及bootstrap重算通过，最大特征差1.33e-15，梯度<1.5e-7，无重拟合。
+- **训练条件的判断**：数据有超总体偏置的条件结构可作目标，但当前子图缺导航相关的回路覆盖和真实迷宫条件输入，不能立即把视觉迷宫行为当已接通的闭环监督。torch/jax在body环境不可用，当前ConductanceNetwork没有训练API；不以set_connectivity可调用就当保mask/EI训练有保障。后续应先保持rootids/稀疏mask/递质符号，做版本化小参数与可训练实现一致性，不能用统计策略/轨迹序列替代神经元。
+- **下一最小动作**：使用本轮两份root888候选，在保存神经边界/已记录感觉量上做显式同态条件重放，定位26感觉/2MN身份恢复的输入—脉冲—命令影响（不称新物理行为）；之后建立可训练SNN积分/延迟/阈值与既有重放的一致性门。同时只按真实注释/原始连接补有来源的导航通路覆盖与声明条件感觉接口，不能把结构增补伪装成仅权值微调。原肌肉身体支撑缺口仍保留，最终必须回到完整参考预热、撤辅与神经闭环物理验收。
+- **执行/独立验证与封存**：主coverage bash37、接口身份bash35、独立file-backed bash39均exit0收取；pyarrow初次缺失exit1后只读借现有venv，未安装。预检与主bash34因字符串np.isin低效主动SIGTERM，原执行源留档，改等价集合交集后成功；不把被停止任务算完成。file-backed验证12198标签计数、3480逐边见证及阶段、13路由条目、3788输入及90绑定，全部通过。父statistical基线主执行/独立复算exit0；候选生成bash40及类型修正后独立核验exit0。全部任务收取，无后台残留。
+- 三包26+7+10=43项sha256父逐项验证通过（coverage含源快照，可复现修改前exporter）；旧输入/运行JSON/模型/权重哈希不变。核心必需为5个新增工具、分母与身份/路径表、基线特征与预测、候选JSON和独立证据；重要辅助为REPORT/PARAMETERS、失败追踪与清单。没有确认可弃文件，本轮未执行删除，覆盖重算的中间CSV均未封存，原失败执行源因追溯用途保留。显式venv_body/bin/python -B、PYTHONDONTWRITEBYTECODE=1、OPENBLAS_NUM_THREADS=1，无新图像/视频或目视成功声明；goal保持active。
+
 ## 持续goal第10轮（2026-11-01T211209Z）：跟进用户同个体微调设想，取得并核验BANC fly73原始行为
 - 起点f1f049d06f8c134cae703f7c2364d41bec77cb12，干净工作树。用户提出寻找连接体同一只果蝇的行为记录、考虑SNN训练对齐，本轮按S1真实运动依据/S3身份/S4行为校准推进；没有改变最终自主物理行走目标，也没有直接开始微调或修改SNN。
 - **已实际取得同个体数据**：`/home/sensen/Desktop/engine修复验收/s4-banc-individual-behavior/20261101T211209Z/`。官方paper DOI10.1038/s41586-026-10735-w、Dataverse DOI10.7910/DVN/7WTH1N的behavior.zip描述指向官方GCS behavior/目录；直接按generation固定下载该解包树的17个非空对象，共365283167字节（不再存一份ZIP重复占用）。每个长度/官方base64MD5/本地SHA256核对，全部一致。下载bash33 exit0已收取。
