@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 C（2026-11-01T032706Z）：动力学自由释放 —— **2 ms 内失去足端支撑**，且机体全程未碰地
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-dynamics-first/20261101T032706Z/`（`PREREGISTRATION.json`、`DYNAMICS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`DYNAMICS_OVERVIEW.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_DYNAMICS_FIRST.zh-CN.md`。
+- **显著标注**：**静态平衡在该肌肉集/骨架/接触规则下不可达**（B2–B9）；本轮是**自由释放动力学**，不是站立证据。
+- **协议（跑前预登记）**：控制 = best-effort 静态 LP 激活（**并不平衡**），`ctrl` 与 `act` 同时初始化为它；`qvel=0`、**无预热/无扰动/无辅助/无外力/无重置**；50 ms × 6 组（3 姿 × s∈{1,2}）+ 400 ms × 存活最久 2 组；判据 **所有采样 ≥4 足着地 + 零非足接地 + COM ≥0.9×初始**。
+- **结果**：**全部失败**，首次失败 **0.5–2.0 ms**，原因统一是**一只跗节卸载**（`loaded_feet_3`）；着地足数随后在 0–3 摆动；**COM 末值 0.53–0.70**；**非足接触 = 0、身体自接触 = 0（全窗口）**。
+- **与早期轮次的关键差别**：第64/67轮"身体被撑住"其实是**机体接地**；这批合格站姿里**机体全程没碰地** ⇒ 本次下沉是**真正无支撑**，不是趴地假象。
+- 预测：**P47 PASS**（无一组达标）、**P48 PASS**（统一足卸载）、**P49 FAIL**（s=2 在 st0/st1 反而更早失败 0.5 ms）。
+- 判决 `WITH_A_CONSTANT_BEST_EFFORT_ACTIVATION_THE_BODY_IS_NOT_SUPPORTED_BY_ITS_FEET_FOR_EVEN_TWO_MILLISECONDS_AND_SINKS_TO_53_TO_70_PERCENT_OF_ITS_INITIAL_HEIGHT_WITHOUT_ANY_BODY_CONTACT`。
+- **边界**：不证明"任何动力学方案都不可能" —— 只证明**静态解不能当控制器**；不是站立/行走/神经控制；判据未放宽。
+- **下一步二选一**：①**反馈控制/神经接管**（门禁 D，用真实反馈而非静态解，但需先有能撑住的基线）；②**回头修资产**（唯一还能解释静态缺口的是肌肉集幅度 [实测 3.15 µN vs 需 20] 或骨架结构 [B7 四条腿缺转节体]），两者都会改 nq/资产、与既往证据不可直接比较。
+
 ## P3 / 门禁 B9（2026-11-01T031134Z）：粘附假说**否证** —— 有帮助但差 3–10 倍
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-adhesion/20261101T031134Z/`（`PREREGISTRATION.json`、`ADHESION_SUMMARY.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`ADHESION_EFFECT.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_ADHESION.zh-CN.md`。
 - **做法**：同一足端 LP 上给每个跗节接触加**拉变量 `m∈[0,α]`**（`fn=fn_pos−m`，摩擦锥只作用于压缩部分），α 按体重倍数网格；**方法校验 α=0 复现门禁 B2 的 23.767**。
