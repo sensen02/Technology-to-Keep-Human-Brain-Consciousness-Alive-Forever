@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B7（2026-11-01T015754Z）：修复**无法执行** —— 中/后足**没有转节体**；撤回 B6 的因果解读
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-insertion-repair/20261101T015754Z/`（`PREREGISTRATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`SCRIPTS/insertion_repair.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_INSERTION_REPAIR.zh-CN.md`。
+- **结构性事实**：编译后带 Trochanter 的体**只有 LFTrochanter / RFTrochanter**；LM/LH/RM/RH 的 `joint_<LEG>Trochanter_pitch` **就是基节→股节关节**（父体 Coxa、子体 Femur、唯一远端 geom 是 Femur_geom）⇒ 中/后足**没有转节节段**，那四根 "coxa–trochanter" MTU 只能接股节。
+- **修复不可执行**：脚本在写派生 XML 前就因目标体不存在退出，`MODEL_TROCH_INSERTION.xml` **从未生成**；T1–T4 全部未执行，P39–P41 **未测**（不得当通过）。
+- **自我更正（重要）**：B6 把缺陷写成"插入了错误节段"，该**因果解读撤回** —— 在该折叠拓扑下 Femur 与假想转节体**同处一个关节远端、一起转动**，**即使有转节体，换附着体也不改变力臂**。B6 仍成立的只有测量本身：逐段分解及校验（270/270 ≤1e-6）、翻转**恰在 Coxa→Femur 段**、中足→前足从不翻转、各腿差异来自 **site 坐标本身**。
+- 判决 `THE_DECLARED_INSERTION_REPAIR_CANNOT_BE_EXECUTED_BECAUSE_FOUR_OF_SIX_LEGS_HAVE_NO_TROCHANTER_BODY_AND_REPARENTING_WOULD_NOT_CHANGE_THE_MOMENT_ARM_ANYWAY_SO_THE_B6_CAUSAL_READING_IS_WITHDRAWN`。
+- **后续三选**：**A（建议）** 用实测 VFB 几何（B2d：muscle 1 = 27 细胞、muscle 2 = 2 细胞，含 2-means 端点）重建中/后足这四根 MTU 的附着坐标再跑判据；**B** 给四腿插入真实转节体（改 nq/nv，与既往证据不可比，早期轮次试过结果为负）；**C** 承认静态路线在该肌肉集/骨架下关闭。
+
 ## P3 / 门禁 B6（2026-11-01T005840Z）：力臂逐段分解成功，缺陷被**指名** —— 中/后足把这四根基节–转节肌**接在了股节**上
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-moment-arm-segments/20261101T005840Z/`（`PREREGISTRATION.json`、`MOMENT_SEGMENTS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MOMENT_SEGMENTS.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MOMENT_ARM_SEGMENTS.zh-CN.md`。
 - **方法先过校验**：解析分段和 vs 独立有限差分（折线长度）**270/270 行 ≤1e-6**（P37 PASS）。本 build 的 `actuator_moment` 是**稀疏存储**（长度 2226 ≠ nu×nv）不能按 dof 索引；我第一次 FD 校验自身有 bug（扰动 `qpos[dof]` 而非 `qpos[jnt_qposadr]`，误判 108/270），已修正并记录。
