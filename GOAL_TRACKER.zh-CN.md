@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十七步（上）（2026-11-01T152036Z）：**归档网络活动无步态节律** ⇒ 相位无法交给现成网络
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-phase/20261101T152036Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`SPECTRAL{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_PHASE.zh-CN.md`。
+- **判据（跑前声明）**：2–8 Hz 带内 **峰值 PSD > 中位数 3 倍**为"有节律"，条件需 **≥3/6 腿**达标；窗长 **150 ms**（2 Hz 下不足一周期，已预先声明不可靠）。
+- **结果：无任何条件可用** —— claw 1.04–1.35、hook 1.10–1.52、club 1.05–1.29（仅 rh=4.1）、no_stim/cut 无活动；峰值频率散乱（2.93/5.86/6.84/7.81 Hz）⇒ **B 部（神经相位驱动）不执行**。
+- **我自己的判据缺陷**：第一版把零信号判成"6/6 有节律"（PSD 全零 ⇒ peak/median=`inf` 的除法假象）；已修为"sd < 均值 1% 视为退化"，两版均留档。
+- 判决 `THE_ARCHIVED_NETWORK_ACTIVITY_CARRIES_NO_GAIT_BAND_RHYTHM_SO_IT_CANNOT_SUPPLY_THE_PHASE_AND_THE_NEURAL_TAKEOVER_IS_BLOCKED_NOT_BY_THE_BODY_BUT_BY_THE_ACTIVITY_THAT_IS_AVAILABLE`；P148/P149 **PASS**。
+- **卡点定位**：**身体与接口已就绪**（能走、抗推 1.0 倍体重），卡在**现成活动里没有周期性运动指令**；今天能交给网络的**只有幅度**（+17%~+49%）。
+- **网络侧要成立必须提供**：①每腿 2–8 Hz 周期成分且持续多周期；②正确腿间相位（tripod）；③幅度落在 0≤u≤0.5。
+- **三条前路**：①网络跑久+周期驱动后**重跑同一测量**（脚本已就绪）；②**部分接管**（网络给幅度、相位声明式，照实标注）；③**网络内造相位**（6 个互抑制起搏单元，须声明为合成建模）。
+
 ## 视频干净版（2026-11-01T15:13Z）：**青色柱状物 = 接触力箭头，已关闭**
 - **含义已实测确认**：只开 `mjVIS_CONTACTPOINT` → 彩色像素 1,065、RGB(187,130,55) **橙** = 接触点；只开 `mjVIS_CONTACTFORCE` → 33,382 像素、RGB(158,202,202) **青** = 接触力箭头。
 - **旋钮无效的记录**：`m.vis.map.force` 0.004→0.0004→0.00002 都试过，柱体在画面上的像素量基本不变（12,079→11,184）⇒ 该旋钮**不能**缩短这些柱体，故改为**关闭柱体、只留橙点**。
