@@ -1,5 +1,10 @@
 # 目标进度与证据追踪
 
+## P3 / 审计决定（2026-11-01T045346Z，续）：三项"待确认"**全部保留**，删除数 = 0
+- 依据是清单校验而非偏好：`s5-sidedness-audit/20261031T110000Z` 清单 **20/20 通过**且 6 个 `MODEL_*.xml` **都在清单内**；`s5-measured-attachments/20261030T200000Z`（上一会话）清单 **10/10 通过**且 `MODEL_MEASURED*.xml` **都在清单内**；桌面 17 份副本与归档**逐字节一致**（用户全局规则要求保留）。删除任何一项都会使其历史清单永久失配。
+- 附注：`s5-sidedness-audit` 里的 `CLEANUP_LEDGER.json` 未登记在该轮清单中属**正常时序**（清单先写、账本后写），非遗漏。
+- **因此本轮未删除、未改动任何历史文件**；审计目录自身已更新 `REPORT.zh-CN.md`、`CLEANUP_LEDGER.json`、`MANIFEST_SHA256.json`（4 文件自校验通过），桌面副本同步。
+
 ## P3 / 审计（2026-11-01T045346Z）：17 个本轮证据目录清单全通过、零重复、零垃圾；**未删除任何文件**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-audit/20261101T045346Z/`（`AUDIT.json`、`REPORT.zh-CN.md`、`SCRIPTS/audit.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_AUDIT.zh-CN.md`。
 - **清单完整性**：17 个目录共 168 个文件，**逐个 SHA256 与各自 `MANIFEST_SHA256.json` 一致**；**未登记文件 0**；**跨目录内容重复 0**。
