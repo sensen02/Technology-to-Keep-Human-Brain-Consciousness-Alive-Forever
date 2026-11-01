@@ -1,5 +1,18 @@
 # 目标进度与证据追踪
 
+## 持续goal第1轮（2026-11-01T183002Z）：算法基线逐步记录揭示短接触；肌肉与网络身份对齐
+- 起点源码92adcdc6f03fa99c6bd1aaa7e88217533317fc57；goal保持active。S1/S5仍未通过，不能将旧算法PASS直接作为新验收基线。
+- **唯一新步行模拟**：原样导入冻结walk_push.run(gain=1,grip=False,a_sweep=0,push_frac=0)，只在独立MjData克隆上forward观测，真实控制不改；2s/20001样本/dt0.1ms，保存qpos/qvel/ctrl、PD与腿驱动分项、实际执行器力、足端/COM、63221逐接触记录、原生模型MJB及环境身份。无外推，MuJoCo warning为0。核心目录 `/home/sensen/Desktop/engine修复验收/s5-baseline-recording/20261101T183002Z/`；核心源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/record_s5_baseline.py`。
+- **旧位移确实复现，但旧步态通过不保留为新版认证**：旧计算3.0129124378567833mm与3.013四舍五入一致；同步root dx3.0129470631。COM最低比0.892762835<0.9；完整接触每腿均时0.997–1.627ms，619–847个完整事件，未过60ms门。每20步抽样漏大量断开，均时虚增至16.08–25.79ms。旧相位抽样可复现约0.30791648的tarsus5漂移，而逐步最大0.017047；不能称实际物质点滑移。
+- **区别原因与现象**：算法驱动变号仅8/s，尚不能将短接触直接叫肢体抽搐。离线正法向力标志与absFz标志相同；几何dist<=0及候选接触对也反复出现/消失，因此不是只改正负号或弱阈值就能解决。需要物理接触数值/几何诊断，不能偷偷合并短接触或放宽门槛。
+- **路径效率不可偷换定义**：root XY净位移/自身路径=0.681256，仅描述根部路径；按旧check_fixed逐腿最小abs(root dx)/tarsus5 XY累计路径≈0.281408<0.5。后者才与既有防抖门对应。平均有符号地面Fz/W≈1.24118，粘附执行器另有作用，不能直接拿此判力守恒；42/20000步地面Fz=0。
+- **S2/S3静态资产表**：`/home/sensen/Desktop/engine修复验收/s2-muscle-inventory/20261101T183002Z/INVENTORY.json`（核心必需）和同目录REPORT.zh-CN.md（重要辅助）；源码 `/run/media/sensen/Data2/cell_wound_prototype/run_s2_muscle_inventory.py`（核心必需）。规范90肌肉sha65d3904d…，当前12k候选池65完整/9部分/16未解；独立集合交集及全部输入哈希验证退出0。此覆盖与旧s224相同，是当前复核不是新发现。71mesh仅10可见，今后渲染派生须全身可见且物理不变。
+- **纠正神经读出身份**：adapters.py:572—649明确最近六腿readout是83个按运动靶点分组的下降神经元，不是MN池。候选实际运动池为208 roots/202在tier，不能混用。最近“每腿MN池→膜电位→肌肉”的描述不成立。
+- **避免重复**：已有90肌固定刺激、激活积分器、力矩分解、局部灵敏度、tau来源和210执行器派生的静态失败，证据索引写入肌肉REPORT。canonical65d(90muscle)、6e77旧校准、275daea7(210派生)、近期NeuroMechFly motor四者不可互换。下一步先复用实际107000Z/121000Z交接轨迹，补MN→ctrl→act→主动力→力矩的身份一致账本，不重做全90刺激或背景/滤波扫描。
+- **验证与限制**：静态清单脚本退出0；单次baseline执行退出0，独立离线接触/力/控制分解复核通过。源轨迹克隆在三个保存状态核对复制与源不变。诊断图 `/home/sensen/Desktop/engine修复验收/s5-baseline-recording/20261101T183002Z/DIAGNOSTICS.png` 已生成，但主/子代理read_image均因模型无图像输入失败，**目视未完成**；本轮不交付已目视通过的视频或行走结论。
+- 父独立复核：baseline最终44项hash全部匹配；63221条原始接触frame.T×force及作用体正负号逐项重算，有符号支撑累加与保存数组最大差0，退出0。肌肉清单5项hash全部匹配。注意record脚本的--analyze-only和VERIFY_OFFLINE.py均会写派生文件，**封存后不可原地重跑**；未来只读校验或新目录复算。父本轮未运行写入式验证器。
+- 清理：无确认废弃文件，未删除文件；保留原冻结证据。长期目标未完成，继续先定位当前接触与接口缺陷。
+
 ## 持续目标第一轮（2026-11-01T182545Z）：S1/S5量测修复与S2/S4肌肉路径审计
 - 已创建并启用持续目标 `goal-a1ec182a-35b9-4b2c-804c-1309aafe89f5`，顺序为量测基线→肌肉接口→神经链覆盖→感觉/神经肌肉标定→连续交接撤辅助→自主运动及因果验收。部分接管不是最终目标，原冻结S5-GAIT-1.2仅保留为历史阶段结论。
 - 计划/预登记 `/home/sensen/Desktop/engine修复验收/s5-chain-repair/20261101T182545Z/PLAN.zh-CN.md`（核心必需）；审计 `/home/sensen/Desktop/engine修复验收/s5-chain-repair/20261101T182545Z/AUDIT.zh-CN.md`（重要辅助）。源版本a02c23f6be3bf4c1504847c1729a63f7b7ea52e0，开始工作树干净。
