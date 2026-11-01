@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第二步（2026-11-01T053330Z）：加扰动 —— **粘附（不是摩擦）承载水平载荷**，可持续 0.25–1.0 倍体重
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-body-perturbation/20261101T053330Z/`（`PREREGISTRATION.json`、`PERTURBATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`PERTURBATION.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_BODY_PERTURBATION.zh-CN.md`。
+- **⚠️ REFERENCE BASELINE ONLY**：位置伺服 + 粘附为非神经、非肌肉诊断；不是神经控制/连接组结论。模型 NeuroMechFly，W = 10.048（MJCF 单位）。
+- **推力（400 ms 判据 + 跑前声明的 0.5 mm 滑移判据）**：无粘附 **0.25 W**（0.5 W 失效，先滑移 0.29→1.03 mm）；增益 1.0 **0.5 W**（1.0 W 时滑移 97–163 mm 整机滑出）；增益 5.0 **1.0 W**（2.0 W 时 64–804 mm 摔倒）。
+- **粘附 vs 摩擦**：同一载荷下开/关粘附的滑移差 **2–3 个数量级**（0.001–0.096 mm vs 0.29–1.11 mm）⇒ **承载的是粘附**（P61/P62/P64 PASS）。
+- **斜坡**：增益 1.0 与 5.0 在 5°/10°/20° 全部撑住；**无粘附时 5° 失败、10° 撑住、20° 失败** —— **不单调**，很可能是小倾角把身体压到额外跗节接触、稳态起点采到不同接触集合。**照实记录、不平滑**，斜坡数据只作定性（P63 部分不成立）。
+- **量化意义**：参考身体可持续水平载荷 **0.25 W（无粘附）～1.0 W（粘附 5）**，今后肌肉驱动身体可用同一判据族对比；而 FlyMimic 肌肉资产连静态承重都到不了（B2–B9 最好 3.1–23.8% vs 判据 1%）。
+- **边界**：伺服非神经、NEUTRAL 非生物学站姿；增益与力档位是声明参数；1.0/2.0 W 的失败是**摔倒**（滑移 97–804 mm）而非温和饱和；判据未放宽。
+- **下一步可选**：①迁神经/肌肉接口到该身体（P1/P3 缺口不变）；②在重力倾斜下做**真实坡面**（旋转地面而非改重力）以消除本轮的接触集合异常；③回路线 B（需正向权威独立来源）。
+
 ## 路线 A 第一步（2026-11-01T050135Z）：完整身体上的承重基线**成立** —— 判据可达，缺口确认在肌肉资产
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-body-baseline/20261101T050135Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`BODY_BASELINE{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`BODY_BASELINE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_BODY_BASELINE.zh-CN.md`。
 - **⚠️ REFERENCE BASELINE ONLY**：位置伺服 + 粘附是**非神经、非肌肉**诊断手段，不是神经控制、不是连接组结果。
