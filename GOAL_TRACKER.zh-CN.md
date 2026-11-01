@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第一步（2026-11-01T050135Z）：完整身体上的承重基线**成立** —— 判据可达，缺口确认在肌肉资产
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-body-baseline/20261101T050135Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`BODY_BASELINE{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`BODY_BASELINE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_BODY_BASELINE.zh-CN.md`。
+- **⚠️ REFERENCE BASELINE ONLY**：位置伺服 + 粘附是**非神经、非肌肉**诊断手段，不是神经控制、不是连接组结果。
+- **模型**：flygym 2.1.0 **NeuroMechFly**（nq 211 / nv 210 / nu 210 / dt 1e-4），内存构建，未写 XML。
+- **结果（判据沿用自 B2 未改一字）**：粘附增益 0 / 0.5 / 1 / 2 / 5 **五档全部 SUPPORTED** —— 稳态起始后 400 ms 内**每采样 6 足着地、零非足接触、COM 末值 1.000–1.016**。
+- **三版协议全留档**：v1（z=2.0 不沉降）**全败** —— NMf NEUTRAL **不是站姿**，足端离地 2.0–2.27 mm、身体只下沉（COM 0.274–0.301）；v2（沉降到首次 ≥4 足=26 ms）五档全程 6 足但窗口起点落在回弹尾巴，前 1–2 ms COM 瞬态 0.87–0.93 触发判据；**v3（预登记稳态起点规则）五档全通过**。
+- **判读**：①**判据本身可达** ⇒ 缺口在 FlyMimic 肌肉资产（B2–B9 最好 3.1–23.8% 体重 vs 1%）；②**粘附非必需**（与 P54/P58 相反，因无扰动静态站姿），粘附只抬高平台约 1.4%；③**B7 旁证**：NeuroMechFly 同样把转节并入股节（`trochanterfemur`）⇒ 转节合并是 **flygym 全体模型的惯例**，非单一资产缺陷。
+- **边界**：不是神经系统结论、不是肌肉驱动、不是行走；NEUTRAL 非生物学站姿且无扰动；**判据未放宽**，改的只是测量起点规则（预登记）。
+- **下一步可选**：①把现有神经/肌肉接口迁到该身体（P1/P3 缺口清单不变）；②在该身体上加扰动（推力/斜坡）检验粘附与摩擦的真实作用；③回到肌肉资产路线 B（需先拿到正向权威独立来源）。
+
 ## P3 / 规划（2026-11-01T050135Z）：为什么"标准肌肉模型"仍站不住 —— 三条路线与判据
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-plan-next/20261101T050135Z/PLAN.zh-CN.md`（含 `MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_PLAN_NEXT.zh-CN.md`。
 - **一句话诊断**：肌肉参数是标准的，但它被放在**没有承重标定、且关键关节单侧出力（`Trochanter_pitch` 1 正 : 15 负）**的骨架与附着上 ⇒ 需要的方向产不出力矩；静态要求 48 个广义力同时为零，**单侧锥放大再多倍仍在锥内**，所以放大反而更差（B2：23.77→1208，被动力同步放大）。
