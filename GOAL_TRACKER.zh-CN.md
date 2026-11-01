@@ -1,5 +1,19 @@
 # 目标进度与证据追踪
 
+## 持续goal第5轮（2026-11-01T191552Z）：实际90肌肉原生量测精确复现；明确同态替代目标而非盲重训
+- 起点2985ab744a92385f38cacd8c39e5a22681da63bd；完整目标仍active、未自主支撑/行走。本轮唯一身体运行是原121参数的1.3s预热＋.7s连续交接；目的量测补充，不是新行为对照或新预热方案。
+- **S1/S5核心补录**：`/home/sensen/Desktop/engine修复验收/s5-muscle-native-recording/20261101T191552Z/`，脚本 `/run/media/sensen/Data2/cell_wound_prototype/tools/record_muscle_native_handover.py`。MODEL3470c72f、全部9项原来源hash匹配；保持原.5ms save/forward节拍，step后复制完整MjData，只在clone forward/jac。共160000物理步/3600神经步、160002观测（初态＋step-end＋撤辅后同time边界）、1459661接触行/41分块；原runner2compile/145370forward，额外160002clone-forward/2919322jac，无调参。
+- **复现门通过**：RUN/BODY、NEURAL计数/感觉电流/命令、HANDOVER_BEFORE/AFTER、NEURAL_BOUNDARY、GAIT所有数组bitwise exact；原生共享帧足力/足端/COM差0。所有源文件未改。原模型30跗节mesh/无显式pair，geom solref .002、margin.001，不能套210motor的55pair/.0002。
+- **原生开闭揭示采样遗漏**：父用完全相同[.25,1.3)、kind0窗84000点，正Fz/候选翻转LF557/LM56/LH51/RF357/RM12/RH22；每40点降为2100点后147/48/39/123/12/22，与原BODY逐项相同。非正gap候选的翻转则68/22/47/84/20/32（包内steady端点口径另列）。前足原生完整正Fz段观察跨度中位.45/.35ms，不能计为迈步，不能把候选接触、正gap裕量受力与严格贴面混淆。旧last−first跨度定义保留，不冒充固定材料点接触持续。
+- **预热与撤辅结果**：steady原生非足0、腿assist平均范数24.49727；撤辅后56000步中54502步出现非足接触、辅助为0，原失败保持。原感觉入口仍用候选接触与局部力模长，未换为新signedFz观测，神经行为未受量测定义改变。
+- **材料点相对速度验证**：每contact pos的两body Jacobian×qvel做相对切向速度，法向/切向/力符号全量代数核验通过；逐足法向力加权速度另存LOAD_WEIGHTED_SPEED，分dist<=0/positivegap，无载荷NaN/null。父独立有限差分在预选7共享时刻21个接触（1.35s无合格接触不替换）误差7.86e-9<预定1e-5，eps固定1e-7；1load/21kinematics/14integratePos，0forward/0step。不是全原生状态重建或真实贴面滑移证明。
+- **明确记录偏差**：native未存完整3x3frame/local6force，也未每dt存全q/v/act/ctrl/warnings；完整状态仍.5ms与边界。live派生cache未逐次快照比较；clone隔离与全记录精确复现支持无测得扰动，不冒称局部cache检查已做。candidate max speed是包络代理，+inf min-dist是无候选哨兵；release后phase_rad只是外推参考钟。原.2s边界前后力对照豁免单帧；1.3kind0辅助末行与kind1撤辅后行保持分开。详见RECORDING_DEVIATIONS，冻结后不改。
+- 父额外只读归并：在[.25,1.3)、kind0、Fn>0范围六腿全部法向承载积分仅来自Tarsus5，Tarsus1–4为0，排除该窗“末端抬起但近端跗节承载”解释；末端原点高度不是表面gap。补充保存在父目录PARENT_NATIVE_CHECKS.json，不冒称原封存包已含。
+- **S2/S4/S5同态力矩替代审计**：`/home/sensen/Desktop/engine修复验收/s5-handover-torque-substitution/20261101T191552Z/`，脚本 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_handover_torque_substitution.py`。复用第2轮同3470状态矩阵，不新模型/forward/step/神经。历史130训练实际目标muscle vs assist、交接.251s；正确固定1.3s瞬时替代目标应为原muscle＋held assist，其范数分别9.06395/23.21599/总20.23681。原分解复算误差8.88e-16。
+- 在声明激活box[.0001,1]，总和目标66共享池/74独立/90放松相对残差.919896/.915807/.911631；六拟合均成功，独立不重求解的凸切平面最优性间隙≤1.44e-13。该固定状态下不能精确复制辅助轨迹驱动，但不证明所有姿态/步态/支撑不可能。XML下限实际是ctrlrange，非act硬界；此activation box是静态持续驱动近似，报告已限定。拟合未送入身体，未重复历史增益/突触/FIR训练。
+- **下一最小动作**：先查同模型既有相位与可行性证据，必要时仅用保存稳定周期若干状态核对正确总驱动力矩目标及共享池能力，判断是否存在辅助依赖较小的交接状态；不凭接触足数选点，不用旧muscle-vs-assist残差作为全局不可能证明。若参考轨迹持续超出当前肌肉范围，应先处理身体标定/参考轨迹适配，不继续以神经增益补结构缺口。现有原生量测已可用于该判断，不再次补录同一2s以增加重复指标。
+- 验证/清理：原生包86项封存（约518MB），父目录6项；全量与独立验证均exit0，所有后台job16/17/18已收取。解释器明确venv_body/bin/python -B，物理MUJOCO_GL=egl，禁写pyc。核心必需为预登记/状态/接触分块/来源/拟合数组及实现；重要辅助为报告/偏差/父复核/清单。保留重复源副本用于执行身份及验证，不是废弃产物；无确认可删文件，未删除。无视频或目视通过声明。
+
 ## 持续goal第4轮（2026-11-01T190431Z）：终止motor体接触调参支线，回到实际90肌肉参考预热的量测缺口
 - 起点141fabc023fb1bbfa2305261134f1e7985e3ed5e；goal已读，active/armed，仍未自主行走。唯一新物理积分是210关节motor诊断体的.25s/20000步，另外两项纯离线，无神经推进。
 - **S1/S5接触恢复对照**：`/home/sensen/Desktop/engine修复验收/s5-contact-recovery-control/20261101T190431Z/`，新源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/diagnose_s5_contact_recovery.py`。同初态dt.0125ms，仅55显式地面pair的solref时间常数.0002→.0004；其余468模型数组/opt不变。旧.25s前缀复用；旧表面距离由保存qpos离线kinematics重构，零积分。
