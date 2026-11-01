@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十一步（2026-11-01T070140Z，去计时器 3 轮）：**全部失败，三轮三个实测原因**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-timer-free/20261101T070140Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`TIMER_FREE{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TIMER_FREE.zh-CN.md`。
+- **v1 纯事件耦合** ⇒ **0 周期**：删掉计时器后**没有事件让摆动腿落地**。
+- **v2 + 姿态触发（下沉>2 mm/s）** ⇒ **0 周期**：`com_min=1.00` —— **三腿支撑已足够稳，机体不下沉**，触发永不满足。
+- **v3 + 载荷分担触发（支撑腿>1.5× 份额 ⇒ 对角腿落地）** ⇒ **0 周期**：实测三腿支撑时每腿已承担 **1.85× 份额 > 1.5× 阈值** ⇒ **第一步就把摆动腿全部叫回**，`duty` 全 1.0，锁成六足站姿。
+- **根因**：**该身体三条腿支撑已静态充分** ⇒ 任何"机体聚合事件"（下沉/超载）在**正常三足支撑时已满足**，无法用于决定"摆动腿何时落地"；**缺的是逐腿本体感觉**，不是时钟。
+- 判决 `A_TIMER_FREE_GAIT_DOES_NOT_EMERGE_FROM_BODY_AGGREGATE_SIGNALS_ON_THIS_BODY_BECAUSE_THREE_LEG_SUPPORT_IS_ALREADY_STATICALLY_SUFFICIENT_SO_THE_MISSING_SIGNAL_IS_PER_LEG_PROPRIOCEPTION_NOT_A_BODY_AGGREGATE`。
+- **第 10 步结论不变**：无振荡器状态机**确实**产生合格 tripod 步态（0.94–2.30 mm、交替 −0.63~−0.83、零拖地），但**周期靠两个计时器**。
+- **若再 1 轮（判据已写清）**：用**逐腿本体感觉**（摆动腿自身 coxa 抬起角回落过阈值 ⇒ 下降；自身触地 ⇒ 落地）替代计时器，保证每腿都会触发。
+
 ## 路线 A 第十步（2026-11-01T065509Z，选项 2 的 3 轮内完成）：**节律从身体反馈涌现**（无振荡器）—— 四档全 PASS
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-emergent-rhythm/20261101T065509Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`EMERGENT{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`EMERGENT.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_EMERGENT_RHYTHM.zh-CN.md`。
 - **⚠️ EMERGENT-RHYTHM DIAGNOSTIC ONLY**：驱动中**无振荡器/无相位变量/无中心模式**；声明式载荷反馈规则，非神经元、非连接组、非行走声明。
