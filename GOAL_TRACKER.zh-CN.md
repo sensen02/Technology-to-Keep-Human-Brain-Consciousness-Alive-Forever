@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十二步续（2026-11-01T070744Z，v5/v6）：追推进失败，**真因是周期续不上**
+- 证据同目录（新增 `PREDECLARED_ADDENDUM_V4/V5.json`、`PROPRIO_V5.json`、`PROPRIO_V6.json`、`SCRIPTS/{proprio_v5,proprio_v6}.py`）；桌面副本已更新。
+- **v5 幅值臂**（U_press 0.4–0.8 × U_desc 0.3–0.6）→ 位移 **−0.117~−0.166 mm**、1 周期 ⇒ **幅值不产生推进**；
+- **v5 扫掠臂**（两相都扫）→ **0 周期** ⇒ 摆动相被干扰、状态机崩；
+- **v6 仅支撑相扫掠**（0.3/0.6/0.9）→ 仍 **−0.128~+0.074 mm** ⇒ 蹬地也救不了。
+- **决定性测量**：计时器版 2 s 内 **≈8 个周期**；本体感觉版 **仅 1 个周期** ⇒ **无计时器状态机"续不上"周期链**，**再大蹬地也推不动两秒一步的身体**；失败点是**周期延续**，不是推进力。
+- 判决 `THE_PROPRIOCEPTIVE_TIMER_FREE_MACHINE_CYCLES_ONCE_PER_TWO_SECONDS_SO_ITS_FAILURE_IS_CYCLE_PERPETUATION_RATHER_THAN_PROPULSION_AND_THE_TRANSLATING_ALGORITHM_REMAINS_S5_GAIT_1_0`。
+- **决定（建议并经业主同意继续主线）**：**停止无计时器路线**（已 6 轮失败），用 `S5-GAIT-1.0` 继续做**鲁棒性测试**与**神经接管**；若重开该线，目标应是**触发链**（伙伴着地触发为何只传一次），而非驱动幅值。
+
 ## 算法固化（2026-11-01T071410Z）：`S5-GAIT-1.0` —— **唯一已验证同时满足"支撑 + 行走"的配置**
 - 规格 `/home/sensen/Desktop/engine修复验收/s5-algorithm-spec/20261101T071410Z/ALGORITHM_SPEC.zh-CN.md`（含 `MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_ALGORITHM_SPEC.zh-CN.md`。
 - **参数**：bias **8.0**（4.0 抬不起脚、16.0 失稳）、kp/kd 20/0.5、粘附 gain **1.0** 且摆动相释放、足端反射 `u=−clip(2.0·load,0,0.5)` **仅支撑相**、振荡 `A=1.0, f=4 Hz` tripod、`T_stance 0.10–0.20 s`、`T_swing_max 0.12 s`、最多 2 腿摆动且同 tripod 不同摆、落地用迟滞（<10% 武装、>25% 触发）。
