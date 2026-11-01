@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## 撤回（2026-11-01T165704Z）：**"神经在环步态"实为高频抽搐** —— 业主目视发现，量化核对确认
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-check/20261101T165704Z/`（`CHECK_gain0p8.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`NEURAL_SLOW_gain0p8.mp4` 40× 慢放、`SCRIPTS/check_neural_gait.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_慢放40x_gain0.8.mp4`、`/home/sensen/Desktop/S5_NEURAL_核对与撤回.zh-CN.md`。
+- **实测**：每腿 2 s 内接触 **1185–1675 次**、**单次接触平均 0.84–1.17 ms**；**驱动变号 576–1219 次/2 s**；COM 比 **0.71–0.89**；**路径效率 0.21**；**滑移 0.000 mm**（没有一次接触长到能滑 —— 这本是警报，我漏了）。
+- **判决** `THE_PREVIOUSLY_CLAIMED_FIRST_NEURAL_GAIT_IS_HIGH_FREQUENCY_CHATTER_NOT_WALKING_AND_THE_CLAIM_IS_RETRACTED`。
+- **是否"翻译层训练过度"**：**不是** —— 全程**无任何训练**（无拟合/无优化/无学习层）；命令律是声明式线性映射，抽振源于**未平滑高带宽信号 + 高增益 + 符号门控粘附**三者耦合。
+- **根本问题：判据不足** —— 原 `S5-GAIT-1.1` 判据无法区分"行走"与"抖振"。**新增判据（此后必用）**：①单次接触均值 ≥60 ms；②驱动变号 ≤20 次/s；③路径效率 ≥0.5；④COM 比 ≥0.9；⑤再叠加原判据。
+- **修法**：驱动限制在**网络真正跟随的 2–8 Hz**（第 18 步 v6：5/6 腿），并给粘附门控加 **20–30 ms 迟滞**。
+
 ## 可视样本（2026-11-01T165359Z）：**神经在环行走视频**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-video/20261101T165359Z/`（`NEURAL_GAIT_shapegain0p8.mp4`、分帧图、`REPORT.zh-CN.md`、`VIDEO_META.json`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/render_neural_gait.py`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_GAIT_神经在环行走.mp4`、`/home/sensen/Desktop/S5_NEURAL_GAIT_神经在环行走_分帧.png`、`/home/sensen/Desktop/S5_NEURAL_GAIT_REPORT.zh-CN.md`。
 - **录制窗内 100% 网络驱动**：`u_L = clip(0.8×(v_L − 运行均值), −1, +1)`，`v_L` 为该腿 readout 群平均膜电位（BANC 层级在环 0.5 ms 推进），感觉电流来自该腿接触力。
