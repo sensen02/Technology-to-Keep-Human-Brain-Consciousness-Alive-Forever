@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第三步（2026-11-01T055218Z）：电机接口迁到完整身体 —— **能撑住、方向对，但单腿区分度不达 3×**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-motor-interface/20261101T055218Z/`（`PREREGISTRATION.json`、`MOTOR_INTERFACE.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MOTOR_INTERFACE.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MOTOR_INTERFACE.zh-CN.md`。
+- **⚠️ INTERFACE VALIDATION ONLY**：六个 motor unit 是**声明式工程通道**（非已识别 MN），驱动为合成；不是神经控制/连接组结论/行走。
+- **接口**：`tau_j = kp·(q_neutral−q) − kd·q̇ + u_leg·bias`，kp=20、kd=0.5，bias 仅加在每腿两个 pitch 关节（+4.0/−4.0）；映射 **204** 腿关节、**12** 带 bias。
+- **结果**：**T2 零驱动保持 400 ms PASS**（判据全过）；**T3 协调驱动 u=0.1/0.2/0.3 三档全 PASS**；**T1 单腿选择性 FAIL**（3/6 达 3×：lf 4.31×、lh 2.54×、rh 2.38×、lm 2.28×、rm 1.86×、**rf 1.18×**）。
+- **关键诊断**：每行最大值都**在对角线上** ⇒ 通道**方向正确**，失败的是幅值规则；根因是**站姿静不定 + 身体耦合**，动一条腿会把载荷重新分配 ⇒ **足端位移不是合适的选择性观测量**。应改用被驱动腿自身关节的力矩-角度增益，或**系留身体**下测量。
+- 判决 `THE_MOTOR_INTERFACE_REPRODUCES_THE_REFERENCE_STANCE_AND_IS_DIRECTIONALLY_CORRECT_PER_LEG_BUT_ITS_CHANNELS_DO_NOT_SEPARATE_AT_THE_DECLARED_3X_LEVEL_ON_FREE_STANCE_FOOT_DISPLACEMENT`；P65 FAIL、P66 PASS、P67 FAIL（u=0.3 未崩，上界未界定）。
+- **下一步**：①在**系留世界**里重测选择性（把载荷路径固定），或改测关节力矩-角度增益；②界定 u 的真实上界（>0.3）；③之后才谈接连接组驱动。
+
 ## 路线 A 第二步（2026-11-01T053330Z）：加扰动 —— **粘附（不是摩擦）承载水平载荷**，可持续 0.25–1.0 倍体重
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-body-perturbation/20261101T053330Z/`（`PREREGISTRATION.json`、`PERTURBATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`PERTURBATION.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_BODY_PERTURBATION.zh-CN.md`。
 - **⚠️ REFERENCE BASELINE ONLY**：位置伺服 + 粘附为非神经、非肌肉诊断；不是神经控制/连接组结论。模型 NeuroMechFly，W = 10.048（MJCF 单位）。
