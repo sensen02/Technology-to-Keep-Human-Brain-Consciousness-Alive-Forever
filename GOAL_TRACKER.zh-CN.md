@@ -1,5 +1,21 @@
 # 目标进度与证据追踪
 
+## 持续goal第14轮（2026-11-01T222509Z）：完成实际SNN有限参数闭环学习，分数下降未阻止早期失稳
+- 起点2d34f0ea3e131c1f2374e55c9b5297493c26be0a；本轮S4实际参数学习，不是统计读出、不生成动作脚本；完整自主支撑/行走未实现，也没有完成fly73 Y迷宫个体行为对齐。只学现有SNN三个全局常量，不代表全突触/完整连接体训练。
+- **主包/工具**：`/home/sensen/Desktop/engine修复验收/s4-banc888-closedloop-parameter-fit/20261101T222509Z/`；`/run/media/sensen/Data2/cell_wound_prototype/tools/train_banc888_checkpoint_parameters.py`。采用第13轮真正新接口物理交接checkpoint、同3470模型/新准入契约、固定roots/WeWi支持/EI/肌肉/感觉/译码。保留原来的参考预热动态状态，不把body改成静态初态。
+- **先恢复门后训练**：完整MjData可积分字段+神经8数组/clock/rates/pending恢复，MuJoCo3.9 STATE_INTEGRATION812、STATE_HISTORY0，重建encoder/joint/geom并显式guard新pool+contract。20ms=1600body/40neural门的qpos/qvel/act/ctrl/足力/COM 40个共有端点及40tick脉冲/20窗rates/applied/next全部bitwise exact/max差0。48个trial初态integration hash唯一。
+- **真实SNN训练定义**：参数exc_gain/inh_gain∈[.5,2]、threshold_shift∈[−3,3]mV（工程范围非生理标定），源WeWi*.2及root支持固定；每trial只改变未来突触增量/有效阈值，继承ge/gi/ring/adaptation/body/rates/pending不重置。参数在各trial内恒定，优化器不产生每步控制。SPSA seed1413、15updates、a=.1/(k+1)^.602、c=.05/(k+1)^.101、归一化z投影[−1,1]^3，baseline1+15×3=46个50ms训练trial，全部成功。
+- 损失严格用每12.5us同步liveforward后的原生观测：COMz偏离h0相对平方均值＋(signed足Fz/W−1)²均值＋每contact正非足Fz/W均值＋.01root相对四元数旋转角²均值＋.001ctrl²均值＋.001正则(lnGainE²+lnGainI²+(theta/3)²)。无额外forward/Jac引入观测干扰，不用.5ms稀采样力追接触相位，不模仿旧PD力矩、不套>=4feet。
+- **唯一预登记选择**：全部成功训练loss最小（同分先到者）为TRAIN_041_MINUS，x=[1.034926399299458,.9293540895045542,.05751030027871461]；50ms loss1.6942425898616345→1.665337790193751。不是最后中心点，也不是按验证结果重新挑选。
+- **一次150ms时间延长验证**：同checkpoint候选1次新rollout，中性150ms复用第13轮缓存不重跑；loss1.925004536839846→1.8852078493353746。但双方首次正非足支撑18.9125ms不变，50ms非足端点2488/4000、150ms10488/12000完全不减；声明有限支撑筛查(足Fz>=.8W且无非足正支撑)累计400us/最长187.5us均未延长。150ms足Fz/W均值.109519804→.123405699，正非足.874387891→.860555974；末COMz.579084125→.577905697略低。rootdx.19522→.21517是在非足承载期间的位移，不能算走路。主充分改善判据FAIL。
+- **父独立审查**：`/home/sensen/Desktop/engine修复验收/s4-banc888-parameter-fit-review/20261101T222509Z/`；`/run/media/sensen/Data2/cell_wound_prototype/tools/review_banc888_parameter_fit.py`。0模型/网络/积分/拟合。独立从compiled mass/gravity/q0/h0、原生力/COM/四元数atan2角差、命令80倍hold重算48trial全部6损失项、15次SPSA更新及argmin选择，最大分项误差1.11e-16。初次RESULT保留，追加时序输出RESULT_WITH_TIMING且原所有字段exact不变。
+- **关键时序解释**：全网脉冲0.5ms开始有差，实际读出204MN到19.5ms才有差，applied命令20ms、共有qpos20.5ms才有差；第一次非足支撑已经在18.9125ms。此前所有原生物理损失字段逐位相同；150ms全窗归一化物理loss差在首次非足之前为0、之后−.0398036014，加正则+.00000691389得总差−.0397966875。因此所选候选没有阻止最初失稳，改善发生在身体已触地之后的载荷分配；不是支撑/行走改善，也不是所有参数或其它历史都无效的证明。
+- **已知判据限制**：执行源的充分改善分支要求候选first_nonfoot非None，会保守误拒完全无非足的未来候选；父在运行中指出，未热改已冻结源。主报告明确右删失解释，当前双方事件实际观测，所以不影响本次FAIL。新验证协议应把未观察到事件作为观测窗下界，不伪造发生时刻；不修改已封包数值判据或重选参数。
+- **失败与计数**：初次直接XML编译因相对mesh缺失exit1，0成功编译/0积分，在ATTEMPTS/20261101T223035Z保留预登记/失败执行源/ledger。修为原_load_mjcf资源加载器后唯一成功编译，gate才通过并训练。成功bash52、纯数组53、离线图54全exit0并收取；成功模型1、data/network各48、body197600、neural4940、forward197648、contactForce956513、Jac0、tier0；失败编译尝试1与guard1另列，不把它混作成功模型。
+- 独立新进程重算全部48trials原生loss/SPSA/选择、原始中性50ms与100tickraster exact、候选150前50ms与训练exact，最大loss误差5.55e-17；所有初态/因果/模型参数/源身份验证通过。父另核验344包内+1外部主源码、7项父复核，共352项hash通过，原模型/接口/权重文件没改。无确认可弃文件，实际清理0，失败源与全部trial数据作为科学/追溯证据保留，未误复制venv源码。
+- **下一最小动作**：冻结唯一已选参数，从最初参考预热开始全程固定使用它做完整身体验证（不是释放时临时切换），检验改变预热历史是否能在失稳前改变命令。共享前700ms与第13轮新接口未训练基线比较；可预登记直接延长至2s自主窗口作为绝对检验，不再调参数或根据结果重选。此验证与已有条件训练不同，不能把固定旧ge/滤波历史的失败或小幅改善直接外推。若仍失败，回到训练时间范围/神经输入结构/身体标定依据，不继续把着地后的score改善当作自主进步。
+- **重要程度**：核心必需为两个新工具、pre-reg/完整checkpoint/gate/48轨迹与命令/学习历史/选定参数及独立复核；重要辅助为两份REPORT、源/尝试台账、清单。显式venv_body/bin/python -B、PYTHONDONTWRITEBYTECODE=1、OPENBLAS_NUM_THREADS=1、物理MUJOCO_GL=egl。PNG已生成但当前模型不支持image输入，read_image实际拒读，未称目视通过；未新增行走视频。goal仍active。
+
 ## 持续goal第13轮（2026-11-01T220018Z）：root888接口进入完整实时身体反馈，身份修复未恢复支撑
 - 起点1910ac611b9eb97a41fd266e159f2b94a9590de5；本轮实际新增一次完整身体物理轨迹，旧121/原生基线复用不重跑。最终自主支撑/行走未实现；没有训练SNN、没有扫参数或增加时长。
 - **S3/S5显式版本准入**：`/home/sensen/Desktop/engine修复验收/s3-banc888-runtime-admission/20261101T220018Z/`；新工具 `/run/media/sensen/Data2/cell_wound_prototype/tools/prepare_banc888_runtime_admission.py`。由已验证候选生成新MN_POOLS_SNAPSHOT888/SENSORY_LOOKUP_SNAPSHOT888及外部VERSION_CONTRACT，映射/74已映射/16未解析/66绑定不变，仅将本次版本身份状态升级，旧候选/旧运行JSON不改。
