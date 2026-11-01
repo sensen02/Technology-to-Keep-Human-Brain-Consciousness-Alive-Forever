@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 审计（2026-11-01T045346Z）：17 个本轮证据目录清单全通过、零重复、零垃圾；**未删除任何文件**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-audit/20261101T045346Z/`（`AUDIT.json`、`REPORT.zh-CN.md`、`SCRIPTS/audit.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_AUDIT.zh-CN.md`。
+- **清单完整性**：17 个目录共 168 个文件，**逐个 SHA256 与各自 `MANIFEST_SHA256.json` 一致**；**未登记文件 0**；**跨目录内容重复 0**。
+- **版本核查**：基线模型**只有一个** —— `s5-femur3-extensor/20261031T100000Z/MODEL_PROXIMAL_PULL.xml`，SHA256 `275daea7…bb70f`，本轮每轮都加载它；缩放变体只在内存编译；派生模型仅 3 个（`MODEL_HIND_SIDE.xml`、`MODEL_MEASURED_muscle1/2.xml`），均在各自轮次目录内且已声明；求解器只有一份（`s5-unified-scale/SCRIPTS/unified_scale.py`，三个 bug 修完后被其余轮次 import），**无两套并行实现**。
+- **数字自洽**：报告/台账引用的关键数字（B2 23.767/47.661/1208.25、B3 22.869/39.712、B8 18.207/17.926、B9 9.931/3.122 与 α=0 校验、C 首次失败 0.5–2.0 ms、D 0 次不可行）与归档 JSON **逐项 PASS，ALL_CONSISTENT=True**。
+- **清理**：`__pycache__`/`*.pyc`/`*.bak`/`*.tmp`/`/tmp` 残留**逐项扫描为 0**；**未删除任何文件**（本轮无可删对象，且证据原则不允许删冻结轮次）。
+- **待确认（未动手）**：①第72轮 `s5-sidedness-audit/20261031T110000Z/MODEL_*.xml` 6 个变体模型（其结论基于后来被证伪的 LP，XML 可再生，但属更早冻结轮次）；②`s5-measured-attachments/20261030T200000Z/`（**上一会话**旧轮次，与本轮 `20261101T022340Z` 共用父目录名）；③桌面 17 个 `S5_*.zh-CN.md`（按全局规则保留）。
+
 ## P3 / 门禁 D（2026-11-01T042910Z，**诊断**）：每 5 ms 重解静态 LP 也救不住，且 LP 从未无解 ⇒ **缺的是身体/肌肉，不是命令保持**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-feedback-diagnostic/20261101T042910Z/`（`PREREGISTRATION.json`、`FEEDBACK_DIAGNOSTIC.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`FEEDBACK_DIAGNOSTIC.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_FEEDBACK_DIAGNOSTIC.zh-CN.md`。
 - **⚠️ DIAGNOSTIC ONLY**：控制器是**逐拍重解 LP**（非神经算法），仅用于诊断**身体可控性**，**不是**神经控制/CPG/策略，绝不能当站立或行走引用。
