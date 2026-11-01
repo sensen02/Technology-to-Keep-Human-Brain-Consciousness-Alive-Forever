@@ -1,5 +1,10 @@
 # 目标进度与证据追踪
 
+## 修法尝试（2026-11-01T165704Z）：**低通 25 ms + 迟滞 0.15 —— 抖振降 10 倍，仍全部不达标**
+- 实测（增益 0.8）：单次接触均值 **0.84 → 2.11 ms**（目标 ≥60）；驱动变号 **610 → 57.5 次/s**（目标 ≤20）；路径效率 0.189（目标 ≥0.5）；COM 最低 0.70（目标 ≥0.9）⇒ **新判据全不达**。
+- 判决更新 `THE_NEURAL_GAIT_REMAINS_CHATTER_AFTER_LOW_PASS_AND_HYSTERESIS_THE_FIX_REDUCES_THE_CHATTER_FREQUENCY_BY_AN_ORDER_OF_MAGNITUDE_BUT_MISSES_EVERY_NEW_CRITERION_SO_NO_GAIT_CLAIM_IS_MADE`。
+- **结论**：膜电位偏差的能量仍在步态频带之外 ⇒ 必须**显式带通 2–8 Hz**，并**用该成分的相位**驱动粘附，而非瞬时符号。证据同 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-check/20261101T165704Z/`（新增 `SCRIPTS/check_fixed.py`，`CHECK_gain0p8.json` 已含 `new_criteria`）。
+
 ## 撤回（2026-11-01T165704Z）：**"神经在环步态"实为高频抽搐** —— 业主目视发现，量化核对确认
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-gait-check/20261101T165704Z/`（`CHECK_gain0p8.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`NEURAL_SLOW_gain0p8.mp4` 40× 慢放、`SCRIPTS/check_neural_gait.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_慢放40x_gain0.8.mp4`、`/home/sensen/Desktop/S5_NEURAL_核对与撤回.zh-CN.md`。
 - **实测**：每腿 2 s 内接触 **1185–1675 次**、**单次接触平均 0.84–1.17 ms**；**驱动变号 576–1219 次/2 s**；COM 比 **0.71–0.89**；**路径效率 0.21**；**滑移 0.000 mm**（没有一次接触长到能滑 —— 这本是警报，我漏了）。
