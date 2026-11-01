@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B6（2026-11-01T005840Z）：力臂逐段分解成功，缺陷被**指名** —— 中/后足把这四根基节–转节肌**接在了股节**上
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-moment-arm-segments/20261101T005840Z/`（`PREREGISTRATION.json`、`MOMENT_SEGMENTS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MOMENT_SEGMENTS.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MOMENT_ARM_SEGMENTS.zh-CN.md`。
+- **方法先过校验**：解析分段和 vs 独立有限差分（折线长度）**270/270 行 ≤1e-6**（P37 PASS）。本 build 的 `actuator_moment` 是**稀疏存储**（长度 2226 ≠ nu×nv）不能按 dof 索引；我第一次 FD 校验自身有 bug（扰动 `qpos[dof]` 而非 `qpos[jnt_qposadr]`，误判 108/270），已修正并记录。
+- **翻转定位到单一段（P38 PASS）**：`sterno-tergo-trochanter_extensor_a` 翻转在**第1段 Coxa→Femur**（LM −0.02783 → LH **+0.02240**；RM −0.03362 → RH **+0.00652**）；`trochanter_extensor` 翻转在**第0段 Coxa→Femur**（LM −0.00817 → LH **+0.03656**；RM −0.01328 → RH **+0.03739**）；**中足→前足从不翻转**。
+- **真正的缺陷（比符号更大）**：四根 coxa–trochanter MTU 的**远端附着体**在**前足 LF/RF = Trochanter**、在**中/后足 LM/LH/RM/RH = Femur** ⇒ 名为"基节–转节肌"却插在股节，跨越了不同关节链；这也解释了符号一致的 MTU 量级仍差很大（`sterno…_b` −0.0367 vs −0.0030；`trochanter_flexor_a` +0.0392 vs **+0.1616**）。
+- 判决 `THE_HIND_LEG_MID_AND_HIND_MTU_DISTAL_SITES_ARE_ON_THE_FEMUR_WHILE_THE_FORE_LEGS_USE_THE_TROCHANTER_…_THE_SIGN_FLIP_IS_CARRIED_BY_THE_COXA_TO_FEMUR_SEGMENT`。
+- **解释 B2f 为何只修好一半**：B2f 搬的是**中足局部坐标**（连股节约定一起搬），故 `trochanter_extensor` 修好、`sterno…_a` 未修好。正确做法是**把远端搬到对应转节体**。
+- **下一最小动作（门禁 B7）**：把中/后足四根 MTU 的远端 site 搬到对应 `Trochanter`（保持局部偏移与力参数不变），**不加合成执行器**重跑 B2/B2c 判据；三项独立验证：符号一致、各腿力臂量级可比、三姿态残差朝 t≤1 移动。若仍不行，则剩余候选是 120 根测量束（第72轮已知方位/半径/沿分数手写、各腿符号不镜像一致）。
+- 本轮 0 LP、0 `mj_step`、0 模型改动。
+
 ## P3 / 门禁 B5（2026-11-01T004429Z）：**附着表不能用坐标比较判定** —— 两种预登记测法都失败，改用逐段分解力臂
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-attachment-table/20261101T004429Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`ATTACHMENT_FITS.json`、`ATTACHMENT_JOINTFRAME.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_ATTACHMENT_TABLE.zh-CN.md`。
 - **v1（原始局部坐标 + Kabsch）失败**：符号**一致**的 MTU 里 13/20 被判 transformed、符号**翻转**的 6/10 也被判；残差 0.02–0.17 而坐标量级仅 0.05–0.10 ⇒ 各腿 Coxa/Femur 体自带坐标系与尺寸，刚体拟合把腿间几何差异整体吸收。
