@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十六步（2026-11-01T145525Z）：**抓地→行走抗推曲线**，最高测到 **1.0 倍体重**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-walk-grip/20261101T145525Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`WALK_GRIP{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_WALK_GRIP.zh-CN.md`。
+- **抗推曲线（判据含 0.5 mm 单次接触滑移规则）**：增益 1 无抓地 → **<0.25 W**（0.25 W 仅因滑 0.550 未过）；增益 4+强抓地 → **0.25 W**；**增益 8 → 0.5 W**（滑 0.286）；**增益 16 → ≥1.0 W**（1.0 W 档：位移 3.737 mm、交替 −0.92、COM 0.83、零拖地、滑 0.315 mm）。
+- 判决 `RAISING_STANCE_GRIP_RAISES_THE_WALKING_PUSH_TOLERANCE_MONOTONICALLY_FROM_BELOW_025_BODY_WEIGHTS_UP_TO_AT_LEAST_1_0_BODY_WEIGHTS_WITH_ADHESION_GAIN_16_AND_ALL_PASSING_ARMS_KEEP_SLIP_BELOW_0_35_MM`；P142/P144/P146 PASS，P143/P147 FAIL（高增益未防碍抬脚，反而是最佳）。
+- **边界**：不越过 1.0 W 声明；增益 8 在 1.0 W 出现 **QACC 不稳定** ⇒ 记为"被吹飞"**不计通过**；仍非神经、非动物结论。
+- **"能支撑能行走"证据链（更新）**：支撑 ✅400 ms；站立抗推 ✅0.5 W；抗倾角 ✅20°；**行走 ✅（滑 0.308 mm）**；**行走抗推 ✅0.25 W（滑 0.233）/ 0.5 W（滑 0.286）/ 1.0 W（滑 0.315，增益 16）**。
+- **下一步**：①探增益 32 夹住天花板；②或认可 **1.0 W 为工作上限**，转入**神经接管**（项目主线）。
+
 ## 路线 A 第十五步（2026-11-01T145318Z）：行走抗推（修正度量）—— **严格判据下上限 = 0；0.25 W 仍走但滑 0.55 mm**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-walk-push/20261101T145318Z/`（`PREREGISTRATION.json`、`WALK_PUSH.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_WALK_PUSH.zh-CN.md`。
 - **结果**：推力 0 → 位移 3.013 mm、交替 −0.94、滑移 **0.308 mm（PASS）**；**0.25 W → 位移 9.248 mm、交替 −0.92、COM 0.97、零拖地，但滑移 0.550 mm（超判据 10% ⇒ FAIL）**；0.5 W → 机体拖地（非足接触 78%、交替崩到 −0.09）；1.0 W → 位移 2297 mm 被吹飞，且 **MuJoCo QACC 不稳定**。
