@@ -1,5 +1,18 @@
 # 目标进度与证据追踪
 
+## 路线 A 第八步（2026-11-01T062236Z，v5）：**提高抬起权限后真的迈步了**（合成振荡器，非神经）
+- 证据同一目录 `/home/sensen/Desktop/engine修复验收/s5-stepping/20261101T062236Z/`（新增 `PREDECLARED_ADDENDUM_V5.json`、`STEPPING_V5.json`、`STEPPING_V5.png`、`SCRIPTS/{stepping_v5,make_figure2}.py`）；桌面副本 `/home/sensen/Desktop/S5_STEPPING.zh-CN.md` 已更新。
+- **v5 网格（bias {8,16} × A {0.5,1.0} × f {2,4}，判据跑前声明未改）**：
+  - **bias8 A0.5 f4**：位移 **+0.995 mm**、交替 **−0.89**、COM 0.71、非足 0、duty 0.44/0.54 → **PASS**
+  - **bias8 A1.0 f2**：**+0.590 mm**、**−0.97**、COM 0.76 → **PASS**
+  - **bias8 A1.0 f4**：**+1.333 mm**、**−0.93**、COM 0.73 → **PASS**
+  - bias8 A0.5 f2：+0.412 mm（差 18% 位移）
+  - **bias16 全部失败**：COM 0.30–0.32、**非足接触 84–87%**、duty 0–0.13 ⇒ **抬起权限过大反而崩**
+- ⇒ **tripod 交替干净（duty≈0.5、反相 −0.9）、每秒前进 0.6–1.3 mm、COM 0.71–0.76、零非足接触**。
+- 判决 `A_DECLARED_TRIPOD_OSCILLATOR_WITH_RAISED_LIFT_AUTHORITY_PRODUCES_ALTERNATING_LOCOMOTOR_STEPPING_WITH_NET_TRANSLATION_ON_THIS_BODY_AND_INTERFACE_BUT_IT_IS_A_SYNTHETIC_PATTERN_NOT_A_NEURAL_OR_WALKING_RESULT`。
+- **边界（必须引用）**：**合成振荡器 + 网格搜索增益**；**不是**神经结果、**不是**连接组结果、**不是**对动物的行走声明。它确立的是：**身体与接口一侧已不再是瓶颈**，剩下的是**命令源**。
+- **下一步**：把同样 tripod 结构交给网络活动（或让连接组调制振荡器），保留 v4 的两条调制（相位释放粘附、支撑相门控反射）。
+
 ## 路线 A 第七步（2026-11-01T062236Z）：加抬起相位 —— **仍未迈步，但三个原因逐一量化**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-stepping/20261101T062236Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`STEPPING{,_V3,_V4}.json`、`THRESHOLD.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`STEPPING.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_STEPPING.zh-CN.md`。
 - **⚠️ SYNTHETIC PATTERN GENERATOR - DIAGNOSTIC ONLY**：振荡器为声明式工程信号，不是神经回路/连接组结论；任何运动**不是**动物证据。
