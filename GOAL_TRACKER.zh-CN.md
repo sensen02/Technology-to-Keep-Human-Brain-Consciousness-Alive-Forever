@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第九步（2026-11-01T064948Z）：网络活动**调制步速** —— 十档全过，但**节律仍是声明式**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-gait/20261101T064948Z/`（`PREREGISTRATION.json`、`NEURAL_GAIT.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`NEURAL_GAIT.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_GAIT.zh-CN.md`。
+- **⚠️ HYBRID DRIVE - DIAGNOSTIC ONLY**：**相位为声明式振荡器**，只有**逐腿幅度**来自归档 MN 速率；不是网络产生的步态/连接组结论/行走声明。
+- **接线**：`u_L = clip(反射_门控 + A_L(t)·sin(2πft+φ_L), ±1)`，`A_L(t)=A0·clip(速率_L/170Hz,0,1)`；bias 8.0、相位释放粘附、支撑相门控反射。
+- **结果（十档全 PASS）**：2 Hz 位移 no_stim **0.832** vs claw/hook/club **1.230–1.243**（**+49%**）；4 Hz 位移 **2.017** vs **2.365–2.396**（**+17%**）；`cut` 与 `no_stim` **完全一致**（池速率≈0 ⇒ 刺激无泄漏）；交替 −0.84~**−0.95**、COM 0.72–0.79、零非足接触、duty≈0.5。
+- **机理坦白**：**零尖峰档也会动** —— 支撑相门控反射使驱动被声明相位**半波整流**，"压—松"本身就能走 ⇒ **神经输入是"幅度调制器"，不是节律起源**。
+- 判决 `ARCHIVED_NETWORK_ACTIVITY_CAN_MODULATE_GAIT_SPEED_BUT_THE_LOCOMOTOR_RHYTHM_ITSELF_IS_STILL_THE_DECLARED_OSCILLATOR_SO_THE_COMMAND_SOURCE_GAP_IS_NARROWED_NOT_CLOSED`；P98/P99/P100 全 PASS。
+- **唯一剩余缺口 = 节律（相位）必须由网络产生**：①在 P3 侧造/找带相位结构的池（6 个交替振荡池）直接接六通道；②把**身体→网络反馈**接上，让相位从闭环中涌现。
+
 ## 路线 A 第八步（2026-11-01T062236Z，v5）：**提高抬起权限后真的迈步了**（合成振荡器，非神经）
 - 证据同一目录 `/home/sensen/Desktop/engine修复验收/s5-stepping/20261101T062236Z/`（新增 `PREDECLARED_ADDENDUM_V5.json`、`STEPPING_V5.json`、`STEPPING_V5.png`、`SCRIPTS/{stepping_v5,make_figure2}.py`）；桌面副本 `/home/sensen/Desktop/S5_STEPPING.zh-CN.md` 已更新。
 - **v5 网格（bias {8,16} × A {0.5,1.0} × f {2,4}，判据跑前声明未改）**：
