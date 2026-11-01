@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B8（2026-11-01T022340Z，路线 A）：用实测几何重建中/后足附着 —— 残差 23.77→**18.2**，仍未修好且后足符号更差
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-measured-attachments/20261101T022340Z/`（`PREREGISTRATION.json`、`MEASURED_ATTACH.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MODEL_MEASURED_muscle1.xml`、`MODEL_MEASURED_muscle2.xml`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_MEASURED_ATTACHMENTS.zh-CN.md`。
+- **做法**：用第71轮已测 VFB 几何（muscle 1：along −0.2637→−0.0799、r 0.1233→0.0660；muscle 2：−0.2078→−0.0938、0.0279→0.0311，股节跨度单位），**只借 along/半径、保留各 MTU 自身方位**（肌肉组↔MTU 名对应未建立，不编造），每臂重建 44 site。
+- **结果**：三姿态残差 s=1 **23.77 → 18.21（muscle1）/ 17.93（muscle2）**，即改善约 23%，仍为判据 **18 倍**；留出批 **0/10**；且 LM 3+/13−→**1+/14−**、LH 1+/15−→**0+/14−**（后足正扭矩执行器被清零）。
+- **代理缺陷（如实记录）**：多个重建力臂**恰为 0.0**（`trochanter_flexor_a` 四条中/后足、`sterno…_a` 在 LH/RH）⇒ 几何退化；根因是"股节帧"为**肌肉并集帧**而非骨帧、且组↔MTU 对应未知。**不可反推动物。**
+- 判决 `THE_MEASURED_GEOMETRY_REBUILD_OF_THE_MID_AND_HIND_ATTACHMENTS_DOES_NOT_REPAIR_THE_STATIC_CRITERION_AND_IT_WORSENS_THE_HIND_LEG_SIGN_ASYMMETRY`。
+- **静态路线八轮总账**：B2 统一标度 23.77（放大更差）→ B3 12 族站姿 22.87–39.71 → B2f 附着侧迁移 23.22 → **B8 实测几何重建 17.93–18.21** → 仅 B2c 合成双向拮抗达 **0 精确平衡**（而 B2d 实测解剖只给 3.15 µN，需 20）。⇒ **肌肉侧每种有依据的修复都试过，最好 17.9% 体重。**
+- **下一步假设（最有希望，成本极低）**：**粘附** —— 至今所有门禁都假设接触只能**推**（`fn≥0`），而果蝇靠跗端垫/爪**粘附**，真实站姿可能需要**拉**的接触力；模型无粘附执行器且 LP 按构造禁止 `fn<0`。可在同一 LP 里加负法向力上限再跑三姿态；若残差在大幅下降即证明这就是缺的那一块（也能解释为何所有肌肉侧修复无效）。
+
 ## P3 / 门禁 B7（2026-11-01T015754Z）：修复**无法执行** —— 中/后足**没有转节体**；撤回 B6 的因果解读
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-insertion-repair/20261101T015754Z/`（`PREREGISTRATION.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`SCRIPTS/insertion_repair.py`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_INSERTION_REPAIR.zh-CN.md`。
 - **结构性事实**：编译后带 Trochanter 的体**只有 LFTrochanter / RFTrochanter**；LM/LH/RM/RH 的 `joint_<LEG>Trochanter_pitch` **就是基节→股节关节**（父体 Coxa、子体 Femur、唯一远端 geom 是 Femur_geom）⇒ 中/后足**没有转节节段**，那四根 "coxa–trochanter" MTU 只能接股节。
