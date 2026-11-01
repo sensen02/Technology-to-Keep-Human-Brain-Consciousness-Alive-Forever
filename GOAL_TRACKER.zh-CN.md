@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B4（2026-11-01T003644Z）：关节轴**不是**缺陷 —— 六腿都是同一横向铰，附着表成为唯一剩余解释
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-joint-axis/20261101T003644Z/`（`PREREGISTRATION.json`、`JOINT_AXIS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_JOINT_AXIS.zh-CN.md`。
+- **实测**：编译后局部轴六腿**全为 [0,1,0]**；换算到**腿自身几何局部坐标**后主分量都在横向（|a3| = 0.917–0.998，偏离腿平面 0.19–6.31°）；与腿长轴夹角 83–93°；**关节范围六腿一致**（1e-9，P33 PASS）。
+- **一处必须说清的混淆**：世界系"同侧中足 vs 后足"轴差 52–62°、镜像残差 11–28°，但中足与后足朝向本就不同 ⇒ 世界系比较会把腿 yaw 误判为轴错误；腿局部坐标下差异只剩**背向倾角**（a2 从 +0.21 到 −0.41，最多约 28°）⇒ 是**次级不一致，不是 90°/180° 反转**。
+- 判决 `THE_TROCHANTER_PITCH_JOINT_AXIS_IS_A_CONSISTENT_LATERAL_HINGE_ON_ALL_SIX_LEGS_SO_THE_AXIS_IS_NOT_THE_DEFECT_AND_THE_ATTACHMENT_MAPPING_REMAINS_THE_EXPLANATION`；P32 FAIL/INCONCLUSIVE。
+- **含义**：B2e 那两处符号翻转**只能来自附着点表**。下一最小动作：逐腿比对**同名 MTU 的局部 site 坐标**（B2e 已知：符号一致的 `_b` 型各腿局部坐标差 <1e-2，翻转的 `_a` 型差很多），并与 B2d 实测肌肉几何对照；轴背向倾角 28° 的次级不一致另记不改判。
+- 本轮 **0 LP、0 `mj_step`、0 模型改动**，纯运动学。
+
 ## P3 / 门禁 B3（2026-11-01T003048Z）：**十二种站姿族全部不可行**（最好 22.87，判据 1）—— 选站姿也不是原因
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-stance-family/20261101T003048Z/`（`PREREGISTRATION.json`、`STANCE_FAMILIES.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`STANCE_FAMILIES.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_STANCE_FAMILY.zh-CN.md`。
 - **设计**：支撑集（六足 / tripod_A{ LF,LM,RH } / tripod_B{ RF,RM,LH } / 四足{ LF,RF,LH,RH }）× 足距三档（左 +w、右 −w 加在 Coxa_yaw 与 Trochanter_yaw）× 6 候选 = **12 族全部 6/6 合格**，再跑同一足端锥 LP（判据 t≤1）。
