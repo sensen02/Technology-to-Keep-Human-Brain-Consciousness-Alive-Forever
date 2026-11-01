@@ -1,5 +1,21 @@
 # 目标进度与证据追踪
 
+## 持续goal第9轮（2026-11-01T205953Z）：分开接触近似、全身支撑几何与肌肉可达域
+- 起点b37490c2fe8b87a4629126a1e6bde29810fcd0c6，干净工作树，完整目标仍未自主支撑/行走。本轮只读保存姿态并运行固定态LP，不新增姿态搜索/物理积分/神经步/视频。
+- **S1/S2/S5主审计**：`/home/sensen/Desktop/engine修复验收/s5-stance-contact-relaxations/20261101T205953Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_stance_contact_relaxations.py`。固定两个姿态：上轮185LP的最好点与k=.9软接触最好点；同MODEL3470c72f，plant不改。每姿态零/一/非均匀激活3forward，重建主动A、肌肉被动/关节被动/bias，0step。
+- 比较a单最低顶点、b实际foot-floor contact.pos、c近地网格顶点xy凸包极点（强制保留a）、d=a∪b∪c，点来源/世界坐标/gap/几何/所属body/Jacobian逐项保留；d包含全部a/b/c，a⊆c。分别内接diamond与外包square摩擦锥；活跃关节限位行由实际efc_J提取，两个姿态均0行，故省去无变化的限位反力LP。
+- **结果与可解释范围**：姿态0的66有界diamond L1从a .283807降到d .273583，最大分量 .117957→.079188；d square L1 .251842/max分量 .097508。姿态1 d diamond L1 .324052/max .142174、square .271169/.128277。增加接触压力点与摩擦松弛有改善，仍无候选；全部square解都超真实圆锥（最大切向/法向比√2），仅用于放宽对照，不当真实解。
+- **跑前ADDENDUM后的12个纯数组LP**：进一步66共享非负无上限、74mapped独立有界、90全独立有界，各2姿态×2摩擦。66无上限diamond L1 .260114/.321460，激活max4.68014/1.54870，仍失败；square .232306/.251232、maxact4.28922/5.66405也失败。74独立diamond .273571/.324052，改善极小；90独立diamond .213794/.268113、square .171509/.196229，仍失败。signed共享66两姿态均机器零（约3e-15），不可生理使用。故当前自由反力静力问题的缺口也不仅是激活上限，但不与旧辅助轨迹力矩拟合问题混为同一结论。
+- 全32LP保存HiGHS原始/对偶解，数值primal/dual/KKT/complementarity与嵌套目标单调性通过。最宽松有界90 square的最优L1也>.048，说明在**本次有限点与LP定义内**，48分量每个<=.001的门不可能全部满足；不是实际整块足面或所有姿态的不可行证明。
+- **重要点位限制**：gap<=.001的编译顶点凸包不保证包含所有网格边—margin平面交点；只投影所选点的LP亦未严格满足接触互补和真实软接触压力关系。d虽嵌套a/b/c、square虽放宽圆形摩擦，点位仍有限。不能据固定态失败直接改肌腱/关节范围或宣称真实身体必不可能站立。
+- **独立全身支撑几何**：`/home/sensen/Desktop/engine修复验收/s5-stance-support-polygon/20261101T205953Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_stance_support_polygon.py`。1compile/2kinematics+comPos，0forward/LP。按全部body_mass与惯性质心xipos重建COM，与Thorax子树COM误差<=1e-12。两个支撑点凸包均包含COM投影，最小边缘裕量 .339913/.376149模型长度；保存三点非负权重，可精确构造单位竖直合力/零水平力/零COM力矩。新进程纯数组复核误差<1e-12，exit0。此仅通过外部重力wrench几何条件，不证明关节与肌肉可维持。
+- **保存对偶项账本**：`/home/sensen/Desktop/engine修复验收/s5-stance-dual-attribution/20261101T205953Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_stance_lp_dual_terms.py`。0模型/forward/LP。d diamond两个姿态bias投影+.289501/+.322617，关节被动−.014881/−.006208，肌肉基线+.011385/+.028777，有限边界−.012422/−.021134，相加精确为L1目标.273583/.324052，误差<4e-16。上界marginal关联执行器79/49、77，仅表示相应LP局部敏感度，不能当禁用实验或物理承重比例，不据此盲调Fmax。
+- **进一步收窄上一轮数学措辞**：90独立肌肉的无上限锥cone(A)在正的逐列比例缩放下不变；66共享池中若同池不同肌肉按不同倍数缩放，组列A*D*G可以改方向，不能把它一律当cone(A*G)的逐列缩放。逐组整体正缩放仍不改组锥。当前不做此标定，亦不因此支持无来源改plant。
+- **下一最小动作**：先用已保存固定姿态与完整编译网格，构造与ground/margin平面相交的完整凸接触片（含边交点）并区分实际球/椭球扭转滚动接触力矩；用明确内/外包形式再给一次有来源的必要/充分界，不再搜姿态/肌力。若仍只有signed解，则以具体关节力矩方向和有来源的身体标定为下一主线；任何候选仍需真实软接触完整门→无辅助动态诊断→参考预热连续神经交接，静态拟合不计自主成功。
+- **最终执行与封存**：主bash31、追加bash32均exit0并收取；1compile/6forward/20主LP+12追加LP/167jac，0geomDistance/姿态优化/身体步/神经步；两个独立新进程分别纯数组复核20/12解，并交叉检查全部32解的压力点来源、凸包选择、priority/mu、圆锥使用率。最坏原始不等式违反7.46e-14、驻点2.75e-15、对偶gap5e-16、互补2.64e-15、对偶符号违反0；469个模型编译数组及XML前后不变。
+- 父另从32个保存原始/对偶数组独立重算对偶目标、原始界、不等式、驻点和符号，最大gap4.996e-16。主包MANIFEST.json52项＋支撑几何4项＋对偶账本4项，共60项sha256全部核验通过；主工具与执行副本逐字节相同。主包MANIFEST.json的相对键以其root解析，两个父包MANIFEST_SHA256.json用完整路径，核验未混淆格式。
+- **重要程度/清理**：核心必需为三个新工具、预登记/ADDENDUM、矩阵/原始对偶解/接触源与32证书、支撑三角形与对偶账本；重要辅助为三份REPORT、INVENTORY、参数来源与清单。没有确认废弃文件，本轮实际未删除任何产物或历史文件。解释器均显式venv_body/bin/python -B，PYTHONDONTWRITEBYTECODE=1、OPENBLAS_NUM_THREADS=1、需要物理库时MUJOCO_GL=egl；无新视频或目视通过声明，goal保持active/armed。
+
 ## 持续goal自动第8轮续接（2026-11-01T205257Z，接8520772）：扩大初值不支持外展瓶颈；完成185个姿态静力LP
 - 自动goal轮次与上次人工“继续”记号相邻，本条以时间戳/commit为准，避免把已做第8轮结果误当新实验。起点8520772165a974b54d1022713f7917e9d69abdde，干净工作树；目标仍未自主支撑/行走。用户要求完成这轮后汇报，已完成这轮全部执行/复核，无后台遗留。
 - **接手情况**：原20261101T202625Z两子代理启动后失败，未留下实现/运行产物。父在20261101T205257Z独立目录直接实施，不重复旧实验、不覆盖预登记。新源码三个：`/run/media/sensen/Data2/cell_wound_prototype/tools/search_native_equilibrium_wider_stance.py`、`/run/media/sensen/Data2/cell_wound_prototype/tools/solve_stance_lp_feasibility.py`、`/run/media/sensen/Data2/cell_wound_prototype/tools/verify_wider_stance_and_lp.py`。
