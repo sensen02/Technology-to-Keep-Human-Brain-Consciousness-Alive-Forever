@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 算法固化（2026-11-01T071410Z）：`S5-GAIT-1.0` —— **唯一已验证同时满足"支撑 + 行走"的配置**
+- 规格 `/home/sensen/Desktop/engine修复验收/s5-algorithm-spec/20261101T071410Z/ALGORITHM_SPEC.zh-CN.md`（含 `MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_ALGORITHM_SPEC.zh-CN.md`。
+- **参数**：bias **8.0**（4.0 抬不起脚、16.0 失稳）、kp/kd 20/0.5、粘附 gain **1.0** 且摆动相释放、足端反射 `u=−clip(2.0·load,0,0.5)` **仅支撑相**、振荡 `A=1.0, f=4 Hz` tripod、`T_stance 0.10–0.20 s`、`T_swing_max 0.12 s`、最多 2 腿摆动且同 tripod 不同摆、落地用迟滞（<10% 武装、>25% 触发）。
+- **已验证**：静立支撑 PASS（`s5-body-baseline`）、抗推 **0.5 W**（`s5-closed-loop`）、抗倾角 **20°**（`s5-body-perturbation`）、**tripod 行走 PASS：0.94–2.30 mm/2 s、交替 −0.63~−0.83、COM 0.59–0.70、零拖地**（`s5-emergent-rhythm` v3）、网络调步速 **+17~+49%**（`s5-neural-gait`）。
+- **限制（必须同时引用）**：①**两个计时器仍必需**；删掉后（第 11–12 步）能循环但**不前进**（±0.25 mm）；②**不是神经控制**（节律来自声明振荡器+状态机，连接组只给幅度）；③未做转向/坡面定量/扰动下步态/长时 >2 s。
+- **下一步**：给无计时器版补**有效蹬地推进**（扫掠与触地判定解耦，或摆动相末给一次蹬地脉冲）→ 再做行走鲁棒性（外推 0.25/0.5 W）→ 最后才进神经接管。
+
 ## 路线 A 第十二步（2026-11-01T070744Z）：逐腿本体感觉驱动 —— **能循环（19–103 ms，不再恒定），但仍原地踏步**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-proprioceptive-gait/20261101T070744Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`PROPRIO{,_V2,_V3,_V4}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_PROPRIOCEPTIVE_GAIT.zh-CN.md`。
 - **四次尝试把信号找对**：a1 coxa 抬角阈值 → 实测最大仅 **0.060 rad**；a2/a3 绝对跗节高 → **静止高就是 0.076–0.092 mm**，低于则立刻满足、高于则永不满足，且"卸载武装"闩锁会禁用落地；**a4 相对高度（静止+0.10/0.30 mm）+ 相位化落地（仅下降相可落地）** ⇒ **1–3 周期、11–103 次摆动、摆动时长 19–103 ms**。
