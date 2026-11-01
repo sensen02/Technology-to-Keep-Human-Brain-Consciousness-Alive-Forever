@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 D（2026-11-01T042910Z，**诊断**）：每 5 ms 重解静态 LP 也救不住，且 LP 从未无解 ⇒ **缺的是身体/肌肉，不是命令保持**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-feedback-diagnostic/20261101T042910Z/`（`PREREGISTRATION.json`、`FEEDBACK_DIAGNOSTIC.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`FEEDBACK_DIAGNOSTIC.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_FEEDBACK_DIAGNOSTIC.zh-CN.md`。
+- **⚠️ DIAGNOSTIC ONLY**：控制器是**逐拍重解 LP**（非神经算法），仅用于诊断**身体可控性**，**不是**神经控制/CPG/策略，绝不能当站立或行走引用。
+- **结果**：stance0 **5.0 ms** 因 COM(0.895) 失败；stance1/2 **1.5 ms** 一足卸载；400 ms 末 COM **0.551**；**可行拍 10/10 与 80/80（0 次不可行）** ⇒ 身体**从未离开**"存在近似静态解"的区域，全用上仍带不动载荷。
+- **与门禁 C 对比**：常量激活最好 2.0 ms 失败；逐拍重解最好 **5.0 ms** ⇒ 只买到 2–3 ms。
+- 判决 `PER_TICK_STATIC_RE_SOLVING_DOES_NOT_RESCUE_THE_BODY_AND_THE_LP_NEVER_BECAME_INFEASIBLE_SO_THE_FAILURE_IS_A_BODY_AND_MUSCLE_DEFICIT_RATHER_THAN_A_COMMAND_HOLDING_PROBLEM`；P50 PASS、P51 FAIL、P52 弱 PASS。
+- **关闭的解释**：①"B2–B9/门禁 C 的失败是命令保持问题"；②"加一层反馈即可补静态缺口而不碰资产"。**未证明**：任何神经控制器都无望（换姿态族的控制器理论上另说，但已测 13 个站姿族全失败，见 B3）；也不说明真实动物如何。
+- **资产层面结论（B2–D 十轮收口）**：该模型在现有肌肉集/骨架/接触规则下**静态不可达**（最好 3.12–23.8% 体重 vs 判据 1%），**动态自由释放 0.5–2 ms 失撑**，**逐拍重解 5 ms**；唯一能让静态精确平衡的是**合成双向拮抗（≥20 units/腿）**或**远超实测的粘附**，而实测解剖只提供 3.15 µN。
+- **若要继续，只剩改资产**：①肌肉集幅度（需新来源）；②骨架结构（四条腿缺转节体，早期轮次试过为负）。两者都会改 nq/资产、与既往证据不可直接比较。
+
 ## P3 / 门禁 C（2026-11-01T032706Z）：动力学自由释放 —— **2 ms 内失去足端支撑**，且机体全程未碰地
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-dynamics-first/20261101T032706Z/`（`PREREGISTRATION.json`、`DYNAMICS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`DYNAMICS_OVERVIEW.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_DYNAMICS_FIRST.zh-CN.md`。
 - **显著标注**：**静态平衡在该肌肉集/骨架/接触规则下不可达**（B2–B9）；本轮是**自由释放动力学**，不是站立证据。
