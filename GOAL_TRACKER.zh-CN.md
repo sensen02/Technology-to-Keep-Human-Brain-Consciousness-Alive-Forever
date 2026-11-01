@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 可视样本（2026-11-01T150323Z）：`S5-GAIT-1.1` 行走视频
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-gait-video/20261101T150323Z/`（`GAIT_WALK_gain01_push000.mp4`、`GAIT_WALK_gain16_push100.mp4`、两张分帧图、`VIDEO_META.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/render_video.py`）；清单 8 文件。
+- **桌面副本**：`/home/sensen/Desktop/S5_GAIT_WALK_自由行走.mp4`（增益 1、无外推，3 s 位移 **+4.60 mm**）、`/home/sensen/Desktop/S5_GAIT_WALK_1.0倍体重外推.mp4`（增益 16、**+x 1.0 倍体重外推**，3 s 位移 **+5.46 mm**）、两份分帧图。
+- **画法**：1024×576 / 25 fps / 3 s，自由相机跟随；橙色 = 接触点、青色箭头 = 足端接触力（`m.vis.map.force=0.004`）⇒ 可肉眼看到**支撑足在两组 tripod 之间轮换**。
+- **边界**：**工程算法**驱动的合成步态；**不是**神经控制、**不是**动物行为声明；定量结论以 `S5-GAIT-1.1` 规格及其证据目录为准。
+- **清理（已实际删除）**：首轮误用"增益 16 + 无外推"录的 `GAIT_WALK.mp4`（0.29 mm，几乎不动）与其分帧图（已被命名版本取代，且可由同一脚本一条环境变量再生）；桌面误命名的 `…_分帧.jpg`（实为 PNG 重复件）。
+
 ## 算法定版（2026-11-01T150152Z）：`S5-GAIT-1.1` —— **支撑 + 行走 + 抗推全部验证完成**
 - 规格 `/home/sensen/Desktop/engine修复验收/s5-algorithm-spec/20261101T150152Z/ALGORITHM_SPEC.zh-CN.md`（含 `MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`）；桌面副本 `/home/sensen/Desktop/S5_ALGORITHM_SPEC.zh-CN.md`（已覆盖旧 v1.0 副本，桌面只保留当前版）。
 - **v1.1 相对 v1.0 的四项变更**：①**新增行走抗推曲线 0.25/0.5/1.0 W**；②**粘附增益按外推分档**（1.0 无外推 / 4.0+抓地 0.25 W / 8.0 0.5 W / **16.0 1.0 W**）；③**滑移判据定义明确**（单次连续接触期最大位移，并列实测 0.096–0.315 mm）；④**撤回**第 13 步"行走靠滑"结论。
