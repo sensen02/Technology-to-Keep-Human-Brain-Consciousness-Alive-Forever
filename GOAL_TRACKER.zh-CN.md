@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十三步（2026-11-01T074430Z）：行走鲁棒性 —— **发现"走其实是半滑行"（0.71 mm）；FSM 臂未复现**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-gait-robustness/20261101T074430Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`ROBUSTNESS{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_GAIT_ROBUSTNESS.zh-CN.md`。
+- **先分开两个变体**：**V_OSC**（正弦 tripod 振荡器 A=1.0/f=4Hz）与 **V_FSM**（载荷状态机 + 两计时器，第 10 步 v3）—— 规格里此前混列。
+- **V_OSC 重大发现**：0 推力位移 0.490 mm、交替 −0.93，但**足端滑移 0.714 mm**；0.25 W → 1.111 mm / 滑 1.271 mm；0.5 W → **14.891 mm / 滑 14.777 mm（被拖走）**。**按 0.5 mm 滑移规则，V_OSC 在每个推力档（含零）都 FAIL**。⇒ **之前"行走 PASS"只看了位移/交替/COM/非足接触，未量滑移；这一条必须补进规格。**
+- **V_FSM 未复现**：本脚本漏写 `T_swing_max`（已记录），**补回后仍 0 周期**，而第 10 步 v3 为 51/36 周期 ⇒ **本脚本状态机拷贝与第 10 步不同（尚未解释），以第 10 步脚本为准，本轮 V_FSM 数字不作结论**。
+- 判决 `THE_OSCILLATOR_GAIT_TRANSLATES_BUT_SLIDES_ITS_FEET_AND_FAILS_ANY_SLIP_RULE_AT_EVERY_PUSH_LEVEL_WHILE_THE_STATE_MACHINE_ARM_IS_NOT_REPRODUCED_IN_THIS_SCRIPT_SO_THE_ROBUSTNESS_NUMBER_FOR_S5_GAIT_1_0_IS_NOT_YET_ESTABLISHED`。
+- **对 S5-GAIT-1.0 的修正**：①行走声明须写"足端每步滑 ≈0.7 mm"；②**行走的推力上限仍未知**。
+- **下一步**：①逐行核对 FSM 脚本 vs 第 10 步 v3 再跑同一网格；②**把滑移列入行走判据**，若要求 <0.5 mm 需提高粘附或加"支撑抓地"项使步态不滑；③之后才谈行走推力上限。
+
 ## 路线 A 第十二步续（2026-11-01T070744Z，v5/v6）：追推进失败，**真因是周期续不上**
 - 证据同目录（新增 `PREDECLARED_ADDENDUM_V4/V5.json`、`PROPRIO_V5.json`、`PROPRIO_V6.json`、`SCRIPTS/{proprio_v5,proprio_v6}.py`）；桌面副本已更新。
 - **v5 幅值臂**（U_press 0.4–0.8 × U_desc 0.3–0.6）→ 位移 **−0.117~−0.166 mm**、1 周期 ⇒ **幅值不产生推进**；
