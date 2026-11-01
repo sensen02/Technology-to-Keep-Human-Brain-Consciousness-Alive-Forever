@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## 路线 A 第五步（2026-11-01T055957Z）：归档尖峰接到六通道 —— **全线打通、站姿保持；但尖峰里没有步态结构**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-connectome-wiring/20261101T055957Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3/V4.json`、`WIRING{,_V2,_V3,_V4}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`WIRING.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_CONNECTOME_WIRING.zh-CN.md`。
+- **⚠️ REPLAY WIRING TEST**：用上一轮归档尖峰驱动身体，映射为声明式规则；不是新网络结果、不是闭合感觉回路、不是行走。
+- **接线规模**：每腿 15 个设计行、池内 26–29 神经元、尖峰里 25–28 个；驱动律 `u_body = −clip(滤波(池速率, τ=50ms)/400Hz, 0, 0.5)`（负号来自第四步**实测**符号约定）。
+- **四版协议（两次是我的 bug，全部留档）**：v1 20 Hz 标度⇒六腿全饱和"抬腿"⇒摔；v2 400 Hz 不再饱和但单方向仍摔；v3 改"踩下"方向仍全败（**含零驱动**）⇒ 暴露**缺沉降**的协议 bug；**v4 先稳态沉降再回放 ⇒ 五档全部撑住**。
+- **v4 结果**：no_stim COM 0.987（漂移 0.017 mm）、claw 1.013 / hook 1.012 / club 1.010（漂移 **0.004 mm**）、cut 0.987 ⇒ **刺激让站姿更稳**。
+- **两点必须说清**：①归档尖峰是**饱和的全局反应**（no_stim/cut 几乎无尖峰，三个刺激条件 5.8–6.7 万尖峰、逐腿 93–171 Hz），能"踩住"但**没有姿态结构**，**不可能产生步态**；②接口**单方向**（u>0 抬、u<0 踩），与 FlyMimic 的 1:15 单侧性同类。
+- 判决 `THE_ARCHIVED_CONNECTOME_OUTPUT_CAN_DRIVE_THE_SIX_BODY_CHANNELS_AND_HOLDS_THE_STANCE_ONCE_THE_DRIVE_IS_MAPPED_IN_THE_MEASURED_PLANT_DIRECTION_AND_THE_BODY_IS_SETTLED_FIRST`。
+- **现状**：**spike→body 完整通路已存在**（尖峰→速率律→六通道→关节力矩→六足站姿 150 ms）。缺的是**命令源**：需要带腿部相位/节律结构的网络活动（P3 翻译层）才能真正走出步态；本轮的归档尖峰只能压住身体。
+
 ## 路线 A 第四步（2026-11-01T055454Z）：系留重测 —— **单腿通道分离 ≈50×**；自由站姿驱动上界 **u = 0.5**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-tethered-selectivity/20261101T055454Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`TETHERED_SELECTIVITY{,_V2}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`TETHERED_SELECTIVITY.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TETHERED_SELECTIVITY.zh-CN.md`。
 - **⚠️ INTERFACE VALIDATION ONLY**：声明式工程通道 + 合成驱动；不是神经控制/连接组结论/行走。
