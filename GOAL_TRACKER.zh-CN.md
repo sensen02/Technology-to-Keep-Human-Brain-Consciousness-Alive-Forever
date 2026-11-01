@@ -1,5 +1,21 @@
 # 目标进度与证据追踪
 
+## 持续goal第6轮（2026-11-01T193630Z）：八相位方向缺口确认，扩展为原生姿态—激活联合搜索
+- 起点ba739dbb94f3ed0e9c4f74fc2bc6b33732035978；目标未完成。本轮没有身体/神经积分，新增保存态静态审计与一个原生软接触联合优化序列，未把失败候选送入连续交接。
+- **历史去重与更正**：060同3470早已对旧058轨迹做正确muscle＋assist目标，064做旧.8–1s的41相位最低激活/零速撤辅，079固定足点IK19姿态，081固定074姿态的非负无界静态力平衡。这些不等于121最后周期的实际qvel/总替代问题。09xx每候选内存重定心lengthrange、113–116为670085几何、后期210执行器LP不可跨用。
+- 同3470的130增益/150突触训练真实做过，目标muscle vs assist；FIR五箱在 `/home/sensen/Desktop/S5_SYNAPTIC_TRAINING.zh-CN.md` 中只是未来建议，不能称该支线已完成FIR训练。`/home/sensen/Desktop/S5_CAPABILITY_AUDIT.zh-CN.md` 的8个常量臂失败保留，但“all1是上界/严格支配所有gain/所有常量命令同败”超出数据，应撤回这种全局解释。冻结报告不改，本条是后续解释入口。
+- **S2/S4/S5八相位**：`/home/sensen/Desktop/engine修复验收/s5-muscle-phase-capacity/20261101T193630Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/audit_muscle_phase_capacity.py`。121保存t=1.1/1.125/1.15/1.175/1.2/1.225/1.25/1.275，1compile/24forward，72静态拟合，0step/0neural。1.3结果复用不重算。actual act在选中态约.0001..1，但全轨迹初始act0，声明floor不是XML硬act下限。
+- 66绑定box相对总目标残差.824465–.921758；90独立box .811878–.913617；90无上限非负锥 .684981–.788385；90允许正负的span数值零、全部rank42。无界锥系数最高15.65–527.81、signed解大量负值，均不可用；其诊断意义是同姿态/速度下非负方向限制，并非只有力幅不足。8态都没给出直接替代辅助的候选；不因1.15相对较小就启动交接，不证明所有姿态/动态行走不可能。
+- 独立72拟合的bounds/KKT/box凸下界/cone数值dual/span独立SVD及松弛嵌套通过，最大分解误差1.78e-15、KKT2.10e-11、objective gap4.06e-12。第一次验证把机器零残差的最差关节并列当名称错误，exit1记录VERIFY_CORRECTION；改为数值核对后通过，无追加forward/优化。14项最终hash父核验通过。
+- **新类别的历史边界**：同3470的075只在三个固定q下优化66act，虽然用了真实软接触与全48 Mqacc，姿态未参与、三次max_nfev8未收敛。079是IK后再LP，LP不反馈IK。20261020真正133变量联合优化属于canonical65d，不是当前3470/66映射域；20261029同3470又只枚举root z/pitch/roll。故本轮是扩展075为42关节＋rootz＋66池激活的联合原生软接触平衡问题，不称项目首次联合优化。
+- **S2/S5联合搜索**：`/home/sensen/Desktop/engine修复验收/s5-native-equilibrium-search/20261101T193630Z/`；源码 `/run/media/sensen/Data2/cell_wound_prototype/tools/search_native_muscle_equilibrium.py`。原样3470所有plant参数、geometry、lengthrange/gain/bias/dyn/接触保持；seed=121 t=.15。seed已有三关节软限位越界，原seed保留，优化x0仅投影到声明关节bounds，台账明确，不修改原轨迹。root其它5DOF固定只是离线参数化，自由根模型未锁，全48qacc照检。
+- 唯一trf least_squares序列，max_nfev60、实际48nfev/31njev，3427优化evaluate＋一次fresh验证。每evaluate resetData、qvel0、ctrl=act、外力0，优化全48qacc/9810、41非足mesh真实floor净空、36胫/跗原点胸坐标分侧、总足Fz/W与极小姿态正则；16unmapped维持floor。目标最小候选和solver.x、observed可行候选分别保存，不按失败门事后换解。
+- **未通过，未物理试跑**：SSE23.55335→.584983，但max|qacc|=2893.530248（自由根转动分量4），足Fz/W=.9911603也不等于全身平衡。全部3427评估无满足门的候选，fresh重复相同、act_dot检查过；solver以xtol停止且optimality589.57，不能当局部最优或全局无解证书。父只读检查无变量距bounds≤1e-6，最近关节边界仍约.0031rad，不能直接归咎于撞上硬边界；当前有载接触距margin也不接近，不能无证据称候选生成边界唯一原因。
+- **验收逻辑实际修复**：独立源码审查发现FINAL_GATE未纳入geomDistance截断与顶点交叉核验。运行中未改；运行后只补这两门，保留执行版/交付版与SOURCE_CHANGE_LEDGER，不重优化。全部3428评估cutoff0，最终顶点—距离误差1.11e-16<预先追加的1e-8；因此不影响本次qacc失败结论。其它只读补验rootz范围、66池绑定、外力、重复一致性通过。36点分侧不是整mesh无交叉证书；九列接触记录不是完整接触坐标系/局部六维力。
+- **下一最小动作**：保存的最佳点远未平衡且一阶最优性很差，先用该点检查有限差分/局部接触力求解的导数稳定性与残差尺度，再决定有依据的同态优化续算；不重跑旧预热、不盲选交接相位、不全局扫描肌力或lengthrange、不拿近似总足载冒充稳定。若找到静态候选，还必须独立验证和真实无辅助诊断，随后才可适配真实参考预热及神经交接。算法求得的激活不得成为自主阶段控制器。
+- **最终执行/封存**：phase唯一bash19、联合搜索唯一bash20均exit0并收取，无身体/神经step。联合搜索总1model/1solver/3428reset-forward/140548geomDistance/50398contactForce，约1.88s；源执行c7ce393…与交付466c5e4…分列，交付版未重运行。实现子在优化收取后收尾异常，审计子接续只读验证及封存；第一次seal因桌面symlink路径比较exit1保留，修辅助脚本后通过。扩充REPORT与运行期报告区分，原报告另从执行源和原JSON重建且旧hash精确匹配，不声称原地保留。原数值结果/FINAL_GATE/EXECUTION/执行源未改。最终14＋30=44项hash父验证通过，交付源码与封存交付副本逐字相同。
+- **重要程度/清理**：核心必需为两个新工具、预登记、STATIC/FIT/FINAL状态与评估记录、独立验收、源版本台账；重要辅助为报告、历史复用/失败封存记录及清单。没有确认可弃的产物，无实际删除，未改历史证据。环境为显式venv_body/bin/python -B、PYTHONDONTWRITEBYTECODE=1（物理库EGL），未制作视频/未声称目视通过。goal保持活动。
+
 ## 持续goal第5轮（2026-11-01T191552Z）：实际90肌肉原生量测精确复现；明确同态替代目标而非盲重训
 - 起点2985ab744a92385f38cacd8c39e5a22681da63bd；完整目标仍active、未自主支撑/行走。本轮唯一身体运行是原121参数的1.3s预热＋.7s连续交接；目的量测补充，不是新行为对照或新预热方案。
 - **S1/S5核心补录**：`/home/sensen/Desktop/engine修复验收/s5-muscle-native-recording/20261101T191552Z/`，脚本 `/run/media/sensen/Data2/cell_wound_prototype/tools/record_muscle_native_handover.py`。MODEL3470c72f、全部9项原来源hash匹配；保持原.5ms save/forward节拍，step后复制完整MjData，只在clone forward/jac。共160000物理步/3600神经步、160002观测（初态＋step-end＋撤辅后同time边界）、1459661接触行/41分块；原runner2compile/145370forward，额外160002clone-forward/2919322jac，无调参。
