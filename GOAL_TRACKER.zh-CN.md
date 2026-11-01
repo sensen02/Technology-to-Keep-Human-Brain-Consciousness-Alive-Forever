@@ -1,5 +1,17 @@
 # 目标进度与证据追踪
 
+## 持续目标第一轮（2026-11-01T182545Z）：S1/S5量测修复与S2/S4肌肉路径审计
+- 已创建并启用持续目标 `goal-a1ec182a-35b9-4b2c-804c-1309aafe89f5`，顺序为量测基线→肌肉接口→神经链覆盖→感觉/神经肌肉标定→连续交接撤辅助→自主运动及因果验收。部分接管不是最终目标，原冻结S5-GAIT-1.2仅保留为历史阶段结论。
+- 计划/预登记 `/home/sensen/Desktop/engine修复验收/s5-chain-repair/20261101T182545Z/PLAN.zh-CN.md`（核心必需）；审计 `/home/sensen/Desktop/engine修复验收/s5-chain-repair/20261101T182545Z/AUDIT.zh-CN.md`（重要辅助）。源版本a02c23f6be3bf4c1504847c1729a63f7b7ea52e0，开始工作树干净。
+- 新增核心量测 `/run/media/sensen/Data2/cell_wound_prototype/engine/embodied/contact_metrics.py`；重要辅助测试 `/run/media/sensen/Data2/cell_wound_prototype/test_contact_metrics.py`。按每次落地建立锚点、排除离地位移、区分最大漂移/累计路径、标记首尾截断、无接触返回null。不合并短接触，不据此声称承重。尚未接入新物理采样。
+- 核实并纠正：check_bp.py 的prev_load提前更新使接触锚点永不建立，零滑移无效；该路径接管后仍有主动PD，且是joint motor，不是规范muscle执行器。既往“零滑移因为接触太短”的解释不再保留。
+- 状态机争议已定位实现差异：第10步按驻留时间起摆，第13步仅落地触发且使用落地前摆腿数缓存，有进入全STANCE后无法重启机制；两者并非同参数同实现。51/36是六腿起摆次数之和，不是完整周期。第10步同拍转换亦未更新摆腿计数，不得继续用“以第10步为准”代替审计。无逐步历史轨迹，不能断言历史确切失效时刻。
+- 历史量测局限：每20物理步抽样可漏短接触，tarsus5原点漂移非实际接触物质点累计滑移；第13与后续的命令幅值上限不同，位移变化不可只归量测修复。旧包只有汇总，不能离线补算全套新指标；旧PASS不升级新版行为验收。
+- 肌肉资产已存在：`/run/media/sensen/Data2/cell_wound_prototype/run_neural_muscle_closure.py` 与规范XML有90个muscle执行器，不能拿最近PD身体成绩证明该肌肉身体就绪。需核对OSIM单位、转换附着、0.1/0.4ms激活时间常数与步长、74/90运动池映射和当前tier覆盖；绝对力仍NOT_ESTABLISHED。
+- 实际验证：在 `/run/media/sensen/Data2/cell_wound_prototype` 运行 `env PYTHONDONTWRITEBYTECODE=1 /run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python -B -m unittest -v test_contact_metrics`，退出码0，6 tests OK。无新物理仿真、无模型加载、无新行走/肌肉性能主张。只读审计报告四份历史清单哈希均匹配（14/9/12/7项），完整性不等于物理正确。
+- 下一动作：新时间戳预登记并记录单一无外推算法基线的每物理步接触/力/身体/控制分项，离线用新量测审核；并生成规范肌肉90执行器来源与单位/映射表，从前腿屈伸肌转换一致性核查开始。保持完整身体，不重复扫滤波/增益。
+- 清理：无确认无用文件，未删除文件；历史错误脚本作为解释证据保留。当前阶段仍in_progress，未声称自主运动完成。
+
 ## 最终定位固化（2026-11-01T174847Z）：`S5-GAIT-1.2` = **部分接管**（算法出步态，网络只调步速）
 - 文件 `/home/sensen/Desktop/engine修复验收/s5-partial-takeover/20261101T174847Z/FINAL_POSITION.zh-CN.md` + `ARCHITECTURE.json`（机读归属表与 NOT-established 清单）+ `MANIFEST_SHA256.json`（3 文件）+ `CLEANUP_LEDGER.json`；桌面副本 `/home/sensen/Desktop/S5_FINAL_POSITION.zh-CN.md`。
 - **归属**：节律/相位＝**算法**；**步速＝网络（+17%~+49%）**；粘附门控与足端反射＝**算法**；身体/接口/判据＝`S5-GAIT-1.1` 冻结参数。
