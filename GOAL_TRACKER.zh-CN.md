@@ -1,5 +1,15 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B5（2026-11-01T004429Z）：**附着表不能用坐标比较判定** —— 两种预登记测法都失败，改用逐段分解力臂
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-attachment-table/20261101T004429Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2.json`、`ATTACHMENT_FITS.json`、`ATTACHMENT_JOINTFRAME.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_ATTACHMENT_TABLE.zh-CN.md`。
+- **v1（原始局部坐标 + Kabsch）失败**：符号**一致**的 MTU 里 13/20 被判 transformed、符号**翻转**的 6/10 也被判；残差 0.02–0.17 而坐标量级仅 0.05–0.10 ⇒ 各腿 Coxa/Femur 体自带坐标系与尺寸，刚体拟合把腿间几何差异整体吸收。
+- **v2（关节系方位角）失败且方向相反**：两根**翻转** MTU 的 site 全部 **0 侧翻**；而符号**一致**的 `trochanter_flexor_a`、`accesory_trochanter_flexor` 反而部分侧翻（1/2）。更关键：**中足→前足** 与 **中足→后足** 给出**相同**方位差（161.5°/137.1°）而该 MTU 符号六腿一致 ⇒ **site 侧别不是符号预测器**。
+- **根因**：这些肌腱**跨 Coxa 与 Femur 两个体**，单个 site 坐标**不决定**力臂。真正的判别量是 **`dL/dq` 本身**（门禁 B2c/B2e 已在用，并已精确隔离出两根翻转 MTU）。
+- 判决 `THE_ATTACHMENT_TABLE_CANNOT_BE_DIAGNOSED_BY_SITE_COORDINATE_COMPARISON_ALONE_BECAUSE_THE_TENDONS_SPAN_MULTIPLE_BODIES_AND_THE_LEG_TO_LEG_AZIMUTH_DIFFERENCES_ARE_NOT_SIGN_PREDICTIVE`；P34 FAIL、P35 INCONCLUSIVE、P36 FAIL（两次失败均已留档）。
+- **保留线索（仅线索）**：`trochanter_extensor` 的 `LM→LH` 拟合是所有里**唯一残差很小**（rms 0.0187）且 **97.7° 旋转**、轴近横向；**未确立为病因**。
+- **下一最小动作（已定判据）**：**逐段分解力臂** —— 把每根 MTU 每腿的 `dL/dq` 拆成 Coxa 侧段与 Femur 侧段，找出翻转两根是被哪一段带反的；若是 Femur 侧 ⇒ 后足股节附着错，若 Coxa 侧 ⇒ 后足基节附着错。B2f 已显示两根翻转 MTU **修法不同**（迁移坐标修好其一），须分别诊断。
+- 本轮 0 LP、0 `mj_step`、0 模型改动。
+
 ## P3 / 门禁 B4（2026-11-01T003644Z）：关节轴**不是**缺陷 —— 六腿都是同一横向铰，附着表成为唯一剩余解释
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-joint-axis/20261101T003644Z/`（`PREREGISTRATION.json`、`JOINT_AXIS.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_JOINT_AXIS.zh-CN.md`。
 - **实测**：编译后局部轴六腿**全为 [0,1,0]**；换算到**腿自身几何局部坐标**后主分量都在横向（|a3| = 0.917–0.998，偏离腿平面 0.19–6.31°）；与腿长轴夹角 83–93°；**关节范围六腿一致**（1e-9，P33 PASS）。
