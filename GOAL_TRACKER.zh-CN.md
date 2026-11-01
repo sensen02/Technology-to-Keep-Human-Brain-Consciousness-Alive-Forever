@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十八步续（2026-11-01T152818Z，v4/v5）：**背景抑制与募集编码都失败** ⇒ 层级是双稳开关
+- **v4 背景抑制**（背景 −0.2/−0.5/−1.0/−2.0 nA × 增益 0.05/0.2，共 8 点）：**背景 ≤−0.5 nA ⇒ 全静默 0 Hz**；**−0.2 nA + 增益 0.2 ⇒ 仍饱和（最高 667 Hz）**；相关性始终 **|≤0.12|** ⇒ **无渐变窗口**。
+- **v5 募集比例编码**（只驱动与载荷成比例的部分神经元，增益 2.0/5.0 nA）：仍**饱和 333–1143 Hz**、相关性 **≈0.00–0.01**。
+- **决定性观察**：**两种完全不同的输入形态给出几乎相同的 readout 速率** ⇒ **readout 由层级内部动力学决定，不是由输入决定**。
+- 判决更新 `THE_TIER_BEHAVES_AS_A_BISTABLE_SWITCH_UNDER_BOTH_AMPLITUDE_AND_RECRUITMENT_SENSORY_CODING_SO_ITS_PER_LEG_READOUT_REFLECTS_INTERNAL_DYNAMICS_RATHER_THAN_THE_BODY_STATE_AND_NO_HANDOVER_IS_POSSIBLE_WITH_THIS_READOUT`。
+- **三条可选修法**：①改读**渐变量**（膜电位 / 每区间活跃比例）；②在"静默↔饱和"窄窗做**更细二维扫描**；③**接受它是开关**，把网络当**门控**（只决定摆动开/关，另立架构并声明）。
+- **身体侧不受影响**：`S5-GAIT-1.1` 站得住、走得了、抗推 1.0 倍体重。证据目录同 `/home/sensen/Desktop/engine修复验收/s5-neural-warmup/20261101T152818Z/`（新增 `PREDECLARED_ADDENDUM_V4/V5.json`、`SWEEPBG_*.json` 8 个）；清单 24 文件；桌面副本已更新。
+
 ## 路线 A 第十八步（2026-11-01T152818Z）：**先算法预热、再神经接管** —— 架构打通，网络却是"全或无"器件
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-neural-warmup/20261101T152818Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`WARMUP_HANDOVER.json`、`SWEEP_0p005/0p02/0p05/0p1.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_NEURAL_WARMUP.zh-CN.md`。
 - **架构（本项目第一个真正在环的网络-身体实验）**：身体（`S5-GAIT-1.1`）**算法驱动 0.8 s 预热**；期间每腿接触力→最小受体电流→该腿感觉群（623–808 神经元）→**BANC 层级每 0.5 ms 在线推进**→每腿 readout（lf12/lm9/lh19/rf21/rm15/rh7）速率→**接管 1.2 s 由网络速率跨越触发摆动**。
