@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## P3 / 门禁 B3（2026-11-01T003048Z）：**十二种站姿族全部不可行**（最好 22.87，判据 1）—— 选站姿也不是原因
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-stance-family/20261101T003048Z/`（`PREREGISTRATION.json`、`STANCE_FAMILIES.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`STANCE_FAMILIES.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_STANCE_FAMILY.zh-CN.md`。
+- **设计**：支撑集（六足 / tripod_A{ LF,LM,RH } / tripod_B{ RF,RM,LH } / 四足{ LF,RF,LH,RH }）× 足距三档（左 +w、右 −w 加在 Coxa_yaw 与 Trochanter_yaw）× 6 候选 = **12 族全部 6/6 合格**，再跑同一足端锥 LP（判据 t≤1）。
+- **结果**：六足 24.03 / **23.55** / **22.87（全场最好）**；tripod_A 23.15 / 23.88 / 25.13；tripod_B **38.42 / 38.92 / 39.71**；四足 26.69 / 28.45 / 30.12 ⇒ **全部超判据 23–40 倍**。
+- **生成器交叉校验**：名义六足重跑 **23.55** vs 门禁 B1 标定集 **23.77**，差 **0.93%** ⇒ 两生成器一致，族间比较有效（P31 通过）。
+- **预测**：P29（某族 t≤1）**FAIL**；P30（三足优于六足）**基本不成立**（tripod_A 名义比六足名义更差，tripod_B 远差）。
+- 判决 `NO_DECLARED_STANCE_FAMILY_REACHES_THE_FOOT_ONLY_STATIC_CRITERION_SO_THE_STANCE_CHOICE_IS_NOT_THE_CAUSE_EITHER`。
+- **六轮链条收口（B2→B3）**：统一标度无效 → 合成拮抗可闭合 → 实测解剖无此拮抗 → 模型后足符号不一致 → 修侧别只到 2.24/40 → **12 族站姿全 23–40 倍超判据**。⇒ 在现有肌肉集/骨架/接触规则下，**该模型无法在任何测过的站姿族中静态立于足上**；缺约一个数量级的正向 `Trochanter_pitch` 权威。
+- **边界**：不表示不能**动态**站立（静态≠动态）；不表示项目不可行（**静态路线在现有肌肉集下关闭**）；本轮 0 `mj_step`、0 训练、0 模型改动。
+- **下一步（按成本）**：①**关节轴检查（最便宜、未做）** —— 若 `Trochanter_pitch` 轴本身放错，所有附着都会显单侧，可在模型内直接量；②按实测重推 120 根束的附着侧（第72轮已知方位/半径/沿分数是手写）；③门禁 C 动力学（须先承认"静态不可达"并显著标注，旧 400 ms 结果是机体接地撑住的）。
+
 ## P3 / 门禁 B2f（2026-10-31T233340Z）：把后足附着侧按同侧中足迁移 —— **符号只修好一半，静态平衡仍未达成**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-trochanter-side-repair/20261031T233340Z/`（`PREREGISTRATION.json`、`REPAIR_RESULT.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`REPAIR_EFFECT.png`、`MODEL_HIND_SIDE.xml`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TROCHANTER_SIDE_REPAIR.zh-CN.md`。
 - **做法**：源模型 SHA256 复验一致后，只迁移附着点**局部坐标**（LM→LH、RM→RH，共 10 个 site）；力/质量/关节范围/执行器/求解器一律未动，派生模型 `MODEL_HIND_SIDE.xml` 单独存放。
