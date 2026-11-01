@@ -1,5 +1,13 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十二步（2026-11-01T070744Z）：逐腿本体感觉驱动 —— **能循环（19–103 ms，不再恒定），但仍原地踏步**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-proprioceptive-gait/20261101T070744Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`PROPRIO{,_V2,_V3,_V4}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_PROPRIOCEPTIVE_GAIT.zh-CN.md`。
+- **四次尝试把信号找对**：a1 coxa 抬角阈值 → 实测最大仅 **0.060 rad**；a2/a3 绝对跗节高 → **静止高就是 0.076–0.092 mm**，低于则立刻满足、高于则永不满足，且"卸载武装"闩锁会禁用落地；**a4 相对高度（静止+0.10/0.30 mm）+ 相位化落地（仅下降相可落地）** ⇒ **1–3 周期、11–103 次摆动、摆动时长 19–103 ms**。
+- **a4 位移仅 −0.247~+0.015 mm** ⇒ **原地踏步，未行走**；交替 +0.18/−0.82、COM 0.81–0.93。
+- 判决 `PER_LEG_PROPRIOCEPTION_NOW_DRIVES_A_TIMER_FREE_CYCLE_WHOSE_PERIOD_VARIES_WITH_THE_BODY_BUT_THE_RESULTING_GAIT_CYCLES_IN_PLACE_SO_THE_TRANSLATING_ALGORITHM_REMAINS_THE_STEP_10_TIMER_VERSION`。
+- **满足"能支撑能行走"的算法 = 第 10 步 v3**（6 通道、bias 8、摆动相释放粘附、反射仅支撑相、两个声明计时器 `T_stance`/`T_swing_max=120 ms`）：支撑 PASS（第1–4步）、抗推 **0.5 W**、行走 **0.94–2.30 mm/2 s、交替 −0.63~−0.83、COM 0.59–0.70、零拖地**。
+- **无计时器版还差的**：`U_descend`/`U_press` **幅值**（相位逻辑已验证可行），不是逻辑问题。
+
 ## 路线 A 第十一步（2026-11-01T070140Z，去计时器 3 轮）：**全部失败，三轮三个实测原因**
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-timer-free/20261101T070140Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`TIMER_FREE{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_TIMER_FREE.zh-CN.md`。
 - **v1 纯事件耦合** ⇒ **0 周期**：删掉计时器后**没有事件让摆动腿落地**。
