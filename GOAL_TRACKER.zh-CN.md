@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十五步（2026-11-01T145318Z）：行走抗推（修正度量）—— **严格判据下上限 = 0；0.25 W 仍走但滑 0.55 mm**
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-walk-push/20261101T145318Z/`（`PREREGISTRATION.json`、`WALK_PUSH.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_WALK_PUSH.zh-CN.md`。
+- **结果**：推力 0 → 位移 3.013 mm、交替 −0.94、滑移 **0.308 mm（PASS）**；**0.25 W → 位移 9.248 mm、交替 −0.92、COM 0.97、零拖地，但滑移 0.550 mm（超判据 10% ⇒ FAIL）**；0.5 W → 机体拖地（非足接触 78%、交替崩到 −0.09）；1.0 W → 位移 2297 mm 被吹飞，且 **MuJoCo QACC 不稳定**。
+- 判决 `THE_WALKING_GAIT_TAKES_NO_PUSH_UNDER_THE_STRICT_SLIP_RULE_BUT_CONTINUES_TO_WALK_AT_0_25_BODY_WEIGHTS_WITH_0_55_MM_OF_SLIP_SO_THE_HONEST_STATEMENT_IS_A_SLIP_LIMITED_PUSH_TOLERANCE_SLIGHTLY_BELOW_0_25_W`；P139 PASS、**P140 FAIL**、P141 PASS（滑移是第一个破的判据）。
+- **唯一杠杆**：**提高支撑相抓地**把 0.25 W 的滑移压到 <0.5 mm（支撑相单独提高粘附增益 —— 零推力下增益 4 给 0.404 mm，**趋势非单调**，必须在 0.25 W 下实测；或加按载荷比例的抓地项）。
+- **"能支撑能行走"现况**：支撑 ✅（400 ms）、站立抗推 ✅ 0.5 W、抗倾角 ✅ 20°、**行走 ✅（滑移 0.308 mm）**、**行走抗推 ⚠️ 0（严格）/ 0.25 W 但滑 0.55 mm**。
+
 ## 路线 A 第十四步（2026-11-01T144641Z）：压滑移 —— **结论翻转：不是滑行，是我的度量错了**（第 13 步滑移结论撤回）
 - 证据 `/home/sensen/Desktop/engine修复验收/s5-slip-reduction/20261101T144641Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`SLIP{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_SLIP_REDUCTION.zh-CN.md`。
 - **前两次"失败"**：粘附增益 1→4 与支撑抓地项 ⇒ 滑移 1.59–3.18 mm；加支撑相后扫（0→1.0）⇒ **滑移/位移比恒为 1.00–1.17**。
