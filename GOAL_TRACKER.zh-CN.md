@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 路线 A 第十步（2026-11-01T065509Z，选项 2 的 3 轮内完成）：**节律从身体反馈涌现**（无振荡器）—— 四档全 PASS
+- 证据 `/home/sensen/Desktop/engine修复验收/s5-emergent-rhythm/20261101T065509Z/`（`PREREGISTRATION.json`、`PREDECLARED_ADDENDUM_V2/V3.json`、`EMERGENT{,_V2,_V3}.json`、`VERDICT.json`、`REPORT.zh-CN.md`、`EMERGENT.png`、`MANIFEST_SHA256.json`、`CLEANUP_LEDGER.json`、`SCRIPTS/`）；桌面副本 `/home/sensen/Desktop/S5_EMERGENT_RHYTHM.zh-CN.md`。
+- **⚠️ EMERGENT-RHYTHM DIAGNOSTIC ONLY**：驱动中**无振荡器/无相位变量/无中心模式**；声明式载荷反馈规则，非神经元、非连接组、非行走声明。
+- **三轮定位**：**v1** 抖动（摆动 0 ms、交替 +1.00，载荷滤波未落地）；**v2** 加**迟滞**后腿能摆（120 ms）但**六腿同相**、COM 0.48–0.49、**非足接触 18–41%**（机体拖地）；**v3** **初始相位错开 + 支撑规则**（最多 2 腿摆、同 tripod 不得同摆）⇒ **四档全 PASS**。
+- **v3 数值**：位移 **0.937–2.298 mm**、交替 **−0.63~−0.83**、COM **0.59–0.70**、**非足接触 0**、实测支撑 122/202 ms、摆动 120 ms。
+- **必须写明的"部分涌现"**：实测摆动恒为 **120 ms = 声明的 `T_swing_max`** ⇒ **周期仍由计时器决定**；由身体反馈给出的是**协调**（哪个 tripod 摆、几腿同摆）与**稳定性**（零拖地、COM 保持）。
+- 判决 `A_LOAD_FEEDBACK_STATE_MACHINE_WITH_HYSTERESIS_AND_A_TRIPOD_SUPPORT_RULE_PRODUCES_ALTERNATING_TRANSLATING_LOCOMOTION_WITHOUT_ANY_OSCILLATOR_SO_OPTION_2_SUCCEEDS_WITHIN_ITS_3_ROUND_BUDGET`；**P101–P108 全 PASS**。因在预算内达成，**未触发切到选项 1**。
+- **下一步（彻底去计时器）**：删掉 `T_stance`/`T_swing_max`，改为**纯事件驱动**（对角腿着地 ⇒ 本腿摆动；自身着地 ⇒ 回支撑），让**周期本身也成为身体属性**。
+
 ## 决策记录（2026-11-01T07:10Z）：走选项 2（闭环涌现节律），**选项 1 记为备选，3 轮预算**
 - **选项 2（当前执行）**：把**身体→网络/感觉反馈**接上，让步态相位从接触/负载动态中**涌现**（不设中心振荡器）。判据沿用迈步判据（位移 ≥0.5 mm、交替 ≤−0.3、COM ≥0.5、非足接触 ≤10%）。
 - **选项 1（备选，若选项 2 连续 3 个回合未过判据则切换）**：在 P3 网络侧**造/找带相位结构的池**（6 个交替振荡池），把其尖峰直接接到六通道；相位由网络给出，身体侧已证明可用（路线 A 第八步 bias 8 三档 PASS）。
