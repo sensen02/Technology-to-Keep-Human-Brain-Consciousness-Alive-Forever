@@ -1,7 +1,7 @@
 """Semantic tests for research loss masks, frame gauges and time boundaries."""
 import unittest
 import numpy as np
-from engine.embodied.kinematic_loss import masked_cartesian_huber,segment_direction_loss,masked_velocity_huber
+from engine.embodied.kinematic_loss import masked_cartesian_huber,segment_direction_loss,masked_velocity_huber,geometric_interior_angles,interior_angle_loss
 class Tests(unittest.TestCase):
  def setUp(self):
   self.p=np.array([[[[0.,0.,0.],[1.,0.,0.],[1.,1.,0.]]],[[[1.,0.,0.],[2.,0.,0.],[2.,1.,0.]]]])
@@ -34,4 +34,20 @@ class Tests(unittest.TestCase):
   m=np.zeros_like(self.m);m[0]=True
   out=masked_velocity_huber(self.p,self.p,m,[0,.01],normalizer_per_second=1.,max_gap_s=.02)
   self.assertFalse(out['evaluable'])
+ def test_interior_invariant_under_frame_and_scale(self):
+  rotation=np.array([[0,1,0],[-1,0,0],[0,0,1.]])
+  r=interior_angle_loss(self.p@rotation*3+np.array([2.,-1,7]),self.p,self.m)
+  self.assertEqual(r['loss'],0.)
+  angle,mask=geometric_interior_angles(self.p,self.m);self.assertTrue(mask.all());np.testing.assert_allclose(angle,np.pi/2)
+ def test_interior_detects_bending_change(self):
+  straight=self.p.copy();straight[:,:,2]=2*self.p[:,:,1]-self.p[:,:,0]
+  self.assertAlmostEqual(interior_angle_loss(straight,self.p,self.m)['loss'],(np.pi/2)**2)
+ def test_interior_invalid_triplet_not_zero_success(self):
+  m=self.m.copy();m[:,:,1]=False
+  result=interior_angle_loss(self.p,self.p,m);self.assertFalse(result['evaluable']);self.assertIsNone(result['loss'])
+ def test_interior_rejects_degenerate_or_bad_prediction(self):
+  p=self.p.copy();p[:,:,1]=p[:,:,0]
+  with self.assertRaises(ValueError):interior_angle_loss(p,self.p,self.m)
+  p=self.p.copy();p[0,0,0,0]=np.nan
+  with self.assertRaises(ValueError):interior_angle_loss(p,self.p,self.m)
 if __name__=='__main__':unittest.main()

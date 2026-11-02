@@ -50,6 +50,37 @@ def segment_direction_loss(predicted,target,valid,*,min_segment_length=1e-12):
     return dict(evaluable=True,loss=float(np.mean(angle**2)),valid_bones=n,total_bones=pair.size,angular_rms_rad=float(np.sqrt(np.mean(angle**2))),angular_max_rad=float(angle.max()))
 
 
+def geometric_interior_angles(points,valid,*,min_segment_length=1e-12):
+    """Unsigned three-marker bending angles; not a named hinge or Euler angle.
+    Adjacent length, rigid frame, reflection and positive scale are nuisance gauges.
+    Returns values with NaN where any of the three markers is invalid.
+    """
+    p,_,m=_points_and_mask(points,points,valid)
+    if p.ndim!=4 or p.shape[2]<3 or not np.isfinite(min_segment_length) or min_segment_length<=0:raise ValueError('Expected leg chains with >=3markers and positive length cutoff')
+    admitted=m[:,:,:-2]&m[:,:,1:-1]&m[:,:,2:]
+    left=p[:,:,:-2]-p[:,:,1:-1];right=p[:,:,2:]-p[:,:,1:-1]
+    ll=np.linalg.norm(left,axis=-1);lr=np.linalg.norm(right,axis=-1)
+    if np.any(admitted&((ll<=min_segment_length)|(lr<=min_segment_length))):raise ValueError('Admitted angle has degenerate segment')
+    values=np.full(admitted.shape,np.nan)
+    if admitted.any():
+        u=left[admitted]/ll[admitted,None];v=right[admitted]/lr[admitted,None]
+        values[admitted]=np.arctan2(np.linalg.norm(np.cross(u,v),axis=-1),np.sum(u*v,axis=-1))
+    return values,admitted
+
+
+def interior_angle_loss(predicted,target,valid,*,min_segment_length=1e-12):
+    """Mean squared bending error in rad²; invariant partial target, not full pose.
+    Applies the same target-specified marker mask to prediction and reference.
+    """
+    p,q,m=_points_and_mask(predicted,target,valid)
+    a,ma=geometric_interior_angles(p,m,min_segment_length=min_segment_length)
+    b,mb=geometric_interior_angles(q,m,min_segment_length=min_segment_length)
+    assert np.array_equal(ma,mb)
+    if not ma.any():return dict(evaluable=False,loss=None,valid_angles=0,total_angles=ma.size)
+    error=a[ma]-b[ma]
+    return dict(evaluable=True,loss=float(np.mean(error**2)),valid_angles=int(ma.sum()),total_angles=ma.size,angular_rms_rad=float(np.sqrt(np.mean(error**2))),angular_max_abs_rad=float(np.max(np.abs(error))))
+
+
 def masked_velocity_huber(predicted,target,valid,times_s,*,normalizer_per_second,max_gap_s,delta=1.,trial_ids=None):
     """Finite differences only within same trial, valid adjacent points and allowed dt.
     Never interpolate missing data, concatenate trials or warp time.
