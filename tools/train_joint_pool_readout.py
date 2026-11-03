@@ -151,6 +151,18 @@ def run():
    sigma_before=old,sigma_after=float(cma.sigma),generation=int(cma.generation),evals=int(cma.evals),
    incumbent_J=min(h['best'] for h in history),eval_cap=int(EVAL_CAP),generations=int(GENERATIONS)))
   print('phase 2: sigma %.3f -> %.3f at generation %d'%(old,cma.sigma,cma.generation),flush=True)
+ POLICY=os.environ.get('JP_RESTART_POLICY','');PATIENCE=int(os.environ.get('JP_PATIENCE','4'));RESTART_SIGMA=float(os.environ.get('JP_RESTART_SIGMA','0.3'))
+ restarts=[]
+ if history:restarts=list((js(O/f'RESTARTS_{RUN_TAG}.json')['events'] if (O/f'RESTARTS_{RUN_TAG}.json').exists() else []))
+ best_ever=min((h['best'] for h in history),default=float('inf'))
+ best_vec=None
+ for f in sorted((O/'EVALS').glob('eval_*')):
+  sc=js(f/'SCORE.json')
+  if sc.get('failed') or 'J' not in sc:continue
+  if abs(float(sc['J'])-best_ever)<=1e-12:best_vec=np.asarray(sc['vec'],float).copy()
+ if best_vec is None:
+  pool0=np.asarray(js(SEED_POOL)['pool_z'],float);best_vec=np.concatenate([pool0,np.zeros(GAIN_DIM)]);best_ever=float('inf')
+ stale=0
  t0=time.monotonic()
  import multiprocessing as mp
  ctx=mp.get_context('spawn');evals_dir=O/'EVALS';evals_dir.mkdir(parents=True,exist_ok=True)
@@ -163,6 +175,15 @@ def run():
    res=pool_proc.map(_eval,jobs)
    fits=np.array([r['J'] if r['ok'] else 1e6 for r in res])
    cma.tell(fits)
+   if fits.min()<best_ever-1e-12:
+    best_ever=float(fits.min());best_vec=np.asarray(xs[int(np.argmin(fits))],float).copy();stale=0
+   else:stale+=1
+   if POLICY=='multi' and stale>=PATIENCE:
+    cma.m=best_vec.copy();cma.C=np.ones(DIM);cma.ps=np.zeros(DIM);cma.sigma=RESTART_SIGMA;stale=0
+    restarts.append(dict(generation=g,evals=int(cma.evals),best_ever=best_ever,restart_sigma=RESTART_SIGMA,
+     reason='no improvement of the best for %d generations; the step size had been pinned at its clip, so sampling was corner-biased'%PATIENCE))
+    dump(O/f'RESTARTS_{RUN_TAG}.json',dict(policy='multi',patience=PATIENCE,restart_sigma=RESTART_SIGMA,events=restarts))
+    print('multi-restart at generation %d around best %.4f'%(g,best_ever),flush=True)
    history.append(dict(generation=g,best=float(fits.min()),median=float(np.median(fits)),worst=float(fits.max()),
     passers=int(sum(r['gate_pass'] for r in res)),best_parts=next((r['parts'] for r in res if r['J']==fits.min()),None),
     failures=int(sum(not r['ok'] for r in res)),evals=int(cma.evals),sigma=float(cma.sigma)))
@@ -175,6 +196,7 @@ def run():
  dump(O/f'RUN_SUMMARY_{RUN_TAG}.json',dict(best=best,generations=len(history),evals=int(cma.evals),
   passers_total=int(sum(h['passers'] for h in history)),wall_s=time.monotonic()-t0,sigma_final=float(cma.sigma),
   initialization=dict(pool_source=str(SEED_POOL),readout='neutral'),
+  policy=dict(name=POLICY or 'none',patience=PATIENCE,restart_sigma=RESTART_SIGMA,restarts=restarts),
   reference=dict(round_ab=dict(J=3.627664321466884,foot_support=0.24011973880029733),round_c=dict(J=3.919962430249647,foot_support=0.14340965301622385),baseline=dict(nonfoot_share=0.785,foot_support=0.109))))
 
 def _vjob(arg):
