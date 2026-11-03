@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 用户继续实施（2026-11-03T033000Z）：找到并下载验证关节级（高于肢体级）果蝇步行训练集
+- 起点4117ef6。用户要求"去找训练集，要求至少精确到肢体的运动"。本轮搜索并逐条实测可访问性，且**真正下载、解析、组装**了关节级数据（不是只给链接）。0模型/0仿真调用。
+- **主结果**：哈佛 Dataverse `doi:10.7910/DVN/BBNPYX`（Haustein et al. 2024 配套跟踪数据），**CC0 1.0**，含每试次 `*_modelAngles.csv`：6腿×5关节×3轴=**90列关节转角**，另有 Coords3D/BodyCoords3D 与6路相机视频。已下载全部 **16 个试次**（单试次199–348帧，共**4480帧**，全部数值有限无NaN），组装为 `LIMB_JOINT_ANGLES.npz`：`angles_deg (16,407,90)` + `frame_mask` + 列名 + 试次名，度为源约定单位。
+- **覆盖度实测（关键）**：对本模型42铰链，Dataverse 批次实测 26/42——Coxa_pitch/roll/yaw 各6腿全测、Tarsus1_pitch 6腿，但 **Tibia_pitch 0/6、TrochanterFemur_pitch 0/6、TrochanterFemur_roll 仅2/6**（源方在IK里固定了这些自由度，恒零列**不是测到零**）。缺口用本地 flygym 随包资产 `single_steps_untethered.pkl`（真实非拴系步行，7关节×6腿×45采样，含 Femur/Femur_roll/Tibia/Tarsus1）补齐，已规范化存 `LOCAL_SINGLE_STEP_JOINTS.npz`。两源互补。
+- **逐条实测的候选源**：①Dataverse BBNPYX=CC0，**可用已下载**；②本地 flygym 资产=已在本地；③Zenodo `10.5281/zenodo.4956217`（肢体协调流形）=CC0，**可用**（已试下小文件确认为 v5 mat）；④Dryad `10.5061/dryad.nzs7h44s4`（Anipose，flyangles-dataset.zip 4.0GB）=CC0，但**被机器人验证页挡住（403/Validating）**，需浏览器手动下载；⑤bioRxiv 2026《Whole-body 3D kinematics of freely behaving Drosophila》（50关键点@800Hz、372 bout，粒度最佳）=**未确认**，主机对我限流 HTTP 429，未取到数据可得性声明。
+- **边界（写进报告）**：①这是运动学不含力——拴系数据无身体位移/地面反力/质心轨迹，只能约束"姿态像不像"，**不能**约束"脚是否承重"，承重仍靠我们自己的仿真判据；②源用度与自身模型轴，我们是弧度与自有铰链轴，用前必须做符号/偏置标定并用未参与标定的试次验证；③恒零列是源方固定的自由度，不得当测量值；④拴系改变行为与生物力学，与自由步行差异未量化。
+- **下一步**：用Dataverse的26个实测铰链做符号/偏置标定（一试次拟合、其余验证，只许一个增益+一个偏置）；把42铰链角误差作为**权重低于承重项**的运动项加入目标，并分开报"运动像不像"与"承重有没有"；胫节/股节先用本地剖面补，待Dryad或2026数据到手再替换。
+- 交付：`/home/sensen/Desktop/engine修复验收/s4-limb-level-dataset/20261103T033000Z/`（7项manifest，1.7MB）；工具 `tools/assemble_limb_kinematics_dataset.py`。实际删除0文件；未再分发数据源视频（仅派生角表）；无图像/视频或目视通过声明。
+
 ## 用户继续实施（2026-11-03T023000Z）：真慢放重渲三段视频（用户反馈"太快了"）
 - 起点f8267e4。用户反馈上一版"太快了"。根因是**我把慢放倍率算错并标错**：上一版每帧 10 ms 仿真、25 fps 播放，实际只比实时慢 **4 倍**，我却标成"250×"。慢放倍率的正确定义是 `(每帧显示时长)/(每帧推进的仿真时长)`。
 - 本轮按真实倍率重渲三段（同一回放方式：qpos/act 读自 BODY.npz，只 mj_forward，无 mj_step/无神经/无补动画，**回放 COM 误差全部 0.0**）：
