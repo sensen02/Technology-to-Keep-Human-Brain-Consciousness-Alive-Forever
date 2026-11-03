@@ -19,9 +19,9 @@ RUNS={
  'baseline_standard':dict(model=Path('/home/sensen/Desktop/engine修复验收/s5-banc888-physical-handover/20261101T220018Z/RUN/MODEL.xml'),
   body=Path('/home/sensen/Desktop/engine修复验收/s5-banc888-physical-handover/20261101T220018Z/RUN/BODY.npz'),
   label='BASELINE (no training)',t_release=1.3),
- 'dynamic_training_best':dict(model=Path('/home/sensen/Desktop/engine修复验收/s5-dynamic-support-training/20261103T002606Z/VALIDATION_R1/CAND0_A_release200ms/RUN/MODEL.xml'),
-  body=Path('/home/sensen/Desktop/engine修复验收/s5-dynamic-support-training/20261103T002606Z/VALIDATION_R1/CAND0_A_release200ms/RUN/BODY.npz'),
-  label='DYNAMIC-SUPPORT TRAINED (best)',t_release=1.3),
+ 'dynamic_training_best':dict(model=Path(os.environ.get('VIDEO_RUN_DIR','/home/sensen/Desktop/engine修复验收/s5-dynamic-support-training/20261103T002606Z/VALIDATION_R1/CAND0_A_release200ms/RUN'))/'MODEL.xml',
+  body=Path(os.environ.get('VIDEO_RUN_DIR','/home/sensen/Desktop/engine修复验收/s5-dynamic-support-training/20261103T002606Z/VALIDATION_R1/CAND0_A_release200ms/RUN'))/'BODY.npz',
+  label=os.environ.get('VIDEO_RUN_LABEL','DYNAMIC-SUPPORT TRAINED (best)'),t_release=1.3),
 }
 W,H=640,480
 FPS=25

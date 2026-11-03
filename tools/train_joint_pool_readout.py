@@ -26,7 +26,7 @@ from engine.embodied.motor_output import MotorOutputConfig
 O=Path('/home/sensen/Desktop/engine修复验收/s5-joint-pool-readout/20261103T080000Z')
 POOL_DIM=st.DIM;GAIN_DIM=90;DIM=POOL_DIM+GAIN_DIM
 SEED=int(os.environ.get('JP_SEED','20261105'))
-LAMBDA=16;GENERATIONS=18;EVAL_CAP=LAMBDA*GENERATIONS
+LAMBDA=16;GENERATIONS=int(os.environ.get('JP_GENERATIONS','18'));EVAL_CAP=LAMBDA*GENERATIONS
 WORKERS=int(os.environ.get('JP_WORKERS','4'));RUN_TAG=os.environ.get('JP_RUN','R1')
 RELEASE=.2;ASSIST=(1.1,1.3);SIGMA0=0.20
 GAIN_MIN,GAIN_MAX=0.5,2.0
@@ -108,6 +108,18 @@ def prereg():
 
 def _path(tag):return O/f'CMA_STATE_{tag}.npz'
 def _hist(tag):return O/f'CMA_HISTORY_{tag}.json'
+def _save(cma,tag):
+ stt=cma.rng.bit_generator.state
+ np.savez_compressed(_path(tag),m=cma.m,C=cma.C,ps=cma.ps,sigma=np.array([cma.sigma]),
+  generation=np.array([cma.generation]),evals=np.array([cma.evals]),
+  rng_state=np.array([format(int(stt['state']['state']),'x')]),rng_inc=np.array([format(int(stt['state']['inc']),'x')]),
+  rng_has=np.array([int(stt.get('has_uint32',0))]),rng_u32=np.array([int(stt.get('uinteger',0))]))
+def _load(cma,tag):
+ d=dict(np.load(_path(tag)))
+ cma.m=d['m'];cma.C=d['C'];cma.ps=d['ps'];cma.sigma=float(d['sigma'][0])
+ cma.generation=int(d['generation'][0]);cma.evals=int(d['evals'][0])
+ cma.rng.bit_generator.state={'bit_generator':'PCG64','state':{'state':int(str(d['rng_state'][0]),16),'inc':int(str(d['rng_inc'][0]),16)},
+  'has_uint32':int(d['rng_has'][0]),'uinteger':int(d['rng_u32'][0])}
 def run():
  assist=dsm.window_metrics(dict(np.load(rc.BASE_BODY)),*ASSIST,'assist')
  cma=rc.SepCMA(DIM,SIGMA0,LAMBDA,SEED)
@@ -115,7 +127,7 @@ def run():
  cma.m=np.concatenate([pool,np.zeros(GAIN_DIM)])   # declared informed initialization
  history=[]
  if _path(RUN_TAG).exists():
-  rc._load(cma,RUN_TAG);history=js(_hist(RUN_TAG))
+  _load(cma,RUN_TAG);history=js(_hist(RUN_TAG))
  else:
   done=sorted((O/'EVALS').glob('eval_*')) if (O/'EVALS').exists() else []
   gens={}
@@ -132,7 +144,13 @@ def run():
    history.append(dict(generation=g,best=float(fits.min()),median=float(np.median(fits)),
     passers=int(sum(bool(gens[g][i].get('gate',{}).get('passed')) for i in range(LAMBDA))),
     failures=int(sum(bool(gens[g][i].get('failed')) for i in range(LAMBDA))),evals=int(cma.evals),sigma=float(cma.sigma),replayed=True))
-  if history:rc._save(cma,RUN_TAG);dump(_hist(RUN_TAG),history)
+  if history:_save(cma,RUN_TAG);dump(_hist(RUN_TAG),history)
+ if os.environ.get('JP_SIGMA_RESTART') and not (O/f'PHASE2_RESTART_{RUN_TAG}.json').exists():
+  old=float(cma.sigma);cma.sigma=float(os.environ['JP_SIGMA_RESTART']);cma.ps=np.zeros(DIM)
+  dump(O/f'PHASE2_RESTART_{RUN_TAG}.json',dict(reason='the step size had saturated at its upper clip, so samples were pushed onto the box corners; phase 2 restarts exploitation around the incumbent with a smaller step',
+   sigma_before=old,sigma_after=float(cma.sigma),generation=int(cma.generation),evals=int(cma.evals),
+   incumbent_J=min(h['best'] for h in history),eval_cap=int(EVAL_CAP),generations=int(GENERATIONS)))
+  print('phase 2: sigma %.3f -> %.3f at generation %d'%(old,cma.sigma,cma.generation),flush=True)
  t0=time.monotonic()
  import multiprocessing as mp
  ctx=mp.get_context('spawn');evals_dir=O/'EVALS';evals_dir.mkdir(parents=True,exist_ok=True)
@@ -148,7 +166,7 @@ def run():
    history.append(dict(generation=g,best=float(fits.min()),median=float(np.median(fits)),worst=float(fits.max()),
     passers=int(sum(r['gate_pass'] for r in res)),best_parts=next((r['parts'] for r in res if r['J']==fits.min()),None),
     failures=int(sum(not r['ok'] for r in res)),evals=int(cma.evals),sigma=float(cma.sigma)))
-   rc._save(cma,RUN_TAG);dump(_hist(RUN_TAG),history)
+   _save(cma,RUN_TAG);dump(_hist(RUN_TAG),history)
    dump(O/f'BEST_SO_FAR_{RUN_TAG}.json',dict(best=min(history,key=lambda r:r['best']),history_len=len(history)))
    print(json.dumps({k:history[-1][k] for k in ('generation','best','median','passers','failures')}),flush=True)
    if all(not r['ok'] for r in res):
