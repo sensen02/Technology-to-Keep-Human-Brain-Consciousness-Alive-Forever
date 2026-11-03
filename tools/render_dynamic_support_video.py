@@ -14,7 +14,7 @@ import mujoco
 import imageio.v2 as imageio
 from PIL import Image,ImageDraw,ImageFont
 
-O=Path(os.environ.get('VIDEO_OUT','/home/sensen/Desktop/engine修复验收/s5-dynamic-support-video/20261103T015500Z'))
+O=Path(os.environ.get('VIDEO_OUT','/home/sensen/Desktop/engine修复验收/s5-dynamic-support-video/20261103T023000Z'))
 RUNS={
  'baseline_standard':dict(model=Path('/home/sensen/Desktop/engine修复验收/s5-banc888-physical-handover/20261101T220018Z/RUN/MODEL.xml'),
   body=Path('/home/sensen/Desktop/engine修复验收/s5-banc888-physical-handover/20261101T220018Z/RUN/BODY.npz'),
@@ -24,6 +24,7 @@ RUNS={
   label='DYNAMIC-SUPPORT TRAINED (best)',t_release=1.3),
 }
 W,H=640,480
+FPS=25
 WEIGHT=24.446354755878005
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';FONTB='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -101,7 +102,7 @@ def render_one(key,t_common,camkey='A'):
  ren.close()
  return frames,replay_err
 
-def compose(frames_by_run,out_path,speed_label,prefix,title):
+def compose(frames_by_run,out_path,speed_label,prefix,title,hold=1):
  panels=[]
  for i in range(len(frames_by_run['baseline_standard'])):
   parts=[]
@@ -115,40 +116,46 @@ def compose(frames_by_run,out_path,speed_label,prefix,title):
    col=[(80,200,120) if foot>=0.8 else ((230,190,80) if foot>=0.4 else (225,90,90))]
    parts.append(draw(img,lines,bar=(30,H-40,W-60,13,foot,'foot-only support / weight  (target 0.8)',col[0])))
   panels.append(np.concatenate(parts,axis=0))
+ panels=[f for f in panels for _ in range(hold)]
  vid=O/out_path
- imageio.mimsave(vid,panels,fps=25,quality=8)
+ imageio.mimsave(vid,panels,fps=FPS,quality=8)
  sel=[0,len(panels)//3,2*len(panels)//3,len(panels)-1]
  sheet=np.concatenate([np.concatenate([panels[i] for i in sel[:2]],axis=1),np.concatenate([panels[i] for i in sel[2:]],axis=1)],axis=0)
  imageio.imwrite(O/f'{prefix}_SHEET.png',sheet)
  print(json.dumps(dict(video=str(vid),frames=len(panels),fps=25,slow_factor=speed_label,title=title),ensure_ascii=False))
  return vid,len(panels)
 
+CLIPS=[
+ dict(name='C1_WHOLE_TRIAL',video='C1_WHOLE_TRIAL_16x_slow.mp4',t0=0.0,t1=1.5,step=0.0025,hold=1,cam='A',
+      title='whole trial: algorithm assist then neural-only release'),
+ dict(name='C2_RELEASE_80x',video='C2_RELEASE_80x_slow.mp4',t0=1.20,t1=1.40,step=0.0005,hold=1,cam='B',
+      title='every native sample around the handover'),
+ dict(name='C3_FIRST60MS_160x',video='C3_FIRST_60MS_160x_slow.mp4',t0=1.30,t1=1.36,step=0.0005,hold=2,cam='B',
+      title='the first 60 ms of neural-only control, two frames per sample'),
+]
 def main():
  O.mkdir(parents=True,exist_ok=True)
  meta={}
- # A: whole trial to 1.5 s, 10 ms per frame (250x slow at 25 fps)
- t=np.arange(0.,1.5+1e-9,0.01)
- fr={};err={}
- for key in RUNS:
-  fr[key],err[key]=render_one(key,t,'A')
- vid,n=compose(fr,'A_FULL_TRIAL_250x_slow.mp4','250x slow','A_FULL','whole trial')
- meta['replay_com_error']=err
- meta['timing_note']='slow factor is relative to the simulation time step: frame spacing / 40 ms of real-time equivalent per 0.5 ms sample is stated per clip'
- meta['full_trial']=dict(video=str(vid),frames=n,sim_span_s=[0.,1.5],sim_s_per_frame=0.01,fps=25,slow_factor=250)
- # B: release detail 1.28-1.36 s, 0.5 ms per frame (2500x slow)
- t2=np.arange(1.28,1.36+1e-12,0.0005)
- fr2={};err2={}
- for key in RUNS:
-  fr2[key],err2[key]=render_one(key,t2,'B')
- vid2,n2=compose(fr2,'B_RELEASE_DETAIL_2500x_slow.mp4','2500x slow','B_RELEASE','release detail')
- meta['release_detail_replay_com_error']=err2
- meta['release_detail']=dict(video=str(vid2),frames=n2,sim_span_s=[1.28,1.36],sim_s_per_frame=0.0005,fps=25,slow_factor=2500)
+ for c in CLIPS:
+  step=c['step'];t=np.arange(c['t0'],c['t1']+step*0.5,step)
+  slow=(1.0/FPS*c['hold'])/step
+  lab=f'{step*1000:.2f} ms/frame x{c["hold"]} @ {FPS}fps = {slow:.0f}x slower'
+  fr={};err={}
+  for key in RUNS:fr[key],err[key]=render_one(key,t,c['cam'])
+  vid,n=compose(fr,c['video'],lab,c['name'],c['title'],hold=c['hold'])
+  meta[c['name']]=dict(video=str(vid),frames=n,fps=FPS,sim_span_s=[c['t0'],c['t1']],
+   sim_step_s=step,frame_hold=c['hold'],slow_factor_vs_realtime=round(slow,1),
+   replay_com_error=max(err.values()),definition='slow factor = (frame display time) / (simulation time advanced per frame)')
+  print(json.dumps(meta[c['name']],ensure_ascii=False))
  meta['provenance']=dict(model_sha256={k:sha(v['model']) for k,v in RUNS.items()},
   body_sha256={k:sha(v['body']) for k,v in RUNS.items()},
   replay='qpos/act read from BODY.npz, mj_forward only, qvel zeroed because it is not drawn; no mj_step, no neural step, no added animation',
-  optical_repair='all 71 mesh geoms forced opaque for visibility; physics arrays hashed identical before and after',
-  phases='algorithm assist until 1.3 s, then neural-only release; labels show which phase each frame belongs to',
-  honest_note='this is not walking: after withdrawal the body is carried mostly by its abdomen, foot support is about 0.24 W of body weight')
+  optical_repair='all 71 mesh geoms forced opaque; physics arrays hashed identical before and after',
+  phases='algorithm assist until 1.3 s then neural-only; labels state the phase per frame',
+  honesty='not walking: after withdrawal the body is carried mostly by its abdomen (about 72-79 percent of ground reaction); foot support is 0.03-0.25 W of body weight',
+  correction='the previous release labelled slow factors as simulation-ms-per-frame (250x/2500x), which actually correspond to only 4x and 80x slower than real time; this version states the real factor')
+ for k in RUNS:
+  pass
  (O/'VIDEO_META.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
- print(json.dumps(meta,ensure_ascii=False,indent=1)[:800])
+ print(json.dumps({k:meta[k] for k in meta if k!='provenance'},ensure_ascii=False,indent=1)[:900])
 if __name__=='__main__':main()
