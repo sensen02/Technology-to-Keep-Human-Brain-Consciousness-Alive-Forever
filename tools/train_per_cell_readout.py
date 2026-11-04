@@ -66,17 +66,30 @@ def cell_dim():
  return _CELL_CACHE['n']
 
 def synthetic_plan():
+ """Actuators that get no neural drive at all, and the driven actuators that will stand in for them.
+
+ Targets are the empty pools plus every actuator whose motor cells never fire, taken from the
+ recorded spike counts. Sources are the driven actuators of the same leg. The replacement is a
+ learned linear layer whose weights start at zero, so the seed reproduces the parent score exactly.
+ """
  import json as _j
- from pathlib import Path as _P
+ silent=set()
+ cf=Path('/home/sensen/Desktop/engine修复验收/s5-silent-motoneuron-cause/20261107T020000Z/SILENT_CAUSE.json')
+ if cf.exists():
+  silent={int(x['cell']) for x in _j.loads(cf.read_text())['per_cell'] if x['spikes']==0}
  man=_j.loads((SET/'RUN/MAPPING.json').read_text())['rows']
- idx=[i for i,r in enumerate(man) if not (r.get('local_indices') or [])]
- legs={}
+ dead=[]
  for i,r in enumerate(man):
-  if i in idx:continue
-  legs.setdefault(r.get('leg'),[]).append(i)
+  cells=set(int(k) for k in (r.get('local_indices') or []))
+  if not cells or (cells and cells<=silent):dead.append(i)
+ if not dead:return []
+ driven={}
+ for i,r in enumerate(man):
+  if i in dead:continue
+  driven.setdefault(r.get('leg'),[]).append(i)
  plan=[]
- for i in idx:
-  src=tuple(legs.get(man[i].get('leg'),()))
+ for i in dead:
+  src=tuple(driven.get(man[i].get('leg'),()))
   plan.append(dict(actuator=man[i].get('actuator'),index=i,leg=man[i].get('leg'),sources=src))
  return plan
 
@@ -114,17 +127,20 @@ def eval_one(args):
  v=np.asarray(vec,float)
  zp,zg=v[:jp.POOL_DIM],v[jp.POOL_DIM:jp.DIM]
  # z = 0 must mean weight 1, so the seed reproduces the recorded best exactly
- NSYN=len(synthetic_plan()) if USE_SYNTH else 0
+ _PLAN=synthetic_plan() if USE_SYNTH else []
+ NSYN=len(_PLAN)
+ NSW=sum(len(p['sources']) for p in _PLAN)
+ plan_here=synthetic_plan() if USE_SYNTH else []
+ NSYN=len(plan_here);NSW=sum(len(p['sources']) for p in plan_here)
  ncell_here=cell_dim()                       # from the built manifest, not from the vector length
  wflat=np.exp(np.clip(v[BASE_DIM:BASE_DIM+ncell_here],-1,1)*np.log(2.0))
  synth_block=v[BASE_DIM+ncell_here+NCH_NEW:]
  kw=dict(per_actuator_gain=tuple(float(g) for g in jp.gains_of(zg)),
   per_cell_weight=tuple(float(x) for x in wflat) if wflat.size else None)
- if USE_SYNTH and NSYN:
-  plan=synthetic_plan()
-  kw.update(synthetic_index=tuple(p['index'] for p in plan),
-   synthetic_sources=tuple(tuple(p['sources']) for p in plan),
-   synthetic_gain=tuple(float(np.exp(np.clip(synth_block[j],-1,1)*np.log(4.0))) for j in range(min(NSYN,synth_block.size))))
+ if USE_SYNTH and NSYN and synth_block.size>=NSW:
+  kw.update(synthetic_index=tuple(p['index'] for p in plan_here),
+   synthetic_sources=tuple(tuple(p['sources']) for p in plan_here),
+   synthetic_weights=tuple(float(np.clip(x,-4.0,4.0)) for x in synth_block[:NSW]))
  st.CONFIG['neural_motor_config']=MotorOutputConfig(**kw)
  chw={c:1.0 for c in CHANNELS}
  chw['bristle_touch']=float(np.exp(np.clip(v[jp.DIM],-1,1)*np.log(4.0)))
@@ -161,7 +177,8 @@ def run():
  ncell=sum(sizes)
  synth=synthetic_plan() if USE_SYNTH else []
  NSN=len(synth)
- D=BASE_DIM+ncell+NCH_NEW+NSN
+ NSW=sum(len(p['sources']) for p in synth)
+ D=BASE_DIM+ncell+NCH_NEW+NSW
  dump(O/'LAYOUT.json',dict(base_dim=BASE_DIM,cell_dim=ncell,total_dim=D,pool_sizes=sizes,
   seed='best recorded 115 dimensional vector, all new cell weights at one so the first evaluation reproduces it',
   sigma=dict(old=SIGMA_OLD,new=SIGMA_NEW),lambda_pop=LAM,mu=MU,generations=GENS,
@@ -172,7 +189,7 @@ def run():
  elif v0.size in (BASE_DIM,BASE_DIM+ncell):x=np.concatenate([v0,np.zeros(D-v0.size)])
  else:raise SystemExit(f'unexpected seed size {v0.size}, want {BASE_DIM} or {D}')
  print('seed size %d, cell weights %s'%(x.size,'inherited' if np.any(x[BASE_DIM:]) else 'all one'),flush=True)
- sig=np.concatenate([np.full(BASE_DIM,SIGMA_OLD),np.full(ncell,SIGMA_NEW),np.full(NCH_NEW,SIGMA_NEW),np.full(NSN,SIGMA_NEW)])
+ sig=np.concatenate([np.full(BASE_DIM,SIGMA_OLD),np.full(ncell,SIGMA_NEW),np.full(NCH_NEW,SIGMA_NEW),np.full(NSW,SIGMA_NEW)])
  w=np.ones(MU)/MU;hist=[]
  ctx=mp.get_context('spawn');pool=ctx.Pool(4)
  for g in range(GENS):

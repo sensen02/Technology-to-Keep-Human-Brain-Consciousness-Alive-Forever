@@ -91,24 +91,36 @@ class MotorOutputConfig:
     synthetic_index: tuple | None = None      # actuator indices that get the synthetic readout
     synthetic_sources: tuple | None = None    # per entry: the actuator indices averaged for it
     synthetic_gain: tuple | None = None       # per entry: the learned scale
+    # SYNTHETIC REPLACEMENT LAYER, owner authorised. For actuators whose motor neurons never fire,
+    # the connectome cannot supply a command at all, so a learned linear layer stands in for them:
+    # command = sum over the given sources of weight times that actuator command, clipped at zero.
+    # The input is still only neural output of other cells; nothing external is injected.
+    synthetic_weights: tuple | None = None    # flattened weights, sliced by synthetic_sources lengths
 
     def validate(self):
         others = {k: v for k, v in asdict(self).items()
                   if k not in ('per_actuator_gain', 'per_cell_weight',
-                               'synthetic_index', 'synthetic_sources', 'synthetic_gain')}
+                               'synthetic_index', 'synthetic_sources', 'synthetic_gain',
+                               'synthetic_weights')}
         if not all(math.isfinite(x) and x > 0 for x in others.values()):
             raise ValueError('positive finite translation parameters required')
         si, ss, sg = self.synthetic_index, self.synthetic_sources, self.synthetic_gain
-        if (si is None) != (ss is None) or (si is None) != (sg is None):
-            raise ValueError('synthetic_index, synthetic_sources and synthetic_gain must be given together')
         if si is not None:
-            if not (len(si) == len(ss) == len(sg)):
-                raise ValueError('synthetic fields must have equal length')
-            for a in si:
-                if not (isinstance(a, (int, np.integer)) or (a is not None)):
-                    raise ValueError('synthetic_index entries must be actuator indices')
-            if any((not math.isfinite(float(x))) or float(x) < 0 for x in sg):
+            if ss is None:
+                raise ValueError('synthetic_index needs synthetic_sources')
+            if (sg is None) == (self.synthetic_weights is None):
+                raise ValueError('give exactly one of synthetic_gain and synthetic_weights')
+        if si is not None:
+            if len(si) != len(ss):
+                raise ValueError('synthetic_index and synthetic_sources must have equal length')
+            if sg is not None and len(sg) != len(si):
+                raise ValueError('synthetic_gain must have one entry per synthetic actuator')
+            if self.synthetic_weights is not None and len(self.synthetic_weights) != sum(len(x) for x in ss):
+                raise ValueError('synthetic_weights must have one entry per source across all targets')
+            if sg is not None and any((not math.isfinite(float(x))) or float(x) < 0 for x in sg):
                 raise ValueError('synthetic_gain must be finite and nonnegative')
+            if self.synthetic_weights is not None and not all(math.isfinite(float(x)) for x in self.synthetic_weights):
+                raise ValueError('synthetic_weights must be finite')
         w = self.per_cell_weight
         if w is not None:
             if len(w) == 0 or any((not math.isfinite(float(x))) or float(x) < 0 for x in w):
@@ -213,12 +225,19 @@ class MotorOutput:
                 raise ValueError('per_actuator_gain must have one entry per actuator')
             rate = rate * gvec
         if self.config.synthetic_index is not None and self.config.synthetic_index:
+            wflat = self.config.synthetic_weights
+            wpos = 0
             for k, ai in enumerate(self.config.synthetic_index):
                 src = self.config.synthetic_sources[k]
-                if len(src):
-                    rate[int(ai)] = float(self.config.synthetic_gain[k]) * float(np.mean(rate[list(src)]))
-                else:
+                if not len(src):
                     rate[int(ai)] = 0.0
+                    continue
+                if wflat is not None:
+                    seg = np.asarray(wflat[wpos:wpos+len(src)],dtype=float)
+                    wpos += len(src)
+                    rate[int(ai)] = float(seg @ rate[list(src)])   # learned linear layer
+                else:
+                    rate[int(ai)] = float(self.config.synthetic_gain[k]) * float(np.mean(rate[list(src)]))
         ctrl = np.clip(rate, 0, self.config.max_control)
         self.elapsed_s = float(end_s)
         self.interval += 1
