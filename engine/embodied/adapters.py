@@ -561,6 +561,9 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
             tier["local_of_global"] = l2g_aug
             tier["n"] = int(gi_aug.size)
             tier["keep_mask"] = l2g_aug >= 0
+            # the motor manifest is built from tier["root_ids"], so it must grow as well
+            if "root_ids" in tier or True:
+                tier["root_ids"] = roots_tbl[gi_aug]
             history.append({"iteration": "augment", "appended": int(want.size),
                             "tier_neurons": int(gi_aug.size), "cap_binding": False,
                             "why": "declared append of upstream partners of silent motor cells"})

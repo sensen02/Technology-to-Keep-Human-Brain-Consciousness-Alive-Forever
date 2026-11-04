@@ -64,6 +64,39 @@ def run():
  dump(O/'APPENDED_ROOT_IDS.json',dict(n=len(extra),root_ids=extra,
   top=[dict(root_id=g,synapses=w) for g,w in ranked[:20]],
   rule='upstream partners of the silent motor cells in the full BANC graph that are absent from the 12000 tier and carry at least ten synapses'))
+ # The two frozen artifacts that carry a size must be rebuilt at the augmented size.  The rows and
+ # every local index stay identical, because appending never renumbers 0..11999.
+ roots_all_np=np.load('data/flywire/banc_connectome.npz',allow_pickle=True)['root_ids']
+ aug_n=int(gidx.size+len(extra))
+ # NEVER write through a symlink into the sealed package.  SET/RUN is a symlink to the frozen run
+ # directory, so first replace it with a real directory whose entries are symlinks, then write the
+ # patched MAPPING as a real file inside it.
+ import shutil as _sh
+ run_dir=t.SET/'RUN'
+ if run_dir.is_symlink():
+  target=run_dir.resolve()
+  run_dir.unlink()
+  run_dir.mkdir()
+  for e in target.iterdir():
+   (run_dir/e.name).symlink_to(e)
+ mp=json.loads((run_dir/'MAPPING.json').read_text())
+ mp['n_neurons']=aug_n
+ (run_dir/'MAPPING.json').unlink(missing_ok=True)
+ (run_dir/'MAPPING.json').write_text(json.dumps(mp,ensure_ascii=False))
+ frozen=Path('/home/sensen/Desktop/engine修复验收/s5-banc888-physical-handover/20261101T220018Z/RUN/MAPPING.json')
+ import hashlib as _h
+ assert _h.sha256(frozen.read_bytes()).hexdigest().startswith('5774b6f2'), 'sealed MAPPING was touched'
+ ip=t.SET/'IDENTITIES.npz'
+ if ip.is_symlink():
+  src=ip.resolve();ip.unlink();_sh.copyfile(src,ip)
+ ident=np.load(ip,allow_pickle=False)
+ extra_g=np.asarray([int(np.flatnonzero(roots_all_np==int(r))[0]) for r in extra],dtype=np.int64)
+ order=np.argsort(extra_g)                      # the engine sorts appended cells by global index
+ extra=np.asarray(extra,dtype=np.int64)[order];extra_g=extra_g[order]
+ new_roots=np.concatenate([ident['root_ids'],extra])
+ new_gidx=np.concatenate([ident['global_index'],extra_g])
+ np.savez_compressed(str(ip),root_ids=new_roots,global_index=new_gidx)
+ print('构件已按 %d 重建：MAPPING.n_neurons=%d，IDENTITIES=%d'%(aug_n,mp['n_neurons'],new_roots.size))
  orig=A.build_neural_tier
  def patched(config=None,*a,**k):
   return orig(dataclasses.replace(config or TierConfig(),sign_fill='bristle_only',

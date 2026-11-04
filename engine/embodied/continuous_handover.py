@@ -73,7 +73,8 @@ def run_neural_continuous(model, data, built, manifest, groups, duration_s, *,
     if reference.shape != (model.nq,) or not np.isfinite(reference).all():
         raise ValueError('explicit finite warmup-initial sensory reference required')
     if int(manifest['n_actuators']) != model.nu or int(manifest['n_neurons']) != int(built['n']):
-        raise ValueError('tier/manifest/model dimensions disagree')
+        raise ValueError('tier/manifest/model dimensions disagree: manifest n_neurons=%r n_actuators=%r, built n=%r, model nu=%r'
+                         % (manifest.get('n_neurons'), manifest.get('n_actuators'), built.get('n'), model.nu))
     if any(w.number for w in data.warning):
         raise RuntimeError('handover received pre-existing MuJoCo warnings')
     before = state_snapshot(data)
