@@ -105,7 +105,9 @@ def run():
   _f=t.SET/('ACTUAL_'+_k+'.npz')
   if _f.is_symlink():_f.unlink()
   elif _f.exists():_f.unlink()
-  _save_npz(str(_f),_aug['edges'][_k].tocsr())
+  _m=_aug['edges'][_k].tocsr().copy()
+  _m.data=_m.data*0.2        # verified: the archived artifacts are the built weights times 0.2
+  _save_npz(str(_f),_m)
  print('ACTUAL_We/Wi 已按 %d 重建（nnz We=%d Wi=%d）'%(_aug['n'],_aug['edges']['We'].nnz,_aug['edges']['Wi'].nnz))
  orig=A.build_neural_tier
  def patched(config=None,*a,**k):
