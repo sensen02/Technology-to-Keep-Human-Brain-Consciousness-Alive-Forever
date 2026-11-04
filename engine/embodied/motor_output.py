@@ -79,11 +79,20 @@ class MotorOutputConfig:
     #: This is a declared translation-layer calibration: it has no state feedback, no pose reference, no bias and
     #: no sign change.  Gains may be zero, which EXTINGUISHES an actuator and must be archived by name.
     per_actuator_gain: tuple | None = None
+    # Optional readout shape: one non-negative weight per (actuator, motor neuron) assignment,
+    # flattened in manifest order. With it the command of an actuator is a WEIGHTED mean of its
+    # pool, so the relative contribution of each motor neuron can change instead of only the
+    # overall scale. None keeps the previous unweighted mean.
+    per_cell_weight: tuple | None = None
 
     def validate(self):
-        others = {k: v for k, v in asdict(self).items() if k != 'per_actuator_gain'}
+        others = {k: v for k, v in asdict(self).items() if k not in ('per_actuator_gain', 'per_cell_weight')}
         if not all(math.isfinite(x) and x > 0 for x in others.values()):
             raise ValueError('positive finite translation parameters required')
+        w = self.per_cell_weight
+        if w is not None:
+            if len(w) == 0 or any((not math.isfinite(float(x))) or float(x) < 0 for x in w):
+                raise ValueError('per_cell_weight must be a nonempty vector of finite nonnegative numbers')
         g = self.per_actuator_gain
         if g is not None:
             if len(g) == 0 or any((not math.isfinite(float(x))) or float(x) < 0 for x in g):
@@ -124,6 +133,23 @@ class MotorOutput:
                 raise ValueError('invalid neuron indices')
             # Own the validated indices: caller array mutation cannot reroute pools.
             self.groups.append(np.array(values, dtype=int, copy=True))
+        pw = self.config.per_cell_weight
+        if pw is None:
+            self.cell_w = [np.ones(len(g), dtype=float) for g in self.groups]
+        else:
+            flat = np.asarray(pw, dtype=float).ravel()
+            expect = sum(len(g) for g in self.groups)
+            if flat.size != expect:
+                raise ValueError(f'per_cell_weight needs {expect} entries, got {flat.size}')
+            self.cell_w = []
+            k = 0
+            for g in self.groups:
+                seg = flat[k:k+len(g)].copy()
+                if seg.size and seg.sum() <= 0:
+                    raise ValueError('each pool needs a positive total weight')
+                self.cell_w.append(seg if seg.size else seg)
+                k += len(g)
+        self.cell_wsum = [float(w.sum()) if w.size else 1.0 for w in self.cell_w]
         self.reset()
 
     def reset(self):
@@ -152,8 +178,10 @@ class MotorOutput:
         counts = np.array([int(sp[:, idx].sum()) if idx.size else 0 for idx in self.groups])
         if connected:
             for sample in sp:
-                instantaneous = np.array([sample[idx].mean()/spike_dt_s if idx.size else 0.0
-                                          for idx in self.groups])
+                instantaneous = np.array([
+                    (float(self.cell_w[ai] @ sample[idx].astype(float)) / self.cell_wsum[ai]) / spike_dt_s
+                    if idx.size else 0.0
+                    for ai, idx in enumerate(self.groups)])
                 self.rates = decay*self.rates + (1-decay)*instantaneous
         else:
             self.rates[:] = 0
