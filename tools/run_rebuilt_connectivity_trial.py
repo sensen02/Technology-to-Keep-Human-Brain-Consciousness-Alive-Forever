@@ -104,6 +104,36 @@ def run():
  if not rec.get('failed'):
   p=rec['parts'];print('足载 %.4f 非足 %.4f 质心 %.4f 首触 %s'%(p['foot_support_mean'],p['nonfoot_share'],p['com_z_min'],p['first_nonfoot_s']))
 
+def validate():
+ """Final check: run the best vector twice on the rebuilt connectivity and compare bit for bit."""
+ make_set()
+ import train_rebuilt_connectivity as trb
+ trb.O.mkdir(parents=True,exist_ok=True)
+ trb.make_set()          # the training module keeps its own connectivity mirror
+ vec=np.asarray(js(BEST)['vec'],float)
+ import glob
+ best=None;bestJ=9e9
+ for f in sorted(Path('/home/sensen/Desktop/engine修复验收/s5-rebuilt-connectivity-training/20261104T090000Z/EVALS_V2').glob('eval_*')):
+  sc=js(f/'SCORE.json')
+  if sc.get('failed') or 'J' not in sc:continue
+  if float(sc['J'])<bestJ:bestJ=float(sc['J']);best=np.asarray(sc['vec'],float)
+ rec=dict(source='best 115-dim run on the rebuilt connectivity',source_J=float(bestJ),runs={})
+ for tag in ('A','B'):
+  folder=O/f'FINAL_VALIDATION_{tag}'
+  if folder.exists():raise SystemExit('refusing to overwrite '+str(folder))
+  _,rows,summary=trb.trial_rebuilt(folder,best)
+  np.savez_compressed(folder/'RELEASE_NATIVE.npz',rows=rows)
+  assist=dsm.window_metrics(dict(np.load(jp.rc.BASE_BODY)),*jp.ASSIST,'assist')
+  J,parts=dst.objective(rows,assist);full=dsm.evaluate_native(assist,rows)
+  rec['runs'][tag]=dict(J=float(J),parts=parts,gate=full,wall_s=summary['wall_s'],path=str(folder))
+  print(tag,'J=%.6f'%J,flush=True)
+ a=dict(np.load(O/'FINAL_VALIDATION_A/RELEASE_NATIVE.npz'))['rows']
+ b=dict(np.load(O/'FINAL_VALIDATION_B/RELEASE_NATIVE.npz'))['rows']
+ rec['bitwise_identical']=bool(np.array_equal(a,b))
+ rec['max_abs_difference']=float(np.max(np.abs(a-b))) if a.shape==b.shape else None
+ dump(O/'FINAL_VALIDATION.json',rec)
+ print('A/B 逐位相同:',rec['bitwise_identical'],'最大差',rec['max_abs_difference'],flush=True)
+
 def report():
  rec=js(O/'RESULT.json')
  ref=dict(J=3.3902926855730198,foot_support=0.31795537182301425,nonfoot_share=0.6417682564053153)
@@ -120,4 +150,4 @@ def report():
   same_vector=True,note='one evaluation with the parameters tuned on the disconnected network'))
  print(json.dumps(js(O/'SUMMARY.json'),ensure_ascii=False,indent=1))
 if __name__=='__main__':
- {'prereg':prereg,'run':run,'report':report}[sys.argv[1]]()
+ {'prereg':prereg,'run':run,'validate':validate,'report':report}[sys.argv[1]]()
