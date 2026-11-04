@@ -553,7 +553,10 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
         want = want[want >= 0]                      # root ids, not global indices
         want = np.unique(want[l2g[want] < 0])
         if want.size:
-            gi_aug = np.sort(np.concatenate([np.asarray(tier["global_index"], dtype=np.int64), want]))
+            # APPEND, never re-sort: sorting would interleave the new cells among the original ones
+            # and renumber everything, which is exactly what appending exists to avoid.
+            gi_aug = np.concatenate([np.asarray(tier["global_index"], dtype=np.int64),
+                                     np.sort(want)])
             l2g_aug = -np.ones(n, dtype=np.int64)
             l2g_aug[gi_aug] = np.arange(gi_aug.size, dtype=np.int64)
             tier = dict(tier)

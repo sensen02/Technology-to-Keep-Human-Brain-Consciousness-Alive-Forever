@@ -91,12 +91,22 @@ def run():
   src=ip.resolve();ip.unlink();_sh.copyfile(src,ip)
  ident=np.load(ip,allow_pickle=False)
  extra_g=np.asarray([int(np.flatnonzero(roots_all_np==int(r))[0]) for r in extra],dtype=np.int64)
- order=np.argsort(extra_g)                      # the engine sorts appended cells by global index
+ order=np.argsort(extra_g)                      # appended cells are sorted among themselves, then appended
  extra=np.asarray(extra,dtype=np.int64)[order];extra_g=extra_g[order]
  new_roots=np.concatenate([ident['root_ids'],extra])
  new_gidx=np.concatenate([ident['global_index'],extra_g])
  np.savez_compressed(str(ip),root_ids=new_roots,global_index=new_gidx)
  print('构件已按 %d 重建：MAPPING.n_neurons=%d，IDENTITIES=%d'%(aug_n,mp['n_neurons'],new_roots.size))
+ # the trainer also asserts that the network weights equal the archived ACTUAL_*.npz, so those two
+ # artifacts must be rewritten at the augmented size from the same build that will be used.
+ from scipy.sparse import save_npz as _save_npz
+ _aug=A.build_neural_tier(dataclasses.replace(TierConfig(),sign_fill='bristle_only',extra_root_ids=tuple(extra)))
+ for _k in ('We','Wi'):
+  _f=t.SET/('ACTUAL_'+_k+'.npz')
+  if _f.is_symlink():_f.unlink()
+  elif _f.exists():_f.unlink()
+  _save_npz(str(_f),_aug['edges'][_k].tocsr())
+ print('ACTUAL_We/Wi 已按 %d 重建（nnz We=%d Wi=%d）'%(_aug['n'],_aug['edges']['We'].nnz,_aug['edges']['Wi'].nnz))
  orig=A.build_neural_tier
  def patched(config=None,*a,**k):
   return orig(dataclasses.replace(config or TierConfig(),sign_fill='bristle_only',
