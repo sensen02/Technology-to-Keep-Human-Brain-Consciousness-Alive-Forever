@@ -22,12 +22,13 @@ from pathlib import Path
 import numpy as np
 R=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(R));sys.path.insert(0,str(R/'tools'))
-O=Path('/home/sensen/Desktop/engine修复验收/s5-per-cell-readout/20261105T220000Z')
+O=Path(os.environ.get('PCR_OUT','/home/sensen/Desktop/engine修复验收/s5-per-cell-readout/20261105T220000Z'))
 REBUILD=Path('/home/sensen/Desktop/engine修复验收/s5-bristle-edge-rebuild/20261104T050000Z')
 V2EV=Path('/home/sensen/Desktop/engine修复验收/s5-rebuilt-connectivity-training/20261104T090000Z/EVALS_V2')
 SET=O/'CONNECTIVITY_SET'
 BASE_DIM=115
-LAM, MU, GENS = 16, 8, 6
+LAM, MU = 16, 8
+GENS=int(os.environ.get('PCR_GENS','6'))
 SIGMA_OLD, SIGMA_NEW = 0.25, 0.10
 def js(p):return json.loads(Path(p).read_text())
 def dump(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2,allow_nan=False,default=lambda x:x.tolist() if isinstance(x,np.ndarray) else x.item())+'\n')
@@ -103,6 +104,10 @@ def run():
  import train_stage_a_pool_modes as st
  import train_joint_pool_readout as jp
  vec0,J0=best_v2()
+ seedfile=Path(os.environ.get('PCR_SEED',''))
+ if seedfile and seedfile.exists():
+  sd=json.loads(seedfile.read_text());vec0=np.asarray(sd['vec'],float);J0=float(sd['J'])
+  print('从外部种子出发 J=%.4f 维度 %d'%(J0,vec0.size),flush=True)
  # pool sizes in manifest order, needed to size the new block
  import json as _j
  man=_j.loads((st.B/'RUN/MAPPING.json').read_text())
@@ -113,7 +118,11 @@ def run():
   seed='best recorded 115 dimensional vector, all new cell weights at one so the first evaluation reproduces it',
   sigma=dict(old=SIGMA_OLD,new=SIGMA_NEW),lambda_pop=LAM,mu=MU,generations=GENS,
   note='a weight w_i enters as w_i/sum(w) inside the pool, so the per-actuator gain keeps the overall scale and the new degrees of freedom are purely relative'))
- x=np.concatenate([np.asarray(vec0,float)[:BASE_DIM],np.zeros(ncell)])
+ v0=np.asarray(vec0,float).ravel()
+ if v0.size==D:x=v0.copy()
+ elif v0.size==BASE_DIM:x=np.concatenate([v0,np.zeros(ncell)])
+ else:raise SystemExit(f'unexpected seed size {v0.size}, want {BASE_DIM} or {D}')
+ print('seed size %d, cell weights %s'%(x.size,'inherited' if np.any(x[BASE_DIM:]) else 'all one'),flush=True)
  sig=np.concatenate([np.full(BASE_DIM,SIGMA_OLD),np.full(ncell,SIGMA_NEW)])
  w=np.ones(MU)/MU;hist=[]
  ctx=mp.get_context('spawn');pool=ctx.Pool(4)
@@ -121,7 +130,7 @@ def run():
   if g==0:z=np.zeros((LAM,D))
   else:z=np.random.randn(LAM,D)
   X=x[None,:]+sig[None,:]*z
-  X[0]=x if g>0 else X[0]
+  X[0]=x if g>0 else X[0]   # the first member is always the current mean, never a fresh sample
   # the trial runner creates its own folder, so only a refusal check is done here
   jobs=[(k,X[k],O/f'EVALS/eval_{g*LAM+k:03d}') for k in range(LAM)]
   for _,_,f in jobs:
