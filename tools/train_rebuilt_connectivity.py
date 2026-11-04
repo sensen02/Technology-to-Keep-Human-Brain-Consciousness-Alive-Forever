@@ -35,6 +35,10 @@ LAMBDA=16;GENERATIONS=int(os.environ.get('RB_GENERATIONS','24'));EVAL_CAP=LAMBDA
 WORKERS=int(os.environ.get('RB_WORKERS','4'));TAG=os.environ.get('RB_RUN','R1')
 SIGMA0=float(os.environ.get('RB_SIGMA','0.25'));PATIENCE=int(os.environ.get('RB_PATIENCE','5'));RESTART=float(os.environ.get('RB_RESTART','0.25'))
 RELEASE=.2
+TACTILE_PARAM=os.environ.get('RB_TACTILE_PARAM','1')=='1'
+TACTILE_MIN,TACTILE_MAX=0.25,4.0
+DIM=jp.DIM+(1 if TACTILE_PARAM else 0)
+def tactile_weight_of(zw):return float(np.exp(np.clip(zw,-1,1)*math.log(TACTILE_MAX)))
 def js(p):return json.loads(Path(p).read_text())
 def dump(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2,allow_nan=False,default=lambda x:x.tolist() if isinstance(x,np.ndarray) else x.item())+'\n')
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -59,11 +63,13 @@ def trial_rebuilt(folder,vec):
   return orig(dataclasses.replace(config or TC(),sign_fill='bristle_only'),*a,**kw)
  A.build_neural_tier=patched;c.build_neural_tier=patched
  old_B=st.B;st.B=SET
- zp,zg=np.asarray(vec,float)[:POOL],np.asarray(vec,float)[POOL:]
+ v=np.asarray(vec,float);zp,zg=v[:POOL],v[POOL:jp.DIM]
  st.CONFIG['neural_motor_config']=MotorOutputConfig(per_actuator_gain=tuple(float(g) for g in jp.gains_of(zg)))
+ if TACTILE_PARAM and v.size>jp.DIM:st.CONFIG['neural_sensory_channel_weights']={'bristle_touch':tactile_weight_of(v[jp.DIM])}
  try:return st.trial(folder,np.clip(zp,-1,1),RELEASE)
  finally:
-  st.CONFIG.pop('neural_motor_config',None);st.B=old_B;A.build_neural_tier=orig;c.build_neural_tier=orig
+  st.CONFIG.pop('neural_motor_config',None);st.CONFIG.pop('neural_sensory_channel_weights',None)
+  st.B=old_B;A.build_neural_tier=orig;c.build_neural_tier=orig
 
 _W={}
 def _init(assist):_W['assist']=assist
@@ -72,7 +78,9 @@ def _eval(job):
  try:
   _,rows,summary=trial_rebuilt(folder,vec)
   assist=_W['assist'];J,parts=dst.objective(rows,assist);full=dsm.evaluate_native(assist,rows)
-  dump(Path(folder)/'SCORE.json',dict(J=J,parts=parts,gate=full,vec=np.asarray(vec,float).tolist(),wall_s=summary['wall_s']))
+  v=np.asarray(vec,float)
+  dump(Path(folder)/'SCORE.json',dict(J=J,parts=parts,gate=full,vec=v.tolist(),wall_s=summary['wall_s'],
+   tactile_weight=(tactile_weight_of(v[jp.DIM]) if v.size>jp.DIM else 1.0)))
   return dict(ok=True,J=float(J),parts=parts,gate_pass=bool(full['passed']),error=None)
  except BaseException:
   dump(Path(folder)/'SCORE.json',dict(failed=True,traceback=traceback.format_exc(),vec=np.asarray(vec,float).tolist()))
@@ -86,7 +94,9 @@ def prereg():
   question='with load feedback finally reaching the motor cells, does the plateau at J=3.39 break',
   single_connectivity_change="sign_fill='bristle_only' adds 37,429 bristle rows, modifies none, and puts all 204 motor cells one hop downstream",
   connectivity=hashes,connectivity_set=str(SET),
-  parameter_space=dict(dimension=DIM,pool=POOL,readout=DIM-POOL,seed_vector='the disconnected-network optimum'),
+  parameter_space=dict(dimension=DIM,pool=POOL,readout=jp.DIM-POOL,
+   tactile_weight=('a 115th parameter, weight = exp(z ln 4) in [0.25,4.0], verified monotone helpful in the previous sweep' if TACTILE_PARAM else 'fixed at 1.0'),
+   seed_vector='the disconnected-network optimum with tactile weight 1.0'),
   unchanged=['body','muscles','contacts','assist schedule','sensory routing and weights','translation scales','objective','gate'],
   optimizer=dict(name='sep-CMA-ES',lambda_=LAMBDA,sigma0=SIGMA0,generations=GENERATIONS,eval_cap=EVAL_CAP,
    patience=PATIENCE,restart_sigma=RESTART,seed=SEED,workers=WORKERS),
@@ -100,7 +110,8 @@ def run():
  make_set()
  assist=dsm.window_metrics(dict(np.load(jp.rc.BASE_BODY)),*jp.ASSIST,'assist')
  cma=rc.SepCMA(DIM,SIGMA0,LAMBDA,SEED)
- cma.m=np.asarray(js(BEST)['vec'],float).copy()
+ seed=np.asarray(js(BEST)['vec'],float)
+ cma.m=np.concatenate([seed,[0.0]]) if TACTILE_PARAM else seed.copy()
  history=[]
  if _path(TAG).exists():
   d=dict(np.load(_path(TAG)));cma.m=d['m'];cma.C=d['C'];cma.ps=d['ps'];cma.sigma=float(d['sigma'][0]);cma.generation=int(d['generation'][0]);cma.evals=int(d['evals'][0])
@@ -115,7 +126,9 @@ def run():
  stale=0;restarts=[]
  t0=time.monotonic()
  import multiprocessing as mp
- ctx=mp.get_context('spawn');ed=O/'EVALS';ed.mkdir(parents=True,exist_ok=True)
+ ctx=mp.get_context('spawn')
+ ed=O/('EVALS' if TAG=='R1' else f'EVALS_{TAG}')
+ ed.mkdir(parents=True,exist_ok=True)
  with ctx.Pool(WORKERS,initializer=_init,initargs=(assist,)) as pool:
   while cma.evals<EVAL_CAP:
    g=cma.generation;xs=cma.ask()
