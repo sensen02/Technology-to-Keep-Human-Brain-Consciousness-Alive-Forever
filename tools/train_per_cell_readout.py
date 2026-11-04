@@ -54,6 +54,17 @@ def make_set():
   (SET/p.name).symlink_to(p)
  shutil.copyfile(REBUILD/'REBUILT_We.npz',SET/'ACTUAL_We.npz')
  shutil.copyfile(REBUILD/'REBUILT_Wi.npz',SET/'ACTUAL_Wi.npz')
+_CELL_CACHE={}
+def cell_dim():
+ if 'n' in _CELL_CACHE:return _CELL_CACHE['n']
+ lay=O/'LAYOUT.json'
+ if lay.exists():
+  try:_CELL_CACHE['n']=int(json.loads(lay.read_text())['cell_dim']);return _CELL_CACHE['n']
+  except Exception:pass
+ man=json.loads((SET/'RUN/MAPPING.json').read_text())['rows']
+ _CELL_CACHE['n']=sum(len(r.get('local_indices') or []) for r in man)
+ return _CELL_CACHE['n']
+
 def synthetic_plan():
  import json as _j
  from pathlib import Path as _P
@@ -103,8 +114,8 @@ def eval_one(args):
  v=np.asarray(vec,float)
  zp,zg=v[:jp.POOL_DIM],v[jp.POOL_DIM:jp.DIM]
  # z = 0 must mean weight 1, so the seed reproduces the recorded best exactly
- NSYN=len(synth_idx) if (synth_idx:=synthetic_plan()) and USE_SYNTH else 0
- ncell_here=v.size-BASE_DIM-NCH_NEW-NSYN
+ NSYN=len(synthetic_plan()) if USE_SYNTH else 0
+ ncell_here=cell_dim()                       # from the built manifest, not from the vector length
  wflat=np.exp(np.clip(v[BASE_DIM:BASE_DIM+ncell_here],-1,1)*np.log(2.0))
  synth_block=v[BASE_DIM+ncell_here+NCH_NEW:]
  kw=dict(per_actuator_gain=tuple(float(g) for g in jp.gains_of(zg)),
