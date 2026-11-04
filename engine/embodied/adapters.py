@@ -199,6 +199,14 @@ class TierConfig:
     """
 
     max_neurons: int = 12000
+    # OPTIONAL, off by default (empty tuple leaves the historical tier bit identical).
+    # Global root ids to APPEND to the selected tier after the rule has run.  Appending rather
+    # than reselecting keeps local indices 0..max_neurons-1 unchanged, so any trained vector and
+    # every actuator assignment stay valid.  It is a DECLARED extension of the selection, not a
+    # change of the selection rule; the reason it exists is measured in
+    # s5-tier-augmentation-cost: the silent motor cells' upstream partners are partly outside the
+    # 12000 cell cap.
+    extra_root_ids: tuple = ()
     partner_min_synapses: float = 10.0
     growth_iterations: int = 2
     #: Conductance sign rule for the edge set.  Default 'annotation' is the historical,
@@ -537,6 +545,25 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
                         "tier_neurons": int(tier["n"]),
                         "cap_binding": bool(tier["counts"]["partners_truncated_by_cap"])})
         seed_mask = np.asarray(tier["keep_mask"])
+    if getattr(c, 'extra_root_ids', ()):
+        l2g = np.asarray(tier["local_of_global"])
+        roots_tbl = np.asarray(a["root_ids"])
+        ridx = {int(r): i for i, r in enumerate(roots_tbl)}
+        want = np.asarray([ridx.get(int(g), -1) for g in c.extra_root_ids], dtype=np.int64)
+        want = want[want >= 0]                      # root ids, not global indices
+        want = np.unique(want[l2g[want] < 0])
+        if want.size:
+            gi_aug = np.sort(np.concatenate([np.asarray(tier["global_index"], dtype=np.int64), want]))
+            l2g_aug = -np.ones(n, dtype=np.int64)
+            l2g_aug[gi_aug] = np.arange(gi_aug.size, dtype=np.int64)
+            tier = dict(tier)
+            tier["global_index"] = gi_aug
+            tier["local_of_global"] = l2g_aug
+            tier["n"] = int(gi_aug.size)
+            tier["keep_mask"] = l2g_aug >= 0
+            history.append({"iteration": "augment", "appended": int(want.size),
+                            "tier_neurons": int(gi_aug.size), "cap_binding": False,
+                            "why": "declared append of upstream partners of silent motor cells"})
     edges = build_edges(a, tier, cut, c.sign_mode, "intact", tcfg, sign_fill=c.sign_fill)
 
     local_of_global = np.asarray(tier["local_of_global"])
