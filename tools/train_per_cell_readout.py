@@ -27,8 +27,13 @@ REBUILD=Path('/home/sensen/Desktop/engine修复验收/s5-bristle-edge-rebuild/20
 V2EV=Path('/home/sensen/Desktop/engine修复验收/s5-rebuilt-connectivity-training/20261104T090000Z/EVALS_V2')
 SET=O/'CONNECTIVITY_SET'
 BASE_DIM=115
-LAM, MU = 16, 8
+LAM=int(os.environ.get('PCR_LAM','16'))
+MU=LAM//2
 GENS=int(os.environ.get('PCR_GENS','6'))
+CHANNELS=('claw_position','hook_direction','hairplate_angle','campaniform_strain',
+          'club_vibration','bristle_touch','multidendritic_noxious')
+NCH=len(CHANNELS)          # bristle_touch already rides in the base block, the rest are new
+NCH_NEW=NCH-1              # number of extra channel weights appended after the cell block
 SIGMA_OLD, SIGMA_NEW = 0.25, 0.10
 def js(p):return json.loads(Path(p).read_text())
 def dump(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2,allow_nan=False,default=lambda x:x.tolist() if isinstance(x,np.ndarray) else x.item())+'\n')
@@ -82,10 +87,16 @@ def eval_one(args):
  v=np.asarray(vec,float)
  zp,zg=v[:jp.POOL_DIM],v[jp.POOL_DIM:jp.DIM]
  # z = 0 must mean weight 1, so the seed reproduces the recorded best exactly
- wflat=np.exp(np.clip(v[BASE_DIM:],-1,1)*np.log(2.0))
+ ncell_here=v.size-BASE_DIM-NCH_NEW
+ wflat=np.exp(np.clip(v[BASE_DIM:BASE_DIM+ncell_here],-1,1)*np.log(2.0))
  st.CONFIG['neural_motor_config']=MotorOutputConfig(per_actuator_gain=tuple(float(g) for g in jp.gains_of(zg)),
   per_cell_weight=tuple(float(x) for x in wflat) if wflat.size else None)
- st.CONFIG['neural_sensory_channel_weights']={'bristle_touch':float(np.exp(np.clip(v[jp.DIM],-1,1)*np.log(4.0)))}
+ chw={c:1.0 for c in CHANNELS}
+ chw['bristle_touch']=float(np.exp(np.clip(v[jp.DIM],-1,1)*np.log(4.0)))
+ extra=v[BASE_DIM+ncell_here:]
+ for j,c in enumerate([c for c in CHANNELS if c!='bristle_touch']):
+  if j<extra.size:chw[c]=float(np.exp(np.clip(extra[j],-1,1)*np.log(4.0)))
+ st.CONFIG['neural_sensory_channel_weights']=chw
  try:
   _,rows,_=st.trial(folder,np.clip(zp,-1,1),.2)
   assist=dsm.window_metrics(dict(np.load(jp.rc.BASE_BODY)),*jp.ASSIST,'assist')
@@ -113,17 +124,17 @@ def run():
  man=_j.loads((st.B/'RUN/MAPPING.json').read_text())
  sizes=[len(r.get('local_indices') or []) for r in man['rows']]
  ncell=sum(sizes)
- D=BASE_DIM+ncell
+ D=BASE_DIM+ncell+NCH_NEW
  dump(O/'LAYOUT.json',dict(base_dim=BASE_DIM,cell_dim=ncell,total_dim=D,pool_sizes=sizes,
   seed='best recorded 115 dimensional vector, all new cell weights at one so the first evaluation reproduces it',
   sigma=dict(old=SIGMA_OLD,new=SIGMA_NEW),lambda_pop=LAM,mu=MU,generations=GENS,
   note='a weight w_i enters as w_i/sum(w) inside the pool, so the per-actuator gain keeps the overall scale and the new degrees of freedom are purely relative'))
  v0=np.asarray(vec0,float).ravel()
  if v0.size==D:x=v0.copy()
- elif v0.size==BASE_DIM:x=np.concatenate([v0,np.zeros(ncell)])
+ elif v0.size in (BASE_DIM,BASE_DIM+ncell):x=np.concatenate([v0,np.zeros(D-v0.size)])
  else:raise SystemExit(f'unexpected seed size {v0.size}, want {BASE_DIM} or {D}')
  print('seed size %d, cell weights %s'%(x.size,'inherited' if np.any(x[BASE_DIM:]) else 'all one'),flush=True)
- sig=np.concatenate([np.full(BASE_DIM,SIGMA_OLD),np.full(ncell,SIGMA_NEW)])
+ sig=np.concatenate([np.full(BASE_DIM,SIGMA_OLD),np.full(ncell,SIGMA_NEW),np.full(NCH_NEW,SIGMA_NEW)])
  w=np.ones(MU)/MU;hist=[]
  ctx=mp.get_context('spawn');pool=ctx.Pool(4)
  for g in range(GENS):
