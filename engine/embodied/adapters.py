@@ -567,6 +567,15 @@ def build_neural_tier(config: TierConfig | None = None, data_path: str | None = 
             # the motor manifest is built from tier["root_ids"], so it must grow as well
             if "root_ids" in tier or True:
                 tier["root_ids"] = roots_tbl[gi_aug]
+            # The edge builder keeps only rows whose both endpoints are inside the tier, through the
+            # edge level mask.  Without updating it the appended cells stay isolated, which was
+            # measured: nnz did not change at all at the larger size.
+            if "inside_rows" in tier:
+                _pre = np.asarray(a["pre"]); _post = np.asarray(a["post"])
+                _ok = (_pre >= 0) & (_post >= 0)
+                _ins = np.zeros(_pre.shape, dtype=bool)
+                _ins[_ok] = (l2g_aug[_pre[_ok]] >= 0) & (l2g_aug[_post[_ok]] >= 0)
+                tier["inside_rows"] = _ins
             history.append({"iteration": "augment", "appended": int(want.size),
                             "tier_neurons": int(gi_aug.size), "cap_binding": False,
                             "why": "declared append of upstream partners of silent motor cells"})
