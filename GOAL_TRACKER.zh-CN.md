@@ -1,5 +1,14 @@
 # 目标进度与证据追踪
 
+## 用户继续实施（2026-11-06T120000Z）：A1 试完——**只救回1个/8**，按指示转人工读出
+- 起点6412e3f。用户指示"**A1先试试，如果不行就把这些改人工神经网**"。
+- **A1结果**（`data/banc_dataverse/cell_info.parquet` 的 tag 列 + 元数据 join）：BANC 确有**肌肉级运动神经元命名 71 个**，按族×腿（左/右）：promotor 前4/4、中0/0、后0/0；adductor 前1/1、中0/1、后0/2；remotor_abductor 前2/2、中**4/4**、后4/2；sternal_anterior_rotator 前0/2、其余0；sternal_posterior_rotator 前3/2、中1/0、后4/2。
+- **逐个体裁定8个空池执行器**：`LFC/RFC_pleural_promotor` 不可救（前腿promotor细胞已作为 bundle 分给 tergopleural promotor a/b，重复用=重复计数）；`LMC/RMC/LHC/RHC_pleural_promotor` **不可救**（BANC 里中腿与后腿根本没有 promotor 运动神经元）；`LMC_sternal_adductor` **不可救**（左侧无）；**`RMC_pleural_remotor_and_abductor` 可救**（中右确有 4 个 remotor/abductor 神经元，现表因"走侧神经支而非腿神经主干"把它们排除了）。→ **1/8 可救，7/8 是真缺**。
+- **故按指示转人工读出**（`s5-synthetic-readout/20261107T000000Z/`）：引擎 `engine/embodied/motor_output.py` 新增 `synthetic_index/synthetic_sources/synthetic_gain`——空池执行器的指令＝**同腿有驱动执行器平均指令 × 学习到的增益**（8 个参数，exp(z·ln4)∈[0.25,4]）；输入仍只是神经输出，无外部状态、无剧本动作、无时间信号。已单元测试通过（0.5×均值=0.25 正确）。
+- **授权与冲突已申报**：这**违反**"不能用算法代替神经元"的既有规则，属**所有者对这几个执行器的明确授权例外**，所有相关输出必须标注 SYNTHETIC。
+- **必须说明的局限**：占主导的缺口**不是这8个**，而是**18个"有神经元却从不放电"**（LM 8、RH 9）。对它们任何读出都无效——增益把 0 映射成 0。
+- 包：`s5-torque-diagnosis/.../A1_UNASSIGNED_MOTOR_NEURONS.json`。力值SI仍NOT_ESTABLISHED。
+
 ## 发现记录（2026-11-06T090000Z）：**驱动缺口是本项目当前最重要的单一发现**
 - 用户指示"记录下来这个发现"。已建**独立发现文档** `/run/media/sensen/Data2/cell_wound_prototype/FINDINGS_DRIVE_GAP.zh-CN.md`（含全部实测数字与来源）。
 - 核心：神经层**只驱动一条三足组**。A组{LF,RM,LH}全部驱动(14/11/11)；B组{LM,RF,RH}只有RF驱动(14)，**LM与RH各仅3/15**。而LM/RH恰是参考步态最需要力矩的腿(RMS 2.63/4.51)，网络只给0.15/0.18（比值0.06/0.04）。

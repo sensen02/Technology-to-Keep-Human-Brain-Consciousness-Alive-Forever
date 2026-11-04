@@ -84,11 +84,31 @@ class MotorOutputConfig:
     # pool, so the relative contribution of each motor neuron can change instead of only the
     # overall scale. None keeps the previous unweighted mean.
     per_cell_weight: tuple | None = None
+    # SYNTHETIC READOUT, owner authorised. Some muscles have no motor neuron in the source
+    # connectome at all, so their pool is empty and no gain can ever drive them. For those the
+    # command is taken from the mean output of the driven muscles of the same leg, scaled by a
+    # learned gain. This is NOT connectome derived and every output that uses it must say so.
+    synthetic_index: tuple | None = None      # actuator indices that get the synthetic readout
+    synthetic_sources: tuple | None = None    # per entry: the actuator indices averaged for it
+    synthetic_gain: tuple | None = None       # per entry: the learned scale
 
     def validate(self):
-        others = {k: v for k, v in asdict(self).items() if k not in ('per_actuator_gain', 'per_cell_weight')}
+        others = {k: v for k, v in asdict(self).items()
+                  if k not in ('per_actuator_gain', 'per_cell_weight',
+                               'synthetic_index', 'synthetic_sources', 'synthetic_gain')}
         if not all(math.isfinite(x) and x > 0 for x in others.values()):
             raise ValueError('positive finite translation parameters required')
+        si, ss, sg = self.synthetic_index, self.synthetic_sources, self.synthetic_gain
+        if (si is None) != (ss is None) or (si is None) != (sg is None):
+            raise ValueError('synthetic_index, synthetic_sources and synthetic_gain must be given together')
+        if si is not None:
+            if not (len(si) == len(ss) == len(sg)):
+                raise ValueError('synthetic fields must have equal length')
+            for a in si:
+                if not (isinstance(a, (int, np.integer)) or (a is not None)):
+                    raise ValueError('synthetic_index entries must be actuator indices')
+            if any((not math.isfinite(float(x))) or float(x) < 0 for x in sg):
+                raise ValueError('synthetic_gain must be finite and nonnegative')
         w = self.per_cell_weight
         if w is not None:
             if len(w) == 0 or any((not math.isfinite(float(x))) or float(x) < 0 for x in w):
@@ -192,6 +212,13 @@ class MotorOutput:
             if gvec.shape != rate.shape:
                 raise ValueError('per_actuator_gain must have one entry per actuator')
             rate = rate * gvec
+        if self.config.synthetic_index is not None and self.config.synthetic_index:
+            for k, ai in enumerate(self.config.synthetic_index):
+                src = self.config.synthetic_sources[k]
+                if len(src):
+                    rate[int(ai)] = float(self.config.synthetic_gain[k]) * float(np.mean(rate[list(src)]))
+                else:
+                    rate[int(ai)] = 0.0
         ctrl = np.clip(rate, 0, self.config.max_control)
         self.elapsed_s = float(end_s)
         self.interval += 1
