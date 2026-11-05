@@ -1,5 +1,27 @@
 # 目标进度与证据追踪
 
+## 用户裁定"全都做"阶段三第一遍（2026-11-08T300000Z）：**重连网络打不过真实图，且 4 次抽样无一例外**
+- 起点491ba0e。**本遍不训练**：把记录最优的 600 维向量原样放到三张网络上打分。
+- **三臂只在递归矩阵上不同**：A 真实归档 REBUILT；B 度+权重保持重连（Maslov–Sneppen 双边交换）；C 同规模均匀随机、不控度。其余（感觉编码/池/逐细胞读出/增益/替代层/身体/时间步）全同。
+- **对照诚实性已逐细胞验证**：B 的**入度与出度向量 12000 个细胞全部相同（0 个不同）**，边数、权重多重集 sha256 相同；C 有 11,700 左右不同（设计如此）。接受的交换 We 2,089,531 / Wi 1,711,580。
+- **结果**：A=**3.4024**；C 四次均值 3.6121（+0.21）；**B 四次均值 3.7068（+0.30）**。**4 次独立 B 抽样没有一次优于真实图，最小差距 +0.2545 = 时间步带宽(0.0278) 的 9.1 倍**。
+- **机制不是"变安静"**：B 各次尖峰 61k–94k，与真实 71.7k 同量级。行为差异在**非足接触占比 0.6432→0.7366**（身体更多是蹭地而非被腿撑起）、足底项 0.6882→0.7840。
+- **必须同时说的偏差**：固定向量是**在 A 上优化**的，A 有主场优势，所以本遍只能得出"在真实图上拟合的读出迁移不到重连图"，**不能**证明"接线携带任务信息"——那要每臂各自训练到最优，已预登记为第二遍（`PREREGISTRATION_PASS2.json`）。
+- **与外部先验相反**：Fly Dino 的对照测出连接组增益为零；这里相反。差异解释（不宣称谁对）：那边是 2D 游戏+固定解码器+无身体，这里是 90 块肌肉+必须承重的 2.5 毫克身体。
+- **门未过**：三臂 `dynamic_pass` 全 false。真实图只是被比较的几张图里最好的。
+- **本遍修掉两个构建缺陷（均已保留为失败记录）**：①`degree_preserving` 返回 `(pre,post)` 当作 `(row,col)` → 整张图**转置**，入度/出度互换，靠全序列检查才发现；②`continuous_handover.py:31` 对 built edges 又乘 0.2（归档=构建×0.2），把归档矩阵塞进 `built['edges']` 等于**再乘一次 0.2**，导致三臂全挂——改在 `ConductanceNetwork.set_connectivity` 处替换，绕开上游缩放。
+- 包：`/home/sensen/Desktop/engine修复验收/s5-route-b-ablation/20261108T060000Z/`（`ARM_VERIFICATION.json`/`FROZEN_SCORE.json`/`FROZEN_VERDICT.json`/`NSEED_RECORDS.json`/`NSEED_VERDICT.json`/`ARM_VERIFICATION_FIRST_BUILD_DEFECT.json`/`REPORT_PASS1.zh-CN.md`/`PREREGISTRATION_PASS2.json`）。力值SI仍NOT_ESTABLISHED。
+
+## 用户裁定"全都做"阶段一（2026-11-08T260000Z）：**J 是时间步特异的——带宽是单阶段最大增益的 54%**
+- 起点e74c47f。用户选"先补空缺 → 路A → 路B"。
+- **补掉的空缺**：`run_physical_walk_prewarm.py` 调用 `run_neural_continuous` 时不传 `body_dt_s`，护栏默认 1.25e-5，所以神经自主阶段从来只能在单一 dt 上跑。改动：两处调用都传 `body_dt_s=dt`（sha `f3424415…` → `6111a184…`）。**行为保持的证明：参考 dt 逐位复现 J=3.402395132105888**。
+- **结果（五档 dt）**：参考 3.4024（全五档中**最低**）；2.5e-5 → 3.4302（ΔJ **+0.0278**）；5e-5 → 3.4258；1e-4 → 3.4293；2.5e-4 → 3.4138。全部有限、无警告。
+- **裁定：TIMESTEP SPECIFIC**（第一次判成"稳健"是错的，已保留为 `VERDICT_FIRST_PASS.json`）。第一遍阈值误用"累计总增益 0.0868"，太宽松；正确尺子是单阶段增益：**带宽 0.0278 = 单阶段最大增益 0.0517 的 54%**、累计总增益的 32%。
+- **两次探测缺陷已如实保留并更正**：①`RELEASE_NATIVE.npz` 是普通二维数组(16001×20)却按结构化数组索引 `rows['qpos']` → 有限性全判 null → A1 误报 false，已改从 `RUN/BODY.npz` 重测；②A3 尺子用错（把累计值当阶段值进 max）。
+- **关键旁证**：参考 dt 给出最低 J —— 这正是"向量就在该 dt 上优化"的应有表现，因此本扫描**无法区分"物理更好"与"更贴合该 dt"**。
+- **成立/不成立**：同一 dt 内的历史比较**仍然有效**（带宽是共同项）；**跨 dt 比较一律不成立**；约 0.03 以下增益应描述为"落在离散化带宽内"，不得称改进；时间步从此属于**分数身份**的一部分，须与种子一同声明。路A/路B 仍在 1.25e-5 上跑以保持可比。
+- 包：`/home/sensen/Desktop/engine修复验收/s5-neural-dt-sensitivity/20261108T020000Z/`（`VERDICT.json`/`VERDICT_FIRST_PASS.json`/`DT_SWEEP.json`/`PREREGISTRATION.json`/`REPORT.zh-CN.md`）。清理：5×`PREWARM_NEURAL_RECORDS.json`(114MB,可再生)+`CONNECTIVITY_SET`(940K) 已删并记 `CLEANUP_LEDGER.json`，包 179MB→65MB。力值SI仍NOT_ESTABLISHED。
+
 ## 用户提问（2026-11-08T240000Z）：**"像果蝇打游戏那样训一个网络"——核查结论：他们并不训练，而算力从来不是障碍**
 - 起点7f43a9d。用户问"最近有很多果蝇打音游……你也这么做会如何呢"。本轮**只做造价核查，不训练**。
 - **前提纠正（已核实原文）**：viral 的那几个用的都是**固定手写解码器**。Fly64/Mario64 作者原话"These are rules we wrote / no training, reward, or goal"；doomfly README "a fixed neuron-to-button interface"。真正训练读出的（fly-craftax 的 PPO 线性读出、fly-streetfighter 的 ridge、Fly Dino 的 CEM）都是不火项目、都是 reservoir 式；**唯一做正当消融的 Fly Dino 测得连接组增益为零（92.2 vs 92.2 /100）**。且这些演示**没有身体**（Fly64 作者明写"no simulated fly legs or muscles"）。
