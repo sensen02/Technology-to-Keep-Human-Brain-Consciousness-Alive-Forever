@@ -1,5 +1,16 @@
 # 目标进度与证据追踪
 
+## 用户裁定换执行器（2026-11-05T060730Z）：**90肌肉→42理想关节力矩；查出肌肉对这具身体功率不足（最差4.45倍）**
+- 用户原话：**「那就用其他捷径吧，抛弃肌肉直接用关节角度等更容易训练的」**，并要求**在新目录做**。包 `/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/`（14文件，含 MANIFEST_SHA256.json / PLANT_DECISION.json / PREREGISTRATION_NEXT.json / REPORT.zh-CN.md / CLEANUP_LEDGER.json）。**未训练**，本轮只做准备。
+- **外部先例（已核实原文）**：flybody/Vaxenburg 明写缺少测量以致"理想位置或力矩驱动只是便利性选择、可随时重配置"；Wochner《Learning with Muscles》用**上限与肌肉情形最高力矩匹配**的理想力矩做对照；NeuroMechFly 用 Ekeberg 型肌肉、力矩是拮抗肌活动的线性函数（说明肌肉路线本身也是模型假设）。
+- **核心新发现（决定性）**：造两个 plant 并都保留。**肌肉匹配版**（上限=中立姿态下肌肉两向较大者）**撑不住**：能工作的预热在 **31/42 关节**上要求超过它，最大 **4.45 倍**（joint_RMCoxa_yaw 要 12.50 vs 肌肉 2.81）。**辅助匹配版**（上限=预热1.3s内2600采样实际施加的最大总力矩）可用：中位 0.93 倍、最差 3.62 倍、19/42 关节超肌肉。→ **卡住肌肉路线的是肌肉对负载功率不足，不是控制器**；上一轮的10–23%可达性、0.0121余量、0.215重连差距都建立在这个接不住的参考上。
+- **验证（不止看日志）**：派生模型检查全过（nu42/nq49/nv48/nmesh71/质量/时间步/重力/keyframe/每铰链一执行器/ctrlrange 逐项相等）。**零指令对照**：两模型同起 1.3766，50ms 后 0.5753 vs 0.5664，中途 1.039 vs 1.089（被动肌肉力约贡献5%高度差）→ 去掉肌肉没去掉关键支撑。**PD律当关节力矩重放1.3s**：胸廓质心最低 **1.139**（原1.124）、末了高度 1.407（原1.422）、铰链角末了最大 **0.087 rad**（最差 joint_RMTibia_pitch，全程0.145）、水平位移 x差0.45/y差0.28（原运行另吃到肌肉力矩，属预期差异）。
+- **本轮自身缺陷（已改并记录）**：①零指令对照误用 subtree_com[1]（body 1 不是胸部），读数全 0 无意义，已用 `model.body('Thorax').id` 重测并把首次尝试写进 PASSIVE_TORQUE_CHECK.json；②上限包络最初按每10个采样取，漏掉瞬时峰值，改为全部2600采样；③重放脚本曾留未实现的分支与死变量，已删除而非发货。
+- **已预登记下一步（不得事后改）**：读出 `torque_j = g_j·Σ_p s_pj·w_p·rate_p`，池划分与肌肉路线完全相同（66池/204细胞），**符号 s_pj 取自模型自身 actuator_moment 主导方向**（POOL_TO_JOINT.json），w_p、g_j 可学，**无偏置、无姿态参考、无误差反馈**；执行器是理想力矩源，**没有 PD/伺服**（"关节角+PD伺服"那条我不会算作神经直接控制）。三臂：P0 神经→力矩、P1 读出切断（因果对照）、P2 同预算换随机连接组；判据沿用 D1–D8 不降级，工程 E1–E3，因果 C1–C2，时间步固定1.25e-5，评估先按200次上限。
+- **必须随结果说**：assist 匹配版比肌肉强最多 3.62 倍（逐关节比值在 JOINT_PLANT_LIMITS.json）；省掉了被动肌肉力、激活动力学、指令路径力臂几何；**本轮无任何行走结果**，包内运动均来自转录算法。绝对力值SI仍NOT_ESTABLISHED。
+- 清理：删首跑崩溃半成品 `20261105T060730Z_ATTEMPT1_CRASHED/`（枚举名报错中断产物，内容已由 MODEL_JOINT_MUSCLE_MATCHED.xml 完整取代）。账见包内 CLEANUP_LEDGER.json。
+- 核心必需：`MODEL_JOINT_TORQUE.xml`、`MODEL_JOINT_MUSCLE_MATCHED.xml`、`JOINT_PLANT_LIMITS.json`、`POOL_TO_JOINT.json`、`PLANT_DECISION.json`、`PREREGISTRATION_NEXT.json`、`REPORT.zh-CN.md`、`TEACHER_REALIZABILITY.json`、`ASSIST_AUTHORITY_ENVELOPE.json`、`REPLAY/PLANT_REPLAY.json`、`PASSIVE_TORQUE_CHECK.json`、本tracker，及仓库 `tools/set_joint_limits_from_assist.py`；重要辅助：`JOINT_PLANT.json`、`INPUT_HASHES_*`、`tools/build_joint_torque_plant.py`、`tools/verify_joint_plant_replay.py`。
+
 ## S5驱动链诊断完成（本机UTC目录20261105T054144Z）：**辅助走路不是肌肉能实现的，不能当教师目标**
 - 用户"继续实施"后完成。包 `/home/sensen/Desktop/engine修复验收/s5-drive-chain-diagnosis/20261105T054144Z/`（72文件，含 MANIFEST_SHA256.json、PREREGISTRATION.json、REPORT.zh-CN.md、CLEANUP_LEDGER.json）。旧goal仍exhausted（15轮上限未提高），自动续跑未开启。
 - **复现**：`tools/probe_drive_chain.py` 单进程40.1377秒逐位复现 J=**3.3903256705967024**（exact=true），完整最优轨迹重新落盘。跑前跑后历史输入哈希 diff 为空。
