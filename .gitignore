@@ -33,3 +33,39 @@ MUJOCO_LOG.TXT
 *.npy
 *.npz
 *.parquet
+
+# ---- experiment payloads: per-run evidence stays on disk, not in git ----
+# `experiments/` keeps the CODE and the small JSON/markdown evidence.  The following are
+# either reproducible environments, downloaded inputs, trained weights, native-step
+# recordings or nested checkouts; each is cited by absolute path + sha256 inside the run's
+# IDENTITY.json / RESULT.json, so the repository does not need to carry the bytes.
+experiments/**/env/
+experiments/**/.venv/
+experiments/**/.venv*/ 
+experiments/**/node_modules/
+experiments/**/.git/
+# Virtualenv interpreters link to the host python; never archive them.
+experiments/**/env/bin/
+experiments/**/.venv/bin/
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.h5
+*.hdf5
+*.zip
+*.tar
+*.tar.*
+*.zst
+*.7z
+*.mjb
+*.mjbx
+*.so
+*.dylib
+*.a
+# Full 12.5 us native-step streams (GB scale, one directory per recording run).
+experiments/**/native/
+# Downloaded measurement datasets; provenance sidecars keep the hashes.
+references/**/*.zip
+references/**/*.hdf5
+references/**/*.h5
