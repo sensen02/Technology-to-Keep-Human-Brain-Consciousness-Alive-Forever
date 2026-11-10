@@ -2,9 +2,9 @@
 
 本目录是本次已验证行走结果的不可变存档，配套 git 提交与标签：
 
-- 提交链：`037f6bc`（忽略可再生载荷）→ `3667bec`（协议/计划/状态）→ `7e41fa6`（全部实验代码与可读证据）
-- 标签：`walking-verified-20261110`（annotated，已推送）
-- 远端：`github-brain:sensen02/Technology-to-Keep-Human-Brain-Consciousness-Alive-Forever.git`，`main` = `7e41fa626fc8e0857b5323f47d0b8f0a90f6a0f7`
+- 提交链：`037f6bc`（忽略可再生载荷）→ `3667bec`（协议/计划/状态）→ `7e41fa6`（全部实验代码与可读证据）→ `c9f1599`（本存档的README与校验和）
+- 标签：`walking-verified-20261110`（annotated，指向已验证证据提交`7e41fa6`，已推送）
+- 远端：`github-brain:sensen02/Technology-to-Keep-Human-Brain-Consciousness-Alive-Forever.git`；`main` = `c9f1599288b6d385f61227829198d57636daa44f`（`c9f1599`仅新增本目录说明，未改动任何实验证据）
 
 ## 结论与范围
 

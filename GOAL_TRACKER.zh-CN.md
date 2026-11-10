@@ -1,5 +1,12 @@
 # 目标进度与证据追踪
 
+## 已推送与本地存档（2026-11-10）
+
+- 行走验收通过后按用户要求提交并推送：`037f6bc`（.gitignore排除可再生载荷）→`3667bec`（协议/计划/状态文档）→`7e41fa6`（3137个实验代码与可读证据文件）→`c9f1599`（存档说明与校验和）。远端`main`=`c9f1599288b6d385f61227829198d57636daa44f`，annotated标签`walking-verified-20261110`指向已验证证据提交`7e41fa6`，均已推送并用`git ls-remote`复核。
+- 提交范围3142个文本/JSON/脚本文件共220.6MB，最大单文件6.8MB；30GB可再生成负载（每次运行venv、原生12.5µs流、*.pt、HDF5/ZIP数据集）不入库，其绝对路径与SHA-256仍由各IDENTITY.json/RESULT.json引用。第三方official-flybody检出不作为无法解析的gitlink提交。
+- 离线存档`/run/media/sensen/Data2/cell_wound_prototype/archives/20261110-walking-verified/`：`01-weights-and-evidence.tar.zst`（126MB，65成员，含2500/3000权重、最终合取、原生审计、两扰动、同次视频、脚本与冻结评估器、编译XML）、`02-native-2500.tar.zst`（6.12GB，603成员，完整602块原生流）、`SHA256SUMS.txt`、`README.md`。两个归档`zstd -t`与`sha256sum -c`均通过；tar包本身按`.gitignore`保留在本地，仅README与校验和入库。
+- 未改动任何实验证据、阈值或历史哈希；工作树干净。
+
 ## 本次限定替代ANN全身物理行走实施验收通过（2026-11-10，S2/S5）
 
 - 最新权威入口 `/run/media/sensen/Data2/cell_wound_prototype/WALKING_CURRENT_STATE.json`；最终报告 `/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/ROUND5_PROGRESS.zh-CN.md`；独立最终合取 `/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/FINAL_ACCEPTANCE.json`=PASS。下方“正在运行/失败/待确认”块为当时历史，当前全部工作结束。
