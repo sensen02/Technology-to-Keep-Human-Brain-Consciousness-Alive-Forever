@@ -1,0 +1,126 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/cycle_ff238_3u/final.pt",
+  "checkpoint_sha256": "34b34781979b774d5446ce92d753c1b77a8a2f092ddf650148c94a7654dee295",
+  "evaluation": {
+    "native_steps": 320000,
+    "sample_count": 4000,
+    "duration_s": 3.9989999999923453,
+    "forward_speed_native_per_s": 0.11580125366585003,
+    "forward_signed_native_per_s": 0.11480765891865427,
+    "lateral_speed_native_per_s": 0.015137100257331077,
+    "foot_support_mean": 1.000061389782194,
+    "foot_support_min": 0.5627799905780082,
+    "nonfoot_force_max_W": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "com_height_min": 1.2598587045255536,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.1341093397355397,
+      "LH": 1.1549908187784856,
+      "LM": 1.305890599283796,
+      "RF": 1.0578061703211885,
+      "RH": 1.0756780034501703,
+      "RM": 1.2790082374149503
+    },
+    "slip_ratio_max": 1.305890599283796,
+    "slip_ratio_mean": 1.167913861497355,
+    "com_start": 1.446164815393352,
+    "com_end": 1.2598587045255536,
+    "com_xy_travel": 0.46308921340884784,
+    "slip_load_denominator_native": [
+      12532.92795715873,
+      22258.318460168586,
+      15837.902263470929,
+      15093.322644055472,
+      15933.640176422765,
+      16135.310547811054
+    ],
+    "slip_valid_per_leg": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slip_has_progress": true,
+    "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+    "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+    "sample_dt_s": 0.0009999999999976694,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": true,
+      "forward": true,
+      "slip": false
+    },
+    "all_gates": false,
+    "initial_heading_diagnostics": {
+      "status": "MEASURED",
+      "forward_signed_native_per_s": 0.11480765891865427,
+      "lateral_signed_native_per_s": 0.015137100257331077,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ],
+      "gate_applied": false
+    },
+    "native_peak_summary": null,
+    "roadmap_D1_D8": {
+      "D1": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D2": {
+        "status": "UNKNOWN",
+        "reason": "native low-pass acceleration and autonomous window not supplied"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D4": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D4b": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D6": {
+        "status": "UNKNOWN",
+        "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "reason": "native window and loading-leg threshold absent"
+      },
+      "D8": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      }
+    },
+    "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+    "cycle_evidence": {
+      "per_leg_complete": {
+        "LF": 0,
+        "LH": 0,
+        "LM": 0,
+        "RF": 0,
+        "RH": 0,
+        "RM": 0
+      },
+      "events": [],
+      "scope": "measured curriculum proxy; no generated actions, not original final walking proof"
+    },
+    "wall_s": 43.61548336298438,
+    "decision_ms": 5,
+    "target_speed": 0.1,
+    "adhesion_enabled": false,
+    "evaluation_scope": "derived engineering; no continuous prewarm handover; original acceptance unverified"
+  }
+}

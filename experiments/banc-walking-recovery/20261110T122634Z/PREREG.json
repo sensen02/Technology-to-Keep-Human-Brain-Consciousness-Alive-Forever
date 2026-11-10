@@ -1,0 +1,14 @@
+{
+ "version":"physical-slip-PPO-prefix-mask-v1-preparation",
+ "goal":"S2/S5 directphysicalrewardrefinement ifsame-taskBC1000stillfailsfoot-slip",
+ "conditional":"implementationandnumericalchecksonlywhile120531exactBCcontinuationruns; startreal3updatepilotONLYifBCfinalnotfullypassing, parentexplicitlyselectcheckpoint",
+ "architecture":"sameSlowGRUv1targetpositionfeedback/body/senses; model-onlyBC->freshindependentPPOAdam, initialstochasticstd.02/logstdbounds[-5,.3]declaredexplorationstage, deterministicmeanunchanged initially. Noauxrolehead indeployment orPPOactiongeneration",
+ "history":"Corephysicalreset/1szerosettle(noactorforward)/4.8sactualteacherprefix actorobserveprimedhidden/fullobsstored then6sANNsampling. Prefix learn_mask0, autonomous1. Prefixactorcounterfactual meansnotexecuted, teacheractualcommandsstored separately. FullcurrentnetworkBPTTfromzero throughprefix, ONLYANN actor/critic/KL/advnorm/samplecounts learn. Neverteacher.action afterprefix",
+ "PPO":"3updates1fullautonomous6sepisodeperupdate, gammaexp(-.005), gae_lambdaexp(-.005/.2),clip.1,actorLR3e-5/critic1e-4,4epochs,maxnorm.5,jointKL.03,exactbothAdam/model/counterrollback andhalfLRbacktracks. Nohiddenburn-inapproximation",
+ "reward":"eachactual1msrate:3*v/.075-10*((v-.075)/.075)^2-2*sum((loads/W)*(foot_speed/.075)^2)-10*(max(0,1.2-COMz)/.1)^2-10*nonfoot/W-10*(max(0,.9-footload/W)/.1)^2-.002mean(a²)-.01mean(((a-prev_decision_a)/.1)^2). Integrate.001 at5msboundary. SignedheadingCOMvelocity, noslipratio-achievedspeeddenominator, no perlegphase orscriptedactions/rewardtrickacceptancechange",
+ "failure":"physicalterminationCOM<1.1/nonfoot>.2W/nonfinite, recordactualfailedprefix; TOTALrewardrate floor−100 explicit (rawallcomponents/rate andfloorfractionrecorded, no persliphiddenclip). Addlastreward discountedremainingworst-rate−100 absorption scalar, nofakephysicalstates/policygradfuture. Horizontruncationusesactualsuccessorcriticvalue,termnextvalue0. Strictworst-continuationargumentappliesflooredobjective,notunboundedrawrate.",
+ "physical":"samefull71meshbody/noadh/finitePD2rad/s/torque/gravity/friction/native12.5us1ms; no rootwrites/forceassist",
+ "checks":"actualmaskedPPOlossgradactor/gain/logstd/critic,onlyautoadvnorm/KL/counts,fullprefixhistorygrad/replay,GAEterminal/truncbootstrap,model+bothAdam/countersrollback/NaN,bootstrapnohiddenadvance,rewarddt/absorption,mockboundaryteacherqueryzeroafterwithdrawal,loadercompatiblecheckpoints",
+ "record":"perupdateepisodeNNlatent/logp/means/rawobs/source/actualstate/rewardcomponents+termination,actor/critic counters/KL/retry/sourceidentity; eachupdatecheckpoint/finalfullRNG; nohighscorefailedmodeloverride. EvaluationseparatepureNNsamestandardprotocol",
+ "scope":"preparedphysical-learningstep, notoriginalcompletegoalorbodyinfeasibilityclaim"
+}

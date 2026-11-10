@@ -1,0 +1,114 @@
+{
+  "status": "PASS_NO_PHYSICAL_TRIALS",
+  "checks_passed": 24,
+  "checks": [
+    {
+      "name": "prereg_parse",
+      "passed": true
+    },
+    {
+      "name": "primary_newhistory_not_present",
+      "passed": true
+    },
+    {
+      "name": "software_exception_abort_text",
+      "passed": true
+    },
+    {
+      "name": "heading_unit",
+      "passed": true
+    },
+    {
+      "name": "degenerate_heading_rejected",
+      "passed": true
+    },
+    {
+      "name": "cycle_proxy_exact_one_leg",
+      "passed": true
+    },
+    {
+      "name": "ambiguous_cycle_never_advances",
+      "passed": true
+    },
+    {
+      "name": "synthetic_score_finite",
+      "passed": true
+    },
+    {
+      "name": "reward_cycle_term",
+      "passed": true
+    },
+    {
+      "name": "candidate_shape_order",
+      "passed": true
+    },
+    {
+      "name": "candidate_bounds",
+      "passed": true
+    },
+    {
+      "name": "feasible_first_elites",
+      "passed": true
+    },
+    {
+      "name": "incumbent_strict_feasible_best",
+      "passed": true
+    },
+    {
+      "name": "incumbent_preserved_when_no_improvement",
+      "passed": true
+    },
+    {
+      "name": "syntax_scoring.py",
+      "passed": true
+    },
+    {
+      "name": "syntax_search_rules.py",
+      "passed": true
+    },
+    {
+      "name": "syntax_episode.py",
+      "passed": true
+    },
+    {
+      "name": "syntax_optimize.py",
+      "passed": true
+    },
+    {
+      "name": "physical_invalid_only_candidate_exception",
+      "passed": true
+    },
+    {
+      "name": "written_contact_rows_only",
+      "passed": true
+    },
+    {
+      "name": "explicit_start_gate",
+      "passed": true
+    },
+    {
+      "name": "no_automatic_trial",
+      "passed": true
+    },
+    {
+      "name": "openblas_gate",
+      "passed": true
+    },
+    {
+      "name": "no_physics_modules_imported",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "PREREG.json": "cdf29ba42d7e1e63c336a0ea4c7f35715c818641cc4ed4c7eafab0d2b80e4154",
+    "scoring.py": "4f70fff190a03ae2895c1df8ca5ded13a16f9751c43562a6a49337fe278442e3",
+    "search_rules.py": "dfc05c995f2cf346b7926c93474a225fd15135f8d955135afbf4cd792640f291",
+    "episode.py": "f81f2228652fc7bf5f11ebef796f37ddf8c968ce1205202e12506adea6a7474a",
+    "optimize.py": "0215583bf76e20315e9af67f0e7f19afc6f94a08191c52cf41e42431a62f0632",
+    "verify_pretrial.py": "a09be08a2c36bf2d4e009c5bae2252f63ac525d60d0260501178e69d411d07ed"
+  },
+  "physical_steps": 0,
+  "neural_steps": 0,
+  "fit_solves": 0,
+  "scope": "Pure pretrial verification only; parent start authorization remains required"
+}

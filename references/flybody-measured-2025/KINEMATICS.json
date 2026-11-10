@@ -1,0 +1,1859 @@
+{
+  "label": "real_keypoint_fitted_reference",
+  "goal_stage": "S2/S5 real-reference kinematic analysis only",
+  "source": {
+    "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+    "official_code": "https://github.com/TuragaLab/flybody",
+    "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+    "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+    "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+    "archive_md5": "de7d5367850430adbe03a3783967c712",
+    "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+    "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+  },
+  "units_frames": {
+    "length": "cm",
+    "time": "s",
+    "joint_angle": "rad",
+    "joint_velocity": "rad/s",
+    "gravity_native": [
+      0.0,
+      0.0,
+      -981.0
+    ],
+    "quaternion": "wxyz, Hamilton active root-local to world rotation",
+    "root2site": "root-local displacement; world_site=root_xyz+R(root_wxyz)*root2site",
+    "forward": "initial root +X projected onto world XY and normalized; signed",
+    "source_evidence": [
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody/flybody/tasks/trajectory_loaders.py",
+        "lines": "241-253: root_qpos is concatenated unchanged; only initial root XY subtracted"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody/flybody/tasks/rewards.py",
+        "lines": "40-43,68-77: egocentric vectors compared to dataset root2site"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody/flybody/quaternions.py",
+        "lines": "20-35,114-168: scalar-first quaternion and local/world transform"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody/flybody/fruitfly/assets/fruitfly.xml",
+        "lines": "2-4: radians and gravity 0 0 -981; positive root X front leg anchors at 460 versus hind at 640"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody/flybody/tasks/arenas/hills.py",
+        "lines": "98-99: arena length explicitly in cm"
+      }
+    ],
+    "caveat": "HDF5 does not itself provide unit attributes; cm is established by official loader/asset contract and explicit arena cm documentation, not by foot-scale guessing."
+  },
+  "schema": {
+    "trajectories": 100,
+    "timestep_seconds": 0.002,
+    "qpos_columns": 102,
+    "site_order": [
+      "claw_T1_right",
+      "claw_T2_right",
+      "claw_T3_right",
+      "claw_T3_left",
+      "claw_T2_left",
+      "claw_T1_left"
+    ],
+    "leg_order": [
+      "RF",
+      "RM",
+      "RH",
+      "LH",
+      "LM",
+      "LF"
+    ],
+    "duration_definition": "(sample_count-1)*dt; excludes fictitious last interval"
+  },
+  "selection": {
+    "method": "Search full snippets of endpoint duration 0.5..1.0 s and 0.6 s windows every 25 samples plus final window; require positive forward >0.1 cm, yaw range <=10 deg, abs lateral/forward <=0.15 and >=2 complete swing-peak intervals on every leg. Rank net_forward/(1+4*lateral_ratio+yaw_range_deg/10)*min(1,min_cycles/3).",
+    "candidates": 495,
+    "eligible": 54,
+    "selected": {
+      "trajectory_id": "054",
+      "start_index": 50,
+      "end_index_exclusive": 351,
+      "eligible": true,
+      "score": 0.7178478770731659,
+      "complete_peak_intervals_per_leg": [
+        6,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "duration_s": 0.6,
+      "sample_count": 301,
+      "net_forward_cm": 1.277296338654113,
+      "net_lateral_cm": 0.004335998279179136,
+      "lateral_to_forward_ratio": 0.0033946689957226194,
+      "yaw_range_deg": 7.657625736728858,
+      "yaw_net_deg": 1.3618030271678618,
+      "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+      "horizontal_speed_cm_s": {
+        "min": 0.9097949862480164,
+        "median": 2.070589542388916,
+        "p95": 3.9522424578666686,
+        "p99": 4.694579324722287,
+        "max": 4.982871055603027
+      },
+      "backward_velocity_fraction": 0.0
+    },
+    "top10": [
+      {
+        "trajectory_id": "054",
+        "start_index": 50,
+        "end_index_exclusive": 351,
+        "eligible": true,
+        "score": 0.7178478770731659,
+        "complete_peak_intervals_per_leg": [
+          6,
+          6,
+          5,
+          6,
+          5,
+          6
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 1.277296338654113,
+        "net_lateral_cm": 0.004335998279179136,
+        "lateral_to_forward_ratio": 0.0033946689957226194,
+        "yaw_range_deg": 7.657625736728858,
+        "yaw_net_deg": 1.3618030271678618,
+        "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+        "horizontal_speed_cm_s": {
+          "min": 0.9097949862480164,
+          "median": 2.070589542388916,
+          "p95": 3.9522424578666686,
+          "p99": 4.694579324722287,
+          "max": 4.982871055603027
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "063",
+        "start_index": 50,
+        "end_index_exclusive": 351,
+        "eligible": true,
+        "score": 0.6497482260062534,
+        "complete_peak_intervals_per_leg": [
+          4,
+          5,
+          4,
+          5,
+          4,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 1.0003129794148176,
+        "net_lateral_cm": 0.01795026535518452,
+        "lateral_to_forward_ratio": 0.017944649049425925,
+        "yaw_range_deg": 4.677607813291081,
+        "yaw_net_deg": -1.6001594668742272,
+        "mean_signed_forward_speed_cm_s": 1.667188299024696,
+        "horizontal_speed_cm_s": {
+          "min": 0.8395985960960388,
+          "median": 1.5436475276947021,
+          "p95": 2.53691999912262,
+          "p99": 3.7499245572090145,
+          "max": 3.970994472503662
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "063",
+        "start_index": 75,
+        "end_index_exclusive": 376,
+        "eligible": true,
+        "score": 0.624344557097271,
+        "complete_peak_intervals_per_leg": [
+          4,
+          4,
+          4,
+          4,
+          5,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 0.8871373156281421,
+        "net_lateral_cm": -0.010275150628716267,
+        "lateral_to_forward_ratio": 0.011582367743646195,
+        "yaw_range_deg": 3.7458035444722766,
+        "yaw_net_deg": -1.2685574467877996,
+        "mean_signed_forward_speed_cm_s": 1.4785621927135704,
+        "horizontal_speed_cm_s": {
+          "min": 0.3156197667121887,
+          "median": 1.4300200939178467,
+          "p95": 2.2847740173339846,
+          "p99": 2.5090002632141113,
+          "max": 2.6028614044189453
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "063",
+        "start_index": 25,
+        "end_index_exclusive": 326,
+        "eligible": true,
+        "score": 0.622590937504798,
+        "complete_peak_intervals_per_leg": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 1.065884694733236,
+        "net_lateral_cm": 0.06508656745363205,
+        "lateral_to_forward_ratio": 0.06106342250267658,
+        "yaw_range_deg": 4.677607813291081,
+        "yaw_net_deg": -0.3151282560230014,
+        "mean_signed_forward_speed_cm_s": 1.7764744912220602,
+        "horizontal_speed_cm_s": {
+          "min": 0.9232191443443298,
+          "median": 1.6871650218963623,
+          "p95": 2.9367675304412844,
+          "p99": 3.7499245572090145,
+          "max": 3.970994472503662
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "049",
+        "start_index": 0,
+        "end_index_exclusive": 300,
+        "eligible": true,
+        "score": 0.6210385055287182,
+        "complete_peak_intervals_per_leg": [
+          6,
+          5,
+          5,
+          6,
+          5,
+          6
+        ],
+        "duration_s": 0.598,
+        "sample_count": 300,
+        "net_forward_cm": 1.2749085572689707,
+        "net_lateral_cm": -0.09265375875472492,
+        "lateral_to_forward_ratio": 0.07267482693284451,
+        "yaw_range_deg": 7.621662487828405,
+        "yaw_net_deg": -7.621662487828405,
+        "mean_signed_forward_speed_cm_s": 2.131954109145436,
+        "horizontal_speed_cm_s": {
+          "min": 1.0699186325073242,
+          "median": 2.170384645462036,
+          "p95": 3.0833165407180783,
+          "p99": 3.1854525852203315,
+          "max": 3.6118342876434326
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "082",
+        "start_index": 495,
+        "end_index_exclusive": 796,
+        "eligible": true,
+        "score": 0.5876574487302464,
+        "complete_peak_intervals_per_leg": [
+          5,
+          4,
+          5,
+          4,
+          5,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 1.0642646378219782,
+        "net_lateral_cm": 0.09741711194296514,
+        "lateral_to_forward_ratio": 0.09153466955580676,
+        "yaw_range_deg": 4.448902470827293,
+        "yaw_net_deg": 0.48804019514115704,
+        "mean_signed_forward_speed_cm_s": 1.7737743963699637,
+        "horizontal_speed_cm_s": {
+          "min": 0.20125292241573334,
+          "median": 1.8097591400146484,
+          "p95": 2.4901930451393133,
+          "p99": 2.76656411409378,
+          "max": 2.8621103763580322
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "063",
+        "start_index": 89,
+        "end_index_exclusive": 390,
+        "eligible": true,
+        "score": 0.5598320484252671,
+        "complete_peak_intervals_per_leg": [
+          4,
+          4,
+          3,
+          4,
+          4,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 0.8354637903289612,
+        "net_lateral_cm": 0.02459748393612116,
+        "lateral_to_forward_ratio": 0.02944171156291044,
+        "yaw_range_deg": 3.7458035444722766,
+        "yaw_net_deg": 1.0618814392835492,
+        "mean_signed_forward_speed_cm_s": 1.3924396505482688,
+        "horizontal_speed_cm_s": {
+          "min": 0.3156197667121887,
+          "median": 1.3805017471313477,
+          "p95": 2.231406140327454,
+          "p99": 2.385250906944275,
+          "max": 2.5087387561798096
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "078",
+        "start_index": 0,
+        "end_index_exclusive": 260,
+        "eligible": true,
+        "score": 0.5553369876630787,
+        "complete_peak_intervals_per_leg": [
+          3,
+          4,
+          4,
+          4,
+          3,
+          4
+        ],
+        "duration_s": 0.518,
+        "sample_count": 260,
+        "net_forward_cm": 0.8804546651183286,
+        "net_lateral_cm": -0.04004361274666702,
+        "lateral_to_forward_ratio": 0.045480607160262324,
+        "yaw_range_deg": 4.0351971671898195,
+        "yaw_net_deg": -3.0652553921280457,
+        "mean_signed_forward_speed_cm_s": 1.699719430730364,
+        "horizontal_speed_cm_s": {
+          "min": 0.06408141553401947,
+          "median": 1.678758144378662,
+          "p95": 2.903623247146606,
+          "p99": 3.2596361398696865,
+          "max": 3.4675536155700684
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "046",
+        "start_index": 50,
+        "end_index_exclusive": 351,
+        "eligible": true,
+        "score": 0.5541720303854127,
+        "complete_peak_intervals_per_leg": [
+          5,
+          5,
+          6,
+          5,
+          6,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 1.3009853386858392,
+        "net_lateral_cm": -0.16964774579164765,
+        "lateral_to_forward_ratio": 0.1303994293763629,
+        "yaw_range_deg": 8.260222765621604,
+        "yaw_net_deg": -4.477654791178485,
+        "mean_signed_forward_speed_cm_s": 2.168308897809732,
+        "horizontal_speed_cm_s": {
+          "min": 0.5926740169525146,
+          "median": 2.2533483505249023,
+          "p95": 3.5441280961036683,
+          "p99": 3.7201448082923854,
+          "max": 4.119290828704834
+        },
+        "backward_velocity_fraction": 0.0
+      },
+      {
+        "trajectory_id": "042",
+        "start_index": 100,
+        "end_index_exclusive": 401,
+        "eligible": true,
+        "score": 0.5066357020180424,
+        "complete_peak_intervals_per_leg": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          5
+        ],
+        "duration_s": 0.6,
+        "sample_count": 301,
+        "net_forward_cm": 0.9720547910839736,
+        "net_lateral_cm": -0.0318619564667413,
+        "lateral_to_forward_ratio": 0.032777942929750774,
+        "yaw_range_deg": 7.875346782095425,
+        "yaw_net_deg": -4.834524009342458,
+        "mean_signed_forward_speed_cm_s": 1.6200913184732895,
+        "horizontal_speed_cm_s": {
+          "min": 0.001707077375613153,
+          "median": 1.726140022277832,
+          "p95": 2.733314895629883,
+          "p99": 2.9900042152404787,
+          "max": 3.0474743843078613
+        },
+        "backward_velocity_fraction": 0.013333333333333334
+      }
+    ]
+  },
+  "verification": {
+    "hdf5_sha256_verified": true,
+    "max_quaternion_norm_error": 5.960464477539063e-08,
+    "official_world_transform_max_abs_error_cm": 1.1920928955078125e-07,
+    "official_inverse_roundtrip_max_abs_error_cm": 1.1920928955078125e-07,
+    "selected_qvel_vs_central_qpos_derivative_abs_error_rad_s": {
+      "min": 6.61611557006836e-05,
+      "median": 0.5324113368988037,
+      "p95": 7.806125879287681,
+      "p99": 21.00704204559328,
+      "max": 62.695499420166016
+    },
+    "selected_qvel_derivative_correlation": 0.9673662479055358,
+    "root_linear_qvel_vs_world_position_derivative_abs_error_cm_s": {
+      "min": 1.3709068298339844e-05,
+      "median": 0.0076999664306640625,
+      "p95": 0.14691048860549927,
+      "p99": 0.2735441505908967,
+      "max": 0.5078263282775879
+    },
+    "note": "Derivative comparison is diagnostic; native qvel is retained unchanged. Transform roundtrip verifies implementation against official convention, not independent reconstruction of experimental ground truth."
+  },
+  "foot_analysis": {
+    "method": "Cadence and signed stride use consecutive smoothed height swing maxima. Five-sample smoothing, >=35 ms separation, local prominence >=max(0.003 cm,0.20*(P95-P05)), +/-40 ms neighborhood. Stride is world XY displacement projected on initial forward; no root-relative displacement substitution.",
+    "inferred_plane": {
+      "equation": "z=a*x+b*y+c in cm; perpendicular signed distance retained, including negative residuals",
+      "abc": [
+        -0.000555380502990971,
+        -0.0009203894078543347,
+        0.002762689619851826
+      ],
+      "low_point_fit_rmse_cm": 0.0013426518445678074,
+      "method": "Least-squares fit to each leg lowest 20% world-z samples; inferred lower envelope, not measured ground. Clearance peak-to-trough also reported to reduce plane-offset dependence."
+    },
+    "stance_candidate": {
+      "height_band_cm": [
+        -0.005,
+        0.005
+      ],
+      "max_world_speed_cm_s": 0.8515308924360755,
+      "rule": "abs(height)<=0.005 cm AND world foot speed <= max(0.1,0.4*mean signed root forward speed) cm/s",
+      "caution": "Kinematic near-plane low-speed candidate only; not measured contact, force, load, support, adhesion, friction or no-slip verification."
+    },
+    "per_leg": {
+      "RF": {
+        "site": "claw_T1_right",
+        "swing_peak_sample_indices": [
+          39,
+          67,
+          97,
+          130,
+          172,
+          214,
+          254
+        ],
+        "complete_peak_intervals": 6,
+        "periods_s": [
+          0.056,
+          0.06,
+          0.066,
+          0.084,
+          0.084,
+          0.08
+        ],
+        "cadence_hz": {
+          "min": 11.904761904761903,
+          "median": 13.825757575757574,
+          "p95": 17.55952380952381,
+          "p99": 17.797619047619047,
+          "max": 17.857142857142858
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.052836592601296695,
+          "median": 0.17506448601616448,
+          "p95": 0.20689563284659188,
+          "p99": 0.2140065157308873,
+          "max": 0.21578423645196115
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.08329469710588455,
+          "median": 0.08405166119337082,
+          "p95": 0.084334846585989,
+          "p99": 0.08434099480509757,
+          "max": 0.08434253185987473
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": 0.0012015944812446833,
+          "median": 0.0026664973702281713,
+          "p95": 0.0849556252360344,
+          "p99": 0.08576888591051102,
+          "max": 0.08593860268592834
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.041628651320934296,
+          "median": 0.08576888591051102,
+          "p95": 0.0859030656516552,
+          "p99": 0.08593149527907372,
+          "max": 0.08593860268592834
+        },
+        "near_plane_low_speed_candidate_fraction": 0.4219269102990033,
+        "world_foot_speed_cm_s": {
+          "min": 0.03717763349413872,
+          "median": 2.9987072944641113,
+          "p95": 7.9726948738098145,
+          "p99": 9.674356460571289,
+          "max": 10.416756629943848
+        }
+      },
+      "RM": {
+        "site": "claw_T2_right",
+        "swing_peak_sample_indices": [
+          15,
+          78,
+          124,
+          154,
+          201,
+          244,
+          285
+        ],
+        "complete_peak_intervals": 6,
+        "periods_s": [
+          0.126,
+          0.092,
+          0.06,
+          0.094,
+          0.08600000000000001,
+          0.082
+        ],
+        "cadence_hz": {
+          "min": 7.936507936507937,
+          "median": 11.248736097067745,
+          "p95": 15.54878048780488,
+          "p99": 16.44308943089431,
+          "max": 16.666666666666668
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.15407321253244516,
+          "median": 0.19254877138961773,
+          "p95": 0.25722188736682855,
+          "p99": 0.26840201932258034,
+          "max": 0.2711970523115183
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.04216154292225838,
+          "median": 0.04251505248248577,
+          "p95": 0.045936478301882744,
+          "p99": 0.0459485974162817,
+          "max": 0.04595162719488144
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": -0.0008645383059047163,
+          "median": 0.00020051293540745974,
+          "p95": 0.04143847897648811,
+          "p99": 0.04510056972503662,
+          "max": 0.04606126621365547
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.038742173463106155,
+          "median": 0.04163964092731476,
+          "p95": 0.0459684181958437,
+          "p99": 0.046042696610093116,
+          "max": 0.04606126621365547
+        },
+        "near_plane_low_speed_candidate_fraction": 0.6179401993355482,
+        "world_foot_speed_cm_s": {
+          "min": 0.011417979374527931,
+          "median": 0.4545002579689026,
+          "p95": 10.571470260620117,
+          "p99": 12.748189926147461,
+          "max": 14.251053810119629
+        }
+      },
+      "RH": {
+        "site": "claw_T3_right",
+        "swing_peak_sample_indices": [
+          53,
+          105,
+          139,
+          182,
+          226,
+          264
+        ],
+        "complete_peak_intervals": 5,
+        "periods_s": [
+          0.10400000000000001,
+          0.068,
+          0.08600000000000001,
+          0.088,
+          0.076
+        ],
+        "cadence_hz": {
+          "min": 9.615384615384615,
+          "median": 11.627906976744185,
+          "p95": 14.396284829721361,
+          "p99": 14.643962848297212,
+          "max": 14.705882352941176
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.1585654540013138,
+          "median": 0.18985901262776997,
+          "p95": 0.24294781525689635,
+          "p99": 0.2501583778683552,
+          "max": 0.25196101852121994
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.04964630678296089,
+          "median": 0.049678266048431396,
+          "p95": 0.049745988100767136,
+          "p99": 0.049759235233068466,
+          "max": 0.0497625470161438
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": -0.002066567074507475,
+          "median": -0.0007976500783115625,
+          "p95": 0.04698491841554642,
+          "p99": 0.048205502331256866,
+          "max": 0.048607487231492996
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.047460537403821945,
+          "median": 0.04801514372229576,
+          "p95": 0.04854738339781761,
+          "p99": 0.04859546646475792,
+          "max": 0.048607487231492996
+        },
+        "near_plane_low_speed_candidate_fraction": 0.5514950166112956,
+        "world_foot_speed_cm_s": {
+          "min": 0.043551038950681686,
+          "median": 0.6097108125686646,
+          "p95": 8.929633140563965,
+          "p99": 11.564064025878906,
+          "max": 12.195893287658691
+        }
+      },
+      "LH": {
+        "site": "claw_T3_left",
+        "swing_peak_sample_indices": [
+          23,
+          83,
+          122,
+          157,
+          206,
+          246,
+          287
+        ],
+        "complete_peak_intervals": 6,
+        "periods_s": [
+          0.12,
+          0.078,
+          0.07,
+          0.098,
+          0.08,
+          0.082
+        ],
+        "cadence_hz": {
+          "min": 8.333333333333334,
+          "median": 12.347560975609756,
+          "p95": 13.91941391941392,
+          "p99": 14.212454212454212,
+          "max": 14.285714285714285
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.1510258297580413,
+          "median": 0.18707811967067767,
+          "p95": 0.2302855023588026,
+          "p99": 0.23107773134377252,
+          "max": 0.231275788590015
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.04969784989953041,
+          "median": 0.04974466189742088,
+          "p95": 0.049919044598937035,
+          "p99": 0.049925674125552176,
+          "max": 0.04992733150720596
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": -0.0018458951963111758,
+          "median": 0.0003786867018789053,
+          "p95": 0.04724717140197754,
+          "p99": 0.04861188307404518,
+          "max": 0.04876808077096939
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.047566961497068405,
+          "median": 0.04837319999933243,
+          "p95": 0.04872233904898167,
+          "p99": 0.048758932426571845,
+          "max": 0.04876808077096939
+        },
+        "near_plane_low_speed_candidate_fraction": 0.5116279069767442,
+        "world_foot_speed_cm_s": {
+          "min": 0.055215708911418915,
+          "median": 0.7904682755470276,
+          "p95": 8.372161865234375,
+          "p99": 10.638006210327148,
+          "max": 12.511187553405762
+        }
+      },
+      "LM": {
+        "site": "claw_T2_left",
+        "swing_peak_sample_indices": [
+          52,
+          104,
+          137,
+          181,
+          225,
+          266
+        ],
+        "complete_peak_intervals": 5,
+        "periods_s": [
+          0.10400000000000001,
+          0.066,
+          0.088,
+          0.088,
+          0.082
+        ],
+        "cadence_hz": {
+          "min": 9.615384615384615,
+          "median": 11.363636363636365,
+          "p95": 14.560236511456022,
+          "p99": 15.033259423503324,
+          "max": 15.15151515151515
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.18900477306596705,
+          "median": 0.20014474978321717,
+          "p95": 0.221760507514668,
+          "p99": 0.22441228130285382,
+          "max": 0.22507522474990027
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.04208138585090637,
+          "median": 0.04224323108792305,
+          "p95": 0.04541253298521042,
+          "p99": 0.04542268067598343,
+          "max": 0.04542521759867668
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": -0.001032517640851438,
+          "median": -3.581724740797654e-05,
+          "p95": 0.040965914726257324,
+          "p99": 0.044413987547159195,
+          "max": 0.045326437801122665
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.038901928812265396,
+          "median": 0.04169215261936188,
+          "p95": 0.04512376710772514,
+          "p99": 0.04528590366244316,
+          "max": 0.045326437801122665
+        },
+        "near_plane_low_speed_candidate_fraction": 0.6710963455149501,
+        "world_foot_speed_cm_s": {
+          "min": 0.026294846087694168,
+          "median": 0.2652166187763214,
+          "p95": 10.164082527160645,
+          "p99": 11.694714546203613,
+          "max": 16.6085205078125
+        }
+      },
+      "LF": {
+        "site": "claw_T1_left",
+        "swing_peak_sample_indices": [
+          9,
+          73,
+          118,
+          152,
+          199,
+          240,
+          283
+        ],
+        "complete_peak_intervals": 6,
+        "periods_s": [
+          0.128,
+          0.09,
+          0.068,
+          0.094,
+          0.082,
+          0.08600000000000001
+        ],
+        "cadence_hz": {
+          "min": 7.8125,
+          "median": 11.369509043927648,
+          "p95": 14.07819225251076,
+          "p99": 14.580344332855093,
+          "max": 14.705882352941176
+        },
+        "signed_peak_to_peak_stride_cm": {
+          "min": 0.1722372939150321,
+          "median": 0.19473209580023165,
+          "p95": 0.21402393717403312,
+          "p99": 0.2175161458591784,
+          "max": 0.2183891980304647
+        },
+        "clearance_peak_to_trough_cm": {
+          "min": 0.08301394432783127,
+          "median": 0.08347417414188385,
+          "p95": 0.08367997594177723,
+          "p99": 0.08370974101126194,
+          "max": 0.08371718227863312
+        },
+        "signed_height_above_inferred_plane_cm": {
+          "min": 0.0009597813477739692,
+          "median": 0.002160549396649003,
+          "p95": 0.08313272893428802,
+          "p99": 0.08484489470720291,
+          "max": 0.08511245995759964
+        },
+        "swing_peak_height_above_inferred_plane_cm": {
+          "min": 0.08445964008569717,
+          "median": 0.08484489470720291,
+          "p95": 0.0850850522518158,
+          "p99": 0.08510697841644287,
+          "max": 0.08511245995759964
+        },
+        "near_plane_low_speed_candidate_fraction": 0.5282392026578073,
+        "world_foot_speed_cm_s": {
+          "min": 0.015347041189670563,
+          "median": 0.591463029384613,
+          "p95": 9.36343765258789,
+          "p99": 11.240218162536621,
+          "max": 12.560637474060059
+        }
+      }
+    }
+  },
+  "joint_velocity": {
+    "selection_dofs_per_leg": [
+      "coxa_abduct",
+      "coxa_twist",
+      "coxa",
+      "femur_twist",
+      "femur",
+      "tibia",
+      "tarsus"
+    ],
+    "excluded": "tarsus2/tarsus3/tarsus4/tarsus5 and all non-leg joints",
+    "selected_clip": {
+      "per_leg": {
+        "RF": [
+          {
+            "name": "coxa_abduct_T1_right",
+            "index": 47,
+            "abs_native_rad_s": {
+              "min": 0.0021137797739356756,
+              "median": 5.548565864562988,
+              "p95": 14.23890209197998,
+              "p99": 20.684778213500977,
+              "max": 37.91011428833008
+            }
+          },
+          {
+            "name": "coxa_twist_T1_right",
+            "index": 48,
+            "abs_native_rad_s": {
+              "min": 0.032235924154520035,
+              "median": 6.5888800621032715,
+              "p95": 23.209074020385742,
+              "p99": 33.19689178466797,
+              "max": 49.87057113647461
+            }
+          },
+          {
+            "name": "coxa_T1_right",
+            "index": 49,
+            "abs_native_rad_s": {
+              "min": 0.009517299011349678,
+              "median": 4.841776371002197,
+              "p95": 15.166274070739746,
+              "p99": 20.515625,
+              "max": 26.839563369750977
+            }
+          },
+          {
+            "name": "femur_twist_T1_right",
+            "index": 50,
+            "abs_native_rad_s": {
+              "min": 0.05465111881494522,
+              "median": 4.4482927322387695,
+              "p95": 27.551849365234375,
+              "p99": 32.662837982177734,
+              "max": 34.475502014160156
+            }
+          },
+          {
+            "name": "femur_T1_right",
+            "index": 51,
+            "abs_native_rad_s": {
+              "min": 0.513338029384613,
+              "median": 23.978965759277344,
+              "p95": 89.39496612548828,
+              "p99": 101.4570541381836,
+              "max": 142.6100616455078
+            }
+          },
+          {
+            "name": "tibia_T1_right",
+            "index": 52,
+            "abs_native_rad_s": {
+              "min": 0.040716949850320816,
+              "median": 15.856082916259766,
+              "p95": 52.31575012207031,
+              "p99": 68.31344604492188,
+              "max": 89.69365692138672
+            }
+          },
+          {
+            "name": "tarsus_T1_right",
+            "index": 53,
+            "abs_native_rad_s": {
+              "min": 0.1395808458328247,
+              "median": 8.642498970031738,
+              "p95": 64.76052856445312,
+              "p99": 74.63854217529297,
+              "max": 81.35044860839844
+            }
+          }
+        ],
+        "RM": [
+          {
+            "name": "coxa_abduct_T2_right",
+            "index": 69,
+            "abs_native_rad_s": {
+              "min": 0.0020812104921787977,
+              "median": 1.2391233444213867,
+              "p95": 8.119461059570312,
+              "p99": 10.046215057373047,
+              "max": 10.642824172973633
+            }
+          },
+          {
+            "name": "coxa_twist_T2_right",
+            "index": 70,
+            "abs_native_rad_s": {
+              "min": 0.002857482759281993,
+              "median": 6.151525020599365,
+              "p95": 22.94640350341797,
+              "p99": 26.616830825805664,
+              "max": 31.627626419067383
+            }
+          },
+          {
+            "name": "coxa_T2_right",
+            "index": 71,
+            "abs_native_rad_s": {
+              "min": 0.003783691907301545,
+              "median": 1.3526232242584229,
+              "p95": 13.442420959472656,
+              "p99": 15.919461250305176,
+              "max": 16.428115844726562
+            }
+          },
+          {
+            "name": "femur_twist_T2_right",
+            "index": 72,
+            "abs_native_rad_s": {
+              "min": 0.047572992742061615,
+              "median": 5.215160846710205,
+              "p95": 19.716522216796875,
+              "p99": 23.437257766723633,
+              "max": 28.6613712310791
+            }
+          },
+          {
+            "name": "femur_T2_right",
+            "index": 73,
+            "abs_native_rad_s": {
+              "min": 0.05412473529577255,
+              "median": 10.827742576599121,
+              "p95": 41.097991943359375,
+              "p99": 58.28045654296875,
+              "max": 78.79508972167969
+            }
+          },
+          {
+            "name": "tibia_T2_right",
+            "index": 74,
+            "abs_native_rad_s": {
+              "min": 0.028779160231351852,
+              "median": 10.798813819885254,
+              "p95": 30.544368743896484,
+              "p99": 54.7663459777832,
+              "max": 75.80614471435547
+            }
+          },
+          {
+            "name": "tarsus_T2_right",
+            "index": 75,
+            "abs_native_rad_s": {
+              "min": 0.06085558235645294,
+              "median": 2.2281787395477295,
+              "p95": 6.738372325897217,
+              "p99": 9.134970664978027,
+              "max": 13.002544403076172
+            }
+          }
+        ],
+        "RH": [
+          {
+            "name": "coxa_abduct_T3_right",
+            "index": 91,
+            "abs_native_rad_s": {
+              "min": 0.016452359035611153,
+              "median": 1.853783130645752,
+              "p95": 9.66320514678955,
+              "p99": 15.189105033874512,
+              "max": 17.476789474487305
+            }
+          },
+          {
+            "name": "coxa_twist_T3_right",
+            "index": 92,
+            "abs_native_rad_s": {
+              "min": 0.003172132885083556,
+              "median": 1.7710312604904175,
+              "p95": 9.381924629211426,
+              "p99": 12.004554748535156,
+              "max": 16.71851348876953
+            }
+          },
+          {
+            "name": "coxa_T3_right",
+            "index": 93,
+            "abs_native_rad_s": {
+              "min": 0.03195049241185188,
+              "median": 5.016563892364502,
+              "p95": 17.994564056396484,
+              "p99": 25.727874755859375,
+              "max": 43.26834487915039
+            }
+          },
+          {
+            "name": "femur_twist_T3_right",
+            "index": 94,
+            "abs_native_rad_s": {
+              "min": 0.0181850828230381,
+              "median": 3.2661657333374023,
+              "p95": 15.25162410736084,
+              "p99": 21.422348022460938,
+              "max": 29.41975212097168
+            }
+          },
+          {
+            "name": "femur_T3_right",
+            "index": 95,
+            "abs_native_rad_s": {
+              "min": 0.6399527788162231,
+              "median": 21.77635955810547,
+              "p95": 51.24808120727539,
+              "p99": 69.9251937866211,
+              "max": 88.16932678222656
+            }
+          },
+          {
+            "name": "tibia_T3_right",
+            "index": 96,
+            "abs_native_rad_s": {
+              "min": 0.5990810990333557,
+              "median": 26.66798210144043,
+              "p95": 62.394290924072266,
+              "p99": 80.80110168457031,
+              "max": 103.18351745605469
+            }
+          },
+          {
+            "name": "tarsus_T3_right",
+            "index": 97,
+            "abs_native_rad_s": {
+              "min": 0.03341515734791756,
+              "median": 6.738769054412842,
+              "p95": 17.222278594970703,
+              "p99": 25.156219482421875,
+              "max": 26.49205207824707
+            }
+          }
+        ],
+        "LH": [
+          {
+            "name": "coxa_abduct_T3_left",
+            "index": 80,
+            "abs_native_rad_s": {
+              "min": 0.00447925366461277,
+              "median": 2.0035510063171387,
+              "p95": 9.4004487991333,
+              "p99": 10.354698181152344,
+              "max": 11.776453018188477
+            }
+          },
+          {
+            "name": "coxa_twist_T3_left",
+            "index": 81,
+            "abs_native_rad_s": {
+              "min": 0.007383879739791155,
+              "median": 1.9359362125396729,
+              "p95": 8.131938934326172,
+              "p99": 10.307868003845215,
+              "max": 11.589042663574219
+            }
+          },
+          {
+            "name": "coxa_T3_left",
+            "index": 82,
+            "abs_native_rad_s": {
+              "min": 0.022683003917336464,
+              "median": 7.323843479156494,
+              "p95": 27.119426727294922,
+              "p99": 33.385555267333984,
+              "max": 38.75061798095703
+            }
+          },
+          {
+            "name": "femur_twist_T3_left",
+            "index": 83,
+            "abs_native_rad_s": {
+              "min": 0.002331493655219674,
+              "median": 3.769463062286377,
+              "p95": 13.183259010314941,
+              "p99": 17.739315032958984,
+              "max": 20.906370162963867
+            }
+          },
+          {
+            "name": "femur_T3_left",
+            "index": 84,
+            "abs_native_rad_s": {
+              "min": 0.7264599800109863,
+              "median": 23.416852951049805,
+              "p95": 60.404335021972656,
+              "p99": 79.99021911621094,
+              "max": 88.10472869873047
+            }
+          },
+          {
+            "name": "tibia_T3_left",
+            "index": 85,
+            "abs_native_rad_s": {
+              "min": 0.0017598874401301146,
+              "median": 27.576608657836914,
+              "p95": 67.18287658691406,
+              "p99": 86.76068115234375,
+              "max": 98.6131362915039
+            }
+          },
+          {
+            "name": "tarsus_T3_left",
+            "index": 86,
+            "abs_native_rad_s": {
+              "min": 0.03515228256583214,
+              "median": 7.6898698806762695,
+              "p95": 19.284944534301758,
+              "p99": 27.672521591186523,
+              "max": 31.640628814697266
+            }
+          }
+        ],
+        "LM": [
+          {
+            "name": "coxa_abduct_T2_left",
+            "index": 58,
+            "abs_native_rad_s": {
+              "min": 0.0014031266327947378,
+              "median": 1.7252185344696045,
+              "p95": 10.471267700195312,
+              "p99": 16.887575149536133,
+              "max": 26.903871536254883
+            }
+          },
+          {
+            "name": "coxa_twist_T2_left",
+            "index": 59,
+            "abs_native_rad_s": {
+              "min": 0.10841667652130127,
+              "median": 4.6586503982543945,
+              "p95": 21.661880493164062,
+              "p99": 27.744924545288086,
+              "max": 33.71385955810547
+            }
+          },
+          {
+            "name": "coxa_T2_left",
+            "index": 60,
+            "abs_native_rad_s": {
+              "min": 0.01813623122870922,
+              "median": 1.6589784622192383,
+              "p95": 10.632411003112793,
+              "p99": 13.287497520446777,
+              "max": 15.484522819519043
+            }
+          },
+          {
+            "name": "femur_twist_T2_left",
+            "index": 61,
+            "abs_native_rad_s": {
+              "min": 0.0953650176525116,
+              "median": 3.795445442199707,
+              "p95": 18.454233169555664,
+              "p99": 24.13414764404297,
+              "max": 29.60503578186035
+            }
+          },
+          {
+            "name": "femur_T2_left",
+            "index": 62,
+            "abs_native_rad_s": {
+              "min": 0.0019420395838096738,
+              "median": 11.468467712402344,
+              "p95": 43.11207962036133,
+              "p99": 67.80814361572266,
+              "max": 90.60547637939453
+            }
+          },
+          {
+            "name": "tibia_T2_left",
+            "index": 63,
+            "abs_native_rad_s": {
+              "min": 0.18934239447116852,
+              "median": 10.351365089416504,
+              "p95": 33.211666107177734,
+              "p99": 50.83924102783203,
+              "max": 62.07978820800781
+            }
+          },
+          {
+            "name": "tarsus_T2_left",
+            "index": 64,
+            "abs_native_rad_s": {
+              "min": 0.0022023776546120644,
+              "median": 1.8711332082748413,
+              "p95": 7.239254951477051,
+              "p99": 9.694314002990723,
+              "max": 12.667229652404785
+            }
+          }
+        ],
+        "LF": [
+          {
+            "name": "coxa_abduct_T1_left",
+            "index": 36,
+            "abs_native_rad_s": {
+              "min": 0.3119419813156128,
+              "median": 6.327558517456055,
+              "p95": 17.46462059020996,
+              "p99": 22.36514663696289,
+              "max": 23.845043182373047
+            }
+          },
+          {
+            "name": "coxa_twist_T1_left",
+            "index": 37,
+            "abs_native_rad_s": {
+              "min": 0.013815924525260925,
+              "median": 6.83034086227417,
+              "p95": 18.705411911010742,
+              "p99": 23.429615020751953,
+              "max": 25.32212257385254
+            }
+          },
+          {
+            "name": "coxa_T1_left",
+            "index": 38,
+            "abs_native_rad_s": {
+              "min": 0.11518656462430954,
+              "median": 5.942227363586426,
+              "p95": 21.51497459411621,
+              "p99": 32.11666488647461,
+              "max": 35.21012496948242
+            }
+          },
+          {
+            "name": "femur_twist_T1_left",
+            "index": 39,
+            "abs_native_rad_s": {
+              "min": 0.009267606772482395,
+              "median": 4.277092456817627,
+              "p95": 26.968412399291992,
+              "p99": 34.67478561401367,
+              "max": 38.708892822265625
+            }
+          },
+          {
+            "name": "femur_T1_left",
+            "index": 40,
+            "abs_native_rad_s": {
+              "min": 0.170588418841362,
+              "median": 20.311914443969727,
+              "p95": 93.69217681884766,
+              "p99": 107.24169921875,
+              "max": 114.74996948242188
+            }
+          },
+          {
+            "name": "tibia_T1_left",
+            "index": 41,
+            "abs_native_rad_s": {
+              "min": 0.4773450791835785,
+              "median": 16.18562889099121,
+              "p95": 42.798831939697266,
+              "p99": 56.06095504760742,
+              "max": 66.85489654541016
+            }
+          },
+          {
+            "name": "tarsus_T1_left",
+            "index": 42,
+            "abs_native_rad_s": {
+              "min": 0.4496617913246155,
+              "median": 6.309556484222412,
+              "p95": 33.60814666748047,
+              "p99": 46.041961669921875,
+              "max": 48.00086212158203
+            }
+          }
+        ]
+      },
+      "pooled_abs_native_rad_s": {
+        "min": 0.0014031266327947378,
+        "median": 5.98411226272583,
+        "p95": 40.279553794860824,
+        "p99": 72.64030937194828,
+        "max": 142.6100616455078
+      },
+      "max_per_joint_p99_rad_s": 107.24169921875,
+      "peak_rad_s": 142.6100616455078
+    },
+    "all_100_trajectories": {
+      "per_leg": {
+        "RF": [
+          {
+            "name": "coxa_abduct_T1_right",
+            "index": 47,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.755446434020996,
+              "p95": 18.366845703124955,
+              "p99": 27.448631801605245,
+              "max": 103.08525848388672
+            }
+          },
+          {
+            "name": "coxa_twist_T1_right",
+            "index": 48,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 5.271296501159668,
+              "p95": 24.709733963012667,
+              "p99": 36.73743171691895,
+              "max": 150.52317810058594
+            }
+          },
+          {
+            "name": "coxa_T1_right",
+            "index": 49,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.632260322570801,
+              "p95": 22.85330591201782,
+              "p99": 34.632420082092295,
+              "max": 99.8897705078125
+            }
+          },
+          {
+            "name": "femur_twist_T1_right",
+            "index": 50,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 3.0818867683410645,
+              "p95": 23.851444149017315,
+              "p99": 37.2034623718262,
+              "max": 80.91038513183594
+            }
+          },
+          {
+            "name": "femur_T1_right",
+            "index": 51,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 16.886959075927734,
+              "p95": 99.88703880310052,
+              "p99": 124.88477844238284,
+              "max": 227.0762939453125
+            }
+          },
+          {
+            "name": "tibia_T1_right",
+            "index": 52,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 13.484199523925781,
+              "p95": 53.63410129547116,
+              "p99": 72.71527587890633,
+              "max": 116.8965072631836
+            }
+          },
+          {
+            "name": "tarsus_T1_right",
+            "index": 53,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 5.019908905029297,
+              "p95": 50.69325313568115,
+              "p99": 74.05093330383303,
+              "max": 193.32508850097656
+            }
+          }
+        ],
+        "RM": [
+          {
+            "name": "coxa_abduct_T2_right",
+            "index": 69,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 0.9653525352478027,
+              "p95": 7.314657092094415,
+              "p99": 14.050822372436524,
+              "max": 86.73660278320312
+            }
+          },
+          {
+            "name": "coxa_twist_T2_right",
+            "index": 70,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.4596147537231445,
+              "p95": 20.315650081634484,
+              "p99": 30.2024669647217,
+              "max": 117.42140197753906
+            }
+          },
+          {
+            "name": "coxa_T2_right",
+            "index": 71,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.064789891242981,
+              "p95": 13.85295825004577,
+              "p99": 19.559914131164554,
+              "max": 77.8653564453125
+            }
+          },
+          {
+            "name": "femur_twist_T2_right",
+            "index": 72,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 3.8132762908935547,
+              "p95": 17.92057886123657,
+              "p99": 26.62430110931398,
+              "max": 135.66317749023438
+            }
+          },
+          {
+            "name": "femur_T2_right",
+            "index": 73,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 6.664979934692383,
+              "p95": 40.2949268341064,
+              "p99": 66.14536575317388,
+              "max": 233.24974060058594
+            }
+          },
+          {
+            "name": "tibia_T2_right",
+            "index": 74,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 7.388492107391357,
+              "p95": 36.27170734405512,
+              "p99": 58.117687530517784,
+              "max": 165.1589813232422
+            }
+          },
+          {
+            "name": "tarsus_T2_right",
+            "index": 75,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.7927608489990234,
+              "p95": 9.187549734115597,
+              "p99": 15.283228273391734,
+              "max": 149.4533233642578
+            }
+          }
+        ],
+        "RH": [
+          {
+            "name": "coxa_abduct_T3_right",
+            "index": 91,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.4773600101470947,
+              "p95": 9.767932224273673,
+              "p99": 14.018250637054448,
+              "max": 29.339433670043945
+            }
+          },
+          {
+            "name": "coxa_twist_T3_right",
+            "index": 92,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.4417622089385986,
+              "p95": 9.724747180938719,
+              "p99": 14.119158639907837,
+              "max": 41.64029312133789
+            }
+          },
+          {
+            "name": "coxa_T3_right",
+            "index": 93,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.299020767211914,
+              "p95": 21.753410434722873,
+              "p99": 35.36764099121096,
+              "max": 149.19027709960938
+            }
+          },
+          {
+            "name": "femur_twist_T3_right",
+            "index": 94,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 2.8005998134613037,
+              "p95": 15.493876838684068,
+              "p99": 21.930047054290803,
+              "max": 44.6251335144043
+            }
+          },
+          {
+            "name": "femur_T3_right",
+            "index": 95,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 15.939138412475586,
+              "p95": 59.74831848144525,
+              "p99": 85.17904579162624,
+              "max": 325.8987731933594
+            }
+          },
+          {
+            "name": "tibia_T3_right",
+            "index": 96,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 19.618762969970703,
+              "p95": 66.41673927307129,
+              "p99": 90.34283180236828,
+              "max": 293.473388671875
+            }
+          },
+          {
+            "name": "tarsus_T3_right",
+            "index": 97,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.790270805358887,
+              "p95": 19.04526948928832,
+              "p99": 27.710096855163584,
+              "max": 112.782958984375
+            }
+          }
+        ],
+        "LH": [
+          {
+            "name": "coxa_abduct_T3_left",
+            "index": 80,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.5337862968444824,
+              "p95": 9.595710802078235,
+              "p99": 13.96996209144594,
+              "max": 27.43577766418457
+            }
+          },
+          {
+            "name": "coxa_twist_T3_left",
+            "index": 81,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.3487005233764648,
+              "p95": 9.33707842826843,
+              "p99": 14.173458509445208,
+              "max": 41.40613555908203
+            }
+          },
+          {
+            "name": "coxa_T3_left",
+            "index": 82,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 3.9431285858154297,
+              "p95": 21.91424331665039,
+              "p99": 36.48520618438723,
+              "max": 138.80062866210938
+            }
+          },
+          {
+            "name": "femur_twist_T3_left",
+            "index": 83,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 2.8937416076660156,
+              "p95": 14.483005428314195,
+              "p99": 20.61974113464356,
+              "max": 56.78969192504883
+            }
+          },
+          {
+            "name": "femur_T3_left",
+            "index": 84,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 15.143587112426758,
+              "p95": 57.95464191436766,
+              "p99": 85.07428352355971,
+              "max": 241.87753295898438
+            }
+          },
+          {
+            "name": "tibia_T3_left",
+            "index": 85,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 19.50271987915039,
+              "p95": 65.5390602111816,
+              "p99": 88.40470146179216,
+              "max": 231.5341339111328
+            }
+          },
+          {
+            "name": "tarsus_T3_left",
+            "index": 86,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.6977996826171875,
+              "p95": 19.020285034179686,
+              "p99": 28.774648933410663,
+              "max": 88.64637756347656
+            }
+          }
+        ],
+        "LM": [
+          {
+            "name": "coxa_abduct_T2_left",
+            "index": 58,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 0.9996777772903442,
+              "p95": 7.088210511207576,
+              "p99": 13.99533782958991,
+              "max": 93.68461608886719
+            }
+          },
+          {
+            "name": "coxa_twist_T2_left",
+            "index": 59,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.367744445800781,
+              "p95": 20.919306182861327,
+              "p99": 31.0975294494629,
+              "max": 70.70423889160156
+            }
+          },
+          {
+            "name": "coxa_T2_left",
+            "index": 60,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 1.0662224292755127,
+              "p95": 13.649091339111326,
+              "p99": 19.07579113006594,
+              "max": 87.71976470947266
+            }
+          },
+          {
+            "name": "femur_twist_T2_left",
+            "index": 61,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 3.7592720985412598,
+              "p95": 18.627721595764157,
+              "p99": 27.75072683334352,
+              "max": 68.11431121826172
+            }
+          },
+          {
+            "name": "femur_T2_left",
+            "index": 62,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 7.274753570556641,
+              "p95": 40.67814102172849,
+              "p99": 67.22232864379895,
+              "max": 225.55711364746094
+            }
+          },
+          {
+            "name": "tibia_T2_left",
+            "index": 63,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 7.896134376525879,
+              "p95": 37.43548622131347,
+              "p99": 60.158484725952256,
+              "max": 152.4391632080078
+            }
+          },
+          {
+            "name": "tarsus_T2_left",
+            "index": 64,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 2.000889778137207,
+              "p95": 9.96278653144836,
+              "p99": 15.348532800674493,
+              "max": 74.77569580078125
+            }
+          }
+        ],
+        "LF": [
+          {
+            "name": "coxa_abduct_T1_left",
+            "index": 36,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.601263046264648,
+              "p95": 18.267809772491436,
+              "p99": 27.176527214050317,
+              "max": 59.639930725097656
+            }
+          },
+          {
+            "name": "coxa_twist_T1_left",
+            "index": 37,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 5.4793291091918945,
+              "p95": 23.225036621093718,
+              "p99": 34.57015853881839,
+              "max": 76.67505645751953
+            }
+          },
+          {
+            "name": "coxa_T1_left",
+            "index": 38,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.061576843261719,
+              "p95": 21.385535812377928,
+              "p99": 30.98466447830201,
+              "max": 66.53336334228516
+            }
+          },
+          {
+            "name": "femur_twist_T1_left",
+            "index": 39,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 3.188985824584961,
+              "p95": 26.189659404754625,
+              "p99": 39.064895248413166,
+              "max": 79.46142578125
+            }
+          },
+          {
+            "name": "femur_T1_left",
+            "index": 40,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 17.492706298828125,
+              "p95": 100.93410873413079,
+              "p99": 127.26665443420416,
+              "max": 215.8536834716797
+            }
+          },
+          {
+            "name": "tibia_T1_left",
+            "index": 41,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 12.658845901489258,
+              "p95": 53.988896369934075,
+              "p99": 75.41549285888676,
+              "max": 149.5347442626953
+            }
+          },
+          {
+            "name": "tarsus_T1_left",
+            "index": 42,
+            "abs_native_rad_s": {
+              "min": 0.0,
+              "median": 4.761106491088867,
+              "p95": 52.489735412597625,
+              "p99": 77.66673072814947,
+              "max": 155.7807159423828
+            }
+          }
+        ]
+      },
+      "pooled_abs_native_rad_s": {
+        "min": 0.0,
+        "median": 4.421720027923584,
+        "p95": 38.296852684021005,
+        "p99": 76.23280738830569,
+        "max": 325.8987731933594
+      },
+      "max_per_joint_p99_rad_s": 127.26665443420416,
+      "peak_rad_s": 325.8987731933594
+    }
+  },
+  "retarget_boundary": {
+    "interface_speed_limit_rad_s": 2.0,
+    "timewarp_candidates": {
+      "selected_clip": {
+        "conservative_p99_slowdown_factor": 53.620849609375,
+        "peak_slowdown_factor": 71.3050308227539,
+        "pooled_p99_over_2": 36.32015468597414,
+        "definition": "t_target=factor*t_reference; qvel_target=qvel_reference/factor. Conservative P99 uses maximum of 42 individual P99, not pooled P99."
+      },
+      "all_100_trajectories": {
+        "conservative_p99_slowdown_factor": 63.63332721710208,
+        "peak_slowdown_factor": 162.9493865966797,
+        "pooled_p99_over_2": 38.116403694152844,
+        "definition": "t_target=factor*t_reference; qvel_target=qvel_reference/factor. Conservative P99 uses maximum of 42 individual P99, not pooled P99."
+      }
+    },
+    "angle_mapping": "NOT_ESTABLISHED",
+    "direct_42_joint_transfer": "FORBIDDEN",
+    "caution": "Homologous names do not establish axis directions, angle zero offsets, limits, morphology or target velocity equivalence. Timewarps are candidate reference slowdowns only; they establish neither physical feasibility nor target tracking. No force measurements or simulation/training performed."
+  },
+  "outputs": {
+    "script": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/analyze_kinematics.py",
+    "json": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+    "selected_reference": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+    "selected_reference_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952"
+  }
+}

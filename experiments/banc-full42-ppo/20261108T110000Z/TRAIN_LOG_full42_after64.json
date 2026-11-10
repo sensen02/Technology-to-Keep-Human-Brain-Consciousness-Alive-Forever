@@ -1,0 +1,169 @@
+{
+  "prereg": {
+    "schema": "full42-ppo-A/1",
+    "goal": "give the learner enough authority to actually produce a gait, instead of the six-tibia +-0.003 rad/tick residual that could only trim a stance",
+    "action_space": {
+      "joints": "all 42",
+      "command": "rate = base_rate_from_measured_network + tanh(mean) * C(t) / dt, clipped to the frozen +-30 rad/s actuator bound; base_rate = (base_target - actuator.target_rad) / dt",
+      "amplitude_schedule": "C(t) = 0.003 + (0.05 - 0.003) * min(1, global_update / 32) rad per 5 ms tick, so the measured-data network acts as a prior that is faded out over the first 32 updates",
+      "no_joint_is_penalised_differently": true
+    },
+    "reward": "reward v3 exactly as recorded in experiments/banc-reward-v3/20261108T090000Z: absolute slip hinge 2*sum max(0, v_i - 0.5*max(|fwd|, v_target))^2, progress clip(fwd/v_target,-1,1.5) doubled below 0.5*v_target, stance foot-speed penalty, attitude, action, support and non-foot terms, terminations COM<0.95 and non-foot>0.05 W",
+    "environment": "declared normal adhesion channel active during training (A = 0.5 W per loaded leg, shared across contacts, every 0.5 ms); evaluation is reported BOTH with adhesion off (frozen-body, the honest acceptance number) and with adhesion on (derived-channel)",
+    "curriculum": {
+      "v_targets": [
+        0.05,
+        0.12,
+        0.2,
+        0.3
+      ],
+      "budget_per_level": [
+        64,
+        32,
+        32,
+        32
+      ],
+      "gate_check_every": 16,
+      "escalation_rule": "a level is left only when all five gates pass; if a level's budget is exhausted without passing, the run stops there and the negative result is reported"
+    },
+    "gates": {
+      "foot_support_mean_min": 0.9,
+      "nonfoot_force_max_W": 4.889270951175601,
+      "com_height_min": 1.2,
+      "slip_ratio_max": 0.5,
+      "forward_speed_min": 0.05
+    },
+    "gates_note": "identical to the frozen verifier quantities used in every previous round; nothing relaxed",
+    "ppo": {
+      "rollout": 256,
+      "epochs": 6,
+      "minibatch": 64,
+      "lr": 0.0003,
+      "clip": 0.2,
+      "gamma": 0.995,
+      "gae": 0.95,
+      "value_coef": 0.5,
+      "grad_norm": 0.5,
+      "target_kl": 0.03,
+      "logstd_bounds": [
+        -5.0,
+        -1.5
+      ]
+    },
+    "labelling": "the controller is a replacement ANN trained by PPO, not a connectome and not brain output; adhesion results are derived-channel and do not change the frozen-body status",
+    "accounting": "native steps, wall time, per-update reward, and every gate evaluation are recorded"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/MODEL_MEASURED.npz",
+    "sha256": "7e7fa4197bcf4a4f4eddc1afd8418b0fc290c9ca1daa44df9ebaeaad859652ec"
+  },
+  "action_joints": "all 42",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.3243509937644881,
+        "foot_support_mean": 3.3648372944760148,
+        "foot_support_min": 3.2225390015814788,
+        "nonfoot_force_max_W": 28.164506750509272,
+        "com_height_min": 0.6585025936767473,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.5588884211867559,
+          "LH": 0.9781795787268839,
+          "LM": 0.7877353272957553,
+          "RF": 0.7140053649941789,
+          "RH": 1.4425048667934013,
+          "RM": 1.1468230793824155
+        },
+        "slip_ratio_max": 1.4425048667934013,
+        "slip_ratio_mean": 0.9380227730632318,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": false,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.3278196222431149,
+    "foot_support_mean": 3.385937611011861,
+    "foot_support_min": 3.257420671723101,
+    "nonfoot_force_max_W": 27.98361389276934,
+    "com_height_min": 0.6543712596023398,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.5740347834222376,
+      "LH": 0.9704309809716982,
+      "LM": 0.7164662833409035,
+      "RF": 0.7009322452740026,
+      "RH": 1.346132383024414,
+      "RM": 1.084711327478058
+    },
+    "slip_ratio_max": 1.346132383024414,
+    "slip_ratio_mean": 0.8987846672518858,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 121134800,
+  "wall_s": 575.625500202179,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-full42-ppo/20261108T110000Z/MODEL_full42.npz",
+    "sha256": "b79fff1107485e444bf92309cb23f7df8784344e88e627673fc2961dc6c8fc7d"
+  }
+}

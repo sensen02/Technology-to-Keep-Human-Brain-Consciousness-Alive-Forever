@@ -1,0 +1,10 @@
+{
+  "parent_selected_sample": "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics",
+  "selection":"fixed parent training start sample k=1000 (t=1s), NOT selected by MN response",
+  "features":"q42=BODY.qpos[1000,INITIAL.qa]; qvel42=BODY.qvel[1000,INITIAL.va]; load6=NATIVE.rows[1000*80-1,1:7]",
+  "protocol":"Encode once using parent's verified encoder; hold that nonuniform sensory-current vector constant200ms, descending current allzero; reset circuit to rest at start. Neural-only engineering held-sample replay, not physical trajectory replay or walking",
+  "config":"fixed .02uS predeclared fallback, default ConductanceParams; dt .5 and .25ms;20ms rate filter; no search/no changes",
+  "checks":"identity/qualified mask, currents finite, all391MN not directly injected; record each neural step all-neuron voltage extrema and MNspikes/filtered rates; perleg propagated recruitment; deterministic .5ms repeated run; exact zero-input and noedge numerical controls already independently validated",
+  "scope":"expected400+800+400=1600actualneuralsteps; zero physical steps/training; save source hashes/input and every result, even failed voltage bound",
+  "bounds":"Original broad calibration -90mV floor is unchanged; report any violation rather than modifying floor. All propagations remain illustrative physiology, not receptor or behavioral validation."
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "teacher-distill/1",
+  "origin": "third of the three routes the user asked to try. Instead of hand-designed rewards, take demonstrations from the official pretrained Flybody walking policy that already exists in this project and imitate them with the replacement policy on our body.",
+  "what_the_teacher_is": {
+    "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z (TensorFlow saved_model policies/walking, flybody.fly_envs.walk_imitation, 59 actuators), its own environment and its own body",
+    "label": "official teacher = reference teacher, not our body, not our actuator, and not a connectome; its 59 actions include six adhere_claw channels and tarsus DOFs that our 42-joint body does not have"
+  },
+  "mapping_declared": {
+    "legs": {"T1_left": "LF", "T2_left": "LM", "T3_left": "LH", "T1_right": "RF", "T2_right": "RM", "T3_right": "RH"},
+    "joints": {"coxa_abduct": "Coxa_roll", "coxa_twist": "Coxa_yaw", "coxa": "Coxa_pitch", "femur_twist": "Trochanter_yaw", "femur": "Trochanter_pitch", "tibia": "Tibia_pitch"},
+    "dropped": ["tarsus", "tarsus2", "adhere_claw (our body has no such DOF and no adhesion geometry)"],
+    "unmapped_on_our_side": "Trochanter_roll has no teacher counterpart; it is held at the solved stand pose value (declared constant, not a learned DOF)",
+    "calibration": "per joint a single additive offset chosen so the teacher's time-mean equals our solved stand pose value; joint signs are assumed identical and this assumption is recorded, not verified",
+    "clipping": "mapped targets are clipped into our joint ranges with a 0.01 rad margin"
+  },
+  "pipeline": "teacher rollout 8 s at 500 Hz -> resample 200 Hz -> map+offset+clip to 42 targets -> supervised training of the same 294-128-128-42 base network (same recipe) -> evaluation open loop, then 64 PPO updates with the adhesion channel, gates unchanged",
+  "labelling": "the result is a replacement ANN imitating a reference teacher; it is not the teacher's capability, not our body's validated walking, and not a connectome",
+  "accounting": "teacher rollout time, number of samples kept after mapping and clipping, per-joint offset and clip fraction, base-network training MSE, and every evaluation metric including failures"
+}

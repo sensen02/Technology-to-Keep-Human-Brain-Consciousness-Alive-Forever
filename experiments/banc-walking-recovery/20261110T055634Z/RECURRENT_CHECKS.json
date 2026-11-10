@@ -1,0 +1,36 @@
+{
+  "all_passed": true,
+  "checks": {
+    "finite_differences": {
+      "coordinates": 324,
+      "max_absolute_error": 3.5859010147094167e-09,
+      "regimes": "unequal episode lengths, clipped/unclipped, std interior/outside both bounds, all GRU gates"
+    },
+    "reset_replay_weighting": {
+      "replay_errors": {
+        "mean": 0.0,
+        "logstd": 0.0,
+        "log_prob": 0.0
+      },
+      "checks": "reset boundaries, sample weighting, manual GAE, true full-rollout KL, stale/partial/logprob rejection"
+    },
+    "rollback_retry": {
+      "rejected_attempts": 3,
+      "accepted_attempts": 11,
+      "state": "exact actor+critic+both warmed Adam states+LR+step/update counters"
+    },
+    "checkpoint_restore": "new-instance checkpoint restores model/Adam/counters/RNG; next replay/update exactly equivalent"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/check_recurrent.py": "c8d897366e971d675e66d88cf83b27aaa93621017522d5f7f071c90173fcc016"
+  },
+  "torch": "2.5.1+cpu",
+  "limitations": [
+    "Full-episode BPTT only; partial episodes and burn-in unsupported",
+    "starts_at_reset=True is required collector provenance, not independently provable from observations",
+    "Synthetic correctness only; physical recurrent rollout integration/behavior not validated"
+  ]
+}

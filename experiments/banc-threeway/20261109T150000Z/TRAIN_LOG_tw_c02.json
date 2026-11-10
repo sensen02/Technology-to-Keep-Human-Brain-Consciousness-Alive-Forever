@@ -1,0 +1,137 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "threeway/1",
+    "origin": "the two approved routes produced one positive and one honest failure. The positive: shrinking the policy tick from 5 ms to 1 ms with doubled rate authority took forward speed from .180 to .445 and slip from 3.45 to 1.50. The failure: the support Lagrangian never engaged because the training episodes were cold starts while the collapse only happens in the assist-then-release protocol. This run combines the three fixes that the evidence supports.",
+    "combination": {
+      "control": "1 ms policy tick, base target still refreshed at 200 Hz (every 5th tick), rollout covers 1 s of measured-target assist plus 2 s of autonomy",
+      "authority": "C = 0.02 rad/tick (double the original 10 rad/s)",
+      "distribution": "every training episode begins with 1000 ticks (1 s) of measured-target replay, so the release transient that collapses the body is inside the training distribution; transitions from the assist phase are not stored (the policy has no influence there), only the 2 s autonomy tail is used for PPO",
+      "constraint": "lagrangian on the windowed minimum support over 10 ticks, dual ascent rate 0.05, lambda_max 50, target 0.90; the existing soft support term is kept",
+      "world": "unchanged: derived pad body R=.02, mu=1.5, releasable adhesion 0.25 body weight per leg, reward v4, 42-joint PPO, 48 updates, gates and evaluation unchanged"
+    },
+    "what_would_count_as_progress": "slip falling below 1.0 with support minimum staying at or above 0.90 and non-foot contact back under 4.889 W; anything less is another honest negative",
+    "labelling": "derived channel (pad body, friction, releasable adhesion, and a Lagrangian constraint) plus a replacement ANN; never frozen-body acceptance and never connectome output",
+    "accounting": "lambda, mean and minimum support are logged at every update, plus native steps, wall time, and the full four-second evaluation with stance fractions"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 3000,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, assist-in-training, Lagrangian windowed-min support",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 2.9989999999930106,
+        "forward_speed_native_per_s": 0.10730722240921564,
+        "foot_support_mean": 1.3204706533575754,
+        "foot_support_min": 0.8644291763185435,
+        "nonfoot_force_max_W": 5.040233389064092,
+        "com_height_min": 0.6562619224508711,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 6.62106683981621,
+          "LH": 3.115102736082188,
+          "LM": 2.10477596513457,
+          "RF": 5.466787358300997,
+          "RH": 4.587863059576463,
+          "RM": 9.523607333061198
+        },
+        "slip_ratio_max": 9.523607333061198,
+        "slip_ratio_mean": 5.236533881995271,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": false,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.5033319907569044,
+    "foot_support_mean": 0.2534159163164343,
+    "foot_support_min": 0.0,
+    "nonfoot_force_max_W": 80.83342260554878,
+    "com_height_min": 0.6057171136750138,
+    "free_fall_fraction": 0.0103125,
+    "per_leg_slip_ratio": {
+      "LF": 3.7879036360425866,
+      "LH": 3.2683891691007974,
+      "LM": 2.025226495435728,
+      "RF": 5.575518615002339,
+      "RH": 4.0242844407699385,
+      "RM": 7.207052065905453
+    },
+    "slip_ratio_max": 7.207052065905453,
+    "slip_ratio_mean": 4.314729070376141,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 1925763840,
+  "wall_s": 694.2359852790833,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-threeway/20261109T150000Z/MODEL_tw_c02.npz",
+    "sha256": "7a3324b631577ac01f3d6fc823c08f4591fd48373ecb8fdd2e569c91cfd88d20"
+  }
+}

@@ -1,0 +1,53 @@
+2026-11-07 10:14:55.999106: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+{
+  "status": "RECORDED_PENDING_INDEPENDENT_REPLAY",
+  "controls": 198,
+  "native_steps": 1980,
+  "sim_s": 0.395999999999989,
+  "expected_controls": 198,
+  "terminal": true,
+  "reference_end": true,
+  "discount": 1.0,
+  "root_displacement": [
+    1.3945177938021787,
+    -0.024398143219214907,
+    -0.01118899350060451
+  ],
+  "reward_mean": 0.054409129778188056,
+  "reward_min": 9.025812139778884e-11,
+  "reference_root_error_max": 0.11158731280579019,
+  "joint_tracking_RMSE_rad": 0.17092826054106444,
+  "net_support_over_weight": 0.9814162346399448,
+  "nonfoot_max": 2.120466352592797,
+  "explicit_external_force_max": 0.0,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_s": 3.4378450399963185,
+  "files": {
+    "MODEL.mjb": "0706926190eee2306bf0bd6d10a5072e14410d296a9fe129dea2cf3cd24eae91",
+    "TRACKING.npz": "9f0ee64570493bb8a431b9639961c1bec75ce9e05a01532536261654c9538407",
+    "OBS.npz": "d86da4956ee183a3972b08e2ba9ef1c64f27b59e878afcbc1aa9234af77907d7",
+    "MODEL_IDENTITY.json": "1b9d0274af2936457543ce7ec6f6217db587786a758aede3211c3c06da21a305",
+    "REFERENCE.npz": "4d8c4e535e844ecfea6c4bf952d7a09573fb7ce3b8775fae894140d6e8a59555",
+    "NATIVE.npz": "5638692f261e8e3824f7107f2550648c7d61bea4d3ad2493aa524abb6fc292c5",
+    "BODY.npz": "310c15ad58ffac20afcc165b2bc17cf500501d8b2a76a6aa6acf078be77071af",
+    "TERMINAL_OBS.npz": "1199a6b9d74dda21b03cd5d48e5e5b0cd5973259354a13d2c5797a36281e39b0",
+    "PROTOCOL.json": "e4aba4a78877d88a0cf000ee9858e6a407815381520ba81ab6a177da14b8c684",
+    "POLICY.npz": "088f82f5533fe2aadacc497be7ea10a9104d17611869c44e80956c1f284c46f2"
+  },
+  "not_claimed": [
+    "held-out teacher generalization",
+    "causal brain control",
+    "current42 gate pass",
+    "surgical validity"
+  ]
+}

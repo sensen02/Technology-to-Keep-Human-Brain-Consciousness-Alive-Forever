@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-11-10T15:31:39.382151+00:00",
+  "pid": 328554,
+  "command": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/env/bin/python",
+    "-B",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/continue_role_bc.py",
+    "--checkpoint",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/final.pt",
+    "--out",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000",
+    "--total-steps",
+    "3000",
+    "--checkpoint-every",
+    "250"
+  ],
+  "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/TRAINING.log"
+}

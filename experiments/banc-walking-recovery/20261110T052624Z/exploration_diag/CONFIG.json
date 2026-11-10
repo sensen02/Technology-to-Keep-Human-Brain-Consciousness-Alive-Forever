@@ -1,0 +1,31 @@
+{
+  "seed": 20261114,
+  "latent_stds": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "ticks": 2000,
+  "decision_ms": 5,
+  "architecture": "ff238",
+  "critic_obs_dim": 255,
+  "dtype": "float64",
+  "adhesion": false,
+  "target_speed": 0.0,
+  "actor_final_head": "exact zeros weight and bias; no BC",
+  "noise": "common torch float64 standard-normal array400x42 reused across conditions",
+  "candidate_safety": {
+    "com_min_native": 1.2,
+    "nonfoot_max_native": 0.0,
+    "foot_support_mean_min": 0.9
+  },
+  "selection": "largest std satisfying candidate safety in BOTH full and0.5–2s windows",
+  "label": "Random output perturbations around exact zero mean; finite-PD torque actuator holds body. Not walking.",
+  "script_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/exploration_probe.py",
+  "script_sha256": "8854f0d327556f0bda1b8a00e2ab55355b2e344c4b53d7a41e44e2fdfe267584",
+  "common_noise_sha256": "79fcde761b082fc1d9c456bb6029fd1f0b2337abeefedf5c0e19736f65810168",
+  "initial_actor_sha256": "2c5a3019617ea7e7bbe66582b7060afee40cb2c2e76432f629cf96b7d2525aa3",
+  "initial_qpos_sha256": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+  "initial_qvel_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+  "randomized_observation_mean_max_abs": 0.0
+}

@@ -1,0 +1,12 @@
+{
+ "version":"smooth-expert-contact-and-swing-v1",
+ "goal":"S2/S5 make certified physicalteacher transitionlabels continuous before better unclocked neural imitation",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z",
+ "evidence":"exactprefix/firststate yetFF/GRU firstactionRMSE~.15; only.625% phase-boundarydecisionscarry~75%error; teacher hasone5msall-sixcontact-rolepulse and swingendpointvelocityjumps. Preparingindependentexpertchange, notmixingongoingactor-maskcomparison.",
+ "physical":"same derivedfullbody,noadh,allmass/friction/gravity/PD/rate2rad/s/torque/native timeunchanged",
+ "changes":["active measuredswing profile getsquintic timewarp p=10u^3-15u^4+6u^5; geometry/sourceindices/legorderunchanged;globalstance/body xprogress remainslinear,constantnominalbodyvelocity", "contactload activation1-smoothstep(refheight/.03native); all-sixstatic baseline then partialactive forcecap=baselinefraction*activation, fullstancecap2W, forcezeroexcluded; forces remainoptimizationonly,notphysicalwrites"],
+ "checks":"C1 phaseboundaries,measuredgeometryreconstruction,chainrulederivative,constantbodyadvance,forcecapcontinuity/rootbalance,physicalstateimmutable,finiteboundedcommands; noactualgaitclaimfrommath",
+ "conditional_physics":"afterchecks, oneindependent2cycle+.4s teachercondition same .36stride/.12lift/.8step and1sactualsettle; actualfullgates/strictcycles mustre-passbeforetraining",
+ "decision":"ifphysicalteacherpasses, collect orreconstructdirectnewactor observations withoutphaseandtrainstudent; holdoutindependenttrajectory. Keepallbaselinerunsandfailures. No originalacceptancechange",
+ "scope":"algorithmteacher adaptationonly, notneuralautonomy"
+}

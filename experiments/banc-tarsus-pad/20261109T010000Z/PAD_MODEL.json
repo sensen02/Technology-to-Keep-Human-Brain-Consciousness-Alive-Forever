@@ -1,0 +1,132 @@
+{
+  "status": "DERIVED_PAD_BODY",
+  "base_xml": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+  "base_sha256": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+  "base_sha256_after": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+  "derived_xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-tarsus-pad/20261109T010000Z/MODEL_TARSUS_PAD.xml",
+  "derived_sha256": "c512f5840390ef15816b4f477b2a9876d11a9f8910158839aba38ecaff186603",
+  "pad_radius_native": 0.01,
+  "pad_radius_note": "0.01 native; absolute SI is NOT_ESTABLISHED for this model, the value is an engineering choice pending pad-geometry calibration",
+  "pads": {
+    "LF": {
+      "geom": "LFTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.011273,
+        0.012826,
+        -0.09946
+      ],
+      "centre": [
+        -0.011273,
+        0.012826,
+        -0.08946
+      ]
+    },
+    "LH": {
+      "geom": "LHTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.013194,
+        0.006882,
+        -0.107032
+      ],
+      "centre": [
+        -0.013194,
+        0.006882,
+        -0.097032
+      ]
+    },
+    "LM": {
+      "geom": "LMTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.010349,
+        0.017148,
+        -0.110706
+      ],
+      "centre": [
+        -0.010349,
+        0.017148,
+        -0.100706
+      ]
+    },
+    "RF": {
+      "geom": "RFTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.020093,
+        -0.01092,
+        -0.100591
+      ],
+      "centre": [
+        -0.020093,
+        -0.01092,
+        -0.090591
+      ]
+    },
+    "RH": {
+      "geom": "RHTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.012777,
+        0.000301,
+        -0.10702
+      ],
+      "centre": [
+        -0.012777,
+        0.000301,
+        -0.09702
+      ]
+    },
+    "RM": {
+      "geom": "RMTarsus5_geom",
+      "lowest_vertex_body_frame": [
+        -0.019651,
+        -0.011294,
+        -0.127424
+      ],
+      "centre": [
+        -0.019651,
+        -0.011294,
+        -0.117424
+      ]
+    }
+  },
+  "invariants": {
+    "nq": 49,
+    "nv": 48,
+    "nu": 42,
+    "nmesh": 71,
+    "neq": 0,
+    "ngeom": 78,
+    "nbody": 73,
+    "ranges_equal": true,
+    "mass_equal": true,
+    "inertia_equal": true,
+    "gain_equal": true,
+    "bias_equal": true,
+    "gravity_equal": true,
+    "timestep_equal": true,
+    "mesh_count_equal": true,
+    "nonfoot_geoms_unchanged": true,
+    "pad_geoms": [
+      "LFTarsus5_pad",
+      "LHTarsus5_pad",
+      "LMTarsus5_pad",
+      "RFTarsus5_pad",
+      "RHTarsus5_pad",
+      "RMTarsus5_pad"
+    ],
+    "pad_count": 6,
+    "tarsus_mesh_contype": [
+      0
+    ],
+    "tarsus_mesh_conaffinity": [
+      0
+    ],
+    "pad_contype": [
+      2
+    ],
+    "invariants_pass": true,
+    "free_fall_contact_test": {
+      "native_steps": 2000,
+      "note": "with zero actuator torque the body simply falls; this only checks that the pads produce the contacts and non-foot geoms stay out of it",
+      "nonfoot_contact_max": 157.92401783264137
+    }
+  }
+}

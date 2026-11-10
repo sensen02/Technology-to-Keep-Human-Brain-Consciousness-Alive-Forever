@@ -1,0 +1,13 @@
+{
+ "version":"actor-prev-action-mask-v1",
+ "goal":"S2/S5 isolate direct previous-action autoregressive instability in failed neural walking handover",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z",
+ "evidence":"exacthandoverX beforefirstmodelaction, FFboundaryactionRMSE.1489, previousactionJacobian spectralnorm14.38; 0.625%boundaryframescarry74%error. Risk notsolecauseproof.",
+ "sole_model_change":"actorraw238 previous-action columns[195:237] zeroed insideeveryFFforward/GRUstep; retainsphysical195features,constantcmd,GRUpastphysicalcontext. Criticnotmasked. RecordrawX forprovenance anddeclaretransforminmodelidentity torejectoldrawcheckpoints.",
+ "unchanged":"certifiedteacher/fullphysicalbody/PD/limits/physics, datasettrajectories/split,architecturewidth128,initialseed,BCboundedMSE/lr.001,std.05,FF1000steps/GRU300steps; no inputstatnormalization orlossweightchanges",
+ "dataset":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/BC_DATASET_3EP",
+ "evaluation":"same1ssettle+4.8sactualteacherprefix+9.6sstudent,exactcontinuoushandover,noteacherafterboundary,allgates/cycles unchanged; preservefailures",
+ "checks":"maskedchannel invariance/Jacobianzero forFF/GRU,physicalstategradientremaining,criticrawinputs,checkpointinputcontract rejection and exactreload; inheritedstudentwiringchecks newpaths",
+ "decision":"compareactualclosedloop,notMSEalone; ifmaskdoesnothelp, independentnormalization/boundaryloss/smoothexpert/recoverystateexperiments ratherthanbodychanges",
+ "scope":"substituteANN/derivedfullbody, originalcompleteacceptance stillunachieved"
+}

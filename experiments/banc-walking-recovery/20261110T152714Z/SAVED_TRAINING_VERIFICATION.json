@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/final.pt",
+  "checkpoint_sha256": "f94c6223c9494ff49318b6b518c768fc6fbde36faf9f89e38d4abfbf5d009577",
+  "steps": 3000,
+  "all_four_checkpoints_validated": true,
+  "full_curve_prefix_0_to_2000_exact": true,
+  "model_head_13Adam_RNG_metrics_exact": true,
+  "source_identity_verified": true,
+  "physical_steps": 0,
+  "updates": 0,
+  "closed_loop": "NOT_EVALUATED",
+  "final": {
+    "step": 3000,
+    "train": {
+      "MSE": 6.658337901821221e-05,
+      "role_CE": 0.015225758826600546,
+      "role_accuracy": 1.0
+    },
+    "heldout": {
+      "MSE": 0.00012614681841551867,
+      "role_CE": 0.015265942811686853,
+      "role_accuracy": 1.0
+    },
+    "train_loss": 8.180913784481276e-05
+  }
+}

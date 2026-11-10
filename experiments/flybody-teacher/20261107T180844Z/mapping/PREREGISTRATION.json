@@ -1,0 +1,13 @@
+{
+  "stage": "S2/S5 independent teacher-currentbody structural and forward-kinematic mapping audit",
+  "scope": "No environment creation/reset/step, no training, no surgeries, no tracked-file edits. Only model loading/compilation, scratch forward kinematics and Jacobians.",
+  "official_runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/.venv/bin/python",
+  "current_runtime": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python",
+  "official_model": "/home/sensen/Desktop/engine修复验收/flybody-teacher/20261107T174640Z/official_straight_10s_v2/MODEL.mjb",
+  "current_entry": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T123634Z/run_residual.py",
+  "measurements": "Exact compiled joints/actuators/bodies/geoms/options; qpos0 and native key0 FK; central finite differences at epsilon=1e-6 rad against point Jacobians for all real-body hinges; per-leg anatomical anchor offsets and segment lengths; no assumed scalar angle correspondence.",
+  "tolerance": "Within-model Jacobian/central-difference maximum absolute error <1e-7 native length/rad; cross-model comparisons are descriptive, not pass gates or biological mapping proof.",
+  "output_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/mapping",
+  "desktop_root": "/home/sensen/Desktop/engine修复验收/flybody-teacher/20261107T180844Z/mapping",
+  "platform_boundary": "Retain current complete body; feeding/choice and full platform freeze precede any surgery. Missing articulation is reported, not repaired here."
+}

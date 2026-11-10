@@ -1,0 +1,76 @@
+{
+  "model": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_stand.npz",
+  "model_sha256": "060540133a2ecf6fc6574dd0a5e507b8e9fe6272b3d99d052b8a324658461482",
+  "grip": true,
+  "labels": {
+    "grip": "derived-channel (NOT frozen-body acceptance)"
+  },
+  "amplitude_C": 0.05,
+  "native_steps": 320000,
+  "assist": {
+    "duration_s": 0.7999999999997912,
+    "forward_speed_native_per_s": 0.5689071356706112,
+    "foot_support_mean": 3.9178865611615,
+    "foot_support_min": 3.439147082991674,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 0.8498293001472641,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.2196121093525925,
+      "LH": 2.570191646138472,
+      "LM": 1.5313396519516307,
+      "RF": 0.903886188101062,
+      "RH": 3.075279592140557,
+      "RM": 1.9615884549808869
+    },
+    "slip_ratio_max": 3.075279592140557,
+    "slip_ratio_mean": 1.8769829404442
+  },
+  "release": {
+    "duration_s": 3.1899999999925654,
+    "forward_speed_native_per_s": 0.19172041387318148,
+    "foot_support_mean": 3.8063248345575653,
+    "foot_support_min": 3.667953616758266,
+    "nonfoot_force_max_W": 8.106685684197434,
+    "com_height_min": 0.7410149972704604,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.6948591250481808,
+      "LH": 1.6380086316972615,
+      "LM": 1.3983001979945446,
+      "RF": 1.1919867626990226,
+      "RH": 1.9293951459592837,
+      "RM": 1.8192607529560973
+    },
+    "slip_ratio_max": 1.9293951459592837,
+    "slip_ratio_mean": 1.6119684360590651
+  },
+  "steady": {
+    "duration_s": 2.6899999999937307,
+    "forward_speed_native_per_s": 0.1471793434570581,
+    "foot_support_mean": 3.769021353091471,
+    "foot_support_min": 3.667953616758266,
+    "nonfoot_force_max_W": 8.106685684197434,
+    "com_height_min": 0.7410149972704604,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.97476118983226,
+      "LH": 0.8339989178587288,
+      "LM": 0.616834646594204,
+      "RF": 0.766880425446632,
+      "RH": 1.2578074248567843,
+      "RM": 0.905309528834949
+    },
+    "slip_ratio_max": 1.97476118983226,
+    "slip_ratio_mean": 1.059265355570593
+  },
+  "steady_note": "additional information only; the gates below are judged on the full release window",
+  "release_gates": {
+    "foot_support_mean": true,
+    "nonfoot": false,
+    "com_height": false,
+    "slip": false,
+    "forward": true
+  },
+  "release_gates_passed": false
+}

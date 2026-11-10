@@ -1,0 +1,7 @@
+{
+  "timing": "After first fixed small index0 rollout but before identifying or scoring full-dataset longest snippet",
+  "reason": "Small index0 contains only263samples and permits198controls=.396s. Full dataset max1176 permits1111controls=2.222s; longer measured tracking is useful without stitching clips.",
+  "selection": "One additional full-dataset trajectory with maximum stored length; tie lowest integer index. Read-only length argmax, no policy-score selection.",
+  "parameters": "Same original weights, physical model, initializer, termination rules and seed41. No tuning. All earlier nonfoot contact and poor reward remain reported.",
+  "record": "Same full physical/policy/reference and independent replay. End early if official fatal termination; do not reset or extend reference."
+}

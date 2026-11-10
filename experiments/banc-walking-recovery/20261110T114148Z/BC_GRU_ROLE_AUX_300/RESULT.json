@@ -1,0 +1,112 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/BC_GRU_ROLE_AUX_300/final.pt",
+  "checkpoint_sha256": "3468bb7d9120e3bd7f32071019c5cec976642ef2344f299cde609985edc4a64f",
+  "steps": 300,
+  "final": {
+    "step": 300,
+    "train": {
+      "MSE": 0.0031977147064800563,
+      "role_CE": 0.11021455503786402,
+      "role_accuracy": 0.9888020833333333
+    },
+    "heldout": {
+      "MSE": 0.0032632722810211397,
+      "role_CE": 0.11034472907635626,
+      "role_accuracy": 0.9885416666666667
+    },
+    "train_loss": 0.0033079292615179204
+  },
+  "checkpoint_reload_exact": true,
+  "model_identity": {
+    "architecture": "gru238",
+    "obs_dim": 238,
+    "critic_obs_dim": 255,
+    "logstd_bounds": [
+      -3.0,
+      0.3
+    ],
+    "dtype": "torch.float64",
+    "actor_input_transform": "physical_gru_slow_plus_trainable_inhibitory_target_v1",
+    "actor_mask_ranges": [
+      [
+        42,
+        84
+      ],
+      [
+        126,
+        168
+      ],
+      [
+        195,
+        237
+      ]
+    ],
+    "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+    "gain_init_version": "native_actuator_halfspan_x10_v1",
+    "gain_init_H": [
+      0.43574999999999997,
+      0.6579,
+      0.3384583060121321,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2190555268149066,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.7458035036806745,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43263502486291344,
+      0.4745269371779961,
+      0.7379067053719459,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2793495780011144,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.9848645841986645,
+      0.73525,
+      1.0125,
+      0.8497330240243897,
+      1.01155
+    ],
+    "gain_init_tau_s": 0.05,
+    "gain_init_rate_rad_s": 2.0,
+    "initialization_prior": "trainable inhibitory -Tposition/H target-position prior; not anatomical",
+    "inhibitory_input_range": [
+      126,
+      168
+    ],
+    "inhibitory_input": "normalized target POSITION Tposition/H; excludes target error",
+    "residual_prior": "-softplus(raw_gain)*Tposition/H; fixed-hidden T derivative negative diagonal; no explicit +gain q path",
+    "residual": "238->128 tanh encoder; slow GRUCell128->128; 128 tanh->42 decoder; masked channels have zero drive",
+    "all_actor_weights_trainable": true,
+    "neural_integration_tau_s": 0.1,
+    "policy_dt_s": 0.005,
+    "neural_integration_alpha": 0.048770575499285984,
+    "neural_integration": "h_new=(1-alpha)*h+alpha*GRUCell(tanh(encoder(maskedobs)),h)",
+    "recurrent_state": "explicit zero initial_state; reset before step only at physical episode reset; valid padding freezes state; no hidden cache"
+  },
+  "identity_sha256": "de457462fd850893133da9b72fa8af0f6a4ad4cf0f5f403ffd10aed8750d9efa",
+  "aux_config_sha256": "2fd5fcf8fe571091475e5b5beaadfb5629a9fbcd21f0c34c48cac7ea1c7604e8",
+  "aux_head_sha256": "6cdc4081dd44bdff0a3e7e4dd59f32326a2b740437a81d7792c9e10bede2eb73",
+  "closed_loop": "NOT_EVALUATED",
+  "conditional_training": "parent decision; baseline holdout never used in optimization"
+}

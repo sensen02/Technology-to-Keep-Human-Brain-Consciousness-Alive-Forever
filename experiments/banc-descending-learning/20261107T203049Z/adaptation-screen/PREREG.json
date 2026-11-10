@@ -1,0 +1,24 @@
+{
+  "schema": "round11-adaptation-asymmetry-screen/1",
+  "scope": "Neural-only, preregistered screening of whether leg-group asymmetric adaptation conductance can break the frozen module's ipsilateral synchrony into alternating leg activity. No physics, no readout learning, no acceptance change, no external oscillator.",
+  "why": "Round10 physical search and this round's intrinsic audit found the frozen module's leg activity is ipsilaterally co-fluctuating (LF-RF r=.82, LH-RH r=.56) with no contralateral alternation (LF-RH r=.04, RF-LH r=.08), so a static same-leg readout can only produce same-side co-movement. Adaptation (spike-frequency-adapted) driven alternation is a candidate intrinsic mechanism; its parameters are uncalibrated hypotheses, not measurements.",
+  "frozen_sources": {
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "canonical_neural_state": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+    "sensory_currents": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz",
+    "leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz"
+  },
+  "new_hypothesis_module": "adaptation-screen/module_scale.py subclasses the frozen adaptation network and multiplies only the per-spike adaptation increment of selected neurons by a fixed per-neuron scale vector; every other equation, parameter and state update is unchanged. scale==1 everywhere must reproduce the frozen module bit-exactly, which is checked before any grid run.",
+  "scaled_neurons": "Only the 323 exported motor neurons whose BASE.mn_leg tag belongs to the scaled group; all other 19677 neurons keep scale 1. No connectivity, receptor sign, threshold, time constant or input is changed.",
+  "grid": {
+    "baseline": "all scales 1",
+    "ipsilateral": "MN adaptation increment x{2,4} on left legs LF,LH,LM, x1 on right",
+    "tripod": "MN adaptation increment x{2,4} on LF,RM,LH, x1 on RF,LM,RH",
+    "runs": 7
+  },
+  "protocol": "Restore the canonical 2000-step state before every run; feed the recorded 100 sensory bins cyclically for 400 bins (2000 ms) with zero descending current; record every 5 ms bin the 323 exported MN filtered rates, DN rates and per-step voltage extrema. Physical steps 0.",
+  "fixed_analysis": "Per leg mean rate series; tripod alternation score = -corr(mean(LF,RM,LH) , mean(RF,LM,RH)); ipsilateral score = corr(left,right); per-pair cross-correlations; dominant frequency 0.05-20 Hz on bins 100-399; per-leg rate CV. Report every run including failures. No run may be dropped for a poor score.",
+  "decision_rule_fixed_in_advance": "A scheme is 'alternation-positive' only if tripod score >= 0.3 and both groups keep mean rate > 2 Hz and voltage stays inside the frozen bound. If no scheme is positive, that is the result: intrinsic adaptation asymmetry alone does not produce alternation, and readout/physical training must not be launched on the strength of this screen. A positive scheme is not walking and must still pass original D1-D8 plus a physical test before any claim.",
+  "limits": "Neural open-loop screening with recorded sensory input: no sensorimotor loop, no leg contact, no physics. Adaptation parameters are uncalibrated hypotheses. Positive alternation in MN rates would not prove the animal uses this mechanism, and no arm of this screen is a lesion or surgical model."
+}

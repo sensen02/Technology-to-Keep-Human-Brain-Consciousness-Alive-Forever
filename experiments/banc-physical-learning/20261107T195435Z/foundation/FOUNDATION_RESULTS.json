@@ -1,0 +1,227 @@
+{
+  "status": "PASS_PRIMARY_FOUNDATION_CHECKS",
+  "ledger": {
+    "completed_neural_steps": 2030,
+    "physical_steps": 0,
+    "optimizer_updates": 0,
+    "basis_SVD_factorizations": 6
+  },
+  "prefix_start_neural_max_error": 0.0,
+  "all_available_handover_exact": {
+    "v": true,
+    "ge": true,
+    "gi": true,
+    "g_adapt": true,
+    "_ring": true,
+    "_ring_i": true,
+    "MN_rates": true,
+    "POLICY200_MN_rates": true,
+    "POLICY200_MN_voltage": true
+  },
+  "complete_restore_exact": true,
+  "next5ms_continuation_exact": true,
+  "repeat_restore_continuation_exact": true,
+  "invalid_restore_cases_rejected_transactionally": [
+    "shape_v",
+    "nan_v",
+    "negative_ge",
+    "negative_gi",
+    "negative_gA",
+    "negative_rate",
+    "negative_count",
+    "bad_ring_shape",
+    "bad_ring_i",
+    "bad_time",
+    "bad_root",
+    "bad_mnorder",
+    "bad_contract"
+  ],
+  "actor_and_current_guard_rejections": 12,
+  "manual_actor_max_error": 2.6645352591003757e-14,
+  "largest_clipped_weight_count_tested": 0,
+  "all_source_hashes_unchanged": true,
+  "basis_leg_statistics": {
+    "LF": {
+      "MN_count": 43,
+      "singular_values_top4": [
+        108.83391182438233,
+        26.629894065487477,
+        15.007864865485006,
+        10.371912109999485
+      ],
+      "training_latent_RMS": [
+        3.1954736796078853,
+        0.7818806119394429,
+        0.44064608503785563,
+        0.30452982530105527
+      ],
+      "denominator": [
+        3.1954736796078853,
+        0.7818806119394429,
+        0.44064608503785563,
+        0.30452982530105527
+      ],
+      "gain": [
+        0.31294264959262924,
+        1.278967638703197,
+        2.269394949722725,
+        3.2837506113281667
+      ],
+      "uncentered_energy_fraction_top4": 0.975577717542981,
+      "orthogonality_max_error": 1.1102230246251565e-15
+    },
+    "LH": {
+      "MN_count": 59,
+      "singular_values_top4": [
+        97.66869692234536,
+        30.13316200131559,
+        20.17877838617186,
+        16.689587352484942
+      ],
+      "training_latent_RMS": [
+        2.867651682322736,
+        0.8847401002542334,
+        0.5924693336733199,
+        0.4900231574368011
+      ],
+      "denominator": [
+        2.867651682322736,
+        0.8847401002542334,
+        0.5924693336733199,
+        0.4900231574368011
+      ],
+      "gain": [
+        0.3487173864818971,
+        1.130275433104757,
+        1.6878510720546211,
+        2.040719881955724
+      ],
+      "uncentered_energy_fraction_top4": 0.9191796978224385,
+      "orthogonality_max_error": 1.7763568394002505e-15
+    },
+    "LM": {
+      "MN_count": 60,
+      "singular_values_top4": [
+        45.52911101203335,
+        26.32422214078608,
+        12.377297124480709,
+        11.271850754070375
+      ],
+      "training_latent_RMS": [
+        1.3367807281397766,
+        0.7729057752033108,
+        0.36340995672181314,
+        0.3309529337071088
+      ],
+      "denominator": [
+        1.3367807281397766,
+        0.7729057752033108,
+        0.36340995672181314,
+        0.3309529337071088
+      ],
+      "gain": [
+        0.7480658412779256,
+        1.2938187707770106,
+        2.7517132690051485,
+        3.0215776871915976
+      ],
+      "uncentered_energy_fraction_top4": 0.8749469361737139,
+      "orthogonality_max_error": 1.9984014443252818e-15
+    },
+    "RF": {
+      "MN_count": 42,
+      "singular_values_top4": [
+        96.95990969133875,
+        17.669176900098964,
+        12.89962329211349,
+        9.326393033907687
+      ],
+      "training_latent_RMS": [
+        2.8468409726536867,
+        0.5187848968960118,
+        0.3787459810625925,
+        0.273832328232584
+      ],
+      "denominator": [
+        2.8468409726536867,
+        0.5187848968960118,
+        0.3787459810625925,
+        0.273832328232584
+      ],
+      "gain": [
+        0.3512665475893613,
+        1.927581172819774,
+        2.6402920426889955,
+        3.651869764444443
+      ],
+      "uncentered_energy_fraction_top4": 0.9731710354692268,
+      "orthogonality_max_error": 8.156277030266818e-16
+    },
+    "RH": {
+      "MN_count": 59,
+      "singular_values_top4": [
+        85.93620988329914,
+        21.557297523341518,
+        18.403528763335864,
+        13.612630781672273
+      ],
+      "training_latent_RMS": [
+        2.5231740015966246,
+        0.6329440491900182,
+        0.540346210012562,
+        0.39968060178931064
+      ],
+      "denominator": [
+        2.5231740015966246,
+        0.6329440491900182,
+        0.540346210012562,
+        0.39968060178931064
+      ],
+      "gain": [
+        0.3963262142710791,
+        1.5799184798082946,
+        1.8506653354277287,
+        2.501997834078383
+      ],
+      "uncentered_energy_fraction_top4": 0.9208992224887532,
+      "orthogonality_max_error": 8.881784197001252e-16
+    },
+    "RM": {
+      "MN_count": 60,
+      "singular_values_top4": [
+        67.25720348961465,
+        36.13913054047164,
+        15.3562768340854,
+        10.926796039131396
+      ],
+      "training_latent_RMS": [
+        1.9747394898558313,
+        1.0610814084523121,
+        0.4508758126720095,
+        0.32082177843455667
+      ],
+      "denominator": [
+        1.9747394898558313,
+        1.0610814084523121,
+        0.4508758126720095,
+        0.32082177843455667
+      ],
+      "gain": [
+        0.506395909504502,
+        0.9424347576295723,
+        2.217905622556542,
+        3.116995376309799
+      ],
+      "uncentered_energy_fraction_top4": 0.9221619753928747,
+      "orthogonality_max_error": 7.771561172376096e-16
+    }
+  },
+  "artifacts": {
+    "NEURAL_START.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "BASE.npz": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1",
+    "CANONICAL.json": "60f5014bdb406573158240c61e5e0f3f2d0696bbc61578902d654be21e720c3d",
+    "BASIS.json": "63d85aa57786914e578772fa38c4d762355e5de50f79772dd8c3699e90d63ebb",
+    "runtime.py": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd"
+  },
+  "meaning": "source-exact neural continuation and fixed unlabelled engineering readout foundation; no optimization/physical behavior validation"
+}

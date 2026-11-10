@@ -1,0 +1,93 @@
+{
+  "label": "can five legs support the body with one leg held clear?",
+  "reference": {
+    "nominal_six_leg": {
+      "root_dz": -0.15191346037684172,
+      "support_min": 0.9498351868212673,
+      "support_mean": 1.5876915116306247,
+      "com_min": 1.2538196632097236,
+      "nonfoot_max": 0.0,
+      "note": "the same hold applied to the untouched stand pose; the sink here is the incremental actuator settling, not a pose defect"
+    }
+  },
+  "rows": [
+    {
+      "raised": "RH",
+      "clearance": 0.01,
+      "solved_pad": 0.01039149837411451,
+      "com_kinematic": 1.4502432385574622,
+      "nonfoot_low": -0.0035132027139956057,
+      "supportable": false,
+      "root_dz": -0.13883957315945383,
+      "support_min": 0.7556594561550567,
+      "support_mean": 1.5276945623649665,
+      "com_min": 1.2548006165571597,
+      "nonfoot_max": 0.0
+    },
+    {
+      "raised": "RH",
+      "clearance": 0.04,
+      "solved_pad": 0.03991763147454972,
+      "com_kinematic": 1.4506932587792636,
+      "nonfoot_low": -0.002756236462042677,
+      "supportable": false,
+      "root_dz": -0.14116977748042925,
+      "support_min": 0.7526450752770489,
+      "support_mean": 1.5337987485419526,
+      "com_min": 1.2450409311750528,
+      "nonfoot_max": 0.0
+    },
+    {
+      "raised": "LH",
+      "clearance": 0.01,
+      "solved_pad": 0.011965238042678426,
+      "com_kinematic": 1.4505988541961585,
+      "nonfoot_low": -0.004368077606954124,
+      "supportable": false,
+      "root_dz": -0.14657498502876432,
+      "support_min": 0.7355765386522268,
+      "support_mean": 1.5962908917387253,
+      "com_min": 1.2506448511402843,
+      "nonfoot_max": 0.0
+    },
+    {
+      "raised": "LH",
+      "clearance": 0.04,
+      "solved_pad": 0.03991272808048039,
+      "com_kinematic": 1.4532033665344117,
+      "nonfoot_low": -0.0034650379872475656,
+      "supportable": false,
+      "root_dz": -0.14806158502185207,
+      "support_min": 0.7292123478508002,
+      "support_mean": 1.5283052519605198,
+      "com_min": 1.242622624274111,
+      "nonfoot_max": 0.0
+    },
+    {
+      "raised": "RM",
+      "clearance": 0.01,
+      "solved_pad": 0.010219000936387342,
+      "com_kinematic": 1.450207369341562,
+      "nonfoot_low": -0.0021224918315947278,
+      "supportable": false,
+      "root_dz": -0.1418312624653575,
+      "support_min": 0.7249843871481281,
+      "support_mean": 1.5467773452027254,
+      "com_min": 1.2554579033140028,
+      "nonfoot_max": 0.0
+    },
+    {
+      "raised": "RM",
+      "clearance": 0.04,
+      "solved_pad": 0.03995529606307586,
+      "com_kinematic": 1.4504382222558039,
+      "nonfoot_low": -0.001510951185523246,
+      "supportable": false,
+      "root_dz": -0.15631468579603092,
+      "support_min": 0.7388644409414086,
+      "support_mean": 1.627124276887981,
+      "com_min": 1.2419645236570518,
+      "nonfoot_max": 0.0
+    }
+  ]
+}

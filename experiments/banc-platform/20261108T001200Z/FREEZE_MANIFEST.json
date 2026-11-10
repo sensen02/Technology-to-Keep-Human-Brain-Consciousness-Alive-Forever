@@ -1,0 +1,163 @@
+{
+  "schema": "pre-injury-platform-freeze/1",
+  "frozen_at_round": "round15",
+  "status": "FROZEN_WITH_DECLARED_LIMITS",
+  "missing": [],
+  "artefacts": [
+    {
+      "role": "body_model",
+      "label": "frozen_full_body_no_change",
+      "path": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+      "exists": true,
+      "bytes": 93333,
+      "sha256": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1"
+    },
+    {
+      "role": "actuator",
+      "label": "frozen_bounded_incremental_actuator",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py",
+      "exists": true,
+      "bytes": 12381,
+      "sha256": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1"
+    },
+    {
+      "role": "plant",
+      "label": "frozen_plant_probe",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/plant_probe.py",
+      "exists": true,
+      "bytes": 3966,
+      "sha256": "e1d0ee3d1712f751d656aabbce8b9ee399164995b256bc9e6c42886786b4c800"
+    },
+    {
+      "role": "connectome_core",
+      "label": "frozen_adaptation_conductance_core",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+      "exists": true,
+      "bytes": 6565,
+      "sha256": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250"
+    },
+    {
+      "role": "connectome_foundation_runtime",
+      "label": "frozen_neural_physical_runtime",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+      "exists": true,
+      "bytes": 8390,
+      "sha256": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd"
+    },
+    {
+      "role": "connectome_canonical_state",
+      "label": "frozen_canonical_neural_state",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+      "exists": true,
+      "bytes": 1257050,
+      "sha256": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463"
+    },
+    {
+      "role": "connectome_readout_base",
+      "label": "frozen_323x24_motor_basis",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz",
+      "exists": true,
+      "bytes": 73790,
+      "sha256": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1"
+    },
+    {
+      "role": "encoder",
+      "label": "frozen_uncalibrated_sensory_encoder",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py",
+      "exists": true,
+      "bytes": 16789,
+      "sha256": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054"
+    },
+    {
+      "role": "ann_movement_trace",
+      "label": "labelled_replacement_ANN_NOT_accepted",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/ANN_BODY_u32.npz",
+      "exists": true,
+      "bytes": 970383,
+      "sha256": "1f45021726fc2bf599cfcd3772ae6ac23bb07d641653be3609801c626bfa0951"
+    },
+    {
+      "role": "ann_movement_result",
+      "label": "labelled_replacement_ANN_assessment",
+      "path": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-ann-walk/20261107T123634Z/evaluation/ann_residual_u32/RESULT.json",
+      "exists": true,
+      "bytes": 8390,
+      "sha256": "ee941e669c36df26130b378121cc14a36908a4d556e99ee7ebc8a4bc642550ce"
+    },
+    {
+      "role": "platform_state",
+      "label": "engineering_energy_food_feeding_selector",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T234820Z/platform_state.py",
+      "exists": true,
+      "bytes": 5358,
+      "sha256": "e4a5c81a30edef24da77761c0e484eeddf41e51f648c6c66e33f02f9f836dbc8"
+    },
+    {
+      "role": "platform_unit_tests",
+      "label": "engineering_component_tests",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T234820Z/test_platform.py",
+      "exists": true,
+      "bytes": 3515,
+      "sha256": "9e05970432b57f06b7fc1147a2c2e503c669e48b829570940ea70ff958296370"
+    },
+    {
+      "role": "movement_status",
+      "label": "movement_acceptance_state",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/movement_status.py",
+      "exists": true,
+      "bytes": 2347,
+      "sha256": "6f29f162589dbc21dd26a8ba423bcaf73654509ef578a7f88832ba14defc6d2e"
+    },
+    {
+      "role": "leg_pools",
+      "label": "structurally_derived_pools_not_anatomy",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS.json",
+      "exists": true,
+      "bytes": 7555,
+      "sha256": "7f8e84983f012e726eee22eb7892f94e4d1167aa6a4490d6da3a847bb8d58e59"
+    }
+  ],
+  "parameters": {
+    "energy": {
+      "initial": 0.6,
+      "drain_per_s": 0.02,
+      "intake_per_s": 0.25,
+      "bounds": [
+        0.0,
+        1.0
+      ]
+    },
+    "food": {
+      "radius_native": 0.05,
+      "total_mass": 1.0,
+      "intake_per_s": 0.25
+    },
+    "selector": {
+      "feed_if": "mouth_in_food and energy<.95",
+      "forage_if": "energy<.5 and food_mass>0",
+      "else_": "rest"
+    },
+    "note": "declared engineering constants; uncalibrated to fly metabolism, food detection distance or feeding rate"
+  },
+  "not_frozen": {
+    "accepted_walking": "NOT ACHIEVED: connectome module produces no displacement; the labelled ANN passes D1-D8 but fails the material foot slip criterion",
+    "brain_level_modulation": "only a weak named-descending entry point was probed (round 11); no accepted brain-to-gait pathway",
+    "feeding_biomechanics": "no food collision, no proboscis mechanics; feeding is a declared virtual gate",
+    "intake_to_locomotion_feedback": "absent: the movement controller has no food sensing, so coupling is one-way",
+    "injury_models": "none created; no surgery, no lesion experiment",
+    "absolute_units": "NOT_ESTABLISHED for body SI and neural physiology",
+    "connectome_scope": "frozen 20k strict subgraph and the whole-BANC strict reconstruction are models, not the fly"
+  },
+  "reproduction": {
+    "script": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/run_frozen_platform.py",
+    "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/RESULT_REPRODUCTION.json",
+    "expectation": "arrival tick 224 at 1.125 s, feed 58 ticks, energy .5999 -> .5925, food 1.0 -> .9275"
+  },
+  "labels": {
+    "movement": "replacement_ANN_not_connectome_not_accepted",
+    "connectome": "frozen_strict_reconstruction_not_the_fly",
+    "feeding": "declared_virtual_gate",
+    "selector": "engineering_threshold_rule_not_neural",
+    "energy": "declared_state_uncalibrated"
+  }
+}

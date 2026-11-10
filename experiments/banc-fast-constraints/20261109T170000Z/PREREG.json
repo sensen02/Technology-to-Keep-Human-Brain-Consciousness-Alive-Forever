@@ -1,0 +1,12 @@
+{
+  "schema": "fast-constraints/1",
+  "origin": "the three-way run failed for a specific reason (measured-target assist is a collapsed initial state, non-foot 80.8 W), and it also moved the bottleneck: at a 1 ms tick with doubled authority the slip is now 1.50 (2x the gate instead of 7x) while non-foot contact is 73.7 W and COM .630. So constrain what is actually failing now, with cold-start training, which the evidence says is the better distribution.",
+  "runs": {
+    "nonfoot": "lagrangian on the windowed maximum non-foot contact over 10 ticks, target 4.889 W, dual ascent 0.05 per rollout on the mean violation, lambda_max 50",
+    "nonfoot_height": "the same, plus a second multiplier on max(0, 1.20 - com_z) with the same rule"
+  },
+  "kept": "1 ms policy tick, base target at 200 Hz, C = 0.02, cold start, derived pad body R=.02, mu=1.5, releasable adhesion 0.25 body weight, reward v4 including its soft height term, 42-joint PPO, 48 updates, gates unchanged",
+  "why_not_assist_again": "the previous run measured that replaying measured targets drives the body to support .253 and non-foot 80.8 W, so it cannot be the initial state of a training episode",
+  "labelling": "derived channel plus replacement ANN, never frozen-body acceptance",
+  "accounting": "every constraint value and multiplier logged per update; full four-second assist-then-release evaluation with stance fractions"
+}

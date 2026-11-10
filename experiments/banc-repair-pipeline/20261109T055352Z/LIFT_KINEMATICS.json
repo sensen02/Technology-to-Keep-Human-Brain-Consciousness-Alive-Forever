@@ -1,0 +1,615 @@
+{
+  "label": "kinematic lift bound and its simulation; diagnostic, no learning",
+  "window_ticks": 300,
+  "rate_travel_rad": 0.6,
+  "task_lift_requirement": 0.015,
+  "per_leg": {
+    "LF": {
+      "joints": [
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Coxa_roll",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        -0.115977,
+        0.273551,
+        0.708628,
+        0.003386,
+        -2.016738,
+        0.289577,
+        1.16592
+      ],
+      "travel_up_rad": [
+        0.390477,
+        0.46394900000000006,
+        0.11188861202426426,
+        0.271114,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "travel_down_rad": [
+        0.481023,
+        0.6,
+        0.5650280000000001,
+        0.6,
+        0.6,
+        0.5640769999999999,
+        0.6
+      ],
+      "pad_names": [
+        "LFTarsus5_pad0",
+        "LFTarsus5_pad1",
+        "LFTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          0.65309,
+          -0.91687,
+          0.07359,
+          -0.1499,
+          -1.24865,
+          0.1034,
+          -0.61958
+        ],
+        [
+          0.65196,
+          -0.90836,
+          0.07424,
+          -0.14539,
+          -1.2413,
+          0.09906,
+          -0.61214
+        ],
+        [
+          0.64374,
+          -0.91434,
+          0.07135,
+          -0.15515,
+          -1.24082,
+          0.10912,
+          -0.61214
+        ]
+      ],
+      "kinematic_bound_min_pad": 2.0666325713540727,
+      "direction_units": [
+        0.6508,
+        -1.0,
+        0.1865,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ],
+      "measured_max_padz": 2.3215419060278264,
+      "measured_rise": 2.319603096091316,
+      "rest_padz": 0.0019388099365101677,
+      "joint_displacement_rad": [
+        0.3824,
+        -0.5915,
+        0.1112,
+        -0.5935,
+        -0.5957,
+        0.5896,
+        -0.5962
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.9678417856175076,
+      "com_min": 1.2501263931333513,
+      "nonfoot_max": 0.0,
+      "reaches_task_lift": true
+    },
+    "LH": {
+      "joints": [
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Coxa_roll",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        -0.083533,
+        0.344821,
+        2.488651,
+        -0.057925,
+        -2.016303,
+        0.188358,
+        1.859952
+      ],
+      "travel_up_rad": [
+        0.35803300000000005,
+        0.39267900000000006,
+        0.0930600536298134,
+        0.332425,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "travel_down_rad": [
+        0.513467,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.462858,
+        0.6
+      ],
+      "pad_names": [
+        "LHTarsus5_pad0",
+        "LHTarsus5_pad1",
+        "LHTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          0.75712,
+          0.96411,
+          0.3319,
+          -0.01244,
+          -1.15643,
+          -0.10315,
+          -0.51912
+        ],
+        [
+          0.7474,
+          0.9618,
+          0.32843,
+          -0.00662,
+          -1.14889,
+          -0.1071,
+          -0.51073
+        ],
+        [
+          0.75487,
+          0.95464,
+          0.33039,
+          -0.01672,
+          -1.14771,
+          -0.09886,
+          -0.51073
+        ]
+      ],
+      "kinematic_bound_min_pad": 1.7251501411863663,
+      "direction_units": [
+        0.5967,
+        0.6545,
+        0.1551,
+        -1.0,
+        -1.0,
+        -0.7714,
+        -1.0
+      ],
+      "measured_max_padz": 0.2157018103992172,
+      "measured_rise": 0.21640059951240417,
+      "rest_padz": -0.000698789113186972,
+      "joint_displacement_rad": [
+        0.3542,
+        0.3896,
+        0.0888,
+        -0.5946,
+        -0.5956,
+        -0.4583,
+        -0.5959
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.07229498212837389,
+      "com_min": 0.6997290106821459,
+      "nonfoot_max": 28.79796320189758,
+      "reaches_task_lift": true
+    },
+    "LM": {
+      "joints": [
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Coxa_roll",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        0.173921,
+        0.174211,
+        1.624997,
+        0.027115,
+        -1.995578,
+        0.32179,
+        1.967488
+      ],
+      "travel_up_rad": [
+        0.10057900000000003,
+        0.563289,
+        0.010210007361348916,
+        0.24738500000000002,
+        0.6,
+        0.6,
+        0.5345119999999999
+      ],
+      "travel_down_rad": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.59629,
+        0.6
+      ],
+      "pad_names": [
+        "LMTarsus5_pad0",
+        "LMTarsus5_pad1",
+        "LMTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          0.94459,
+          -0.10547,
+          0.18198,
+          -0.18488,
+          -0.88193,
+          0.08355,
+          -0.27504
+        ],
+        [
+          0.93628,
+          -0.09971,
+          0.17954,
+          -0.1787,
+          -0.87432,
+          0.07901,
+          -0.26625
+        ],
+        [
+          0.93531,
+          -0.10987,
+          0.18113,
+          -0.18878,
+          -0.87246,
+          0.08755,
+          -0.26625
+        ]
+      ],
+      "kinematic_bound_min_pad": 0.9947972143206636,
+      "direction_units": [
+        0.1676,
+        -1.0,
+        0.017,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ],
+      "measured_max_padz": 1.9459008346081224,
+      "measured_rise": 1.9463344133554874,
+      "rest_padz": -0.0004335787473651251,
+      "joint_displacement_rad": [
+        0.0992,
+        -0.5929,
+        0.0108,
+        -0.5934,
+        -0.5959,
+        0.5903,
+        -0.5949
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.9641086628888816,
+      "com_min": 1.1674646436488088,
+      "nonfoot_max": 0.07801066759396916,
+      "reaches_task_lift": true
+    },
+    "RF": {
+      "joints": [
+        "Coxa_roll",
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        -0.23167,
+        -0.055289,
+        0.408718,
+        -0.042003,
+        -2.040967,
+        0.147638,
+        1.08821
+      ],
+      "travel_up_rad": [
+        0.6,
+        0.4073428743559922,
+        0.48879541074389177,
+        0.31650300000000003,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "travel_down_rad": [
+        0.010000049725826826,
+        0.5417109999999999,
+        0.6,
+        0.6,
+        0.6,
+        0.422138,
+        0.6
+      ],
+      "pad_names": [
+        "RFTarsus5_pad0",
+        "RFTarsus5_pad1",
+        "RFTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          0.0,
+          -0.43012,
+          -1.05717,
+          -0.33323,
+          -1.22166,
+          0.41947,
+          -0.58779
+        ],
+        [
+          0.0,
+          -0.42625,
+          -1.04945,
+          -0.32985,
+          -1.21403,
+          0.41543,
+          -0.58031
+        ],
+        [
+          0.0,
+          -0.43634,
+          -1.04953,
+          -0.33911,
+          -1.21394,
+          0.4255,
+          -0.58031
+        ]
+      ],
+      "kinematic_bound_min_pad": 2.3843495059151207,
+      "direction_units": [
+        0.0,
+        -0.9029,
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ],
+      "measured_max_padz": 1.910555155084669,
+      "measured_rise": 1.9052620277083832,
+      "rest_padz": 0.005293127376286032,
+      "joint_displacement_rad": [
+        -0.0001,
+        -0.534,
+        -0.5938,
+        -0.5947,
+        -0.5966,
+        0.5923,
+        -0.5957
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.9983213526597445,
+      "com_min": 1.249454592531003,
+      "nonfoot_max": 0.0,
+      "reaches_task_lift": true
+    },
+    "RH": {
+      "joints": [
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Coxa_roll",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        -0.13658,
+        0.265174,
+        -1.925099,
+        -0.056666,
+        -1.893548,
+        0.21867,
+        1.882828
+      ],
+      "travel_up_rad": [
+        0.41108,
+        0.472326,
+        0.6,
+        0.331166,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "travel_down_rad": [
+        0.46041999999999994,
+        0.6,
+        0.010000156002228922,
+        0.6,
+        0.6,
+        0.49317,
+        0.6
+      ],
+      "pad_names": [
+        "RHTarsus5_pad0",
+        "RHTarsus5_pad1",
+        "RHTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          -0.76431,
+          0.95083,
+          -0.0742,
+          -0.58512,
+          -1.0046,
+          0.59654,
+          -0.36532
+        ],
+        [
+          -0.75871,
+          0.94335,
+          -0.07372,
+          -0.58008,
+          -0.99674,
+          0.59146,
+          -0.35749
+        ],
+        [
+          -0.75393,
+          0.95139,
+          -0.0714,
+          -0.58911,
+          -0.9956,
+          0.59928,
+          -0.35749
+        ]
+      ],
+      "kinematic_bound_min_pad": 2.3110949057074492,
+      "direction_units": [
+        -0.7674,
+        0.7872,
+        -0.0167,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ],
+      "measured_max_padz": 0.18639303500292292,
+      "measured_rise": 0.18322894229837627,
+      "rest_padz": 0.0031640927045466435,
+      "joint_displacement_rad": [
+        -0.458,
+        0.4661,
+        -0.0204,
+        -0.5914,
+        -0.5934,
+        0.5933,
+        -0.5894
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.0,
+      "com_min": 0.6646246666763136,
+      "nonfoot_max": 37.50968696578728,
+      "reaches_task_lift": true
+    },
+    "RM": {
+      "joints": [
+        "Coxa_yaw",
+        "Coxa_pitch",
+        "Coxa_roll",
+        "Trochanter_yaw",
+        "Trochanter_pitch",
+        "Trochanter_roll",
+        "Tibia_pitch"
+      ],
+      "q_start": [
+        -0.049801,
+        0.154982,
+        -1.336129,
+        -0.077886,
+        -2.187728,
+        -0.110501,
+        1.957781
+      ],
+      "travel_up_rad": [
+        0.324301,
+        0.5825180000000001,
+        0.6,
+        0.35238600000000003,
+        0.6,
+        0.6,
+        0.5442189999999998
+      ],
+      "travel_down_rad": [
+        0.547199,
+        0.6,
+        0.010000168397328979,
+        0.6,
+        0.6,
+        0.20496504804877952,
+        0.6
+      ],
+      "pad_names": [
+        "RMTarsus5_pad0",
+        "RMTarsus5_pad1",
+        "RMTarsus5_pad2"
+      ],
+      "vertical_jacobian_per_pad": [
+        [
+          -0.95615,
+          -0.10641,
+          -0.15283,
+          -0.08651,
+          -0.92593,
+          0.20108,
+          -0.30255
+        ],
+        [
+          -0.94636,
+          -0.10848,
+          -0.15142,
+          -0.08224,
+          -0.91713,
+          0.19638,
+          -0.29389
+        ],
+        [
+          -0.94934,
+          -0.09866,
+          -0.1514,
+          -0.09249,
+          -0.91778,
+          0.20476,
+          -0.29389
+        ]
+      ],
+      "kinematic_bound_min_pad": 1.4782287878409337,
+      "direction_units": [
+        -0.912,
+        -1.0,
+        -0.0167,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ],
+      "measured_max_padz": 1.913654839017629,
+      "measured_rise": 1.9073414932282422,
+      "rest_padz": 0.006313345789386714,
+      "joint_displacement_rad": [
+        -0.5435,
+        -0.5896,
+        -0.01,
+        -0.5944,
+        -0.5966,
+        0.5928,
+        -0.5956
+      ],
+      "min_load_over_body_weight": 0.0,
+      "support_min": 0.9774039146821981,
+      "com_min": 1.0935016959095818,
+      "nonfoot_max": 1.557293670952291,
+      "reaches_task_lift": true
+    }
+  },
+  "summary": {
+    "legs_whose_pose_cannot_lift": [],
+    "legs_whose_pose_can_lift_but_body_does_not": [],
+    "legs_reaching": [
+      "LF",
+      "LH",
+      "LM",
+      "RF",
+      "RH",
+      "RM"
+    ],
+    "interpretation": "kinematic_bound_min_pad is the largest pad rise available inside the remaining joint travel and the 2 rad/s rate limit over the task window, for the direction that raises the lowest pad of that leg. If it is below 0.015 the pose itself rules the lift out."
+  }
+}

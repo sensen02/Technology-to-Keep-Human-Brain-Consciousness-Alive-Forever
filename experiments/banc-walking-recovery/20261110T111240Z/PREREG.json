@@ -1,0 +1,14 @@
+{
+ "version":"neural-inhibitory-target-position-v2",
+ "goal":"S2/S5 isolate actualjoint positivefeedback introduced by inhibitory targetERROR neuralbranch",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z",
+ "basis":"errorbranch achieved KT~-9.7 but built-in Kq~+9.6 and actualbodycollapse;frozenbodymemoryrho<1 didnot implyfullphysicalstability",
+ "sole_architecture_change":"trainableinhibitorybranch input raw126:168=(T-q0)/H insteadofraw42:84=(T-q)/H; residualMLPmask/rates/gaininit10H/signsoftplus/alltrainableunchanged. Removesexplicitpositiveqterm. Final42outputsremainNNonly, no externalcontroller",
+ "identity":"newphysical_mlp_plus_trainable_inhibitory_target_v2, branchrange metadata, olderrorFFcheckpointreject, Hsamecompiledactuatororder;GRU/ff495unchanged",
+ "unchanged":"samefullbody/noadh/massgravityfrictionPD2rad/s/torquelimits/native12.5us1ms,5mscommands,SMOOTH_DATASETrawX238/noactorphaseorderclock,FF2x128,scratch1000BClrm.001std.05seeddefaultsameoriginalBC, criticraw255",
+ "data":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET train0/1 validation2",
+ "checks":"coherentTchangesBOTHerror/targetblocks,KTnegative/prevJac0/offdiag0;fixedTactualqperturb hasonlylearnedresidualqgradient,zeroifresidualzero;allgainsupdate/sign/physicalgradient;checkpointoldv1reject/newreload/RNG/Adam/PPOstates;unchangedhandoverphysics",
+ "evaluation":"same1sphysicalstand4.8steacher9.6spurestudent,noreset/teacherqueriesafterboundary,alloriginalengineeringgates. Recordactualstates/nf/load/slip/forward+perlegcycles",
+ "decision":"noMSEorlocalderivativePASSassuccess; ifcandidatefailsinspecttruebody/actuatorcoupleddynamics andteacherclockobservability data beforemorearchitecture",
+ "scope":"declaredreplacementANNpriorondeclaredderivedbody, notconnectome/frozenbody/originalcompletegoal"
+}

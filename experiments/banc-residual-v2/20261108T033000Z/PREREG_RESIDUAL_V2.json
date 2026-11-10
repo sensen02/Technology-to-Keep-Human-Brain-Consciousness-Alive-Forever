@@ -1,0 +1,87 @@
+{
+  "schema": "criterion-matched-residual-v2/1",
+  "scope": "S5 replacement-ANN locomotion only; no connectome claim, no injury experiment",
+  "base_network": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-residual-v2/20261108T011500Z/MODEL_MEASURED.npz",
+  "base_status": "supervised on filtered measured motion; open-loop it collapses (support .607, non-foot 31.45 W, slip max 1.139)",
+  "residual": {
+    "action_joints": "tibia pitch of all six legs, one per leg",
+    "action_indices": [
+      6,
+      13,
+      20,
+      27,
+      34,
+      41
+    ],
+    "bound_rad_per_tick": 0.003,
+    "hidden": [
+      128,
+      128
+    ],
+    "activation": "tanh",
+    "obs": "183 proprioception + 294 own-target history (unchanged contract)",
+    "std_bounds": [
+      1e-05,
+      0.03162277660168379
+    ]
+  },
+  "reward": {
+    "progress": "clip(filtered_forward / v_target, -1, 1.5)",
+    "slip_hinge": "2.0 * sum_i max(0, r_i - 0.35)^2 with r_i = vt_i / max(|filtered_forward|, 0.05)",
+    "stance_foot_speed": "0.5 * sum_i (stance_i * vt_i^2), stance_i = load_i > 0.3 W",
+    "attitude": "0.05 * |omega|^2 + 0.01 * gravity_xy^2",
+    "action": "0.01 * mean(action^2)",
+    "support": "5 * (sum(loads)/W - 1)^2 + 50 * nonfoot/W",
+    "termination": "COM height < 0.95 or non-foot force > 0.05 W"
+  },
+  "curriculum": {
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "updates_per_level": 16,
+    "rollout": 256,
+    "decisions_per_update": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "episode_total_s": 8.0,
+    "warmup_s": 1.0
+  },
+  "level_gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05,
+    "note": "gates are the frozen acceptance quantities; my evaluator recomputes them, it is not the frozen D-gate suite, and that is stated in every result file"
+  },
+  "artifacts": [
+    "PREREG.json",
+    "TRAIN_LOG.json",
+    "LEVEL_*/RESULT.json",
+    "MODEL_RESIDUAL_V2.npz",
+    "SUMMARY.json"
+  ],
+  "failure_policy": "if a level fails its gates after the allocated updates, the run stops at that level and the failure is reported with the measured numbers; no gate, bound or reward weight is adjusted to force a pass",
+  "accounting": "every run reports native physics steps, policy ticks and wall time; no hidden drive, no root/pose write, no external oscillator",
+  "amendment_1": {
+    "reason": "smoke test measured about 38 s wall time per update (rollout 256 at 5 ms ticks = 1.28 s simulated, plus a pure-numpy PPO pass), so 32 updates x 4 levels would exceed the remaining session budget",
+    "change": "updates_per_level 32 -> 16; every other number, weight, bound, gate and threshold is unchanged",
+    "recorded_before": "before the full curriculum run",
+    "kept_unchanged": "reward definition, action space, curriculum targets, level gates, frozen acceptance thresholds"
+  },
+  "amendment_2": {
+    "reason": "level 0 stopped after 16 updates at a stable-but-sliding local optimum (support 1.0003, non-foot 0.0, forward 0.051, but slip 1.64-3.87 and COM 0.866): it learned to stand without falling instead of to plant feet",
+    "change": "extend level 0 to 48 updates in total, continuing from the saved weights; no reward weight, action bound, curriculum target, gate or threshold changes",
+    "hypothesis_before_running": "if the metric-matched slip hinge can pull the policy out of the standing local optimum, per-leg slip should fall below 1.0; if it stays above 1.5 after 32 more updates the standing optimum is what this reward/action space actually rewards"
+  }
+}

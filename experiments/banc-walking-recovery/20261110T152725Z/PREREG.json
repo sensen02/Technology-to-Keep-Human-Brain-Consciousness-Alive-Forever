@@ -1,0 +1,28 @@
+{
+  "goal": "S2/S5 final native/neural read-only audit wrapper preparation; no physical integration",
+  "experiment_dir": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152725Z",
+  "measurement_freeze": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T131413Z/ACCEPTANCE_MEASUREMENT_FREEZE.json",
+  "unchanged_frozen_evaluator": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/native_acceptance.py",
+  "candidate_status": "No2500/3000 final audited candidate evaluated by this wrapper preparation",
+  "threshold_changes": false,
+  "declared_nominal_windows_seconds": {"settle": [0,1], "auxiliary": [1,5.8], "autonomous": [5.8,15.4]},
+  "time_discretization_clarification_before_candidate_audit": {
+    "reason": "Historical native300 read-only diagnostic revealed nominal15.4 vs accumulated MuJoCo clock can exclude last interval using1e-10 comparisons. Preserve all predeclared intervals using actual recorded source-boundary timestamps, rather than dropping the final interval.",
+    "actual_boundary_sources": "decisions time[0], decisions time[960], trace time[-1]; first two must exactly equal trace time[999], trace time[5799]",
+    "nominal_alignment_absolute_tolerance_seconds": 1e-8,
+    "required_exact_native_phase_counts": {"settle": 80000, "auxiliary": 384000, "autonomous": 768000},
+    "required_total_native_count": 1232000,
+    "historical_diagnostic_retained": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152725Z/EXISTING_FULL_NATIVE_NOMINAL_ENDPOINT_DIAGNOSTIC.json",
+    "not_a_selected_subwindow": true,
+    "regression": "Final native interval force/contact spike must be retained and fail strict D1 despite accumulated clock rounding"
+  },
+  "D7": "Separate >=.1W median>=3 sufficient proof; report1e-6/.001/.01/.05/.1W histograms; preserve frozen legacy UNKNOWN",
+  "D6": "Unchanged signedp95<=.15W; raw/causal continuous.25/.5/1/2ms signed+absolute+force-accounted sensitivities, primary1ms as original measurement freeze",
+  "engineering": "All5 native gates and perleg slips unchanged; replay full9600-row strict sensed cycle diagnostic with aborted/timeout events retained",
+  "neural": "Exact fast logical replay, actual hidden chain, all2880 checkpoint forwards, applied1920 ANN actions synchronized through native endpoints",
+  "dependencies": "Exact5800-row actual zero-control physical prefix plus offline saved-hidden sensory cuts; no all-sensors-must-fall requirement and no offline physical-outcome claim",
+  "array_cap_scalar_elements": 2000000,
+  "historical_writes": false,
+  "master_tracker_state_writes": false,
+  "full_goal_claim": "NOT_ESTABLISHED; same-run video and evidence scope review remain external"
+}

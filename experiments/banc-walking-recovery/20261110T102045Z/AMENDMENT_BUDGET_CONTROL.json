@@ -1,0 +1,11 @@
+{
+ "goal":"S2/S5 separate stronger-data effect from an additional1000BCsteps",
+ "registered_before_training":true,
+ "control":"same parent094846/BC_FF_RECOVERY/final.pt, sameSMOOTHbase, old094846/RECOVERY_DATA beta.9, MODELONLYfreshBCAdam/RNG,1000stepslr.0003seed20261231",
+ "candidate":"sameparent/base/optimizer/budget/seed butnew102045/RECOVERY_DATA beta.5newseeds",
+ "evaluation":"bothsamecontinuousteacher4.8sprefixthen9.6spurestudent,fullphysicalgates/sourceclosure, no claimfromMSE",
+ "reason":"Ifcandidateimproves, matchadditionaloptimizationbudget before attributing toexpandedstates. Existingcollector93code canvalidate frozenoldbeta.9dataset; oldsourceandallinputsunchanged",
+ "no_additional_physics_change":true,
+ "outputs":"BC_FF_BUDGET_CONTROL and BC_FF_HALF_RECOVERY exclusive directories; EVAL_BUDGET_CONTROL/EVAL_HALF_RECOVERY",
+ "scope":"bounded learning comparison, notnewbody/thresholdorcompletedneuralwalking"
+}

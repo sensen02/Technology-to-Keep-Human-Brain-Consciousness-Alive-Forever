@@ -1,0 +1,24 @@
+{
+  "schema": "banc-round9-readout-comparison/1",
+  "scope": "S3 local learning comparison and causal runtime plus unexecuted physical runner; only learning workspace/Desktop directories writable by this agent. No neural dynamics or physical steps for fitting; reuse saved traces.",
+  "cases_in_fixed_order": [
+    {"case": "oldinstant", "mechanism": "old subtractive-current adaptation", "lags_bins": [0], "fit": false, "weights": "exact cached 185910Z/readout/MODEL.npz"},
+    {"case": "oldhistory", "mechanism": "old subtractive-current adaptation", "lags_bins": [0,1,4,10], "fit": true, "rates": "exact cached 185910Z/readout/TRAIN_TRACE.npz"},
+    {"case": "newinstant", "mechanism": "new adaptation conductance EA=-80mV, increment=.002/15uS, tau100ms", "lags_bins": [0], "fit": true, "rates": "192931Z/dynamics/SOURCE_TRACE.npz"},
+    {"case": "newhistory", "mechanism": "new adaptation conductance EA=-80mV, increment=.002/15uS, tau100ms", "lags_bins": [0,1,4,10], "fit": true, "rates": "192931Z/dynamics/SOURCE_TRACE.npz", "primary": true}
+  ],
+  "primary_fixed_before_results": "newhistory; never select primary by temporal diagnostics",
+  "source_quality": "Same saved failed slow4 motion; no success label or inherited acceptance; same-episode temporal diagnostic, not independent animal generalization",
+  "source_reference": "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics",
+  "old_source": "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout",
+  "features": "323 exact source MNfilteredHz /100; concatenate lag blocks in lag order [0,1,4,10], all323 MN order within each; lag0 current startbin, lags1/4/10 only past5/20/50ms bins; zero padding before recording start, no wrapping or future data",
+  "readout": "Each actual42 joint uses only same-leg MN features at all admitted lags; weights[-1,1], exactly zero crossleg, NO bias, output30*tanh(feature@weights) rad/s",
+  "training": "Independent single constrainedridge fit for42 joints per fitted case, scipy.optimize.lsq_linear tol1e-9 max_iter100, lambda1, design augmented with identity. Targetatanh(clip(mean five1ms applied rate rows/30,-.999,.999)). No hyperparameter search, no neuralweight fitting.",
+  "split": "1817 bins; exact old time axis and labels reused/cross-checked to source; train1160 rows .2-1e-9<=t<6-1e-9; temporal617 rows t>=6-1e-9; first40 bins only causal history, not fitting; last3ms discarded",
+  "runtime": "Readout(model_path).observe(mn_rates323) appends current by shift, .action() uses stored causal features, .state_dict() returns numeric history/count arrays. Caller observes START MN rates before action and held sensory5ms neural advancement. No time/phase/root/teacher/target input. Canonical MNroots/legs and jointnames checked on load.",
+  "history_silence": "Fresh/allzero history implies exactzero action. Zero current MN input with nonzero past history can produce remembered action. With maxlag10, ten subsequent zero observations (50ms) after the last nonzero observation can still expose that observation at lag10; by the next bin at55ms it must be fully absent. No feature ever references data older than50ms.",
+  "verification": "Independent code must not import fit script. Rebuild causal features by explicit per-row indexing, compare runtime for entire trace and stationary/impulse/drain cases; identity mutation rejection, bounds/mask/bias and predictions; recompute objective/gradient KKT without fitting, projected residual<=1e-6; numeric metrics/prediction atol1e-10; zero future leak prefix invariance and exact padding; source hashes and labels checked",
+  "runner": "Write learning/run_closed_loop.py only; parent executes. Same old fullbody/sourceINITIAL/1s sourcewarmup+2s learned orzero-ratehold, unchangedPD128/caps/nativephysics. NEWcircuit, OLD556encoder, NEWfixedprimarynewhistory readout. Preserve old source trace schemas, save predictor history at handover/final; no resets at handover. Defaultphysicaloutput Desktop192931Z/closed_loop oroutput_hold owned by parent.",
+  "limits": "Old -90mV sanityfailure remains historical evidence; new adaptation mechanism remains engineering/uncalibrated even if ranges improve. No biological calibration or walking claims.",
+  "environment": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python"
+}

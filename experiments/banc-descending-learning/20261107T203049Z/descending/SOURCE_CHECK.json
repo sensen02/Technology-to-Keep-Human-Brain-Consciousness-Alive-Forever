@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "neural_steps": 0,
+  "physical_steps": 0,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/GROUP_CACHE_INDICES.npz": "557cfc944270a34053d74d3eebe39af453eefe530c22ae5ce656f92fbff3b09a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MOTOR_READOUT_PORTS.csv": "c78650b4a8b705512523674f4c47dd7e7718261db5b51d37519f910b558df39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/NEURAL_INTERFACE_MANIFEST.json": "7d056f20fea8d0761468fe9ebbda4144077aeb5858d62a1a9afcd3372319ca92",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/named-dn/CANDIDATES.csv": "a10b2d584fde9fb6066be00f6e5e4b182e20ac73573ac1eae4421ce25d417d78",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/evaluation/zero/POLICY.npz": "a33436ea3d08d4e7061e1c2e4497060b5520dc4f0744f219e8cf1d5be3819863",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/PORTS.json": "825f0993a7842bcd60f18c80633eed6955e1e49ca7a09ce05eb27b2f12782bf1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/PREREG.json": "691bfaa52ba12dc87a4df926a237d46f4383ac45a64272453b691520dcdf61c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/command.py": "ba84bca2b7e3ee710c3412467db2a4eadcd839dd38d027d44241b7b9363b455c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/prepare_inputs.py": "da711c853aef050833ace47c0ac8758fed141a7b1973d456759cdfeb16e715f9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_CANDIDATES.csv": "2ff1b031a247d1d3124eb614192bd0f6b73d7160edecf28dff76b0d7cd233168",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_REVIEW.json": "906ccfca7b27698d59666d0d9ce15f37ff43b23a013d44168902467757bb4b64",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/mapping/STUDENT_INTERFACE.json": "b31038f1651ceb719f055e6212a67dc4c4aad866a5bebf53028170a0a6ad7fbe",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/mapping/current42_candidates.csv": "790f4e1fc8d57b4db44e314486ff80a8db43d529817c7ef0b8c7813a56c0a1df",
+    "/run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py": "27e46d0a9d2b3014ead4c07c4ae64a6b46a069c35ff772c7533210b053164a4e"
+  },
+  "source_identity_and_strict_counts_exact": true,
+  "runtime_graph_equals_audited_graph": true,
+  "graph_distance_checks": [
+    {
+      "direction": "downstream",
+      "DN": "local1414",
+      "exact_motor_distances": 391
+    },
+    {
+      "direction": "downstream",
+      "DN": "local13170",
+      "exact_motor_distances": 391
+    },
+    {
+      "direction": "upstream",
+      "DN": "local1414",
+      "exact_motor_distances": 391
+    },
+    {
+      "direction": "upstream",
+      "DN": "local13170",
+      "exact_motor_distances": 391
+    }
+  ],
+  "encoder_manual_exact": true,
+  "encoder_saved_exact": true,
+  "sensory_cells": 556,
+  "DN_cells": 2,
+  "overlap": 0,
+  "all_leg_MN": 391,
+  "exported_sameleg_MN": 323,
+  "INPUTS_sha256": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1",
+  "canonical_steps": 2000,
+  "canonical_clock_ms": 1000.0,
+  "upstream_limit": "Local upstream graph reachability is not a demonstrated brain response; omitted brain cells remain absent."
+}

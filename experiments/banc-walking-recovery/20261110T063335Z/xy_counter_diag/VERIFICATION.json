@@ -1,0 +1,12 @@
+{
+  "independent_process_exit_code": 0,
+  "all_output_hashes_match": true,
+  "npz_samples": 594,
+  "sample_dt_s": 0.001,
+  "all_numeric_arrays_finite": true,
+  "source_script_sha256": "b887a57d3f20208360fb1c74bf200f0493264f11b6e6b7f4a5396c80d61b9e9e",
+  "source_script_mode": "0444",
+  "scope": "Independent data/hash readback after one physical counterfactual; no additional simulation",
+  "metadata_correction": "RESULT.json field initial_com contains initial_qpos[:3], i.e. settled free-root translation, not measured subtree COM. Do not use it as COM. All compared COM statistics correctly use recorded subtree_com arrays.",
+  "timing_caveat": "Actual ctrl fraction is last native substep; reconstructed raw PD uses each 1ms endpoint q/qvel. Their recorded saturation fractions are both zero. Body-root velocity and desired body-COM velocity are distinct signals; scalar vertical-term diagnostic omits angular terms."
+}

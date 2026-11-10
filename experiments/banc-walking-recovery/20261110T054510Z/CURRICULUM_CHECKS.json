@@ -1,0 +1,86 @@
+{
+  "all_passed": true,
+  "status": "PASS",
+  "tests": [
+    "frozen_serializable_config",
+    "pure_idempotent_and_zero_target_finite",
+    "airborne_high_speed_not_penalized",
+    "slip_reference_independent_of_instantaneous_velocity",
+    "sideways_backwards_cap_and_initial_heading",
+    "no_highload_bonus_height_prewarning_native_force_scaling",
+    "fixed_20ms_command_change_window",
+    "fixed_trajectory_1ms_5ms_partition_equivalence",
+    "discounted_absorbing_tail_exact_bounded_survival_no_double_emission",
+    "terminal_flags_bounded_rates_nonfinite_rejected"
+  ],
+  "config": {
+    "version": "curriculum-v1",
+    "dt_s": 0.001,
+    "body_weight_native": 24.446354755878005,
+    "velocity_scale_native_per_s": 0.1,
+    "slip_reference_native_per_s": 0.1,
+    "load_gate_fraction": 0.1,
+    "height_warning_native": 1.3,
+    "height_floor_native": 1.2,
+    "height_risk_scale_native": 0.1,
+    "support_target": 0.9,
+    "tilt_safe_rad": 0.15,
+    "tilt_scale_rad": 0.3,
+    "rate_limit_rad_per_s": 2.0,
+    "action_change_window_s": 0.02,
+    "action_change_acceleration_ref_rad_per_s2": 100.0,
+    "height_weight": 2.0,
+    "nonfoot_weight": 2.0,
+    "support_weight": 1.0,
+    "slip_weight": 0.5,
+    "tilt_weight": 0.1,
+    "heading_weight": 0.1,
+    "action_weight": 0.02,
+    "action_change_weight": 0.01,
+    "min_rate": -20.0,
+    "max_rate": 2.0,
+    "terminal_com_native": 0.8,
+    "terminal_nonfoot_fraction": 1.0,
+    "terminal_tilt_rad": 1.2,
+    "discount_time_constant_s": 1.0,
+    "policy_discount_dt_s": 0.005
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/curriculum.py": "0a7820fbd2f7f3e59e19fbec7e0dd05dcfb0290a8b525aea33fa86991ccca9b9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/check_curriculum.py": "1d2088e87ab3cdd635c4730397f2877c61ddf86bd44569dfdc678480fe294694"
+  },
+  "partition_error": 2.6020852139652106e-18,
+  "absorbing_tail_checks": [
+    {
+      "remaining_s": 0.0,
+      "tail": -0.0,
+      "worst_survival": 0
+    },
+    {
+      "remaining_s": 0.001,
+      "tail": -0.02,
+      "worst_survival": -0.02
+    },
+    {
+      "remaining_s": 0.005,
+      "tail": -0.1,
+      "worst_survival": -0.1
+    },
+    {
+      "remaining_s": 0.013,
+      "tail": -0.2589042379442183,
+      "worst_survival": -0.2589042379442183
+    },
+    {
+      "remaining_s": 0.1,
+      "tail": -1.90801373348494,
+      "worst_survival": -1.9080137334849405
+    },
+    {
+      "remaining_s": 1.999,
+      "tail": -17.3338433257041,
+      "worst_survival": -17.33384332570412
+    }
+  ],
+  "label": "Synthetic engineering reward checks; no simulation/training or acceptance claim."
+}

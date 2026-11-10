@@ -1,0 +1,14 @@
+{
+ "version":"post-handover-foot-velocity-sensory-causal-ablation-v1",
+ "goal":"S2/S5 locatesensoryfeedback contributiontoremainingloadedslip withoutchangingmotorphysics",
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/BC_GRU_ROLE_AUX_300/final.pt",
+ "baseline":"same300GRUactually6legstepsforward.0626COM1.2535nf0support1butslip1.351FAIL; localfull-plantFFdiagnostic suggestsvelocityfeedback amplificationbutnotproofGRUcause",
+ "sole_intervention":"sameactual1sstand4.8steacherprefixandGRUactualobspriming, then atwithdrawal disconnect6actorengineeredfootverticalvelocitychannels189:195(setzero) forentire9.6sNNwindow. No otherinputchange,criticrawV,originalNNweights/H/tau unchanged, hiddennotreset",
+ "control_source":"declaredneural sensorydisconnection experiment, notoriginaltrainedpolicy. Boundarylinkcut isexperimentalinterventionnotgaitclock; noelapsedtime/phase/orderintoactor, no extra legcontroller",
+ "record":"rawX andactualactorinput238 bothsavedperdecision, prefixbitexact, transformonly6channels afterboundary, actualpreviousactionsrecorded, full1msfreebody/contacts/targets/ctrl/controlsource; compiledmodelandNNparamhashunchanged",
+ "checks":"proxyidentity/GRUstate/actionbitexact, boundarysixchannelmaskonly/criticraw/previousactualcontinuity,modelimmutable andsamehandovercontract; no longgaitinchecks",
+ "actual_budget":"onefoot_velocity_zero condition9.6s, fixedseed20261110/cycles2, no additionalgrid ornative record untilneed; baselinepreviousphysicalEVAL_GRU_ROLE_AUX unchanged",
+ "physical":"fullbody/noadh/finitePD2rad/s/massgravityfriction/torquelimits/native12.5us1ms unchanged,no rootwrites/forces",
+ "decision":"ifslipimproves reportintervention notsilentlyattributeoriginalmodel. Anydeployablemaskcandidate requires explicitnewinputcontract/checkpoint/export andindependentphysicalverification. Alloriginalgates/slip.5 remain",
+ "scope":"causaldiagnostic, notcompleteoriginalautonomousacceptance"
+}

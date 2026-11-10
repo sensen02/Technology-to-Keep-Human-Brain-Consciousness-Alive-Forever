@@ -1,0 +1,19 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BC_FF_BURST/final.pt",
+  "checkpoint_sha256": "3b8d39c2100c9ff805b0eb52275b8f8cb4835b08b45a9a73b4949987247ce096",
+  "final": {
+    "step": 1000,
+    "base_train_MSE": 4.675041994302582e-05,
+    "base_validation_MSE": 4.938057957357561e-05,
+    "recovery_train_MSE": 0.00015718488102867042,
+    "recovery_validation_MSE": 0.00020387612756184628
+  },
+  "checkpoint_reload_exact": true,
+  "ppo_optimizer_entries": 0,
+  "parent_checkpoint_sha256": "9da91b716fa82832142c677da6baa5437d85e4059a7d8f03fbaf15594e44fd5f",
+  "identity_sha256": "b8e967e2d0ba92e875405b00c94ca2eff1edc4dcd539d53d67704cc302ce71f5",
+  "base_metadata_sha256": "9dae9a0b21b8e67bb70585dcf8541b35f16b551a25fffd80ebbd5516d9b0407d",
+  "burst_metadata_sha256": "44906c7fc9d43f24b9143defd4d258da7d1fb0c2032c9b9867237ccea8852c2d",
+  "closed_loop": "NOT_EVALUATED",
+  "interpretation": "bounded pure-student bursts and teacher-only adaptation/recovery commands; NOT autonomous walking evidence; actual correction effectiveness must be measured; static root residual is diagnostic, not recovery oracle proof; native units, SI NOT_ESTABLISHED"
+}

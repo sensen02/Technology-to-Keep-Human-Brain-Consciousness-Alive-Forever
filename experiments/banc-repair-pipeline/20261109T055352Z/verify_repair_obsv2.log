@@ -1,0 +1,44 @@
+{
+  "determinism": {
+    "identical_qpos": true,
+    "max_abs_qpos_diff": 0.0
+  },
+  "pad_lookup": {
+    "per_leg": {
+      "LF": 3,
+      "LH": 3,
+      "LM": 3,
+      "RF": 3,
+      "RH": 3,
+      "RM": 3
+    },
+    "obs_dim": 495,
+    "history_is_own_commands": true
+  }
+}
+{
+  "repaired": {
+    "channel_ticks_changed": 84000,
+    "total": 84000,
+    "fraction": 1.0
+  },
+  "legacy": {
+    "channel_ticks_changed": 47361,
+    "total": 84000,
+    "fraction": 0.5638214285714286
+  },
+  "note": "same-state counterfactual per tick, not a full causal ablation"
+}
+{
+  "label": "teacher rate emulation in the repaired pipeline (NOT a policy result)",
+  "ticks": 3200,
+  "native_time_s": 3.2,
+  "foot_support_mean": 1.4904498013931238,
+  "foot_support_min": 0.9634643564156843,
+  "nonfoot_force_max_W": 1.100258107077291,
+  "com_height_min": 1.0371200766504889,
+  "forward_signed_mean": 0.19649115514364685,
+  "forward_signed_end": -1.4714344882268164,
+  "foot_slip_ratio_max": 7.266599011897838
+}
+VERIFIED

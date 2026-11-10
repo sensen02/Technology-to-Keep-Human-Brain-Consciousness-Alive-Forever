@@ -1,0 +1,17 @@
+{
+  "schema": "reward-v3-absolute-slip/1",
+  "why": "B5 showed the per-leg slip RATIO reward rewards standing still: with forward speed near zero the ratio explodes, yet the summed penalty is still smaller than the cost of moving, so the policy parked itself. This round changes only the training signal, never the acceptance metric.",
+  "reward_changes": {
+    "slip_term": "from hinge on r_i = v_i / max(|forward|, 0.05) to hinge on ABSOLUTE foot speed: 2.0 * sum_i max(0, v_i - 0.5 * max(|forward|, v_target))^2, so the allowance scales with the COMMANDED speed and standing cannot game it",
+    "progress_term": "clip(forward / v_target, -1, 1.5) doubled while forward < 0.5 * v_target, so failing to make progress costs more than it did",
+    "kept": ["stance foot-speed penalty 0.5 * sum(stance * v_i^2)", "attitude 0.05|omega|^2 + 0.01 g_xy^2", "action 0.01 mean(rate^2)", "support 5*(sum loads/W - 1)^2 + 50*nonfoot/W", "terminations COM<0.95 or non-foot>0.05 W"]
+  },
+  "unchanged": ["acceptance thresholds and the whole frozen verifier definition", "action space (six tibia, +-0.003 rad/tick)", "base network MODEL_MEASURED", "curriculum targets", "level gates", "frozen body XML"],
+  "runs": [
+    {"name": "no_grip", "adhesion": false, "updates": 16, "v_target": 0.05, "label": "frozen body"},
+    {"name": "grip", "adhesion": true, "updates": 16, "v_target": 0.05, "label": "derived-channel (NOT frozen-body acceptance)"}
+  ],
+  "evaluation": "each run is evaluated with the 1 s assist + 3 s autonomous protocol in its own training condition, and the no-grip run is also evaluated with grip off; per-leg material slip is computed with the frozen definition",
+  "decision_rule": "report every number; if slip stays above 0.5 the negative result stands and no weight, cap, allowance factor or threshold is changed afterwards",
+  "labelling": "grip runs are derived-channel results; the frozen-body status remains unaccepted regardless of outcome"
+}

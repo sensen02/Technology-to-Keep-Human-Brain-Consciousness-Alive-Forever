@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "7d056f20fea8d0761468fe9ebbda4144077aeb5858d62a1a9afcd3372319ca92",
+  "verifier_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/verify_neural_interface.py",
+  "verifier_sha256": "1315c2344280af1e1c3bb26d873c11dc4af595772dae52010e384efcb073d1e5",
+  "checks": {
+    "all_source_hashes": true,
+    "all_declared_artifact_hashes": true,
+    "cache_id_and_edge_bounds": true,
+    "group_membership_bounds_and_source_rules": true,
+    "ascending_descending_disjoint_exhaustive": true,
+    "all_directed_route_rows_exact": true,
+    "local_candidate_is_exact_induced_cache_subgraph": true,
+    "known_label_mask_exact_no_unknown_sign_fill": true,
+    "candidate_selection_exact": true,
+    "all_exported_node_ids_and_labels_exact": true,
+    "sensory_motor_csv_mapping_indices_exact": true,
+    "mapping_row_multiplicities_and_exact_coverage": true,
+    "sensory_substring_ambiguities_exact": true
+  },
+  "local_module_structural_port_coverage": {
+    "ascending_boundary": {
+      "selected_cells": 2359,
+      "any_incoming_cells": 2322,
+      "any_outgoing_cells": 2332,
+      "strict_label_incoming_cells": 2231,
+      "strict_label_outgoing_cells": 1316,
+      "strict_no_incoming_cells": 128
+    },
+    "descending_boundary": {
+      "selected_cells": 1327,
+      "any_incoming_cells": 1310,
+      "any_outgoing_cells": 1321,
+      "strict_label_incoming_cells": 1224,
+      "strict_label_outgoing_cells": 133,
+      "strict_no_incoming_cells": 103
+    },
+    "leg_sensory_nerve_union": {
+      "selected_cells": 5107,
+      "any_incoming_cells": 4719,
+      "any_outgoing_cells": 5084,
+      "strict_label_incoming_cells": 4419,
+      "strict_label_outgoing_cells": 842,
+      "strict_no_incoming_cells": 688
+    },
+    "leg_motor_class": {
+      "selected_cells": 391,
+      "any_incoming_cells": 391,
+      "any_outgoing_cells": 169,
+      "strict_label_incoming_cells": 391,
+      "strict_label_outgoing_cells": 0,
+      "strict_no_incoming_cells": 0
+    },
+    "vnc_intrinsic": {
+      "selected_cells": 10928,
+      "any_incoming_cells": 10911,
+      "any_outgoing_cells": 10901,
+      "strict_label_incoming_cells": 10855,
+      "strict_label_outgoing_cells": 8796,
+      "strict_no_incoming_cells": 73
+    }
+  },
+  "limitation": "Static source, membership, bounds and sparse topology validation only. Not dynamics, physiology, functional path sufficiency or behavior. Strict label edge mask is an engineering sign-eligibility rule.",
+  "calls": {
+    "simulation": 0,
+    "neural_steps": 0,
+    "training": 0,
+    "lesions": 0
+  },
+  "max_rss_kib": 623552
+}

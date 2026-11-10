@@ -1,0 +1,525 @@
+{
+  "mu": 1.5,
+  "grip": true,
+  "model": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-duty-reward/20261109T030000Z/MODEL_duty.npz",
+  "native_steps": 320000,
+  "wall_s": 43.996185541152954,
+  "label": "derived channel: adhesion law v2 (A_frac, release-on-lift); NOT frozen-body acceptance",
+  "adhesion": {
+    "a_frac": 0.25,
+    "release_on_lift": true,
+    "pad_body": true,
+    "stance_load": 2.4446354755878006
+  },
+  "pad_xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-tarsus-pad/20261109T010000Z/MODEL_TARSUS_PAD_R02.xml",
+  "pad_sha256": "1d55d7d36312e5017150f1d8a7141b8ffac42a48b51484d2c13af7c09b8d5acb",
+  "friction_before": {
+    "floor": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "Thorax_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "A1A2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "A3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "A4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "A5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "A6_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "Head_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LEye_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LPedicel_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFuniculus_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LArista_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "REye_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RPedicel_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFuniculus_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RArista_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "Rostrum_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "Haustellum_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTrochanter_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LFTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LHaltere_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LMTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "LWing_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTrochanter_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RFTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RHaltere_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMCoxa_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMFemur_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTibia_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus1_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus2_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus3_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus4_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus5_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RMTarsus5_pad": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "RWing_geom": [
+      1.0,
+      0.005,
+      0.0001
+    ]
+  },
+  "friction_after_first_component": 1.5,
+  "checksum_geometry_before": "ba12f0f3808c4cdd486c182daec954eb34dc8120521873d0281e110573195263",
+  "checksum_geometry_after": "ba12f0f3808c4cdd486c182daec954eb34dc8120521873d0281e110573195263",
+  "checksum_note": "equal checksums would mean the write did not land; geometry, mass, ranges, gains and gravity are hashed, friction is not",
+  "per_leg_stance_share": null,
+  "release": {
+    "duration_s": 3.1899999999925654,
+    "forward_speed_native_per_s": 0.46959739228597214,
+    "foot_support_mean": 0.5784084008913549,
+    "foot_support_min": 0.0,
+    "nonfoot_force_max_W": 27.931955132661514,
+    "com_height_min": 0.5916618127351806,
+    "free_fall_fraction": 0.4397496087636933,
+    "per_leg_slip_ratio": {
+      "LF": 1.9849134740753336,
+      "LH": 1.6289053714435322,
+      "LM": 1.1284345022023867,
+      "RF": 1.8067552886195009,
+      "RH": 2.2356644273210717,
+      "RM": 2.231496540970647
+    },
+    "slip_ratio_max": 2.2356644273210717,
+    "slip_ratio_mean": 1.836028267438745,
+    "allowed_foot_speed": 0.23479869614298607,
+    "stance_speed_over_allowed": {
+      "LF": 0.8554216867469879,
+      "LH": 1.0,
+      "LM": null,
+      "RF": 1.0,
+      "RH": 1.0,
+      "RM": 1.0
+    },
+    "per_leg_stance_share": {
+      "LF": 0.27594560917863625,
+      "LH": 0.16725615143664446,
+      "LM": 0.15230489473909528,
+      "RF": 0.1742105545441042,
+      "RH": 0.07383774631745206,
+      "RM": 0.15644504378406754
+    },
+    "per_leg_stance_fraction": {
+      "LF": 0.5602503912363067,
+      "LH": 0.5508607198748043,
+      "LM": 0.5086071987480438,
+      "RF": 0.5117370892018779,
+      "RH": 0.03442879499217527,
+      "RM": 0.39593114241001565
+    },
+    "per_leg_swing_clearance_mean": {
+      "LF": 0.0,
+      "LH": 0.0,
+      "LM": 0.0,
+      "RF": 0.0,
+      "RH": 0.0,
+      "RM": 0.0
+    }
+  },
+  "steady": {
+    "duration_s": 2.6899999999937307,
+    "forward_speed_native_per_s": 0.47146351421125693,
+    "foot_support_mean": 0.48278040430918584,
+    "foot_support_min": 0.0,
+    "nonfoot_force_max_W": 27.931955132661514,
+    "com_height_min": 0.5916618127351806,
+    "free_fall_fraction": 0.5213358070500927,
+    "per_leg_slip_ratio": {
+      "LF": 1.7708459086788049,
+      "LH": 1.3941511450422872,
+      "LM": 0.6046017399863044,
+      "RF": 1.3902200471174029,
+      "RH": 1.575258396399563,
+      "RM": 1.5593036249816548
+    },
+    "slip_ratio_max": 1.7708459086788049,
+    "slip_ratio_mean": 1.3823968103676696,
+    "allowed_foot_speed": 0.23573175710562846,
+    "stance_speed_over_allowed": {
+      "LF": 0.8114754098360656,
+      "LH": 1.0,
+      "LM": null,
+      "RF": 1.0,
+      "RH": 1.0,
+      "RM": 1.0
+    },
+    "per_leg_stance_share": {
+      "LF": 0.29481479073066913,
+      "LH": 0.17080645107467146,
+      "LM": 0.14827112511145685,
+      "RF": 0.16840560868846777,
+      "RH": 0.07627061414380497,
+      "RM": 0.14143141025092992
+    },
+    "per_leg_stance_fraction": {
+      "LF": 0.47866419294990725,
+      "LH": 0.4675324675324675,
+      "LM": 0.4174397031539889,
+      "RF": 0.42115027829313545,
+      "RH": 0.00927643784786642,
+      "RM": 0.28385899814471244
+    },
+    "per_leg_swing_clearance_mean": {
+      "LF": 0.0,
+      "LH": 0.0,
+      "LM": 0.0,
+      "RF": 0.0,
+      "RH": 0.0,
+      "RM": 0.0
+    }
+  },
+  "release_gates": {
+    "foot_support_mean": false,
+    "nonfoot": false,
+    "com_height": false,
+    "slip": false,
+    "forward": true
+  },
+  "release_gates_passed": false
+}

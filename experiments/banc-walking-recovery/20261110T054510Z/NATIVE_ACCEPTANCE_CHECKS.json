@@ -1,0 +1,1005 @@
+{
+  "schema": "native-acceptance-checks-v1",
+  "synthetic_checks": [
+    {
+      "name": "healthy physical signal is processed but not full-goal PASS",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missing auxiliary means D3 and D5 UNKNOWN",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "D7 threshold remains provisional",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "D1/D2/D4/D4b/D6/D8 healthy indicators",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "native endpoint forward and weighted slip exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no adhesion original and external-accounted residual agree",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "any positive nonfoot fails D1 despite legacy engineering tolerance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "freefall cannot pass via zero nonfoot",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "belly support never counted as foot support",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "D8 true height floor",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "filtered Newton known signal includes applied forces only in diagnostic",
+      "passed": true,
+      "details": {
+        "valid": true,
+        "reason": null,
+        "requested_window_s": [
+          0.0,
+          0.02
+        ],
+        "observed_window_s": [
+          0.0,
+          0.02
+        ],
+        "samples": 1600,
+        "duration_s": 0.02,
+        "freefall_duration_s": 0.0,
+        "foot_support_mean": 0.7006039556757009,
+        "foot_support_p10": 0.5839570645507833,
+        "nonfoot_peak_native": 0.0,
+        "nonfoot_fraction_mean": 0.0,
+        "zero_total_contact_convention": "nonfoot/total=0 only when both are zero; D2/D4 detect unloading",
+        "com_height_min": 1.3,
+        "loaded_leg_count_median": 6.0,
+        "original_D6_signed_p95_W": 0.31234555973041,
+        "original_D6_absolute_p95_W": 0.31234555973041,
+        "external_accounted_signed_p95_W": 3.6331732422665884e-16,
+        "external_accounted_absolute_p95_W": 4.359807890719906e-16,
+        "external_force_peak_native": 8.067297069439743,
+        "external_force_abs_integral_native_s": [
+          0.0,
+          0.0,
+          0.14668403055598914
+        ],
+        "forward_signed_native_per_s": 0.1,
+        "lateral_signed_native_per_s": 0.0,
+        "endpoint_displacement_world_xy": [
+          0.002,
+          0.0
+        ],
+        "per_leg_load_integral_native_s": [
+          0.057090709479398705,
+          0.057090709479398705,
+          0.057090709479398705,
+          0.057090709479398705,
+          0.057090709479398705,
+          0.057090709479398705
+        ],
+        "per_leg_load_weighted_speed_native_per_s": [
+          0.010000000000000014,
+          0.010000000000000014,
+          0.010000000000000014,
+          0.010000000000000014,
+          0.010000000000000014,
+          0.010000000000000014
+        ],
+        "per_leg_slip_ratio_forward": [
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013
+        ],
+        "per_leg_slip_ratio_legacy_displacement_norm": [
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013,
+          0.10000000000000013
+        ],
+        "slip_ratio_max_forward": 0.10000000000000013,
+        "slip_ratio_max_legacy": 0.10000000000000013,
+        "com_height_mean_endpoint_midpoint": 1.3020978521593936
+      }
+    },
+    {
+      "name": "one identical causal filter applied to both sides of Newton",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "literal signed D6 and absolute diagnostic are not conflated",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "chunk boundaries preserve causal filter and aggregates",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "same-run evidenced healthy auxiliary unlocks D3 and D5",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "D3 compares against actual same-run auxiliary load",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "D5 uses auxiliary mean height not global minimum",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "auxiliary last sample does not leak raw D1 into autonomous window",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "first autonomous sample belongs to autonomous D1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "auxiliary time alone without control evidence is insufficient",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "bad external evidence hash is ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "overlapping auxiliary and autonomous ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "partial native boundary remains UNKNOWN",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "outside recording window remains UNKNOWN",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missing field prevents autoPASS",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missing applied force prevents autoPASS",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "NaN prevents partial PASS",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "negative contact load ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "contact sum cross-check catches wrong force accounting",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "gap time ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "duplicate overlap time ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actual endpoint velocity continuity checked",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "malformed shape ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "bounded scalar retention cap enforced",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "zero-load leg slip UNKNOWN instead of fake zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "side drift cannot lower signed-forward slip denominator",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "backwards cannot pass engineering forward/slip",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "streamed directory loader and recorded hashes verified",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missing trailing rows manifest ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "chunk hash tampering ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI uses explicit window/weight/g and strict JSON",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "CLI refuses to overwrite history",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "missing chunk sequence ERROR",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "saved BC recording reads without creating historical artifacts",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "saved BC without auxiliary stays D3/D5 UNKNOWN and no final PASS",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "synthetic_all_passed": true,
+  "command": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/env/bin/python",
+    "-B",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/check_native_acceptance.py"
+  ],
+  "executable": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/env/bin/python",
+  "code": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/native_acceptance.py": "379707f72a231e5e2ff6c5c827971cb29572a65cf3cccc5c7cd63df707b83f8c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/check_native_acceptance.py": "c4ce2e0c3d1326aac45cf39205326aabf400feea57b182019a9764cab8215d2a"
+  },
+  "roadmap": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/GOAL_ROADMAP.zh-CN.md",
+    "sha256": "5a4f5b02c5773da801ac728d9875113e87c36401a5d516eeefcf6bbfe812fe9e",
+    "lines": [
+      47,
+      77
+    ]
+  },
+  "real_saved_recording": {
+    "schema": "native-acceptance-v1",
+    "status": "OK",
+    "errors": [],
+    "criteria": {
+      "D1": {
+        "status": "PASS",
+        "value": 0.0,
+        "threshold": 0.0,
+        "reason": null
+      },
+      "D2": {
+        "status": "PASS",
+        "value": 0.0,
+        "threshold": 0.0,
+        "reason": null,
+        "processing": "proposed causal filter; not fully frozen"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "value": 1.6351500201598677,
+        "threshold": null,
+        "reason": "no same-run physically valid and externally evidenced auxiliary reference"
+      },
+      "D4": {
+        "status": "PASS",
+        "value": 1.2690489541010759,
+        "threshold": 0.5,
+        "reason": null
+      },
+      "D4b": {
+        "status": "PASS",
+        "value": 0.0,
+        "threshold": 0.2,
+        "reason": null
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "value": 1.296874695706392,
+        "threshold": null,
+        "reason": "no same-run physically valid and externally evidenced auxiliary reference"
+      },
+      "D6": {
+        "status": "PASS",
+        "value": -0.24374939038377125,
+        "threshold": 0.15,
+        "reason": null,
+        "processing": "proposed causal filter; signed literal roadmap formula, extras NOT subtracted"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "value": 5.0,
+        "threshold": 3.0,
+        "reason": "roadmap loaded-leg threshold missing; .1W indicator provisional",
+        "provisional_indicator_pass": true,
+        "loaded_leg_threshold_W": 0.1
+      },
+      "D8": {
+        "status": "PASS",
+        "value": 1.296874695706392,
+        "threshold": 0.9658022579833525,
+        "reason": null
+      }
+    },
+    "final_acceptance": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": null,
+      "reason": "full goal requires external control/closure/video/reference evidence and frozen processing review; never inferred from physical metrics",
+      "missing_external_claims": [
+        "continuous_handover",
+        "full_body",
+        "neural_dependency",
+        "real_motion_reference",
+        "same_run_video",
+        "source_control_closure"
+      ],
+      "external_forces_require_review": true
+    },
+    "source": {
+      "input_dir": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native",
+      "chunks": [
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000000.npz",
+          "sha256": "2bbadd029aba260db3f363336a5c16707f45bfa37e5b02008a551e0ea6ff3318",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000001.npz",
+          "sha256": "468607283768213fdabd9463bcf79f12262639ffcc2c528bba12f32552226312",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000002.npz",
+          "sha256": "8bc9749657c999cc99ac0fad3b99c58b2d135a3c0ebe767c03b8cddb0b2bcb05",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000003.npz",
+          "sha256": "6eb329e0c7eefea4efbcd14fbafeb12d0b0812e8666eb2d9feee70471cc2c408",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000004.npz",
+          "sha256": "45a5114ef86628a8b3bf44724a7c5904de5a711f61c2effbd2167e8c9c0f0410",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000005.npz",
+          "sha256": "9400023a54adcedd07233d9d6eb2a0642611a7515f586c7ae5d99eda41a5a35c",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000006.npz",
+          "sha256": "ac15acd1efc97e9dd1cf40f6c8ae9271561b4f358e3b14fd6d1f19086bdb55d6",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000007.npz",
+          "sha256": "93451e976b3a48db5ae0d4f8f60374e3a446c62d50310e9f5c56d00d46d75b7c",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000008.npz",
+          "sha256": "d4eef8f1aa7b470b0c58388c49ef21666b120afdfb221ec12f2a2eb755c5e36b",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000009.npz",
+          "sha256": "001eb2a1dd46b4af12f93edeb994838a3460144abcfcecdc2d5aa895e8111d24",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000010.npz",
+          "sha256": "35d308fc8288b45b0f58a06dee1413657893a1adc95133f2f7d2b4fdfa3e0958",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000011.npz",
+          "sha256": "dac507046a4f12f25e84ec937de2e8edb73dfe3f2e7bea6cf2ab42d0cb6124fb",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000012.npz",
+          "sha256": "78179b11dd529a8db6777b966ce22bfbc5888289eb4d5452816289f8e9cc3851",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000013.npz",
+          "sha256": "fd9c49703f6c800ce15351b6c3f61acc7d1c6ca357820ae56ad0acbe09acab2e",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000014.npz",
+          "sha256": "dfaf7ed7a58d0fac8f0c938857203b2b7e1e54f63001e5d00115f8cd41eb3ea5",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000015.npz",
+          "sha256": "1b21f753e27c74a71ce58bac448c59231e6b77a8082da6cc9b8cd30a36ea388f",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000016.npz",
+          "sha256": "5edafec3891f5b7791a8776c26f399b40bb3890707b063fd893cb7bbd67f5815",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000017.npz",
+          "sha256": "88163bf142fdb34fdf193662a69ffb93fdd4b217ddfac73db93c3bde0ee85d76",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000018.npz",
+          "sha256": "01d0cb9b6691b7f5f3f4687246dfc18fa535d0badf4763cfb5c100d60ac64437",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000019.npz",
+          "sha256": "c41146d155afb9e235f97e6a0b12211cbbebb626e235c11699570452dd264e9f",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000020.npz",
+          "sha256": "558e9726e86891776432dd41087b22c0eb9178e7e68bf566e11f2e4fa92c2ca2",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000021.npz",
+          "sha256": "0c2581efbd49463a00090ff8706c70979f9f8adf048bce823dac38e3e7fff36a",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000022.npz",
+          "sha256": "c2370b703dfa105de3e19c07ba74b4436d640757571efcb2488f156d64d55550",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000023.npz",
+          "sha256": "07ce093a071b8801f3d142c6bb773e06d3e98ef9732efecc27715956c8c57041",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000024.npz",
+          "sha256": "d7d618ca2fe0f9c87652578b7cc7279ac00ccb7bff2e30f3145a3fee6d2ef167",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000025.npz",
+          "sha256": "527210d1ca7116876163ad5a33cc86441ecee9f05c9d183b8c6de7f369941b21",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000026.npz",
+          "sha256": "2feb6320d1344e56b864957f1612363a537ce1ea766334b8addb388ac6c55b18",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000027.npz",
+          "sha256": "b70b77b5cae4665974d9c95d2ac9481c0fbdbe33d06f6b7931b601eafcfcffdf",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000028.npz",
+          "sha256": "941bd2f9281d6b5442c0ce6526e7fdcd71205bf03e9f2eeaf401a847279c1e78",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000029.npz",
+          "sha256": "6dce5aa394e71c8bd60f242bc2d3cef08680a44b5f062a774549fd143a0c678a",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000030.npz",
+          "sha256": "697b8bc291d11d39b0557fedf60a6987620b7830815e6385ce26d919c1dbb036",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000031.npz",
+          "sha256": "c76c842ae826f8edbee0fdccc47a41ed04746aa44283bcd391103185ef8ec380",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000032.npz",
+          "sha256": "eb8534e5a7a3866cdf37374e5f49ba44a017958136de37c627c0a6f013908f73",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000033.npz",
+          "sha256": "702026c1d55753912b19925689eddf22e29e8f2906965b2d68c9a9da77bac37c",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000034.npz",
+          "sha256": "2df87b1677f8c208f32e4374eea035560bc272bdf9132471e60638a2c147265b",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000035.npz",
+          "sha256": "e7c0e7fdea93854bd7a2470df22b0cc96a7f875e9ff6c114b3a1fd0ccfbfda02",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000036.npz",
+          "sha256": "0f0ffba5891c1c057a4e3ceff437c994396a8b18dad20a4c40872d364c36304a",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000037.npz",
+          "sha256": "913158c6fe1bab68687b9f0ceb351661071a985b19386e7209fd373b7768f9ae",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000038.npz",
+          "sha256": "c5ce0ac2c4d8d4d08410358c5deb6569fe1eefb0e37ccd53505b444ffdeafb31",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000039.npz",
+          "sha256": "dcdc7b80d4e55f1d92917940e32c2f963b24f4185a1b284adf0d859431d024e5",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000040.npz",
+          "sha256": "3a4b38e1e3600d2c51f8e4abaef71090483f96a092e5ec85d16cda96518c9d4b",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000041.npz",
+          "sha256": "9e4b68eb8a743474e143ea574ee1aeb96b4af72767e9d8785e518c683acf3a9e",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000042.npz",
+          "sha256": "d7269c7baaf0856387d366e294ebbdc94cb098c250990bd43c36bd302781fba2",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000043.npz",
+          "sha256": "404d8da055f5b79e22045be8be34b0da733a6ba6b06556bda91363032afadd95",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000044.npz",
+          "sha256": "4da97d96d6c86a2ae3ca70a5c9fe6252ce112ecafacee585c033f830d7ce607b",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000045.npz",
+          "sha256": "7a9627f93c561ffb286136efe5068b37a4f2977ed5b31c11526bb671d58d2b21",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000046.npz",
+          "sha256": "743684966bd8981504fb38ee640ab2d841a6b90a1f20538ae781cc005773afcc",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000047.npz",
+          "sha256": "d67efed3691969d6482e1fe75f05ede24b9cd8925c1890ce4d9edfc1140ab951",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000048.npz",
+          "sha256": "16b46713136b764e917d7be287cbe3cada765b87c9cf6dbab93e5e731945f021",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000049.npz",
+          "sha256": "d37b1098ab3efb425607d6df6979bd1e904bf26b00ac85e5c98aff80d782c5b8",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000050.npz",
+          "sha256": "d36a4b6daa73de62982933a3e669f865788002e3d7f92991bf64789ccedf7ce5",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000051.npz",
+          "sha256": "777f90f8452077b15deb8bb088d98123f19fb6991efe216f1ab05372f5ba6728",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000052.npz",
+          "sha256": "86e01707259cc8c7b530b63c44d3447c94cd5ccfdd4adbbc20056cdab289eefc",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000053.npz",
+          "sha256": "97dd6dd1bdcd7e2ae8254e110ae3d1bfa9e3cafd5940f7853b7955b56d219dcd",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000054.npz",
+          "sha256": "b814c1625353851f3f8ae925b010df15dc70059223723e83369003643ba198eb",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000055.npz",
+          "sha256": "af06f074436eb7cd2f1a73cdc046547cf52149dcbdc236c65d2e0b4ab4827d8f",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000056.npz",
+          "sha256": "8ea6133193308844f820c21c462603137d9d659f544e4ec65a879f2ecf2b45d4",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000057.npz",
+          "sha256": "dd081d353e4cee04256e8f2515db79b673a4a9cb3fedde99ea53322239b14fd1",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000058.npz",
+          "sha256": "6ed5c45e018153f9cc540a67da5e52c20af21672db5d36518dcdebac63e8fb01",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000059.npz",
+          "sha256": "cc31762877e19796208006f64d10f90ecdb0b8ada5bb74cb07a5eb174a471879",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000060.npz",
+          "sha256": "4661c0e8a68854396f244dfec31bd5f49b1ca854aae991371a8540f3cb4e36b6",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000061.npz",
+          "sha256": "d31cfd7069610aa3e1b646c98ba3edc4aaead6c596726cf4dec38d5314f99c20",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000062.npz",
+          "sha256": "729f26f94987276849e8c1c4befecc69dd7f5613b2a75cb02dca2eba447fe283",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000063.npz",
+          "sha256": "58aea6fc5453223ecd6be88e3efb6d6381db580cb6157ac251c10f239bc0505a",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000064.npz",
+          "sha256": "1a276b7c1a0589afa2a40f5c7b336b60be17204a424978b9f32296ede8fc48d9",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000065.npz",
+          "sha256": "4b2569b437a783d0a8124910d043b0d2b5b8565d87a8697ba064ca57e91b065f",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000066.npz",
+          "sha256": "c89daaeb84db76f71fdfe83ccc00b3d36ab990badffb38a658c10c685ec50643",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000067.npz",
+          "sha256": "ddf4875f606dc85cffd5c1691e51d18a2b61beea45d46b45dbc19ab0c66e5f75",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000068.npz",
+          "sha256": "7d1502851c1845fcd883901736741bbace6230ee9d2996558824985a23106764",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000069.npz",
+          "sha256": "c3aaaa245ddebfdd1346ec552757a0ec5904a58b3122e5d6d325d77d74aa3a1b",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000070.npz",
+          "sha256": "5a4229f19d12d601aa1d5b17a130a8661695586c3b9f2fadb791f8c5af68a05e",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000071.npz",
+          "sha256": "fe302861544b3617ef311894bd55e9c2b64543e6dd35198c2c98e94a99261dda",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000072.npz",
+          "sha256": "99a98d520cc172192250bafd727b2f1dd0dc5d5cfb5c4c9d6aa3c0face216086",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000073.npz",
+          "sha256": "cb3a7f8fdfafd3b36c6b726d49c325f43d499797664490fb57f47327f6f35bb4",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000074.npz",
+          "sha256": "45c53559fdcd101a409953b0678da71c0f5db66d478eba5d348432d2974abb77",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000075.npz",
+          "sha256": "9b0721cbb3ce6bc35774711fdb19a459770bfa19f403a3bb9c8b2337132ce484",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000076.npz",
+          "sha256": "574a4369516dad5de0f06222b76ea20faeddb5c2594cc5f14a04898140f49c94",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000077.npz",
+          "sha256": "f894983191fa47e36375b0ad80e305e8269df53b25bdbd78ae0d3a9ba5a8323e",
+          "rows": 2048
+        },
+        {
+          "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native/native_000078.npz",
+          "sha256": "387805f2244ed98df9bdde8d5776c551635cef54d757fbd97c30b1b9e13240ef",
+          "rows": 256
+        }
+      ],
+      "evaluator": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/native_acceptance.py",
+        "sha256": "379707f72a231e5e2ff6c5c827971cb29572a65cf3cccc5c7cd63df707b83f8c"
+      },
+      "roadmap": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/GOAL_ROADMAP.zh-CN.md",
+        "sha256": "5a4f5b02c5773da801ac728d9875113e87c36401a5d516eeefcf6bbfe812fe9e",
+        "lines": [
+          47,
+          77
+        ]
+      },
+      "parent_evaluation": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/EVALUATION.json",
+        "sha256": "b83089af2ac816906e7962b1cf61ccf579b4ed645c619cec3589fa33acc17956"
+      }
+    },
+    "integrity": {
+      "samples": 160000,
+      "chunks": 79,
+      "recorded_window_s": [
+        0.0,
+        1.9999999999970062
+      ],
+      "time_unique": true,
+      "gap_count": 0,
+      "overlap_count": 0,
+      "gap_duration_s": 0.0,
+      "overlap_duration_s": 0.0,
+      "recorded_duration_s": 1.9999999999970062,
+      "integrated_duration_s": 2.0,
+      "native_dt_s": 1.25e-05,
+      "manifest_count_verified": true,
+      "limitation": "without completed recorder manifest, missing trailing chunks cannot be inferred"
+    },
+    "mass_native": 0.0024942714780000004,
+    "gravity_native": 9801.0,
+    "weight_native": 24.446354755878005,
+    "mass_origin": "caller supplies compiled whole-body mass; no model compilation here",
+    "units": "native; SI NOT_ESTABLISHED",
+    "windows": {
+      "autonomous": {
+        "valid": true,
+        "reason": null,
+        "requested_window_s": [
+          0.0,
+          1.9999999999970062
+        ],
+        "observed_window_s": [
+          0.0,
+          1.9999999999970062
+        ],
+        "samples": 160000,
+        "duration_s": 1.9999999999970062,
+        "freefall_duration_s": 0.0,
+        "foot_support_mean": 1.6351500201598677,
+        "foot_support_p10": 1.2690489541010759,
+        "nonfoot_peak_native": 0.0,
+        "nonfoot_fraction_mean": 0.0,
+        "zero_total_contact_convention": "nonfoot/total=0 only when both are zero; D2/D4 detect unloading",
+        "com_height_min": 1.296874695706392,
+        "loaded_leg_count_median": 5.0,
+        "original_D6_signed_p95_W": -0.24374939038377125,
+        "original_D6_absolute_p95_W": 0.9978561063983905,
+        "external_accounted_signed_p95_W": 1.8212091128737567e-06,
+        "external_accounted_absolute_p95_W": 2.495093652444707e-06,
+        "external_force_peak_native": 36.66953213381701,
+        "external_force_abs_integral_native_s": [
+          0.0,
+          0.0,
+          31.049926334257172
+        ],
+        "forward_signed_native_per_s": 0.1926395240301979,
+        "lateral_signed_native_per_s": 0.025947319724504286,
+        "endpoint_displacement_world_xy": [
+          0.3852790480598191,
+          0.05189463944893089
+        ],
+        "per_leg_load_integral_native_s": [
+          10.360333953605261,
+          15.426941779999762,
+          16.192756940017517,
+          14.964478639015846,
+          18.899779685310886,
+          4.102623945751068
+        ],
+        "per_leg_load_weighted_speed_native_per_s": [
+          0.5892794198964575,
+          0.5963998855712275,
+          0.2883976098430319,
+          0.5115909995539063,
+          0.4242717870520053,
+          0.6606568075100157
+        ],
+        "per_leg_slip_ratio_forward": [
+          3.0589746463663543,
+          3.095937287914689,
+          1.49708431483574,
+          2.6556907370354073,
+          2.2024129741179026,
+          3.429497715154508
+        ],
+        "per_leg_slip_ratio_legacy_displacement_norm": [
+          3.0315980582457556,
+          3.0682298990747316,
+          1.4836860146184592,
+          2.6319233770901818,
+          2.182702267154211,
+          3.398805095155239
+        ],
+        "slip_ratio_max_forward": 3.429497715154508,
+        "slip_ratio_max_legacy": 3.398805095155239,
+        "com_height_mean_endpoint_midpoint": 1.3308917150901038
+      },
+      "auxiliary": {
+        "valid": false,
+        "reason": "window has no complete recorded native steps",
+        "requested_window_s": null,
+        "samples": 0,
+        "com_height_mean_endpoint_midpoint": null
+      }
+    },
+    "processing": {
+      "filter": "causal first-order EMA, initialized at first recorded sample",
+      "time_constant_s": 0.001,
+      "alpha": 0.012422199506118572,
+      "applied_to": [
+        "actual COM velocity-difference acceleration",
+        "total contact force",
+        "applied external force"
+      ],
+      "residual_equivalence": "same linear filter on acceleration and all forces; residual formed afterward",
+      "D2_uses": "filtered total contact and filtered az; raw duration of matching native intervals",
+      "D6_original": "signed residual m*az-(contact-W), p95/W <= .15; no absolute-value substitution",
+      "D6_diagnostic": "absolute p95 additionally reported; external-accounted includes physical applied force",
+      "filter_status": "PROPOSED: roadmap specifies low-pass but does not freeze exact filter",
+      "D7_load_threshold_W": 0.1,
+      "D7_status": "PROVISIONAL: roadmap does not specify loaded-leg threshold",
+      "D5_aux_height": "mean of before/after endpoint midpoints; explicit proposed sampling convention",
+      "quantiles": "exact numpy linear quantile on retained selected scalar arrays, not all 3D trajectory",
+      "max_scalar_samples_per_window": 2000000,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ]
+    },
+    "auxiliary_reference_valid": false,
+    "evidence": {
+      "run_id": "saved-bc-diagnostic-not-autonomous-proof",
+      "hash_verified_claim_files": [],
+      "semantic_verification": "not inferred by evaluator"
+    },
+    "physical_metric_conjunction": {
+      "status": "UNKNOWN",
+      "value": null,
+      "threshold": null,
+      "reason": "D7 provisional and D2/D6 filter proposed; no fully frozen physical certification"
+    },
+    "external_force_review": {
+      "present": true,
+      "declared": false,
+      "status": "REQUIRES_REVIEW",
+      "note": "external-accounted D6 is diagnostic only; original D6 remains unchanged; applied forces do not silently authorize assistance"
+    },
+    "engineering_only": {
+      "label": "legacy .2W engineering branch; NOT full goal",
+      "support": {
+        "status": "PASS",
+        "value": 1.6351500201598677,
+        "threshold": 0.9,
+        "reason": null
+      },
+      "nonfoot": {
+        "status": "PASS",
+        "value": 0.0,
+        "threshold": 4.889270951175601,
+        "reason": null
+      },
+      "com": {
+        "status": "PASS",
+        "value": 1.296874695706392,
+        "threshold": 1.2,
+        "reason": null
+      },
+      "forward": {
+        "status": "PASS",
+        "value": 0.1926395240301979,
+        "threshold": 0.05,
+        "reason": null
+      },
+      "slip": {
+        "status": "FAIL",
+        "value": 3.429497715154508,
+        "threshold": 0.5,
+        "reason": "native load-weighted contact speed / signed forward endpoint speed; no-load legs UNKNOWN"
+      },
+      "legacy_displacement_norm_slip": 3.398805095155239
+    },
+    "window_label": "diagnostic only; no same-run auxiliary; physical data cannot establish autonomous control source"
+  },
+  "no_simulation_or_training": true,
+  "memory_contract": "required fields one chunk at a time; selected scalar quantiles only, sample and chunk allocation caps",
+  "filter_status": "proposed 1ms causal EMA, not fully frozen original processing",
+  "D7_status": "provisional .1W load threshold, not sourced by roadmap",
+  "full_goal_acceptance": "requires external evidence and processing review; no automatic PASS",
+  "wall_s": 7.835015296936035
+}

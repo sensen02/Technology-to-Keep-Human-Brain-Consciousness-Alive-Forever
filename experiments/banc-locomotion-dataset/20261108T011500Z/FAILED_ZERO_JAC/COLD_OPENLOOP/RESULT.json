@@ -1,0 +1,49 @@
+{
+  "status": "OPENLOOP_MEASURED_DATA_NETWORK",
+  "ticks": 800,
+  "native_steps": 320000,
+  "duration_s": 3.9989999999923453,
+  "forward_displacement": [
+    -0.653892272666851,
+    -1.8377378245331408,
+    -0.6742280970780578
+  ],
+  "forward_speed_native_per_s": 0.48777290805661094,
+  "foot_support_mean": 0.6065075763691403,
+  "foot_support_min": 0.0,
+  "nonfoot_force_max_W": 31.451117939593026,
+  "nonfoot_force_mean_W": 9.615956647520076,
+  "com_height_min": 0.6517925220213571,
+  "com_height_mean": 0.8607272286107608,
+  "free_fall_fraction": 0.36925,
+  "per_leg_material_speed": {
+    "LF": 0.0,
+    "LH": 0.0,
+    "LM": 0.0,
+    "RF": 0.0,
+    "RH": 0.0,
+    "RM": 0.0
+  },
+  "per_leg_slip_ratio": {
+    "LF": 0.0,
+    "LH": 0.0,
+    "LM": 0.0,
+    "RF": 0.0,
+    "RH": 0.0,
+    "RM": 0.0
+  },
+  "slip_ratio_max": 0.0,
+  "slip_ratio_mean": 0.0,
+  "slip_criterion_threshold": 0.5,
+  "slip_criterion_passed": true,
+  "warnings": 0,
+  "provenance": {
+    "controller": "base network trained on filtered measured motion; no teacher, no residual, no connectome",
+    "actuator": "frozen bounded incremental actuator, 30 rad/s, 1 ms integration, finite PD128",
+    "metric_note": "own recomputation: mj_jac at contact point, force-weighted tangential speed per leg, forward speed = COM displacement / duration; not the frozen D-gate suite"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/MODEL_MEASURED.npz": "7e7fa4197bcf4a4f4eddc1afd8418b0fc290c9ca1daa44df9ebaeaad859652ec",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1"
+  }
+}

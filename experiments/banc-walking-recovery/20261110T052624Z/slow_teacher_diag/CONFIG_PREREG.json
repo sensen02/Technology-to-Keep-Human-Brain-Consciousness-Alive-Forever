@@ -1,0 +1,21 @@
+{
+  "periods_ms": [
+    60,
+    200,
+    400,
+    800
+  ],
+  "cycles": 4,
+  "settle_ms": 300,
+  "stride_native": 0.03,
+  "lift_native": 0.08,
+  "tau_s": 0.02,
+  "adhesion": false,
+  "sampling_s": 0.001,
+  "max_rate_rad_s": 2.0,
+  "label": "algorithm teacher only",
+  "historical_difference": "adhesion disabled; zero-action settle300ms then rebase rest feet",
+  "acceptance": "legacy branch engineering gates only, not native original certification",
+  "event_definition": "load<=.05W initiates; max clearance>.015 and relative x advance>.03 during unloading; reload>=.1W and padz<=.004 completes",
+  "forward_caveat": "stride/period at800ms=.0375<.05 gate; rate limitation is not body impossibility"
+}

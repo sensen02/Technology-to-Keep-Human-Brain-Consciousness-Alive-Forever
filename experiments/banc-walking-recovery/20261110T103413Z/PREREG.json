@@ -1,0 +1,17 @@
+{
+ "version":"short-student-burst-physical-recovery-v1",
+ "goal":"S2/S5 expose model to its real errorstates andverifyteacherrecovery ratherthanassumingmixedcoverageenough",
+ "conditional":"conditionmet: matched.5data/controlactualevaluations bothfailedpurestudentCOMmin~.505; proceed afterburstchecksPASS",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/BC_FF_HALF_RECOVERY/final.pt",
+ "parent_choice":"explicitcandidatebranchcontinuation notbest-score selection; budgetcontrolalsofailed, allretained", 
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z",
+ "motivation":"halfstudentmixsafebutcoverageRMSmedian.065-.068/p95.12-.14 stillfarbelowpurestudentdriftafterhundredms; continuousaveragingmayhidecriticalerrorstates",
+ "collection":"1sstand20msindependentmotorpulse,4.8sexactteacherprefix then4.8srepeating50msPUREstudent(normalizedrateGaussianstd.01)+200msPUREteacherrecovery. Teacherqueriedcurrentactualstateevery5msforsupervision, privatehistory/GRUactualhistorycontinuous, no physicalreset/force. Scheduleonlytraining, notNNinput/deployment",
+ "seeds":"20261301..303 threeindependentepisodes,lastvalidation",
+ "safety":"per1msactual COM<1.2/nonfoot>0stopsfulltrajectory,retainfailedprefix; recordbefore/afterburstandrecoveryphysicalmetrics,donotassumelabelcorrectororacleperfect",
+ "checks":"executedaction/previousactual/actionlabel/sourcecodes,schedulebeta0/1withinphases,fullGRUsequencesandprefixgrad,unsafeearlystop,independentholdouts/hashclosure,model-onlywarmstart/freshBCAdam/RNG/PPO andcheckpointload",
+ "physical":"samefullbody/noadh/finitePD/2rad/s/torquefrictionmassgravity/native time unchanged; onlybounded42motorcommands",
+ "training_if_usable":"samebaseTRAINepisodes0/1 +newburstTRAIN0/1, heldoutsbothlastneverfit, per-sampleequalMSE,1000stepslr.0003 model-onlyfromdeclaredparent. Classraw238nohiddenphase;reportmaybeunsafe labeldataandactualrecoveryfailure instead ofgaitpass",
+ "evaluation":"separate1sstand4.8steacherthen9.6spurestudent,noexpertqueriesafterwithdrawal, originalgatesunchanged",
+ "scope":"assistedtrainingdata only, neverneuralautonomy. Completeoriginalnativeacceptance/continuoustracevideo stillrequired"
+}

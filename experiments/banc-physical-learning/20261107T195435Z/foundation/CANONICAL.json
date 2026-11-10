@@ -1,0 +1,30 @@
+{
+  "status": "VERIFIED_CANONICAL_PHYSICS1S_NEURAL1000MS",
+  "physics_state_source": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/HANDOVER.npz",
+  "physics_state_key": "physics_state",
+  "actuator_target_key": "actuator_target",
+  "handover_sha256": "4f66a3be43411cf8e657249217b35d5e2e0345caa849a368535bf705b34789ff",
+  "model_path": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/MODEL.mjb",
+  "model_sha256": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+  "initial_path": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/INITIAL.npz",
+  "initial_sha256": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+  "model_original_source": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+  "model_original_source_sha256": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+  "neural_start_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+  "neural_start_sha256": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+  "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+  "neural_core_sha256": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+  "encoder_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py",
+  "encoder_sha256": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+  "physical_time_s": 1.0,
+  "neural_time_ms": 1000.0,
+  "neural_steps_at_start": 2000,
+  "source_POLICY_rows": [
+    0,
+    199
+  ],
+  "descending_current": "zero",
+  "physics_steps_this_task": 0,
+  "readout_history": "not restored/used; new Actor is memoryless MN-only, no history/teacher/target input",
+  "restore_contract": "restore_circuit(c,path) restores complete source-derived neural state transactionally; defaultrelativepath"
+}

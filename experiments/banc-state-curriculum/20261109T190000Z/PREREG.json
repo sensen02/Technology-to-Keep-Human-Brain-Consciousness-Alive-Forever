@@ -1,0 +1,13 @@
+{
+  "schema": "state-curriculum/1",
+  "origin": "two constraint runs failed identically for the same measurable reason: in cold-start training the statistic being constrained never violates. The support run logged min support 0.982 and the non-foot run logged mean non-foot 0.0, because the training reward terminates an episode the moment non-foot contact exceeds 0.05 W. The 73.7 W non-foot peak that the gate measures appears only in the assist-then-release evaluation. So the distribution, not the constraint, is the problem.",
+  "change": {
+    "state curriculum": "training episodes now start either from the solved stand pose (50 percent, as before) or from a simulator state recorded during the release phase of an assist-then-release rollout of the current best policy (50 percent). Only qpos and qvel are restored; physics, actuator and controller are untouched, nothing is replayed open loop, and no external generator exists",
+    "records": "the recorded states come from our own MuJoCo simulation of our own body, taken every 10 ticks during the 3 s release window, and a manifest records the model hash, the source model, and the count",
+    "constraint": "non-foot contact (windowed maximum 10 ticks, target 4.889 W) plus COM height (windowed minimum, target 1.20), both by dual ascent; these now have a distribution where they can actually be violated",
+    "kept": "1 ms policy tick, base target 200 Hz, C = 0.02, derived pad body R=.02, mu=1.5, releasable adhesion 0.25 body weight, reward v4, 42-joint PPO, 48 updates, gates unchanged",
+    "termination": "unchanged during training; the point is that starting states now include the transient, so the policy must learn to survive it instead of never meeting it"
+  },
+  "labelling": "derived channel plus replacement ANN; the recorded states are our own simulated history, not measurements of a real animal and not connectome activity",
+  "accounting": "both multipliers and the violating statistics logged per update; full four-second assist-then-release evaluation plus a cold-start evaluation"
+}

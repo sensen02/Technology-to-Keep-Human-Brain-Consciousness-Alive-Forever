@@ -1,0 +1,25 @@
+{
+  "schema": "banc-local-sensory-prereg/1",
+  "scope": "S3/S4 local physical sensory encoder only; no neural network execution, learning, MuJoCo loading, forward or physical steps; no tracked file changes",
+  "source_directory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface",
+  "joint_directory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/mapping",
+  "identity_rule": "Use exact integer root_888 matching cache root and candidate root/cache index; require local membership, leg_sensory_nerve_union and unique matching leg nerve, source subclass region, exact channel cache class, per-channel group; reject review4, missing IDs, outside cells, contradictory or reused identities; save every rejection",
+  "foot_order": ["LF", "LM", "LH", "RF", "RM", "RH"],
+  "q_order": "Exact STUDENT_INTERFACE output.ordered_joint_names cross-checked against current42_candidates current_action_index; RF coxa roll,yaw,pitch",
+  "transduction": {
+    "status": "Engineering, uncalibrated modality proxies; common tuning for all cells in same leg and channel; no inferred source tuning direction",
+    "claw_position": "0.01+0.04*clip((tibia_pitch-lower)/(upper-lower),0,1) nA",
+    "hairplate_angle": "0.01+0.04*mean(three individually range-normalized clamped coxa angles) nA",
+    "hook_direction": "0.05*tanh(abs(tibia_pitch_velocity)/10) nA; direction unknown and not inferred",
+    "campaniform_strain": "0.05*tanh(max(foot_load,0)/(24.446354755878005/6)) nA; engineering foot-load proxy, not measured strain",
+    "multidendritic_noxious": "0: no calibrated damage input",
+    "bristle_touch": "0: no individual hair collision input",
+    "club_vibration": "0: no acceleration input"
+  },
+  "output": "finite nonnegative float64 shape(20000,), bounded[0,0.06] nA; exactly zero outside qualified ports; .01 tonic only on qualified angle ports",
+  "input_validation": "exact shapes (42,),(42,),(6,) and all finite real numerical entries; negatives loads clamp zero; angle coordinates clamp to actual joint bounds",
+  "forbidden_inputs": ["root pose", "root velocity", "time", "phase", "teacher", "targets", "random identity tuning", "oscillator"],
+  "tests_before_claim": ["hashes and exact identity/source membership", "all actual42 joint names/ranges including RF ordering", "zero/pose/speed/load isolation per leg and channel", "all 42 angle and velocity coordinates influence only declared features", "joint bound and extreme finite input clamping", "exact deterministic repeated output and no state", "invalid shapes/nonfinite/complex input rejection", "all excluded identities including review4 remain zero", "mutation tests for missing/outside/ambiguous/reused/contradictory qualification", "Desktop byte parity"],
+  "success_boundary": "Numerical engineering contract only. No claim of calibrated biology, functional neural propagation or physical locomotion. Parent owns separate circuit/readout/physical work; previous slow4 motions remain failed references.",
+  "physiology_reference": "/run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py lines1-47: parameters explicitly illustrative, not fly measurements"
+}

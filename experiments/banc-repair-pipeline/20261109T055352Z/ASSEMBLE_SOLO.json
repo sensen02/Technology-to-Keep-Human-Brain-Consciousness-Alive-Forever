@@ -1,0 +1,139 @@
+{
+  "label": "assembled from six per-leg runs; single replacement-ANN policy, no clock, no teacher",
+  "sources": {
+    "LF": "MODEL_singleleg_demo_soloLF.npz",
+    "LH": "MODEL_singleleg_demo_soloLH.npz",
+    "LM": "MODEL_singleleg_demo_soloLM.npz",
+    "RF": "MODEL_singleleg_demo_soloRF.npz",
+    "RH": "MODEL_singleleg_demo_soloRH.npz",
+    "RM": "MODEL_singleleg_demo_soloRM.npz"
+  },
+  "note": "the exploration scale (logstd) is the only shared parameter and is taken from the last source",
+  "summary": {
+    "passed_legs": [
+      "LF",
+      "LH",
+      "LM",
+      "RF",
+      "RM"
+    ],
+    "n_passed": 5,
+    "all_six": false
+  },
+  "per_leg": {
+    "LF": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.5709135634269742,
+      "best_advance": 0.48768004360833594,
+      "final_load_over_body_weight": 0.4990625808175582,
+      "final_padz": -0.04066278376415817,
+      "support_min": 0.9670922966168717,
+      "com_min": 1.2457015230151167,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 12.674922533245345,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": true,
+        "safe": true
+      },
+      "passed": true
+    },
+    "LH": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.02961809929780535,
+      "best_advance": 0.0440893805584055,
+      "final_load_over_body_weight": 0.6612309162393409,
+      "final_padz": -0.06130508497062113,
+      "support_min": 1.0120713262589016,
+      "com_min": 1.1128147355169264,
+      "nonfoot_max": 0.7259719467887451,
+      "other_stance_excess_max": 36.96066912852003,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": true,
+        "safe": true
+      },
+      "passed": true
+    },
+    "LM": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.33019364799894835,
+      "best_advance": 0.8629115487091645,
+      "final_load_over_body_weight": 0.2435937876281893,
+      "final_padz": -0.027664502883615695,
+      "support_min": 0.9732251736120985,
+      "com_min": 1.1701208809626034,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 21.874551918215747,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": true,
+        "safe": true
+      },
+      "passed": true
+    },
+    "RF": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.8353303291629811,
+      "best_advance": 0.7166859072926034,
+      "final_load_over_body_weight": 0.3751266248643201,
+      "final_padz": -0.03090443501405936,
+      "support_min": 0.9690980913832662,
+      "com_min": 1.2356430192251322,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 14.431496190204914,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": true,
+        "safe": true
+      },
+      "passed": true
+    },
+    "RH": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.062214152337531685,
+      "best_advance": 0.0,
+      "final_load_over_body_weight": 0.42020066871990464,
+      "final_padz": -0.04261139657260154,
+      "support_min": 0.9456673167937234,
+      "com_min": 1.124918606028236,
+      "nonfoot_max": 0.6267664394908183,
+      "other_stance_excess_max": 47.34083736776566,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": false,
+        "place": true,
+        "safe": true
+      },
+      "passed": false
+    },
+    "RM": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.41161196311781006,
+      "best_advance": 0.8319013019145842,
+      "final_load_over_body_weight": 0.46365109701258145,
+      "final_padz": -0.0447234260983883,
+      "support_min": 0.9765308888888453,
+      "com_min": 1.1077397586814322,
+      "nonfoot_max": 1.248039010097038,
+      "other_stance_excess_max": 11.647563859060114,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": true,
+        "safe": true
+      },
+      "passed": true
+    }
+  }
+}

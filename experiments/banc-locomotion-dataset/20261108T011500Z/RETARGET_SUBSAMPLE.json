@@ -1,0 +1,32 @@
+{
+  "status": "SUBSAMPLE_RETARGET_COMPLETE",
+  "snippets": 508,
+  "window": 30,
+  "ik_solves": 91440,
+  "solver": {
+    "max_nfev_first": 80,
+    "max_nfev_subsequent": 16,
+    "ftol": 1e-07,
+    "xtol": 1e-07,
+    "gtol": 1e-07,
+    "w_pos": 1.0,
+    "w_dir": 0.05,
+    "w_cont": 0.02,
+    "w_key0": 0.002,
+    "step_limit": 0.06
+  },
+  "error": {
+    "max": 0.4361066459030028,
+    "p50": 0.05007138085759808,
+    "p95": 0.15800779997264305,
+    "rms": 0.07623894080095783
+  },
+  "in_limit_fraction": 1.0,
+  "nfev_terminations": 1063,
+  "wall_s": 138.61380410194397,
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "frozen_solver_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/kinematics/retarget.py",
+  "frozen_solver_sha256": "c00edd16052ffaf763be2d051d35a153e3720579f83b3240bee0d1bb7a807218",
+  "limits": "subsample only; every error statistic is an estimate for the sampled 60 ms windows, not a measurement of all 2,477,312 frames"
+}

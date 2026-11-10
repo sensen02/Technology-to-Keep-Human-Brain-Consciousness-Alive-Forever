@@ -1,0 +1,9 @@
+{
+  "schema": "triad-hind/1",
+  "origin": "with the triad body the cold start leaves exactly two legs above the slip gate: RH 1.150 and RM 1.859, while LF 0.633, LH 0.928, LM 0.799 and RF 0.407 are all close to or under it. So the remaining slip is a per-leg property, not a global one",
+  "change": "declare a per-leg pad radius: the two worst legs (RH, RM) get R = 0.012 instead of 0.008, every other leg keeps 0.008. Contact bottoms stay coplanar with each segment's material point, so standing height is unchanged",
+  "invariants": "identical model except the radius (and therefore the geometry extent) of six pad spheres; every other array must match; the ledger records the per-leg radii",
+  "training": "same pipeline as P1 (triad with doubled torque, the pose re-solved for the triad contact, 1 ms tick, C = 0.02, three Lagrangian constraints, 48 updates)",
+  "labelling": "derived body geometry, declared per-leg, chosen because the measurement localises the failure; not frozen-body acceptance and not a claim about real claw size",
+  "accounting": "per-leg slip before and after, support minimum, non-foot peak, COM, both protocols, and the ledger"
+}

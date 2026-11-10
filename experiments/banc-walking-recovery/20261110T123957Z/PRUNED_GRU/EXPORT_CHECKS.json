@@ -1,0 +1,41 @@
+{
+  "all_passed": true,
+  "pruning": {
+    "operation": "set actor.encoder.weight[:,189:195] tozero exactly",
+    "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/BC_GRU_ROLE_1000/final.pt",
+    "parent_sha256": "1f3e01d22fa02ad3d18a5d4463f9c9b06204c17603cb3b010ca7311c0cf751fc",
+    "encoder_before_sha256": "108ced14aca4102b6677b16043dee16e78004b872936e416689249d78f5a07fe",
+    "encoder_after_sha256": "5cd1e4d3e311f107e55800e3cd0113d4af23a418afcc9ac3c05d96aa5720c3b1",
+    "changed_state_keys": [
+      "actor.encoder.weight"
+    ],
+    "pruned_input_columns": [
+      189,
+      190,
+      191,
+      192,
+      193,
+      194
+    ],
+    "pruned_weight_count": 768,
+    "no_other_model_changes": true,
+    "no_physics_steps": true,
+    "not_retraining": true,
+    "expected_static_mask_applies": "both teacher-prefix hidden priming and autonomous stage; not original post-boundary cut",
+    "full_sequence_equivalence": {
+      "heldout_rows": 1920,
+      "mean_maxdiff": 0.0,
+      "final_hidden_maxdiff": 0.0
+    },
+    "raw_input_contract": "238unchanged; disconnection represented inNNweights only",
+    "interpretation": "engineering neural connection intervention, not original trained weights; all motion still ANN-only after teacherwithdrawal"
+  },
+  "checkpoint_reload_exact": true,
+  "physical_model_unchanged": true,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T123957Z/export_pruned.py": "2d0483cb2178e3a29a788b833cd8e3d6dc39c3de5d89bfdedb7739521485d4d9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T123957Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T123957Z/student_wave.py": "fce8eedcfa33e056b9e040d0fc78aa65fdca1b7b550508a5c92b6d1e4fc39cb7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T123957Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530"
+  }
+}

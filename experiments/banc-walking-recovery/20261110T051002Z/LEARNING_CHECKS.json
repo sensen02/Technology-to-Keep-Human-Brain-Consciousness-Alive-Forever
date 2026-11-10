@@ -1,0 +1,50 @@
+{
+  "all_passed": true,
+  "status": "PASS",
+  "checks": {
+    "finite_differences": {
+      "coordinates": 300,
+      "max_absolute_error": 4.764913796861947e-09,
+      "boundary": "one-sided clamp kink checks"
+    },
+    "gae": "manual terminal, timeout, reset boundary, collector cutoff passed",
+    "legacy_synthetic": {
+      "mean_max_error": 6.106226635438361e-16,
+      "value_max_error": 1.942890293094024e-16,
+      "logstd_storage_dtype": "float64",
+      "std_float64_reference_max_error": 2.7755575615628914e-17,
+      "std_native_storage_math_max_difference": 2.7755575615628914e-17,
+      "std_min": 0.049787068367863944,
+      "std_max": 1.3498588075760032
+    },
+    "rollback": {
+      "rejection": "exact model+both Adam+step+lr+counters",
+      "accepted_retry_attempts": 11
+    },
+    "checkpoint": "atomic save/load, exact model/Adam/counters/RNG, identity rejection passed",
+    "gru": "explicit GRU sequence/step/reset/backprop passed; recurrent PPO intentionally rejected",
+    "buffer_density": "buffer singleton shapes, FF495 PPO, latent/squashed density passed",
+    "legacy_original": {
+      "mean_max_error": 2.4980018054066022e-15,
+      "value_max_error": 7.105427357601002e-15,
+      "logstd_storage_dtype": "float32",
+      "std_float64_reference_max_error": 1.1102230246251565e-16,
+      "std_native_storage_math_max_difference": 6.563386956148776e-08,
+      "std_min": 0.5993432481104962,
+      "std_max": 0.6156317398173379
+    }
+  },
+  "torch": "2.5.1+cpu",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/check_learning.py": "7643a34c50be343745218265e2e3e3038e5ed93fcf3468ccb667e594c38c3dfd"
+  },
+  "legacy_npz": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261109T212050Z/WALK_MODEL_best.npz",
+  "legacy_npz_sha256": "99e1bd469912c567b52156cffaf0e804f9617729816c28707262ee6e1cc30d60",
+  "limitations": [
+    "GRU PPO not integrated; explicit sequence/inference API only",
+    "Hard logstd bound endpoints are clamp kinks; one-sided derivatives tested",
+    "No physics or behavioral learning claims from these checks"
+  ]
+}

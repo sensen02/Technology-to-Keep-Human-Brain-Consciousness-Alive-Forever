@@ -1,0 +1,79 @@
+{
+  "status": "FREEZE_VERIFIED",
+  "checks_passed": 15,
+  "checks_total": 15,
+  "checks": [
+    {
+      "name": "schema",
+      "passed": true
+    },
+    {
+      "name": "status_frozen",
+      "passed": true
+    },
+    {
+      "name": "no_missing",
+      "passed": true
+    },
+    {
+      "name": "all_hashes_match",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "limitation_accepted_walking",
+      "passed": true
+    },
+    {
+      "name": "limitation_feeding_biomechanics",
+      "passed": true
+    },
+    {
+      "name": "limitation_injury_models",
+      "passed": true
+    },
+    {
+      "name": "limitation_absolute_units",
+      "passed": true
+    },
+    {
+      "name": "limitation_intake_to_locomotion_feedback",
+      "passed": true
+    },
+    {
+      "name": "accepted_walking_explicitly_absent",
+      "passed": true
+    },
+    {
+      "name": "movement_not_accepted",
+      "passed": true
+    },
+    {
+      "name": "movement_deficiencies_declared",
+      "passed": true
+    },
+    {
+      "name": "reproduction_matches_expectation",
+      "passed": true,
+      "expectation": "arrival tick 224 at 1.125 s, feed 58 ticks, energy .5999 -> .5925, food 1.0 -> .9275"
+    },
+    {
+      "name": "unit_tests_pass",
+      "passed": true,
+      "unit_tests": {
+        "status": "PLATFORM_UNIT_TESTS_PASS",
+        "checks_passed": 24,
+        "physics_steps": 0,
+        "neural_steps": 0
+      },
+      "stderr": ""
+    },
+    {
+      "name": "no_injury_artefact_frozen",
+      "passed": true
+    }
+  ],
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "note": "verification only: hashes, declared limits, reproduction, unit tests"
+}

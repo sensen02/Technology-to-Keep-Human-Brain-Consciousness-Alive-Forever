@@ -1,0 +1,179 @@
+{
+  "duration_s": 0.500000000000502,
+  "sample_count": 501,
+  "ticks": 500,
+  "native_steps": 40000,
+  "com_start_native": [
+    -0.8044941273280273,
+    0.003649323353493184,
+    1.4497390267654338
+  ],
+  "com_end_native": [
+    -0.871561832852669,
+    -0.0221931374923198,
+    1.2760493477613537
+  ],
+  "com_delta_native": [
+    -0.0670677055246417,
+    -0.025842460845812987,
+    -0.17368967900408006
+  ],
+  "com_xy_displacement_native": 0.0718742645660283,
+  "com_xy_speed_raw_native_per_s": {
+    "mean": 1.976522672099793,
+    "p95": 3.3036224194121093,
+    "max": 4.462727684926392,
+    "rms": 2.094818171258241
+  },
+  "com_lowpass": {
+    "20ms": {
+      "first_full_window_time_s": 0.018999999999999947,
+      "xy_speed": {
+        "mean": 1.0205476022662536,
+        "p95": 1.7109106963086202,
+        "max": 2.470390530515019,
+        "rms": 1.0840635964115537
+      }
+    },
+    "60ms": {
+      "first_full_window_time_s": 0.05899999999999554,
+      "xy_speed": {
+        "mean": 0.25875726813072725,
+        "p95": 0.5248184341345745,
+        "max": 0.7614275412577965,
+        "rms": 0.29407211498743124
+      }
+    }
+  },
+  "com_z_min_native": 1.2492553671840405,
+  "total_contact_load_mean_native": 37.516941380602965,
+  "nonfoot_peak_native": 0.0,
+  "contact_load_weighted_speed_native_per_s": 0.5372287277230648,
+  "per_leg": {
+    "LF": {
+      "load_mean_native": 2.1040730719096357,
+      "contact_samples": 496,
+      "load_sum_native": 1052.0365359548177,
+      "load_weighted_speed_native_per_s": 0.6262550129789096,
+      "weighted_contact_speed_peak_native_per_s": 3.3632534885357352,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.5341413977713175,
+        "p95": 1.1039759096249018,
+        "max": 3.36709027186747,
+        "rms": 0.6978886050126215
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.549805264962597,
+        "p95": 1.1644484041246028,
+        "max": 3.3431112943513313,
+        "rms": 0.7315764261679948
+      }
+    },
+    "LH": {
+      "load_mean_native": 9.202228404501323,
+      "contact_samples": 500,
+      "load_sum_native": 4601.114202250661,
+      "load_weighted_speed_native_per_s": 0.6736641624149221,
+      "weighted_contact_speed_peak_native_per_s": 4.030419592703605,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.6445612569411294,
+        "p95": 1.7042980103905816,
+        "max": 4.030362694036977,
+        "rms": 0.8913611287472147
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.6580409105425646,
+        "p95": 1.7450744135478613,
+        "max": 4.118983909147527,
+        "rms": 0.9061181644971401
+      }
+    },
+    "LM": {
+      "load_mean_native": 7.586661796186379,
+      "contact_samples": 500,
+      "load_sum_native": 3793.3308980931897,
+      "load_weighted_speed_native_per_s": 0.4607326182976095,
+      "weighted_contact_speed_peak_native_per_s": 2.5979742586949057,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.4381562118790935,
+        "p95": 1.752662412347581,
+        "max": 2.5978197148726756,
+        "rms": 0.6906563374706539
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.44430310993945493,
+        "p95": 1.767985670616711,
+        "max": 2.645170367271808,
+        "rms": 0.700360793636349
+      }
+    },
+    "RF": {
+      "load_mean_native": 2.040444365198367,
+      "contact_samples": 500,
+      "load_sum_native": 1020.2221825991835,
+      "load_weighted_speed_native_per_s": 0.4713783780649908,
+      "weighted_contact_speed_peak_native_per_s": 4.0090505832937575,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.38984132398951343,
+        "p95": 1.015829050554016,
+        "max": 4.007768380938638,
+        "rms": 0.6566087028172849
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.39335837717303107,
+        "p95": 1.015745258708486,
+        "max": 3.9990709303169747,
+        "rms": 0.6570470950906555
+      }
+    },
+    "RH": {
+      "load_mean_native": 7.836671400872093,
+      "contact_samples": 500,
+      "load_sum_native": 3918.3357004360464,
+      "load_weighted_speed_native_per_s": 0.5234262072687071,
+      "weighted_contact_speed_peak_native_per_s": 3.3000152539228433,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.5014109201506094,
+        "p95": 1.8147394420128915,
+        "max": 3.3000625181748604,
+        "rms": 0.8106064579210733
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.5078644315929728,
+        "p95": 1.821229286527295,
+        "max": 3.3269270506128095,
+        "rms": 0.8176067350250652
+      }
+    },
+    "RM": {
+      "load_mean_native": 8.746862341935168,
+      "contact_samples": 500,
+      "load_sum_native": 4373.431170967584,
+      "load_weighted_speed_native_per_s": 0.46635211910389524,
+      "weighted_contact_speed_peak_native_per_s": 3.048858955251422,
+      "raw_contact_speed_native_per_s": {
+        "mean": 0.4669053453397478,
+        "p95": 1.7807280373663803,
+        "max": 3.0487433329083373,
+        "rms": 0.7512656581883715
+      },
+      "pad_center_xy_speed_native_per_s": {
+        "mean": 0.47196815142708815,
+        "p95": 1.7968016788508065,
+        "max": 3.0985369027421132,
+        "rms": 0.7574910135735373
+      }
+    }
+  },
+  "reset_matches": true,
+  "actuator_target_unchanged": true,
+  "mujoco_warning_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

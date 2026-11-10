@@ -1,0 +1,21 @@
+{
+  "all_passed": true,
+  "status": "PASS",
+  "tail_max_abs_error": 2.842170943040401e-14,
+  "tests": [
+    "failure_at_first_middle_last_policy_substep",
+    "failure_near_horizon",
+    "manifest_digest_tamper_reject",
+    "runtime_compiled_parameter_check",
+    "FF_GRU_actual_short_physical_collection",
+    "reward_timing_mismatch_reject"
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/identity.py": "fc5cb684a351dbdc023d861db46b0df783efd762825cb2fca0edb4050b76a1e3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/policy_io.py": "334348613c9aa9f49691487ccd8fbb36ccf36bf655c32c296005b66a7371dbba",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/distill_policy.py": "a44346face2d7975358b8d92b9f264fd529d3a7e914e966f6ff6e4e2f3c4f625",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/train_curriculum.py": "ed951de9860a38d1e2f5995d8bc05dd49e8961d549916843f8dd64f0f5036b83",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/check_integration.py": "cc5c5b1c0f959b42ce3ed99af0dfba18668727fb828cdf66cf14544a1feb5e1f"
+  },
+  "limitation": "10ms integration smoke only; no walking conclusion"
+}

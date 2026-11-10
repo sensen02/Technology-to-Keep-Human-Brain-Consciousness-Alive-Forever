@@ -1,0 +1,34 @@
+{
+  "experts": {
+    "original": {
+      "boundary_action_change_RMS_max": 0.3303307145613432,
+      "any_action_change_RMS_max": 0.40261696848605005,
+      "copy_previous_action_MSE": 0.000740547981261665,
+      "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/BC_DATASET_3EP",
+      "dataset_sha256": "246c1dd310b92a78b03b304b9bd6caea7e78ae307045e055ff50db29d7cc2ae3"
+    },
+    "smooth": {
+      "boundary_action_change_RMS_max": 0.004806714564625988,
+      "any_action_change_RMS_max": 0.06327163846338178,
+      "copy_previous_action_MSE": 7.072141306502805e-05,
+      "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET",
+      "dataset_sha256": "9dae9a0b21b8e67bb70585dcf8541b35f16b551a25fffd80ebbd5516d9b0407d"
+    }
+  },
+  "students": {
+    "ff238": {
+      "all_MSE": 5.955945975033539e-05,
+      "boundary_MSE": 0.0008663422265132656,
+      "boundary_share": 0.09091148473148163,
+      "first_handover_action_RMSE": 0.00347452457682883,
+      "previous_action_jacobian_spectral_norm": 3.100944202694134
+    },
+    "gru238": {
+      "all_MSE": 8.673847863284322e-05,
+      "boundary_MSE": 0.0005921987667355666,
+      "boundary_share": 0.04267128442227287,
+      "first_handover_action_RMSE": 0.005174308575954221
+    }
+  },
+  "interpretation": "Smooth demonstrations remove rare boundary jumps but physical takeover still must pass; no MSE-only claim."
+}

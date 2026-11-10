@@ -1,0 +1,30 @@
+{
+  "prefix_trace_arrays_exact": {
+    "time": true,
+    "qpos": true,
+    "qvel": true,
+    "com": true,
+    "loads": true,
+    "nonfoot": true,
+    "speed": true,
+    "padz": true,
+    "target": true,
+    "actualctrl": true,
+    "action": true
+  },
+  "prefix_rows": 5800,
+  "neural_result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_AUX/RESULT.json",
+  "zero_result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_ZERO_MATCHED_RETRY/RESULT.json",
+  "neural_forward": 0.06261839279091796,
+  "zero_forward": -5.376825692621432e-06,
+  "neural_nf": 0.0,
+  "zero_nf": 0.0,
+  "same_prefix": "actual arrays BITWISE identical through stand+teacher4800ms; differentANNarchitecture cannot affect ignored primingactions",
+  "conclusion": "Actuator memory alsoholdsbody; observed forward/sixlegstepping depends onNNcommands. Thisdoesnotproveallneuralbiologicalproperties orfullwalkingacceptance.",
+  "source_files": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_AUX/trace_1ms.npz": "b588e9b4ea2cb3744f21657a31ff2252f23472209fe5ee68b7b3cbd62cb4bc29",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_AUX/RESULT.json": "38c2bb8604aab73364a6cfa48b4ad72a1da894e581d7d75e6c275efcdfac00d6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_ZERO_MATCHED_RETRY/trace_1ms.npz": "e621f3b6c0ac40729848b8c07b50884205450a428cb85ebb9fc98f74a4f3abfc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_ZERO_MATCHED_RETRY/RESULT.json": "fdac99a2bb8a5fc86ae03b38d7f4e4b759a45f7b9aa5c9f87c50b0206d3513e6"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "time_s": {
+    "shape": [
+      1112
+    ],
+    "dtype": "float64"
+  },
+  "targets_rad": {
+    "shape": [
+      1112,
+      42
+    ],
+    "dtype": "float64"
+  },
+  "ordered_joint_names": {
+    "shape": [
+      42
+    ],
+    "dtype": "<U24"
+  },
+  "first_pose_targets_rad": {
+    "shape": [
+      42
+    ],
+    "dtype": "float64"
+  },
+  "joint_limits_rad": {
+    "shape": [
+      42,
+      2
+    ],
+    "dtype": "float64"
+  },
+  "leg_names": {
+    "shape": [
+      6
+    ],
+    "dtype": "<U2"
+  },
+  "landmark_names": {
+    "shape": [
+      9
+    ],
+    "dtype": "<U13"
+  },
+  "target_landmarks": {
+    "shape": [
+      1112,
+      6,
+      9,
+      3
+    ],
+    "dtype": "float64"
+  },
+  "current_achieved_landmarks": {
+    "shape": [
+      1112,
+      6,
+      9,
+      3
+    ],
+    "dtype": "float64"
+  },
+  "target_segment_directions": {
+    "shape": [
+      1112,
+      6,
+      8,
+      3
+    ],
+    "dtype": "float64"
+  },
+  "current_segment_directions": {
+    "shape": [
+      1112,
+      6,
+      8,
+      3
+    ],
+    "dtype": "float64"
+  },
+  "source_root_qpos": {
+    "shape": [
+      1112,
+      7
+    ],
+    "dtype": "float64"
+  },
+  "source_frame_ids": {
+    "shape": [
+      1112
+    ],
+    "dtype": "int64"
+  },
+  "source_id": {
+    "shape": [],
+    "dtype": "<U37"
+  },
+  "reference_id": {
+    "shape": [],
+    "dtype": "<U22"
+  },
+  "source_kind": {
+    "shape": [],
+    "dtype": "<U28"
+  },
+  "normalized_landmark_error": {
+    "shape": [
+      1112,
+      6,
+      9
+    ],
+    "dtype": "float64"
+  },
+  "leg_lengths_native": {
+    "shape": [
+      6
+    ],
+    "dtype": "float64"
+  },
+  "solver_status": {
+    "shape": [
+      1112,
+      6
+    ],
+    "dtype": "int64"
+  },
+  "solver_nfev": {
+    "shape": [
+      1112,
+      6
+    ],
+    "dtype": "int64"
+  },
+  "registration_source_to_current_rotation": {
+    "shape": [
+      3,
+      3
+    ],
+    "dtype": "float64"
+  }
+}

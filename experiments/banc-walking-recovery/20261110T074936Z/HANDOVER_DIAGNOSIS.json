@@ -1,0 +1,49 @@
+{
+  "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/BC_DATASET_3EP/episode_000.npz",
+  "dataset_sha256": "46a93aaa4b1c3801a3017e00870eaa7636159f3d04c814469cde132c7d7c5a95",
+  "boundary_definition": "one teacher decision at each .8s wave phase boundary;12/1920frames",
+  "zero_action_MSE": 0.00573217651232921,
+  "copy_previous_action_MSE": 0.0007462937415076411,
+  "models": {
+    "ff238": {
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/BC_FF238_1000/final.pt",
+      "checkpoint_sha256": "5ed920412dd7e1be018d53833f49afe2e8cd5cb959c4bf10d25deadb995ffadd",
+      "all_MSE": 0.00028765682132900834,
+      "boundary_MSE": 0.03406008852185741,
+      "other_MSE": 7.525159050807506e-05,
+      "boundary_fraction": 0.00625,
+      "boundary_share_total_squared_error": 0.7400330445080311,
+      "teacher_prefix_observation_maxdiff": 1.3877787807814457e-17,
+      "teacher_prefix_action_maxdiff": 0.0,
+      "first_autonomous_observation_maxdiff": 1.3877787807814457e-17,
+      "first_autonomous_action_RMSE": 0.1488989737168562,
+      "next_observation_RMS_difference": 0.0626779704745859,
+      "next_physical_feature_RMS_difference": 0.004421205430429253,
+      "local_prev_action_jacobian_spectral_norm": 14.378548306124323,
+      "local_prev_action_jacobian_frobenius": 16.797911301670965,
+      "local_physical_input_jacobian_frobenius": 27.39743825795603
+    },
+    "gru238": {
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/BC_GRU238_300/final.pt",
+      "checkpoint_sha256": "325dc6d47a82dd41302cac2305593eb6c84d95a4b8a6e57807e049a320799593",
+      "all_MSE": 0.00030853859708882117,
+      "boundary_MSE": 0.03731784928868802,
+      "other_MSE": 7.57756367642978e-05,
+      "boundary_fraction": 0.00625,
+      "boundary_share_total_squared_error": 0.7559396466276038,
+      "teacher_prefix_observation_maxdiff": 1.3877787807814457e-17,
+      "teacher_prefix_action_maxdiff": 0.0,
+      "first_autonomous_observation_maxdiff": 1.3877787807814457e-17,
+      "first_autonomous_action_RMSE": 0.1526546014377676,
+      "next_observation_RMS_difference": 0.06429622071946445,
+      "next_physical_feature_RMS_difference": 0.0051385937568785124
+    }
+  },
+  "findings": [
+    "Warmup states and actions match teacher data; first action error precedes distribution drift, so initial state handover mismatch is ruled out.",
+    "Rare phase-boundary frames dominate residual imitation error. Low global MSE is insufficient.",
+    "Large local previous-action sensitivity is an autoregressive instability risk, not by itself proof of the whole failure mechanism.",
+    "Next controlled model test: mask redundant previous-action actor channels in train and deployment, preserving full physical state/target memory and recurrent history; compare baseline before changing physics.",
+    "If necessary independently smooth teacher contact-role/endpoint timing and add recovery-state data; never claim MSE or teacher walking is neural success."
+  ]
+}

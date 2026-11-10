@@ -1,0 +1,122 @@
+{
+  "format_version": 1,
+  "kind": "bounded_recovery_aggregation",
+  "config": {
+    "mode": "collect",
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/BC_FF_RECOVERY/final.pt",
+    "out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA",
+    "episodes": 3,
+    "cycles": 2,
+    "beta": 0.5,
+    "noise_std": 0.01,
+    "seed": 20261221,
+    "trace": true
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/student_wave.py": "932f3176aef2d02bddeb4ce3c0cc47d441065ba4d670b7e8def386825ae14a32",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/recovery_bc.py": "6956a22dd5e54e5147502098f4ff8717d3d90d6dc3aafa43b5124b4e638c32fc"
+  },
+  "checkpoint_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/BC_FF_RECOVERY/final.pt",
+  "checkpoint_sha256": "489e6cef6e099d4134a1fe80ba6013da21214555da12d4f0a3a93c90b88ac84a",
+  "teacher_reference_evidence": {
+    "condition": {
+      "mode": "measuredwave",
+      "gravity_ff": true,
+      "stance_force_pref": "uniform",
+      "step_s": 0.8,
+      "cycles": 2,
+      "stride": 0.36,
+      "lift": 0.12,
+      "contact_transition_height": 0.01
+    },
+    "all_gates": true,
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "files": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/SMOOTH_CHECKS.json": "5190e460600f9674e0ac52d081cd4289cbbc30f2ce2a35bb6a13bd7eb7c4de7d",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/RESULT.json": "fe7ad734c1f4eb2b48818570453b991be59cd149c9135048ea742b97d793f160",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/IDENTITY.json": "3f26cac01f9664026a08badbfb2b1cd2ed7e93e7734249c36d0ec9eb65b28a30",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/TRACE_1MS.npz": "73e20c0960b264d17af6b84905f3b199d648a3c4186ae205c1b92310e4f540f8"
+    }
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 20261221,
+      "split": "train",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_000.npz",
+      "sha256": "398181a511571c176377b2b79ae592756f93a580947e4574f0f06c446ac5f21a",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_000_IDENTITY.json",
+      "identity_sha256": "28dccf159d34ef2db56544248d4d3885631cff2d96ba5c011424794f5ad77d2d",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_000_RESULT.json",
+      "report_sha256": "8abc12e613d0020ed34835f759b7d94fe8aa43b35a9916b04d35ebb08ac11068",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_000_trace.npz",
+        "sha256": "4a3215ab41810816b7848ea6ce4877da37307b727350da2f180a11d8cda4ae9e",
+        "samples": 10620
+      }
+    },
+    {
+      "episode": 1,
+      "seed": 20261222,
+      "split": "train",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_001.npz",
+      "sha256": "c3b0bcfdffa8da19c30dbd5387da1410a750c8a187c5fda719b40dddd13e128c",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_001_IDENTITY.json",
+      "identity_sha256": "a330a9f92888178fea74cd63cba023cbafe745c7308c9435502cf6e57c9dd960",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_001_RESULT.json",
+      "report_sha256": "2214b9a6e8454a9420a6122a37017aa1433a6db93bb13b973b2e949999763013",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_001_trace.npz",
+        "sha256": "2e5bf9cb36e028ca6d158e92fa190c1469fbbf4a44b406a19384203e3b52dfc4",
+        "samples": 10620
+      }
+    },
+    {
+      "episode": 2,
+      "seed": 20261223,
+      "split": "validation",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_002.npz",
+      "sha256": "de9fb53ef103d83bd2046447da2678cfe78493f6f1be365a45c25b31677130c7",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_002_IDENTITY.json",
+      "identity_sha256": "dbda9128cb356340d8c5f8d149b8f109486593023a2cb20cbc26df37c96b5bab",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_002_RESULT.json",
+      "report_sha256": "d40f0987ed907966e4d93e9da2c9eeab3f870c7e3143abd6d8bd551cd152d6d3",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/RECOVERY_DATA/episode_002_trace.npz",
+        "sha256": "acf50498d82085535e764f94ec72faa28d0f1521678bcb95b61dd75a3ceab13c",
+        "samples": 10620
+      }
+    }
+  ],
+  "collection_complete": true,
+  "split_contract": "last independent episode held out; no intra-episode random split",
+  "label_coverage": "full prefix + mixed; no loss mask; full zero-hidden GRU sequence without detach",
+  "actor_inputs": "raw X238 actual observation and previous executed action; no clock/reference/phase",
+  "noise": "independent Gaussian on all 42 normalized selected rates in mixed stage, clip [-1,1], hold 5ms",
+  "safety": "COM<1.2 or nonfoot>0 stops collection only; acceptance unchanged",
+  "interpretation": "virtual algorithm teacher prefix and teacher/student mixed physical commands; NOT neural autonomy; corrective labels are current-state teacher targets, not evidence of a perfect recovery controller; native units, absolute SI NOT_ESTABLISHED"
+}

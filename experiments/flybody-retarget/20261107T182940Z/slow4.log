@@ -1,0 +1,132 @@
+{"sim_s": 0.500000000000502, "wall_s": 6.402239841991104}
+{"sim_s": 0.9999999999993368, "wall_s": 12.616532868007198}
+{"sim_s": 1.4999999999981715, "wall_s": 18.835163870011456}
+{"sim_s": 1.9999999999970062, "wall_s": 24.94427837600233}
+{"sim_s": 2.499999999995841, "wall_s": 31.108170334016904}
+{"sim_s": 2.999999999994676, "wall_s": 37.26364341401495}
+{"sim_s": 3.4999999999935105, "wall_s": 43.44967596800416}
+{"sim_s": 3.9999999999923452, "wall_s": 49.527991578012006}
+{"sim_s": 4.500000000008943, "wall_s": 55.669511692016385}
+{"sim_s": 5.000000000025541, "wall_s": 61.6360252739978}
+{"sim_s": 5.50000000004214, "wall_s": 67.7846689549915}
+{"sim_s": 6.000000000058738, "wall_s": 74.0284308650007}
+{"sim_s": 6.500000000075336, "wall_s": 80.26667569001438}
+{"sim_s": 7.0000000000919345, "wall_s": 86.58441615500487}
+{"sim_s": 7.500000000108533, "wall_s": 92.73696407000534}
+{"sim_s": 8.00000000012513, "wall_s": 98.84266783201019}
+{"sim_s": 8.500000000141728, "wall_s": 105.12476315701497}
+{"sim_s": 9.000000000158327, "wall_s": 111.3689277160156}
+{
+  "status": "RECORDED_DIAGNOSTIC_NOT_NEURAL_SUCCESS",
+  "native_steps": 727040,
+  "commands": 9088,
+  "sim_s": 9.088000000161248,
+  "reference_source": "teacher_actual_physical_longest_07718",
+  "physical_gate": {
+    "passed": false,
+    "checks": {
+      "D1_no_nonfoot_ground_force": false,
+      "D2_no_free_fall": true,
+      "D3_foot_support_not_below_assist": true,
+      "D4_foot_support_never_collapses": true,
+      "D4b_nonfoot_is_not_carrying_the_body": true,
+      "D5_com_height_not_below_assist": false,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": false
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.0,
+      "com_z_mean": 1.4013366113168613
+    },
+    "release": {
+      "foot_support_mean": 0.9999328631597914,
+      "foot_support_p10": 0.8537017294162074,
+      "foot_support_min": 0.40884364155656755,
+      "nonfoot_share_mean": 0.0005217659651374275,
+      "ground_support_mean": 1.0004869979842388,
+      "com_z_min": 0.9006763002570941,
+      "com_z_mean": 1.149520409306464,
+      "free_fall_fraction": 0.0,
+      "force_balance_residual_p95": 0.05263402898833287,
+      "force_balance_residual_p50": 0.004444934308519569,
+      "bearing_legs_median": 5.0,
+      "bearing_legs_min": 2,
+      "per_leg_mean_load": [
+        0.12649039529117428,
+        0.17385020581876684,
+        0.20581239911623284,
+        0.1936649641655886,
+        0.19519525477456098,
+        0.10491964399346768
+      ],
+      "per_leg_duty": [
+        0.7063048492349235,
+        0.8129345747074708,
+        0.903476597659766,
+        0.7819883550855086,
+        0.880701507650765,
+        0.624888895139514
+      ],
+      "samples": 711040
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "nonfoot_force_max": 8.998673856664261,
+  "root_displacement": [
+    15.577583569992955,
+    14.545122612334046,
+    0.050054613809025206
+  ],
+  "posthold_COM_path_speed": 3.0838067233005253,
+  "material_slip_weighted_speed": [
+    4.171981763191103,
+    2.67670180813214,
+    3.8687771602848335,
+    3.2761958205533896,
+    3.564343460430401,
+    3.178221247110397
+  ],
+  "slip_to_pathspeed_ratio": [
+    1.3528674581544233,
+    0.8679862417795526,
+    1.2545459256746716,
+    1.0623868855979908,
+    1.1558258283500882,
+    1.0306162260742535
+  ],
+  "initial_COM_height": 1.4013366113168613,
+  "COM_height_min": 0.9007313628597942,
+  "torque_saturated_entries": 9741053,
+  "torque_total_entries": 30535680,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_s": 115.43569877301343,
+  "files": {
+    "MODEL.mjb": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+    "INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "COMMANDS.npz": "b65fb015dbe2a0621f5c51ca4befa6b33693193de5e19aa2ee2630d4fb024c13",
+    "SLIP.npz": "81df8d9e391ee68e4287d41fd14f43e8d889f482555bdbf8ccc6d801e4861a4c",
+    "NATIVE.npz": "6a2a6a73390a2ef0170d638e0b7a97dcbcfa77609933faebb63a26e26f4b7a6c",
+    "BODY.npz": "0983c68cfbcdb48a0c8ce2b77a07d064e976640af6c2344b1095dc989cc3c181",
+    "PROTOCOL.json": "2516d8a291aec77bad1d03f0f346154bc4030db1920825cb461e3f624a9143ce"
+  },
+  "limitations": [
+    "Open-loop reference forcing; no brain/VNC/policy learning.",
+    "Turning reference: no straight-walking acceptance inferred.",
+    "Initial geometry placement is not sustained assistance."
+  ]
+}

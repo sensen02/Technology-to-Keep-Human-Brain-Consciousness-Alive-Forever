@@ -1,0 +1,50 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "architecture": "ff238",
+      "all_passed": true,
+      "physical_ticks_per_episode": 10,
+      "saved_task": {
+        "target_speed": 0.073,
+        "ticks": 10,
+        "adhesion": false
+      },
+      "nondefault_config_exact": true,
+      "optimizer_and_model_bitwise_equal": true,
+      "python_numpy_torch_rng_equal": true,
+      "next_physical_episode_bitwise_equal": true,
+      "next_synthetic_optimizer_update_bitwise_equal": true,
+      "override_rejections": 3,
+      "source_runtime_verified": true,
+      "new_identity_capture_verified": true
+    },
+    {
+      "architecture": "gru238",
+      "all_passed": true,
+      "physical_ticks_per_episode": 10,
+      "saved_task": {
+        "target_speed": 0.073,
+        "ticks": 10,
+        "adhesion": true
+      },
+      "nondefault_config_exact": true,
+      "optimizer_and_model_bitwise_equal": true,
+      "python_numpy_torch_rng_equal": true,
+      "next_physical_episode_bitwise_equal": true,
+      "next_synthetic_optimizer_update_bitwise_equal": true,
+      "override_rejections": 3,
+      "source_runtime_verified": true,
+      "new_identity_capture_verified": true
+    }
+  ],
+  "scope": "10ms actual physical episodes; synthetic-reward optimizer integration only; no learning pilots",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/train_curriculum.py": "9785dc78775e475a270ce55cdcc877c41669b44e51058d341dcca26d3e2044da",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/check_resume.py": "8dc20e897efade5e13cfbcbd95c021a4c5697b7654f51fc1f9f542a33e33b727",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/PREREG.json": "f4c60af77fded3b709eea3c3a84ad04f7519ec1c9f5ff77b5861372be0a5ca7a"
+  }
+}

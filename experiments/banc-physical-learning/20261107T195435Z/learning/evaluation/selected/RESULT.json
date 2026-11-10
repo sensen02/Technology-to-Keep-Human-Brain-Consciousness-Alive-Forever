@@ -1,0 +1,412 @@
+{
+  "status": "COMPLETE_CHECKPOINT_EPISODE_NOT_WALKING",
+  "valid": true,
+  "reward": -0.12593044586684476,
+  "reward_terms": {
+    "forward_displacement": 0.020291482415906118,
+    "weighted_slip_distance": 0.06086761720408107,
+    "lateral_displacement": 0.04897338774917747,
+    "height_drop_excess": 0.0,
+    "positive_nonfoot_impulse_overW": 0.0,
+    "support_deficit_integral": 0.0,
+    "rate_squared_time": 0.0,
+    "completed_cycle_legs": 0
+  },
+  "cycles": {
+    "completed_by_leg": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "completed_legs": 0,
+    "qualified_runs": [
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 5000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 3,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 4985
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 5000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 5000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 5000
+        }
+      ],
+      [
+        {
+          "state": "air",
+          "start_bin": 0,
+          "end_bin_exclusive": 1000,
+          "duration_ms": 5000
+        }
+      ]
+    ]
+  },
+  "physical_gate": {
+    "passed": true,
+    "checks": {
+      "D1_no_nonfoot_ground_force": true,
+      "D2_no_free_fall": true,
+      "D3_foot_support_not_below_assist": true,
+      "D4_foot_support_never_collapses": true,
+      "D4b_nonfoot_is_not_carrying_the_body": true,
+      "D5_com_height_not_below_assist": true,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": true
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.001101361597766,
+      "com_z_mean": 1.183746232118977
+    },
+    "release": {
+      "foot_support_mean": 0.9999590468004067,
+      "foot_support_p10": 0.9999999999999999,
+      "foot_support_min": 0.8856124489208076,
+      "nonfoot_share_mean": 0.0,
+      "ground_support_mean": 0.9999590468004067,
+      "com_z_min": 1.2526628723332613,
+      "com_z_mean": 1.2533223209886184,
+      "free_fall_fraction": 0.0,
+      "force_balance_residual_p95": 6.753128597144582e-08,
+      "force_balance_residual_p50": 1.4532692969066353e-16,
+      "bearing_legs_median": 5.0,
+      "bearing_legs_min": 4,
+      "per_leg_mean_load": [
+        0.19835523855672288,
+        0.07596480608695272,
+        0.364229509289108,
+        0.20921246256996884,
+        0.15219703029765408,
+        0.0
+      ],
+      "per_leg_duty": [
+        1.0,
+        0.99934,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "samples": 400000
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "duration_s": 5.0,
+  "slip_sampling_s": 0.0005,
+  "slip_status": "0.5ms_final_validation",
+  "feasible": true,
+  "episode_id": "selected",
+  "condition": "selected",
+  "theta": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  ],
+  "evaluation_seed": 20261160,
+  "native_steps": 400000,
+  "live_forward_calls": 400001,
+  "neural_steps": 10000,
+  "neural_end_steps": 12000,
+  "neural_end_time_ms": 6000.0,
+  "sim_s": 6.000000000058738,
+  "release_s": 5.0,
+  "finite": true,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "failure": null,
+  "software_exception": false,
+  "contact_rows_saved": 400000,
+  "neural_voltage_range_mV": [
+    -76.59657683973461,
+    -50.00000268725949
+  ],
+  "MN_spikes_since_checkpoint": 26225,
+  "torque_saturated_entries": 829509,
+  "torque_total_entries": 16800000,
+  "wall_s": 67.85324175603455,
+  "folder": "/home/sensen/Desktop/engine修复验收/banc-physical-learning/20261107T195435Z/learning/evaluation/selected",
+  "files": {
+    "MODEL.mjb": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+    "NEURAL_INITIAL.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "SCORE_INPUTS.npz": "f23fa47b187ac7992072305069cc92b8034793f51a8d392a15d235b32f75c2c9",
+    "ACTOR.npz": "f88bdcf6b9f1d698d7579f5fd17c66b65ba4423266a31ffeee6bfb880efad210",
+    "INITIAL.npz": "137a54403ef11af19c19da63833e69d16ef7b1a56e6d40391a3b9ff5c8fd1b92",
+    "COMMANDS.npz": "8699ac8a4cf35c8b445ecc7ad5cddda9da37b8aba78aef00afd73e14680cbdcc",
+    "NEURAL_FINAL.npz": "5666d119a33714f6b0c8b9581fa9556b61f8a5cf5bcaa95469b49807418f76a8",
+    "SLIP.npz": "6e189d632f98856e2ed24da4d4014f20bee0e037a4dfdc47a4e3bdd4792d7cca",
+    "NATIVE.npz": "db139c86c3ac7bd9dc69f20366f125bf958852441b3daf37367a2f19b72db1cf",
+    "BODY.npz": "27c4e789a365d7a4fbbcfc2c2cfc840db6faf4c694f4b7a8038604fb258ee6a4",
+    "PROTOCOL.json": "af0e49e4685ad7fcddf117a28f984b7ad1b16879bfb1567ddce9ebfcbe53ec0f",
+    "POLICY.npz": "a33436ea3d08d4e7061e1c2e4497060b5520dc4f0744f219e8cf1d5be3819863"
+  }
+}

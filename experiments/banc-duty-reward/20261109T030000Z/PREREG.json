@@ -1,0 +1,15 @@
+{
+  "schema": "reward-v5-duty/1",
+  "origin": "the slip videos show all six feet in contact for 100 percent of the autonomous phase: the controller paddles, it never lifts a leg. Eight physical levers (data, reward shape, action space, height term, start pose, grip channel, friction, contact geometry) are all recorded as exhausted, with slip pinned at 0.96-1.0 on the derived channel. This round changes the training objective so that stance/swing separation becomes worth something.",
+  "world": "derived tarsus-pad body MODEL_TARSUS_PAD_R02.xml (pad radius 0.02) with sliding friction mu = 1.5, adhesion channel on during training, stand pose start, MODEL_MEASURED_STAND base network as a faded prior, 42-joint actions - identical to the previous pad run except the reward",
+  "reward_v5_additions": {
+    "duty_factor": "-w_d * sum_i (duty_i - 0.6)^2 where duty_i is an exponential running average (tau 0.2 s, declared) of the per-leg stance indicator (leg load > 0.1 W), so each leg is pushed to spend about 60 percent of the time in stance and 40 percent in swing",
+    "swing_clearance": "+w_s * sum_i [swing_i] * clamp(pad_bottom_height_i / 0.02, 0, 1) with swing_i = load_i <= 0.1 W, so a lifting foot is rewarded for actually clearing the floor instead of dragging",
+    "weights": {"w_d": 2.0, "w_s": 1.0, "duty_target": 0.6, "duty_tau_s": 0.2, "swing_load_W": 0.1, "clearance_ref_native": 0.02},
+    "no_clock": "every quantity is measured from contact load and geometry at the current tick; no external phase, oscillator, oscillator state, scripted sequence or lookup table is introduced"
+  },
+  "everything_unchanged": ["reward v4 terms (progress, absolute slip hinge, stance foot-speed, attitude, action, support, non-foot, height)", "terminations", "gates and thresholds", "action space", "PPO hyperparameters", "adversarial checks: none are relaxed"],
+  "acceptance": "same five frozen gates; the question is whether duty forcing produces a gait that finally pulls the per-leg slip below 0.50",
+  "labelling": "derived body + derived friction + derived adhesion + replacement ANN; not connectome, not brain output, not frozen-body acceptance",
+  "accounting": "per-update reward, per-leg duty and swing statistics, gate checks every 16 updates, native steps, and every metric including failures"
+}

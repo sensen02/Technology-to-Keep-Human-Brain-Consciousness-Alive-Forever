@@ -1,0 +1,150 @@
+{
+  "status": "EXECUTED_FIXED_CONFIG",
+  "config_uS": 0.02,
+  "source_sample": 1000,
+  "source_time_s": 0.9999999999993368,
+  "load_sample_row": 79999,
+  "source_hashes": {
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/BODY.npz": "0983c68cfbcdb48a0c8ce2b77a07d064e976640af6c2344b1095dc989cc3c181",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/NATIVE.npz": "6a2a6a73390a2ef0170d638e0b7a97dcbcfa77609933faebb63a26e26f4b7a6c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/VERIFICATION.json": "e7ff5d1c4614783547218dedccfd5282a1e3291f08c48e457cecc2c94c7c347d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/RECORDED_SAMPLE_PREREGISTRATION.json": "a56706772a710755ff13daa6c3b86c2168fb53c1e74d5ef404667d5489c9d203"
+  },
+  "actual_neural_steps": 1600,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "input_current_nonzero_cells": 554,
+  "input_current_min_max_nA": [
+    0.0,
+    0.048728415089883015
+  ],
+  "results": [
+    {
+      "label": "nominal",
+      "dt_ms": 0.5,
+      "neural_steps": 400,
+      "MN_spikes": 1287,
+      "MN_recruited": 144,
+      "MN_mean_Hz": 19.922600619195045,
+      "MN_max_cell_mean_Hz": 170.0,
+      "voltage_min_mV": -91.35907246777266,
+      "voltage_max_mV": -50.000003128238866,
+      "max_adaptation_nA": 0.06160282869479522,
+      "exact_replay": null,
+      "per_leg": {
+        "lf": {
+          "spikes": 218,
+          "recruited": 17
+        },
+        "lh": {
+          "spikes": 295,
+          "recruited": 28
+        },
+        "lm": {
+          "spikes": 118,
+          "recruited": 24
+        },
+        "rf": {
+          "spikes": 259,
+          "recruited": 20
+        },
+        "rh": {
+          "spikes": 238,
+          "recruited": 27
+        },
+        "rm": {
+          "spikes": 159,
+          "recruited": 28
+        }
+      },
+      "all_legs_propagated": true,
+      "original_conservative_voltage_floor_pass": false
+    },
+    {
+      "label": "refined",
+      "dt_ms": 0.25,
+      "neural_steps": 800,
+      "MN_spikes": 1337,
+      "MN_recruited": 141,
+      "MN_mean_Hz": 20.69659442724458,
+      "MN_max_cell_mean_Hz": 180.0,
+      "voltage_min_mV": -91.89913483960326,
+      "voltage_max_mV": -50.00001077457437,
+      "max_adaptation_nA": 0.06587376770259999,
+      "exact_replay": null,
+      "per_leg": {
+        "lf": {
+          "spikes": 232,
+          "recruited": 18
+        },
+        "lh": {
+          "spikes": 324,
+          "recruited": 29
+        },
+        "lm": {
+          "spikes": 115,
+          "recruited": 23
+        },
+        "rf": {
+          "spikes": 263,
+          "recruited": 18
+        },
+        "rh": {
+          "spikes": 233,
+          "recruited": 25
+        },
+        "rm": {
+          "spikes": 170,
+          "recruited": 28
+        }
+      },
+      "all_legs_propagated": true,
+      "original_conservative_voltage_floor_pass": false
+    },
+    {
+      "label": "nominal_replay",
+      "dt_ms": 0.5,
+      "neural_steps": 400,
+      "MN_spikes": 1287,
+      "MN_recruited": 144,
+      "MN_mean_Hz": 19.922600619195045,
+      "MN_max_cell_mean_Hz": 170.0,
+      "voltage_min_mV": -91.35907246777266,
+      "voltage_max_mV": -50.000003128238866,
+      "max_adaptation_nA": 0.06160282869479522,
+      "exact_replay": true,
+      "per_leg": {
+        "lf": {
+          "spikes": 218,
+          "recruited": 17
+        },
+        "lh": {
+          "spikes": 295,
+          "recruited": 28
+        },
+        "lm": {
+          "spikes": 118,
+          "recruited": 24
+        },
+        "rf": {
+          "spikes": 259,
+          "recruited": 20
+        },
+        "rh": {
+          "spikes": 238,
+          "recruited": 27
+        },
+        "rm": {
+          "spikes": 159,
+          "recruited": 28
+        }
+      },
+      "all_legs_propagated": true,
+      "original_conservative_voltage_floor_pass": false
+    }
+  ],
+  "aggregate_rate_relative_difference": 0.038850038850038855,
+  "meaning": "one real recorded sensory sample held constant; not ongoing closed-loop physical feedback or brain output; original broad calibration FAILED remains unchanged"
+}

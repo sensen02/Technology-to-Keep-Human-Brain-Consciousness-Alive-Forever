@@ -1,0 +1,41 @@
+{
+  "schema": "banc-physical-learning-study/1",
+  "scope": "S3 direct physical feedback training of bounded MN-only output weights on original complete body; distinct checkpoint episodes, not continuous walking. Only delegated learning workspace/Desktop outputs. Parent review and verified foundation required before any physical trial.",
+  "foundation": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation",
+  "checkpoint_source": "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T192931Z/closed_loop/HANDOVER.npz",
+  "checkpoint": "Canonical actualtime1s after verified referencewarmup, complete physics integrationstate plus actuator_target and foundation full NEURAL_START including clock/ring/filter/g_adapt. Every trial restores same complete state. No body/root/pose writes after initialization. Do not repeat1s warmup pertrial; do not call concatenated release episodes continuous walking.",
+  "neural_actor": "Fixed192931Zadaptationconductance core20k/435126originalstrictedges/.02uS, unchanged556 physicalencoder, zeroDN. Foundation uncentered sameleg top4MN SVD using trainrows only, RMSwhitenfloor.05, BASIS323x24; 6groupsLF,LH,LM,RF,RH,RM. theta168=6x4x7, coeffclip[-.25,.25], Wblock=B@C thenclip[-1,1], no bias, rate30tanh((MNfilteredHz/100)@W). Actor has no root/body/time/teacher inputs. Zero theta means exactzero-rate hold.",
+  "physics": "Original49q/48v/42actuators/71meshes/free-root/noequalities/gravity-contact-friction and forcecaps unchanged. Native dt12.5us, actualmj_step plus live mj_forward eachnative step; 1ms finitePD128 targetintegration, 5ms startMNaction then heldstartphysical sensory advancedneural5ms afterphysicalinterval. Neural clock remains canonicaltime1s+episode duration.",
+  "training_design": {
+    "seed": 20261107,
+    "generations": 4,
+    "population_per_generation": 13,
+    "perturbations": "6 standardnormal vectors pergen, antithetic plus/minus in stable pair order, clipcoeff[-.25,.25], plus currentincumbent as13th; log draws/order and coefficients before evaluation",
+    "baseline_first": "Evaluate theta0 once before generation0",
+    "total_trials": 53,
+    "horizon_s": 1.0,
+    "initial_mean": 0.0,
+    "initial_std": 0.01,
+    "coefficient_bounds": [-0.25,0.25],
+    "workers_max": 4,
+    "workers": "Persistent processes eachwith onefullmodel and onefixedgraph; restorecomplete state everytrial; OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1. Deterministic physics, trialseeds logged for identity but no episode noise added.",
+    "elites": "Sort feasibility before reward. If anyfeasible, select up to4 highestreward feasible only; else top4 highestreward overall. Stable ties by candidateindex. Physical nonfinite/warning trials ineligible, score negativeinfinity in ranking; preservefailure records. Unexpected softwareexceptions ABORT the entire study after collecting all already-running task records and actualcallledger; never treat a codeexception as an ordinary badpolicy.",
+    "update": "mean=.5oldmean+.5elitemean; std=.7oldstd+.3elitepopulationstd(ddof0), clipstd[.004,.05]. If no valid finite candidate, preserve old mean/std and record failure.",
+    "incumbent": "Startsbaselinezero. Update only to feasible candidate with strictlybetter reward than incumbent; preserve if noneimprove. No temporal/horizon validation used for selection, no automatic budgetextension.",
+    "incumbent_reevaluation": "Each13thcandidate is a cross-worker fullreset/determinism control. Compare its theta, reward and BODY/NATIVE/COMMANDS/POLICY/SLIP arrays against archived incumbent trial. Prefer exact raw-arraydigest equality, allow atmost1e-9 maximumabsolute numericdifference and rewarddifference. Anygreaterdifference ABORTSstudy asstateleakage/reproducibilityfailure beforeselection; do not silently rank an inconsistent control.",
+    "early_stop": "Only nonfinite state or MuJoCo numericalwarning; preserveactual completedsteps and partialtraces. Otherwise full1s even when support fails, falls orcontacts occur. Unexpected softwareexception ABORTS entire study, preserving traceback/partialcalls and collecting tasks alreadyrunning; no retry or silent continuation."
+  },
+  "feasibility": "Original dynamic_support_metrics.evaluate_native D1-D8 with assiststats from originalcanonical source .8<=t<1s; D1 specifically max positive nonfoot force column7==0 aspriorruns. Full80,000 native samples percomplete trainingepisode; no reward used to redefine acceptance.",
+  "reward": {
+    "heading": "Fixed initial horizontal unit vector Head.xipos-Thorax.xipos; assert norm>1e-9 and savevector. Lateral perpendicular tothisheading. Globalbody information is privileged scoringonly.",
+    "formula": "forward_COM_displacement -2*loadweighted_material_slipdistance -.5*abs(lateral_COM_displacement) -5*max(0,startCOMz-minCOMz-.05) -5*positive_nonfoot_impulse_overW -5*integral(max(0,.6-footsupport/W),dt) -.0005*mean(applied_rate_squared)*actualduration +.03*numberlegs_completing_stance_air_stance",
+    "slip": "Trainingapproximate5ms endpoint sampling of contactmaterial speed via mj_jac@qvel; sumovercontacts maxpositiveverticalforce/W * horizontalmaterialspeed * .005. No COMvelocity substitution. Finalvalidation uses0.5ms sampling.",
+    "support_integrals": "Native12.5us samples, positive nonfoot column7, footcolumns1:7, W24.446354755878005; minCOM fromactualnativebody state plusinitialCOM",
+    "cycle": "Cyclecoverage proxy, NOTfullcoordinationacceptance. Scoringonly, no gaitclock: at5ms endpoints stance load>.05W, air load<.005W, each contiguousqualifying segment>=20ms(4samples). Ambiguous/short runs neitherqualify norcompletea stage; consume qualifiedstates in order, repeatedsame state doesn't advance. Eachleg contributes atmostone completedstance-air-stance bonus; save qualifyingruns/counts."
+  },
+  "retention": "Keep every trialtheta, deterministicseed/order, result/rewardcomponents/nativegate, sourcehashes and initialidentity. Retain compressedfullnative/BODY/COMMANDS/POLICY/SLIP for all53 episodes plus fullNEURALinitial/final/actor weights to enable score/reconstruction and preservefailures. Perworker sharedmodel saved once; standalone INITIAL/MODEL for finalvalidation; no candidate traces silently discarded.",
+  "final_validation": "Afterfourgenerations, evaluate frozenincumbent5s release andzeroactor5s fromfreshsamecomplete checkpoint, no fitting/selection onvalidation. Fullnative20fields, BODY/COMMANDS1ms, POLICY5ms and materialslip0.5ms. Source time starts1s; actualCOMMANDS timestamps fromd.time. Parent handlesindependentnative replay/render. Release-only video mustclearlyshowcheckpoint initialization/linkwarmhistory; do notpretendwarmup contained unless exact0..1prefix is joined withverifiedseam.",
+  "verification": "Beforetrials: independent purearray rewardterm/cycle/heading/optimizer antithetic clipping/update tests, source/API/schema inspection and syntaxcheck. Aftertraining: independent reconstructionofallcandidate drawseeds/orders/thetas, rewardcomponents/nativegates, feasibility-first ranking andgenerationupdates/incumbentselection; completeepisode step counts andfailures. Finalneuralreplay canbe separateparent task. No duplicateoptimization.",
+  "planned_calls": "53x80000=4240000 trainingnative steps and53x2000=106000 trainingneural steps ifallcomplete; final2x400000=800000physical and2x10000=20000neural; combined5,040,000physical and126,000neural. Actual counts override plan. Initmj_forward and every liveforward explicitly counted separately. Models/processload are not physicalsteps.",
+  "limits": "Rewardimprovement andsupportgate pass do notprove neuralnecessity, walking, biologicalcalibration orcompletebrain. Zero-rate PDhold can supportbody. Previousfailedreference only supplieswarmcheckpoint/basisdata, never successlabel. No injuries. No trackedfileedits."
+}

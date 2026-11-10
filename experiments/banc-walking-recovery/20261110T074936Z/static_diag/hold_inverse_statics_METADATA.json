@@ -1,0 +1,43 @@
+{
+  "label": "inverse-statics plus position IK algorithm teacher",
+  "config": {
+    "mode": "hold",
+    "gravity_ff": true,
+    "stance_force_pref": "uniform",
+    "step_s": 0.8,
+    "cycles": 1,
+    "lift": 0.12,
+    "stride": 0.36,
+    "target_tau_s": 0.05,
+    "ik_ridge": 0.001,
+    "ik_iterations": 5,
+    "command_dt_s": 0.005
+  },
+  "leg_order": [
+    "LF",
+    "LH",
+    "LM",
+    "RF",
+    "RH",
+    "RM"
+  ],
+  "desired_pose_initialization": "actual settled qpos, not persistent actuator target",
+  "shadow": "private MjData FK only, free root fixed at initial actual pose",
+  "reference": {
+    "label": "hold actual settled feet; no motion or preload"
+  },
+  "root_balance": "1000*(A*fz/W - (bias-passive)[:6]/W); preferred fraction weight 0.1; bounds [0,2]",
+  "force_allocation": "intended stance only; positive reference height always excluded, even if touching",
+  "torque": "tau_ff=(bias-passive-sum(J_z.T*fz))[actuated_dofs]; gravity_ff false sets feedforward to zero",
+  "target": "clip(q_des+(tau_ff+kd*qdot_des)/kp, native target bounds)",
+  "rate": "qdot_des+(desired_motor_target-current_target)/target_tau_s; clip +/-2 and target bounds over command_dt_s",
+  "units": "native; absolute SI NOT_ESTABLISHED",
+  "limitations": [
+    "Vertical quasistatic support ignores horizontal friction and angular contact wrench",
+    "Actual velocity bias is retained; inertia is omitted from predicted statics",
+    "Unbacked planned supports are hypothetical, explicitly flagged",
+    "COM within support hull and small root residual are necessary, not sufficient",
+    "Finite motor torque/rate and target bounds can prevent tracking",
+    "No gait success or neural autonomy follows from these mathematical checks"
+  ]
+}

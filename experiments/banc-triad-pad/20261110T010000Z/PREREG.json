@@ -1,0 +1,13 @@
+{
+  "schema": "triad-pad/1",
+  "user_authorisation": "the user approved changing the body as a declared derived model with a new hash and a preregistration; this is route 2",
+  "finding_that_motivates_it": "the single spherical pad gives each foot a single contact point, so a foot cannot resist rotation and the body loses support as soon as it stops being fully seated (open-loop tripod lift drops support to 0.00). A real tarsus contacts with a pad plus claws, i.e. several points, which resists exactly that rotation. Torque alone moved support only from .459 to .488 at double authority, so contact geometry is the next lever the evidence supports",
+  "change": {
+    "geometry": "replace the one sphere per tarsus with a triad of three spheres, radius 0.008, placed in a small triangle around the segment's lowest material point, all three bottoms coplanar with that point so the standing height does not change",
+    "kept": "the tarsus meshes stay non-colliding (contype/conaffinity 0) exactly as in the accepted pad body, so only the triad touches the ground",
+    "invariants": "nq, nv, nu, neq, nmesh, joint ranges, masses, inertias, gain, bias, gravity, timestep, and all non-tarsus geometry must be identical; only the number of pad geoms and their placement may differ",
+    "label": "derived body geometry: NOT frozen-body acceptance, no claim about real pulvillus or claw material, friction and adhesion remain NOT_ESTABLISHED"
+  },
+  "training": "identical to the strong-actuator runs: 1 ms tick, C = 0.02, state curriculum v2, three Lagrangian constraints, 48 updates, gates unchanged, evaluated in both protocols",
+  "accounting": "ledger with source and derived sha256, invariant check, geometry listing; both evaluations; comparison against the single-pad runs at the same torque"
+}

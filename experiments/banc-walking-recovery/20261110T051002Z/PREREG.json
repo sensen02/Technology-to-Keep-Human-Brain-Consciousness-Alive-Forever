@@ -1,0 +1,15 @@
+{
+  "version": "stage1-v1",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T045410Z",
+  "goal": "S2/S5 matching-input FF/GRU initialization, safety curriculum then low-speed physical walking",
+  "scope": "replacement ANN on declared derived triad-pad body; not frozen-body or connectome acceptance",
+  "changes": ["manifest actual imported dependencies rather than unrelated root source glob", "hash dataset metadata and collection identity chain, assert disjoint splits", "validate complete model metadata and current compiled physical arrays", "replay restores saved task command and horizon, forbids silent overrides", "assert reward absorbing-tail and PPO discount timing consistency"],
+  "environment": "explicit env symlink to frozen stage0 independent torch2.5.1+cpu venv; base physics dependency path unchanged",
+  "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T045410Z/distill_sequences_v2/sequences.npz",
+  "teacher_limit": "old learned policy, not walking; slip3.6-4.2 at held5ms, only initialization",
+  "bc": {"architectures": ["ff238", "gru238"], "seed": 20261112, "steps": 120, "lr": 0.001, "initial_latent_std": 0.1, "train_episodes": [0,1,2], "validation_episodes": [3], "episode_ticks": 2000},
+  "curriculum_pilot": {"stage": "zero-speed safety/recovery initial pilot", "seed": 20261113, "policy_ms": 5, "episode_ticks": 2000, "rollout_ticks": 8000, "updates": 3, "advance_condition": "closed-loop balance must survive initialization; no larger training budget without inspecting safety/slip and policy replay"},
+  "checks": "rerun learning/physics/recurrent/reward checks under new source paths, integrated short physical rollout, task/model/data-identity and terminal-tail pure checks",
+  "acceptance": "engineering gates unchanged in physics.py; original complete gates remain required, native D status UNKNOWN until full window/records available",
+  "failure_policy": "retain failures and checkpoints; stop dependency training for failed checks, identity changes, nonfinite/physics warnings or write errors; do not rewrite parent sources"
+}

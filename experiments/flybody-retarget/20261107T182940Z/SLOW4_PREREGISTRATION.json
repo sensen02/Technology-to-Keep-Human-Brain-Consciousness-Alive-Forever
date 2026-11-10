@@ -1,0 +1,7 @@
+{
+ "reason": "Original-tempo failed candidate physically flips and loses support; independent replay reproduces allstates/forces exactly. 6114680/8137920 native torque entries saturated. One cadence-only diagnostic separates execution-speed contribution from unchanged geometric error.",
+ "change": "Uniform source-time scale4 after same.2sfree-body initialhold.2.222s source becomes8.888splayback, total9.088s. Targetpaths and jointlimits identical; source-derived target rates max7.5rad/s, existing actuator cap30unchanged.",
+ "unchanged": "Completecurrent42body,71meshes,free root,gravity,contact,friction,noslip0,PD128,torque bounds,initial firstpose and verticalplacement, no extraadhesion.",
+ "label": "Engineering time-warped reference forcing, not original animal cadence and not neuralmodel",
+ "scope": "One fixedscale4, no sweep or physicalparameter tuning. Geometryfailedlabel remains. Save failures and independentreplay/video."
+}

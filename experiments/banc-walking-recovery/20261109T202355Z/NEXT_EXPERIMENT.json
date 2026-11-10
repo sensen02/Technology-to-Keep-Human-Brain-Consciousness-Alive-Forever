@@ -1,0 +1,20 @@
+{
+  "label": "S5 next implementation specification, not a completed experiment",
+  "priority": "autonomous walking before all other platform stages",
+  "teacher_only": {
+    "method": "contact-aware full-body trajectory optimization through MuJoCo rollouts",
+    "variables": "bounded joint target rates for all 42 actuators; support legs remain optimizable during swing",
+    "initialization": "traceable measured or official teacher motion retargeted into current joint limits; previous successful stepping policies are candidate warm starts only",
+    "constraints": ["real foot-ground support", "no nonfoot compensation", "COM gate", "per-leg stance slip", "unchanged joint limits and torque caps"],
+    "prohibited": ["root translation writes", "pose locking", "hidden support forces", "constraint relaxation to declare success"],
+    "screening": "check full-body dynamic feasibility with corrected adhesion before imitation; record every failure and actual control authority"
+  },
+  "student": {
+    "architecture": "single whole-body 42-output observation-driven ANN with recurrent neural state if needed; all-leg proprioception and contact inputs",
+    "dataset": "complete continuous episodes, fixed task instruction per episode; retain student-visited states for corrective teaching",
+    "optimizer": "correct termination/bootstrapping and analytic full-rollout KL with transactional rollback",
+    "deployment": "no teacher, scheduled leg prompt sequence, external phase, torso feedback controller or trajectory replay; only neural policy through declared incremental actuators"
+  },
+  "acceptance": "original walking gates and physical handoff protocol; independent replay plus synchronous full-body video. Numerical regression, teacher motion and single-leg passes do not count as autonomous walking.",
+  "limits": "Replacement ANN capability is never connectome capability. No promise of success from a specified finite search. SI calibration NOT_ESTABLISHED."
+}

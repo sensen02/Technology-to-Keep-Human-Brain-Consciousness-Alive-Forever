@@ -1,0 +1,84 @@
+{
+  "status": "PROPOSED_NEXT_INTERFACE_NOT_IMPLEMENTED_OR_TRAINED",
+  "body_source": "/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+  "body_source_sha256": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+  "output": {
+    "shape": [
+      42
+    ],
+    "ordered_joint_names": [
+      "joint_LFCoxa_yaw",
+      "joint_LFCoxa_pitch",
+      "joint_LFCoxa_roll",
+      "joint_LFTrochanter_yaw",
+      "joint_LFTrochanter_pitch",
+      "joint_LFTrochanter_roll",
+      "joint_LFTibia_pitch",
+      "joint_LHCoxa_yaw",
+      "joint_LHCoxa_pitch",
+      "joint_LHCoxa_roll",
+      "joint_LHTrochanter_yaw",
+      "joint_LHTrochanter_pitch",
+      "joint_LHTrochanter_roll",
+      "joint_LHTibia_pitch",
+      "joint_LMCoxa_yaw",
+      "joint_LMCoxa_pitch",
+      "joint_LMCoxa_roll",
+      "joint_LMTrochanter_yaw",
+      "joint_LMTrochanter_pitch",
+      "joint_LMTrochanter_roll",
+      "joint_LMTibia_pitch",
+      "joint_RFCoxa_roll",
+      "joint_RFCoxa_yaw",
+      "joint_RFCoxa_pitch",
+      "joint_RFTrochanter_yaw",
+      "joint_RFTrochanter_pitch",
+      "joint_RFTrochanter_roll",
+      "joint_RFTibia_pitch",
+      "joint_RHCoxa_yaw",
+      "joint_RHCoxa_pitch",
+      "joint_RHCoxa_roll",
+      "joint_RHTrochanter_yaw",
+      "joint_RHTrochanter_pitch",
+      "joint_RHTrochanter_roll",
+      "joint_RHTibia_pitch",
+      "joint_RMCoxa_yaw",
+      "joint_RMCoxa_pitch",
+      "joint_RMCoxa_roll",
+      "joint_RMTrochanter_yaw",
+      "joint_RMTrochanter_pitch",
+      "joint_RMTrochanter_roll",
+      "joint_RMTibia_pitch"
+    ],
+    "units": "rad/s",
+    "rate_clip": [
+      -30.0,
+      30.0
+    ],
+    "command_period_s": 0.001,
+    "policy_period_s": 0.005,
+    "target_bounds": "current compiled hinge ranges",
+    "torque_semantics": "unchanged bounded incremental target then finite PD128; no native activation filter"
+  },
+  "retained_body": "complete71mesh, free root, no equality/root actuator, originalgravity/contact/friction/force caps",
+  "student_inputs": {
+    "local_motor_module": "causal local proprioception/contact observations plus anatomically constrained descending commands; exact sensory channels and latencies require a separately frozen contract",
+    "brain": "restricted ascending neural interface and internal-state signals; no direct full joint vector or 42-joint command bypass around neck",
+    "training_only": "registered official motion landmarks/segment orientations; teacher labels and actual failed episodes distinguished; privileged reference not deployed"
+  },
+  "supervision": {
+    "source": "official measured102joint motion / teacher trajectories separately tagged",
+    "method": "bounded continuous landmark/orientation retargeting to current42; not59-action cropping",
+    "geometric_validation": "candidate regional mapping only; holdout retarget residual and current angle/rate limits required",
+    "dynamic_validation": "current-body original physics, no adhesive actuator; actual support, slip, nonfoot contact, saturation, release and causal controls"
+  },
+  "unmapped_official_controls": [
+    "six adhesion",
+    "three head",
+    "two abdominal tendons",
+    "six tarsus hinges",
+    "six distal-tarsal tendons"
+  ],
+  "feeding_choice": "not solved by walking interface: current mouth/head/abdomen fixed; explicit ingestion/environment/internal-state interface still required",
+  "surgery": "deferred until full feeding/choice/locomotion platform and preoperative parameters frozen"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "STATIC_RULE_AMBIGUITIES_IDENTIFIED_NO_RUNTIME_CHANGE",
+  "source_candidate_csv": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_CANDIDATES.csv",
+  "source_hash_location": "NEURAL_INTERFACE_MANIFEST.json artifacts.SENSORY_CHANNEL_CANDIDATES.csv.sha256",
+  "rule_reviewed": "Inherited bristle_touch substring rule from tools_export_sensory_channel_lookup.py",
+  "bristle_touch_rows": 2945,
+  "matched_cache_class_counts": {"bristle_neuron": 2924, "taste_bristle_neuron": 3, "hair_plate_neuron": 1, "missing_cache_id": 17},
+  "ambiguous_records": [
+    {"root_id_string": "720575941504614981", "cache_index_0based": 52408, "feather_row_0based": 22476, "leg": "rm", "cache_class": "taste_bristle_neuron", "source_subclass": "middle_leg_taste_bristle_neuron"},
+    {"root_id_string": "720575941594047190", "cache_index_0based": 116802, "feather_row_0based": 32173, "leg": "lh", "cache_class": "hair_plate_neuron", "source_subclass": "hind_leg_bristle_neuron"},
+    {"root_id_string": "720575941559114767", "cache_index_0based": 93844, "feather_row_0based": 33988, "leg": "rf", "cache_class": "taste_bristle_neuron", "source_subclass": "front_leg_taste_bristle_neuron"},
+    {"root_id_string": "720575941562206759", "cache_index_0based": 96090, "feather_row_0based": 34949, "leg": "lf", "cache_class": "taste_bristle_neuron", "source_subclass": "front_leg_taste_bristle_neuron"}
+  ],
+  "next_implementation_rule": "Do not inject generic bristle tactile drive into these4 ambiguous identities or the17 absent IDs without separately qualifying their modality. Preserve labels and source edges; do not recode them as gustatory-only or hairplate-only on this audit's authority. The2924 matching bristle identities remain annotation candidates, not measured physiological tuning.",
+  "other_channel_classes_not_admitted_by_this_review": true,
+  "simulation_or_training_calls": 0
+}

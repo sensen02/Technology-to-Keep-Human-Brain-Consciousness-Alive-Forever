@@ -1,0 +1,9 @@
+{
+  "scope": "Independent saved neural/input/history replay after parent announces new physical pilot ready; no physical steps or new fitting",
+  "expected_policy_samples": 600,
+  "expected_neural_replay_steps": 6000,
+  "checks": ["exact logged local q42/v42 and load6 against BODY tick*5/NATIVE tick*5*80-1, firstloadzero", "encoder556 currents recomputed exact", "actual canonical MNidentity/jointorder and primarymodelhash", "lagmajor features independently constructed from recorded START MNrates using pastonly indexing", "runtime observe/action entire600samples versus independentfeatures and recordedpredictions", "warmup appliedrates equals oldsourceprefix, subsequentrates learnedheld5ms", "START MNfilteredHz/voltages from newcircuit replay heldrecordedcurrents zeroDN", "HANDOVER g_adapt_uS/ge/gi/v/ring/index and predictor history/count/lags/bin preserved", "NEURAL_FINAL complete state exact with explicit g_adapt_uS; READOUT_FINAL exact history", "intervalendvoltage/rate/spike summaries match", "historical185910Z output_hold body-only comparability via exactINITIAL arrays, bodysha/dtprotocol, warmcommands and zeroafter1s; no claim of newmechanism neuralhold replay"],
+  "tolerances": "Exact identities/sourceinputs/encodedcurrents/neuralstate/history equality; independently accumulated matrix predictions allow1e-10",
+  "imports": "New module LocalCircuit and unchanged oldencoder allowed for deterministicreplay; runtimeReadout plus independentexplicitlagbuilder checked; no fitter/physicalrunner/MuJoCo import",
+  "result_boundary": "No walking or biology calibration claim. Parent owns native physical replay. Old calibration failure remains historical; new voltage mechanism engineering proof does not establish physiology."
+}

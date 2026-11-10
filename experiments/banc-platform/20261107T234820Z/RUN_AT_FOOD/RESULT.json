@@ -1,0 +1,42 @@
+{
+  "status": "PLATFORM_LOOP_RUN_NOT_WALKING",
+  "seconds": 3.0,
+  "food_mode": "at_mouth",
+  "food_center": [
+    0.48732000000000003,
+    -0.0119811,
+    1.249336
+  ],
+  "radius": 0.004,
+  "native_steps": 3000,
+  "neural_steps": 8000,
+  "theta_scale": 0.0,
+  "energy_start": 0.60115,
+  "energy_end": 0.5825000000000057,
+  "food_start": 1.0,
+  "food_end": 0.9575000000000009,
+  "decisions": {
+    "feed": 34,
+    "forage": 0,
+    "rest": 566
+  },
+  "min_mouth_distance": 4.779102164419219e-06,
+  "final_mouth_distance": 0.13951636079218785,
+  "forward_displacement": -0.03687325703696438,
+  "lateral_displacement": 0.05817402557711969,
+  "com_z_min": 1.2054366140820674,
+  "mean_abs_rate": 0.0,
+  "provenance": {
+    "movement": "frozen_connectome_module_plus_frozen_bounded_readout",
+    "behaviour": "engineering_selector_not_neural",
+    "feeding": "declared_gate_on_virtual_food_no_food_collision"
+  },
+  "limits": "No ANN or algorithmic gait is used here. The readout is the round-10 zero incumbent, so movement is expected to be negligible; this run tests platform wiring, not locomotion.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/plant_probe.py": "e1d0ee3d1712f751d656aabbce8b9ee399164995b256bc9e6c42886786b4c800",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T234820Z/platform_state.py": "e4a5c81a30edef24da77761c0e484eeddf41e51f648c6c66e33f02f9f836dbc8"
+  }
+}

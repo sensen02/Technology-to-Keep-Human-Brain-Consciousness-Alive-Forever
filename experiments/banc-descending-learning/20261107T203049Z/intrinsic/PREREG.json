@@ -1,0 +1,18 @@
+{
+  "schema": "round11-intrinsic-dynamics-audit/1",
+  "scope": "Parent-owned frozen-module replay to measure whether the local connectome-constrained module has any leg-alternating structure on walking timescales, using only saved sensory currents. No learning, no physical steps, no acceptance change.",
+  "frozen_sources": {
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "canonical_neural_state": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+    "sensory_currents": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz",
+    "leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz"
+  },
+  "conditions": [
+    "held: constant first-bin sensory currents for 5000 ms (pure intrinsic dynamics, no sensorimotor loop)",
+    "replay: the 100 recorded 5 ms sensory bins repeated cyclically for 5000 ms (same recorded input sequence, no new dynamics source)"
+  ],
+  "protocol": "Restore the canonical 2000-step/1000 ms state before each condition; advance 1000 bins of 5 ms with zero descending current; record at every 5 ms bin the 391 motor-neuron filtered rates, the 323 exported rates, DN rates and per-step voltage extrema. Physical steps 0.",
+  "fixed_analysis": "Per leg (LF,LH,LM,RF,RH,RM; actual source order from BASE.mn_leg) mean exported-MN filtered rate per 5 ms bin. Report 6x6 cross-correlation, Welch spectrum 0.05-20 Hz on the 0.5-5 s window with Hann taper, dominant peak per leg, and the tripod-alternation score: correlation of (LF,RF? see below) - specifically alternation pairs are (LF,RH),(RF,LH),(LM,LM). Alternation score per pair = -correlation of mean rates; report anti-phase partners exactly as measured. Also report the intrinsic mean-rate coefficient of variation and the range.",
+  "limits": "Saved-current replay only. The module is a strict-filtered 20000-neuron subset with illustrative receptor signs and uncalibrated gains; absence of alternation here does not show fly VNC lacks it, and presence would not show walking. Not a learned policy, not a descending-command test (DN current is zero), and not a physical result."
+}

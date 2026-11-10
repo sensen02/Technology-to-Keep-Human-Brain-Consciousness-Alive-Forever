@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "status": "PASS",
+  "results": [
+    {
+      "architecture": "ff238",
+      "physical_actions_unchanged": true,
+      "discounted_shape_no_complete": 1.6263032587282567e-18,
+      "complete_events": 0
+    },
+    {
+      "architecture": "gru238",
+      "physical_actions_unchanged": true,
+      "discounted_shape_no_complete": -2.168404344971009e-18,
+      "complete_events": 0
+    }
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/train_curriculum.py": "57550821516daac5edbc6e9917ead9066223297db5cbd9d58aebd36b33321bf3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/policy_io.py": "f22c36d079828964b2754acacad462d009edcc767c06424154f043e69aa4ac15",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/check_cycle_integration.py": "12c8b81f22f44c35375fe011a21b7505c314a218016e750566e6cf7ffbe363ba"
+  },
+  "limitation": "short observation/reward integration check, no behavior success claim"
+}

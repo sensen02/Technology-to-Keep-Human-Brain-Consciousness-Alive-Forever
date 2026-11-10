@@ -1,0 +1,68 @@
+{
+  "all_passed": true,
+  "checks": {
+    "ff238_trajectory": {
+      "decisions": 4,
+      "mocked_physical_ms": 20,
+      "teacher_queries": 4,
+      "previous_actual_continuous": true,
+      "teacher_current_state": true,
+      "holds_5ms": true,
+      "hidden_replay_exact": true,
+      "safety_stops_checked": true,
+      "prefix_gradient_reaches_prefix": false
+    },
+    "gru238_trajectory": {
+      "decisions": 4,
+      "mocked_physical_ms": 20,
+      "teacher_queries": 4,
+      "previous_actual_continuous": true,
+      "teacher_current_state": true,
+      "holds_5ms": true,
+      "hidden_replay_exact": true,
+      "safety_stops_checked": true,
+      "prefix_gradient_reaches_prefix": true
+    },
+    "ff238_training": {
+      "synthetic_steps": 2,
+      "finite_loss_and_gradients": true,
+      "whole_episode_holdouts": true,
+      "fresh_BC_Adam": true,
+      "fresh_PPO_states": true,
+      "declared_fresh_rng": true,
+      "model_only_warm_start": true,
+      "checkpoint_atomic_reload": true,
+      "recovery_metadata_tamper_rejected_by_original_loader": true,
+      "full_base_and_recovery_identity_closure": true,
+      "output_overwrite_rejected": true
+    },
+    "gru238_training": {
+      "synthetic_steps": 2,
+      "finite_loss_and_gradients": true,
+      "whole_episode_holdouts": true,
+      "fresh_BC_Adam": true,
+      "fresh_PPO_states": true,
+      "declared_fresh_rng": true,
+      "model_only_warm_start": true,
+      "checkpoint_atomic_reload": true,
+      "recovery_metadata_tamper_rejected_by_original_loader": true,
+      "full_base_and_recovery_identity_closure": true,
+      "output_overwrite_rejected": true
+    }
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/student_wave.py": "932f3176aef2d02bddeb4ce3c0cc47d441065ba4d670b7e8def386825ae14a32",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/recovery_bc.py": "aa0b428912620e676a5fd3b5f13f4793ffbb6ca0ee301e76c4575ac9175e8dc1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/check_recovery.py": "f35c761527e490b54c55c0d52bccc3c6974743d141695b467a5957e172364a6c"
+  },
+  "scope": "mocked 10ms teacher + 10ms mixed only; synthetic two-update FF/GRU; no real physics step, gait collection, or main training",
+  "limitation": "engineering contracts only; neural autonomy and teacher corrective recovery effectiveness NOT_ESTABLISHED"
+}

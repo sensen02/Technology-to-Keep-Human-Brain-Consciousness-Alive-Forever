@@ -1,0 +1,104 @@
+{
+  "status": "RECOVERED_ARRAY_DIAGNOSTIC_NOT_NEURAL_SUCCESS",
+  "native_steps": 193760,
+  "commands": 2422,
+  "sim_s": 2.421999999996023,
+  "reference_source": "teacher_actual_physical_longest_07718",
+  "physical_gate": {
+    "passed": false,
+    "checks": {
+      "D1_no_nonfoot_ground_force": false,
+      "D2_no_free_fall": false,
+      "D3_foot_support_not_below_assist": true,
+      "D4_foot_support_never_collapses": false,
+      "D4b_nonfoot_is_not_carrying_the_body": true,
+      "D5_com_height_not_below_assist": false,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": false
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.0,
+      "com_z_mean": 1.4013366113168613
+    },
+    "release": {
+      "foot_support_mean": 0.9005658127988821,
+      "foot_support_p10": 0.3839815619002433,
+      "foot_support_min": 0.0,
+      "nonfoot_share_mean": 0.09664412354716277,
+      "ground_support_mean": 1.0004030865010847,
+      "com_z_min": 0.5604913797795698,
+      "com_z_mean": 1.048703913991541,
+      "free_fall_fraction": 0.0008213321332133214,
+      "force_balance_residual_p95": 0.07602926877366704,
+      "force_balance_residual_p50": 0.004865621918923922,
+      "bearing_legs_median": 4.0,
+      "bearing_legs_min": 0,
+      "per_leg_mean_load": [
+        0.10636644454991717,
+        0.14636941633898662,
+        0.18053558769428538,
+        0.190646288474368,
+        0.17616580947050972,
+        0.10048226627081516
+      ],
+      "per_leg_duty": [
+        0.4661228622862286,
+        0.6474122412241224,
+        0.6990605310531053,
+        0.6515357785778578,
+        0.7634394689468947,
+        0.4757425742574257
+      ],
+      "samples": 177760
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "nonfoot_force_max": 133.21827122411557,
+  "root_displacement": [
+    10.722412474922693,
+    10.571351078768789,
+    -0.8019932862966439
+  ],
+  "posthold_COM_path_speed": 9.621918910936577,
+  "material_slip_weighted_speed": [
+    13.605346116523277,
+    12.574412865864451,
+    15.208133970609653,
+    9.97314075899681,
+    12.077339399620216,
+    14.90279218485554
+  ],
+  "slip_to_pathspeed_ratio": [
+    1.413995092086986,
+    1.3068508456844274,
+    1.580571828902404,
+    1.03650226647213,
+    1.2551903119753722,
+    1.548837848541475
+  ],
+  "initial_COM_height": 1.4013366113168613,
+  "COM_height_min": 0.5607283972765528,
+  "torque_saturated_entries": null,
+  "torque_total_entries": 8137920,
+  "warning_status": "All per-command original finite/warning assertions passed before array saving; independent replay checks again",
+  "wall_s": null,
+  "recovery": "bash177 exit1 AFTER full simulation/arrays: np.int64 saturation count JSON serialization failed. Originalpartial kept RESULT_INCOMPLETE.json. This script recalculates summary with0physics; saturation count can be recovered only by replay, no invented value.",
+  "files": {
+    "MODEL.mjb": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+    "INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "COMMANDS.npz": "32af54db6a61707a83c11416bee900d918e49467b14fbe1b10e6cae656ff98fb",
+    "SLIP.npz": "5af7298858c93b182cfcd819defd0b982ea321b37eb25e9a80fb0520d2920838",
+    "NATIVE.npz": "714fd3e84ab9cf349b8738f949c05461b9738af044d533d424e0c74b764dcad1",
+    "BODY.npz": "6766e359a68780ed93f5655d01dc7fbae807caaab3530ec6dd63e875c66f556a",
+    "RESULT_INCOMPLETE.json": "3ff6b3c8dcb54aa5039612d5490015d96ed217652584ead7a36931a96c7f16d9",
+    "PROTOCOL.json": "4e2986227653693932632acd4dec6a5231cb3f4f90a421949bb40c275bc6bcb3"
+  },
+  "source_sha256": "0eec56302998e2f5cd87b452ada0c034df3e5285f7f99a52f0187517c13f2433"
+}

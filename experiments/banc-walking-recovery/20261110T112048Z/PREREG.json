@@ -1,0 +1,14 @@
+{
+ "version":"single-state-full-neural-plant-linearization-v1",
+ "goal":"S2/S5 inspectcoupled actualfullbody/joint/actuatormemory/NNdynamics instead ofonlyfrozenTsubsystem",
+ "candidate":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+ "actual_baseline":"samefullbody/noadh physical1szerosettle+4.8sactualcertifiedteacherprefix, previousactualaction andphysicalmemorypreserved, onebaselinebeforeNNhandover",
+ "offline_derivative_fixture":"copycompleteMjData/actuator/Pythonmeasurementcaches afteractualprefix,restoreidenticalbaselineforEVERYprobe. Coherentphysicalqpos/qvel/T/p/cacheperturbations onlyPRIVATElinearizationfixtures; notwalkingtrajectory,notvisualsuccess",
+ "state":"qpos tangent48 +qvel48 +target42 +prevaction42 +padzprev6 +padrate6 =192; qposquaterniononmanifold, outputmjdifferentiatePos tangent about unperturbednextstate",
+ "map":"originalboundedNNactonce thenholdthrough5actual1msactuatorupdates/400nativephysicssteps, noexpertqueriesafterbaseline, noextraexternalforces. SamefinitePD/friction/limits",
+ "checks":"bitwise identical unperturbed5msrestore/replay,rawobsidenticalrestore,compiledarraysconstant,finitejacobian,contact/warningchangesrecorded; centralFD eps1e-5 all192dim,12representativecolumns eps3e-6 sensitivity",
+ "scaled_norm":"declaredphysicallymotivatedcoordinate scales forsingularnorm, eigenvaluesbasisinvariant; reportbothfullcoupledandT-memoryonlymodeblockenergies; normswithoutscalesnotacceptedphysicalunitsclaim",
+ "budget":"oneactualprefix plus384privateprobe5mssteps andbounded12column sensitivity, percallthread1, managedjob;matricesNPZon disk compactreport",
+ "interpretation":"onehybridcontactstate localdiscreteJacobiannotprooflongcycle/walkingstabilityorbodyimpossibility; contactactive-set changes limitderivativeinterpretation",
+ "scope":"engineeringdiagnostic withofflinefixturewrites explicitlyseparate actualfreephysicalrun; notrootposescriptwalking or neuralgoalpass"
+}

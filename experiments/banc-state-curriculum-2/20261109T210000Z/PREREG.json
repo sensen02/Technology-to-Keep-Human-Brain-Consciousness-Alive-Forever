@@ -1,0 +1,12 @@
+{
+  "schema": "state-curriculum-2/1",
+  "origin": "the state curriculum worked (forward .107 -> .480, slip 6.31 -> 2.14 in the assist-then-release protocol) but the policy it produced carries nothing: support .388, non-foot 67.8 W, COM .583, and it even runs the body down into the floor. Support itself has never been a constraint in a distribution where it is violated.",
+  "change": {
+    "state bank v2": "recorded from two release rollouts (the state-curriculum model and the fast 1 ms model) so the bank contains both low-support and low-height states; per-state support and COM are saved with the bank so the coverage is auditable",
+    "three constraints": "support (windowed minimum, target 0.90), non-foot contact (windowed maximum, target 4.889 W), COM height (windowed minimum, target 1.20), each with its own multiplier, dual ascent 0.05 per rollout on the mean violation, lambda_max 50",
+    "kept": "1 ms policy tick, base target 200 Hz, C = 0.02, 50 percent cold start plus 50 percent bank start, derived pad body R=.02, mu=1.5, releasable adhesion .25 body weight, reward v4, 42-joint PPO, 48 updates, gates unchanged"
+  },
+  "what_would_count_as_progress": "support minimum at or above 0.90 with non-foot under 4.889 W in the assist-then-release protocol, while slip stays below 3; anything else is another recorded negative",
+  "labelling": "derived channel plus replacement ANN; bank states are our own simulated history; not frozen-body acceptance and not connectome activity",
+  "accounting": "all three multipliers and their violating statistics logged per update; bank composition (support and COM ranges) recorded in JSON; both evaluation protocols reported"
+}

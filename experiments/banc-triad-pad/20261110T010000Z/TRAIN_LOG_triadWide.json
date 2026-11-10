@@ -1,0 +1,148 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "triad-pad/1",
+    "user_authorisation": "the user approved changing the body as a declared derived model with a new hash and a preregistration; this is route 2",
+    "finding_that_motivates_it": "the single spherical pad gives each foot a single contact point, so a foot cannot resist rotation and the body loses support as soon as it stops being fully seated (open-loop tripod lift drops support to 0.00). A real tarsus contacts with a pad plus claws, i.e. several points, which resists exactly that rotation. Torque alone moved support only from .459 to .488 at double authority, so contact geometry is the next lever the evidence supports",
+    "change": {
+      "geometry": "replace the one sphere per tarsus with a triad of three spheres, radius 0.008, placed in a small triangle around the segment's lowest material point, all three bottoms coplanar with that point so the standing height does not change",
+      "kept": "the tarsus meshes stay non-colliding (contype/conaffinity 0) exactly as in the accepted pad body, so only the triad touches the ground",
+      "invariants": "nq, nv, nu, neq, nmesh, joint ranges, masses, inertias, gain, bias, gravity, timestep, and all non-tarsus geometry must be identical; only the number of pad geoms and their placement may differ",
+      "label": "derived body geometry: NOT frozen-body acceptance, no claim about real pulvillus or claw material, friction and adhesion remain NOT_ESTABLISHED"
+    },
+    "training": "identical to the strong-actuator runs: 1 ms tick, C = 0.02, state curriculum v2, three Lagrangian constraints, 48 updates, gates unchanged, evaluated in both protocols",
+    "accounting": "ledger with source and derived sha256, invariant check, geometry listing; both evaluations; comparison against the single-pad runs at the same torque"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "state_curriculum": {
+    "mix": 0.5,
+    "bank": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-state-curriculum-2/20261109T210000Z/STATE_BANK_V2.npz",
+    "constraints": "support, non-foot, height",
+    "bank_sha256": "03840a2216d4141b3a95691c053cb74ef484ce01ff3d3ded950659a39a1dcffc",
+    "note": "initial states recorded from our own simulation during the release phase; no external generator"
+  },
+  "body": {
+    "xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_s012_x200.xml",
+    "sha256": "ce9ab08a183e92fe69323045812f5bad91c5980567f001d6dc598b2aee3520fe",
+    "label": "derived body (pad spheres) and derived actuator strength; never frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, state curriculum, 3 constraints, derived triad pad body with doubled torque",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.2082980230645044,
+        "foot_support_mean": 2.499877672205949,
+        "foot_support_min": 0.7576124251437052,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 1.031971899773499,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.5843985871051873,
+          "LH": 0.9085215337889465,
+          "LM": 0.6264087650743396,
+          "RF": 0.37563609830632894,
+          "RH": 1.2657869243092565,
+          "RM": 1.6724423959699783
+        },
+        "slip_ratio_max": 1.6724423959699783,
+        "slip_ratio_mean": 0.9055323840923396,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.20581103445630172,
+    "foot_support_mean": 2.4998794093427974,
+    "foot_support_min": 0.757612830843585,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 1.0315677196665713,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.5879154355797044,
+      "LH": 0.9207421257440705,
+      "LM": 0.6382351651213727,
+      "RF": 0.38569554899382213,
+      "RH": 1.2698868798845757,
+      "RM": 1.6759926306226247
+    },
+    "slip_ratio_max": 1.6759926306226247,
+    "slip_ratio_mean": 0.9130779643243617,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 1049601840,
+  "wall_s": 508.63211488723755,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_triadWide.npz",
+    "sha256": "1712a0bbaa4436766986ed22dce27c529ab14a7c954e07acf045100908b1ace6"
+  }
+}

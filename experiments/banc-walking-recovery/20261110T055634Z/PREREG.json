@@ -1,0 +1,16 @@
+{
+  "version": "physical-cycle-curriculum-v1",
+  "goal": "S2/S5 teach actual unload-clearance-forward-reload cycles, addressing proven finite-stroke drag loophole without scripted deployed gait",
+  "parent_policy": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T053813Z/walk_zero_ff238_3u/final.pt",
+  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T053813Z/sustain_diag/RESULT.json",
+  "reason": "six continuous seconds show positiveprogress but alllegs completedsteps0, maxpadz .00632, targetmonotonicity .9988 and increasing clips; did NOT launch same-reward9u continuation",
+  "physical_condition": "same explicit noadh derived fullbody, no XML/force/gain/limit/gravity/friction changes",
+  "model": "warm-start FF238 from saved3u; same input42outputs, no phase, no legprompt, no teacher or event-state in actor",
+  "reward_change": "add sensor-measured full-cycle bonus and bounded potential shaping; six identical trackers without schedulinglegorder; potential never commands physics",
+  "cycle_proxy": {"loaded": ">=.1 bodyweight and padz<=.004 for10ms", "unloaded": "<=.05bodyweight for5ms", "clearance_native": 0.015, "unloaded_forward_advance_native": 0.03, "reload": ">=.1bodyweight withpadz<=.004 for10ms", "complete_bonus": 0.1, "potential_max_per_leg": 0.05, "attempt_timeout_s": 0.8, "note": "curriculum behavior proxy, not originalfinalgate; require fullcycle, no bonus forstationary drag/airhold/hopwithoutadvance"},
+  "potential_contract": "at5ms policy boundary add gamma*Phi_after-Phi_before once; actualphysicalterminal/deadline Phi_after=0; per1ms tracker shape not doublecounted. Completion bonuses aggregatedwithinpolicyblock. No upfrontbonusperpersistentstate, failedattempt potentialrefund prevents farming.",
+  "training": {"mode": "explicit model-only warm-start/reset optimizer because reward taskchanged; NOT exact same-task resume", "target_speed": 0.10, "policy_ms": 5, "episode_s": 4.0, "rollout_s": 8.0, "initial_updates": 3, "seed": 20261116, "std": "preserve parent learnedstd approximately.20", "PPO": "unchanged gammaexp(-.005),lambdaexp(-.005/.2),clip.1,actorlr3e-5,criticlr1e-4,4epochs; no action/physicaltimechanges"},
+  "decision": "after3u inspect strict cyclecounts perleg, safety/slip, potentialaccounting and finalindependent replay; no successbased onvelocityalone. Native physical evidence and continuoushandover still required.",
+  "failure_policy": "stop technical failures, retain allnegativebehavior outcomes, no thresholdrelaxation or bodyimpossibilityclaim",
+  "status": "reward implementation and synthetic/integration checks before launching"
+}

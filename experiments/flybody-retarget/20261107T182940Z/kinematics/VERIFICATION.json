@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "datasets": {
+    "teacher": {
+      "independent_fk_max_abs_error": 2.220446049250313e-15,
+      "independent_target_max_abs_error": 1.3322676295501878e-15,
+      "max_rate_rad_s": 30.000000000003304,
+      "finite_limits_rate_pass": true,
+      "geometry_gate": false,
+      "max_normalized_landmark_error": 0.19501574985124895,
+      "rms_normalized_landmark_error": 0.03724495430183113,
+      "holdout_max": 0.17427491835469838
+    },
+    "measured": {
+      "independent_fk_max_abs_error": 2.220446049250313e-15,
+      "independent_target_max_abs_error": 1.3322676295501878e-15,
+      "max_rate_rad_s": 30.000000000003304,
+      "finite_limits_rate_pass": true,
+      "geometry_gate": false,
+      "max_normalized_landmark_error": 0.2576742107864666,
+      "rms_normalized_landmark_error": 0.04555656872890276,
+      "holdout_max": 0.19449630932822798
+    }
+  },
+  "source_sample_fk_max_error": 9.43689570931383e-16,
+  "independent_serial_fk_calls": 2234,
+  "jacobian_fd_max_abs_error": 8.046847632670051e-10,
+  "current_runtime_saved_fk_max_error": 0.0,
+  "current_runtime_calls": {
+    "mj_forward": 0,
+    "mj_kinematics": 635,
+    "mj_comPos": 215,
+    "mj_jac": 210,
+    "mj_step": 0,
+    "mj_step1": 0,
+    "mj_step2": 0
+  },
+  "current_model_compiles": 1,
+  "step_calls": 0,
+  "training_updates": 0,
+  "root_reference_not_deployed": true
+}

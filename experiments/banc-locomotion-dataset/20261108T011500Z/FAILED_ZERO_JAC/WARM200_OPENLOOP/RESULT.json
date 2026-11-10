@@ -1,0 +1,51 @@
+{
+  "status": "OPENLOOP_MEASURED_DATA_NETWORK",
+  "ticks": 800,
+  "native_steps": 320000,
+  "duration_s": 3.9989999999923453,
+  "forward_displacement": [
+    -0.6868068655160573,
+    -1.8843754598143427,
+    -0.6610402138399447
+  ],
+  "forward_speed_native_per_s": 0.501534307515583,
+  "foot_support_mean": 0.43771808051860445,
+  "foot_support_min": 0.0,
+  "nonfoot_force_max_W": 37.39695688186615,
+  "nonfoot_force_mean_W": 13.746403873048218,
+  "com_height_min": 0.6803992875050789,
+  "com_height_mean": 0.8523975578385352,
+  "free_fall_fraction": 0.54625,
+  "per_leg_material_speed": {
+    "LF": 0.0,
+    "LH": 0.0,
+    "LM": 0.0,
+    "RF": 0.0,
+    "RH": 0.0,
+    "RM": 0.0
+  },
+  "per_leg_slip_ratio": {
+    "LF": 0.0,
+    "LH": 0.0,
+    "LM": 0.0,
+    "RF": 0.0,
+    "RH": 0.0,
+    "RM": 0.0
+  },
+  "slip_ratio_max": 0.0,
+  "slip_ratio_mean": 0.0,
+  "slip_criterion_threshold": 0.5,
+  "slip_criterion_passed": true,
+  "warnings": 0,
+  "warm_ticks": 200,
+  "slip_metric_note": "the per-leg slip ratio is only meaningful when the feet carry the body; if foot_support_mean is low and nonfoot force is high the ratio is degenerate (few loaded contacts) and must not be read as a pass",
+  "provenance": {
+    "controller": "base network trained on filtered measured motion; no teacher, no residual, no connectome; DIAGNOSTIC warm start replaying measured targets for 200 ticks",
+    "actuator": "frozen bounded incremental actuator, 30 rad/s, 1 ms integration, finite PD128",
+    "metric_note": "own recomputation: mj_jac at contact point, force-weighted tangential speed per leg, forward speed = COM displacement / duration; not the frozen D-gate suite"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/MODEL_MEASURED.npz": "7e7fa4197bcf4a4f4eddc1afd8418b0fc290c9ca1daa44df9ebaeaad859652ec",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1"
+  }
+}

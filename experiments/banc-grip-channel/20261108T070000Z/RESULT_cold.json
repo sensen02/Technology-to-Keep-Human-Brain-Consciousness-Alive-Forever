@@ -1,0 +1,122 @@
+{
+  "schema": "b3-grip-probe/1",
+  "mode": "cold",
+  "k_grip": 5000.0,
+  "f_max_per_leg": 12.223177377939002,
+  "stance_load": 2.4446354755878006,
+  "results": {
+    "grip_OFF_cold": {
+      "mode": "cold",
+      "grip": false,
+      "native_steps": 320000,
+      "labels": {
+        "grip": "frozen-body"
+      },
+      "grip_log": {
+        "peak_force": 0.0,
+        "impulse": 0.0,
+        "cap_hits": 0,
+        "active_updates": 0,
+        "updates": 0
+      },
+      "prereg": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/PREREG.json",
+      "release": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.4296959638570738,
+        "foot_support_mean": 0.07304564255198966,
+        "foot_support_min": 0.0,
+        "nonfoot_force_max_W": 30.635398245409277,
+        "com_height_min": 0.6145369314569074,
+        "free_fall_fraction": 0.92625,
+        "per_leg_slip_ratio": {
+          "LF": 11.05458019879465,
+          "LH": 3.266383721216599,
+          "LM": 6.062399030414126,
+          "RF": 3.297003734797988,
+          "RH": 4.728713584040799,
+          "RM": 5.5750697086551355
+        },
+        "slip_ratio_max": 11.05458019879465,
+        "slip_ratio_mean": 5.664024996319882,
+        "slip_criterion_passed": false
+      },
+      "all": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.4296959638570738,
+        "foot_support_mean": 0.07304564255198966,
+        "foot_support_min": 0.0,
+        "nonfoot_force_max_W": 30.635398245409277,
+        "com_height_min": 0.6145369314569074,
+        "free_fall_fraction": 0.92625,
+        "per_leg_slip_ratio": {
+          "LF": 11.05458019879465,
+          "LH": 3.266383721216599,
+          "LM": 6.062399030414126,
+          "RF": 3.297003734797988,
+          "RH": 4.728713584040799,
+          "RM": 5.5750697086551355
+        },
+        "slip_ratio_max": 11.05458019879465,
+        "slip_ratio_mean": 5.664024996319882,
+        "slip_criterion_passed": false
+      }
+    },
+    "grip_ON_cold": {
+      "mode": "cold",
+      "grip": true,
+      "native_steps": 320000,
+      "labels": {
+        "grip": "derived-channel"
+      },
+      "grip_log": {
+        "peak_force": 36.669532133817015,
+        "impulse": 9.149048267387336,
+        "cap_hits": 1497,
+        "active_updates": 511,
+        "updates": 8000
+      },
+      "prereg": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/PREREG.json",
+      "release": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.4904329295093131,
+        "foot_support_mean": 0.0627621722156013,
+        "foot_support_min": 0.0,
+        "nonfoot_force_max_W": 98.24393973017412,
+        "com_height_min": 0.621859361067422,
+        "free_fall_fraction": 0.9375,
+        "per_leg_slip_ratio": {
+          "LF": 31.077166636219076,
+          "LH": 55.57000676062743,
+          "LM": 30.568354976120926,
+          "RF": 58.25917102679858,
+          "RH": 46.03089651319936,
+          "RM": 82.9190640823928
+        },
+        "slip_ratio_max": 82.9190640823928,
+        "slip_ratio_mean": 50.7374433325597,
+        "slip_criterion_passed": false
+      },
+      "all": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.4904329295093131,
+        "foot_support_mean": 0.0627621722156013,
+        "foot_support_min": 0.0,
+        "nonfoot_force_max_W": 98.24393973017412,
+        "com_height_min": 0.621859361067422,
+        "free_fall_fraction": 0.9375,
+        "per_leg_slip_ratio": {
+          "LF": 31.077166636219076,
+          "LH": 55.57000676062743,
+          "LM": 30.568354976120926,
+          "RF": 58.25917102679858,
+          "RH": 46.03089651319936,
+          "RM": 82.9190640823928
+        },
+        "slip_ratio_max": 82.9190640823928,
+        "slip_ratio_mean": 50.7374433325597,
+        "slip_criterion_passed": false
+      }
+    }
+  },
+  "prereg_sha256": "8a3845f124d73496a3b631c87206991bca083d5457de358da3d819a34891648b"
+}

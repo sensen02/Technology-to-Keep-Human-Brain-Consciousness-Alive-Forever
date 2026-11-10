@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "episode": 0,
+      "split": "train",
+      "active_leg_MSE": 0.0003067817935744604,
+      "stance_legs_MSE": 6.086170964590038e-05,
+      "active_teacher_action_RMS": 0.1778989748742729,
+      "stance_teacher_action_RMS": 0.0432211795000406,
+      "active_error_share": 0.5020236331486253,
+      "active_output_fraction": 0.16666666666666666
+    },
+    {
+      "episode": 1,
+      "split": "train",
+      "active_leg_MSE": 0.00030958009988588683,
+      "stance_legs_MSE": 6.109389295378598e-05,
+      "active_teacher_action_RMS": 0.17788681401832065,
+      "stance_teacher_action_RMS": 0.0432196036137363,
+      "active_error_share": 0.5033417104516316,
+      "active_output_fraction": 0.16666666666666666
+    },
+    {
+      "episode": 2,
+      "split": "validation",
+      "active_leg_MSE": 0.0003570608676690651,
+      "stance_legs_MSE": 0.00011171310489005897,
+      "active_teacher_action_RMS": 0.177957041427261,
+      "stance_teacher_action_RMS": 0.043252135488185406,
+      "active_error_share": 0.3899634946548364,
+      "active_output_fraction": 0.16666666666666666
+    }
+  ],
+  "scope": "teacherplannedactiveleg labels forofflineerrorstratification only; noactorphaseinput or physicalgait claim"
+}

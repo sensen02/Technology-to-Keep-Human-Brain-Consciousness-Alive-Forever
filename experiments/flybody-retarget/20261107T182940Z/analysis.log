@@ -1,0 +1,116 @@
+{
+  "episodes": {
+    "teacherderived_physics": {
+      "nonfoot_1ms_scratch_contacts": {
+        "Haustellum_geom": {
+          "first_s": 0.6960000000000452,
+          "last_s": 2.209999999996517,
+          "sample_contacts": 42,
+          "peak_native": 28.743869411281786
+        },
+        "RHFemur_geom": {
+          "first_s": 2.0999999999967733,
+          "last_s": 2.200999999996538,
+          "sample_contacts": 33,
+          "peak_native": 22.40243753045313
+        },
+        "RFTrochanter_geom": {
+          "first_s": 2.1229999999967197,
+          "last_s": 2.1269999999967104,
+          "sample_contacts": 5,
+          "peak_native": 18.755191444565256
+        },
+        "RMTibia_geom": {
+          "first_s": 2.1349999999966918,
+          "last_s": 2.421999999996023,
+          "sample_contacts": 161,
+          "peak_native": 20.180023819163495
+        },
+        "RFTibia_geom": {
+          "first_s": 2.136999999996687,
+          "last_s": 2.2419999999964424,
+          "sample_contacts": 17,
+          "peak_native": 14.257106086686285
+        },
+        "RMFemur_geom": {
+          "first_s": 2.136999999996687,
+          "last_s": 2.421999999996023,
+          "sample_contacts": 15,
+          "peak_native": 16.897693286097123
+        },
+        "A5_geom": {
+          "first_s": 2.1839999999965776,
+          "last_s": 2.185999999996573,
+          "sample_contacts": 3,
+          "peak_native": 19.591985582390752
+        },
+        "RHTibia_geom": {
+          "first_s": 2.200999999996538,
+          "last_s": 2.2029999999965333,
+          "sample_contacts": 5,
+          "peak_native": 10.2110161271916
+        },
+        "RFFemur_geom": {
+          "first_s": 2.2109999999965146,
+          "last_s": 2.2139999999965077,
+          "sample_contacts": 4,
+          "peak_native": 19.359276096231596
+        },
+        "RArista_geom": {
+          "first_s": 2.2419999999964424,
+          "last_s": 2.420999999996025,
+          "sample_contacts": 154,
+          "peak_native": 43.65916113357795
+        },
+        "LWing_geom": {
+          "first_s": 2.251999999996419,
+          "last_s": 2.421999999996023,
+          "sample_contacts": 170,
+          "peak_native": 97.90756032024024
+        },
+        "RWing_geom": {
+          "first_s": 2.251999999996419,
+          "last_s": 2.254999999996412,
+          "sample_contacts": 4,
+          "peak_native": 17.873906802933476
+        },
+        "REye_geom": {
+          "first_s": 2.2529999999964168,
+          "last_s": 2.2529999999964168,
+          "sample_contacts": 1,
+          "peak_native": 3.033390876415627
+        }
+      },
+      "joint_tracking_RMS_rad": 0.09342381258159167,
+      "worst_joint_RMS_rad": 0.24653738436460554,
+      "worst_joint": "joint_RMCoxa_pitch",
+      "max_tilt_rad": 2.064456845753641,
+      "max_command_rate_rad_s": 30.00000000001668,
+      "torque_saturated_entries": 6114680,
+      "native_steps": 193760,
+      "all_replay_errors_zero": true
+    },
+    "teacherderived_slow4_physics": {
+      "nonfoot_1ms_scratch_contacts": {
+        "Haustellum_geom": {
+          "first_s": 5.5960000000453265,
+          "last_s": 7.684000000114641,
+          "sample_contacts": 30,
+          "peak_native": 6.738206680530954
+        }
+      },
+      "joint_tracking_RMS_rad": 0.05240476292640022,
+      "worst_joint_RMS_rad": 0.203701179902861,
+      "worst_joint": "joint_RFCoxa_pitch",
+      "max_tilt_rad": 0.33402895838180935,
+      "max_command_rate_rad_s": 7.500000000015827,
+      "torque_saturated_entries": 9741053,
+      "native_steps": 727040,
+      "all_replay_errors_zero": true
+    }
+  },
+  "diagnostic_phase": "1ms scratch forward contact attribution; complete native forces in episode NATIVE.npz",
+  "mj_forward_calls": 11512,
+  "mj_step_calls": 0,
+  "source_sha256": "612b5a0590b61c9471c2376839c24d0e90374d7e3dd6e244c8485f0669af6838"
+}

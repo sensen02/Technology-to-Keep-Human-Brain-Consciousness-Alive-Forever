@@ -1,0 +1,26 @@
+{
+  "full": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/dataset/walking-dataset_female-only_snippets-16252_trk-files-0-9.hdf5",
+  "small": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/dataset/walking-dataset-small_female-only_snippets-100_min-len-0.5s_trk-files-0-9.hdf5",
+  "method": "SHA256 exact shape,dtype,bytes of root_qpos and qpos; detects identical full snippets, not partial overlapping intervals",
+  "small_exact_matches": 100,
+  "all_trajectory_attribute_names": [],
+  "all_trajectory_field_sets": [
+    [
+      "joint_quat",
+      "qpos",
+      "qvel",
+      "root2site",
+      "root_qpos",
+      "root_qvel"
+    ]
+  ],
+  "dataset_split": "NO_OFFICIAL_TRAIN_TEST_SPLIT; small and full must not be called independent",
+  "recording_and_animal_ids": "Use full metadata findings to assess; if absent, source-group generalization split NOT_ESTABLISHED",
+  "next_reference": {
+    "rule": "maximum full-dataset length, ties lowest index; chosen without policy scoring",
+    "index": 7718,
+    "frames": 1176,
+    "usable_steps": 1111,
+    "finite": true
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "status": "PASS_SELECTED_IS_EXACT_ZERO_TRAJECTORY",
+  "neural_steps": 0,
+  "physical_steps": 0,
+  "scratch_forward_calls": 0,
+  "optimizer_updates": 0,
+  "artifacts": {
+    "ACTOR.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "basis_sha256": true,
+        "joint_names": true,
+        "mn_leg": true,
+        "mn_local": true,
+        "mn_root_ids": true,
+        "theta": true,
+        "weights": true
+      },
+      "selected_sha256": "f88bdcf6b9f1d698d7579f5fd17c66b65ba4423266a31ffeee6bfb880efad210",
+      "zero_sha256": "f88bdcf6b9f1d698d7579f5fd17c66b65ba4423266a31ffeee6bfb880efad210",
+      "file_bytes_identical": true
+    },
+    "INITIAL.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "joint_bounds": true,
+        "kd": true,
+        "kp": true,
+        "limits": true,
+        "qa": true,
+        "state": true,
+        "target": true,
+        "va": true
+      },
+      "selected_sha256": "137a54403ef11af19c19da63833e69d16ef7b1a56e6d40391a3b9ff5c8fd1b92",
+      "zero_sha256": "137a54403ef11af19c19da63833e69d16ef7b1a56e6d40391a3b9ff5c8fd1b92",
+      "file_bytes_identical": true
+    },
+    "NEURAL_INITIAL.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "_descending_mask": true,
+        "_ring": true,
+        "_ring_i": true,
+        "_sensory_mask": true,
+        "allowed_sensory_local": true,
+        "ascending_local": true,
+        "cache_indices": true,
+        "descending_local": true,
+        "excluded_ambiguous_sensory_local": true,
+        "filtered_rates_hz": true,
+        "g_adapt": true,
+        "ge": true,
+        "gi": true,
+        "last_spikes": true,
+        "mn_leg": true,
+        "mn_local": true,
+        "neural_module_sha256": true,
+        "parameter_contract_json": true,
+        "refractory_until_ms": true,
+        "root_ids": true,
+        "source_sensory_local": true,
+        "spike_count": true,
+        "steps": true,
+        "strict_source_edge_rows": true,
+        "t_ms": true,
+        "v": true
+      },
+      "selected_sha256": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+      "zero_sha256": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+      "file_bytes_identical": true
+    },
+    "NEURAL_FINAL.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "_descending_mask": true,
+        "_ring": true,
+        "_ring_i": true,
+        "_sensory_mask": true,
+        "allowed_sensory_local": true,
+        "ascending_local": true,
+        "cache_indices": true,
+        "descending_local": true,
+        "excluded_ambiguous_sensory_local": true,
+        "filtered_rates_hz": true,
+        "g_adapt": true,
+        "ge": true,
+        "gi": true,
+        "last_spikes": true,
+        "mn_leg": true,
+        "mn_local": true,
+        "neural_module_sha256": true,
+        "parameter_contract_json": true,
+        "refractory_until_ms": true,
+        "root_ids": true,
+        "source_sensory_local": true,
+        "spike_count": true,
+        "steps": true,
+        "strict_source_edge_rows": true,
+        "t_ms": true,
+        "v": true
+      },
+      "selected_sha256": "5666d119a33714f6b0c8b9581fa9556b61f8a5cf5bcaa95469b49807418f76a8",
+      "zero_sha256": "5666d119a33714f6b0c8b9581fa9556b61f8a5cf5bcaa95469b49807418f76a8",
+      "file_bytes_identical": true
+    },
+    "POLICY.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "local_physical_input": true,
+        "mn_rates_hz": true,
+        "mn_voltages_mV": true,
+        "predicted_rate": true,
+        "sensory_current_nA": true,
+        "teacher_warmup": true,
+        "time_s": true
+      },
+      "selected_sha256": "a33436ea3d08d4e7061e1c2e4497060b5520dc4f0744f219e8cf1d5be3819863",
+      "zero_sha256": "a33436ea3d08d4e7061e1c2e4497060b5520dc4f0744f219e8cf1d5be3819863",
+      "file_bytes_identical": true
+    },
+    "BODY.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "com": true,
+        "ctrl": true,
+        "qacc_warmstart": true,
+        "qpos": true,
+        "qvel": true,
+        "time": true
+      },
+      "selected_sha256": "27c4e789a365d7a4fbbcfc2c2cfc840db6faf4c694f4b7a8038604fb258ee6a4",
+      "zero_sha256": "27c4e789a365d7a4fbbcfc2c2cfc840db6faf4c694f4b7a8038604fb258ee6a4",
+      "file_bytes_identical": true
+    },
+    "NATIVE.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "rows": true
+      },
+      "selected_sha256": "db139c86c3ac7bd9dc69f20366f125bf958852441b3daf37367a2f19b72db1cf",
+      "zero_sha256": "db139c86c3ac7bd9dc69f20366f125bf958852441b3daf37367a2f19b72db1cf",
+      "file_bytes_identical": true
+    },
+    "COMMANDS.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "rows": true
+      },
+      "selected_sha256": "8699ac8a4cf35c8b445ecc7ad5cddda9da37b8aba78aef00afd73e14680cbdcc",
+      "zero_sha256": "8699ac8a4cf35c8b445ecc7ad5cddda9da37b8aba78aef00afd73e14680cbdcc",
+      "file_bytes_identical": true
+    },
+    "SLIP.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "rows": true
+      },
+      "selected_sha256": "6e189d632f98856e2ed24da4d4014f20bee0e037a4dfdc47a4e3bdd4792d7cca",
+      "zero_sha256": "6e189d632f98856e2ed24da4d4014f20bee0e037a4dfdc47a4e3bdd4792d7cca",
+      "file_bytes_identical": true
+    },
+    "SCORE_INPUTS.npz": {
+      "all_fields_exact": true,
+      "fields": {
+        "end_com": true,
+        "heading": true,
+        "loads5ms": true,
+        "rates5ms": true,
+        "start_com": true
+      },
+      "selected_sha256": "f23fa47b187ac7992072305069cc92b8034793f51a8d392a15d235b32f75c2c9",
+      "zero_sha256": "f23fa47b187ac7992072305069cc92b8034793f51a8d392a15d235b32f75c2c9",
+      "file_bytes_identical": true
+    },
+    "replay_NEURAL_REPLAY_FINAL.npz": {
+      "all_fields_exact": true,
+      "selected_sha256": "5666d119a33714f6b0c8b9581fa9556b61f8a5cf5bcaa95469b49807418f76a8",
+      "zero_sha256": "5666d119a33714f6b0c8b9581fa9556b61f8a5cf5bcaa95469b49807418f76a8"
+    },
+    "replay_EVERY_STEP.npz": {
+      "all_fields_exact": true,
+      "selected_sha256": "65f1b28d54199c2d9331887fb10e0ba38a2275efe0f65d5c7b446bf424c4ac17",
+      "zero_sha256": "65f1b28d54199c2d9331887fb10e0ba38a2275efe0f65d5c7b446bf424c4ac17"
+    }
+  },
+  "meaning": "selected theta iszero;body/command/neural trajectories identical;no learnednonzero policy or walking claim"
+}

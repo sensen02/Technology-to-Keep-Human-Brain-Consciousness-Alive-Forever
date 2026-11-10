@@ -1,0 +1,139 @@
+{
+  "status": "MEASURED_DATASET_INVENTORY_COMPLETE",
+  "dataset": {
+    "snippets": 16252,
+    "frames": 2477312,
+    "duration_s": 4954.624,
+    "timestep_s": 0.002,
+    "source": "official measured walking dataset (female-only, trk-files 0-9)"
+  },
+  "subsample": {
+    "snippets": 508,
+    "window_frames": 30,
+    "step": 32,
+    "ik_solves": 91440,
+    "covered_frames": 15240,
+    "covered_fraction_of_all_frames": 0.006151829079260101
+  },
+  "error": {
+    "max": 0.4361066459030028,
+    "p50": 0.05007138085759808,
+    "p95": 0.15800779997264305,
+    "rms": 0.07623894080095783,
+    "snippet_p50_median": 0.04971542770417253
+  },
+  "bands": {
+    "error_le_0.02": {
+      "frame_fraction": 0.0,
+      "estimated_frames": 0,
+      "estimated_duration_s": 0.0
+    },
+    "error_le_0.05": {
+      "frame_fraction": 0.011351706036745407,
+      "estimated_frames": 28122,
+      "estimated_duration_s": 56.24343517060367
+    },
+    "error_le_0.1": {
+      "frame_fraction": 0.318241469816273,
+      "estimated_frames": 788383,
+      "estimated_duration_s": 1576.7668241469817
+    },
+    "error_le_0.15": {
+      "frame_fraction": 0.7093832020997375,
+      "estimated_frames": 1757364,
+      "estimated_duration_s": 3514.7270383202094
+    },
+    "error_all": {
+      "frame_fraction": 1.0,
+      "estimated_frames": 2477312,
+      "estimated_duration_s": 4954.624
+    }
+  },
+  "per_leg": {
+    "LF": {
+      "p50": 0.020121868477989004,
+      "p95": 0.16647370872137493,
+      "max": 0.4361066459030028,
+      "rms": 0.07151679121519962
+    },
+    "LH": {
+      "p50": 0.057022699449114825,
+      "p95": 0.11707576832462242,
+      "max": 0.31272525660531464,
+      "rms": 0.06646074777513857
+    },
+    "LM": {
+      "p50": 0.04462687037254213,
+      "p95": 0.1012105760946164,
+      "max": 0.24983128379540287,
+      "rms": 0.055961751976853255
+    },
+    "RF": {
+      "p50": 0.023705971602953544,
+      "p95": 0.1492451888044574,
+      "max": 0.37231835941632296,
+      "rms": 0.06649324917359217
+    },
+    "RH": {
+      "p50": 0.1060341000826455,
+      "p95": 0.18848110569655466,
+      "max": 0.3803920249174304,
+      "rms": 0.11672904249099395
+    },
+    "RM": {
+      "p50": 0.04972629905195379,
+      "p95": 0.12114393609425182,
+      "max": 0.2841302971749915,
+      "rms": 0.0645277840570878
+    }
+  },
+  "in_limit": {
+    "fraction": 1.0,
+    "note": "trivially 1.0: the solver bounds are the compiled joint ranges, so in-limit is enforced by construction and carries no independent information"
+  },
+  "solver_terminations": {
+    "hit_max_nfev_subsequent": 1063,
+    "total": 91440,
+    "fraction": 0.011625109361329834
+  },
+  "frozen_geometry_gate": {
+    "threshold_max": 0.1,
+    "threshold_rms": 0.05,
+    "passed": false,
+    "note": "the earlier single-trajectory gate also failed; this subsample fails it too, so these targets are initialisation material only"
+  },
+  "interpretation": {
+    "what_it_means": "roughly the central frames retarget within about 5 percent of leg length, but the worst frames reach 44 percent, so a supervised dataset built from this would contain visibly wrong leg configurations unless frames are filtered by error",
+    "what_it_does_not_mean": "it does not show the measured motion is wrong, and it does not establish that any retargeted target produces planted-foot walking; that needs physics on the current body"
+  },
+  "usable_duration_estimates": {
+    "error_le_0.02": {
+      "frame_fraction": 0.0,
+      "estimated_frames": 0,
+      "estimated_duration_s": 0.0
+    },
+    "error_le_0.05": {
+      "frame_fraction": 0.011351706036745407,
+      "estimated_frames": 28122,
+      "estimated_duration_s": 56.24343517060367
+    },
+    "error_le_0.1": {
+      "frame_fraction": 0.318241469816273,
+      "estimated_frames": 788383,
+      "estimated_duration_s": 1576.7668241469817
+    },
+    "error_le_0.15": {
+      "frame_fraction": 0.7093832020997375,
+      "estimated_frames": 1757364,
+      "estimated_duration_s": 3514.7270383202094
+    },
+    "error_all": {
+      "frame_fraction": 1.0,
+      "estimated_frames": 2477312,
+      "estimated_duration_s": 4954.624
+    }
+  },
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "limits": "band durations are estimates scaled from a 508-snippet, 30-frame-per-snippet sample; they are not a frame-by-frame measurement of all 2,477,312 frames"
+}

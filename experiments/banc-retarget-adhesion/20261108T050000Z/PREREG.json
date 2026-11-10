@@ -1,0 +1,25 @@
+{
+  "schema": "ankle-anchored-retarget-B/1",
+  "scope": "S5 reference preparation only: no physics stepping, no training, no change to the frozen body or to any acceptance threshold",
+  "problem": "The frozen 9-landmark retarget asks our 7-DOF leg to hit five distal tarsus landmarks that this body does not have. Measured error is p50 .053, p95 .154, max .385, and the material point sits on a mesh vertex that cannot reproduce tarsal geometry, so the targets are partly unreachable by construction.",
+  "change": {
+    "targets_kept": "coxa anchor, femur centre, tibia centre (three positions that this body can actually realise)",
+    "targets_dropped": "tarsus1, tarsus2, tarsus3, tarsus4, claw_origin, material_foot as separate position targets",
+    "target_added": "one direction target: the measured distal chain direction, u_fold = normalise(official material_foot - official tarsus1), compared against our own ankle-to-material-point direction",
+    "rationale": "the distal chain cannot be represented by joints this body lacks, so only its direction is meaningful; folding it into a direction term replaces six unreachable position goals with one reachable direction goal",
+    "weights": {"position": 1.0, "direction": 0.2, "continuity": 0.02, "key0": 0.002},
+    "weight_note": "direction weight raised from 0.05 to 0.2 because it now carries the whole distal chain instead of one of four direction terms",
+    "solver": "identical to the frozen round: per-leg least_squares TRF with analytic Jacobian, bounds = compiled ranges intersected with previous +-0.06 rad, max_nfev 80 first / 16 later",
+    "adhesion": "NOT folded into joint angles: the official 6 adhesion actuators are attachment forces, not kinematics, and this body has no such actuator. Adding a force channel would be a body modification and is explicitly out of scope here; it is listed as the separate next candidate (B2)."
+  },
+  "acceptance_of_this_step": {
+    "primary": "achieved OLD-metric error (the frozen 9-landmark normalised error, computed on the same solutions) must be lower than the frozen solver's .0532 median / .385 max",
+    "secondary": "direction error distribution must be reported; in-limit fraction and solver terminations must be reported",
+    "no_threshold_relaxation": "the comparison uses the frozen metric unchanged; the new objective only changes what is optimised, never what is measured"
+  },
+  "data": {
+    "snippets": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/SELECTION_LONG.json (232 snippets, length >= 500 frames, declared earlier)",
+    "official_landmarks": "regenerated with the frozen landmark definitions in the isolated teacher environment"
+  },
+  "accounting": {"physics_steps": 0, "neural_steps": 0, "note": "IK and FK only"}
+}

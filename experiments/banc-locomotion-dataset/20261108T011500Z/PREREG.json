@@ -1,0 +1,33 @@
+{
+  "schema": "locomotion-dataset-inventory/1",
+  "scope": "Offline inventory of the official measured walking dataset retargeted to the current 42-joint body. No physics stepping, no training, no change to any frozen body or acceptance rule.",
+  "why": "The user asked why no training set was built from open data. The official measured dataset (16,252 snippets, 2,477,312 frames at 500 Hz) is local and was previously used only to validate the teacher. This round measures how much of it can be turned into 42-joint targets and with what error, so a later supervised base network can be trained on measured motion instead of a synthetic periodic curve.",
+  "dataset": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/dataset/walking-dataset_female-only_snippets-16252_trk-files-0-9.hdf5",
+    "sha256": "459d26ae6b59f599ea4838eaa3047551f01e9a6d19ec727312d48a82179357f9",
+    "snippets": 16252,
+    "frames": 2477312,
+    "timestep_s": 0.002,
+    "content_per_frame": "root pose (7) + 102 official joint angles; NO contact forces, NO foot positions, NO slip labels",
+    "partition_note": "official train/test partition UNSPECIFIED in the file; original-individual separation NOT_ESTABLISHED from the filename. Any split made later must be declared, not imagined."
+  },
+  "retarget_method": "the frozen landmark/IK retargeting of the earlier round: per leg, 7 current joints solved by bounded least_squares (TRF) against 9 landmark targets with the preregistered weights, with a per-frame step limit of 0.06 rad, exactly as /run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/kinematics/retarget.py",
+  "coverage_plan": {
+    "exact_and_complete": "per-snippet length, duration and total dataset duration for all 16,252 snippets (reading lengths only, no IK)",
+    "subsample_for_error": "the first 30 consecutive frames of every 32nd snippet (indices 0,32,64,...), giving contiguous 60 ms windows so the per-frame step limit is respected",
+    "reason_for_subsample": "full-dataset IK would need roughly 15 million per-leg solves; the subsample is declared in advance and every estimate computed from it is reported as an estimate, never as a measurement of all frames",
+    "subsample_step": 32,
+    "window": 30
+  },
+  "criteria_fixed_in_advance": {
+    "in_limit_fraction": "fraction of retargeted joint values inside the frozen current-body joint ranges",
+    "normalized_landmark_error": "the frozen metric: |achieved - target| / leg length, per landmark, as used in the earlier round",
+    "gate_from_earlier_round": "max error <= 0.1 and rms <= 0.05 (this gate FAILED for the single longest measured trajectory with max 0.2577 / rms 0.0456)",
+    "training_usability_is_separate": "this inventory does NOT declare data usable for accepted behaviour. It reports error and in-limit statistics only. Any later use must be as supervised initialisation, with acceptance still measured by physics on the current body."
+  },
+  "expected_limitations": [
+    "no contact or slip information in the source data, so data quality cannot establish planted-foot locomotion",
+    "21 official controls are unmapped (6 adhesion, 3 head, 2 abdominal tendons, 6 tarsus hinges, 6 distal-tarsal tendons), documented in the mapping round",
+    "the retarget is an engineering fit, not an anatomical correspondence"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "purpose": "Diagnose whether bounded retargeted motion can drive retained full body in original physics; this is reference-forced engineering playback, not neural success",
+  "primary_source": "teacher_actual_physical_longest_07718 retargeting; measured-data alternative remains separately labelled",
+  "initialization": "At time0 only: original keyframe root orientation, retarget first42joint pose, zero velocities. Translate root vertically once to put lowest current tarsal mesh vertex .005native above original plane. No reference root position/velocity is copied. Log initial state and vertical shift.",
+  "startup": "Hold first joint target .2s under finitePD128 with free root and gravity; then play original2.222s reference timing with linear2ms->1ms interpolation. No additional support or root reset.",
+  "control": "Original42 joint rates capped30rad/s integrated1ms; original native symmetric torque bounds; kp=limit/.2*128 kd=limit*.005*sqrt128; mj_step then mj_forward at original12.5us to preserve retained baseline kernel",
+  "model": "Original49/48/42/71mesh/neq0/free root/gravity[0,0,-9801]/noslip0/contact/friction unchanged; no addedadhesion",
+  "record": "All original-step force/support rows,1msstates/actuator targets/rates,point Jacobian contact speeds every.5ms,initialstate/sourceidentity,fullmodelbinary and diagnostics",
+  "evaluation": "Record failure as well as success: nonfoot contact,foot support,COMheight/drop,tilt,actual root displacement,tracking/saturation/materialslip. ExistingD gates interpreted as support screen only, no straightness gate on turning reference. No root trajectory copying; no claims currentmotion is connectome-driven.",
+  "verification": "Independent fresh current model replays recorded1msrates with separately reconstructed finitePD/nativekernel; compare state/forces/target integration. Same-run saved-state video.",
+  "parameter_search": "No physics or gain tuning in this stage. Geometry failures retained; finite in-bound targets may be executed as explicitly failed-candidate diagnostic.",
+  "not_in_scope": ["brain-training bypass", "policy teacher access at final deployment", "surgical experiments", "newly declared SI calibration"]
+}

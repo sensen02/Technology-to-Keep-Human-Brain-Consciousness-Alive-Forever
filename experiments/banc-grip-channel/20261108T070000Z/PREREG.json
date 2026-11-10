@@ -1,0 +1,25 @@
+{
+  "schema": "declarative-grip-channel-B3/1",
+  "scope": "Engineering grip proxy applied as an explicit, logged external force channel. The frozen body XML is NOT modified. Any result obtained with this channel is labelled as a derived-channel result and is never reported as frozen-body acceptance.",
+  "why": "Direction B showed that tarsal geometry cannot be folded into this body's joints, and that adhesion is a force channel rather than a joint angle. B3 tests whether grip is the binding constraint for planted-foot locomotion, using the smallest possible declared addition.",
+  "channel": {
+    "name": "grip",
+    "applied_to": "the tarsus body of each leg, as data.xfrc_applied force + moment at the contact point",
+    "active_when": "that leg has at least one tarsus-floor contact with normal load > 0.1 W",
+    "force_law": "F = -k_grip * v_tangential_at_contact, magnitude capped at F_max_per_leg; k_grip = 5000 native force units per native velocity unit, F_max_per_leg = 0.5 W",
+    "update_rate": "every 0.5 ms (every 40 native steps), the same cadence as the slip measurement",
+    "logging": "per update: active feet, per-leg applied force magnitude, cumulative impulse, plus the cap-hit count",
+    "declared_bound_rationale": "0.5 W per leg puts the whole six-leg grip budget at 3 W, on the order of reported fly adhesion versus body weight; absolute SI is NOT_ESTABLISHED here so this is a declared engineering bound, not a calibrated adhesion value"
+  },
+  "unchanged": [
+    "the frozen body XML and all of its hashes",
+    "gravity, timestep, solver, contact parameters, joint ranges, actuator gains and torque limits",
+    "the base network, the residual policy, the reward definition and the acceptance thresholds (support 0.9, non-foot 0.2 W, COM 1.2, slip 0.5, forward 0.05)"
+  ],
+  "acceptance_for_this_probe": {
+    "question": "with the same controllers and the same targets, does the declared grip channel bring per-leg material slip under 0.5 while support stays above 0.9 and COM above 1.2?",
+    "decision_rule": "report the numbers for grip OFF and grip ON side by side; do not tune k_grip or the cap after seeing the result",
+    "labelling": "grip ON results are 'derived-channel', grip OFF results are 'frozen-body'; the two are never mixed in one claim"
+  },
+  "accounting": {"note": "external force channel is itemised: peak force, cumulative impulse, cap hits; no force is applied when nothing is in contact"}
+}

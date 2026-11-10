@@ -1,0 +1,12 @@
+{
+ "version":"target-neural-latent-imitation-loss-v1",
+ "goal":"S2/S5 distinguish bounded-actionloss conditioning fromarchitecture limitation inunderfit targetpositionneuralactor",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z",
+ "basis":"samev2FFscratch1000boundedMSE.001007,standswhole9.6sbutbackward/highslip/nocoordination;initialinhibitorytargetlatent can saturatetanh andslowresiduallearning",
+ "sole_change":"trainlatentmean against atanh(clip(expertY,-.999,.999)),MSEwithoriginalfullFFactor/gains trainable; tanhdeploymentunchanged. TeacherboundedactionMSE againstORIGINALYalsoreported. Clippinglabeldistortion/endpointfraction explicit. Nophase/noauxhead/inputnorm/bodychange",
+ "density_contract":"latentMSE isGaussianNLL upto constant/fixedvariance scale; actionJacobian termconstantinmodelparameters forobservedlabels. Thischangesweighting nearboundaries,notclaimpureequivalence toboundedactionMSE",
+ "unchanged":"raw238actorv2targetpositioninhibitorybranch/physicalMLPmask/criticraw255,allphysicalfullbody/noadh/PD/rate2rad/s/torque/native12.5us1ms,sameSMOOTHtrain0/1val2,scratchFF1000stepslr.001std.05sameoriginalBCseed",
+ "checks":"atanhfiniteincludingexact±1/epsilonboundaries,GaussianNLLgradient/scaling,saturatedgradientmeaningful,actualgain/actorgradientFD,critic/stdunchanged,trainvalisolation,atomiccheckpoint/Adam/RNG/newmodelloadercompatibility; noactualgaitinchecks",
+ "evaluation":"same1sstand4.8sactualteacherthen9.6spureNN,continuousnoreset, noexpertqueriesafterboundary; fullphysicalgatesandcycles independentMSE",
+ "scope":"supervisedloss-onlyneuralcomparison, notphysicalgoalPASS"
+}

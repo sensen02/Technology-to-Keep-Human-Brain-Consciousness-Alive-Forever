@@ -1,0 +1,56 @@
+{
+  "schema": "banc-repair-pipeline/1",
+  "created_runtime_utc": "20261109T055352Z",
+  "motivation": "The audit at experiments/banc-control-audit/20261109T053534Z found that (a) the actuator's own 2 rad/s rate limit masked most policy output in the legacy interface, (b) training, evaluation and the renderer each ran a different base-network/observation schedule, (c) the 294 history features were the frozen base network's own predictions rather than the agent's commands, (d) the six foot loads reached the sensory encoder in a different leg order than the encoder declares, (e) PPO used no bootstrap at time-limit truncation and a cumulative rather than windowed slip cost, and (f) the pad-clearance lookup still used a single-pad exact name on a three-sphere body.",
+  "what_changes": [
+    "one control path: repair_core.Core is used by the probe, the trainer and (later) the renderer; nothing else implements a schedule",
+    "the policy owns the full actuator authority: rate = action * 2.0 rad/s, the actuator's own limit, so no saturated tracking term can mask it; the frozen base network is demoted to warm-start data only and never acts at evaluation",
+    "the 294 history features are the last 7 own commanded targets over a 40-tick ring buffer",
+    "foot loads are handed to the sensory encoder in its declared order LF LM LH RF RM RH",
+    "pad geometry is found by prefix over all three triad spheres per leg",
+    "PPO: bootstrap at time-limit truncation, discount and GAE declared as a time horizon, per-step slip cost with a fixed window, signed forward velocity"
+  ],
+  "what_does_not_change": [
+    "the four frozen walking gates (support min >= 0.90, non-foot <= 4.889 W, COM >= 1.20, per-leg slip ratio <= 0.50) are not touched and are not the target of this round",
+    "the derived triad body, doubled actuator range, mu = 1.5 and the releasable adhesion law stay as declared derived models with their existing hashes",
+    "no connectome topology, neuron identity or synapse is modified in this round",
+    "no injury experiment"
+  ],
+  "round_1_target": "single-leg unload-lift-place on the repaired pipeline, measured on all six legs. This is the capability the audit identified as missing; it is a prerequisite for stepping and is not walking.",
+  "task_definition": {
+    "episode_ticks": 300,
+    "episode_ms": 300,
+    "prompt": "one-hot over 6 legs, supplied as a declared task instruction input (6 dims), re-drawn per episode; no clock, no phase, no external gait generator",
+    "start_state": "cold start from the solved triad stand pose (COM 1.3008 static), identical for every episode",
+    "success_criteria_all_required": {
+      "unload": "min load on the prompted leg <= 0.10 * body weight",
+      "lift": "max pad bottom height on the prompted leg >= 0.015 native",
+      "advance": "max forward (thorax +x) displacement of the prompted foot during the swing >= 0.03 native",
+      "place": "at episode end the prompted leg carries >= 0.10 * body weight with pad bottom height <= 0.004",
+      "safe": "support min >= 0.90, non-foot peak <= 4.889 W, COM min >= 1.00 (stage threshold, declared weaker than the 1.20 walking gate)"
+    },
+    "reported_not_gated": "other-leg stance slip, signed forward velocity, per-leg lift and advance figures"
+  },
+  "reward_declared_weights": {
+    "unload": 0.8, "lift": 1.2, "advance_rate": 1.0, "place_event": 2.0,
+    "nonfoot": 20.0, "support_shortfall": 30.0, "com_shortfall": 60.0,
+    "other_leg_stance_excess": 2.0, "action_magnitude": 0.02,
+    "omega": 0.05, "gravity_tilt": 0.01
+  },
+  "optimizer": {
+    "algorithm": "PPO, numpy, hand-written gradients plus Adam",
+    "updates": 48, "rollout_ticks": 1024, "epochs": 4, "minibatch": 64, "lr": 0.0003,
+    "clip": 0.2, "value_coef": 0.5, "grad_norm": 0.5, "target_kl": 0.03,
+    "logstd_bounds": [-5.0, -1.5], "initial_logstd": -3.0,
+    "discount_halflife_s": 1.0, "gae_lambda": 0.99,
+    "warm_start": "supervised regression of the actor mean onto the frozen base network's rate command (clip(base_rate/2, -1, 1)) over teacher rollouts; the base network is our own frozen artifact, used as initialisation only"
+  },
+  "preregistered_outcomes": {
+    "if_all_six_legs_pass": "the repaired interface can produce a single supervised-instructed step; next round may train autonomous leg selection and continuous slow walking, still without any clock or external gait generator",
+    "if_unload_and_lift_pass_but_advance_or_place_fail": "the body can release and raise a foot but cannot transport or replant it; next diagnosis is the swing trajectory and the actuator's usable workspace, not the reward scale",
+    "if_lift_never_appears": "check whether the requested joint-rate authority still exceeds what the leg needs, then whether the adhesion releases; do not raise the actuator limit before that check",
+    "if_safety_fails_only": "the single-leg action is achievable but destabilising; next step is a balance/support constraint, not more reward hacking",
+    "no_result_may_be_reported_as_walking": true
+  },
+  "labelling": "derived body, derived actuator range, derived adhesion, replacement ANN with a task instruction input. Never frozen-body acceptance and never a connectome capability."
+}

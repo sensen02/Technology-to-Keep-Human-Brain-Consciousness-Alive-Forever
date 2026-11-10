@@ -1,0 +1,9 @@
+{
+  "schema": "adh-namebug/1",
+  "discovered_by": "rendering the walk video. The renderer released the adhesion when any of a leg's three pads moved upward, while the trainer looks the pad up by the exact name <LEG>Tarsus5_pad. The triad body names its pads <LEG>Tarsus5_pad0..2, so in every trainer run on the triad body that lookup returned None and the adhesion never released on lift",
+  "consequence": "the triad numbers reported so far (support 2.500, slip .906 in the triad run, .965 in the pose runs) were produced with the adhesion permanently clamped on any loaded leg, i.e. the earlier clamp regime, not the releasable law that was declared. The renderer, which used the correct prefix match, measured per-leg slip of 1.36 / 1.90 / 1.32 / 1.75 / 3.57 / 8.76 under the releasable law, which is a completely different picture",
+  "fix": "pad lookup by prefix, so all three spheres of a leg count and a leg releases as soon as any of its pads moves upward",
+  "rerun": "the same triad configuration as the pose run (triad body with doubled torque, pose solved for triad contact at COM 1.45, 1 ms tick, C = 0.02, three Lagrangian constraints, 48 updates) with the corrected adhesion",
+  "no_claim_about_earlier_numbers": "the earlier triad and pose numbers stay in the record as measured, but they are labelled as having been produced under clamped adhesion and are not comparable to releasable runs",
+  "labelling": "derived body, derived actuator, derived adhesion, replacement ANN; not frozen-body acceptance"
+}

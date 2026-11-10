@@ -1,0 +1,29 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-8",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the warm-start teacher: it gains a forward-swing phase (supersedes amendments 5, 6 and 7 on the teacher, not on acceptance); acceptance criteria unchanged",
+  "when": "after the Jacobian-teacher run, before the next training run",
+  "evidence": {
+    "jac_teacher_run": "the two phase teacher passes the task on all six legs by itself, yet the trained network passed LF, RF and RM and failed the other three; LH and RH failed on exactly one criterion with advance = 0.0000, not on lift, placement or safety",
+    "why": "the raise direction is the vertical Jacobian alone, so a rear leg's foot goes straight up and its forward displacement over the whole episode is exactly zero. A step is raise, carry forward, put down; the teacher only had the first and the third phase",
+    "teacher_self_check": "DEMO_STEP_TEACHER.json: adding a swing phase taken from the horizontal Jacobian, with half of the raise kept in to hold height, gives a demonstration that passes all five criteria on ALL SIX legs. The best configuration is lift 60 ticks, swing 90 ticks, hold 0.5, then lower: rise 0.038-0.892, advance 0.587-0.980, final load 0.253-0.654"
+  },
+  "teacher_changes": {
+    "phase_1": "raise: vertical Jacobian ascent at the current pose, 60 ticks",
+    "phase_2": "new: swing forward along the horizontal Jacobian at the current pose, plus half the raise command, 90 ticks",
+    "phase_3": "lower: vertical Jacobian descent until the end of the window",
+    "schedule": "the teacher keeps a fixed schedule. The network that imitates it receives no clock, no phase input and no teacher at evaluation time."
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical",
+    "observation": "495 dimensions",
+    "reward": "achievement-flag potential with aligned swing gates",
+    "optimizer_and_window": "unchanged, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "the teacher now passes on six of six, so every remaining failure is an imitation or optimisation result, not a feasibility statement",
+    "a network that reproduces four or more legs without any clock input is the strongest single-leg result so far and must still be labelled replacement ANN in a derived world",
+    "a network that keeps failing specific legs must be reported per leg with the criteria it does meet"
+  ],
+  "discipline": "every earlier preregistration and amendment is left byte-identical. The teacher is a declared rule-based demonstration; nothing here is a learned result until the network run reports it."
+}

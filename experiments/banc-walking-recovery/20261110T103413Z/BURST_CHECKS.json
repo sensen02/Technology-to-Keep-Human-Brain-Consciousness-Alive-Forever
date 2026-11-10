@@ -1,0 +1,83 @@
+{
+  "all_passed": true,
+  "checks": {
+    "ff238_trajectory": {
+      "mocked_physical_ms": 40,
+      "teacher_queries": 8,
+      "pure_student_bursts": true,
+      "teacher_only_recovery": true,
+      "exact_stage_schedule": true,
+      "noise_only_burst": true,
+      "actual_state_labels_and_teacher_history": true,
+      "previous_actual_action_continuous": true,
+      "full_hidden_replay": true,
+      "prefix_BPTT": false,
+      "measured_boundary_comparison": true,
+      "stage_trace_selection": true,
+      "prefix_and_burst_recovery_safety": true,
+      "partial_last_segment": true,
+      "action_time_phase_stage_tamper_rejected": true
+    },
+    "gru238_trajectory": {
+      "mocked_physical_ms": 40,
+      "teacher_queries": 8,
+      "pure_student_bursts": true,
+      "teacher_only_recovery": true,
+      "exact_stage_schedule": true,
+      "noise_only_burst": true,
+      "actual_state_labels_and_teacher_history": true,
+      "previous_actual_action_continuous": true,
+      "full_hidden_replay": true,
+      "prefix_BPTT": true,
+      "measured_boundary_comparison": true,
+      "stage_trace_selection": true,
+      "prefix_and_burst_recovery_safety": true,
+      "partial_last_segment": true,
+      "action_time_phase_stage_tamper_rejected": true
+    },
+    "ff238_training": {
+      "synthetic_steps": 2,
+      "per_sample_equal_weight": true,
+      "whole_episode_holdouts": true,
+      "failed_prefix_excluded_from_training_only": true,
+      "fresh_BC_Adam": true,
+      "fresh_PPO_optimizers_counters": true,
+      "fresh_declared_rng": true,
+      "model_only_warm_start": true,
+      "checkpoint_reload_exact": true,
+      "source_command_metadata_checkpoint_weight_rng_tamper_rejected": true,
+      "original_student_loader_checks_full_identity": true,
+      "base_and_burst_full_identity_closure": true
+    },
+    "gru238_training": {
+      "synthetic_steps": 2,
+      "per_sample_equal_weight": true,
+      "whole_episode_holdouts": true,
+      "failed_prefix_excluded_from_training_only": true,
+      "fresh_BC_Adam": true,
+      "fresh_PPO_optimizers_counters": true,
+      "fresh_declared_rng": true,
+      "model_only_warm_start": true,
+      "checkpoint_reload_exact": true,
+      "source_command_metadata_checkpoint_weight_rng_tamper_rejected": true,
+      "original_student_loader_checks_full_identity": true,
+      "base_and_burst_full_identity_closure": true
+    }
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/student_wave.py": "932f3176aef2d02bddeb4ce3c0cc47d441065ba4d670b7e8def386825ae14a32",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/recovery_bc.py": "6956a22dd5e54e5147502098f4ff8717d3d90d6dc3aafa43b5124b4e638c32fc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/burst_recovery.py": "689ef5c29fe50bc57b2db8efb97f13cd627e52e49a842a428320922eb406504a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/check_burst.py": "0fafc1b2440dfcf5fe2f90077b86fff1995a548f18a226bca0980ba5202c0a49"
+  },
+  "scope": "mocked 20ms prefix + 20ms postprefix; synthetic two-update FF/GRU only; no real physics step or collection",
+  "limitation": "engineering contracts only; actual teacher correction and neural autonomous walking NOT_ESTABLISHED"
+}

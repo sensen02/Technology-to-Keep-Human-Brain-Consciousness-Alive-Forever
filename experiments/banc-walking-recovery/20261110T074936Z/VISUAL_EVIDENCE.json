@@ -1,0 +1,30 @@
+{
+  "teacher_video": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/TEACHER_VIDEO/ALGORITHM_TEACHER_NOT_NEURAL.mp4",
+  "teacher_sha256": "9b0e4f4f9c1d32b3f3b241fa855f82a7b741955e2eb09aa084e51298389bbd46",
+  "decoded_video_frame_indices": [
+    20,
+    60,
+    100,
+    140,
+    180,
+    220
+  ],
+  "teacher_sheet": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/TEACHER_VIDEO/decoded_six_phase_sheet.png",
+  "neural_failure_images": [
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/EVAL_FF238_HANDOVER/failure_actual_state.png",
+      "trace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/EVAL_FF238_HANDOVER/trace_1ms.npz",
+      "trace_sha256": "5c7fb948c5c788872ea97a40865530047462259b196d41edbfc0594d9586372b",
+      "index": 6999,
+      "time_s": 7.0000000000919345
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/EVAL_GRU238_HANDOVER/failure_actual_state.png",
+      "trace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/EVAL_GRU238_HANDOVER/trace_1ms.npz",
+      "trace_sha256": "28a55230a40dfec28b4c2ae5eeb6bf2d386517fa06b808f5427d0bb6bc14f719",
+      "index": 6999,
+      "time_s": 7.0000000000919345
+    }
+  ],
+  "note": "physical saved states only; video frames decoded, no new body motion"
+}

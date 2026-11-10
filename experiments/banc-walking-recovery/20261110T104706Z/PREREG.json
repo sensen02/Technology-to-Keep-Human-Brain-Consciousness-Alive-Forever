@@ -1,0 +1,15 @@
+{
+ "version":"coherent-target-memory-paired-supervision-v1",
+ "goal":"S2/S5 learncorrective actuator-memoryfeedback ratherthanjuston-trajectoryactions",
+ "basis":"rawFF learnedtargetfeedback positive11-13jointdiagonals atsafeexpertstates; frozen-body augmentedtarget/previousactionmemoryspectralrho1.02-1.09. Thisis subsystemdiagnosticnotfullphysicalstabilityproof. ExpertinteriorKT=-10I fromexisting rate2rad/s/targettau.05.",
+ "audit":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/TARGET_FEEDBACK_AUDIT.json",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/BC_FF_HALF_RECOVERY/final.pt",
+ "data":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET",
+ "sole_change":"offlinepairedlabelsupervision: delta targetrad ±.002rademacher causes BOTH42:84targeterror and126:168targetposition rawchannels ±delta/H, H=max(nativejointhalfspan,.1); fixedbody/contact/qdes/history, expertinteriornormalizedactions change−10delta. Onlysafeinteriorrows withrate/angleboundsmargin; originalBCalltrainrows retained",
+ "loss":"originalboundedactionMSE +.1*((NNplus-NNminus)-(-20delta))^2mean, unscaledactiondifference; flags epsilon.002,pairweight.1, fixedseed20261331. No previousactionperturbinitialvariant/no architectureorinputmask/normchange",
+ "checks":"independentcompleteStaticTeacher FD atfrozenofflinefixtures withsamefreshprivatehistory forplus/minus,epssweep,saturationexclusions,targetcoherency,pairedgradient/lossdecreases,holdoutstats/dataisolation,checkpointfullidentity/reload/RNG/optimizers",
+ "physical_fixture_scope":"Any qpos/qvel/targetfixturewrites occurONLYoffline derivativechecks withoutphysicssteps,neveranactualwalkingrollout. Allactualevalstatesstilldynamicfreebody",
+ "training_if_ready":"FFraw238samearchitecture/alltrainableweights MODELONLYwarmstart,freshBCAdam/PPO/RNG,1000stepslr.0003train0/1only,heldout2pairsnotfit. Samebaseobservations,noactorphase/order/clock/future. Pairconfig/H/provenance saved",
+ "deployment":"ONLYNN42rateoutputs throughoriginalfinitePD; no fixed(Tdesired-T)controller outsideANN, no onlineexpertorlabels. Samecontinuousactualteacherprefixthen9.6sstudent allphysicalgatesoriginal",
+ "scope":"controlledsupervisionexperiment, notfullphysicalsuccessorbodyimpossibilityproof"
+}

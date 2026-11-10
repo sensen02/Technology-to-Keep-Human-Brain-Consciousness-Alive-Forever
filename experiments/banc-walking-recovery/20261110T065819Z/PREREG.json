@@ -1,0 +1,13 @@
+{
+ "version":"private-fixed-body-kinematic-frame-v1",
+ "goal":"S2/S5 isolate positive target-chasing caused by copying moving actual root into private world-Z target geometry",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T065137Z",
+ "evidence":"first-phase XYanchoring delayscollapse butdoesnotprevent; frozenXYactualvelocitycounter liftsLF.132 yetCOMcollapses; motorsnot torque-saturated. Rootdown plus worldfixedfootanchor demandslegshortening, potentially reinforcesdownwardmotion.",
+ "change":"Only PRIVATE FKframe root may stayatsettledinitialpose so actuatortarget geometry is expressed in consistent bodyframe; actual physicalroot ALWAYSfree andnever overwritten. Controller remains42targetrate outputs.",
+ "conditions":[{"name":"current_frame","shadow_root_mode":"current","height_gain":0,"orientation_gain":0,"feedback_space":"velocity"},{"name":"fixed_frame","shadow_root_mode":"initial","height_gain":0,"orientation_gain":0,"feedback_space":"position"},{"name":"fixed_frame_support","shadow_root_mode":"initial","height_gain":1,"orientation_gain":1,"feedback_space":"position"}],
+ "common":"samephysicalnoadhderivedbody,1szerosettle,firstphaseXYanchor,xygain.25,zfactor.5,scale10,source.24s,warp10,blend.5s,tau.1,ridge.01,rate2rad/s,5mshold1msintegration",
+ "support_feedback":"positionspaceCOMheight/orientation correction in stance targetleggeometry; only actualmotorcommands actonbody; noexternalforces",
+ "checks":"controllercallphysicalstate/target/ctrl unchanged; consistent privateframe holdzero; current-framecase replicatespriorfailureprefix; allbounded finite",
+ "budget":"threeconditions up to2.9s each plussettling; earlyCOM<1 ornonfoot>.2W; failureretained",
+ "scope":"privileged algorithmteacher only, not ANN or frozenbodywalkingacceptance"
+}

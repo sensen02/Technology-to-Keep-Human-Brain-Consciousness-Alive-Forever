@@ -1,0 +1,13 @@
+{
+ "version":"exact-same-task-BC-continuation-5000-v1",
+ "goal":"S2/S5 distinguish residualimitationunderfitfromarchitecturefailure instandingbutnotwalking neuralcandidate",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+ "basis":"FFtargetpositionNNfirst1000 boundedMSEstill.001007 andfallingcurve (975.001038->1000.001007),actualwhole9.6sretainsfootload/nf0butfailedforward/coordination. Baselinephysicsfeedback nowbetter; onepredeclaredlongerfit is informativebeforeclaimcapacityfailure",
+ "sole_change":"continue SAMEtask/model/loss/data/BCAdam/RNG fromglobalstep1000 tofixedTOTAL5000,notMODELONLYwarmstart/resetoptimizer. Restoremoments/counters/lr.001/RNG exactly; no data/architecture/physical thresholdchanges",
+ "checks":"syntheticuninterruptedvsfullcheckpointresumeonenextupdate actor/Adam/RNG bitexact,critic/stdunmodified,PPOstatesemptyindependent; realparentAdamcounter/curve1000matchesbeforeanyupdate,inputhash closure/rejecttamper",
+ "data":"sameSMOOTH_DATASETtrain0/1,val2, no holdouttraining; frozenraw238inputs/noactorphase/clock/teacherinternalstate",
+ "budget":"4000additionalFF fullbatchupdates fixed, saveglobal2000/3000/4000/5000/checkpointmetadata notoverwriteparent, finalnewprocessreload; notopenendedrewardsearch",
+ "selection":"evaluatefinal5000checkpoint first independent same1sstand4.8steacher9.6sANN; allengineering/originalfuturegates unchanged,recordfailures; no bestscoreunsafe override",
+ "physical":"samefullbody/noadh/originalfinitePD2rad/s/torque/frictiongravity/native time; noforces/rootwrites",
+ "scope":"optimizationbudget diagnostic controlledagainst1000model, notbiologicalorwholeautonomousgoalPASS"
+}

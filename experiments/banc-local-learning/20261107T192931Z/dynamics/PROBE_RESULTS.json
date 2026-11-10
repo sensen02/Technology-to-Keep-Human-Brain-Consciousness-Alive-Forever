@@ -1,0 +1,288 @@
+{
+  "status": "EXECUTED_FIXED_HYPOTHESIS",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/PREREGISTRATION.json": "f30a37cfc59cde1afa66b86b10cfb532f7f8d5cc633679639f4eac0a94c79219",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/CHOSEN_CONFIG.json": "74148fe62655d827dbbfba2fa176ffd1db24eecfac9a9291382f1cb8de1dca76",
+    "/run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py": "27e46d0a9d2b3014ead4c07c4ae64a6b46a069c35ff772c7533210b053164a4e",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T185910Z/readout/TRAIN_TRACE.npz": "ebf1f3a40c258c9f42cd8e096347e0ab00c7eef79f016ca1aa9e21851abee20a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/RECORDED_SAMPLE_INPUT.npz": "b968237ad58da8e79c079f4dd552c2546fee5bf0f8b845ed8828c735fe01c854"
+  },
+  "results": {
+    "held_nominal": {
+      "neural_steps": 400,
+      "duration_ms": 200,
+      "dt_ms": 0.5,
+      "all_spikes": 45057,
+      "MN_spikes": 1053,
+      "MN_recruited": 142,
+      "MN_mean_Hz": 16.30030959752322,
+      "MN_max_cell_mean_Hz": 150.0,
+      "voltage_min_mV": -74.62651526553485,
+      "voltage_max_mV": -50.00000069168006,
+      "g_adapt_max_final_uS": 0.0040125891963541166,
+      "per_leg": {
+        "lf": {
+          "spikes": 181,
+          "recruited": 17
+        },
+        "lh": {
+          "spikes": 266,
+          "recruited": 31
+        },
+        "lm": {
+          "spikes": 87,
+          "recruited": 22
+        },
+        "rf": {
+          "spikes": 191,
+          "recruited": 16
+        },
+        "rh": {
+          "spikes": 199,
+          "recruited": 28
+        },
+        "rm": {
+          "spikes": 129,
+          "recruited": 28
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": true
+    },
+    "held_refined": {
+      "neural_steps": 800,
+      "duration_ms": 200,
+      "dt_ms": 0.25,
+      "all_spikes": 46598,
+      "MN_spikes": 1105,
+      "MN_recruited": 140,
+      "MN_mean_Hz": 17.105263157894736,
+      "MN_max_cell_mean_Hz": 150.0,
+      "voltage_min_mV": -74.30039169281599,
+      "voltage_max_mV": -50.00001163730688,
+      "g_adapt_max_final_uS": 0.003854636518685573,
+      "per_leg": {
+        "lf": {
+          "spikes": 194,
+          "recruited": 17
+        },
+        "lh": {
+          "spikes": 275,
+          "recruited": 31
+        },
+        "lm": {
+          "spikes": 96,
+          "recruited": 22
+        },
+        "rf": {
+          "spikes": 204,
+          "recruited": 16
+        },
+        "rh": {
+          "spikes": 206,
+          "recruited": 28
+        },
+        "rm": {
+          "spikes": 130,
+          "recruited": 26
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": true
+    },
+    "held_replay": {
+      "neural_steps": 400,
+      "duration_ms": 200,
+      "dt_ms": 0.5,
+      "all_spikes": 45057,
+      "MN_spikes": 1053,
+      "MN_recruited": 142,
+      "MN_mean_Hz": 16.30030959752322,
+      "MN_max_cell_mean_Hz": 150.0,
+      "voltage_min_mV": -74.62651526553485,
+      "voltage_max_mV": -50.00000069168006,
+      "g_adapt_max_final_uS": 0.0040125891963541166,
+      "per_leg": {
+        "lf": {
+          "spikes": 181,
+          "recruited": 17
+        },
+        "lh": {
+          "spikes": 266,
+          "recruited": 31
+        },
+        "lm": {
+          "spikes": 87,
+          "recruited": 22
+        },
+        "rf": {
+          "spikes": 191,
+          "recruited": 16
+        },
+        "rh": {
+          "spikes": 199,
+          "recruited": 28
+        },
+        "rm": {
+          "spikes": 129,
+          "recruited": 28
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": true,
+      "bitwise_replay": true
+    },
+    "quiet": {
+      "neural_steps": 400,
+      "duration_ms": 200,
+      "dt_ms": 0.5,
+      "all_spikes": 0,
+      "MN_spikes": 0,
+      "MN_recruited": 0,
+      "MN_mean_Hz": 0.0,
+      "MN_max_cell_mean_Hz": 0.0,
+      "voltage_min_mV": -65.0,
+      "voltage_max_mV": -65.0,
+      "g_adapt_max_final_uS": 0.0,
+      "per_leg": {
+        "lf": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "lh": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "lm": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rf": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rh": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rm": {
+          "spikes": 0,
+          "recruited": 0
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": false
+    },
+    "legal_noedge_software_control": {
+      "neural_steps": 400,
+      "duration_ms": 200,
+      "dt_ms": 0.5,
+      "all_spikes": 3171,
+      "MN_spikes": 0,
+      "MN_recruited": 0,
+      "MN_mean_Hz": 0.0,
+      "MN_max_cell_mean_Hz": 0.0,
+      "voltage_min_mV": -65.0,
+      "voltage_max_mV": -50.000144403950635,
+      "g_adapt_max_final_uS": 0.0007316153103996073,
+      "per_leg": {
+        "lf": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "lh": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "lm": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rf": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rh": {
+          "spikes": 0,
+          "recruited": 0
+        },
+        "rm": {
+          "spikes": 0,
+          "recruited": 0
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": false
+    },
+    "full_source_trace": {
+      "neural_steps": 18170,
+      "duration_ms": 9085,
+      "dt_ms": 0.5,
+      "all_spikes": 2163235,
+      "MN_spikes": 47583,
+      "MN_recruited": 209,
+      "MN_mean_Hz": 16.21527677200707,
+      "MN_max_cell_mean_Hz": 182.27848101265823,
+      "voltage_min_mV": -76.59585257822908,
+      "voltage_max_mV": -50.00000021668154,
+      "g_adapt_max_final_uS": 0.005400277774884317,
+      "per_leg": {
+        "lf": {
+          "spikes": 8128,
+          "recruited": 22
+        },
+        "lh": {
+          "spikes": 11295,
+          "recruited": 48
+        },
+        "lm": {
+          "spikes": 4616,
+          "recruited": 35
+        },
+        "rf": {
+          "spikes": 7648,
+          "recruited": 21
+        },
+        "rh": {
+          "spikes": 8849,
+          "recruited": 46
+        },
+        "rm": {
+          "spikes": 7047,
+          "recruited": 37
+        }
+      },
+      "finite_final": true,
+      "voltage_band_pass": true,
+      "derived_lower_bound_pass": true,
+      "propagation_rate_pass": true
+    }
+  },
+  "held_timestep_sensitivity": {
+    "MN_aggregate_rate_relative_difference": 0.04938271604938263,
+    "MN_recruited_difference": 2,
+    "pass": true
+  },
+  "actual_neural_steps_this_script": 20570,
+  "earlier_smoke_steps": 10,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "source_currents_exact": true,
+  "source_trace_sha256": "8a73c8a221b0f752e7c53f9e129fcf9747c42dc3ead6209a7ce912f430e70847",
+  "full_final_state_sha256": "24d514b21ca53e0971e97ae92be47c19286264ef027017a32557a04b2ecec4f7",
+  "all_source_hashes_unchanged": true,
+  "wall_seconds": 15.928950821980834,
+  "meaning": "engineering bounds and propagation checks only; adaptation reversal and physiology unmeasured; prior current-model failures untouched"
+}

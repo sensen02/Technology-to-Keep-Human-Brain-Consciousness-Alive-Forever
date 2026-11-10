@@ -1,0 +1,12 @@
+{"tag": "ann_screen", "sim_s": 1.0, "wall_s": 13.2}
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T073258Z/neural_walk.py", line 303, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T073258Z/neural_walk.py", line 300, in main
+    else:simulate(path,args.tag,args.seconds,args.control,args.disturb)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T073258Z/neural_walk.py", line 242, in simulate
+    **{'physics_'+key:val for key,val in warm_before.items()})
+                                         ^^^^^^^^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'items'. Did you mean: 'item'?

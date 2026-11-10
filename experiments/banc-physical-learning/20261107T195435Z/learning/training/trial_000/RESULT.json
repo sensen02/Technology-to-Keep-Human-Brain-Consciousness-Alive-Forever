@@ -1,0 +1,411 @@
+{
+  "status": "COMPLETE_CHECKPOINT_EPISODE_NOT_WALKING",
+  "valid": true,
+  "reward": -0.11704020147647107,
+  "reward_terms": {
+    "forward_displacement": 0.020291482415906118,
+    "weighted_slip_distance": 0.05642249500889422,
+    "lateral_displacement": 0.04897338774917747,
+    "height_drop_excess": 0.0,
+    "positive_nonfoot_impulse_overW": 0.0,
+    "support_deficit_integral": 0.0,
+    "rate_squared_time": 0.0,
+    "completed_cycle_legs": 0
+  },
+  "cycles": {
+    "completed_by_leg": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "completed_legs": 0,
+    "qualified_runs": [
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 3,
+          "end_bin_exclusive": 200,
+          "duration_ms": 985
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ],
+      [
+        {
+          "state": "air",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ]
+    ]
+  },
+  "physical_gate": {
+    "passed": true,
+    "checks": {
+      "D1_no_nonfoot_ground_force": true,
+      "D2_no_free_fall": true,
+      "D3_foot_support_not_below_assist": true,
+      "D4_foot_support_never_collapses": true,
+      "D4b_nonfoot_is_not_carrying_the_body": true,
+      "D5_com_height_not_below_assist": true,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": true
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.001101361597766,
+      "com_z_mean": 1.183746232118977
+    },
+    "release": {
+      "foot_support_mean": 0.9997952340020329,
+      "foot_support_p10": 0.9999962251266834,
+      "foot_support_min": 0.8856124489208076,
+      "nonfoot_share_mean": 0.0,
+      "ground_support_mean": 0.9997952340020329,
+      "com_z_min": 1.2526628723332613,
+      "com_z_mean": 1.253354682892616,
+      "free_fall_fraction": 0.0,
+      "force_balance_residual_p95": 8.605641068909404e-07,
+      "force_balance_residual_p50": 2.686687395915805e-10,
+      "bearing_legs_median": 5.0,
+      "bearing_legs_min": 4,
+      "per_leg_mean_load": [
+        0.19828372799069244,
+        0.07434237583624574,
+        0.36437071727909554,
+        0.20929377144636616,
+        0.15350464144963308,
+        0.0
+      ],
+      "per_leg_duty": [
+        1.0,
+        0.9967,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "samples": 80000
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "duration_s": 1.0,
+  "slip_sampling_s": 0.005,
+  "slip_status": "5ms_training_approximation",
+  "feasible": true,
+  "episode_id": "trial_000",
+  "condition": "trial_000",
+  "theta": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  ],
+  "evaluation_seed": 20261107,
+  "native_steps": 80000,
+  "live_forward_calls": 80001,
+  "neural_steps": 2000,
+  "neural_end_steps": 4000,
+  "neural_end_time_ms": 2000.0,
+  "sim_s": 1.9999999999970062,
+  "release_s": 1.0,
+  "finite": true,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "failure": null,
+  "software_exception": false,
+  "contact_rows_saved": 80000,
+  "neural_voltage_range_mV": [
+    -76.59657683973461,
+    -50.00002310609594
+  ],
+  "MN_spikes_since_checkpoint": 5177,
+  "torque_saturated_entries": 189509,
+  "torque_total_entries": 3360000,
+  "wall_s": 13.62127252900973,
+  "folder": "/home/sensen/Desktop/engine修复验收/banc-physical-learning/20261107T195435Z/learning/training/trial_000",
+  "files": {
+    "NEURAL_INITIAL.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "SCORE_INPUTS.npz": "9568a606fe9bf5ef25d9eefaf0b1badd4968692e06ad42b5e7a57315bac29014",
+    "ACTOR.npz": "f88bdcf6b9f1d698d7579f5fd17c66b65ba4423266a31ffeee6bfb880efad210",
+    "INITIAL.npz": "137a54403ef11af19c19da63833e69d16ef7b1a56e6d40391a3b9ff5c8fd1b92",
+    "COMMANDS.npz": "1e392f56adc78e931947fa814b6e00a393bccb5ad84b74d6224b1e9abb370db0",
+    "NEURAL_FINAL.npz": "965895ac9d0b2a34f949ee9fb932046e7d0e26faccb99134c7edd45c9bb2239a",
+    "SLIP.npz": "5ae673b2595d4739d379e0399a75de766ba485abd15cd58112f7d707f39dcdfc",
+    "NATIVE.npz": "fdd1386705ace6860339d56e3d3f51fdbb6f2276b59d62a3f636a1f6bef69d96",
+    "BODY.npz": "092fefa3645595c7eef60a8b79d86e1f1c61c6f36c2e7d46fbe3dba03b05194d",
+    "PROTOCOL.json": "3977312bd7964792ae776f680bbf454f2106c9f91cc9429e4da79656a164fd36",
+    "POLICY.npz": "d28fe91d0e09d3df6a9da8bbe48e32e7db2b0ff7e078e27964f3c3743b36ca03"
+  }
+}

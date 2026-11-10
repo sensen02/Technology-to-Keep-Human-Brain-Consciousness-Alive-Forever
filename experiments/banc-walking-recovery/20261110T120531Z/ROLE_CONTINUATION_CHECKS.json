@@ -1,0 +1,96 @@
+{
+  "all_passed": true,
+  "checks": {
+    "real_parent_all_actor_and_head_Adam_counters_300": true,
+    "real_parent_model_head_Adam_RNG_exact": true,
+    "real_parent_zero_update_full_train_heldout_metrics_exact": true,
+    "real_parent_PPO_fresh_zero_physical_steps": true,
+    "real_parent_train01_validation2_only": true,
+    "reject_wrong_config_before_model_load": true,
+    "reject_wrong_role_weight_before_model_load": true,
+    "reject_new_data_before_model_load": true,
+    "reject_head_tamper_before_model_load": true,
+    "reject_head_Adam_counter_before_model_load": true,
+    "reject_wrong_ancestry_before_model_load": true,
+    "reject_external_checkpoint_hash_before_model_load": true,
+    "tiny_saved2_full_model_head_Adam_RNG_restored": true,
+    "tiny_direct3_vs_build_resume3_model_bitexact": true,
+    "tiny_direct3_vs_build_resume3_head_bitexact": true,
+    "tiny_direct3_vs_build_resume3_Adam_all_moments_counters_bitexact": true,
+    "tiny_direct3_vs_build_resume3_RNG_bitexact": true,
+    "tiny_critic_logstd_unchanged": true,
+    "restored_full_sequence_and_stateful_prefix_exact": true,
+    "restored_role_graph_reaches_prefix_and_GRU": true,
+    "head_never_in_policy_inference": true,
+    "no_physics_no_real_training": true
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/student_wave.py": "fce8eedcfa33e056b9e040d0fc78aa65fdca1b7b550508a5c92b6d1e4fc39cb7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/role_aux_bc.py": "707f70b4e52265511ebe884268fb8f1776fefd0ad01364c6a7b83ea775676831",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/check_role_aux.py": "9227455f0e442438a7b643678088a0a63ce69a4f199a728b633430aa14e6bb02",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/ROLE_AUX_CHECKS.json": "164baefc8b27a215468c9d0aba4b0ca31e5525b11a31417878d390ab7c3dc994",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/continue_role_bc.py": "b936b850d0540f664f80b5f1cd11260c474aaa750da4ed33b5ce1242ebe06738",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/check_continue_role.py": "e44c0b56c040687e6d2aa816eca46253287322888d24832311d3f20b32bb46f5",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/PREREG.json": "5c98563ae4cc642a3d93f01e60dcb750954241c32272e9fd298d3b9c4c81f66a"
+  },
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/BC_GRU_ROLE_AUX_300/final.pt",
+  "parent_checkpoint_sha256": "3468bb7d9120e3bd7f32071019c5cec976642ef2344f299cde609985edc4a64f",
+  "parent_result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/BC_GRU_ROLE_AUX_300/RESULT.json",
+  "parent_result_sha256": "8224547f415bc995a25d6b964593ead2a23a1b779096aa242fbaf4d154ca0e74",
+  "parent_aux_config": {
+    "mode": "train",
+    "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET",
+    "out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/BC_GRU_ROLE_AUX_300",
+    "steps": 300,
+    "lr": 0.001,
+    "seed": 20261110,
+    "role_weight": 0.001,
+    "aux_seed_offset": 6001,
+    "aux_seed": 20267111,
+    "head": "training-only Linear(128,6), outside ActorCritic",
+    "loss": "bounded BC sum/(T*42) + role_weight * CE sum/T",
+    "full_contiguous_BPTT": true,
+    "train_episodes": [
+      0,
+      1
+    ],
+    "validation_episodes": [
+      2
+    ]
+  },
+  "parent_initial_metrics": {
+    "step": 300,
+    "train": {
+      "MSE": 0.0031977147064800563,
+      "role_CE": 0.11021455503786402,
+      "role_accuracy": 0.9888020833333333
+    },
+    "heldout": {
+      "MSE": 0.0032632722810211397,
+      "role_CE": 0.11034472907635626,
+      "role_accuracy": 0.9885416666666667
+    },
+    "train_loss": 0.0033079292615179204
+  },
+  "real_parent_updates": 0,
+  "synthetic_direct_updates": 3,
+  "synthetic_resumed_updates": 1,
+  "physics_steps": 0,
+  "closed_loop": "NOT_EVALUATED",
+  "dataset_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET/DATASET.json",
+  "dataset_sha256": "9dae9a0b21b8e67bb70585dcf8541b35f16b551a25fffd80ebbd5516d9b0407d",
+  "role_head": "training auxiliary only, excluded from deployment",
+  "fixed_budget": {
+    "parent_steps": 300,
+    "total_steps": 1000,
+    "additional_steps": 700
+  }
+}

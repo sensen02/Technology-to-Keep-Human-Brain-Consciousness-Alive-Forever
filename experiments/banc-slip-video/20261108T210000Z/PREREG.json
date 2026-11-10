@@ -1,0 +1,10 @@
+{
+  "schema": "slip-video/1",
+  "why": "the user asked to see how the feet slip. This renders the same simulation that produces the reported numbers; no motion is added, no pose is scripted, no root is overwritten.",
+  "what_is_rendered": "the stand-pose full-42-joint PPO controller (experiments/banc-stand-retarget, MODEL_stand.npz) run for 1 s of measured-target assist followed by 3 s of autonomous control, rendered at 50 fps from two cameras (wide follow view and a low close-up of the feet on the textured floor)",
+  "what_is_measured": "per 5 ms tick: per-leg force-weighted tangential contact speed, per-leg slip ratio against the release-phase forward speed, forward speed, COM height, foot loads, and the phase label; written to SLIP_TRACE.json so every number in the video is checkable",
+  "visualisation_only_changes": ["camera follows the fly (lookat = thorax XY)", "tendon and actuator debug drawing disabled", "foot geoms tinted so the contact points are visible"],
+  "not_changed": ["physics: gravity, contacts, friction, actuators, timesteps", "the controller", "the pose or root trajectory", "any acceptance threshold"],
+  "labelling": "the run uses the declared adhesion channel (grip on); it is a derived-channel result, not frozen-body acceptance. A second video repeats the same run with grip off for comparison.",
+  "accounting": "physics steps counted and reported; the video frame count equals the sampled ticks"
+}

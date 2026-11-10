@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/retarget_inventory.py", line 138, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/retarget_inventory.py", line 78, in main
+    target = np.concatenate([np.broadcast_to(base[:, 0, None], (6, 1, 3)),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: all the input arrays must have same number of dimensions, but the array at index 0 has 3 dimension(s) and the array at index 1 has 4 dimension(s)

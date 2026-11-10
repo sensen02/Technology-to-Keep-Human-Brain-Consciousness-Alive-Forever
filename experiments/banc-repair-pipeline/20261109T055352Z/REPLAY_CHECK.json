@@ -1,0 +1,22 @@
+{
+  "label": "independent replay of the saved network; no teacher present in evaluate()",
+  "n_quantities": 93,
+  "replay_identical": true,
+  "replay_differences": {},
+  "matches_training_log": true,
+  "log_differences": {
+    "n_small_float_differences": 2,
+    "max_abs_float_difference": [
+      6.422379453141502e-06
+    ],
+    "boolean_differences": 0,
+    "explanation": "the checkpoint stores weights as float32, so a reloaded network reproduces the training-log numbers to about 1e-9 and every pass/fail verdict is identical"
+  },
+  "passed_legs": [
+    "LF",
+    "LM",
+    "RF"
+  ],
+  "n_passed": 3,
+  "teacher_used_in_evaluation": false
+}

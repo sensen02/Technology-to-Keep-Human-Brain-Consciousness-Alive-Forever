@@ -1,0 +1,25 @@
+{
+  "schema": "friction-scan/1",
+  "origin": "the user proposed raising the ground friction. The videos show the feet never leave the floor but skate at 0.20-0.36 native/s while the body moves 0.19; the friction of every geom is still the model default (1.0, 0.005, 0.0001) and has never been calibrated. This is the direct test of whether the slip is a contact-parameter problem.",
+  "design": {
+    "input": "the already trained stand-pose controller MODEL_stand.npz (experiments/banc-stand-retarget/20261108T190000Z); NO retraining, so any change is attributable to friction alone",
+    "sweep": "sliding friction coefficient mu = 1.0 (model default, baseline), 1.5, 2.0, 3.0, 5.0",
+    "applied_to": "every geom's first friction component, i.e. both the foot geoms and the floor plane, because MuJoCo combines a contact pair's friction from both geoms; torsion and rolling coefficients stay at their defaults",
+    "modes": "grip off (frozen body, the honest number) and grip on (derived adhesion channel), same run length and windows as every earlier evaluation",
+    "windows": "release window (the gate quantity) and the steady window (0.5 s onwards) are both reported"
+  },
+  "declared_not_frozen": "changing mu changes the physical world. Every result here is labelled friction-derived and is NOT frozen-body acceptance; the frozen body's friction stays 1.0 and its unaccepted movement status is unchanged. The model file is untouched: mu is set at runtime on the loaded model and both the old and new arrays are recorded.",
+  "gates": "unchanged: support mean >= 0.90, non-foot max <= 0.05W*4, COM min >= 1.20, slip max <= 0.50, forward >= 0.05",
+  "accounting": "per run: native steps, wall time, per-leg slip ratio, per-leg stance share, foot-speed-over-allowed fraction, and a checksum of the geometry/mass/actuator arrays proving only friction changed",
+  "success_read": "if slip falls monotonically with mu and can approach 0.50, the slip is a contact-parameter problem; if it plateaus well above 0.50, friction is not the binding limit",
+  "amendment_1": {
+    "reason": "the no-retraining sweep peaked at mu=1.5 (slip mean 1.221, still 2.4x the gate) and got worse above it, so the next fair test is to let the learner adapt to the higher-friction world",
+    "change": "train the same full-42-joint PPO from scratch at mu=1.5 (64 updates) and at mu=3.0 (64 updates), then evaluate each trained model at mu=1.5 and mu=1.0 in both grip modes to separate the world effect from the adaptation effect",
+    "recorded_before_running": true
+  },
+  "amendment_2": {
+    "reason": "mu=1.5 trained gave the best result so far (slip mean 0.994, non-foot 1.14 W passing for the first time, height 0.845) but stopped at the level-0 budget without passing all five gates",
+    "change": "continue the mu=1.5 model for 64 more updates at mu=1.5, same reward and gates",
+    "recorded_before_running": true
+  }
+}

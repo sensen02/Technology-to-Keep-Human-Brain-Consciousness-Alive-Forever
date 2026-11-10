@@ -1,0 +1,61 @@
+{
+  "goal": "S2/S5 mechanical settling/chattering diagnostic; not walking/frozen acceptance",
+  "mode": "all",
+  "ticks_each": 2000,
+  "native_steps_each": 160000,
+  "sample_dt_s": 0.001,
+  "decision_dt_s": 0.001,
+  "comparison": "zero-rate finite-PD hold and legacy deterministic ff495 saved-best, each default adhesion vs adhesion=False",
+  "only_changed_physical_parameter": "Core constructor adhesion boolean; all other model/actuator/body parameters unchanged",
+  "legacy_weight_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261109T212050Z/WALK_MODEL_best.npz",
+  "legacy_weight_sha256": "99e1bd469912c567b52156cffaf0e804f9617729816c28707262ee6e1cc30d60",
+  "windows_s": [
+    [
+      0.0,
+      0.1
+    ],
+    [
+      0.3,
+      0.5
+    ],
+    [
+      0.5,
+      2.0
+    ]
+  ],
+  "additional_tail_blocks_s": [
+    [
+      0.5,
+      1.0
+    ],
+    [
+      1.0,
+      1.5
+    ],
+    [
+      1.5,
+      2.0
+    ]
+  ],
+  "initial_state": "fresh unchanged Core reset per case; qpos/qvel/target exact equality asserted",
+  "control": "Core.tick(action) only, zeros(42) or model.act(core.obs(),deterministic=True); no teacher or root/pose/force writes by probe",
+  "policy": "ActorCritic(ff495,float64).import_legacy_npz(identity.LEGACY); tanh(mean), raw logstd irrelevant to deterministic action",
+  "native_recorder": false,
+  "video": false,
+  "filtering": "causal trailing 20/60 sample COM boxcar, full windows only, velocity from consecutive filtered positions / .001s",
+  "units": {
+    "position": "native length",
+    "velocity": "native length/s",
+    "force": "native force",
+    "angular_velocity": "rad/s",
+    "absolute_SI": "NOT_ESTABLISHED"
+  },
+  "contact_speed": "positive normal-load weighted horizontal world velocity; raw speed is per-leg unweighted contact mean, 0 if no contacts; independent all-3-pad center speeds also saved",
+  "sample_summary": "forces/speeds use tick ends (start,end]; COM state includes both window endpoints; no native-step extrema claims",
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052129Z/env/bin/python -B /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052129Z/mechanical_probe.py --mode all",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "script_sha256": "8f0de71282f1e7b03085972b26c0b928bd81c4cc6e453ff3cc49949dbda30ab7"
+}

@@ -1,0 +1,285 @@
+{
+  "status": "PASS",
+  "physical_steps": 0,
+  "historical_writes": 0,
+  "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_NATIVE",
+  "source_result_sha256": "7a3348ff970e196774df475f2d7f96dcacaadbdfbb4234f9e168234590579e2f",
+  "legacy_checks_sha256": "794240cfd2e333b4ecbf862b0c8168ce329c62a1943f7a70791ca9caf77cdda8",
+  "comparison_to_frozen_legacy": {
+    "auxiliary": {
+      "signed_p95_difference": 1.9790021784691882e-16,
+      "absolute_p95_difference": 1.606453642349272e-16,
+      "D7_median_at_0_1W": 4.0
+    },
+    "autonomous": {
+      "signed_p95_difference": 6.049943150011861e-16,
+      "absolute_p95_difference": 1.6493832252963413e-16,
+      "D7_median_at_0_1W": 4.0
+    }
+  },
+  "diagnostics": {
+    "samples": 1232000,
+    "contact_event_count": 19991769,
+    "native_trace_endpoints_bitexact": 15400,
+    "actual_force_absolute_peaks": {
+      "external_body_wrench_native": 0.0,
+      "external_generalized_force_native": 0.0,
+      "adhesion_body_wrench_native": 0.0,
+      "adhesion_enabled": 0.0,
+      "adhesion_application_body_leg_point_force_native": 0.0,
+      "external_total_force_native": 0.0
+    },
+    "all_actual_extra_forces_zero": true,
+    "windows": {
+      "auxiliary": {
+        "D7_sensitivity": [
+          {
+            "threshold_fraction_W": 1e-06,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              42040,
+              129829,
+              212131
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.001,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              42099,
+              132703,
+              209198
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.01,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              56106,
+              155639,
+              172255
+            ],
+            "median": 5.0
+          },
+          {
+            "threshold_fraction_W": 0.05,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              79680,
+              189110,
+              115210
+            ],
+            "median": 5.0
+          },
+          {
+            "threshold_fraction_W": 0.1,
+            "histogram": [
+              0,
+              0,
+              40160,
+              4800,
+              191600,
+              147440,
+              0
+            ],
+            "median": 4.0
+          }
+        ],
+        "D6_sensitivity": [
+          {
+            "tau_ms": 0.0,
+            "samples": 384000,
+            "signed_p95_W": 5.466319921124292e-10,
+            "absolute_p95_W": 9.894870895659332e-10,
+            "external_accounted_signed_p95_W": 5.466319921124292e-10,
+            "external_accounted_absolute_p95_W": 9.894870895659332e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.25,
+            "samples": 384000,
+            "signed_p95_W": 4.195988100243749e-10,
+            "absolute_p95_W": 8.114902742516036e-10,
+            "external_accounted_signed_p95_W": 4.195988100243749e-10,
+            "external_accounted_absolute_p95_W": 8.114902742516036e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.5,
+            "samples": 384000,
+            "signed_p95_W": 3.796986244786434e-10,
+            "absolute_p95_W": 7.5362563933789e-10,
+            "external_accounted_signed_p95_W": 3.796986244786434e-10,
+            "external_accounted_absolute_p95_W": 7.5362563933789e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 1.0,
+            "samples": 384000,
+            "signed_p95_W": 3.5528579688676786e-10,
+            "absolute_p95_W": 7.131439516032944e-10,
+            "external_accounted_signed_p95_W": 3.5528579688676786e-10,
+            "external_accounted_absolute_p95_W": 7.131439516032944e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 2.0,
+            "samples": 384000,
+            "signed_p95_W": 3.247948841877086e-10,
+            "absolute_p95_W": 6.430486939376609e-10,
+            "external_accounted_signed_p95_W": 3.247948841877086e-10,
+            "external_accounted_absolute_p95_W": 6.430486939376609e-10,
+            "original_signed_criterion_pass": true
+          }
+        ]
+      },
+      "autonomous": {
+        "D7_sensitivity": [
+          {
+            "threshold_fraction_W": 1e-06,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              49496,
+              257232,
+              461272
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.001,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              51027,
+              257707,
+              459266
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.01,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              86958,
+              250851,
+              430191
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.05,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              164934,
+              370402,
+              232664
+            ],
+            "median": 5.0
+          },
+          {
+            "threshold_fraction_W": 0.1,
+            "histogram": [
+              0,
+              0,
+              82652,
+              18945,
+              348051,
+              318352,
+              0
+            ],
+            "median": 4.0
+          }
+        ],
+        "D6_sensitivity": [
+          {
+            "tau_ms": 0.0,
+            "samples": 768000,
+            "signed_p95_W": 5.177858675864e-10,
+            "absolute_p95_W": 1.0485124851146925e-09,
+            "external_accounted_signed_p95_W": 5.177858675864e-10,
+            "external_accounted_absolute_p95_W": 1.0485124851146925e-09,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.25,
+            "samples": 768000,
+            "signed_p95_W": 4.54963122262123e-10,
+            "absolute_p95_W": 9.945029158045689e-10,
+            "external_accounted_signed_p95_W": 4.54963122262123e-10,
+            "external_accounted_absolute_p95_W": 9.945029158045689e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.5,
+            "samples": 768000,
+            "signed_p95_W": 4.57931547699824e-10,
+            "absolute_p95_W": 9.835841382509608e-10,
+            "external_accounted_signed_p95_W": 4.57931547699824e-10,
+            "external_accounted_absolute_p95_W": 9.835841382509608e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 1.0,
+            "samples": 768000,
+            "signed_p95_W": 4.5773684019179635e-10,
+            "absolute_p95_W": 9.72691714258243e-10,
+            "external_accounted_signed_p95_W": 4.5773684019179635e-10,
+            "external_accounted_absolute_p95_W": 9.72691714258243e-10,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 2.0,
+            "samples": 768000,
+            "signed_p95_W": 4.3206349402747017e-10,
+            "absolute_p95_W": 9.237333688073314e-10,
+            "external_accounted_signed_p95_W": 4.3206349402747017e-10,
+            "external_accounted_absolute_p95_W": 9.237333688073314e-10,
+            "original_signed_criterion_pass": true
+          }
+        ]
+      }
+    }
+  },
+  "actual_windows": {
+    "auxiliary": [
+      0.9999999999993368,
+      5.800000000052099
+    ],
+    "autonomous": [
+      5.800000000052099,
+      15.400000000370785
+    ]
+  },
+  "native_phase_counts": {
+    "settle": 80000,
+    "auxiliary": 384000,
+    "autonomous": 768000
+  },
+  "precision_correction": "nominal15.4 could omit final interval; use actual recorded source endpoints, all declared steps retained; earlier diagnostic preserved separately",
+  "scope": "full native streaming logic verified on failed300 only; no neural archive; slip failure remains unchanged; not final candidate acceptance"
+}

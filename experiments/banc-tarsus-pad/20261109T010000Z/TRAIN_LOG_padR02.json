@@ -1,0 +1,138 @@
+{
+  "prereg": {
+    "schema": "tarsus-pad-body/1",
+    "origin": "the feet of this body are mesh vertices of Tarsus5, not pads. Every evaluation so far measured the contact of a mesh corner against the floor, and the friction scan showed that raising mu alone saturates at slip ~0.99. This round replaces the foot contact with a declared spherical pad geom per leg.",
+    "derived_body": {
+      "base": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+      "change_1": "one sphere geom named <LEG>Tarsus5_pad added inside each <LEG>Tarsus5 body, radius 0.01 native units, centre placed so the sphere's lowest point coincides with the mesh's lowest vertex (so the standing height and key pose are unchanged)",
+      "change_2": "the six Tarsus5 mesh geoms get contype=0 conaffinity=0, so the pads are the only foot contacts",
+      "unchanged": [
+        "all other geom types, sizes and positions",
+        "masses, inertias, joints, ranges, springs",
+        "actuator gains, force limits, timestep, gravity",
+        "the floor",
+        "nothing is written to the frozen XML"
+      ],
+      "invariants_to_verify": "nq 49, nv 48, nu 42, nmesh 71, neq 0, joint ranges and body masses bit-identical to the frozen model; ngeom 72 -> 78"
+    },
+    "friction": "sliding friction mu = 1.5 on every geom at runtime (the best value from the friction scan), declared as friction-derived",
+    "controller": "the same full-42-joint PPO recipe as the stand-pose run: start from the solved stand pose, base network MODEL_MEASURED_STAND as a faded prior, reward v4, adhesion channel on during training, 64 updates with a gate check every 16",
+    "evaluation": "cold-start 4 s and assist-then-release 4 s, grip on (derived channel) and grip off (frozen-body-style comparison, but with the pad body and mu 1.5, therefore also derived), full and steady windows, per-leg slip measured on the pad geoms",
+    "gates": "unchanged: support mean >= 0.90, non-foot max <= 0.05W*4, COM min >= 1.20, slip max <= 0.50, forward >= 0.05",
+    "labelling": "derived body + derived friction + replacement ANN; none of this is frozen-body acceptance and none of it is connectome or brain output",
+    "accounting": "pad geometry, radius, positions, the old and new XML sha256, the invariant check, native steps, and every metric including failures are recorded"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "derived pad body r02",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.16753961746072568,
+        "foot_support_mean": 3.915773194458251,
+        "foot_support_min": 3.8665365222471166,
+        "nonfoot_force_max_W": 2.8009650676601305,
+        "com_height_min": 0.8253375692021562,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.7411977895868469,
+          "LH": 1.0283785059090411,
+          "LM": 0.8303757319848596,
+          "RF": 0.5821624978255778,
+          "RH": 1.2127749793346128,
+          "RM": 1.413282517733714
+        },
+        "slip_ratio_max": 1.413282517733714,
+        "slip_ratio_mean": 0.9680286703957753,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.16710213963015424,
+    "foot_support_mean": 3.9107030787749433,
+    "foot_support_min": 3.856450908234272,
+    "nonfoot_force_max_W": 2.962212890248354,
+    "com_height_min": 0.8239526728987503,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.7250325079423386,
+      "LH": 1.0577442725002197,
+      "LM": 0.7936112918869458,
+      "RF": 0.5907827569560544,
+      "RH": 1.1679604298223452,
+      "RM": 1.4350560095249172
+    },
+    "slip_ratio_max": 1.4350560095249172,
+    "slip_ratio_mean": 0.9616978781054701,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 9907200,
+  "wall_s": 307.0564889907837,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-tarsus-pad/20261109T010000Z/MODEL_padR02.npz",
+    "sha256": "2da585132fb88ec3ed446b3b8663274f58a51c96fb2fc374448a950789d5a536"
+  }
+}

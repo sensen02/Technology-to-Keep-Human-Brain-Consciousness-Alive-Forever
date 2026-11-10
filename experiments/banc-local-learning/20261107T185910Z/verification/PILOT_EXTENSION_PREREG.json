@@ -1,0 +1,9 @@
+{
+  "scope_extension": "Parent explicitly requested both completed learned closed_loop and zero-rate output_hold pilots after readout verification completed",
+  "conditions": ["closed_loop: learned MN prediction applied after1s", "output_hold: all42 rates exactly zero after1s while same sensory/neural circuit continues"],
+  "samples_per_condition": 600,
+  "neural_steps_per_condition": 6000,
+  "total_neural_replay_steps_including_readout": 30170,
+  "rules": "Same independent source rows/encoder/startMN/voltages/prediction/handover/fullfinal checks as initial PREREG. Compare warmup source qpos error explicitly. Compare applied 1ms commands against learned 5ms held prediction or exactzero according to saved protocol.condition. Parent owns native physics replay. No new learning or physical steps.",
+  "implementation": "verify_pilots.py imports common independent checker helpers from unchanged verify_saved.py, never trainer/runner. Original readout verification source remains unchanged to preserve recorded SHA256."
+}

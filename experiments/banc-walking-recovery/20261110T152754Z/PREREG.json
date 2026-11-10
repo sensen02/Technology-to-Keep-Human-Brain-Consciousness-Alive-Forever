@@ -1,0 +1,14 @@
+{
+  "target": "S2/S5 independent physical perturbation confirmation after nominal engineering pass",
+  "source_snapshot": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "candidate_selection": "earliest predeclared 2500/3000 checkpoint passing all nominal engineering gates and all six sensed cycles; no fallback selection by perturbation score",
+  "seeds": [20261111, 20261112],
+  "perturbation": "20ms actual finite motor rate command at initial time, normal(0,.02) per42 channels with seed, followed by full1s zero-command settle; then teacher constructed at actual state",
+  "phases": "20ms pulse +1s actual settle +4.8s actual teacher/hidden prime +9.6s pure ANN",
+  "reason_for_pulse_before_settle": "ensure actual previous command zero at shared continuous_handover entry; no observer/action-history reset at withdrawal",
+  "controls": "same derived full body, 42 finite PD motors, adhesion off, unchanged gravity/friction/torque/rate/native dt, no root pose writes or auxiliary forces",
+  "gates": "unchanged five engineering gates and all6 complete cycles, full9.6s; each perturbation retained even if failing",
+  "native_confirmation": "nominal successful candidate separately recorded by frozen audited_eval.py; perturbation tests are additional robustness evidence, not substituted native D1-D8 evidence",
+  "stop": "errors/source drift/nonfinite stop dependent claims; no candidate passing nominal => no perturbation simulations",
+  "status": "preregistered, not executed"
+}

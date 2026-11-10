@@ -1,0 +1,24 @@
+# S2/S5 精确BC2000→3000训练记录
+
+- 目录：/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z
+- 父模型：/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/final.pt
+- 目标：单次固定追加1000更新，保持原数据、结构、lr.001、CE.001、13Adam和RNG流；原300及1000祖先身份严格验证。
+- 预登记：/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/PREREG.json。只允许父代理评估2500/3000；2250/2750仅保存。完整目标未达成，原阈值保持。
+- 源码台账：/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/CHANGE_LEDGER.json。历史绝对路径检查保留；旧冻结输入不改。
+- 恢复回归：43/43 PASS，真实2000零更新恢复model/head/13Adam/RNG/完整训练验证指标逐位一致；tiny2→3不中断/重载完全相同；0物理步。check_continue_role.py退出0，22.57s。
+- 学生回归：81/81 PASS；check_student_wave.py退出0，10.12s。仅其既有短接管smoke，不作行为评估。
+- 检查退出证据：/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/CHECK_EXIT_EVIDENCE.json，托管job bash-158已收集退出0。
+- 训练环境：OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/env/bin/python -B，CPUfloat64/torch线程1。
+- 预算：全局2001..3000，保存2250/2500/2750/3000及final；数值/来源身份/保存失败立即停并保留证据。PPO损失与GAE本次不适用：不做PPO更新，PPO状态保持新鲜。
+- 身体、教师、执行器及闭环观测源全部不变；替代ANN+派生完整身体标签，分类head仅训练。训练本身不做物理步。
+- 启动：训练前源码检查通过；此后不修改输入。模型IDENTITY.json包含父完整来源闭包及新脚本/预登记/检查hash。
+- 训练日志与退出证据将在TRAINING.log、TRAINING_EXIT_EVIDENCE.json，独立新进程验证结果将在SAVED_TRAINING_VERIFICATION.json。
+- 委托范围更新：父代理随后明确委托本代理执行预登记2500/3000两个nominal物理评估；原生审计/扰动/同次视频仍由父代理处理。master current state/tracker未修改。
+- 训练完成：managed bash-159已收集退出0，实际1000追加更新1594.44s（26m34s）。全13Adam计数3000，critic/std保持，训练无物理步；保存2250/2500/2750/3000及final。
+- 新进程独立验证：bash-159第二stage退出0，4.95s；四检查点SHA/Adam/fullcurve0..2000祖先一致，final模型/head/Adam/RNG/指标/身份全部逐位一致，SAVED_TRAINING_VERIFICATION.json PASS。
+- final.pt SHA256：f94c6223c9494ff49318b6b518c768fc6fbde36faf9f89e38d4abfbf5d009577。训练MSE .0001121928→.00006658338；heldout .0001716671→.0001261468。
+- 2500 nominal：managed bash-171已收集退出0，170.31s。9.6s纯NN五工程门全过、六腿完整周期LF1/其余2；signedforward .07131859637，COM最低1.2561645313，非足峰0，足载均值1.0000510230，最大RHslip .49278883265360646。只属候选，D1-D8尚待父原生审计。
+- 候选选择：按预登记选择最早通过的2500，不由3000覆盖；2250/2750未物理评估。
+- 3000 nominal：managed bash-173已收集退出0，170.48s。9.6s纯NN五工程门全过、六腿完整周期LF1/其余2、transition all_exact；signedforward .07122874796，COM最低1.2559790519，非足峰0，足载均值1.00005083195，最大RHslip .4877377107231963。2500仍按最早通过规则保留为候选。
+- 收尾：本代理所有managed jobs bash-158/159/171/173均已收集退出0，无挂起工作；tiny临时目录自动清理，未用的祖先重复源码已在跑前删除，必要失败/历史/检查点产物保留。没有运行2250/2750物理评估，没有修改master current state/tracker。最终只支持候选工程通过，原生D1-D8/扰动/视频由父代理继续。
+- 初始启动遇系统python缺失退出127，改用已存在env/bin/python，未发生训练失败或冻结输入修改。

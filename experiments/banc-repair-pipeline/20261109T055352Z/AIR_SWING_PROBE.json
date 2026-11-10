@@ -1,0 +1,67 @@
+{
+  "label": "airborne forward reach per leg, joint limits projected out; no learning",
+  "clearance_target": 0.02,
+  "per_leg": {
+    "LF": {
+      "leg": "LF",
+      "reached_clearance": true,
+      "ticks_to_clear": 13,
+      "padz_at_clearance": 0.03551382602935393,
+      "airborne_advance": 0.07978408454674468,
+      "airborne_ticks": 32,
+      "joint_limit_blocks": 0,
+      "passes_advance": true
+    },
+    "LH": {
+      "leg": "LH",
+      "reached_clearance": true,
+      "ticks_to_clear": 34,
+      "padz_at_clearance": 0.021283839419815993,
+      "airborne_advance": 0.0,
+      "airborne_ticks": 3,
+      "joint_limit_blocks": 0,
+      "passes_advance": false
+    },
+    "LM": {
+      "leg": "LM",
+      "reached_clearance": true,
+      "ticks_to_clear": 27,
+      "padz_at_clearance": 0.02147541473160177,
+      "airborne_advance": 0.12734097554814602,
+      "airborne_ticks": 9,
+      "joint_limit_blocks": 0,
+      "passes_advance": true
+    },
+    "RF": {
+      "leg": "RF",
+      "reached_clearance": true,
+      "ticks_to_clear": 13,
+      "padz_at_clearance": 0.03335961851048772,
+      "airborne_advance": 0.12260441550510359,
+      "airborne_ticks": 28,
+      "joint_limit_blocks": 0,
+      "passes_advance": true
+    },
+    "RH": {
+      "leg": "RH",
+      "reached_clearance": true,
+      "ticks_to_clear": 32,
+      "padz_at_clearance": 0.02001541160472909,
+      "airborne_advance": 4.719712271561427e-05,
+      "airborne_ticks": 4,
+      "joint_limit_blocks": 0,
+      "passes_advance": false
+    },
+    "RM": {
+      "leg": "RM",
+      "reached_clearance": true,
+      "ticks_to_clear": 39,
+      "padz_at_clearance": 0.024081381001125966,
+      "airborne_advance": 0.0012469934792027626,
+      "airborne_ticks": 6,
+      "joint_limit_blocks": 0,
+      "passes_advance": false
+    }
+  },
+  "n_can_advance_airborne": 3
+}

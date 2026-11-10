@@ -1,0 +1,32 @@
+{
+  "schema": "banc-repair-pipeline/task-v2",
+  "created_runtime_utc": "20261109T055352Z",
+  "task": "single-leg step: unload, lift, advance, replace",
+  "what_changes": {
+    "episode_window_ticks": {"v1": 300, "v2": 500},
+    "episode_window_ms": {"v1": 300, "v2": 500},
+    "reason": "at 300 ticks the best leg (LF) ends with its pads already back on the ground (final padz -0.0048, criterion <= 0.004) but carrying only 0.036 body weight against the required 0.10, i.e. the episode ends while the weight is still transferring. Extending the time budget tests whether the behaviour completes; it does not relax any threshold."
+  },
+  "acceptance_criteria_unchanged": {
+    "unload": "min load over the episode <= 0.10 body weight",
+    "lift": "max pad bottom height >= 0.015 native",
+    "advance": ">= 0.03 native forward during the swing",
+    "place": "at the last tick load >= 0.10 body weight AND pad bottom height <= 0.004",
+    "safe_support": "min support >= 0.90",
+    "safe_nonfoot": "max non-foot contact power <= 4.889 W",
+    "safe_com": "min body COM height >= 1.00",
+    "pass_rate": "a leg passes only if all five hold; six-leg pass requires all six"
+  },
+  "unchanged_elsewhere": {
+    "reward": "achievement-flag potential (PREREG_AMENDMENT_3.json) plus unchanged safety penalties",
+    "warm_start": "screened lift direction of the prompted leg while it carries load",
+    "optimizer": "cumulative-KL budget, lr 1e-5, 24 updates, rollout 1024",
+    "world": "derived triad body, releasable adhesion, own commands only"
+  },
+  "preregistered_outcomes": [
+    "if a leg passes at 500 ticks but not at 300, the behaviour is real but slower than the first window, which is a rate statement and must be reported as such",
+    "if no leg passes at 500 ticks, the placement criterion is not a timing artefact and the next step is the two-phase weight-shift task for the hind legs",
+    "if a leg passes only after more than 24 updates, the optimisation budget, not the task, was binding"
+  ],
+  "discipline": "PREREG.json, PREREG_AMENDMENT_1/2/3.json are left byte-identical; the 300-tick results stay valid and are kept as the v1 record"
+}

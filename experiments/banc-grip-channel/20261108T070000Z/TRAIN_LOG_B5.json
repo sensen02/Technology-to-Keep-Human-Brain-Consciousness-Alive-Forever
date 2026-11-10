@@ -1,0 +1,139 @@
+{
+  "prereg": {
+    "schema": "residual-with-adhesion-B5/1",
+    "question": "B4 showed grip helps but the controllers were trained without it. If the residual is trained WITH the declared normal adhesion present, can per-leg material slip reach 0.5 while support and height stay acceptable?",
+    "environment": "identical to residual v2 except the declared normal adhesion channel is active during training as well: A = 0.5 W per loaded leg, shared across that leg's contacts, applied every 0.5 ms, only when normal load > 0.1 W",
+    "unchanged": [
+      "base network MODEL_MEASURED",
+      "reward definition (per-leg slip hinge at 0.35 plus stance foot-speed penalty)",
+      "action space (six tibia, +-0.003 rad/tick)",
+      "curriculum targets 0.05/0.12/0.20/0.30",
+      "level gates",
+      "acceptance thresholds",
+      "frozen body XML"
+    ],
+    "budget": "16 updates at the first curriculum level (v=0.05) only, then evaluation with adhesion ON and OFF",
+    "labelling": "any pass here is a derived-channel pass and does NOT change the frozen-body status, which remains unaccepted",
+    "failure_rule": "if slip stays above 0.5 with adhesion ON after the allocated updates, the negative result is reported and no weight, cap or threshold is changed"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/MODEL_MEASURED.npz",
+    "sha256": "7e7fa4197bcf4a4f4eddc1afd8418b0fc290c9ca1daa44df9ebaeaad859652ec"
+  },
+  "action_joints": [
+    6,
+    13,
+    20,
+    27,
+    34,
+    41
+  ],
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.016596768460792045,
+        "foot_support_mean": 3.500823388863844,
+        "foot_support_min": 3.424565292780316,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 0.9733343108851102,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 3.4482434195224685,
+          "LH": 6.499408332839004,
+          "LM": 9.42362490089224,
+          "RF": 3.3294140079810726,
+          "RH": 8.012364173585503,
+          "RM": 6.5739563801202845
+        },
+        "slip_ratio_max": 9.42362490089224,
+        "slip_ratio_mean": 6.214501869156762,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": false
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.3278196222431149,
+    "foot_support_mean": 3.385937611011861,
+    "foot_support_min": 3.257420671723101,
+    "nonfoot_force_max_W": 27.98361389276934,
+    "com_height_min": 0.6543712596023398,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.5740347834222376,
+      "LH": 0.9704309809716982,
+      "LM": 0.7164662833409035,
+      "RF": 0.7009322452740026,
+      "RH": 1.346132383024414,
+      "RM": 1.084711327478058
+    },
+    "slip_ratio_max": 1.346132383024414,
+    "slip_ratio_mean": 0.8987846672518858,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 210534400,
+  "wall_s": 301.0719449520111,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/MODEL_RESIDUAL_V3.npz",
+    "sha256": "6679f587622753244b41a76ddd806a711840c3c759a2b701142e0e597870fa7b"
+  }
+}

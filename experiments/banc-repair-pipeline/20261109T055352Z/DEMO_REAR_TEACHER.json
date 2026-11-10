@@ -1,0 +1,1128 @@
+{
+  "label": "state triggered teacher (raise to measured clearance, swing holding height)",
+  "metric": "acceptance definition: advance counted only while the pad is above the placement height",
+  "per_config": {
+    "clear=0.04,swing=60": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16082958993110788,
+          "air_advance": 0.1150815836817417,
+          "whole_advance": 0.1150815836817417,
+          "airborne_ticks": 43,
+          "final_load": 0.2553368482320163,
+          "final_padz": -0.02640394770631784,
+          "support_min": 0.9669452164672991,
+          "com_min": 1.2696420775950952,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.04604805269361632,
+          "air_advance": 0.0,
+          "whole_advance": 0.518313402374524,
+          "airborne_ticks": 23,
+          "final_load": 0.7110272677761835,
+          "final_padz": -0.059656774460489635,
+          "support_min": 0.9467723007033368,
+          "com_min": 1.071775976453361,
+          "nonfoot_max": 0.7625253700720609,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.05831060608693184,
+          "air_advance": 0.2730559137894569,
+          "whole_advance": 0.2791302157150128,
+          "airborne_ticks": 15,
+          "final_load": 0.6136469060679207,
+          "final_padz": -0.07456607135120033,
+          "support_min": 0.9574372651652424,
+          "com_min": 1.226257062449746,
+          "nonfoot_max": 2.1007840119496555,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.15874912655678158,
+          "air_advance": 0.14608954509610128,
+          "whole_advance": 0.14608954509610128,
+          "airborne_ticks": 37,
+          "final_load": 0.5314921944116932,
+          "final_padz": -0.032854859315363354,
+          "support_min": 0.9805297897873099,
+          "com_min": 1.270317453342091,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.05984301337303303,
+          "air_advance": 0.0,
+          "whole_advance": 0.6428781289714818,
+          "airborne_ticks": 40,
+          "final_load": 0.4384208131289515,
+          "final_padz": -0.04511302445578951,
+          "support_min": 0.9819895821431334,
+          "com_min": 1.1105713264870565,
+          "nonfoot_max": 0.76512724316719,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.0345936854688359,
+          "air_advance": 0.0,
+          "whole_advance": 0.19985995531077558,
+          "airborne_ticks": 12,
+          "final_load": 0.6796006494167208,
+          "final_padz": -0.060447209695345484,
+          "support_min": 0.9426064474838568,
+          "com_min": 1.1991869638579935,
+          "nonfoot_max": 0.7099761168035983,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.04,swing=90": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16082958993110788,
+          "air_advance": 0.1150815836817417,
+          "whole_advance": 0.1150815836817417,
+          "airborne_ticks": 43,
+          "final_load": 0.21884010666261242,
+          "final_padz": -0.018956943096555247,
+          "support_min": 0.9669452164672991,
+          "com_min": 1.2643011040734744,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.04604805269361632,
+          "air_advance": 0.0,
+          "whole_advance": 0.3274736298139751,
+          "airborne_ticks": 23,
+          "final_load": 0.43293310379819927,
+          "final_padz": -0.04350100589019013,
+          "support_min": 1.0000172197860664,
+          "com_min": 1.060218107039724,
+          "nonfoot_max": 0.7625253700720609,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.05831060608693184,
+          "air_advance": 0.2730559137894569,
+          "whole_advance": 0.28426478130348143,
+          "airborne_ticks": 15,
+          "final_load": 0.5220239290951412,
+          "final_padz": -0.06432671734112076,
+          "support_min": 0.9572328193661019,
+          "com_min": 1.2196090436061928,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.15874912655678158,
+          "air_advance": 0.14608954509610128,
+          "whole_advance": 0.14608954509610128,
+          "airborne_ticks": 37,
+          "final_load": 0.27715613723197857,
+          "final_padz": -0.023589474070046877,
+          "support_min": 0.9743191699499592,
+          "com_min": 1.2591474837485723,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.05984301337303303,
+          "air_advance": 0.0,
+          "whole_advance": 0.29169052737245127,
+          "airborne_ticks": 40,
+          "final_load": 0.7078152756161129,
+          "final_padz": -0.07319581418931362,
+          "support_min": 0.9883854648233797,
+          "com_min": 1.0948608828367428,
+          "nonfoot_max": 0.76512724316719,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.0345936854688359,
+          "air_advance": 0.0,
+          "whole_advance": 0.19998468568962496,
+          "airborne_ticks": 12,
+          "final_load": 0.41951615448718815,
+          "final_padz": -0.04059863272006373,
+          "support_min": 0.9400933927844345,
+          "com_min": 1.196945315275872,
+          "nonfoot_max": 0.7099761168035983,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.04,swing=120": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16082958993110788,
+          "air_advance": 0.1150815836817417,
+          "whole_advance": 0.12466508997164616,
+          "airborne_ticks": 43,
+          "final_load": 0.48744147155434603,
+          "final_padz": -0.029383111766660162,
+          "support_min": 0.9669452164672991,
+          "com_min": 1.2567187424241535,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.04604805269361632,
+          "air_advance": 0.0,
+          "whole_advance": 0.04108434332443345,
+          "airborne_ticks": 23,
+          "final_load": 0.6976342659297285,
+          "final_padz": -0.07180551514766173,
+          "support_min": 0.988438103068951,
+          "com_min": 1.0494807487925066,
+          "nonfoot_max": 0.7625253700720609,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.05831060608693184,
+          "air_advance": 0.2730559137894569,
+          "whole_advance": 0.28864125708683597,
+          "airborne_ticks": 15,
+          "final_load": 0.3697838809477591,
+          "final_padz": -0.035679236943486715,
+          "support_min": 0.9560619543898723,
+          "com_min": 1.2127454945365668,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.15874912655678158,
+          "air_advance": 0.14608954509610128,
+          "whole_advance": 0.14608954509610128,
+          "airborne_ticks": 37,
+          "final_load": 0.5423251689450033,
+          "final_padz": -0.03131384868132934,
+          "support_min": 0.9805297897873099,
+          "com_min": 1.2551831881087812,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.05984301337303303,
+          "air_advance": 0.0,
+          "whole_advance": 0.0,
+          "airborne_ticks": 40,
+          "final_load": 0.5977060757265585,
+          "final_padz": -0.053243871455952385,
+          "support_min": 0.9883854648233797,
+          "com_min": 1.0761813501152355,
+          "nonfoot_max": 0.76512724316719,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.0345936854688359,
+          "air_advance": 0.0,
+          "whole_advance": 0.2067816467082486,
+          "airborne_ticks": 12,
+          "final_load": 0.6901556360988569,
+          "final_padz": -0.06232861793765495,
+          "support_min": 0.9676277199301164,
+          "com_min": 1.187698597619444,
+          "nonfoot_max": 0.7099761168035983,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.08,swing=60": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16863286842861705,
+          "air_advance": 0.12062289703797746,
+          "whole_advance": 0.12062289703797746,
+          "airborne_ticks": 45,
+          "final_load": 0.22440029558267421,
+          "final_padz": -0.020138318518700467,
+          "support_min": 0.966837326061548,
+          "com_min": 1.2686192220988552,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.10862074975461272,
+          "air_advance": 0.6912599120653045,
+          "whole_advance": 0.6912599120653045,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.10792196064142576,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.11885372947750533,
+          "air_advance": 0.3358926992130862,
+          "whole_advance": 0.3358926992130862,
+          "airborne_ticks": 79,
+          "final_load": 0.5742083813360259,
+          "final_padz": -0.07160479206710335,
+          "support_min": 0.9570075632485712,
+          "com_min": 1.2038832983533343,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.16551261483167581,
+          "air_advance": 0.15317527844444634,
+          "whole_advance": 0.15317527844444634,
+          "airborne_ticks": 42,
+          "final_load": 0.4546380464160606,
+          "final_padz": -0.021366611568202486,
+          "support_min": 0.9612717134899034,
+          "com_min": 1.2610503264498232,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.10050379238062165,
+          "air_advance": 0.0,
+          "whole_advance": 0.5117512144770004,
+          "airborne_ticks": 49,
+          "final_load": 0.4804977619960328,
+          "final_padz": -0.06133076647683277,
+          "support_min": 0.9861371910261929,
+          "com_min": 1.0904486081414955,
+          "nonfoot_max": 0.7667458726053078,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.10644376328034444,
+          "air_advance": 0.0,
+          "whole_advance": 0.2162755027933224,
+          "airborne_ticks": 58,
+          "final_load": 0.6993924100902013,
+          "final_padz": -0.064202894363702,
+          "support_min": 0.9426089835446412,
+          "com_min": 1.159161653154685,
+          "nonfoot_max": 0.7110293469737347,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.08,swing=90": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16863286842861705,
+          "air_advance": 0.12062289703797746,
+          "whole_advance": 0.12062289703797746,
+          "airborne_ticks": 45,
+          "final_load": 0.4471045981345265,
+          "final_padz": -0.020869128329809368,
+          "support_min": 0.966837326061548,
+          "com_min": 1.2638413114949858,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.10862074975461272,
+          "air_advance": 0.6912599120653045,
+          "whole_advance": 0.6912599120653045,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.10792196064142576,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.11885372947750533,
+          "air_advance": 0.3358926992130862,
+          "whole_advance": 0.33813990714014325,
+          "airborne_ticks": 79,
+          "final_load": 0.38108702099148234,
+          "final_padz": -0.03733814391971089,
+          "support_min": 0.9562497581686593,
+          "com_min": 1.1951864892801514,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.16551261483167581,
+          "air_advance": 0.15317527844444634,
+          "whole_advance": 0.15317527844444634,
+          "airborne_ticks": 42,
+          "final_load": 0.2811263350982058,
+          "final_padz": -0.02318845296908844,
+          "support_min": 0.9803526880391547,
+          "com_min": 1.2578931959750825,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.10050379238062165,
+          "air_advance": 0.0,
+          "whole_advance": 0.12981826734082458,
+          "airborne_ticks": 49,
+          "final_load": 0.6512521046167417,
+          "final_padz": -0.0691539431892765,
+          "support_min": 0.9809218485812217,
+          "com_min": 1.0603636806529,
+          "nonfoot_max": 0.7667458726053078,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.10644376328034444,
+          "air_advance": 0.0,
+          "whole_advance": 0.22206702013945362,
+          "airborne_ticks": 58,
+          "final_load": 0.6487357632515559,
+          "final_padz": -0.05577738035540481,
+          "support_min": 0.934654398158853,
+          "com_min": 1.1458086531063152,
+          "nonfoot_max": 0.7110293469737347,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.08,swing=120": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.16863286842861705,
+          "air_advance": 0.12062289703797746,
+          "whole_advance": 0.12861899391191722,
+          "airborne_ticks": 45,
+          "final_load": 0.4336258098244062,
+          "final_padz": -0.01943590224571074,
+          "support_min": 0.966837326061548,
+          "com_min": 1.2571899628095415,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.10862074975461272,
+          "air_advance": 0.6912599120653045,
+          "whole_advance": 0.6912599120653045,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.10792196064142576,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.11885372947750533,
+          "air_advance": 0.3358926992130862,
+          "whole_advance": 0.3456623160724959,
+          "airborne_ticks": 79,
+          "final_load": 0.33809518424612983,
+          "final_padz": -0.032366499282415966,
+          "support_min": 0.9543932999693147,
+          "com_min": 1.188731694393424,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.16551261483167581,
+          "air_advance": 0.15317527844444634,
+          "whole_advance": 0.15317527844444634,
+          "airborne_ticks": 42,
+          "final_load": 0.28153824576339986,
+          "final_padz": -0.02378014121022399,
+          "support_min": 0.9803526880391547,
+          "com_min": 1.2549384425173737,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.10050379238062165,
+          "air_advance": 0.0,
+          "whole_advance": 0.0,
+          "airborne_ticks": 49,
+          "final_load": 0.5919566849695004,
+          "final_padz": -0.06341501768953739,
+          "support_min": 0.9861371910261929,
+          "com_min": 1.0372040320349472,
+          "nonfoot_max": 0.8223008900547655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.10644376328034444,
+          "air_advance": 0.0,
+          "whole_advance": 0.17902793723219057,
+          "airborne_ticks": 58,
+          "final_load": 0.6545853932029574,
+          "final_padz": -0.059640725123657014,
+          "support_min": 0.9770833468317316,
+          "com_min": 1.1405719297837595,
+          "nonfoot_max": 0.7110293469737347,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.15,swing=60": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.18381632034150455,
+          "air_advance": 0.13389047109013963,
+          "whole_advance": 0.13389047109013963,
+          "airborne_ticks": 53,
+          "final_load": 0.24729637355195797,
+          "final_padz": -0.02469966951146519,
+          "support_min": 0.9666811125152728,
+          "com_min": 1.2706821526704999,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.11726229488764478,
+          "air_advance": 0.6952535522861334,
+          "whole_advance": 0.6952535522861334,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.11656350577445782,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.17161998510771062,
+          "air_advance": 0.392414717227556,
+          "whole_advance": 0.392414717227556,
+          "airborne_ticks": 97,
+          "final_load": 0.71760855856041,
+          "final_padz": -0.06845443284019756,
+          "support_min": 0.954170796066757,
+          "com_min": 1.1950334581913202,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.17265542533649306,
+          "air_advance": 0.1635852317548916,
+          "whole_advance": 0.1635852317548916,
+          "airborne_ticks": 54,
+          "final_load": 0.5469359893182799,
+          "final_padz": -0.03831547053586009,
+          "support_min": 0.9529521422692296,
+          "com_min": 1.2573045286270659,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.16451698083979355,
+          "air_advance": 0.0,
+          "whole_advance": 0.3012835448020259,
+          "airborne_ticks": 59,
+          "final_load": 0.45212863438578116,
+          "final_padz": -0.06588293909187642,
+          "support_min": 0.9709534026330652,
+          "com_min": 1.0408833915602291,
+          "nonfoot_max": 1.022021210300912,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.15855294835196754,
+          "air_advance": 0.0,
+          "whole_advance": 0.21696306294092585,
+          "airborne_ticks": 97,
+          "final_load": 0.6692074722332013,
+          "final_padz": -0.06250850772534067,
+          "support_min": 0.9774252735674301,
+          "com_min": 1.1340884489956358,
+          "nonfoot_max": 0.8276610660261601,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.15,swing=90": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.18381632034150455,
+          "air_advance": 0.13389047109013963,
+          "whole_advance": 0.13389047109013963,
+          "airborne_ticks": 72,
+          "final_load": 0.2177328108356102,
+          "final_padz": -0.018714511039194824,
+          "support_min": 0.9666811125152728,
+          "com_min": 1.260671670379474,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.11726229488764478,
+          "air_advance": 0.6952535522861334,
+          "whole_advance": 0.6952535522861334,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.11656350577445782,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.17161998510771062,
+          "air_advance": 0.392414717227556,
+          "whole_advance": 0.392414717227556,
+          "airborne_ticks": 119,
+          "final_load": 0.3876595524995201,
+          "final_padz": -0.038566776661725,
+          "support_min": 0.9561114265692695,
+          "com_min": 1.1836192792460225,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.17265542533649306,
+          "air_advance": 0.1635852317548916,
+          "whole_advance": 0.1635852317548916,
+          "airborne_ticks": 66,
+          "final_load": 0.5628503797616216,
+          "final_padz": -0.03712011144512616,
+          "support_min": 0.975413671301167,
+          "com_min": 1.2539174137520954,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.16451698083979355,
+          "air_advance": 0.0,
+          "whole_advance": 0.0,
+          "airborne_ticks": 59,
+          "final_load": 0.5807962283048248,
+          "final_padz": -0.04133462166781441,
+          "support_min": 0.9813488884226382,
+          "com_min": 0.9961194056840188,
+          "nonfoot_max": 1.4488475907671567,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": false
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.15855294835196754,
+          "air_advance": 0.0,
+          "whole_advance": 0.20488518218310023,
+          "airborne_ticks": 99,
+          "final_load": 0.6347931744606061,
+          "final_padz": -0.06151787122807575,
+          "support_min": 0.9774252735674301,
+          "com_min": 1.1276884977238724,
+          "nonfoot_max": 0.9698966043718946,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    },
+    "clear=0.15,swing=120": {
+      "n_passed": 3,
+      "passed_legs": [
+        "LF",
+        "LM",
+        "RF"
+      ],
+      "per_leg": {
+        "LF": {
+          "rise": 0.18381632034150455,
+          "air_advance": 0.13389047109013963,
+          "whole_advance": 0.13650695715406136,
+          "airborne_ticks": 74,
+          "final_load": 0.2190541300034308,
+          "final_padz": -0.01808840038508392,
+          "support_min": 0.9666811125152728,
+          "com_min": 1.2555408964666077,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "LH": {
+          "rise": 0.11726229488764478,
+          "air_advance": 0.6952535522861334,
+          "whole_advance": 0.6952535522861334,
+          "airborne_ticks": 50,
+          "final_load": 0.0,
+          "final_padz": 0.11656350577445782,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": false,
+            "safe": false
+          },
+          "passed": false
+        },
+        "LM": {
+          "rise": 0.17161998510771062,
+          "air_advance": 0.392414717227556,
+          "whole_advance": 0.392414717227556,
+          "airborne_ticks": 136,
+          "final_load": 0.3053795503440657,
+          "final_padz": -0.030837786780679964,
+          "support_min": 0.9539859826543905,
+          "com_min": 1.1813284240250492,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RF": {
+          "rise": 0.17265542533649306,
+          "air_advance": 0.1635852317548916,
+          "whole_advance": 0.1635852317548916,
+          "airborne_ticks": 66,
+          "final_load": 0.5778948604604113,
+          "final_padz": -0.04611108116205712,
+          "support_min": 0.9550478644015126,
+          "com_min": 1.2477108494746663,
+          "nonfoot_max": 0.0,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": true,
+            "place": true,
+            "safe": true
+          },
+          "passed": true
+        },
+        "RH": {
+          "rise": 0.16451698083979355,
+          "air_advance": 0.0,
+          "whole_advance": 0.0,
+          "airborne_ticks": 59,
+          "final_load": 0.5528548595687752,
+          "final_padz": -0.0550868903096231,
+          "support_min": 0.974302966998945,
+          "com_min": 0.9679007629075043,
+          "nonfoot_max": 2.054158174434681,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": false
+          },
+          "passed": false
+        },
+        "RM": {
+          "rise": 0.15855294835196754,
+          "air_advance": 0.0,
+          "whole_advance": 0.09716827824054058,
+          "airborne_ticks": 99,
+          "final_load": 0.5689193454848609,
+          "final_padz": -0.05102265722108997,
+          "support_min": 0.9541697976414006,
+          "com_min": 1.1214392049223854,
+          "nonfoot_max": 0.9698966043718946,
+          "criteria": {
+            "unload": true,
+            "lift": true,
+            "advance": false,
+            "place": true,
+            "safe": true
+          },
+          "passed": false
+        }
+      }
+    }
+  },
+  "best": "clear=0.04,swing=60",
+  "best_n": 3,
+  "best_config": {
+    "clear": 0.04,
+    "swing_ticks": 60
+  }
+}

@@ -1,0 +1,16 @@
+{
+ "version":"measured-shape-quasistatic-wave-v1",
+ "goal":"S2/S5 establish actual cyclic physical walking teacher before ANN imitation",
+ "parents":["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T065819Z","/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T070618Z"],
+ "basis":"fixedprivateFK removedfastroot-chasingcollapse; swingpreloadreleaseenabledmorelegs,butparallelrealgaittimingstilltipsbody whenstretchedto2rad/s; static5-leg supportpolygoncontainsCOMwithmargin>=.27native",
+ "reference":"verifiedofficialselectedclip054; individualpositiveforwardcomplete-swingcurves extracted,sourcedindices/hashpreserved; no invented sincurve",
+ "retiming":"ONE leg swingatime, legorder fromfirstvalid measuredpeak; thisis explicitquasistaticadaptation, NOT unchanged biologicaltiming. Onlyteacheruses phase/order; no deployednetworkphaseinput",
+ "kinematics":"stride.36nativepercompletewavecycle,eachphaseallbodyrelativefeetxbackstride/6 whileactivelegforwardstride*measuredprogress; aftersixphasesallrelativefootplacementoffsetsreturn0, so rootadvancement must come from stancecontact",
+ "physical":"same noadhderivedfullbody, originalmass/gravity/friction/PD/2rad/s/torquelimits/12.5usphysics/1msactuator; privateinitialroot only forIKcomputation,actualrootfree",
+ "conditions":[{"name":"wave_fast","step_s":0.8,"cycles":2,"height_gain":0,"orientation_gain":0},{"name":"wave_slow_support","step_s":1.2,"cycles":1,"height_gain":1,"orientation_gain":0}],
+ "common":"settle1s,measuredshapefootlift.12native,stride.36,tau.1,ridge.01,swingsmoothpreloadreleaseat.05height,teacher5msheld1ms",
+ "prediction":"idealbodyforward .075/.05native/s respectively; actualrate andgates aremeasured,notassumed",
+ "checks":"referenceextractionproof,legmapping,continuousphaseboundarypositions,cycleoffsetreturn0,analyticvelocities,oneairlegmax,boundedactions,actualstateunchangedbycontroller",
+ "measurement":"1ms completebody/contact/legheight/targets,strictcyclecounts,COM/slip/forward,rate/torqueclips; no rootmotionwrites. StopCOM<1/nonfoot>.2W or numericalwarning",
+ "decision":"safeactualcyclicsupportandpropulsion requiredbeforeusingaswalkingteacher; reportpartialevents/failures withoutcallingbodyimpossible. Fulloriginalnativeacceptance/video stillseparate"
+}

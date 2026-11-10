@@ -1,0 +1,8 @@
+{
+  "status": "failed_identity_verification",
+  "exit_code": 1,
+  "job_id": "bash-6",
+  "reason": "identity capture included all root Python files, including concurrently developed recurrent.py; its SHA-256 changed during collection. The collecting process did not import recurrent.py, but strict provenance verification correctly rejected the run.",
+  "artifacts": "IDENTITY.json and this failure report retained. Invalid-run sequences.npz SHA256 8ddc2e358f5e5770706a2e36488e68143f1c98a97ece2391cd15f8c362fdacec was confirmed byte-identical to accepted distill_sequences_v2/sequences.npz and duplicate removed; no DATASET.json published for this failed run; only accepted-v2 identity chain may be used for training",
+  "next_action": "wait for recurrent/curriculum source freeze then rerun collection in a new directory; do not modify active baseline identity.py"
+}

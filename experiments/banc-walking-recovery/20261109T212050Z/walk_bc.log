@@ -1,0 +1,16 @@
+collecting gait data
+data (24000, 495) (24000, 42)
+bc step    0 mse 0.15083
+bc step  500 mse 0.01180
+bc step 1000 mse 0.00810
+bc step 1500 mse 0.00713
+bc step 2000 mse 0.00567
+bc step 2500 mse 0.00615
+{"bc_final_mse": 0.0049177002901110625, "eval_after_bc": {"forward_signed_native_per_s": -0.0765, "foot_support_mean": 1.6619, "foot_support_min": 0.9436, "nonfoot_force_max_W": 0.0, "com_height_min": 1.2988, "slip_ratio_max": 7.4697}, "gates_after_bc": {"support": true, "nonfoot": true, "com": true, "forward": false, "slip": false}}
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261109T212050Z/walk_ppo_bc.py", line 145, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261109T212050Z/walk_ppo_bc.py", line 108, in main
+    core.reset(); prev = float(core.d.subtree_com[core.th][0])
+    ^^^^
+NameError: name 'core' is not defined. Did you mean: 'curve'?

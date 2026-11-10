@@ -1,0 +1,10 @@
+{
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/build_foundation.py\", line 142, in <module>\n    try:main()\n        ^^^^^^\n  File \"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/build_foundation.py\", line 68, in main\n    assert np.array_equal(times,oldtimes) and np.array_equal(train,(times>=.2)&(times<6.)) and train.sum()==1160\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "ledger": {
+    "completed_neural_steps": 2030,
+    "physical_steps": 0,
+    "optimizer_updates": 0,
+    "basis_SVD_factorizations": 0
+  }
+}

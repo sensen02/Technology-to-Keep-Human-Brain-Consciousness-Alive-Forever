@@ -1,0 +1,45 @@
+{
+  "run_family": "20261110T045410Z",
+  "goal": "S2/S5 full-body physical walking; implementation stage 0 then corrected FF baseline",
+  "protocol": "/run/media/sensen/Data2/cell_wound_prototype/WALKING_RESEARCH_PROTOCOL.zh-CN.md",
+  "plan": "/run/media/sensen/Data2/cell_wound_prototype/WALKING_MODEL_TRAINING_PLAN.zh-CN.md",
+  "control_source": "replacement ANN; derived triad-pad body and declared adhesion, not original connectome or frozen-body acceptance",
+  "legacy_weights": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261109T212050Z/WALK_MODEL_best.npz",
+  "legacy_sources": {
+    "repair_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/repair_core.py",
+    "actuator": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py",
+    "sensory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T091243Z/proprioception.py"
+  },
+  "environment": {
+    "python": "CPython3.12 matching existing physics environment",
+    "base_physics_dependencies": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages",
+    "isolation": "new venv writes only its own site-packages; original physics dependencies referenced read-only by .pth and identity tracked",
+    "torch": "2.5.1+cpu",
+    "physical_substep_s": 0.0000125,
+    "actuator_period_s": 0.001,
+    "friction": 1.5,
+    "adhesion_per_loaded_leg_weight_fraction": 0.25
+  },
+  "implementation_exit": [
+    "actual PPO finite differences actor/critic/std with multiple batch sizes and clipping",
+    "terminal/time-limit GAE, optimizer+parameter exact rollback, RNG-complete checkpoint reload",
+    "old/new same deterministic actions trajectory/contact comparison",
+    "pure observation repeat calls and native chunk recording verification",
+    "legacy checkpoint independent evaluate and per-metric comparison"
+  ],
+  "first_short_training": {
+    "initial_policy": "saved legacy best update9; not BC checkpoint (not preserved)",
+    "architecture": "ff495 legacy-compatible actor/critic",
+    "seed": 20261110,
+    "policy_period_s": 0.001,
+    "complete_episode_s": 2.0,
+    "rollout_simulated_s": 8.0,
+    "updates": 3,
+    "reward": "legacy current source definition for corrected-learning baseline, explicitly not gate-equivalent; no new performance claim",
+    "exploration": "preserve initial checkpoint std for baseline; exploration changes separate later experiment",
+    "decision": "after implementation checks, short diagnostics and saved-weight independent replay; no automatic hours-long run"
+  },
+  "failure_handling": "stop dependent training on numerical warning, inconsistent identities, failed checks or write error; diagnose then create new run for changed config",
+  "acceptance": "report historical five engineering gates separately; full original roadmap D1-D8 and continuous prewarm-to-autonomous video remain required and unachieved",
+  "artifacts": "source/assets/environment manifest, learning and physics checks, every update checkpoint plus full optimizer/RNG, evaluation by checkpoint hash, native-recording chunks for verification"
+}

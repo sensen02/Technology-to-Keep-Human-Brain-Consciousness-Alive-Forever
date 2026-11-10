@@ -1,0 +1,7 @@
+import subprocess,sys,json,hashlib
+from pathlib import Path
+D=Path(__file__).parent;R=Path('/home/sensen/Desktop/engine修复验收/s5-actuator-descending/20261106T161620Z');O=R/'dt_convergence/20261106T213030Z';O.mkdir(parents=True,exist_ok=True);assert not (O/'PREREGISTRATION.json').exists()
+old=D/'gravity_body_20261106T201513Z.py';new=D/'dt_convergence_20261106T213030Z.py'
+p=dict(importance='核心必需',stage='A step-size triage',gravity_fraction=.1,full_gravity=[0,0,-9801],dt_ms=[.00390625,.0078125,.015625],velocity_rad_s=[0,-.1,.1],conditions=['normal','sensory_cut'],additional_zero_output='zero velocity only',physical_runs=21,question='do normal/cut disturbance IAE ratios converge as dt refines at the failing .1 load?',reference_prior='known .015625->.0078125 went from1.028 to12.72, i.e. worse when refined',criterion='report the three-step sequence per direction without selecting a preferred step; convergence only if successive ratios differ by a declared tolerance, otherwise record non-convergence and treat the failure as loop-level, not discretization',change_ledger=dict(old_file=str(old),old_sha256=hashlib.sha256(old.read_bytes()).hexdigest(),new_file=str(new),new_sha256=hashlib.sha256(new.read_bytes()).hexdigest(),reason='add third finer step and fix gravity at .1; all frozen neural/readout/tendon parameters unchanged'))
+(O/'PREREGISTRATION.json').write_text(json.dumps(p,ensure_ascii=False,indent=2)+'\n')
+for vel in ['0','-.1','.1']:subprocess.run([sys.executable,'-B',str(new),vel],check=True)

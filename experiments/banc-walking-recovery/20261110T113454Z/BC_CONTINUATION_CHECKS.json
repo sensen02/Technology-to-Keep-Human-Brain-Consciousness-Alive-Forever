@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "PREREG fixed parent exists before source capture",
+      "passed": true
+    },
+    {
+      "name": "real parent read-only preflight global step 1000",
+      "passed": true
+    },
+    {
+      "name": "real parent BC Adam all bias counters 1000",
+      "passed": true
+    },
+    {
+      "name": "real parent all Adam IDs/moments/hyperparameters exactly restored",
+      "passed": true
+    },
+    {
+      "name": "real parent python/numpy/torch RNG exactly restored",
+      "passed": true
+    },
+    {
+      "name": "real parent critic/std exactly loaded without update",
+      "passed": true
+    },
+    {
+      "name": "real parent physical H and transform unchanged",
+      "passed": true
+    },
+    {
+      "name": "real parent independent empty PPO states",
+      "passed": true
+    },
+    {
+      "name": "real parent exact initial fullbatch train/heldout MSE",
+      "passed": true
+    },
+    {
+      "name": "real parent measured loss consumes no RNG",
+      "passed": true
+    },
+    {
+      "name": "CLI scope accepts checked original task",
+      "passed": true
+    },
+    {
+      "name": "CLI scope rejects different frozen dataset",
+      "passed": true
+    },
+    {
+      "name": "CLI scope rejects unrelated parent ancestry",
+      "passed": true
+    },
+    {
+      "name": "independent identical-seed two-step actor path exactly reproducible",
+      "passed": true
+    },
+    {
+      "name": "independent identical-seed Adam moments/counters reproducible",
+      "passed": true
+    },
+    {
+      "name": "independent identical-seed RNG reproducible",
+      "passed": true
+    },
+    {
+      "name": "all actor parameters including inhibitory gain trained",
+      "passed": true
+    },
+    {
+      "name": "two synthetic updates leave critic/std bitexact",
+      "passed": true
+    },
+    {
+      "name": "full checkpoint captures current python/numpy/torch RNG",
+      "passed": true
+    },
+    {
+      "name": "full checkpoint fresh PPO states independent of BC Adam",
+      "passed": true
+    },
+    {
+      "name": "shared production build_resume restores step-two Adam without reset",
+      "passed": true
+    },
+    {
+      "name": "shared production build_resume restores every RNG after perturbation",
+      "passed": true
+    },
+    {
+      "name": "next independent random draws match direct path",
+      "passed": true
+    },
+    {
+      "name": "direct-vs-reloaded next update actor weights bitexact",
+      "passed": true
+    },
+    {
+      "name": "direct-vs-reloaded entire model bitexact",
+      "passed": true
+    },
+    {
+      "name": "direct-vs-reloaded Adam moments/counters/IDs bitexact",
+      "passed": true
+    },
+    {
+      "name": "direct-vs-reloaded Adam bias counters advance 2 to 3",
+      "passed": true
+    },
+    {
+      "name": "direct-vs-reloaded post-update RNG bitexact",
+      "passed": true
+    },
+    {
+      "name": "continued critic/std unchanged",
+      "passed": true
+    },
+    {
+      "name": "continued PPO remains fresh and independent",
+      "passed": true
+    },
+    {
+      "name": "wave_bc continuation checkpoint supports another exact resume",
+      "passed": true
+    },
+    {
+      "name": "reject_non_wave_bc_parent",
+      "passed": true
+    },
+    {
+      "name": "reject_BC_Adam_counter_curve_mismatch",
+      "passed": true
+    },
+    {
+      "name": "reject_missing_BC_Adam_moments",
+      "passed": true
+    },
+    {
+      "name": "reject_BC_Adam_parameter_ID_change",
+      "passed": true
+    },
+    {
+      "name": "reject_dataset_hash_tamper",
+      "passed": true
+    },
+    {
+      "name": "reject_embedded_dataset_metadata_tamper",
+      "passed": true
+    },
+    {
+      "name": "reject_BC_lr_override",
+      "passed": true
+    },
+    {
+      "name": "reject_architecture_override",
+      "passed": true
+    },
+    {
+      "name": "reject_missing_global_curve_entries",
+      "passed": true
+    },
+    {
+      "name": "reject_episode_data_digest_tamper_even_with_new_metadata_hash",
+      "passed": true
+    },
+    {
+      "name": "reject_manifest_digest_tamper",
+      "passed": true
+    },
+    {
+      "name": "valid source closure accepted before tamper",
+      "passed": true
+    },
+    {
+      "name": "reject_changed_source_bytes_under_valid_manifest",
+      "passed": true
+    },
+    {
+      "name": "valid parent checkpoint closure accepted before tamper",
+      "passed": true
+    },
+    {
+      "name": "reject_changed_parent_checkpoint_bytes",
+      "passed": true
+    },
+    {
+      "name": "real parent checkpoint remains untouched",
+      "passed": true
+    },
+    {
+      "name": "checked sources/PREREG remain fixed throughout checks",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/student_wave.py": "58971252b44da48031e2957199eff01f48a86d520f20f949edf71197b027cba9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/models.py": "6defadee475863001f707df02e01b934001fd09996edfcc6412dd42ea19c53d3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/continue_bc.py": "9b52434608079556d4f1b4bc792cfec4d60329bb33d3a57e910c73845ff2ab2a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/check_continue_bc.py": "dbbc737850caf4e350eee4f8ef815af15fca41e8af39e046aeb298a90a483476",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/PREREG.json": "0eab18fde1d0529a34e6b07f8b8bc30ef1dfb288ee2ffc0589f634f1d0bad122"
+  },
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+  "parent_checkpoint_sha256": "60cfe5670604688fcb9e8aef01dbe23bb4e772116ef0ed7f3c4af703386b018b",
+  "parent_bc_config": {
+    "mode": "bc",
+    "out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000",
+    "dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET",
+    "architecture": "ff238",
+    "steps": 1000,
+    "lr": 0.001,
+    "seed": 20261110,
+    "allow_failed_teacher_episodes": false
+  },
+  "dataset_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094051Z/SMOOTH_DATASET/DATASET.json",
+  "dataset_sha256": "9dae9a0b21b8e67bb70585dcf8541b35f16b551a25fffd80ebbd5516d9b0407d",
+  "model_identity": {
+    "architecture": "ff238",
+    "obs_dim": 238,
+    "critic_obs_dim": 255,
+    "logstd_bounds": [
+      -3.0,
+      0.3
+    ],
+    "dtype": "torch.float64",
+    "actor_input_transform": "physical_mlp_plus_trainable_inhibitory_target_v2",
+    "actor_mask_ranges": [
+      [
+        42,
+        84
+      ],
+      [
+        126,
+        168
+      ],
+      [
+        195,
+        237
+      ]
+    ],
+    "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+    "gain_init_version": "native_actuator_halfspan_x10_v1",
+    "gain_init_H": [
+      0.43574999999999997,
+      0.6579,
+      0.3384583060121321,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2190555268149066,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.7458035036806745,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43263502486291344,
+      0.4745269371779961,
+      0.7379067053719459,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2793495780011144,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.9848645841986645,
+      0.73525,
+      1.0125,
+      0.8497330240243897,
+      1.01155
+    ],
+    "gain_init_tau_s": 0.05,
+    "gain_init_rate_rad_s": 2.0,
+    "initialization_prior": "trainable inhibitory -Tposition/H target-position prior; not anatomical",
+    "inhibitory_input_range": [
+      126,
+      168
+    ],
+    "inhibitory_input": "normalized target POSITION Tposition/H; excludes target error",
+    "residual_prior": "-softplus(raw_gain)*Tposition/H; fixed-T q derivative only from physical MLP; no explicit +gain",
+    "residual": "238->128 tanh->128 tanh->42; masked channels have zero drive",
+    "all_actor_weights_trainable": true
+  },
+  "parent_step": 1000,
+  "initial": {
+    "step": 1000,
+    "train_MSE": 0.0009449655069774899,
+    "heldout_MSE": 0.0010069814589149456
+  },
+  "real_parent_optimization_updates": 0,
+  "synthetic_steps_before_save": 2,
+  "synthetic_next_step": 3,
+  "physical_steps": 0,
+  "main_5000_training_executed": false,
+  "threads": 1,
+  "interpretation": "exact resume/identity regression only; does not establish walking"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "FIXED_HYPOTHESIS_ENGINEERING_VERIFIED_NOT_PHYSIOLOGY",
+  "completed_neural_steps": 21212,
+  "net_step_invocations": 21236,
+  "expected_rejected_net_calls": 24,
+  "manual_full_vector_reference_iterations": 632,
+  "manual_scalar_row_checks": 256,
+  "saved_event_reconstruction_iterations": 18170,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "jobs": {
+    "initial_main_runner_parse_failure": "bash206 exit1;0steps;FAILED_FIRST_RUN.json",
+    "main": "bash207 exit0;20570steps",
+    "independent": "bash208 exit0;632steps+24rejectedcalls",
+    "saved_trace": "bash211 exit0;0networksteps",
+    "API_smoke": "10steps;exit0;absolute cwd /"
+  },
+  "frozen_module_sha256": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+  "frozen_config_sha256": "4175359d2725a7300e4e726f0b515fa0cb1efe3d446e712ea01a51428066930a",
+  "source_trace_sha256": "8a73c8a221b0f752e7c53f9e129fcf9747c42dc3ead6209a7ce912f430e70847",
+  "full_final_state_sha256": "24d514b21ca53e0971e97ae92be47c19286264ef027017a32557a04b2ecec4f7",
+  "visual_review": "read_image opened HYPOTHESIS_DIAGNOSTICS.png: allstep voltage bounds, matched prior/new features,6leg recruitment,held timestep plots inspected; no behavior visualization",
+  "prior_artifacts_engine_unchanged": true,
+  "scope": "writes only new workspace/Desktop dynamics; no biology or walking claim"
+}

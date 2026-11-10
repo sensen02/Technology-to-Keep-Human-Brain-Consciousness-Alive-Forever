@@ -1,0 +1,137 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "fast-control/1",
+    "origin": "route 1 of the two the user approved. The open-loop probe shows the actuator can lift a foot (torque demand 11.7 of 14.9) but a three-leg stance collapses immediately, and every trained policy that permits lift ends up with support 0.38-0.58. The suspicion is control latency: the policy only corrects every 5 ms while the native model runs at 12.5 microseconds, so weight transfer may be a real-time problem, not a torque problem.",
+    "change": {
+      "policy_tick": "5 ms -> 1 ms (five times faster correction). One tick is now one 1 ms actuator update plus 80 native steps instead of five updates and 400 steps",
+      "base_network_cadence": "unchanged at 200 Hz: the recorded-imitation base target is refreshed every 5th tick, so the 7-lag history keeps its trained 200 Hz meaning",
+      "rollout_length": "256 ticks -> 1024 ticks, so one rollout still covers about one second of simulated time",
+      "action_authority": "two declared variants: C = 0.01 rad/tick keeps the same 10 rad/s as before, C = 0.02 rad/tick doubles the commanded rate authority",
+      "everything_else": "pad body R=.02, mu=1.5, releasable adhesion A=0.25 body weight, reward v4, 42-joint PPO, gates and evaluation unchanged"
+    },
+    "why_it_counts_as_a_real_route": "control period is a property of the loop, not of the solver; it needs no new body, no new hash and no new physics, and it directly tests the latency hypothesis",
+    "labelling": "derived channel (pad body, friction, releasable adhesion) plus a replacement ANN; not frozen-body acceptance",
+    "accounting": "native steps, wall time, gate checks, and the full evaluation including stance fraction and swing clearance"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "derived pad body r02",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.22643991876580405,
+        "foot_support_mean": 1.291317848864054,
+        "foot_support_min": 0.370926887949409,
+        "nonfoot_force_max_W": 4.564784490462921,
+        "com_height_min": 0.8387610015958615,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 3.241164655304371,
+          "LH": 1.937546626113506,
+          "LM": 1.171162784091645,
+          "RF": 2.9442780003667752,
+          "RH": 3.6977053818880123,
+          "RM": 5.292785989550735
+        },
+        "slip_ratio_max": 5.292785989550735,
+        "slip_ratio_mean": 3.0474405728858405,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.22412322773158083,
+    "foot_support_mean": 1.2923067413022604,
+    "foot_support_min": 0.370926887949409,
+    "nonfoot_force_max_W": 4.3254457625949,
+    "com_height_min": 0.8339484563531042,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 3.054980244030503,
+      "LH": 2.0121348696584542,
+      "LM": 1.1828029582887212,
+      "RF": 2.822164919778425,
+      "RH": 3.8531353009253366,
+      "RM": 5.472500161932598
+    },
+    "slip_ratio_max": 5.472500161932598,
+    "slip_ratio_mean": 3.0662864091023394,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 29621440,
+  "wall_s": 218.02728128433228,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-fast-control/20261109T110000Z/MODEL_fast_x2.npz",
+    "sha256": "6a99cd984f0d52f0526b6ce2c372947ce52a27b3072300c2206553cc2e152dcd"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "phase": "native audit, perturbations and video complete; parent visual/scope review pending",
+  "selected_step": 2500,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+  "checkpoint_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/EVAL_ROLE_2500",
+  "baseline_result_sha256": "ed503cddce079bd4e3156d273472ffd54449e421600a31fb2477a30350aa283b",
+  "native": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500",
+  "physics_launched": true,
+  "full_goal_passed": false,
+  "native_engineering": {
+    "support": true,
+    "nonfoot": true,
+    "com": true,
+    "forward": true,
+    "slip": true
+  },
+  "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500_AUDIT.json",
+  "audit_exit_code": 0,
+  "perturbations": [
+    {
+      "seed": 20261111,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/PERTURB_ROLE_2500_SEED_20261111",
+      "all_gates": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "slip": 0.49269334091673184
+    },
+    {
+      "seed": 20261112,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/PERTURB_ROLE_2500_SEED_20261112",
+      "all_gates": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "slip": 0.494878086356009
+    }
+  ],
+  "video": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500"
+}

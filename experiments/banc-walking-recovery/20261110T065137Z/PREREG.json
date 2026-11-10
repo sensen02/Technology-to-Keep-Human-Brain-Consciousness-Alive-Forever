@@ -1,0 +1,13 @@
+{
+ "version":"first-phase-reference-anchoring-v1",
+ "goal":"S2/S5 test whether initial measured-foot XY footprint rearrangement caused blendcollapse",
+ "parents":["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z","/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T064840Z"],
+ "evidence":"phase0 temporalmean anchoring moved loadedfeet .33-.50native duringblend; allactualvelocityteachercases collapsedbeforeonecycle, targetgeometryhold stable butsamecenteringreferencecollapsed",
+ "changes":"reference subtracts own first smoothedphase XY instead of temporalmean; horizontalamplitude explicitfactor; shadowtargetgeometryteacher only, physicalbody neverforced",
+ "physical":"same full derived noadh body/friction/PD/torquelimit/2rad/s/integration",
+ "conditions":[{"name":"xy025_z025","horizontal_gain":0.25,"vertical_gain":0.25,"height_gain":0},{"name":"xy025_z050","horizontal_gain":0.25,"vertical_gain":0.5,"height_gain":0},{"name":"xy050_z025_h1","horizontal_gain":0.5,"vertical_gain":0.25,"height_gain":1}],
+ "common":"settle1s,blend.5s,source.24s,timewarp10,tau.10s,ridge.01,5msratecommandsheldacross1msupdates; firsttwoisolateverticalamplitude,thirdmultifactorcandidateonly",
+ "bounds":"3conditions2.9sec each,stopCOM<1/nonfoot>.2W,numericalfailure",
+ "measure":"footclearance/load/strictcycles,COM/slip/forward,targetdrift/actualtracking; no teachertransferuntilsafephysicalcycles",
+ "scope":"declaredprivilegedalgorithmteacher,notANN/autonomy/frozenbodyacceptance"
+}

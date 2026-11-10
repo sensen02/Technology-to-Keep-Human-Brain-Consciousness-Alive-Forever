@@ -1,0 +1,237 @@
+{
+  "label": "curriculum proxy sensing checks; not walking proof",
+  "all_passed": true,
+  "check_count": 36,
+  "config": {
+    "weight": 24.446354755878005,
+    "dt": 0.001,
+    "gamma": 0.999000499833375,
+    "loaded": 0.1,
+    "unloaded": 0.05,
+    "ground": 0.004,
+    "clearance": 0.015,
+    "advance": 0.03,
+    "loaded_dwell": 0.01,
+    "unload_dwell": 0.005,
+    "timeout": 0.8,
+    "phi_cap": 0.05,
+    "completion_bonus": 0.1
+  },
+  "leg_order": [
+    "LF",
+    "LH",
+    "LM",
+    "RF",
+    "RH",
+    "RM"
+  ],
+  "api": {
+    "parent": "potential boundary gamma_policy*phi_after-phi_before; terminal after0; completion block lump .1 per complete event",
+    "local": "gamma*phi_next-phi_prev every1ms; finalize correction added same last transition; do not double count parent"
+  },
+  "sources": {
+    "cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "check_cycle_reward.py": "d426c2584c74582c153afdb72373193ef36568116d09fd7ea21298ae1d7e9a7e"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/check_cycle_reward.py": "d426c2584c74582c153afdb72373193ef36568116d09fd7ea21298ae1d7e9a7e"
+  },
+  "checks": [
+    {
+      "name": "stationary grounded no reward/event",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "floating reset cannot start attempt",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "ground dragging cannot complete",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "hopping without advance cannot complete",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "holding qualified foot airborne never pays completion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "per leg potential cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "terminal clearing idempotent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "long timeout aborts and cannot later claim completion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reload dwell 9ms insufficient",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "complete cycle exactly once",
+      "passed": true,
+      "details": [
+        {
+          "type": "complete",
+          "leg": "LF",
+          "time": 0.04,
+          "start_time": 0.015,
+          "lift": 0.03,
+          "advance": 0.04,
+          "reload_dwell": 0.010000000000000002,
+          "initial_loaded_dwell": 0.01,
+          "unload_dwell": 0.005000000000000001,
+          "unloaded_duration": 0.015,
+          "duration": 0.025,
+          "bonus": 0.1
+        }
+      ]
+    },
+    {
+      "name": "load chatter cannot bypass 5ms unload",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reversed physical advance decreases potential",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "advance measured only while unloaded and clear",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reload chatter cannot accumulate separated dwell",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "two real cycles pay twice without encoded cooldown",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "repeated failed attempts cannot farm shaping",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "before loaded arming dwell no discovery reward",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "smooth armed unloading before threshold",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order LF",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order LH",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order LM",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order RF",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order RH",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actuator order RM",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "identical repeated timestamp zero idempotent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "conflicting repeated timestamp rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "negative load rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "NaN rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "shape rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "skipped time rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "stored sensing detached from input buffers",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "gamma discounted terminal telescope",
+      "passed": true,
+      "details": 1.85644211049725e-16
+    },
+    {
+      "name": "parent5ms boundary potential telescope terminal",
+      "passed": true,
+      "details": -1.0164395367051604e-17
+    },
+    {
+      "name": "clearance threshold strictly greater not equal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "six symmetric trackers no tripod restriction",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "measure wrapper sensed native force only",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

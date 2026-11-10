@@ -1,0 +1,54 @@
+{
+  "all_passed": true,
+  "status": "PASS",
+  "jacobian_max_abs_error": 7.342915164798569e-10,
+  "jacobian_coordinates": 864,
+  "pad_switch_nonsmooth_coordinates_skipped": 0,
+  "solver_cases": [
+    {
+      "scale": 0.01,
+      "fast": false,
+      "bounds_hit": 1
+    },
+    {
+      "scale": 1.0,
+      "fast": false,
+      "bounds_hit": 1
+    },
+    {
+      "scale": 100.0,
+      "fast": false,
+      "bounds_hit": 7
+    }
+  ],
+  "height_responses": [
+    {
+      "target_shift": -0.02,
+      "start_height": 1.2755656280264045,
+      "end_height": 1.2635061688827856,
+      "predicted_mean_stance_joint_vertical_speed": 0.03999958438706748,
+      "nonfoot": 0.0
+    },
+    {
+      "target_shift": 0.02,
+      "start_height": 1.2755656280264045,
+      "end_height": 1.2870693450541797,
+      "predicted_mean_stance_joint_vertical_speed": -0.03849320734031594,
+      "nonfoot": 0.0
+    }
+  ],
+  "tests": [
+    "actual mixed metric FD",
+    "relative root columns cancel",
+    "BVLS/interior KKT and bounds",
+    "5ms target integration vsfive1ms",
+    "actual paired100ms height target response"
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/measured_teacher.py": "984af1ba7a0794a366a39024c16336631e9cbbd45d938b58dd4021252b40f441",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/check_teacher.py": "cc042455e52acb6e82ab0637bd2ad2917e94b6cf9ef799146785899ddf9ec9a2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/reference.py": "82275c00a8acb52eebc23622dfdc714bff7eaf37a4ebe3e271ca7bea48865648"
+  },
+  "limitation": "engineering fixtures and short feedback response, not walking or real-reference tracking proof"
+}

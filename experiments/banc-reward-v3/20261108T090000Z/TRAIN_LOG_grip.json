@@ -1,0 +1,164 @@
+{
+  "prereg": {
+    "schema": "reward-v3-absolute-slip/1",
+    "why": "B5 showed the per-leg slip RATIO reward rewards standing still: with forward speed near zero the ratio explodes, yet the summed penalty is still smaller than the cost of moving, so the policy parked itself. This round changes only the training signal, never the acceptance metric.",
+    "reward_changes": {
+      "slip_term": "from hinge on r_i = v_i / max(|forward|, 0.05) to hinge on ABSOLUTE foot speed: 2.0 * sum_i max(0, v_i - 0.5 * max(|forward|, v_target))^2, so the allowance scales with the COMMANDED speed and standing cannot game it",
+      "progress_term": "clip(forward / v_target, -1, 1.5) doubled while forward < 0.5 * v_target, so failing to make progress costs more than it did",
+      "kept": [
+        "stance foot-speed penalty 0.5 * sum(stance * v_i^2)",
+        "attitude 0.05|omega|^2 + 0.01 g_xy^2",
+        "action 0.01 mean(rate^2)",
+        "support 5*(sum loads/W - 1)^2 + 50*nonfoot/W",
+        "terminations COM<0.95 or non-foot>0.05 W"
+      ]
+    },
+    "unchanged": [
+      "acceptance thresholds and the whole frozen verifier definition",
+      "action space (six tibia, +-0.003 rad/tick)",
+      "base network MODEL_MEASURED",
+      "curriculum targets",
+      "level gates",
+      "frozen body XML"
+    ],
+    "runs": [
+      {
+        "name": "no_grip",
+        "adhesion": false,
+        "updates": 16,
+        "v_target": 0.05,
+        "label": "frozen body"
+      },
+      {
+        "name": "grip",
+        "adhesion": true,
+        "updates": 16,
+        "v_target": 0.05,
+        "label": "derived-channel (NOT frozen-body acceptance)"
+      }
+    ],
+    "evaluation": "each run is evaluated with the 1 s assist + 3 s autonomous protocol in its own training condition, and the no-grip run is also evaluated with grip off; per-leg material slip is computed with the frozen definition",
+    "decision_rule": "report every number; if slip stays above 0.5 the negative result stands and no weight, cap, allowance factor or threshold is changed afterwards",
+    "labelling": "grip runs are derived-channel results; the frozen-body status remains unaccepted regardless of outcome"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/MODEL_MEASURED.npz",
+    "sha256": "7e7fa4197bcf4a4f4eddc1afd8418b0fc290c9ca1daa44df9ebaeaad859652ec"
+  },
+  "action_joints": [
+    6,
+    13,
+    20,
+    27,
+    34,
+    41
+  ],
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.039106018440680686,
+        "foot_support_mean": 3.500334770802127,
+        "foot_support_min": 3.424825059970431,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 0.9629137524200828,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.2862481917044895,
+          "LH": 2.5407555123014878,
+          "LM": 3.4046973078739855,
+          "RF": 1.5877208005642365,
+          "RH": 3.8017966133203043,
+          "RM": 3.6755803273943637
+        },
+        "slip_ratio_max": 3.8017966133203043,
+        "slip_ratio_mean": 2.716133125526478,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": false
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.3278196222431149,
+    "foot_support_mean": 3.385937611011861,
+    "foot_support_min": 3.257420671723101,
+    "nonfoot_force_max_W": 27.98361389276934,
+    "com_height_min": 0.6543712596023398,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.5740347834222376,
+      "LH": 0.9704309809716982,
+      "LM": 0.7164662833409035,
+      "RF": 0.7009322452740026,
+      "RH": 1.346132383024414,
+      "RM": 1.084711327478058
+    },
+    "slip_ratio_max": 1.346132383024414,
+    "slip_ratio_mean": 0.8987846672518858,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 210534400,
+  "wall_s": 302.82968282699585,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-reward-v3/20261108T090000Z/MODEL_grip.npz",
+    "sha256": "be48421b9c0aa6a99c538b40280ec6a1f25300e8f249652345a258a242cc055b"
+  }
+}

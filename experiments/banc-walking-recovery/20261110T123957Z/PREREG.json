@@ -1,0 +1,14 @@
+{
+ "version":"explicit-neural-footvelocity-input-synapse-pruning-v1",
+ "goal":"S2/S5 testremainingneuralfoot-slip contributionfromsixengineeredverticalvelocitysensorysynapses",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/BC_GRU_ROLE_1000/final.pt",
+ "basis":"original300postwithdrawal6actorfootvelocityzeroablation keptall6steps/fwd butslip1.351->1.193, stillfailed. New1000sameunmodifiedpolicymaxslip.534655(RHonly), other5legs<.5. Oneexplicitneuralconnectionintervention nowtestwhetherremainingfeedbackcontributionmatters; noassumedpass",
+ "sole_parameter_change":"set GRUactor.encoder.weight[:,189:195] exactlyzero inEXPORTEDnewNNcheckpoint, nootheractor/critic/std/bufferweights changes. Originalraw238inputcontractunchanged; nooutsideinputfilter/clock/gaitcontroller, all42rates stillNN. Thisis deliberatepruningNOTgradienttraining, andnotoriginalparentweights",
+ "timing_difference":"staticprunedconnections activebothactualteacherprefixGRUprimingandautonomousstage, differentfrom300postboundarycut; explicitlycompareactualhandover NOTinheritoldablationresult",
+ "checks":"prunedNNfullsequence/action/hidden equalsoriginalNN suppliedsameobswith6featureszero fromreset; otherparamsbitexact, all6encodercolumns0/gradientneuralpathsremaining; modelinputidentity&H/taucompiledsame; fullnewcheckpoint/loader/source/parenthashclosure, RNGweightsreload",
+ "optimization_state":"no parentBCAdamcontinuationclaimed; freshPPOoptimizers saved, parenttrainingmetadata/sourcepreserved asprovenance. Pruningmanifestexplicitparent/newweightsha/indices/operation, neveroverwritesparent",
+ "physical":"samefull71meshbody/noadh/gravitymassfrictionfinitePD2rad/s/torque/native12.5us1ms unchanged, no rootwrites/auxforces",
+ "evaluation":"same1sactualstand4.8steacherprefixactualprunedGRUprimingthen9.6spureNN, noexpertorauxclassificationheadafterwithdrawal, deterministicseed20261110, unchangedallgates/slip.5",
+ "selection":"onepruningcondition, noextraweightsweep; passmustbeindependentlyreplayed/native/continuoussame-runvideo beforefullclaim; failuresretained",
+ "scope":"declaredengineeringNNparameterinterventionondeclaredderivedbody, notoriginaltrainedpolicy/biologicalconnectome or silentacceptancechange"
+}

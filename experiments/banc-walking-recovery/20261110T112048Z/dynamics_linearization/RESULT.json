@@ -1,0 +1,951 @@
+{
+  "status": "COMPLETED_AUXILIARY_DIAGNOSTIC",
+  "config": {
+    "kind": "auxiliary offline full physical local FD",
+    "seed": 20261110,
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+    "checkpoint_sha256": "60cfe5670604688fcb9e8aef01dbe23bb4e772116ef0ed7f3c4af703386b018b",
+    "settle_ms": 1000,
+    "teacher_prefix_ms": 4800,
+    "teacher": {
+      "mode": "measuredwave",
+      "gravity_ff": true,
+      "stance_force_pref": "uniform",
+      "step_s": 0.8,
+      "cycles": 3,
+      "stride": 0.36,
+      "lift": 0.12,
+      "contact_transition_height": 0.01
+    },
+    "dt_s": 0.005,
+    "state_dimension": 192,
+    "blocks": {
+      "root_position": [
+        0,
+        3
+      ],
+      "root_rotation": [
+        3,
+        6
+      ],
+      "joint_position": [
+        6,
+        48
+      ],
+      "qvel": [
+        48,
+        96
+      ],
+      "target": [
+        96,
+        138
+      ],
+      "previous_action": [
+        138,
+        180
+      ],
+      "pad_previous": [
+        180,
+        186
+      ],
+      "pad_rate": [
+        186,
+        192
+      ]
+    },
+    "epsilon": 1e-05,
+    "sensitivity_epsilon": 3e-06,
+    "actual_trajectory": "one zero-settle plus teacher prefix only; probes private restored fixtures",
+    "acceptance": "not walking evidence or stability proof",
+    "command": {
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+      "out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization",
+      "seed": 20261110,
+      "prefix_decisions": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/decisions_5ms.npz",
+      "check": false,
+      "validate": null
+    }
+  },
+  "prefix": {
+    "settle": {
+      "native_steps": 80000,
+      "sample_count": 1000,
+      "duration_s": 0.9989999999993368,
+      "forward_speed_native_per_s": 0.05635838733073401,
+      "forward_signed_native_per_s": -0.053550541024649526,
+      "lateral_speed_native_per_s": 0.017567224552796263,
+      "foot_support_mean": 1.0003787834577973,
+      "foot_support_min": 0.5627453204788391,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 1.2751612877661458,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 1.8598333424801743,
+        "LH": 2.9415506075858313,
+        "LM": 3.6245225472948825,
+        "RF": 1.9615459091239387,
+        "RH": 3.219887905530035,
+        "RM": 2.990476151854339
+      },
+      "slip_ratio_max": 3.6245225472948825,
+      "slip_ratio_mean": 2.7663027439782,
+      "com_start": 1.446164562239419,
+      "com_end": 1.2751612877661458,
+      "com_xy_travel": 0.056302028943365896,
+      "slip_load_denominator_native": [
+        1431.8899930377163,
+        6132.449451681788,
+        4666.515393787483,
+        1765.490072535071,
+        4667.277256251455,
+        5791.992463369461
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": false,
+        "slip": false
+      },
+      "all_gates": false,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": -0.053550541024649526,
+        "lateral_signed_native_per_s": -0.017567224552796263,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "window": {
+        "first_sample_s": 0.0010000000000000009,
+        "last_sample_s": 0.9999999999993368,
+        "sample_count": 1000
+      }
+    },
+    "teacher": {
+      "native_steps": 384000,
+      "sample_count": 4800,
+      "duration_s": 4.799000000052764,
+      "forward_speed_native_per_s": 0.07191127411035386,
+      "forward_signed_native_per_s": 0.07180266315193061,
+      "lateral_speed_native_per_s": 0.003950811114801178,
+      "foot_support_mean": 1.0000493337673044,
+      "foot_support_min": 0.9966859592642859,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 1.2561471966584479,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 0.2676925483188616,
+        "LH": 0.3897177202892267,
+        "LM": 0.4072515551124588,
+        "RF": 0.3190682349274608,
+        "RH": 0.47494916415819755,
+        "RM": 0.4226044504378148
+      },
+      "slip_ratio_max": 0.47494916415819755,
+      "slip_ratio_mean": 0.38021394554066995,
+      "com_start": 1.2751605405144308,
+      "com_end": 1.275868111950224,
+      "com_xy_travel": 0.34510220445938256,
+      "slip_load_denominator_native": [
+        11015.808563298775,
+        28609.55259804097,
+        18483.72439605587,
+        9989.376443507652,
+        28597.494695229896,
+        20652.335079810655
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "all_gates": true,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": 0.07180266315193061,
+        "lateral_signed_native_per_s": 0.003950811114801178,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "window": {
+        "first_sample_s": 1.0009999999993344,
+        "last_sample_s": 5.800000000052099,
+        "sample_count": 4800
+      }
+    },
+    "time_s": 5.800000000052099,
+    "actual_ticks": 5800,
+    "native_steps": 464000,
+    "accepted_motion_state_writes": 0,
+    "expected_prefix_X238_max_abs_diff": 0.0,
+    "expected_prefix_actions_bitwise": true,
+    "teacher_calls": 960,
+    "source_counts": {
+      "settle": 1000,
+      "teacher": 4800
+    },
+    "baseline_contact": {
+      "ncon": 18,
+      "nefc": 72,
+      "geom_pairs": [
+        [
+          0,
+          27
+        ],
+        [
+          0,
+          28
+        ],
+        [
+          0,
+          29
+        ],
+        [
+          0,
+          38
+        ],
+        [
+          0,
+          39
+        ],
+        [
+          0,
+          40
+        ],
+        [
+          0,
+          50
+        ],
+        [
+          0,
+          51
+        ],
+        [
+          0,
+          52
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          0,
+          65
+        ],
+        [
+          0,
+          74
+        ],
+        [
+          0,
+          75
+        ],
+        [
+          0,
+          76
+        ],
+        [
+          0,
+          86
+        ],
+        [
+          0,
+          87
+        ],
+        [
+          0,
+          88
+        ]
+      ],
+      "pad_contact_counts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "loads_native": [
+        2.00182505414369,
+        5.994054749334603,
+        4.066798999479158,
+        2.3662460576801014,
+        5.8152330169465705,
+        4.2029943498166125
+      ],
+      "nonfoot_native": 0.0,
+      "com_native": 1.275868111950224,
+      "warning_number": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "warning_lastinfo": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "handover_X238_bitwise": true,
+    "first_student_action_bitwise": true
+  },
+  "restore_bitwise": {
+    "qpos": true,
+    "tail": true,
+    "obs238_after": true,
+    "full_data_core_actuator": true,
+    "action": true,
+    "native_contacts": true
+  },
+  "full_coupled": {
+    "spectral_radius": 1.4664762717017936,
+    "largest_abs_real": 1.4664762717017936,
+    "largest_abs_imag": 0.8464362363874405,
+    "norm2_native_mixed_units": 505.7026450507725,
+    "norm2_scaled": 949.5200116781612,
+    "frozen_J_power20_norm2_native": 944947.1391094263,
+    "frozen_J_power20_norm2_scaled": 4674360.819024537,
+    "dominant_modes": [
+      {
+        "real": 1.4664762717017936,
+        "imag": 0.0,
+        "magnitude": 1.4664762717017936,
+        "scaled_block_energy": {
+          "root_position": 3.5620888338718285e-07,
+          "root_rotation": 5.8659822051533246e-08,
+          "joint_position": 4.518854660598967e-06,
+          "qvel": 0.00022517302298037483,
+          "target": 1.8674543566516e-05,
+          "previous_action": 0.9991562497521489,
+          "pad_previous": 4.209071276738657e-05,
+          "pad_rate": 0.0005528782451707743
+        }
+      },
+      {
+        "real": 1.1093435868167387,
+        "imag": -0.07250989996095605,
+        "magnitude": 1.1117107893709475,
+        "scaled_block_energy": {
+          "root_position": 1.0538298422179793e-06,
+          "root_rotation": 2.1700000700251433e-07,
+          "joint_position": 1.7773562180589462e-05,
+          "qvel": 8.917056840852908e-05,
+          "target": 0.00016209044989085505,
+          "previous_action": 0.9981440554637968,
+          "pad_previous": 0.0006334323922513371,
+          "pad_rate": 0.0009522067336224832
+        }
+      },
+      {
+        "real": 1.1093435868167387,
+        "imag": 0.07250989996095605,
+        "magnitude": 1.1117107893709475,
+        "scaled_block_energy": {
+          "root_position": 1.0538298422179793e-06,
+          "root_rotation": 2.1700000700251433e-07,
+          "joint_position": 1.7773562180589462e-05,
+          "qvel": 8.917056840852908e-05,
+          "target": 0.00016209044989085505,
+          "previous_action": 0.9981440554637968,
+          "pad_previous": 0.0006334323922513371,
+          "pad_rate": 0.0009522067336224832
+        }
+      },
+      {
+        "real": 1.0715171136281825,
+        "imag": 0.06350579093500335,
+        "magnitude": 1.073397368303254,
+        "scaled_block_energy": {
+          "root_position": 1.6413925976494382e-06,
+          "root_rotation": 2.889003775367569e-07,
+          "joint_position": 2.5935079484391164e-05,
+          "qvel": 7.173838513923583e-05,
+          "target": 0.00028700787114060105,
+          "previous_action": 0.9972821178286386,
+          "pad_previous": 0.00126966420943547,
+          "pad_rate": 0.0010616063331865904
+        }
+      },
+      {
+        "real": 1.0715171136281825,
+        "imag": -0.06350579093500335,
+        "magnitude": 1.073397368303254,
+        "scaled_block_energy": {
+          "root_position": 1.6413925976494382e-06,
+          "root_rotation": 2.889003775367569e-07,
+          "joint_position": 2.5935079484391164e-05,
+          "qvel": 7.173838513923583e-05,
+          "target": 0.00028700787114060105,
+          "previous_action": 0.9972821178286386,
+          "pad_previous": 0.00126966420943547,
+          "pad_rate": 0.0010616063331865904
+        }
+      },
+      {
+        "real": 1.0204470872689646,
+        "imag": 0.0,
+        "magnitude": 1.0204470872689646,
+        "scaled_block_energy": {
+          "root_position": 1.6600463347800158e-05,
+          "root_rotation": 2.642758296435823e-06,
+          "joint_position": 0.001429256253183915,
+          "qvel": 0.00018934848601485492,
+          "target": 0.004858116401235692,
+          "previous_action": 0.9755822118151732,
+          "pad_previous": 0.01726974923258489,
+          "pad_rate": 0.0006520745901631336
+        }
+      },
+      {
+        "real": 1.0078782725313569,
+        "imag": 0.0,
+        "magnitude": 1.0078782725313569,
+        "scaled_block_energy": {
+          "root_position": 5.888946544526182e-06,
+          "root_rotation": 1.1270492241188694e-05,
+          "joint_position": 0.021665040079809395,
+          "qvel": 0.0003543656428800776,
+          "target": 0.02427241118827364,
+          "previous_action": 0.9440545471388173,
+          "pad_previous": 0.009528437125805955,
+          "pad_rate": 0.00010803938562776816
+        }
+      },
+      {
+        "real": 1.002077154140131,
+        "imag": 0.0,
+        "magnitude": 1.002077154140131,
+        "scaled_block_energy": {
+          "root_position": 4.95942357654832e-05,
+          "root_rotation": 0.00012773038066032298,
+          "joint_position": 0.1659229560913046,
+          "qvel": 0.00024414544535322443,
+          "target": 0.16329696064186094,
+          "previous_action": 0.6545896920118062,
+          "pad_previous": 0.015560835694509705,
+          "pad_rate": 0.0002080854987396139
+        }
+      },
+      {
+        "real": 0.999999999999819,
+        "imag": 0.0,
+        "magnitude": 0.999999999999819,
+        "scaled_block_energy": {
+          "root_position": 1.0,
+          "root_rotation": 1.701870817928821e-19,
+          "joint_position": 3.111330795152336e-21,
+          "qvel": 1.6134597054440764e-23,
+          "target": 2.9515718328305927e-21,
+          "previous_action": 6.486214371393866e-26,
+          "pad_previous": 7.172123812244356e-22,
+          "pad_rate": 7.074171042093598e-22
+        }
+      },
+      {
+        "real": 0.9999999999975839,
+        "imag": 0.0,
+        "magnitude": 0.9999999999975839,
+        "scaled_block_energy": {
+          "root_position": 1.0,
+          "root_rotation": 4.337683129734555e-17,
+          "joint_position": 2.7619629366417816e-19,
+          "qvel": 2.588755141766209e-21,
+          "target": 3.540390442982704e-19,
+          "previous_action": 6.069363410424132e-26,
+          "pad_previous": 8.758674930027523e-19,
+          "pad_rate": 4.008545176619559e-19
+        }
+      },
+      {
+        "real": 0.9999991492504866,
+        "imag": 0.0,
+        "magnitude": 0.9999991492504866,
+        "scaled_block_energy": {
+          "root_position": 0.9999944801777836,
+          "root_rotation": 5.508661685109651e-06,
+          "joint_position": 1.2951093519769109e-09,
+          "qvel": 3.316682616781098e-10,
+          "target": 2.136557116875442e-09,
+          "previous_action": 8.715727071700873e-16,
+          "pad_previous": 3.981878671380981e-09,
+          "pad_rate": 3.4153170780361905e-09
+        }
+      },
+      {
+        "real": 0.9966022793709796,
+        "imag": 0.006784199016644438,
+        "magnitude": 0.9966253702388523,
+        "scaled_block_energy": {
+          "root_position": 7.85475298307037e-05,
+          "root_rotation": 0.00028631283042061725,
+          "joint_position": 0.020626427851194003,
+          "qvel": 0.00033167970366554725,
+          "target": 0.02570844979807678,
+          "previous_action": 0.9245619342229188,
+          "pad_previous": 0.028162319379118835,
+          "pad_rate": 0.00024432868477481013
+        }
+      }
+    ]
+  },
+  "target_memory_only": {
+    "spectral_radius": 0.9046591630498465,
+    "interpretation": "T next versus T current with qpos/qvel/pad caches/previous fixed; not full physical stability"
+  },
+  "sensitivity": [
+    {
+      "column": 0,
+      "native_difference_norm": 1.1105384402421147e-08,
+      "native_relative_difference": 1.1105384402410041e-08,
+      "scaled_difference_norm": 1.1102265663771158e-08,
+      "scaled_relative_difference": 1.1102265663760054e-08
+    },
+    {
+      "column": 2,
+      "native_difference_norm": 0.01293863385076396,
+      "native_relative_difference": 3.814145845039405e-05,
+      "scaled_difference_norm": 0.1218939883000218,
+      "scaled_relative_difference": 0.00031460657795513806
+    },
+    {
+      "column": 3,
+      "native_difference_norm": 0.013551774436608967,
+      "native_relative_difference": 3.488780466751407e-05,
+      "scaled_difference_norm": 0.11757847762697393,
+      "scaled_relative_difference": 0.0003163702761838795
+    },
+    {
+      "column": 6,
+      "native_difference_norm": 0.01191534519303902,
+      "native_relative_difference": 6.165377140029583e-05,
+      "scaled_difference_norm": 0.04828168694629452,
+      "scaled_relative_difference": 0.0005573587839854305
+    },
+    {
+      "column": 27,
+      "native_difference_norm": 0.014287670876106367,
+      "native_relative_difference": 6.250832600054804e-05,
+      "scaled_difference_norm": 0.05734328004944136,
+      "scaled_relative_difference": 0.001552491092586069
+    },
+    {
+      "column": 48,
+      "native_difference_norm": 0.006635836892936184,
+      "native_relative_difference": 0.004098958346674066,
+      "scaled_difference_norm": 0.5999176876383286,
+      "scaled_relative_difference": 0.004974626799722241
+    },
+    {
+      "column": 69,
+      "native_difference_norm": 0.010811750492475555,
+      "native_relative_difference": 0.043663895021126324,
+      "scaled_difference_norm": 1.0201520566057491,
+      "scaled_relative_difference": 0.075747214644815
+    },
+    {
+      "column": 96,
+      "native_difference_norm": 0.001225824620836783,
+      "native_relative_difference": 8.149385113821119e-06,
+      "scaled_difference_norm": 0.003376014345500552,
+      "scaled_relative_difference": 8.014994823920979e-05
+    },
+    {
+      "column": 117,
+      "native_difference_norm": 0.0017128402787931142,
+      "native_relative_difference": 8.26404900951496e-06,
+      "scaled_difference_norm": 0.003421257639844807,
+      "scaled_relative_difference": 7.883457316072363e-05
+    },
+    {
+      "column": 138,
+      "native_difference_norm": 0.0,
+      "native_relative_difference": 0.0,
+      "scaled_difference_norm": 0.0,
+      "scaled_relative_difference": 0.0
+    },
+    {
+      "column": 180,
+      "native_difference_norm": 0.0,
+      "native_relative_difference": 0.0,
+      "scaled_difference_norm": 0.0,
+      "scaled_relative_difference": 0.0
+    },
+    {
+      "column": 186,
+      "native_difference_norm": 1.0659760063120089e-06,
+      "native_relative_difference": 1.5124364513956697e-06,
+      "scaled_difference_norm": 1.0063968439302818e-06,
+      "scaled_relative_difference": 2.9359522090801896e-07
+    }
+  ],
+  "scaling": {
+    "formula": "z=x/scales; J_scaled=diag(1/scales) J diag(scales)",
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.43574999999999997,
+      0.6579,
+      0.3384583060121321,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2190555268149066,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.7458035036806745,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43263502486291344,
+      0.4745269371779961,
+      0.7379067053719459,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2793495780011144,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.9848645841986645,
+      0.73525,
+      1.0125,
+      0.8497330240243897,
+      1.01155,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      0.43574999999999997,
+      0.6579,
+      0.3384583060121321,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2190555268149066,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.7458035036806745,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43263502486291344,
+      0.4745269371779961,
+      0.7379067053719459,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2793495780011144,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.9848645841986645,
+      0.73525,
+      1.0125,
+      0.8497330240243897,
+      1.01155,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "qpos": "root translation/rotation 1; actuated hinge tangent native half-range H",
+    "qvel": 10.0,
+    "target": "native actuator half-range H",
+    "previous_action": 0.1,
+    "pad_previous": 0.05,
+    "pad_rate": 1.0,
+    "caution": "norms and modal energies depend on this declared mixed-unit scaling; eigenvalues invariant"
+  },
+  "contact_changes": {
+    "native_constraints_changed_probes": 0,
+    "post_pair_changed_probes": 0,
+    "total_probes": 410,
+    "all_warning_records": []
+  },
+  "execution": {
+    "actual_prefix_ticks": 5800,
+    "actual_prefix_native_steps": 464000,
+    "private_probe_holds": 410,
+    "private_native_steps": 164000,
+    "private_aggregate_simulated_s": 2.05,
+    "restore_calls": 411,
+    "fixture_perturbations": 408,
+    "teacher_calls_after_prefix": 0,
+    "physical_data_deepcopy_count": 1,
+    "wall_time_s": 104.68441224098206,
+    "actual_prefix_state_writes": 0,
+    "offline_restore_writes": 411,
+    "offline_qpos_fixture_probes": 106,
+    "offline_qvel_fixture_probes": 100,
+    "source_and_compiled_arrays_verified": true
+  },
+  "limitations": [
+    "ONE nonstationary teacher-prefix operating state; not a fixed point or cycle map",
+    "Frozen-J power20 is algebraic local amplification, not 20 actual sequential physical steps",
+    "Contact/constraint bifurcations are explicit; central FD may cross hybrid branches",
+    "Existing proprioception casts 183 channels to float32; FD sensitivity includes that quantization",
+    "Augmented pad previous memory embeds geometric redundancy; no reachability/stability proof",
+    "MuJoCo warmstart/solver/internal state restored exactly but excluded from the declared 192 physical coordinates",
+    "This auxiliary diagnostic does not establish walking, full stability, falling cause, or neural biological validity"
+  ],
+  "artifacts": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/IDENTITY.json": "5d0bac71376b84c8c19be5ad53ad35b20d6df02b9db0f3c6a3a86fffe5dc1e1e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/PREFIX.json": "1ef478d967835ece37493f5af02ad6c821c976c53dbf6ce3c29e21750482752b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/RESTORE_PROOF.json": "9a86efa2ec1e3cb2b4f12bc17db4cad3f41c7d93c55779036bd3484ee499b5cf",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/BASELINE_STATE.npz": "2bffa1ce863e05b080b426cbda849f3254401e1676a3970bb5a5e6f398919616",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/JACOBIAN.npz": "dbf227a698006da25287366036a006dc654e4ef1b3abdab3f2a2de5faeb67182",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/PROBES.json": "7cabebd0e7a1d2e95a914895f0af69e7cb88a69fa30fd2639058a221797a45d6"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "status": "PRESERVED_FAILED_DIAGNOSTIC_ATTEMPTS_NOT_RESULTS",
+  "items": [
+    {
+      "attempt": "fit_pass_1",
+      "script": "fit_information.py",
+      "artifact": "FAILED_NAN_TARGET_FIT_RESULTS.json + FAILED_NAN_TARGET_FIT_MODELS.npz",
+      "defect": "intermediate-threshold rows (no stance/air or no velocity-sign label) were passed to the ridge solve with NaN targets, so every coefficient became NaN and every class prediction collapsed to -1",
+      "symptom": "all 72 balanced accuracies exactly 0.500, per-class recall +1 = 0.0, confusion matrices predicting only the -1 class",
+      "detection": "every-fit balanced accuracy was implausible for the tautological encoded4 stance/air condition (campaniform strain contains load), so the pass was rejected before any reporting",
+      "resolution": "unlabelled rows now carry weight 0 and a finite placeholder target; they are excluded from the fit as well as from scoring; fit lambda, split, representations, lags and thresholds unchanged",
+      "preserved_files_sha256": {
+        "FAILED_NAN_TARGET_FIT_RESULTS.json": "0ee87fda4f565ec7269b236a6e9e735960ce97e30fe1cff472d7bba184520e35",
+        "FAILED_NAN_TARGET_FIT_MODELS.npz": "7273d6eb16695de8d952adcb4a79fc6e6353dc79d5b474f02743551d62c32cf9"
+      },
+      "count_semantics": "these arrays are NOT part of the 72 reported fits and must not be used as results"
+    },
+    {
+      "attempt": "verification_pass_1",
+      "script": "verify_information.py",
+      "result": "FAIL",
+      "checks": 1842,
+      "passed": 1832,
+      "failed": 10,
+      "failed_checks": [
+        "saved_encoded_equal_independent_rebuild",
+        "saved_oldencoded_identity",
+        "LF_MNhistory_signed_knee_velocity:mse_old_source_transfer_reproduced",
+        "LF_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "LM_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "LH_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RF_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RM_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RH_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "all_fit_prediction_arrays_reproduced"
+      ],
+      "cause": "the independent checker used exact array equality where the independent formula differs from np.tanh at ~1e-18, absolute tolerances on values spanning 1e8 (source-transfer MSE), and an exact-identity expectation for the privileged regression target",
+      "resolution": "switched to documented relative tolerances (rtol 1e-9) and re-expressed the privileged check as R^2 > 1-1e-6 with the measured ridge shrinkage preserved"
+    },
+    {
+      "attempt": "verification_pass_2",
+      "script": "verify_information.py",
+      "result": "FAIL",
+      "checks": 1914,
+      "passed": 1908,
+      "failed": 6,
+      "failed_checks": [
+        "LF_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "LM_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "LH_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RF_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RM_rawphysical_signed_knee_velocity:privileged_target_identity_recovered",
+        "RH_rawphysical_signed_knee_velocity:privileged_target_identity_recovered"
+      ],
+      "cause": "lambda=1 ridge shrinkage: rawphysical contains the target column but the fit is shrunk, so predictions differ from the target by max 3.0e-4..2.4e-3 rad/s (1-R^2 = 4.8e-8..2.6e-7). This is the expected ridge solution, not a data or fit defect; max_beta_delta 2.3e-14 and max_metric_delta 2.4e-16 already proved reproduction",
+      "resolution": "the check now asserts the preregistered ridge solution (R^2 > 1-1e-6) and records the residual shrinkage; fit lambda, data and split untouched"
+    },
+    {
+      "attempt": "verification_pass_3",
+      "script": "verify_information.py",
+      "result": "PASS",
+      "checks": 1914,
+      "passed": 1914,
+      "failed": 0
+    }
+  ],
+  "corrected_claim": {
+    "topic": "zero input columns of the 90-input encoder map",
+    "earlier_wrong_statement_in_progress_message": "66 of 90 columns exactly zero",
+    "correct_value": 54,
+    "breakdown": "18 q columns (3 trochanter angles x 6 legs) + 36 qvel columns (all non-knee joint speeds) = 54; nonzero = 24 q + 6 qvel + 6 foot_load = 36",
+    "where_fixed": "FIT_SUMMARY.png title and caption now derive the count from ENCODER_AUDIT.json zero_columns; audit and verification always used the correct list"
+  },
+  "limits": "Retained for audit history. None of the preserved arrays is a result."
+}

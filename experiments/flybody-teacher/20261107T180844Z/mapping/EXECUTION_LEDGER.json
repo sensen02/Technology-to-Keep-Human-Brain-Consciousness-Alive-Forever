@@ -1,0 +1,55 @@
+{
+  "scope": "this delegated mapping audit only",
+  "jobs": [
+    {
+      "id": "bash-158",
+      "operation": "official extraction first version",
+      "exit_code": 0,
+      "forward": 410,
+      "jac": 204,
+      "keyframe_reset": 1
+    },
+    {
+      "id": "bash-159",
+      "operation": "current extraction first version",
+      "exit_code": 0,
+      "forward": 170,
+      "jac": 84,
+      "keyframe_reset": 1
+    },
+    {
+      "id": "bash-165",
+      "operation": "official extraction corrected tendon decoder",
+      "exit_code": 0,
+      "forward": 410,
+      "jac": 204,
+      "keyframe_reset": 1
+    },
+    {
+      "id": "bash-166",
+      "operation": "current extraction corrected tendon decoder",
+      "exit_code": 0,
+      "forward": 170,
+      "jac": 84,
+      "keyframe_reset": 1
+    },
+    {
+      "id": "bash-168",
+      "operation": "saved-array tables and plot",
+      "exit_code": 0,
+      "forward": 0,
+      "jac": 0,
+      "keyframe_reset": 0
+    }
+  ],
+  "initial_directory_probe": "ls authorized output directories returned2 because neither existed yet; write tool then created output parent normally",
+  "initial_document_probe": "ROADMAP.md and TRACKER.md names absent; AGENTS directed actual GOAL_ROADMAP.zh-CN.md and GOAL_TRACKER.zh-CN.md, both read",
+  "environment_steps": 0,
+  "physics_steps": 0,
+  "training_updates": 0,
+  "cumulative_mj_forward": 1160,
+  "cumulative_mj_jac": 576,
+  "cumulative_scratch_keyframe_reset": 4,
+  "visualization_review": "KINEMATIC_REFERENCE.png actually opened; six leg line chains and differing reference poses visible; not a physical video or full-mesh rendering",
+  "cleanup": "Superseded first model JSONs replaced after tendon-decoder correction; no extra experiment directory or tracked-file edit; required desktop copy retained"
+}

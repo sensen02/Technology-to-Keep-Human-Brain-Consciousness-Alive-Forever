@@ -1,0 +1,12 @@
+{
+  "reason":"Parent's encoder now completes additional source qualification: exact556 indices instead of broad modality CSV union559. Supplemental verification only; original failed calibration and its preregistration untouched.",
+  "config":"fixed original fallback .02uS total strict incoming conductance; existing default ConductanceParams; no additional calibration or gain search; DN current always zero",
+  "protocols":[
+    {"name":"encoder_exact_pulse", "input":".05nA on exact SensoryEncoder.local_indices, single pulse25<=t<125ms; zero otherwise", "duration_ms":200,"dt_ms":[0.5,0.25]},
+    {"name":"encoder_constant_fixture", "input":"SensoryEncoder.encode at midpoint of actual joint ranges, zero joint velocity, each footload equal declared body_weight_native/6, held constant for200ms", "duration_ms":200,"dt_ms":[0.5,0.25]}
+  ],
+  "interpretation":"Engineering port and transduction fixtures, NOT brain outputs, NOT physically simulated standing or measured neuronal tuning. Constant encoder current is state-derived and explicit; no module tonic drive.",
+  "checks":"all556 indices subset circuit allowed sensory and no MN; exact initial identities; every neural timestep finite voltage; all6legs have at least one propagated MN spike, report count per leg and rate per cell; preserve failures, no rescue search; compare aggregate timestep sensitivity, no strict spike-time convergence claim",
+  "optional_recorded_fixture":"If parent supplies an existing recorded physical sample before execution, additionally hold its encoder-produced sensory current constant200ms, zeroDN, at both timesteps. Declare sample provenance/hash and index. This adds no physical steps and makes no behavior claim.",
+  "logging":"Save full input vectors and perstep MN spike/filtered rates and voltage extrema; report actual neural steps exactly. Original broad calibration remains failed regardless of these results."
+}

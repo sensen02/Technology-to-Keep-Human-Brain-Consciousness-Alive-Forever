@@ -1,0 +1,34 @@
+{
+  "status": "RETARGET_B_COMPLETE",
+  "snippets": 232,
+  "frames": 146934,
+  "ik_solves": 881604,
+  "wall_s": 1045.0345795154572,
+  "solver": {
+    "max_nfev_first": 80,
+    "max_nfev_subsequent": 16,
+    "ftol": 1e-07,
+    "xtol": 1e-07,
+    "gtol": 1e-07,
+    "w_pos": 1.0,
+    "w_dir": 0.2,
+    "w_cont": 0.02,
+    "w_key0": 0.002,
+    "step_limit": 0.06
+  },
+  "physics_steps": 0,
+  "error_old_metric": {
+    "max": 0.5678045621903689,
+    "p50": 0.12706113298930022,
+    "p95": 0.2361173604446815,
+    "rms": 0.13996792605386385
+  },
+  "error_direction": {
+    "max": 0.7484411655036386,
+    "p50": 0.0024808349864384738,
+    "p95": 0.2793220765519965
+  },
+  "frozen_solver_reference": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/kinematics/retarget.py",
+  "frozen_solver_sha256": "c00edd16052ffaf763be2d051d35a153e3720579f83b3240bee0d1bb7a807218",
+  "note": "the old-metric error is computed with the frozen 9-landmark definition on these solutions, so it is directly comparable to the previous .0532 median / .385 max"
+}

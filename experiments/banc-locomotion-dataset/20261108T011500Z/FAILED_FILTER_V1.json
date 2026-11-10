@@ -1,0 +1,31 @@
+{
+  "status": "TRAINING_SET_BUILT",
+  "filter": {
+    "rolling_median_frames": 41,
+    "threshold": 0.1,
+    "min_segment_frames": 250,
+    "resample_hz": 200
+  },
+  "retargeted_frames": 146934,
+  "retargeted_snippets": 232,
+  "segments": 1,
+  "kept_frames_500hz": 320,
+  "kept_seconds_500hz": 0.64,
+  "samples_200hz": 128,
+  "samples_200hz_seconds": 0.64,
+  "kept_fraction_of_retargeted": 0.002177848557855908,
+  "per_segment": [
+    {
+      "snippet": 12557,
+      "start_frame": 0,
+      "frames": 320,
+      "duration_s": 0.64,
+      "samples": 128,
+      "error_median": 0.053721235836063065,
+      "error_max": 0.1077428609548381
+    }
+  ],
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "limits": "filtered subset of the retargeted long snippets only; the discarded fraction is reported, not hidden; no claim that these targets produce planted-foot walking"
+}

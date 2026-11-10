@@ -1,0 +1,26 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-3",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "PREREG.json (acceptance criteria unchanged)",
+  "supersedes_reward_form": "PREREG_AMENDMENT_2.json (potential-based shaping is kept, its potential is fixed)",
+  "when": "after the first potential-based run reached update 13 without placing, before the next run",
+  "evidence": {
+    "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/train_singleleg_demo_levels.log",
+    "evaluation_at_update_8": "LF lift 0.0830 advance 0.3067 but final load 0.000; LM lift 1.4237 advance 0.5825 final load 0.000; RF lift 0.2054 advance 0.0849 final load 0.000",
+    "diagnosis": "the potential was built from instantaneous levels, so the state 'foot held in the air' has phi about 3.0 while the state 'step completed and foot back down' has phi about 1.0. Telescoped shaping therefore still prefers ending the episode with the foot up, which is exactly what every evaluation shows."
+  },
+  "reward_changes": {
+    "potential": {"old": "0.8*unload_level + 1.2*lift_level + 1.0*clip(best_advance/0.03)",
+                  "new": "0.8*did_unload + 1.2*did_lift + 1.0*clip(best_advance/0.03) + 2.0*placed",
+                  "reason": "achievement flags stay set once reached, so completing and placing the foot strictly dominates holding it up; best_advance was already monotone"}
+  },
+  "unchanged": {
+    "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+    "safety_penalties": "unchanged",
+    "place_hold": 0.6,
+    "place_event_bonus": 2.0,
+    "optimizer_and_budget": "unchanged",
+    "warm_start": "unchanged: screened lift direction of the prompted leg while it carries load"
+  },
+  "discipline": "amendments 1 and 2 are left byte-identical; this file records the third change, its measurement and its reason. Reward design has now been changed three times inside this round, each time from a measured degeneracy, which the final report states explicitly"
+}

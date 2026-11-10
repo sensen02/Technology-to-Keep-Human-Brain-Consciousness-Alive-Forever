@@ -1,0 +1,7 @@
+import subprocess,sys,json,hashlib
+from pathlib import Path
+D=Path(__file__).parent;O=Path('/home/sensen/Desktop/engine修复验收/s5-actuator-descending/20261106T161620Z/operating_point/20261106T195609Z');O.mkdir(parents=True,exist_ok=True);assert not (O/'PREREGISTRATION.json').exists();old=D/'interval_body_20261106T194505Z.py';new=D/'operating_point_20261106T195609Z.py'
+p=dict(importance='核心必需',backgrounds_nA=[.03,.05,.06],velocity_rad_s=[0,-.1,.1],dt_ms=[.03125,.015625],conditions=['normal','sensory_cut'],physical_runs=36,efficacy_scale=.25,dynamic_gain=.1,criterion='normal disturbance IAE must be less than matched-cut IAE in all4 direction/dt pairs, with range/finite/bounded/no-warning gates; candidate requires later independent validation, no cherry-picking',readout='unchanged interval mean,5ms filter; prior zero-output verification preserved, not counted as new runs',change_ledger=dict(old_file=str(old),old_sha256=hashlib.sha256(old.read_bytes()).hexdigest(),new_file=str(new),new_sha256=hashlib.sha256(new.read_bytes()).hexdigest(),reason='bounded sensory operating-point grid; only background changes vs prior physical condition; omit repeat zero-output controls, matched normal/cut retained'))
+(O/'PREREGISTRATION.json').write_text(json.dumps(p,ensure_ascii=False,indent=2)+'\n')
+for bias in ['.03','.05','.06']:
+ for vel in ['0','-.1','.1']:subprocess.run([sys.executable,'-B',str(new),bias,vel],check=True)

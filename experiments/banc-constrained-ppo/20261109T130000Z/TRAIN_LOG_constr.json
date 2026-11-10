@@ -1,0 +1,136 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "constrained-ppo/1",
+    "origin": "route 2 of the two the user approved. Support has always been a soft reward term (5*(sum loads/W - 1)^2), and every policy that permits a swing phase ends up with support 0.38-0.58. This run makes the support requirement a constraint enforced by a Lagrange multiplier instead of another reward shape.",
+    "change": {
+      "constraint": "per tick, support_t = sum of the six foot loads / body weight; violation v_t = max(0, 0.90 - support_t)",
+      "lagrangian": "reward -= lambda * v_t, and after every rollout lambda <- clip(lambda + eta * (0.90 - mean support over the rollout), 0, lambda_max), a standard dual ascent, declared with eta = 0.05 and lambda_max = 50",
+      "kept": "the existing soft support term stays as before so the comparison isolates the added constraint",
+      "world": "pad body R=.02, mu=1.5, releasable adhesion A=0.25 body weight, 5 ms policy tick, reward v4, 42-joint PPO, 64 updates, gates unchanged"
+    },
+    "why_it_is_not_an_external_controller": "the multiplier is a scalar learned to satisfy a constraint, not a controller, not a phase generator, and it is applied inside the same reward that the network optimises; the network still produces every action",
+    "labelling": "derived channel plus replacement ANN; not frozen-body acceptance",
+    "accounting": "lambda and the support statistic are logged at every update, so the constraint handling is auditable rather than assumed"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "derived pad body r02",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.18007372410831227,
+        "foot_support_mean": 1.332867340018743,
+        "foot_support_min": 0.895614109307696,
+        "nonfoot_force_max_W": 3.9661440543050315,
+        "com_height_min": 0.8203399430634994,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 4.405182096579999,
+          "LH": 2.26137568674084,
+          "LM": 1.3908156078586733,
+          "RF": 3.6294539146770988,
+          "RH": 3.608569379419854,
+          "RM": 5.388971543072559
+        },
+        "slip_ratio_max": 5.388971543072559,
+        "slip_ratio_mean": 3.4473947047248372,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.18320524252339834,
+    "foot_support_mean": 1.289242387531773,
+    "foot_support_min": 0.8867771978022575,
+    "nonfoot_force_max_W": 4.050834259807644,
+    "com_height_min": 0.8338729660629546,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 3.3962792695542277,
+      "LH": 2.248920315319571,
+      "LM": 1.2850748411883361,
+      "RF": 3.195142086924812,
+      "RH": 4.022035840585843,
+      "RM": 6.48491575371407
+    },
+    "slip_ratio_max": 6.48491575371407,
+    "slip_ratio_mean": 3.4387280178811435,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 7958400,
+  "wall_s": 298.0081715583801,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-constrained-ppo/20261109T130000Z/MODEL_constr.npz",
+    "sha256": "820b4b632b7522ab9f1363cd20bff5ad599e4d6e6452dd871a59dffb709b0046"
+  }
+}

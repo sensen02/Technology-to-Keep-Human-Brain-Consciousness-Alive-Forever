@@ -1,0 +1,120 @@
+{
+  "official": {
+    "nq": 116,
+    "nv": 114,
+    "nu": 59,
+    "na": 59,
+    "njnt": 104,
+    "nbody": 135,
+    "ngeom": 241,
+    "nmesh": 170,
+    "neq": 0,
+    "ntendon": 8,
+    "nkey": 1,
+    "real_hinges": 102,
+    "real_mass": 0.0009846214672177625
+  },
+  "current": {
+    "nq": 49,
+    "nv": 48,
+    "nu": 42,
+    "na": 0,
+    "njnt": 43,
+    "nbody": 73,
+    "ngeom": 72,
+    "nmesh": 71,
+    "neq": 0,
+    "ntendon": 90,
+    "nkey": 1,
+    "real_hinges": 42,
+    "real_mass": 0.0024942714779999996
+  },
+  "official_options": {
+    "timestep": 0.0002,
+    "gravity": [
+      0.0,
+      0.0,
+      -981.0
+    ],
+    "integrator": 0,
+    "cone": 1,
+    "solver": 2,
+    "iterations": 100,
+    "noslip_iterations": 5,
+    "tolerance": 1e-08,
+    "disableflags": 0,
+    "enableflags": 0
+  },
+  "current_options": {
+    "timestep": 1.25e-05,
+    "gravity": [
+      0.0,
+      0.0,
+      -9801.0
+    ],
+    "integrator": 0,
+    "cone": 0,
+    "solver": 2,
+    "iterations": 100,
+    "noslip_iterations": 0,
+    "tolerance": 1e-08,
+    "disableflags": 0,
+    "enableflags": 0
+  },
+  "official_action_group_counts": {
+    "adhesion": 6,
+    "head": 3,
+    "abdomen_tendons": 2,
+    "coxa": 18,
+    "femur": 12,
+    "tibia": 6,
+    "tarsus": 6,
+    "tarsal_tendons": 6
+  },
+  "official_transmission_counts": {
+    "joint": 45,
+    "tendon": 8,
+    "body": 6
+  },
+  "current42_candidate_rows": 42,
+  "official59_rows": 59,
+  "official_actions_with_regional_candidates": 36,
+  "unmatched_official_actions": 23,
+  "verified_scalar_joint_maps": 0,
+  "segment_ratio_nominal_min": 0.6383364336645597,
+  "segment_ratio_nominal_max": 1.1471807298163597,
+  "retained_measurement_calls": {
+    "official": {
+      "mj_step": 0,
+      "mj_step1": 0,
+      "mj_step2": 0,
+      "mj_forward": 410,
+      "mj_jac": 204,
+      "mj_resetDataKeyframe": 1
+    },
+    "current": {
+      "mj_step": 0,
+      "mj_step1": 0,
+      "mj_step2": 0,
+      "mj_forward": 170,
+      "mj_jac": 84,
+      "mj_resetDataKeyframe": 1
+    }
+  },
+  "cumulative_all_extraction_calls": {
+    "mj_step": 0,
+    "mj_step1": 0,
+    "mj_step2": 0,
+    "mj_forward": 1160,
+    "mj_jac": 576,
+    "mj_resetDataKeyframe": 4
+  },
+  "execution_note": "Initial successful extraction revealed missing tendon target-kind decoder; corrected extractor reran both models. Counts include both runs. Initial superseded model JSON replaced; no numerical FK differences.",
+  "fd_max_abs_error": {
+    "official": 5.49589679321727e-11,
+    "current": 4.0163627978984096e-10
+  },
+  "no_environment_created": true,
+  "environment_steps": 0,
+  "training_updates": 0
+}

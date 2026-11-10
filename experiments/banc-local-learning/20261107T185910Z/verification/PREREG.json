@@ -1,0 +1,16 @@
+{
+  "scope": "Independent verification of completed parent readout and later closed-loop neural/input records; no import of trainer or physical runner, no new learning or physical steps; only this verification directory and Desktop equivalent are writable",
+  "readout_samples": 1817,
+  "readout_neural_steps_expected": 18170,
+  "closed_loop_samples_expected": 600,
+  "closed_loop_neural_steps_expected": 6000,
+  "source_boundary": "Saved slow4 remains a failed reference; temporal split within one episode does not establish independent animal generalization",
+  "replay": "Load frozen LocalCircuit at total_conductance_uS=.02 dt_ms=.5, zero descending current, rest initial state. Reconstruct qualified encoder inputs from exact saved body q/qvel at each 5ms START, foot load from final native row of previous interval, firstfoot zero. Compare saved start MN rates and voltages, then advance held recorded current 5ms. Also compare reconstructed encoder current exactly.",
+  "independent_labels": "Mean applied source COMMANDS rates for five consecutive 1ms rows, floor(len(commands)/5), discard3ms tail",
+  "fit_verification": "Do not solve/optimize again. Reconstruct X=MNfilteredHz/100 and Y=atanh(clip(meanrate/30,-.999,.999)); lambda1 constrained ridge objective half(sum residual squared+sum weight squared). Compute gradient X.T@(X@w-Y)+w; require projected gradient residual max(abs(w-clip(w-gradient,-1,1)))<=1e-6. Report raw gradient KKT with boundary activity tolerance1e-7. Strict convexity from ridge lambda1 makes KKT sufficient for unique constrained solution up to tolerance.",
+  "prediction_tolerances": "Exact source/input/current/neural arrays expected zero maximum difference; independent matrix products and RMS/cost allow absolute1e-10 floating-point accumulation tolerance; current/weights finite with bounds and cross-leg mask checked exactly; no bias; silentMN exactzeroaction",
+  "closed_loop": "Separately compare POLICY local inputs to saved BODY/NATIVE, encoder currents, MN start rates/voltages, learned rates, warmup prefix versus learned commands, full HANDOVER saved neural fields and NEURAL_FINAL ge/gi/v/adaptation/refractory/ring/index/spikecount/filter/steps. Parent handles native physical replay.",
+  "calibration_boundary": "Retain CALIBRATION_FAILED and the preregistered -90mV sanity floor failure; .02 is fixed fallback, not validated biological calibration. No walking claims.",
+  "environment": "System python3 lacks scipy; use existing /run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python with NumPy2.5.3 SciPy1.18.1; dependency probe failed before any replay and no installation performed.",
+  "outputs": ["VERIFY_READOUT.json", "VERIFY_CLOSED_LOOP.json when ready", "REPLAY_READOUT_FINAL.npz", "REPORT.md", "DELIVERY_VERIFICATION.json"]
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/train_residual_v3.py", line 370, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/train_residual_v3.py", line 246, in main
+    ctrl = evaluate_control(sim)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/train_residual_v3.py", line 196, in evaluate_control
+    sim.step(rate)
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/train_residual_v3.py", line 161, in step
+    loads, _ = self.foot_loads()
+               ^^^^^^^^^^^^^^^
+AttributeError: 'Sim' object has no attribute 'foot_loads'

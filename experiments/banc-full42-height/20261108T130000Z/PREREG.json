@@ -1,0 +1,43 @@
+{
+  "schema": "full42-height-reward-v4/1",
+  "origin": "scheme A produced the first controller that walks and keeps slip under 1 (mean .913), but it walks in a crouch: COM 0.661 against 1.20 in the gate. Height is the one acceptance quantity the reward never mentioned, so the policy was free to spend it.",
+  "reward_change_from_v3": {
+    "added": "-5.0 * max(0, 1.20 - com_z)^2 per 5 ms tick, w_h = 5 declared, same order as the 5.0 support term and far below the 50.0 non-foot term",
+    "unchanged": [
+      "absolute slip hinge 2*sum max(0, v_i - 0.5*max(|fwd|, v_target))^2",
+      "progress clip(fwd/v_target,-1,1.5) doubled below 0.5*v_target",
+      "stance foot-speed penalty 0.5*sum(stance*v_i^2)",
+      "attitude 0.05|omega|^2 + 0.01 g_xy^2",
+      "action 0.01 mean(rate^2)",
+      "support 5*(sum loads/W - 1)^2",
+      "non-foot 50*nonfoot/W",
+      "terminations COM<0.95, non-foot>0.05 W"
+    ]
+  },
+  "training": {
+    "continues_from": "experiments/banc-full42-ppo/20261108T110000Z/MODEL_full42_after128.npz",
+    "updates": 64,
+    "v_target": 0.05,
+    "adhesion": "on (declared channel, as in the run being continued)",
+    "action_space": "all 42 joints, C = 0.05 rad/tick (already saturated)"
+  },
+  "evaluation": {
+    "windows": [
+      "full release window (0-3 s, the gate quantity, unchanged)",
+      "steady window (0.5-3 s) reported ADDITIONALLY so transient release impact is separated from steady behaviour"
+    ],
+    "rule": "the gates are still judged on the full release window; the steady window is extra information, never a substitute",
+    "modes": [
+      "grip off = frozen body (honest acceptance number)",
+      "grip on = derived channel"
+    ]
+  },
+  "gates": "unchanged: support mean >= 0.90, non-foot max <= 0.05W*4, COM min >= 1.20, slip max <= 0.50, forward >= 0.05",
+  "labelling": "replacement ANN trained by PPO, not a connectome and not brain output; grip-on results are derived-channel",
+  "failure_rule": "if height rises but slip degrades past its previous best, or if nothing improves, report as negative; no threshold, gate or gate-window change is permitted",
+  "amendment_1": {
+    "reason": "w_h=5 over 64 updates cut the non-foot peak 32.4 -> 17.1 W and raised the steady-window height .689 -> .840, but left COM min at .662, so the declared weight was too small to overcome the crouch",
+    "change": "continue the same model for 64 more updates with w_h = 20 (declared parameter search, no gate or threshold change)",
+    "recorded_before_running": true
+  }
+}

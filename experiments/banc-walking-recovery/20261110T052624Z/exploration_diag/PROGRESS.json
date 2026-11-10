@@ -1,0 +1,541 @@
+{
+  "completed_conditions": [
+    {
+      "latent_std": 0.05,
+      "full": {
+        "samples": 2000,
+        "first_sample_s": 0.0010000000000000009,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.998999999997006,
+        "foot_support_mean": 1.0002103703774003,
+        "foot_support_min": 0.5628368456287264,
+        "com_min_native": 1.2646139349812286,
+        "com_end_native": 1.2667290515152356,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -0.02901294116744733,
+        "lateral_signed_native_per_s": -0.0017284481958645505,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.09172186387936013,
+          0.1277629829043154,
+          0.1526395040720082,
+          0.0890387026198308,
+          0.1305723079219582,
+          0.11298968149789577
+        ],
+        "slip_load_denominator_native": [
+          2768.7180186170162,
+          12660.385067345911,
+          9335.45274648873,
+          3141.9892393956916,
+          8807.624940636708,
+          12188.825077024114
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.04961834181158894,
+        "command_rate_rms_rad_s": 0.09923668362317788,
+        "target_displacement_from_reset_rms_rad": 0.007267293010954504,
+        "target_increment_per_1ms_rms_rad": 9.923668362317831e-05,
+        "per_leg_max_clearance_native": [
+          0.004311989000335907,
+          -0.0018267159167031435,
+          -0.0015993679262991736,
+          0.0023438119458668374,
+          -0.0006808859340897214,
+          0.0017916053696257275
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          0.0023731790638257394,
+          -0.0011279268035161716,
+          -0.0011657891789340485,
+          -0.0029493154304191943,
+          -0.003844978638636365,
+          -0.004521740419760986
+        ],
+        "per_leg_contact_fraction": [
+          0.9985,
+          1.0,
+          1.0,
+          0.9995,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 8.510344944587267,
+        "max_torque_fraction_of_actuator_limit": 0.34024849714671346,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 0.0,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "late_0p5_to_2s": {
+        "samples": 1501,
+        "first_sample_s": 0.500000000000502,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.4999999999965041,
+        "foot_support_mean": 1.0000126651498729,
+        "foot_support_min": 0.9971525954627032,
+        "com_min_native": 1.2646139349812286,
+        "com_end_native": 1.2667290515152356,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -0.00011192281075685738,
+        "lateral_signed_native_per_s": 0.007631775578308823,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.0399573735754637,
+          0.05534932709110255,
+          0.047027606475955636,
+          0.032484224539398136,
+          0.04381671980836335,
+          0.04118653157612797
+        ],
+        "slip_load_denominator_native": [
+          2097.8183398112456,
+          9662.486557601482,
+          6908.178134167299,
+          2276.3682762261524,
+          6453.333209357131,
+          9296.258706146558
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.04967000163722679,
+        "command_rate_rms_rad_s": 0.09934000327445358,
+        "target_displacement_from_reset_rms_rad": 0.008133604195901686,
+        "target_increment_per_1ms_rms_rad": 9.934000327445404e-05,
+        "per_leg_max_clearance_native": [
+          -0.005159556742867381,
+          -0.0256406773628624,
+          -0.017619069493033816,
+          -0.005506567547439688,
+          -0.01887978474729856,
+          -0.023189461232492804
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          -0.007098366679377549,
+          -0.02494188824967543,
+          -0.01718549074566869,
+          -0.01079969492372572,
+          -0.022043877451845204,
+          -0.029502807021879518
+        ],
+        "per_leg_contact_fraction": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 8.510344944587267,
+        "max_torque_fraction_of_actuator_limit": 0.34024849714671346,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 0.0,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "candidate_safe_both": true,
+      "trajectory_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/exploration_diag/std_0.05.npz",
+      "trajectory_sha256": "32cd07cc7eb27c021d2e154e2d70373a97305629a41e7f91d475b026f1828fe8",
+      "actual_ticks": 2000,
+      "native_steps": 160000,
+      "native_recording": false,
+      "initial_qpos_sha256": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+      "common_noise_sha256": "79fcde761b082fc1d9c456bb6029fd1f0b2337abeefedf5c0e19736f65810168"
+    },
+    {
+      "latent_std": 0.1,
+      "full": {
+        "samples": 2000,
+        "first_sample_s": 0.0010000000000000009,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.998999999997006,
+        "foot_support_mean": 1.000209900740577,
+        "foot_support_min": 0.5631979333074201,
+        "com_min_native": 1.253549483496274,
+        "com_end_native": 1.2578926257375078,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -0.03320716033338675,
+        "lateral_signed_native_per_s": 0.006275423655023993,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.13507202930263093,
+          0.17654269823093335,
+          0.20307794636286544,
+          0.1270764482276343,
+          0.1730407499450807,
+          0.1450347897935273
+        ],
+        "slip_load_denominator_native": [
+          2668.8037429589854,
+          13003.358520396647,
+          9361.607690087876,
+          2764.2878972375224,
+          8282.752304943084,
+          12822.161972067197
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.09851340228956974,
+        "command_rate_rms_rad_s": 0.1970268045791395,
+        "target_displacement_from_reset_rms_rad": 0.014339462327513552,
+        "target_increment_per_1ms_rms_rad": 0.00019694063971153615,
+        "per_leg_max_clearance_native": [
+          0.0037310455396610195,
+          -0.0018257183389126588,
+          -0.0016027017489816317,
+          0.003401277253817732,
+          -0.0006789809481211537,
+          0.0017999549245985777
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          0.0017922356031508518,
+          -0.0011269292257256869,
+          -0.0011691230016165066,
+          -0.0018918501224682999,
+          -0.003843073652667797,
+          -0.004513390864788136
+        ],
+        "per_leg_contact_fraction": [
+          0.9985,
+          1.0,
+          1.0,
+          0.9985,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 9.210304234542692,
+        "max_torque_fraction_of_actuator_limit": 0.37668114281387666,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 0.0006666666666666665,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "late_0p5_to_2s": {
+        "samples": 1501,
+        "first_sample_s": 0.500000000000502,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.4999999999965041,
+        "foot_support_mean": 1.0000230569183803,
+        "foot_support_min": 0.9942524950066111,
+        "com_min_native": 1.253549483496274,
+        "com_end_native": 1.2578926257375078,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -0.0008650915120631719,
+        "lateral_signed_native_per_s": 0.015715731286802558,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.08005222685361728,
+          0.1103993367994109,
+          0.08913720423932828,
+          0.06786719957983509,
+          0.08584923091027558,
+          0.08240236974222215
+        ],
+        "slip_load_denominator_native": [
+          2039.2041674141988,
+          10021.709234932381,
+          6872.428097531572,
+          1921.1232569845915,
+          5911.593501621864,
+          9928.766280155334
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.09861534313087701,
+        "command_rate_rms_rad_s": 0.19723068626175402,
+        "target_displacement_from_reset_rms_rad": 0.01605573251246407,
+        "target_increment_per_1ms_rms_rad": 0.00019722952979027325,
+        "per_leg_max_clearance_native": [
+          -0.004287650601455507,
+          -0.025618530413712877,
+          -0.01659527353040203,
+          -0.0036883026434975583,
+          -0.016291023609147977,
+          -0.02317078722782181
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          -0.006226460537965675,
+          -0.024919741300525905,
+          -0.016161694783036903,
+          -0.00898143001978359,
+          -0.01945511631369462,
+          -0.029484133017208522
+        ],
+        "per_leg_contact_fraction": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 9.210304234542692,
+        "max_torque_fraction_of_actuator_limit": 0.37668114281387666,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 1.58624409124076e-05,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "candidate_safe_both": true,
+      "trajectory_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/exploration_diag/std_0.10.npz",
+      "trajectory_sha256": "a0c8ca739282a7c2ef5b3ec525177d00a433f83dc48aa50013680f45f9e62a5d",
+      "actual_ticks": 2000,
+      "native_steps": 160000,
+      "native_recording": false,
+      "initial_qpos_sha256": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+      "common_noise_sha256": "79fcde761b082fc1d9c456bb6029fd1f0b2337abeefedf5c0e19736f65810168"
+    },
+    {
+      "latent_std": 0.2,
+      "full": {
+        "samples": 2000,
+        "first_sample_s": 0.0010000000000000009,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.998999999997006,
+        "foot_support_mean": 1.0002250180867893,
+        "foot_support_min": 0.5634910796268208,
+        "com_min_native": 1.2311294305068075,
+        "com_end_native": 1.240051967538386,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -0.04136023842515709,
+        "lateral_signed_native_per_s": 0.02145961384071211,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.21916384162899544,
+          0.27340836803878177,
+          0.3030817601750038,
+          0.22318266739346654,
+          0.2609046389971806,
+          0.21303656131100587
+        ],
+        "slip_load_denominator_native": [
+          2467.9638307805576,
+          13699.398754175169,
+          9349.519314324662,
+          2056.237346828804,
+          7197.775258210249,
+          14132.816751388878
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.19168852015609014,
+        "command_rate_rms_rad_s": 0.3833770403121803,
+        "target_displacement_from_reset_rms_rad": 0.028020184172805475,
+        "target_increment_per_1ms_rms_rad": 0.0003830328125338814,
+        "per_leg_max_clearance_native": [
+          0.0028034636919427244,
+          -0.0018241859931167267,
+          -0.0016087062734718646,
+          0.006055346210039954,
+          -0.0006752353721620682,
+          0.001817839584732285
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          0.0008646537554325567,
+          -0.0011253968799297548,
+          -0.0011751275261067395,
+          0.0007622188337539221,
+          -0.003839328076708712,
+          -0.004495506204654429
+        ],
+        "per_leg_contact_fraction": [
+          0.999,
+          1.0,
+          1.0,
+          0.9955,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 10.496861538146076,
+        "max_torque_fraction_of_actuator_limit": 0.4480101067174422,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 0.0014761904761904762,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "late_0p5_to_2s": {
+        "samples": 1501,
+        "first_sample_s": 0.500000000000502,
+        "last_sample_s": 1.9999999999970062,
+        "duration_s": 1.4999999999965041,
+        "foot_support_mean": 1.0000370944099692,
+        "foot_support_min": 0.9886990636165804,
+        "com_min_native": 1.2311294305068075,
+        "com_end_native": 1.240051967538386,
+        "nonfoot_max_native": 0.0,
+        "forward_signed_initial_heading_native_per_s": -8.881957014848668e-05,
+        "lateral_signed_native_per_s": 0.031631921347134696,
+        "loadweighted_slip_speed_per_leg_native_per_s": [
+          0.16006908047767063,
+          0.21772751930930756,
+          0.1717487759696445,
+          0.14657953690096032,
+          0.16290675290668838,
+          0.1649694447715215
+        ],
+        "slip_load_denominator_native": [
+          1915.6239892507779,
+          10730.63600532511,
+          6756.748544376613,
+          1258.5956551763563,
+          4800.922042001327,
+          11232.813393924185
+        ],
+        "slip_ratio_positive_progress_valid": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "slip_ratio_per_leg": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "action_rms": 0.19188236086082047,
+        "command_rate_rms_rad_s": 0.38376472172164094,
+        "target_displacement_from_reset_rms_rad": 0.03140939350799323,
+        "target_increment_per_1ms_rms_rad": 0.00038367365450960625,
+        "per_leg_max_clearance_native": [
+          -0.0025060300788806514,
+          -0.02614042966437454,
+          -0.014656095586528757,
+          0.0031095672252665976,
+          -0.0112336606768434,
+          -0.023167950206236
+        ],
+        "per_leg_max_clearance_change_from_initial_native": [
+          -0.004444840015390819,
+          -0.02544164055118757,
+          -0.014222516839163632,
+          -0.002183560151019434,
+          -0.014397753381390044,
+          -0.029481295995622714
+        ],
+        "per_leg_contact_fraction": [
+          1.0,
+          1.0,
+          1.0,
+          0.9966688874083944,
+          1.0,
+          1.0
+        ],
+        "max_abs_commanded_torque_native": 10.496861538146076,
+        "max_torque_fraction_of_actuator_limit": 0.4480101067174422,
+        "max_actuator_target_bound_violation_rad": 0.0,
+        "actuator_target_clip_fraction": 0.000317248818248152,
+        "max_abs_policy_mean": 0.0,
+        "candidate_safety": {
+          "com": true,
+          "nonfoot": true,
+          "support": true
+        },
+        "candidate_safe": true
+      },
+      "candidate_safe_both": true,
+      "trajectory_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/exploration_diag/std_0.20.npz",
+      "trajectory_sha256": "fd7586846acc85a5d3b189dd9c87dc74b32db751ee7792485346ce7ac92b4d38",
+      "actual_ticks": 2000,
+      "native_steps": 160000,
+      "native_recording": false,
+      "initial_qpos_sha256": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+      "common_noise_sha256": "79fcde761b082fc1d9c456bb6029fd1f0b2337abeefedf5c0e19736f65810168"
+    }
+  ]
+}

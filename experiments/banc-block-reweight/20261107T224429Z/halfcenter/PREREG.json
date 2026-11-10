@@ -1,0 +1,38 @@
+{
+  "schema": "round12-halfcenter-screen/1",
+  "scope": "Second preregistered neural open-loop screen of round 12: re-weight ONLY existing edges that run between the two tripod groups (A = LF,RM,LH and B = RF,LM,RH), separately for each direction and receptor type, with per-row renormalisation to the frozen 0.020 uS. No physics, no readout learning, no acceptance change, no new edges, no external oscillator, no descending drive.",
+  "why": "Screen 1 (../PREREG.json) re-weighted the coarse leg-pair classes and could not produce tripod anti-phase (best tripod score -0.316, threshold +0.30, 124 combinations). The classic mechanism that turns mutual inhibition into alternation is a half-centre: reciprocal inhibition between the two groups plus spike-frequency adaptation, which this module already has as the -80 mV adaptation conductance. Screen 2 therefore targets the A<->B edges directly, separately per direction and receptor, which screen 1 could not express because its classes mixed directions and receptors.",
+  "frozen_sources": {
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "canonical_neural_state": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+    "sensory_currents": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz",
+    "leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz",
+    "pools_and_reach": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz",
+    "mn_leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz"
+  },
+  "group_definition": {
+    "A": ["lf", "rm", "lh"],
+    "B": ["rf", "lm", "rh"],
+    "neuron_leg_tag": "leg of the direct-MN-projecting premotor pool for buckets pool_lf..pool_rm; leg of the motor neuron for the 323 MNs; untagged for shared, nonmotor and other MNs outside the 323",
+    "classes": {
+      "cross_AB_inh": "pre tagged A, post tagged B, inhibitory (GABA/glutamate)",
+      "cross_AB_exc": "pre tagged A, post tagged B, excitatory (acetylcholine)",
+      "cross_BA_inh": "pre tagged B, post tagged A, inhibitory",
+      "cross_BA_exc": "pre tagged B, post tagged A, excitatory",
+      "everything_else": "fixed at 1.0 (includes within-group, shared, untagged)"
+    }
+  },
+  "grid": {
+    "inh_values": [1.0, 4.0, 16.0, 32.0],
+    "exc_values": [0.25, 1.0],
+    "combinations": 32,
+    "rule": "complete factorial over (inh_AB, inh_BA, exc_AB, exc_BA); every combination run and reported; no pruning"
+  },
+  "protocol": "Identical to screen 1: restore the canonical 2000-step state, replay the 100 recorded sensory bins cyclically for 400 bins (2000 ms), zero descending current, record the 323 exported MN filtered rates every 5 ms. Physical steps 0.",
+  "fixed_analysis": "Identical metric definitions to screen 1 and round-11 intrinsic so numbers stay comparable: tripod alternation score = -corr(mean(A), mean(B)); ipsilateral score; LF-RH and RF-LH correlations; per-leg means; PC1 variance fraction and loadings.",
+  "decision_rule_fixed_in_advance": "ALTERNATION-POSITIVE only if tripod score >= 0.30, both group mean rates > 2 Hz, and both LF-RH and RF-LH correlations are negative. A positive result licenses only a further preregistered physical experiment; it is not walking and not a biological claim. All-negative must be reported as negative with no reframing.",
+  "guards": "With every scalar 1 the rebuilt matrices must equal the frozen ones exactly and the network behaviour must be bit-identical to the frozen core before any grid run.",
+  "headroom_known_in_advance": "The A<->B edge classes are a small share of total conductance (screen-1 class tripod_diagonal was 0.1348 uS of 380.84 uS), so a null is plausible; row renormalisation means large scalars can re-allocate a row's 0.020 uS budget rather than increase it.",
+  "limits": "Open-loop neural replay only, no body, no contact, no sensorimotor loop. Scalars are uncalibrated engineering weights; the half-centre mechanism is a modelling hypothesis here, not a measurement of fly circuitry; the strict 20k subgraph is not the whole VNC. Nothing here is a lesion or surgical model."
+}

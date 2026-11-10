@@ -1,0 +1,14 @@
+{
+  "schema": "retarget-from-stand-pose/1",
+  "origin": "the built-in key pose has non-coplanar feet (spread 0.0166), four legs on a joint bound, and collapses to COM 0.18 with 29 percent of the weight on non-foot geometry when it bears load. A solved stand pose (COM 1.35, feet coplanar to 2.6e-5, non-foot clearance 0.515) holds load on feet alone with zero non-foot contact. This round redoes the whole reference pipeline starting from that pose.",
+  "changes": {
+    "start_pose": "the retarget's initial guess, continuity anchor and key-frame regularisation target all become STAND_POSE_2 (42 joint angles + root height 1.4723 from experiments/banc-stand-pose/20261108T170000Z)",
+    "nothing_else": ["landmark definitions", "solver settings (TRF, analytic Jacobian, max_nfev 80/16, step limit 0.06, weights)", "joint limit bounds", "filter v2 (rolling median <= .15, >= 100 frames)", "base network architecture", "PPO hyperparameters", "reward", "action space", "all acceptance gates and thresholds", "frozen body XML (unchanged, the pose is a runtime parameter, not a model edit)"]
+  },
+  "pipeline": ["regenerate official landmarks (done)", "retarget 232 snippets from the stand pose", "filter v2", "train base network", "train full 42-joint PPO with reward v4", "evaluate with the frozen criteria in two modes (grip off = frozen body, grip on = derived channel) and two windows (full release, steady)"],
+  "acceptance": {
+    "to_continue": "each stage must complete without error and the numbers must be recorded whether good or bad",
+    "to_pass": "no gate is relaxed; the question is only whether the new start pose changes slip, height and non-foot contact"
+  },
+  "labelling": "replacement ANN only; grip-on results are derived-channel; the frozen-body status stays unaccepted unless the frozen gates are met with grip off"
+}

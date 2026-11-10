@@ -1,0 +1,8 @@
+{
+  "schema": "adhesion-relearn/1",
+  "origin": "two measurements made this round combine into a configuration that has never been trained: (a) the open-loop probe shows the 0.5W clamp is what stops feet from rising, and (b) simply making adhesion releasable changes a trained policy's stance fractions from 1.00 for every leg to 0.31-0.56 with slip 1.78 instead of 2.83. The policy was trained against a clamp it could not lift against. This run retrains with the releasable law.",
+  "world": "derived pad body R=.02, mu=1.5, adhesion A=0.25 body weight per leg with release-on-lift, stand pose start, base network MODEL_MEASURED_STAND as faded prior, reward v4 (no duty term), 42-joint PPO, 64 updates, gates unchanged",
+  "why_it_is_new": "no previous training run has ever had a releasable adhesion law; every earlier run either had the 0.5W clamp or no adhesion at all",
+  "labelled": "derived body + derived friction + derived adhesion law; replacement ANN; not frozen-body acceptance",
+  "accounting": "reward trace, gate checks every 16 updates, native steps, and a full evaluation including stance fraction and swing clearance so the presence or absence of a gait is measured, not assumed"
+}

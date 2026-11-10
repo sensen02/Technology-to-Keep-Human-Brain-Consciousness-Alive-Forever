@@ -1,0 +1,23 @@
+{"tag": "ann_12s", "sim_s": 1.0, "wall_s": 11.8}
+{"tag": "ann_12s", "sim_s": 2.0, "wall_s": 23.5}
+{"tag": "ann_12s", "sim_s": 3.0, "wall_s": 35.3}
+{"tag": "ann_12s", "sim_s": 4.0, "wall_s": 47.1}
+{"tag": "ann_12s", "sim_s": 5.0, "wall_s": 58.8}
+{"tag": "ann_12s", "sim_s": 6.0, "wall_s": 70.3}
+{"tag": "ann_12s", "sim_s": 7.0, "wall_s": 81.9}
+{"tag": "ann_12s", "sim_s": 8.0, "wall_s": 93.4}
+{"tag": "ann_12s", "sim_s": 9.0, "wall_s": 104.9}
+{"tag": "ann_12s", "sim_s": 10.0, "wall_s": 116.4}
+{"tag": "ann_12s", "sim_s": 11.0, "wall_s": 127.9}
+{"tag": "ann_12s", "sim_s": 12.0, "wall_s": 139.6}
+{"tag": "ann_12s", "passed": true, "checks": {"D1_no_nonfoot_ground_force": true, "D2_no_free_fall": true, "D3_foot_support_not_below_assist": true, "D4_foot_support_never_collapses": true, "D4b_nonfoot_is_not_carrying_the_body": true, "D5_com_height_not_below_assist": true, "D6_force_balance_consistent": true, "D7_tripod_redundancy": true, "D8_still_above_absolute_floor": true}, "release": {"foot_support_mean": 1.0000422749741749, "foot_support_p10": 0.9679677369585173, "foot_support_min": 0.7154307123719551, "nonfoot_share_mean": 0.0, "ground_support_mean": 1.0000422749741749, "com_z_min": 1.3164220639234414, "com_z_mean": 1.3532355492810926, "free_fall_fraction": 0.0, "force_balance_residual_p95": 0.016839544200477497, "force_balance_residual_p50": 0.0008683894131753555, "bearing_legs_median": 5.0, "bearing_legs_min": 3, "per_leg_mean_load": [0.052520240437225335, 0.22708357787488126, 0.2115923190751734, 0.08069576054130492, 0.19364617891502925, 0.23450419813056078], "per_leg_duty": [0.6348772727272727, 0.8471613636363636, 0.8594011363636364, 0.6888636363636363, 0.8460136363636364, 0.8539943181818181], "samples": 880000}}
+{"tag": "neural_cut_hold_4s", "sim_s": 1.0, "wall_s": 11.9}
+{"tag": "neural_cut_hold_4s", "sim_s": 2.0, "wall_s": 24.1}
+{"tag": "neural_cut_hold_4s", "sim_s": 3.0, "wall_s": 36.3}
+{"tag": "neural_cut_hold_4s", "sim_s": 4.0, "wall_s": 48.4}
+{"tag": "neural_cut_hold_4s", "passed": true, "checks": {"D1_no_nonfoot_ground_force": true, "D2_no_free_fall": true, "D3_foot_support_not_below_assist": true, "D4_foot_support_never_collapses": true, "D4b_nonfoot_is_not_carrying_the_body": true, "D5_com_height_not_below_assist": true, "D6_force_balance_consistent": true, "D7_tripod_redundancy": true, "D8_still_above_absolute_floor": true}, "release": {"foot_support_mean": 0.999999940450636, "foot_support_p10": 0.9999999999999936, "foot_support_min": 0.9811884424422883, "nonfoot_share_mean": 0.0, "ground_support_mean": 0.999999940450636, "com_z_min": 1.3558009286173434, "com_z_mean": 1.3558360577486532, "free_fall_fraction": 0.0, "force_balance_residual_p95": 6.599706651190661e-12, "force_balance_residual_p50": 2.6158847344319438e-15, "bearing_legs_median": 5.0, "bearing_legs_min": 5, "per_leg_mean_load": [0.02556939118109782, 0.22337935527607505, 0.21284088868265438, 0.20535118416996273, 0.0, 0.3328591211408461], "per_leg_duty": [1.0, 1.0, 1.0, 1.0, 0.0, 1.0], "samples": 240000}}
+{"tag": "motor_cut_4s", "sim_s": 1.0, "wall_s": 11.9}
+{"tag": "motor_cut_4s", "sim_s": 2.0, "wall_s": 25.0}
+{"tag": "motor_cut_4s", "sim_s": 3.0, "wall_s": 39.3}
+{"tag": "motor_cut_4s", "sim_s": 4.0, "wall_s": 53.7}
+{"tag": "motor_cut_4s", "passed": false, "checks": {"D1_no_nonfoot_ground_force": false, "D2_no_free_fall": true, "D3_foot_support_not_below_assist": false, "D4_foot_support_never_collapses": false, "D4b_nonfoot_is_not_carrying_the_body": false, "D5_com_height_not_below_assist": false, "D6_force_balance_consistent": true, "D7_tripod_redundancy": true, "D8_still_above_absolute_floor": false}, "release": {"foot_support_mean": 0.035556409751866955, "foot_support_p10": 0.027597172030228972, "foot_support_min": 0.0, "nonfoot_share_mean": 0.9621617561480406, "ground_support_mean": 1.0000016698873777, "com_z_min": 0.49384535441784755, "com_z_mean": 0.5017109108716856, "free_fall_fraction": 0.0, "force_balance_residual_p95": 7.726630047917132e-05, "force_balance_residual_p50": 5.840174332809229e-06, "bearing_legs_median": 6.0, "bearing_legs_min": 0, "per_leg_mean_load": [0.0022701280319220624, 0.0021854438158153667, 0.0031166065170519816, 0.006443570775680163, 0.01439511012826978, 0.007145550483127599], "per_leg_duty": [0.9581125, 0.9203333333333333, 0.935375, 0.9667958333333333, 0.9696333333333333, 0.9691958333333334], "samples": 240000}}

@@ -1,0 +1,19 @@
+{
+  "version": "target-space-incremental-diagnostic-v1",
+  "goal": "S2/S5 test target-integrator mismatch after measured velocity teacher collapses during initial blend",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z",
+  "parent_results": "all4conditions earlyCOM<1 after.56-.66s, allcycles0; targetdrift~1.54rad while physicalbody first rises thenfalls",
+  "physical": "same noadh triad derived body, gravity/friction/PD/rate2rad/s/torque/native time unchanged",
+  "controller_change": "private shadow MjData used for inverse kinematics at current actuator target joints, physicalrootpose copied read-only, targetgeometry initialelasticoffset preserved; only42ratecommands sent toactualbody",
+  "forbidden": "no physicalroot/qpos/qvel overwrite afterreset, no auxiliary externalforce, shadowstate is computationonly",
+  "conditions": [
+    {"name": "hold", "reference_mode": "hold", "height_gain": 0, "orientation_gain": 0},
+    {"name": "measured_open", "reference_mode": "measured", "height_gain": 0, "orientation_gain": 0},
+    {"name": "measured_feedback", "reference_mode": "measured", "height_gain": 1, "orientation_gain": 1}
+  ],
+  "common": "settle1s, measuredreferencexscale10,zfactor.25,warp10,source.24s,blend.5s,tau.1,ridge.01,teacher5msheld1msintegrator",
+  "duration": "hold1s, measuredconditions2.9s each, safetyearlyCOM<1/nonfoot>.2W",
+  "check": "holdsamegeometry yieldszero action, physicalstate andxfrc unchanged bycontrollercalls, targetratesbounded finite; teacherframedifferencing alreadyparentverified butshadowjac-specificstaticcheck",
+  "decision": "separate interface mechanism fromreferencegeometry; requireactualsafephysicalcyclesbeforeimitation; do not callkinematicshadowstate bodymotion",
+  "scope": "algorithmteacherdiagnostic only, not autonomousnetwork or originalacceptance"
+}

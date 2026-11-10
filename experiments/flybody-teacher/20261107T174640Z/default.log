@@ -1,0 +1,46 @@
+2026-11-07 09:54:16.327074: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+{
+  "status": "RECORDED_NOT_INDEPENDENTLY_VERIFIED",
+  "identity": "reference-conditioned pretrained ANN teacher",
+  "controls": 235,
+  "native_steps": 2350,
+  "sim_s": 0.4699999999999809,
+  "terminal": true,
+  "reference_end": true,
+  "discount": 1.0,
+  "root_displacement": [
+    0.9609810714045726,
+    -0.0065572383737134195,
+    0.00488767747239921
+  ],
+  "com_z_min": 0.11189235925210225,
+  "foot_force_mean_over_weight": 4.504095956324689,
+  "nonfoot_max": 0.0,
+  "external_force_max": 0.0,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_s": 3.850660538999364,
+  "files": {
+    "MODEL.mjb": "19bb420e4556fff57672bbfdf8fc425cef08711578db257ecd4fed23776d5916",
+    "OBS.npz": "48c81dc85880122b9089958b54089d851321b3808976d85ca57ca552bd0033fa",
+    "MODEL_IDENTITY.json": "00ecd0c435f7bfa19b307645aa227e8457dd315ffa2e85babdb14ef4ad6a2bd1",
+    "NATIVE.npz": "c7c9822bf58b191e3113c4116066c4499b3c9f7d413a48c9745ec871b12e11bb",
+    "BODY.npz": "2478e677e9208611f14236e71629059842ec565ce10a1be13e52330f3063410d",
+    "PROTOCOL.json": "eecf1008468383acef399c63ed6b543d8e572aa64556bdf131a929807e20e59c",
+    "POLICY.npz": "2ff51c0880a91310969c0d091b9b6adf61021d5a866810eb181b74b9c9707e59"
+  },
+  "caveats": [
+    "Official adhesive actuators enabled; contact loads alone do not prove muscle-only support.",
+    "No current42 support/slip gates or biological validation claimed.",
+    "Inference reward constant1 is not measured task success."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "approved_plan_stage_0_1_official_teacher_reproduction",
+  "user_scope": "Build complete platform including feeding and behavioral choice before actual injury experiments. No surgery is executed at this stage.",
+  "teacher_repository": "https://github.com/TuragaLab/flybody.git",
+  "teacher_archive": "https://ndownloader.figshare.com/files/44815195",
+  "teacher_archive_md5": "12934d5a1c60631a710bc2b6d297d3ce",
+  "runtime": "isolated Python3.10 TensorFlowCPU2.8 TensorFlowProbability0.16; preserve existing project environments",
+  "cpu_only": true,
+  "discovered_hardware": "24 logical CPUs, AMD Navi48 GPU; nvidia-smi unavailable, existing torch CUDA false; no GPU stack installation planned",
+  "model_identity": "flybody_teacher_reference_conditioned_not_connectome",
+  "first_screen": "Official default inference walking reference (synthetic root reference, not measured trajectory) and unchanged saved walking policy; record termination honestly. No direct real-body/root state writes during rollout. Ghost/reference writes are explicit official task behavior.",
+  "following_runs": "Once load and interface pass, official trained walking on declared longer inference trajectory and separately measured walking snippets; no student training until teacher data and physical interface audited.",
+  "guards": "Do not convert official59actions directly into current42joint actuator. Keep original current-body support/slip gates and failed evidence frozen. Official teacher evaluated in its own units/model and not called current-body pass.",
+  "observations": "Save all actual policy inputs including future reference. Deployment-eligible vs privileged fields explicitly labelled.",
+  "evaluation": "Save qpos qvel ctrl contact and external force accounting, policy actions, timestamps, initial state/model, source hashes. Independent policy and physical replay; video from same recorded trajectory. Final report must distinguish software load, teacher tracking and biological validity.",
+  "provenance": "Record exact git commit and archive file hashes before policy loading. No downloaded code is treated as instructions.",
+  "known_data_gaps": ["neck crossing identity annotations disagree", "cache lacks cervical axon geometry", "electrode soma-coordinate unit discrepancy", "no validated adult abdomen organ model", "no automatic BANC-to-FAFB cell equivalence"],
+  "not_authorized_by_this_stage": ["replace canonical body", "claim pretrained teacher is original fly brain", "run lesion/electrode experiments before platform", "change physical thresholds to pass", "resume old residual training by default"]
+}

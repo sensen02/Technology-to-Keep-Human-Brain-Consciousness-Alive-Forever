@@ -1,0 +1,160 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "teacher-distill/1",
+    "origin": "third of the three routes the user asked to try. Instead of hand-designed rewards, take demonstrations from the official pretrained Flybody walking policy that already exists in this project and imitate them with the replacement policy on our body.",
+    "what_the_teacher_is": {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z (TensorFlow saved_model policies/walking, flybody.fly_envs.walk_imitation, 59 actuators), its own environment and its own body",
+      "label": "official teacher = reference teacher, not our body, not our actuator, and not a connectome; its 59 actions include six adhere_claw channels and tarsus DOFs that our 42-joint body does not have"
+    },
+    "mapping_declared": {
+      "legs": {
+        "T1_left": "LF",
+        "T2_left": "LM",
+        "T3_left": "LH",
+        "T1_right": "RF",
+        "T2_right": "RM",
+        "T3_right": "RH"
+      },
+      "joints": {
+        "coxa_abduct": "Coxa_roll",
+        "coxa_twist": "Coxa_yaw",
+        "coxa": "Coxa_pitch",
+        "femur_twist": "Trochanter_yaw",
+        "femur": "Trochanter_pitch",
+        "tibia": "Tibia_pitch"
+      },
+      "dropped": [
+        "tarsus",
+        "tarsus2",
+        "adhere_claw (our body has no such DOF and no adhesion geometry)"
+      ],
+      "unmapped_on_our_side": "Trochanter_roll has no teacher counterpart; it is held at the solved stand pose value (declared constant, not a learned DOF)",
+      "calibration": "per joint a single additive offset chosen so the teacher's time-mean equals our solved stand pose value; joint signs are assumed identical and this assumption is recorded, not verified",
+      "clipping": "mapped targets are clipped into our joint ranges with a 0.01 rad margin"
+    },
+    "pipeline": "teacher rollout 8 s at 500 Hz -> resample 200 Hz -> map+offset+clip to 42 targets -> supervised training of the same 294-128-128-42 base network (same recipe) -> evaluation open loop, then 64 PPO updates with the adhesion channel, gates unchanged",
+    "labelling": "the result is a replacement ANN imitating a reference teacher; it is not the teacher's capability, not our body's validated walking, and not a connectome",
+    "accounting": "teacher rollout time, number of samples kept after mapping and clipping, per-joint offset and clip fraction, base-network training MSE, and every evaluation metric including failures"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-teacher-distill/20261109T070000Z/MODEL_MEASURED_TEACHER.npz",
+    "sha256": "8b5e08f816a69da0b08a6bdba138f7ad4ce4626326fc32102d90c8d10ac5949d"
+  },
+  "action_joints": "derived pad body r02",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.055548325097531444,
+        "foot_support_mean": 4.000387292815353,
+        "foot_support_min": 3.9303686095742463,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 0.8133721898608517,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 7.529759208256357,
+          "LH": 16.21876239750808,
+          "LM": 15.218260527250509,
+          "RF": 9.510432433377908,
+          "RH": 11.4331305387355,
+          "RM": 16.379553337868153
+        },
+        "slip_ratio_max": 16.379553337868153,
+        "slip_ratio_mean": 12.71498307383275,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.15371739556274777,
+    "foot_support_mean": 3.943766244755001,
+    "foot_support_min": 3.703673516536915,
+    "nonfoot_force_max_W": 7.159032822036025,
+    "com_height_min": 0.6310554745957706,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 2.704689077733131,
+      "LH": 6.076451266598022,
+      "LM": 5.636106792551982,
+      "RF": 2.798373610562503,
+      "RH": 4.2870143559919605,
+      "RM": 6.4593003744909305
+    },
+    "slip_ratio_max": 6.4593003744909305,
+    "slip_ratio_mean": 4.660322579654754,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 4697600,
+  "wall_s": 333.12987995147705,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-teacher-distill/20261109T070000Z/MODEL_teacher.npz",
+    "sha256": "104f21ff4f88725b8b451655bae2b6cdd710824862f2907dcf2e98129bf0934b"
+  }
+}

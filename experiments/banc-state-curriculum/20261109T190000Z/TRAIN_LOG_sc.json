@@ -1,0 +1,142 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "state-curriculum/1",
+    "origin": "two constraint runs failed identically for the same measurable reason: in cold-start training the statistic being constrained never violates. The support run logged min support 0.982 and the non-foot run logged mean non-foot 0.0, because the training reward terminates an episode the moment non-foot contact exceeds 0.05 W. The 73.7 W non-foot peak that the gate measures appears only in the assist-then-release evaluation. So the distribution, not the constraint, is the problem.",
+    "change": {
+      "state curriculum": "training episodes now start either from the solved stand pose (50 percent, as before) or from a simulator state recorded during the release phase of an assist-then-release rollout of the current best policy (50 percent). Only qpos and qvel are restored; physics, actuator and controller are untouched, nothing is replayed open loop, and no external generator exists",
+      "records": "the recorded states come from our own MuJoCo simulation of our own body, taken every 10 ticks during the 3 s release window, and a manifest records the model hash, the source model, and the count",
+      "constraint": "non-foot contact (windowed maximum 10 ticks, target 4.889 W) plus COM height (windowed minimum, target 1.20), both by dual ascent; these now have a distribution where they can actually be violated",
+      "kept": "1 ms policy tick, base target 200 Hz, C = 0.02, derived pad body R=.02, mu=1.5, releasable adhesion 0.25 body weight, reward v4, 42-joint PPO, 48 updates, gates unchanged",
+      "termination": "unchanged during training; the point is that starting states now include the transient, so the policy must learn to survive it instead of never meeting it"
+    },
+    "labelling": "derived channel plus replacement ANN; the recorded states are our own simulated history, not measurements of a real animal and not connectome activity",
+    "accounting": "both multipliers and the violating statistics logged per update; full four-second assist-then-release evaluation plus a cold-start evaluation"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "state_curriculum": {
+    "mix": 0.5,
+    "bank": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-state-curriculum/20261109T190000Z/STATE_BANK.npz",
+    "bank_sha256": "ba4e9b8576d5d4df3f177a39fd014e17db7a861e5016fc07808c8d1d19cc87f8",
+    "note": "initial states recorded from our own simulation during the release phase; no external generator"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, state-curriculum training, Lagrangian on non-foot and height",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.22807130689714097,
+        "foot_support_mean": 1.3445505409350447,
+        "foot_support_min": 0.370926887949409,
+        "nonfoot_force_max_W": 3.820194461314924,
+        "com_height_min": 0.8240697646661792,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 2.79906423776834,
+          "LH": 1.60953392406547,
+          "LM": 1.1663870106717076,
+          "RF": 3.041317010734251,
+          "RH": 3.9236308963434126,
+          "RM": 5.451756079387636
+        },
+        "slip_ratio_max": 5.451756079387636,
+        "slip_ratio_mean": 2.998614859828469,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.22412322773158083,
+    "foot_support_mean": 1.2923067413022604,
+    "foot_support_min": 0.370926887949409,
+    "nonfoot_force_max_W": 4.3254457625949,
+    "com_height_min": 0.8339484563531042,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 3.054980244030503,
+      "LH": 2.0121348696584542,
+      "LM": 1.1828029582887212,
+      "RF": 2.822164919778425,
+      "RH": 3.8531353009253366,
+      "RM": 5.472500161932598
+    },
+    "slip_ratio_max": 5.472500161932598,
+    "slip_ratio_mean": 3.0662864091023394,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 11902880,
+  "wall_s": 262.43513321876526,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-state-curriculum/20261109T190000Z/MODEL_sc.npz",
+    "sha256": "0bc0b5e04b0685e3335d984783762bb59554a8d80b187a3cb49ff969842fdea9"
+  }
+}

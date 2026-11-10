@@ -1,0 +1,161 @@
+{
+  "schema": "pre-injury-platform-freeze-addendum/1",
+  "status": "ADDENDUM_VERIFIED",
+  "parent_freeze": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/FREEZE_MANIFEST.json",
+    "sha256": "07f2cbfc5577a1db18c84b27ebc9dc4ca8c94b3b097779ecdd4c0b2eccaa4ed2",
+    "verification": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/VERIFICATION.json",
+    "verification_sha256": "abf3b8fe7a2193c3478113dc8d19b025879f962f7447d65f2ffc0d96c234fd64",
+    "artefacts": 14,
+    "artefacts_unchanged": true
+  },
+  "movement_deficiency": {
+    "controller": "replacement_ANN_not_connectome",
+    "accepted": false,
+    "criterion": "max per-leg force-weighted material slip speed / forward speed <= 0.5 (frozen verifier)",
+    "threshold": 0.5,
+    "leg_order": [
+      "LF",
+      "LM",
+      "LH",
+      "RF",
+      "RM",
+      "RH"
+    ],
+    "slip_ratio": {
+      "LF": 0.6100043058529452,
+      "LM": 0.4680688483889046,
+      "LH": 1.0356474701681815,
+      "RF": 0.5047232494319716,
+      "RM": 0.8572579164550994,
+      "RH": 0.9633772727053304
+    },
+    "mean_ratio": 0.7398465105004055,
+    "max_ratio": 1.0356474701681815,
+    "min_ratio": 0.4680688483889046,
+    "legs_failing": [
+      {
+        "leg": "LF",
+        "slip_ratio": 0.6100043058529452
+      },
+      {
+        "leg": "LH",
+        "slip_ratio": 1.0356474701681815
+      },
+      {
+        "leg": "RF",
+        "slip_ratio": 0.5047232494319716
+      },
+      {
+        "leg": "RM",
+        "slip_ratio": 0.8572579164550994
+      },
+      {
+        "leg": "RH",
+        "slip_ratio": 0.9633772727053304
+      }
+    ],
+    "legs_passing": [
+      {
+        "leg": "LM",
+        "slip_ratio": 0.4680688483889046
+      }
+    ],
+    "failing_count": 5,
+    "passing_count": 1,
+    "forward_speed_native": 0.3024167195047777,
+    "support_gates": "D1-D8 pass at native resolution",
+    "source": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-ann-walk/20261107T123634Z/evaluation/ann_residual_u32/VERIFICATION.json",
+    "source_sha256": "cea048fb16c7d00ef136fa21935729223b259857bdcd40504ef1311a9be8fdb6",
+    "deficiency_statement": "the replacement ANN produces real displacement with all support gates passing, but its stance feet slide at 0.47-1.04 times forward speed, so it is pushing/slipping rather than planting; 5 of 6 legs exceed the 0.5 frozen threshold and nothing in this workspace calibrates or repairs that",
+    "not_measured_here": "independent recomputation of material contact speeds from saved arrays: the saved native record has no contact positions or velocities, so the verifier output is quoted, not re-derived"
+  },
+  "consequence": "the frozen platform may be exercised for state/feeding/selector logic only; it may not be reported as accepted walking, and no injury experiment may use it as a healthy baseline",
+  "checks_passed": 12,
+  "checks_total": 12,
+  "checks": [
+    {
+      "name": "prev_freeze_exists",
+      "passed": true,
+      "prev_freeze_sha256": "07f2cbfc5577a1db18c84b27ebc9dc4ca8c94b3b097779ecdd4c0b2eccaa4ed2",
+      "prev_verification_sha256": "abf3b8fe7a2193c3478113dc8d19b025879f962f7447d65f2ffc0d96c234fd64"
+    },
+    {
+      "name": "frozen_artefacts_unchanged",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "verifier_hash_matches_quote",
+      "passed": true,
+      "quoted": "cea048fb16c7d00ef136fa21935729223b259857bdcd40504ef1311a9be8fdb6",
+      "actual": "cea048fb16c7d00ef136fa21935729223b259857bdcd40504ef1311a9be8fdb6"
+    },
+    {
+      "name": "mean_speed_transcription",
+      "passed": true
+    },
+    {
+      "name": "rms_speed_transcription",
+      "passed": true
+    },
+    {
+      "name": "slip_ratio_transcription",
+      "passed": true
+    },
+    {
+      "name": "loaded_samples_transcription",
+      "passed": true
+    },
+    {
+      "name": "verifier_reported_failure",
+      "passed": true
+    },
+    {
+      "name": "ratio_consistent_with_speed",
+      "passed": true
+    },
+    {
+      "name": "failing_count_is_five",
+      "passed": true,
+      "failing": [
+        {
+          "leg": "LF",
+          "slip_ratio": 0.6100043058529452
+        },
+        {
+          "leg": "LH",
+          "slip_ratio": 1.0356474701681815
+        },
+        {
+          "leg": "RF",
+          "slip_ratio": 0.5047232494319716
+        },
+        {
+          "leg": "RM",
+          "slip_ratio": 0.8572579164550994
+        },
+        {
+          "leg": "RH",
+          "slip_ratio": 0.9633772727053304
+        }
+      ],
+      "passing": [
+        {
+          "leg": "LM",
+          "slip_ratio": 0.4680688483889046
+        }
+      ]
+    },
+    {
+      "name": "max_ratio_above_threshold",
+      "passed": true
+    },
+    {
+      "name": "accepted_is_false",
+      "passed": true
+    }
+  ],
+  "physics_steps": 0,
+  "neural_steps": 0
+}

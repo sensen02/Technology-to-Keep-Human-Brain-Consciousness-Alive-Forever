@@ -1,0 +1,14 @@
+{
+ "version":"swing-static-preload-release-v1",
+ "goal":"S2/S5 make measured-foot physical teacher unload swingleg ratherthan preserving staticloaded elasticpreload",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T065819Z",
+ "basis":"fixedprivateFKframe stoppedfastcollapse andRFcompleted1-2cycles, otherlegsneverclearfloor; targetposeFKinitialpadbottom differsactualloadedpadbottom, so smallreferencez mayonly reducepreloadwithoutleavingground",
+ "physical":"same noadhderivedbody, allmass/gravity/friction/PD/rate/torquelimits unchanged",
+ "change":"while referencefootheight ramps0..05native, smoothstep blend Cartesian target preload offset fromloaded motor-targetFK toactualsettled footgeometry; stance keeps original preload. Only bounded42rates sent. No rootwrites or forcefeedforward outsideactualactuator",
+ "conditions":[{"name":"retained_preload","swing_preload_release":false,"height_gain":1,"orientation_gain":1},{"name":"released_preload","swing_preload_release":true,"height_gain":1,"orientation_gain":1},{"name":"released_strong_support","swing_preload_release":true,"height_gain":3,"orientation_gain":2}],
+ "common":"privateinitialrootframe,firstsourcephaseXYanchor,xygain.25,zfactor.5,timewarp10,source.24s,blend.5s,settle1s,tau.1,ridge.01,teacher5mshold1ms",
+ "budget":"3conditions2.9s max,COM<1/nonfoot>.2Wearlystop,inputsandactualstatesverified",
+ "checks":"controllerphysicalstatenochange,boundedrates; equalrelease derivativeanalytic smoothstep; zeroheight givesexactloaded target,highheight releasesfinitepreloadoffset; eventcounterstrict andphysicalsourceonly",
+ "decision":"requireactualsafecyclesbeforeimitation. Bettertoeheightalone notwalking; preservesfrozenfailedcases andoriginalgates",
+ "scope":"engineeringalgorithmteacher,notdeployednetwork or originalbodyacceptance"
+}

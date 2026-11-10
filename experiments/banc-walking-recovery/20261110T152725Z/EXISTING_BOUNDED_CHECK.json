@@ -1,0 +1,282 @@
+{
+  "status": "PASS",
+  "physical_steps": 0,
+  "historical_writes": 0,
+  "native_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_NATIVE",
+  "native_chunk": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T114148Z/EVAL_GRU_ROLE_NATIVE/native/native_000000.npz",
+    "rows": 2048,
+    "sha256": "bd9655bde8ebf7ca2340876ccc892325e825f2541954281995c59dd3a5129350"
+  },
+  "bounded_native_diagnostics": {
+    "samples": 2048,
+    "contact_event_count": 32843,
+    "native_trace_endpoints_bitexact": 25,
+    "actual_force_absolute_peaks": {
+      "external_body_wrench_native": 0.0,
+      "external_generalized_force_native": 0.0,
+      "adhesion_body_wrench_native": 0.0,
+      "adhesion_enabled": 0.0,
+      "adhesion_application_body_leg_point_force_native": 0.0,
+      "external_total_force_native": 0.0
+    },
+    "all_actual_extra_forces_zero": true,
+    "windows": {
+      "auxiliary": {
+        "D7_sensitivity": [
+          {
+            "threshold_fraction_W": 1e-06,
+            "histogram": [
+              0,
+              0,
+              0,
+              39,
+              33,
+              6,
+              722
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.001,
+            "histogram": [
+              0,
+              0,
+              0,
+              39,
+              33,
+              6,
+              722
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.01,
+            "histogram": [
+              0,
+              0,
+              0,
+              39,
+              33,
+              6,
+              722
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.05,
+            "histogram": [
+              0,
+              0,
+              37,
+              6,
+              29,
+              34,
+              694
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.1,
+            "histogram": [
+              0,
+              61,
+              28,
+              8,
+              228,
+              152,
+              323
+            ],
+            "median": 5.0
+          }
+        ],
+        "D6_sensitivity": [
+          {
+            "tau_ms": 0.0,
+            "samples": 800,
+            "signed_p95_W": 2.3522177776898885e-06,
+            "absolute_p95_W": 2.3522177776898885e-06,
+            "external_accounted_signed_p95_W": 2.3522177776898885e-06,
+            "external_accounted_absolute_p95_W": 2.3522177776898885e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.25,
+            "samples": 800,
+            "signed_p95_W": 2.3340554842277563e-06,
+            "absolute_p95_W": 2.3340554842277563e-06,
+            "external_accounted_signed_p95_W": 2.3340554842277563e-06,
+            "external_accounted_absolute_p95_W": 2.3340554842277563e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.5,
+            "samples": 800,
+            "signed_p95_W": 2.2812328330768003e-06,
+            "absolute_p95_W": 2.2812328330768003e-06,
+            "external_accounted_signed_p95_W": 2.2812328330768003e-06,
+            "external_accounted_absolute_p95_W": 2.2812328330768003e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 1.0,
+            "samples": 800,
+            "signed_p95_W": 2.1115994666927025e-06,
+            "absolute_p95_W": 2.1115994666927025e-06,
+            "external_accounted_signed_p95_W": 2.1115994666927025e-06,
+            "external_accounted_absolute_p95_W": 2.1115994666927025e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 2.0,
+            "samples": 800,
+            "signed_p95_W": 1.7603455471244053e-06,
+            "absolute_p95_W": 1.7603455471244053e-06,
+            "external_accounted_signed_p95_W": 1.7603455471244053e-06,
+            "external_accounted_absolute_p95_W": 1.7603455471244053e-06,
+            "original_signed_criterion_pass": true
+          }
+        ]
+      },
+      "autonomous": {
+        "D7_sensitivity": [
+          {
+            "threshold_fraction_W": 1e-06,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              353,
+              895
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.001,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              353,
+              895
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.01,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              366,
+              882
+            ],
+            "median": 6.0
+          },
+          {
+            "threshold_fraction_W": 0.05,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              524,
+              131,
+              593
+            ],
+            "median": 5.0
+          },
+          {
+            "threshold_fraction_W": 0.1,
+            "histogram": [
+              0,
+              0,
+              0,
+              0,
+              1248,
+              0,
+              0
+            ],
+            "median": 4.0
+          }
+        ],
+        "D6_sensitivity": [
+          {
+            "tau_ms": 0.0,
+            "samples": 1248,
+            "signed_p95_W": 2.1202479693023686e-06,
+            "absolute_p95_W": 2.754281758348548e-06,
+            "external_accounted_signed_p95_W": 2.1202479693023686e-06,
+            "external_accounted_absolute_p95_W": 2.754281758348548e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.25,
+            "samples": 1248,
+            "signed_p95_W": 2.08642552395086e-06,
+            "absolute_p95_W": 2.733995521736662e-06,
+            "external_accounted_signed_p95_W": 2.08642552395086e-06,
+            "external_accounted_absolute_p95_W": 2.733995521736662e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 0.5,
+            "samples": 1248,
+            "signed_p95_W": 1.9899871254874283e-06,
+            "absolute_p95_W": 2.6813756422032322e-06,
+            "external_accounted_signed_p95_W": 1.9899871254874283e-06,
+            "external_accounted_absolute_p95_W": 2.6813756422032322e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 1.0,
+            "samples": 1248,
+            "signed_p95_W": 1.7548137372527196e-06,
+            "absolute_p95_W": 2.497863932716296e-06,
+            "external_accounted_signed_p95_W": 1.7548137372527196e-06,
+            "external_accounted_absolute_p95_W": 2.497863932716296e-06,
+            "original_signed_criterion_pass": true
+          },
+          {
+            "tau_ms": 2.0,
+            "samples": 1248,
+            "signed_p95_W": 1.2002583152229614e-06,
+            "absolute_p95_W": 2.02762467123127e-06,
+            "external_accounted_signed_p95_W": 1.2002583152229614e-06,
+            "external_accounted_absolute_p95_W": 2.02762467123127e-06,
+            "original_signed_criterion_pass": true
+          }
+        ]
+      }
+    }
+  },
+  "zero_control_prefix_comparison_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/EVAL_ROLE_2000",
+  "zero_control": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_ZERO_MATCHED_RETRY",
+  "prefix_samples": 5800,
+  "prefix_arrays_exact": {
+    "action": true,
+    "actual_requested_action": true,
+    "actualctrl": true,
+    "actuator_force": true,
+    "com": true,
+    "control_source": true,
+    "external_body_force_max": true,
+    "external_generalized_force_max": true,
+    "loads": true,
+    "nonfoot": true,
+    "padz": true,
+    "qpos": true,
+    "qvel": true,
+    "relativefoot": true,
+    "speed": true,
+    "target": true,
+    "time": true
+  },
+  "scope": "one native chunk and actual existing2000 prefix smoke; NOT a final candidate/full native/neural acceptance"
+}

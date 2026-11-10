@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "checks": {
+    "exact": true,
+    "rng_state": true,
+    "restore_rng": true,
+    "config_digest": true,
+    "state_head_digest": true,
+    "source_hashes": true,
+    "preflight": true,
+    "validate_aux_payload": true,
+    "optimizer_steps": true,
+    "build_resume": true,
+    "restore_validated": true,
+    "update": true,
+    "measure": true,
+    "frozen_payload": true,
+    "frozen": true,
+    "continuation": true,
+    "main": true,
+    "original_300to1000_validator_body_retained": true,
+    "original_model_training_sources_identical": true
+  },
+  "scope": "read-only AST/source equivalence audit after training freeze"
+}

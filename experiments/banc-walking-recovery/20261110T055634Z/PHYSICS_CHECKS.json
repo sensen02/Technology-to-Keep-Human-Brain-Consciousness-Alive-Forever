@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "all_passed": true,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/check_physics.py": "5c89b5b4de44372aceeb7b1333b953c66a87fb708a721373b3a4698d391df5fe",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/proprioception.py": "1867ccc711f6bc8dc8a1c0bc88aafed0e6ea78907fa4e86c8f016c19c062cfb0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb"
+  },
+  "tests": [
+    "old_core_v2_pair_deterministic",
+    "obs495_single_call_compatibility",
+    "obs495_repeated_reads_idempotent",
+    "reset_zero_pad_derivative",
+    "obs238_and_privileged16_shapes",
+    "1ms_vs_5ms_same_rate_integration",
+    "adhesion_COM_generalized_wrench",
+    "native_chunks_readback_time_shapes_hash",
+    "legacy_XY_slip_denominator_and_world_X_gate",
+    "initial_heading_diagnostics",
+    "missing_original_acceptance_UNKNOWN"
+  ],
+  "ticks": 12,
+  "deterministic_max_abs_errors": {
+    "qpos": 0.0,
+    "qvel": 0.0,
+    "loads": 0.0,
+    "padz": 0.0,
+    "obs495": 0.0,
+    "target": 0.0
+  },
+  "target_integration_max_abs_error": 8.881784197001252e-16,
+  "adhesion_wrench_max_abs_error": 2.7755575615628914e-16,
+  "recorder": {
+    "samples": 160,
+    "chunks": 6,
+    "sha256": [
+      "be57054c1bfdfaad461a0e54719f97c74e0b5b721a02bd675a65c6503cfb6cad",
+      "5aca575fe25912369eb44bf27e73fd5e8bbf678122ecadb217cf135bb54c7eef",
+      "b06226aa3cbf91863576930ae6c4cfb24fda54b3c3bd9c78c9dc708424ac5693",
+      "a8940cdab4c32077b6fcdd2c75d3c39290d95d0bec247e3ef2f6f61eca0f34d6",
+      "43a54b5cd376a6ef9e7168efab7782208f24ceef4a9e97e491437b7c47ae07fb",
+      "b3a7b2e65a50c72269f57a8d0f1f7afff83b58f1fd2e3b6083df8eae33b583b8"
+    ],
+    "time_start_s": 0.0,
+    "time_end_s": 0.001999999999999995,
+    "per_step_shapes": {
+      "time_before_s": [],
+      "qpos_before": [
+        49
+      ],
+      "qvel_before": [
+        48
+      ],
+      "com_before": [
+        3
+      ],
+      "com_velocity_before": [
+        3
+      ],
+      "external_body_wrench_native": [
+        73,
+        6
+      ],
+      "external_generalized_force_native": [
+        48
+      ],
+      "adhesion_body_wrench_native": [
+        73,
+        6
+      ],
+      "adhesion_reference_body_com": [
+        73,
+        3
+      ],
+      "adhesion_refresh_time_s": [],
+      "body_com_before": [
+        73,
+        3
+      ],
+      "action": [
+        42
+      ],
+      "requested_rate_rad_s": [
+        42
+      ],
+      "target_rad": [
+        42
+      ],
+      "commanded_torque_native": [
+        42
+      ],
+      "adhesion_enabled": [],
+      "loads_native": [
+        6
+      ],
+      "nonfoot_force_native": [],
+      "contact_speed_native_per_s": [
+        6
+      ],
+      "ground_force_native": [
+        3
+      ],
+      "contact_count": [
+        6
+      ],
+      "actual_torque_native": [
+        42
+      ],
+      "time_after_s": [],
+      "qpos_after": [
+        49
+      ],
+      "qvel_after": [
+        48
+      ],
+      "com_after": [
+        3
+      ],
+      "com_velocity_after": [
+        3
+      ],
+      "com_acceleration_fd_native": [
+        3
+      ],
+      "external_total_force_native": [
+        3
+      ],
+      "force_balance_residual_native": [
+        3
+      ],
+      "adhesion_application_offsets": [],
+      "adhesion_application_body_leg_point_force_native": [
+        8
+      ],
+      "contact_geom_leg_ground": [
+        4
+      ],
+      "contact_position_world": [
+        3
+      ],
+      "contact_frame": [
+        3,
+        3
+      ],
+      "contact_wrench_frame_native": [
+        6
+      ],
+      "contact_force_world_native": [
+        3
+      ],
+      "contact_velocity_world_native_per_s": [
+        3
+      ]
+    },
+    "keys": [
+      "action",
+      "actual_torque_native",
+      "adhesion_application_body_leg_point_force_native",
+      "adhesion_application_offsets",
+      "adhesion_body_wrench_native",
+      "adhesion_enabled",
+      "adhesion_reference_body_com",
+      "adhesion_refresh_time_s",
+      "body_com_before",
+      "com_acceleration_fd_native",
+      "com_after",
+      "com_before",
+      "com_velocity_after",
+      "com_velocity_before",
+      "commanded_torque_native",
+      "contact_count",
+      "contact_force_world_native",
+      "contact_frame",
+      "contact_geom_leg_ground",
+      "contact_offsets",
+      "contact_position_world",
+      "contact_speed_native_per_s",
+      "contact_velocity_world_native_per_s",
+      "contact_wrench_frame_native",
+      "external_body_wrench_native",
+      "external_generalized_force_native",
+      "external_total_force_native",
+      "force_balance_residual_native",
+      "ground_force_native",
+      "loads_native",
+      "nonfoot_force_native",
+      "qpos_after",
+      "qpos_before",
+      "qvel_after",
+      "qvel_before",
+      "requested_rate_rad_s",
+      "target_rad",
+      "time_after_s",
+      "time_before_s"
+    ],
+    "force_balance_abs_z_residual_p95_over_body_weight": 6.61980327137397e-07,
+    "force_balance_is_diagnostic_only": true,
+    "nonfoot_force_peak_native": 0.0
+  },
+  "elapsed_s": 1.2307320050313137,
+  "note": "Short engineering regression only; no training or walking acceptance.",
+  "identities": {
+    "physics": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/physics.py",
+    "physics_sha256": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "snapshot_sources": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/proprioception.py": "1867ccc711f6bc8dc8a1c0bc88aafed0e6ea78907fa4e86c8f016c19c062cfb0",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T055634Z/sources/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb"
+    },
+    "PAD_XML": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml",
+    "POSE_FILE": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-stand-pose/20261110T030000Z/STAND_POSE_TRIAD_1.45.json",
+    "mujoco": "3.9.0",
+    "numpy": "2.5.3"
+  }
+}

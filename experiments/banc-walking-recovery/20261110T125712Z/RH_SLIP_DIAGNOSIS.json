@@ -1,0 +1,73 @@
+{
+  "trace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/EVAL_ROLE_2000/trace_1ms.npz",
+  "trace_sha256": "d56ffd55a7f4839b9149faa090bae049155817ad9de37cb8a9452cc3cf7d7c16",
+  "original_max_slip": 0.5040258933630966,
+  "original_per_leg": {
+    "LF": 0.3003680191486016,
+    "LH": 0.42835011958820834,
+    "LM": 0.4229058145325948,
+    "RF": 0.33131850701814136,
+    "RH": 0.5040258933630966,
+    "RM": 0.4474010138162855
+  },
+  "whole_window_forward_norm_native_s": 0.07147548618144356,
+  "RH_parts": [
+    {
+      "name": "all",
+      "samples": 9600,
+      "fraction_total_load_speed_integral": 1.0,
+      "mean_load_W": 0.2445752192194515,
+      "load_weighted_contact_speed": 0.03602549577616366,
+      "max_padbottom": 0.059992113281765826
+    },
+    {
+      "name": "planned_RH_slot",
+      "samples": 1600,
+      "fraction_total_load_speed_integral": 0.12779300421116435,
+      "mean_load_W": 0.07155600046561852,
+      "load_weighted_contact_speed": 0.09441362870336911,
+      "max_padbottom": 0.059992113281765826
+    },
+    {
+      "name": "other_planned_slots",
+      "samples": 8000,
+      "fraction_total_load_speed_integral": 0.8722069957888356,
+      "mean_load_W": 0.27917906297021805,
+      "load_weighted_contact_speed": 0.03303241941687277,
+      "max_padbottom": -0.023097989674158277
+    },
+    {
+      "name": "actual_load_ge_0.1W",
+      "samples": 8486,
+      "fraction_total_load_speed_integral": 0.9633175306056595,
+      "mean_load_W": 0.27497389202671824,
+      "load_weighted_contact_speed": 0.034919549018746214,
+      "max_padbottom": -0.01133379717326894
+    },
+    {
+      "name": "actual_load_lt_0.1W",
+      "samples": 1114,
+      "fraction_total_load_speed_integral": 0.03668246939434044,
+      "mean_load_W": 0.013010463885101471,
+      "load_weighted_contact_speed": 0.21407908616747484,
+      "max_padbottom": 0.059992113281765826
+    },
+    {
+      "name": "first0.5s",
+      "samples": 499,
+      "fraction_total_load_speed_integral": 0.06207487063337783,
+      "mean_load_W": 0.3048544490701156,
+      "load_weighted_contact_speed": 0.0345156765643719,
+      "max_padbottom": -0.026672800629046083
+    },
+    {
+      "name": "last4.8s",
+      "samples": 4801,
+      "fraction_total_load_speed_integral": 0.50958539714563,
+      "mean_load_W": 0.24472285254123174,
+      "load_weighted_contact_speed": 0.0366863405107212,
+      "max_padbottom": 0.057886970083323476
+    }
+  ],
+  "scope": "full ANN window retained; partitions overlap and are diagnostic only, plannedslots reference labels NOT actorinput or actualgait groundtruth"
+}

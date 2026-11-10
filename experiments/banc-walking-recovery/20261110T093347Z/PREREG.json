@@ -1,0 +1,11 @@
+{
+ "version":"smooth-transfer-bounded-retiming-v1",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T091600Z",
+ "goal":"S2/S5 qualify continuous expertlabels under unchanged physical gates",
+ "basis":"smoothbaseline allsixcycles andCOM1.25385/nf0 butslip.524318 fail; RH14.5% weightedslip inpartiallyloadedtransfer0<refheight<.03. Smallertransferband mayunloadbeforetangentmotion; slowertiming mayreducePDtrackingerror.",
+ "conditions":[{"name":"early_unload","contact_height":0.01,"step_s":0.8,"stride":0.36},{"name":"slow_margin","contact_height":0.03,"step_s":1.0,"stride":0.4}],
+ "unchanged":"fullbody/mass/gravity/friction/finitePD/2rad/s/torque/native time; lift.12,quinticactiveprofile/bodylinear,sourcecurves/order,staticforceinverse,targettau.05,2cycles+.4landingtail,1szerosettle",
+ "decision":"actualfivegatesandallstrictcycles mustpassbeforefullwalkingdemonstrations; preserveeveryfailedcase. Eachconditionone run now, noextra grid",
+ "record":"directcausalobs/action forpossiblefutureBC,full1ms state/sourceidentity. Trajectories arenotaccepteduntilreportedpassed; no phase actorinput",
+ "scope":"algorithmteacher only; no originalcompleteautonomousclaim"
+}

@@ -1,0 +1,36 @@
+{
+  "verification": {
+    "new_process_exit_code": 0,
+    "saved_output_hashes_verified_count": 10,
+    "saved_script_equals_executed_script": true,
+    "array_shape": "501 times, COM(501,3), loads(501,6)",
+    "all_arrays_finite": true,
+    "simulation_rerun": false,
+    "simulation_job": "bash-19",
+    "simulation_tool_exit_code": 0,
+    "existing_sources_or_active_jobs_changed": false,
+    "tracker_not_updated": "Explicit user write scope permits only control_probe.py and controls_diag/; parent should record S2/S5 result."
+  },
+  "posthoc_window_diagnostic": {
+    "declaration": "Additional windows chosen after viewing full-window summaries; descriptive only, not preregistered or acceptance.",
+    "units": "native length/s; absolute SI NOT_ESTABLISHED",
+    "leg_order": ["LF", "LH", "LM", "RF", "RH", "RM"],
+    "early_window_s": [0.001, 0.100],
+    "late_window_s": [0.300, 0.500],
+    "early_samples": 100,
+    "late_samples": 201,
+    "A_default_adhesion": {
+      "early_load_weighted_speed": 1.399318741951074,
+      "late_load_weighted_speed": 0.2845247355542644,
+      "late_perleg_load_weighted_speed": [0.391328380704787, 0.4683188235952688, 0.17395971738185723, 0.16299479527932767, 0.2595125497883477, 0.21186989863467362],
+      "late_perleg_raw_contact_speed_mean": [0.3968597679071693, 0.46669670242624856, 0.16578936046295759, 0.16646029350953662, 0.25294889447868385, 0.2130936958762517]
+    },
+    "B_adhesion_false": {
+      "early_load_weighted_speed": 1.3198079157840648,
+      "late_load_weighted_speed": 0.029326331745642278,
+      "late_perleg_load_weighted_speed": [0.027674504236841632, 0.02684465306570765, 0.06600264161226972, 0.012716842917928657, 0.01697760465004276, 0.01802225725903914],
+      "late_perleg_raw_contact_speed_mean": [0.027689356824348737, 0.02687049051432069, 0.06596292074278128, 0.01271236952129995, 0.016980949898020656, 0.01801865719863508]
+    }
+  },
+  "interpretation": "High transient contact velocities exist under zero-rate finite-PD actuator hold without an active policy. In this single paired 500ms probe, disabling adhesion reduces late-window velocities. This does not establish gait, stability, biological mechanism or frozen-body acceptance. Native-step peaks and force-balance acceptance were not measured."
+}

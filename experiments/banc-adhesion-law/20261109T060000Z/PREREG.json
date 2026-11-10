@@ -1,0 +1,11 @@
+{
+  "schema": "adhesion-law-v2/1",
+  "origin": "the open-loop capability probe (experiments/banc-leg-lift-capability/20261109T050000Z) shows three things: the actuator can just barely lift one foot (peak torque 8.7-13.5 against a 14.93 limit), a three-leg tripod lift collapses the body, and the current adhesion channel presses the body into the floor (non-foot contact up to 61.7 W) so the foot cannot rise at all. The current channel holds each loaded leg down with 0.5 body weight, i.e. up to 3 body weights in total, which is not a pad model, it is a clamp.",
+  "changes": [
+    "adhesion magnitude becomes a swept parameter A_leg = {0.5, 0.25, 0.10} x body weight per leg",
+    "new release-on-lift rule: a pad that is moving upward detaches, so adhesion may not resist lift-off (a real pulvillus peels). Implemented from the pad's vertical contact-frame velocity each 0.5 ms refresh; zero additional state, no clock"
+  ],
+  "evaluation": "the already trained stand-pose/pad controllers are re-evaluated without retraining, so any change is attributable to the adhesion law; assist-then-release and cold start, grip-on only (grip-off is unaffected by this change), pad body R=.02 at mu=1.5 and the frozen mesh-foot body for comparison",
+  "gates": "unchanged; these remain derived-channel results and never frozen-body acceptance",
+  "accounting": "per run: adhesion configuration, per-leg loads, non-foot peak, slip, COM, forward, stance fraction and swing clearance, so we can see whether a weaker or releasable adhesion finally lets a foot rise"
+}

@@ -1,0 +1,63 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/BC_FF_TARGET_5000/final.pt",
+  "checkpoint_sha256": "a5bb9f27a9a2cbd6879e319d9a1ff9a58b8780e8024f365c6b30b35dd9d74402",
+  "global_step": 5000,
+  "parent_step": 1000,
+  "parent": {
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/BC_FF_TARGET_1000/final.pt",
+    "checkpoint_sha256": "60cfe5670604688fcb9e8aef01dbe23bb4e772116ef0ed7f3c4af703386b018b",
+    "step": 1000,
+    "identity_sha256": "4c4c2bb7d2b77bfa476e6ec14ab967cf1494ace5fca77ae4b7291ab320dea59c"
+  },
+  "actor_optimizer_steps": [
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000
+  ],
+  "critic_unchanged": true,
+  "std_unchanged": true,
+  "checkpoint_reload_exact": true,
+  "initial": {
+    "step": 1000,
+    "train_MSE": 0.0009449655069774899,
+    "heldout_MSE": 0.0010069814589149456
+  },
+  "final": {
+    "step": 5000,
+    "train_MSE": 0.0001021783255382316,
+    "heldout_MSE": 0.00015260439868655998
+  },
+  "rng_restored": true,
+  "final_rng_reload_exact": true,
+  "ppo_actor_state_entries": 0,
+  "ppo_critic_state_entries": 0,
+  "identity_sha256": "8f17cd87d03b6d36166ad3e56434959b1849ef47535ffd40f83bde730f94331e",
+  "checkpoints": [
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/BC_FF_TARGET_5000/checkpoint_002000.pt",
+      "sha256": "4d6ac44f755907befa4af48984e03c83b2a51cc786d2d62c4c5243c5624f732d",
+      "step": 2000
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/BC_FF_TARGET_5000/checkpoint_003000.pt",
+      "sha256": "09946c32b2b36c50caf5b58e84213e71c937e44bd68164b5b343d6380b1c88cc",
+      "step": 3000
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/BC_FF_TARGET_5000/checkpoint_004000.pt",
+      "sha256": "2015a1b5ec3afe37b5d01783cbcb29e1184540c187da39a5820f4a24dc049ba3",
+      "step": 4000
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T113454Z/BC_FF_TARGET_5000/checkpoint_005000.pt",
+      "sha256": "a5bb9f27a9a2cbd6879e319d9a1ff9a58b8780e8024f365c6b30b35dd9d74402",
+      "step": 5000
+    }
+  ],
+  "physical_steps": 0,
+  "closed_loop": "NOT_EVALUATED"
+}

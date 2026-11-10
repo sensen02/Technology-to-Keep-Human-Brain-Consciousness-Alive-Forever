@@ -1,0 +1,16 @@
+{
+ "version":"coupled-inverse-statics-teacher-v1",
+ "goal":"S2/S5 solve actual stance load sharing and swing unloading instead ofmoreCartesianheightgainsearch",
+ "parents":["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T071955Z","/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T073314Z"],
+ "evidence":"real-footshape wavegeometry trackedprivateIKtoRMS.001 butactivefeetremainloaded/bodyfolds, stanceheightgain3preservessafetybutnotunloading, gain6/largerheightunstable. Predictedkinematics !=forcefeasibility.",
+ "physical_identity":"same declared fullbody noadhtriad XML,mass/inertia,gravity,friction1.5,finitePDkp/kd,torquelimits,2rad/s andnative12.5us/1msactuator unchanged",
+ "model_teacher":"privatefixed-frame IK computes desired ACTUAL jointpose frommeasuredshapefootpaths; solve positiveverticalcontactforces overintendedstancefeet tobalanceunactuatedrootgravity/bias. Convert τ_ff=bias-passive-J_contact^T λ onactuatedDOFs intoexistingPDmotor target q_des+(τ_ff+kd*qdot_des)/kp, thenrate-limit targettracking. Onlymotor ratecommands applied.",
+ "not_applied":"optimizationcontactforces,privatepose/root androotforcebalance variables NEVERwritten tophysicalstate/xfrc; no rootscript/no hiddenassist",
+ "teacher_limits":"quasi-staticvertical-force approximation,unbackedcontactassumptions explicitlylogged; actualnativecontact/torques/footcycles validate, not solverresidual alone",
+ "checks":"force/rootbalance and sign,actualcontactwrenchstaticcalibration,PDtargetalgebra,boundedfinitecommandandphysicalstateimmutability,shortstatic-holdresponse beforewalking",
+ "bounded_initial_conditions":[{"name":"hold_inverse_statics","mode":"hold","duration_s":1.0,"gravity_ff":true},{"name":"wave_position_only","mode":"wave","cycles":1,"gravity_ff":false},{"name":"wave_inverse_statics","mode":"wave","cycles":2,"gravity_ff":true}],
+ "common":"1szerosettle,measuredshape waveorderRM,LH,RF,LM,RH,LF,stride.36,lift.12,step.8s,teacher5mshold1ms,stanceforcepreferreduniform,targettau.05; walkingcases include fixed.4s landingtail atclampedreferenceend sofinalactualreload canfinish; fullmetrics include tail and actualduration",
+ "failure_policy":"stopCOM<1/nonfoot>.2W/technicalfailure, keepactualprefix. No additionalgriduntilresidualandphysicalresponseinterpreted",
+ "decision":"requireactualsupport/swing/reload/forward/slip evidencebeforeimitation,thenNNtrainedobservationonlyandcontinuousprewarmhandover. No bodyimpossibilityfromlimitedfailures",
+ "scope":"privilegedengineeringteacher only; not deployednetwork andnotoriginalfrozenbodyacceptance"
+}

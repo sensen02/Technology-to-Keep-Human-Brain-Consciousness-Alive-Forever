@@ -1,0 +1,53 @@
+{
+  "importance": "核心必需",
+  "amendment": "01 concrete execution supplement",
+  "original": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-neural-translator/20261106T003500Z/experiment.py",
+  "original_sha256": "e65ce23014288f12e5196136ec8eab12a56102fa97d3492894a46b29b4499377",
+  "executed_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-neural-translator/20261106T003500Z/experiment_v2.py",
+  "executed_source_sha256": "2f191cac132935bf6d0ab12d9bab67b94193386bdedae29a9b93dbaf48fb1d31",
+  "generator": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-neural-translator/20261106T003500Z/build_v2.py",
+  "generator_sha256": "0c1622e535e22becc199485a78c8afb7cf05502a29e8d3864826077e671292a1",
+  "changes": [
+    {
+      "old": ".is_relative_to(O)",
+      "new": ".is_relative_to(O.resolve())",
+      "count": 4
+    },
+    {
+      "old": "C/'verify.py',C/'report.py']",
+      "new": "C/'verify.py',C/'report.py',C/'experiment.py',C/'amendment_01.py',C/'AMENDMENT_01.json',C/'build_v2.py',C/'AMENDMENT_01_SUPPLEMENT.json']",
+      "count": 1
+    },
+    {
+      "old": "a['parts'][k]>=b['parts'][k]-1e-9 for k in ['foot_support_mean','com_z_min','first_nonfoot_s']",
+      "new": "(a['parts'][k] if a['parts'][k] is not None else a['duration_s']) >= (b['parts'][k] if b['parts'][k] is not None else b['duration_s'])-1e-9 for k in ['foot_support_mean','com_z_min','first_nonfoot_s']",
+      "count": 1
+    },
+    {
+      "old": "guard='At1.3 J<=zero+1e-9 and footmean/minCOM/firstnonfoot>=zero-1e-9.',",
+      "new": "guard='At1.3 J<=zero+1e-9 and footmean/minCOM/firstnonfoot>=zero-1e-9. No contact first_nonfoot=None is right-censored at duration_s.',amendment=js(C/'AMENDMENT_01_SUPPLEMENT.json'),",
+      "count": 1
+    },
+    {
+      "old": "dump(O/'CLEANUP_LEDGER.json',dict(importance='重要辅助',deleted=[]))",
+      "new": "dump(O/'CLEANUP_LEDGER.json',dict(importance='重要辅助',deleted=js(C/'AMENDMENT_01.json')['cleanup_executed']))\n    dump(O/'AMENDMENT_01.json',js(C/'AMENDMENT_01.json'))\n    dump(O/'AMENDMENT_01_SUPPLEMENT.json',js(C/'AMENDMENT_01_SUPPLEMENT.json'))",
+      "count": 1
+    }
+  ],
+  "static_ast_pass": true,
+  "canonical_four_sites_pass": true,
+  "previous_launcher_failure": {
+    "job": "bash-32",
+    "exit_code": 1,
+    "traceback": "amendment_01.py line10 assert text.count(.is_relative_to(O))==3: AssertionError",
+    "cause": "Count assertion correctly stopped before execution: actual4 sites including cleanup, not3.",
+    "physical_trials": 0,
+    "model_fits": 0,
+    "registration_written": false
+  },
+  "total_pre_registration_failed_starts": 2,
+  "physical_trials_before_registration": 0,
+  "prior_amendment": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-neural-translator/20261106T003500Z/AMENDMENT_01.json",
+  "clarification": "This concrete source supersedes the unexecuted dynamic launcher. Original source, failed launcher and amendment record remain unchanged. Both failed starts occurred before any PREREGISTRATION/BEFORE was written. First successful registration freezes all originals and the actual v2 entrypoint; no reanchoring.",
+  "limits": "Same finite data/fit/dev/final plan; only documented canonical path bug and no-contact right-censor edge fixed before first registration."
+}

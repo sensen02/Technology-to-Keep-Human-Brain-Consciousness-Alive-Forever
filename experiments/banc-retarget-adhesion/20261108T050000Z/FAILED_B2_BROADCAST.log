@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-retarget-adhesion/20261108T050000Z/retarget_b2.py", line 160, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-retarget-adhesion/20261108T050000Z/retarget_b2.py", line 128, in main
+    res = least_squares(lambda q: evaluate(q)[0], np.clip(prev, lo + 1e-12, hi - 1e-12),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/_lib/_util.py", line 662, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/optimize/_lsq/least_squares.py", line 926, in least_squares
+    vector_fun = VectorFunction(
+                 ^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 614, in __init__
+    self._update_fun()
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 707, in _update_fun
+    self.f = self.fun_wrapped(xp_copy(self.x))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 424, in __call__
+    return np.atleast_1d(self.fun(x))
+                         ^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/scipy/optimize/_lsq/least_squares.py", line 263, in __call__
+    return self.f(x, *self.args, **self.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-retarget-adhesion/20261108T050000Z/retarget_b2.py", line 128, in <lambda>
+    res = least_squares(lambda q: evaluate(q)[0], np.clip(prev, lo + 1e-12, hi - 1e-12),
+                                  ^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-retarget-adhesion/20261108T050000Z/retarget_b2.py", line 119, in evaluate
+    tip_target = target9[l, 2] + u_fold * d_own[l]
+                                 ~~~~~~~^~~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (3,) (7,) 

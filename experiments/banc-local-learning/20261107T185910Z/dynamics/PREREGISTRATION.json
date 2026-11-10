@@ -1,0 +1,45 @@
+{
+  "schema": "banc-local-dynamics-preregistration/1",
+  "scope": "S3/S4 identity-preserving local neural engineering validation; zero physical steps, zero training, zero external research",
+  "implementation": "existing engine/neural_cond.py ConductanceNetwork and ConductanceParams unchanged; backward_euler voltage",
+  "neurons": 20000,
+  "source_edges": 705068,
+  "strict_edges": 435126,
+  "receptor_assumption": "pure acetylcholine excitatory; pure gaba and glutamate inhibitory. Illustrative receptor assumptions, NOT receptor measurement. Unknown/mixed source labels excluded.",
+  "normalization": "weight_uS = total_conductance_uS * source_synapse_count / sum(strict incoming source_synapse_count for same post), across excitatory and inhibitory together; no invented edges",
+  "node_parameters": {"capacitance_nF":0.02,"leak_uS":0.001,"rest_mV":-65.0,"threshold_mV":-50.0,"reset_mV":-65.0,"exc_reversal_mV":0.0,"inh_reversal_mV":-70.0,"exc_tau_ms":3.0,"inh_tau_ms":8.0,"adaptation_tau_ms":100.0,"adaptation_increment_nA":0.002,"refractory_ms":2.0,"delay_ms":2.0},
+  "physiology_status": "all node and receptor parameters illustrative, uncalibrated; historical module physiology remains uncalibrated",
+  "nominal_dt_ms":0.5,
+  "refinement_dt_ms":0.25,
+  "rate_filter_tau_ms":20.0,
+  "rate_filter": "r_next=exp(-dt/20)*r+50*spike (causal point-process exponential filter)",
+  "input_ports": "leg_sensory_nerve_union intersect selected, excluding four ambiguous SENSORY_CHANNEL_REVIEW cache IDs; descending_boundary intersect selected; sensory and descending disjoint, neither contains any motor neuron; ascending sensory overlap preserved",
+  "probes": {
+    "interpretation": "constant or single rectangular pulse engineering current, NOT brain output and NOT measured physiology",
+    "amplitude_nA":0.05,
+    "duration_ms":200.0,
+    "pulse_start_ms":25.0,
+    "pulse_end_ms":125.0,
+    "record_interval_ms":5.0,
+    "calibration": "single pulse on all allowed sensory and all descending identities together",
+    "chosen_followup": ["same pulse sensory only","same pulse descending only","zero-input quiet","same combined pulse with zero connectivity software control","exact recorded-input deterministic replay","same recorded-input replay at dt .25ms","constant combined current for 200ms","physical-qualified only: source CSV channel claw/hook/hairplate/campaniform intersect allowed sensory, zero DN","same physical-qualified pulse plus declared DN pulse"],
+    "parent_steering_before_any_probe": "Only claw angle, hook velocity, hairplate coxa angle and campaniform load physically encoded by parent; bristle/club/noxious absent and zero. Broad engineering sensory pulse does NOT establish physical-feedback propagation. Check restricted union separately and report zero/weak strict source coverage honestly."
+  },
+  "bounded_calibration": {
+    "first_total_conductance_uS":0.02,
+    "only_if_first_fails_try": [0.005,0.08],
+    "acceptance_rule": "combined pulse recruits at least 16 distinct exported MN; aggregate MN rate during full 200ms strictly between 0 and 100Hz; maximum individual MN full-window mean below 200Hz; all state finite, voltage within [-90,-49]mV after reset; choose first passing in order .02,.005,.08; save every failed probe. If none passes, retain .02 and report calibration failure without claiming functional readiness.",
+    "no_other_parameter_search":true
+  },
+  "validation": {
+    "identity": "compare all selected root IDs/cache indices, all strict edges, CSV motor order; source file hashes; role disjointness and all391MN no direct input",
+    "guard": "reject any nonzero outside sensory or descending independently, including role swap, MN, nonfinite, wrong shape, invalid duration",
+    "numerical": "independently scalar-reimplement sampled row event scatter, backward Euler, decay, threshold/refractory/delay/filter math against randomized state and recorded-input runs; independently queue spikes by absolute arrival timestamps",
+    "quiet_control": "zero input gives exactly zero spikes and motor rates from reset",
+    "noedge_control": "same legal engineering pulse, zero software connectivity, directly injected sensory/DN can spike but allMN remain silent; not lesion/surgical experiment",
+    "replay": "identical .5ms recorded inputs give bitwise identical sampled output and final neural state",
+    "timestep_sensitivity": "report aggregate MN spike rate relative difference, recruitedMN and RMS filtered rate difference .5 vs .25; engineering sensitivity flag if aggregate rate relative difference exceeds .25 or recruited count changes by more than .25 of323; this is not convergence proof",
+    "delay": "emit at interval END and receive at START exactly2ms later; ring has delay_steps+1 slots,4 or8 delay steps",
+    "counts": "report actual ConductanceNetwork step calls and manual reference iterations separately; physical steps and training updates zero"
+  }
+}

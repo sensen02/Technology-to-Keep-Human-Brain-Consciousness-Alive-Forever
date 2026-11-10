@@ -1,0 +1,2477 @@
+{
+  "native_steps": 800000,
+  "sample_count": 10000,
+  "duration_s": 9.999000000225385,
+  "forward_speed_native_per_s": 0.06949399940894792,
+  "forward_signed_native_per_s": 0.06939375522324291,
+  "lateral_speed_native_per_s": 0.003731312083905952,
+  "foot_support_mean": 1.000043985100799,
+  "foot_support_min": 0.99624261255933,
+  "nonfoot_force_max_W": 0.0,
+  "nonfoot_force_max_native": 0.0,
+  "com_height_min": 1.2567954609093013,
+  "free_fall_fraction": 0.0,
+  "per_leg_slip_ratio": {
+    "LF": 0.24417212845889985,
+    "LH": 0.3056878025825949,
+    "LM": 0.34125529133262705,
+    "RF": 0.27667337523937546,
+    "RH": 0.38331935334359946,
+    "RM": 0.3407987876529633
+  },
+  "slip_ratio_max": 0.38331935334359946,
+  "slip_ratio_mean": 0.31531778976834335,
+  "com_start": 1.2751605405144308,
+  "com_end": 1.2759019852006692,
+  "com_xy_travel": 0.6948705001057331,
+  "slip_load_denominator_native": [
+    22945.92477750329,
+    59659.46519838412,
+    38526.29124823445,
+    20425.816212846545,
+    59335.44807373415,
+    43581.35480185832
+  ],
+  "slip_valid_per_leg": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "slip_has_progress": true,
+  "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+  "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+  "sample_dt_s": 0.0010000000000331966,
+  "gates": {
+    "support": true,
+    "nonfoot": true,
+    "com": true,
+    "forward": true,
+    "slip": true
+  },
+  "all_gates": true,
+  "initial_heading_diagnostics": {
+    "status": "MEASURED",
+    "forward_signed_native_per_s": 0.06939375522324291,
+    "lateral_signed_native_per_s": 0.003731312083905952,
+    "heading_world_xy": [
+      1.0,
+      0.0
+    ],
+    "gate_applied": false
+  },
+  "native_peak_summary": {
+    "native_samples": 800000,
+    "native_dt_s": 1.25e-05,
+    "nonfoot_force_peak_native": 0.0,
+    "ground_vertical_force_peak_native": 24.52325744381628,
+    "com_height_min_native": 1.256795458727402,
+    "per_leg_load_peak_native": [
+      4.937420269136097,
+      11.470924338325595,
+      8.443509139285112,
+      5.094534970941597,
+      10.547320061230689,
+      9.905963694500704
+    ],
+    "per_leg_contact_speed_peak_native_per_s": [
+      2.8518181790709476,
+      0.5934397412379961,
+      0.5192214632366481,
+      0.6321421573282555,
+      1.1725997372631114,
+      1.5730151421970273
+    ],
+    "chunks": [
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000000.npz",
+        "rows": 2048,
+        "sha256": "c4ba25886fb75d6978a42c41481aab08d0e75947ac94ffc4e181ac52e37593e8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000001.npz",
+        "rows": 2048,
+        "sha256": "32cb5d2d7a9b126d9e5056d8fb182afc8820e0ba942698d8a549e02424780184"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000002.npz",
+        "rows": 2048,
+        "sha256": "2f92a2d6d52c2fe072fc971f3fc134b98c9edf2005f55213261c9eae84657b03"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000003.npz",
+        "rows": 2048,
+        "sha256": "505301c9ea9e58c9e5aab8888158647cb04e1e9991ad82d1bc1e21e25045a76a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000004.npz",
+        "rows": 2048,
+        "sha256": "5ff7587a97b7a2722f522a219449c24d82cc454c5686b39b3dd72482637382ba"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000005.npz",
+        "rows": 2048,
+        "sha256": "743c6b338f241066a8e4bfe23f0de05ce5cbd48735a005a33d28860642bd6863"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000006.npz",
+        "rows": 2048,
+        "sha256": "c5be691907407bc2df77022e7144971be79378f13eee8234fbaa374c66d61ff1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000007.npz",
+        "rows": 2048,
+        "sha256": "4c0d507a526be05aa14e7ff30a00c02e8d7bc3e507c2b423b173753aa47e2779"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000008.npz",
+        "rows": 2048,
+        "sha256": "ee99451329ed63524b78703ed0dc26c1302c3beec45479a98b9650d9d54a8990"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000009.npz",
+        "rows": 2048,
+        "sha256": "1e6ff97d05db7dad2caf7195980f0e929cb693fa489bb3f24173c5585ed9fcd6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000010.npz",
+        "rows": 2048,
+        "sha256": "761849b2e4596c80864a5d0551e83f9238be9c39d286167dd4054d3820649dd5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000011.npz",
+        "rows": 2048,
+        "sha256": "4c11eec7ca7d1eec2fe290546cdf60235618cb5c9e1cb3de46958812e8803a4d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000012.npz",
+        "rows": 2048,
+        "sha256": "7d34c9cb33ccf66a07dd37d612539176cbd9efa55bf084e8cd73ad04735660b6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000013.npz",
+        "rows": 2048,
+        "sha256": "906e3dd3dd487e16edc7e0081e3158dbe7c38ace4751f3a9a2b7cb3e6bba0c08"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000014.npz",
+        "rows": 2048,
+        "sha256": "b6210a24b49603525cf33ec317024f691d93def8f35d406bcf34379179632c7e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000015.npz",
+        "rows": 2048,
+        "sha256": "ddcce3e7c0211aa1d7e6ff9014c6ccde755b43c718e0909659515180f65b0a83"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000016.npz",
+        "rows": 2048,
+        "sha256": "836f40b1b48cf9fadee825ab86fc5fc9ea82b06b8e4342821239b6b4bd3767ef"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000017.npz",
+        "rows": 2048,
+        "sha256": "662504a44dbc070172d2f9e32b2f7b3345c9ebf65a3741f5574fc3b8f4fb0217"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000018.npz",
+        "rows": 2048,
+        "sha256": "12f575eb28688453989417a2de94e05a938cc75425382aad2c547f5740f5753d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000019.npz",
+        "rows": 2048,
+        "sha256": "cf450e777dd12a57a8580c44c75892517e8d0886bafb6c30de311682a2e56671"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000020.npz",
+        "rows": 2048,
+        "sha256": "f66eee6ea09a15dd4addc68bc4c3a4ad96dceb8622f742230b66944832fbea4f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000021.npz",
+        "rows": 2048,
+        "sha256": "f992da812d5cb92c9a1fb4927ecabac46c36d447d1de896d6651d053bd2aa8d0"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000022.npz",
+        "rows": 2048,
+        "sha256": "79efbc68bf3c0fb5a6861e2f393684c300e24a9a0651c3e33769004223c6b3e4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000023.npz",
+        "rows": 2048,
+        "sha256": "02d47ab3d4ecda2ac913c88e9074f9b0b8cccc5023e0320694f2cec26abe710c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000024.npz",
+        "rows": 2048,
+        "sha256": "734212ff52616747f82b401cd2d41d7a2af82f9a7bf60cf867c05e3c0c7a4ed1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000025.npz",
+        "rows": 2048,
+        "sha256": "29a86d4f23cd41ded2235973e01ed88052167e695f8e80d465efe9138c86654b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000026.npz",
+        "rows": 2048,
+        "sha256": "74473622f1ee4b050545e9551c0173db27649860ca21e792b40288f165ff4c3e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000027.npz",
+        "rows": 2048,
+        "sha256": "07c477232b741bb38b28b4af9b13b387e0491a589a407582d3aafe51cf55abf1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000028.npz",
+        "rows": 2048,
+        "sha256": "e0da2c10ce384313eb858c94023052acd962b3a9d02eb0e86ebe904bec320c9d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000029.npz",
+        "rows": 2048,
+        "sha256": "81e1b236db30b24bd37bc084439d06449d8b88f07f8652e273504ef76a1da312"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000030.npz",
+        "rows": 2048,
+        "sha256": "427626475f47adf745017d38492473e2453536546d12f142c474a44b96222d5c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000031.npz",
+        "rows": 2048,
+        "sha256": "1db8d7b3b3e4ea6603d9bc177a81539298d37e351b2eadefdc4086cf85dbc5bc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000032.npz",
+        "rows": 2048,
+        "sha256": "09c81a7c6a613fdb5b3da9c31decf81f304ec9ecd7dd828622bb24aff4f01344"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000033.npz",
+        "rows": 2048,
+        "sha256": "0b29824aa8d0c4566c3e9151eec8284626cd76801dff833ea0b653e84615e015"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000034.npz",
+        "rows": 2048,
+        "sha256": "728c642cdb84a40048a5ba1639e98fabe3449d7ee31878760c2a8fc9111346ae"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000035.npz",
+        "rows": 2048,
+        "sha256": "733402da3519d3549cf075333c027f8fca81648830d66928023431adf1c46f14"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000036.npz",
+        "rows": 2048,
+        "sha256": "d9ad700ef3d2919b67425adb2ee5bb6908f4ec24183e075ac07daf60fd5daff3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000037.npz",
+        "rows": 2048,
+        "sha256": "6f9914a577ca8c5db783773175853657aa42d02c35585945c8263def2a09d126"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000038.npz",
+        "rows": 2048,
+        "sha256": "18af6e3ff9e38496b7403fc821cb062484c9c9c704de0f06ab0d7a82923573d4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000039.npz",
+        "rows": 2048,
+        "sha256": "a61d7e08fbeb94e8c226156248ad3add04cbe919cf4adac78768cbde47ef0770"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000040.npz",
+        "rows": 2048,
+        "sha256": "2bd81b89b4e62dc2780dc528a235468d511c2edf5795a90ec9c74f8e263ea28a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000041.npz",
+        "rows": 2048,
+        "sha256": "e04e7df59ccfe3a77afe769a5d259c9b3334a60c525521cd19d778259e58c883"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000042.npz",
+        "rows": 2048,
+        "sha256": "25123c379cf2e9b97ae2d2397375c9bb0277a5158f6521f753b28dc3db25ddd8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000043.npz",
+        "rows": 2048,
+        "sha256": "951afc830a9236da0e80a2e8878afc680e79ad341c763d8dbd0cb10c374055dc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000044.npz",
+        "rows": 2048,
+        "sha256": "0c3667ae941572df215f385fafd0914ae14d3e8ff7840fc5c73f69e5836832d8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000045.npz",
+        "rows": 2048,
+        "sha256": "a3623bf7893dff469603e6521baf885b6846b84df06f18bce132284334362587"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000046.npz",
+        "rows": 2048,
+        "sha256": "3138c54f0cff2eaf408a2ef155a8e16d58ac0d6f4ca259ea0ebe56d4c2dbce8d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000047.npz",
+        "rows": 2048,
+        "sha256": "2c89ff35f355a5d7130e5c6fb109e4d57de7cec20919dd5ea50b486b870e31ad"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000048.npz",
+        "rows": 2048,
+        "sha256": "960981d78eeb126c6f90e70dec14220c3858925b98ff64cfb49fa08ad72c3feb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000049.npz",
+        "rows": 2048,
+        "sha256": "a2fca86e0205c8cb863459d1e0ab7df1b62a2007b9007d782f6937f2a37ef5df"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000050.npz",
+        "rows": 2048,
+        "sha256": "13328c873a8d5d881be2478b2a3c6bae0c48d2aee3ac5eb62bd60ef443f97c14"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000051.npz",
+        "rows": 2048,
+        "sha256": "544fd93c9aa814028ed9c9d668d9693cb1f72e9e135062785cb2b89ae9bb5f99"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000052.npz",
+        "rows": 2048,
+        "sha256": "2b90f6730a6febb270a777d052a7b2da7b0ed5dcf3e07f3b46dd45cade110003"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000053.npz",
+        "rows": 2048,
+        "sha256": "cf8c463397e44fc0340c1dceca50ce1f1385e9b14cd8032c8f0f364a29d28c01"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000054.npz",
+        "rows": 2048,
+        "sha256": "279a6e6027bf2b65c56bb5c619396541179bc65020290c5b3ee55bbc105f16c8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000055.npz",
+        "rows": 2048,
+        "sha256": "418e3d126ad0b7677f987b55d783baeaee6f5f3e4427b67a293f39c5daee08b4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000056.npz",
+        "rows": 2048,
+        "sha256": "d798d877faf57ff5842e4f117029d4b763ed92d10fb6cf7a6618094c620e1331"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000057.npz",
+        "rows": 2048,
+        "sha256": "15eaa1c59f24945dfdbce0c214e603875ec7b9f27854bc2436d180492d930319"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000058.npz",
+        "rows": 2048,
+        "sha256": "b22bcbebd4b5c597fa53d55f50be7ce54de22808ebfcc1567b14c0c28d75ed5d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000059.npz",
+        "rows": 2048,
+        "sha256": "abf054f9a8a595f56ccbedbeb0cc8871a03e1e9f3afa2de75a1fbb2e0d0389ca"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000060.npz",
+        "rows": 2048,
+        "sha256": "5ad16175fa045f777bfef4d00529abb6fc7f20656fda705ad4db90a5b0f5f871"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000061.npz",
+        "rows": 2048,
+        "sha256": "440f6e8a21e43c244c1115b68cbd03f981a8a2fd52b419d2e2b535df5ba05590"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000062.npz",
+        "rows": 2048,
+        "sha256": "3baea23a0832e1907d894e5c9924bfc2a1ba7c3db8fe5bacdb50aeb625b1b9a2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000063.npz",
+        "rows": 2048,
+        "sha256": "5d8214768c14e4e9a08ab2278440bc6d608c751be00838aafd89ea277a37072d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000064.npz",
+        "rows": 2048,
+        "sha256": "16c6becbff94cefaeadcc8b7c7b2682d8edba8b45820fa46ae93a432971dd01c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000065.npz",
+        "rows": 2048,
+        "sha256": "341c4ca1282036b4d8d3b95de0efbcbdb980fd0744a2898c51db2f9a7913750a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000066.npz",
+        "rows": 2048,
+        "sha256": "8b41477089a051a4ebab695c061ccfc39e9da692983546c5709eeffb9847915a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000067.npz",
+        "rows": 2048,
+        "sha256": "f03432257506b08a66315352ceb35e56bc2239010bdbc7655857032a2a2970c4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000068.npz",
+        "rows": 2048,
+        "sha256": "063f2ca17213d986020897a1b57a3d81d0d2d3e7378757405fdbaa2bbedac1c0"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000069.npz",
+        "rows": 2048,
+        "sha256": "3ee7ef3cf445817ca78a1da47b2fa6df7043c9e3851f138914d19c8bf5c1d82d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000070.npz",
+        "rows": 2048,
+        "sha256": "27c87ef2899dea34498b4d24a8f01e12345d74d57af8537ce147ff73cda0023f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000071.npz",
+        "rows": 2048,
+        "sha256": "d04299187462d0020596d74bc8b1f061fe6ce6e5fb4add9b4eb76a4792228861"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000072.npz",
+        "rows": 2048,
+        "sha256": "373a129ab670e82078a71c918a7484ff9be873e3f53f1c19f8921c4c77c08b0b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000073.npz",
+        "rows": 2048,
+        "sha256": "f707de5bc05bfb6bb82027982a940b573cf8e57192e50bbaa1faf8b8b718b636"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000074.npz",
+        "rows": 2048,
+        "sha256": "118c58eb43b1c5cf36ed1efa61ca87f9d01d2003ab52953510e744ac7c97be29"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000075.npz",
+        "rows": 2048,
+        "sha256": "7c0021ff4beaaf26e19e204505b0f3ab029f6e92381b2366ab8ed3dd60a5464c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000076.npz",
+        "rows": 2048,
+        "sha256": "4cdd31272414978b601c9cda04e236de2a17211a42c2c2414abff9398808a56c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000077.npz",
+        "rows": 2048,
+        "sha256": "a7fe6a268b90e1bcb5341bd065da5157d1b0956e7b627011f5f2f3f7f1c992d0"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000078.npz",
+        "rows": 2048,
+        "sha256": "cbaff13af385677fea1eed53e5adf5437b44f6dbe3fd9fe4a0537e9fe66d6504"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000079.npz",
+        "rows": 2048,
+        "sha256": "d1ac9d370f8d1ffb5d7778b341a8c0f09e49b0233594b41e8ef92eed4846af00"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000080.npz",
+        "rows": 2048,
+        "sha256": "d5905bd8e8116558017bffabf8c75fe9b2df4dc57bc26c0f99867a8ccde36a8b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000081.npz",
+        "rows": 2048,
+        "sha256": "9b6deb7fbd71ca8a7eb4b9a7ab22cae1584f153218d9dba65cb31a4e3ab5e1de"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000082.npz",
+        "rows": 2048,
+        "sha256": "98d7af514e9e46266f0d7eb32ea0e9fe53f98229919a5b76c943b47c784aa0c3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000083.npz",
+        "rows": 2048,
+        "sha256": "815c4f0d77fa536888947a6f4b1ac2fc8e5e6c2df9fea9addd1ccb6317144b27"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000084.npz",
+        "rows": 2048,
+        "sha256": "f609c92df30f34df7d77341cdbce437af036c03abdb28c1f9f2a922fc28dd11e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000085.npz",
+        "rows": 2048,
+        "sha256": "01e742afbd8c143d44dce2379db3443daef4fa5ac494393250dee069ec355bb6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000086.npz",
+        "rows": 2048,
+        "sha256": "7eb6860675f5d11508b55b9d7cb4923b0c309585855f5a1da12e7cdcaed3f36d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000087.npz",
+        "rows": 2048,
+        "sha256": "8215b3671f256454faeb31a23d5396626e6b93697fcb00336d79c59a2c14b3f7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000088.npz",
+        "rows": 2048,
+        "sha256": "52b56fc4497c8efc4fd7c4b2b18e79f13a549618c0b46895033e453dc738444c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000089.npz",
+        "rows": 2048,
+        "sha256": "107806a4120e2b00f9fc038c24737bdae6377bb49e00d0f527605bda92c4fcbc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000090.npz",
+        "rows": 2048,
+        "sha256": "8448b2fa239ac9ed7c751b6cbcda14eaeaa25c944dce33d4545b5807f38f0b81"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000091.npz",
+        "rows": 2048,
+        "sha256": "ca289acba0739ee31f92329926ee1ba361c838e5145f6b2b5fb98cab092af984"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000092.npz",
+        "rows": 2048,
+        "sha256": "b962898b89ff1da172d7bc8dd9a93ec3b556e5e3f345d5e10dd86605c475df1c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000093.npz",
+        "rows": 2048,
+        "sha256": "5a45c4815a320e870cb0d1fa07dc0648e0313dacbb68970be3bfcdcb6ef550b5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000094.npz",
+        "rows": 2048,
+        "sha256": "61de2ffade256c02dcb0a8f2b1501e9b9954e18b5a688ef59cae1a16b4e3c960"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000095.npz",
+        "rows": 2048,
+        "sha256": "1452554934689150705057018f33a437ce848bc725601b5c483c77f6df753b04"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000096.npz",
+        "rows": 2048,
+        "sha256": "519dbe634f591f2a4e56d9207c172f4f0bd76c09722955eac3abf79c6d0ea284"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000097.npz",
+        "rows": 2048,
+        "sha256": "1110e00de9b673b7c57fefe79e9e555c80aed5c845aa0df978f42193064add54"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000098.npz",
+        "rows": 2048,
+        "sha256": "1bd1ccd8af79458b66272b8972e1e665698f0d2c9a6bceb75468ce63f41ebdaa"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000099.npz",
+        "rows": 2048,
+        "sha256": "e6840d9b4488b56dbf8b39063d023cc5ae3e2d6949d7a19b47712af0647e2dbe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000100.npz",
+        "rows": 2048,
+        "sha256": "507e8d40b6579867e4f5149c01b7a30b1432eb86f38325635dbc4b3c981baba5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000101.npz",
+        "rows": 2048,
+        "sha256": "ceaf0def52c51ce74e52923cb63934b11cdb09d41f6c46a2868be7178e17850b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000102.npz",
+        "rows": 2048,
+        "sha256": "84d2b549ff8537bd0426b6aaaf069bc8b0a1e38d7b291c0046940a3209ff9619"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000103.npz",
+        "rows": 2048,
+        "sha256": "5c5a338d0f25182b4b9765282621fd4a1d257dbcb71052ddbb7a4c26af0dd5d5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000104.npz",
+        "rows": 2048,
+        "sha256": "ebf521a2139cffecc18cf769660b4519d5704934f7b892f4ff571f5f189fd1fa"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000105.npz",
+        "rows": 2048,
+        "sha256": "b5fcbe75486621e702dee50c3b1cf880fc1e523966ee41c61d6e0dc314352c32"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000106.npz",
+        "rows": 2048,
+        "sha256": "e675b09d0e094bb9b07d96077d72f84942866e41e4716018d182d53caefbbc61"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000107.npz",
+        "rows": 2048,
+        "sha256": "29669ffac5c8ba923f651753862b2f53447aa994c622e5b7fbabbf7ffeb35817"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000108.npz",
+        "rows": 2048,
+        "sha256": "495ce037ecc10d3dbeab7cfe8647adbe0ffbebaa1e15ec79ef7fde96b7cf4f1d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000109.npz",
+        "rows": 2048,
+        "sha256": "e5ccc0d1648ac37b5704a726ca5304251bf33730ca15913a01a58a93d5fd17ce"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000110.npz",
+        "rows": 2048,
+        "sha256": "a7eab735ecdfa3ccdaefc09304c2b0cf5f7135b4c7c0bedcf27b7e638788a686"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000111.npz",
+        "rows": 2048,
+        "sha256": "32e94cba3da1a20f262223f387e1a65b0d242aade9682389f33856f6623aa7cb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000112.npz",
+        "rows": 2048,
+        "sha256": "52d05982b65c34782724c404194829248c8eb9f16f00c530f9caa06b15c78225"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000113.npz",
+        "rows": 2048,
+        "sha256": "b3f4acb6ebc36bd462d51992d13ffaea36fd68462d25e4360b11c4faac3719a6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000114.npz",
+        "rows": 2048,
+        "sha256": "5e36e98e34d4a0bba4fd34a5aa2523c90a56cf153370b554b3bd657b3cc172ee"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000115.npz",
+        "rows": 2048,
+        "sha256": "80d1b1293002dca405853c32407a9b0724a7ab5df5b2ec6092e622d745325ce7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000116.npz",
+        "rows": 2048,
+        "sha256": "aa5a295bee28a17db83dd498d47e07d6019afade8558a478409cd444fe95d648"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000117.npz",
+        "rows": 2048,
+        "sha256": "d5da2bdb34bb462b00b4257cb1b6f3fc62fad203147dd186edcbcfeef50e834b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000118.npz",
+        "rows": 2048,
+        "sha256": "2caf8c9ee8f08a73768bdc76bbade1b570301c9ef19f8bd1f38b5f50f7e3004f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000119.npz",
+        "rows": 2048,
+        "sha256": "afcf396ffefbef7c1e13fa6efbd9a10f88c6a57f1ffb1235e2a499cab647bb51"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000120.npz",
+        "rows": 2048,
+        "sha256": "4e026e53a8610376c03cf30f2f59af2d986eb5f5d471b0173db694081e49f529"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000121.npz",
+        "rows": 2048,
+        "sha256": "3f3b2aae0ff4ddfd1a0ba0a237ab1dd20ae3c1d0e956f1e93a5032856dad1d10"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000122.npz",
+        "rows": 2048,
+        "sha256": "114a05adf9058b8359b3b74f98c17e7f0901b3085aa1dd2825b677fcabd589a5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000123.npz",
+        "rows": 2048,
+        "sha256": "b2219bbf050b43d952c02df90c6e37b4188dd97cf05afde8f1ad2b0580d7adb7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000124.npz",
+        "rows": 2048,
+        "sha256": "64cec992502004442f297ef0b22a25154676af6312e382ff3dcb5ae2f7e259ba"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000125.npz",
+        "rows": 2048,
+        "sha256": "a575a18f957180fd64096a6213e27ec0aa1829c7125d35f652874ab2b1a01181"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000126.npz",
+        "rows": 2048,
+        "sha256": "a8262826e130bcd9645e0cc7aa1a808d55effbb28c53d991cc9ae142eaa1b297"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000127.npz",
+        "rows": 2048,
+        "sha256": "10d540d0f669dc06455c26ed6871335654c07e3f28cc3f138205173947aff85b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000128.npz",
+        "rows": 2048,
+        "sha256": "4f218920d9b77bc3e1289f61de6c3e48ce9494945677ec9ffaebe25a4858a882"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000129.npz",
+        "rows": 2048,
+        "sha256": "e108427290b132ab0ebc1d3689644fb90561b13faf614697a71272a2d4d34068"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000130.npz",
+        "rows": 2048,
+        "sha256": "d8dbd062b50dd6ebec8f46c4f060633ed8876d2e2018118b1d081127358eb097"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000131.npz",
+        "rows": 2048,
+        "sha256": "c75891bf122034b9b882c2479538dbfdd4f43ab00abc061ba5948fbcb762fe88"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000132.npz",
+        "rows": 2048,
+        "sha256": "88ded21503cb14fe0302f6b12bdeb004ae4484da051887334116242a359f0a86"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000133.npz",
+        "rows": 2048,
+        "sha256": "57adc47e481dbfd5205b209345359eaade61c7366efed7b76b5a69b88074a1c3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000134.npz",
+        "rows": 2048,
+        "sha256": "ff693f0d43921ae69e2484f13029bcfc4f62bd1761f7753324dd2ea2395d2c43"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000135.npz",
+        "rows": 2048,
+        "sha256": "3e8bad986baf14bdc16302eed67b1e651620e5dcdd7c111cb02e64d1c0a7a9cc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000136.npz",
+        "rows": 2048,
+        "sha256": "11fe045fab5fbf43264aabfd1af0cae5b93b29a888318f6ad27535d8f60c964d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000137.npz",
+        "rows": 2048,
+        "sha256": "c63057f906cf0fef8d158983eb60dd39dcecd234d85a24353d3431d62f51089b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000138.npz",
+        "rows": 2048,
+        "sha256": "be044593d1ed6b093026c006b40468005b7bed67d1c85e7e06066962d43e26e4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000139.npz",
+        "rows": 2048,
+        "sha256": "c3d1458db4c91bf1eb808b1e212620e39d6bcff0db5f8a474258d10ec0b19a33"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000140.npz",
+        "rows": 2048,
+        "sha256": "40a4585fffe033c21389a54f33718c255098b3ccfcbefc1bd87f7164b9c430e6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000141.npz",
+        "rows": 2048,
+        "sha256": "c8b03c4e42d4bd49e05e3177d4386458af801bcbce54f5d5cd80376859b092b5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000142.npz",
+        "rows": 2048,
+        "sha256": "5ba15da69e4f686a6b20106db9b35a2b2266b0dbaf9df006f2f303ebb9978e94"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000143.npz",
+        "rows": 2048,
+        "sha256": "9ce4eca1f04f6a6f69efb20a1d42f594e2dd07f77e4419c73603bbac5b6080a3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000144.npz",
+        "rows": 2048,
+        "sha256": "6fcfbe85fdfbe8762f00056100086cef86272ebca33fcb155629943bb51fec27"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000145.npz",
+        "rows": 2048,
+        "sha256": "aeba3a7bcfcb9de1a20325699356c968b5ace889ad0653109cab71eb17405f00"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000146.npz",
+        "rows": 2048,
+        "sha256": "c8f8f804ffb404d70ab2cfd620b615b338b582d4ee07396d949762258bd77e78"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000147.npz",
+        "rows": 2048,
+        "sha256": "c783b6b2c436b9c28765feffbe2eb2ab36af448aaa892caaf49fd7290954daab"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000148.npz",
+        "rows": 2048,
+        "sha256": "aef3b2861a557754ebc7560ca16dea021a2bf110265598e530c91b13aaba02e1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000149.npz",
+        "rows": 2048,
+        "sha256": "8290eba55a8e0fb6d6fb2b75e77678794de0c8f31f4a8c0f353a88235801aadb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000150.npz",
+        "rows": 2048,
+        "sha256": "1f51f64a0a72f8b80bffe6329bad5dfad4b60b55306574628acc2da303f6fc03"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000151.npz",
+        "rows": 2048,
+        "sha256": "9f4f26b8fa77a32dceb2df988c225a1681ef9431ccb0d4cb1b8052b1ecc05abb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000152.npz",
+        "rows": 2048,
+        "sha256": "0b99e0b7596b355daa4b238ab5adc65d59eb7bafee49db4569ad973cdcbb1676"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000153.npz",
+        "rows": 2048,
+        "sha256": "ec461ec338f8c73cca5e79777ae7083067b05bde26c701f3913020fa37ba2bd1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000154.npz",
+        "rows": 2048,
+        "sha256": "551d474b6aaf9d14131cd34ddd9b67c98ef64441c208bca8c7d400ede62e988b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000155.npz",
+        "rows": 2048,
+        "sha256": "0aac706653e54bf03df77eaf7880e7c67ed81df846c69e0d0ec4ce87e743f428"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000156.npz",
+        "rows": 2048,
+        "sha256": "528ee74dc29e7b0282b9494ceaadc9c83589b22f0e001d0e627c88ed8437f5b3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000157.npz",
+        "rows": 2048,
+        "sha256": "ed4279a1554c7c2e20777da75064848be62d1b86cf48fa64d7f6271b0fd1eefb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000158.npz",
+        "rows": 2048,
+        "sha256": "1201ee35f06ed2fcde1ceb57e998f8b748d96d5324b5e8785ee72007d0457b8b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000159.npz",
+        "rows": 2048,
+        "sha256": "4f3af41272221f3d3588fb4bec70d6f4b94003c639e54ee08280f29c91d94cee"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000160.npz",
+        "rows": 2048,
+        "sha256": "e74da1772f10a7c385be00400788706021ab73bcb35abb7d899c62b25b27460e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000161.npz",
+        "rows": 2048,
+        "sha256": "69e3f012d9f6e57e41515d5b42244d44c0a31ba308bebf40a58c8a6897ac6996"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000162.npz",
+        "rows": 2048,
+        "sha256": "057c50bf6c5f1209e6fa386615db92df0a470e579898a6330d4217283514e184"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000163.npz",
+        "rows": 2048,
+        "sha256": "99ddc66b295588808bb78764d2d49988a5702ddc20130995aa28b9f9b7c63822"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000164.npz",
+        "rows": 2048,
+        "sha256": "f1ef602dd3a4c0cbcf260b52248e8976d0f5abbb2bbaae77a541175697bb73e4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000165.npz",
+        "rows": 2048,
+        "sha256": "d32ef832f83ddbd8ff716093389932b6d8cfc581b127dfb4d4513546f067c8fd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000166.npz",
+        "rows": 2048,
+        "sha256": "f4fc0af40a4b39f4070133b1ffa8d522fe67c40ca7d48711b35e64deabdba1cb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000167.npz",
+        "rows": 2048,
+        "sha256": "d8d04196a258df35e6c897cf53ba482964ce0d56583ccc3cf773a56302075e5f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000168.npz",
+        "rows": 2048,
+        "sha256": "41464be033606d925575c72e061f621d468828803ce68eef786b3adfbee8f4ae"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000169.npz",
+        "rows": 2048,
+        "sha256": "e58b2b16529821cfd62c4fe5490ba727344cb7068d590c4b8b68026f28625655"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000170.npz",
+        "rows": 2048,
+        "sha256": "8b8372c971cde5574c3b806134ab0064ce193b9c0b7dbda37d86a0efbf5f8e1e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000171.npz",
+        "rows": 2048,
+        "sha256": "d17e9105ac9f18874203f7e0702cc7e39b9cb18c2eda52d256bc37e1fd712f64"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000172.npz",
+        "rows": 2048,
+        "sha256": "08dc258fd5ba4852f6fb06f1478917ce079ffa7d75aae91dae0a5069b629f1f9"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000173.npz",
+        "rows": 2048,
+        "sha256": "6c38e21e4fde650ee39e7eab993bf9fb21c89cbbb7ee364583559fefc527e5c4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000174.npz",
+        "rows": 2048,
+        "sha256": "31e2627de45f5d7ee0b478d10e5a63dc88c259e63f28600b17531fa60baca072"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000175.npz",
+        "rows": 2048,
+        "sha256": "92fe2085fa33d206751e415499339841b3a4b76ac4eddf864b36ee490b66421f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000176.npz",
+        "rows": 2048,
+        "sha256": "a795e60f7739703affad33634ca09070857169790493b390d08e261a9a0d5d79"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000177.npz",
+        "rows": 2048,
+        "sha256": "f78d8fd66fca34da5334a8a676c47af3b8cd183d4a796520f947c5cb0956952f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000178.npz",
+        "rows": 2048,
+        "sha256": "7df9699fce6e42c660ba1deb2d17b799a3e8b88a79ecc16211993847188ca02f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000179.npz",
+        "rows": 2048,
+        "sha256": "f74d6321374287aa7a62efe16b5d01d5a3e9a2b68689f4a9281b83255d7c38fa"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000180.npz",
+        "rows": 2048,
+        "sha256": "2ee2c1b30182fde7cf7dccbb93985d3080dce99b813caf5ed299641f6097a32a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000181.npz",
+        "rows": 2048,
+        "sha256": "6bb0ed8f07165d461c704c8137798045a82b7ea346fe13d6711733a3906dac7e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000182.npz",
+        "rows": 2048,
+        "sha256": "93cb4f2a4ef1ac7cc85bb967d0277876c36b91e321666924b102980d6aed03b3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000183.npz",
+        "rows": 2048,
+        "sha256": "c0878013705869c7299990f5e5731d22b4aa24b4be23e78a7c06fdf14d1eefda"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000184.npz",
+        "rows": 2048,
+        "sha256": "889f62968b738015fff0c093c24a548aca425525037b46cac100d5c991c3390e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000185.npz",
+        "rows": 2048,
+        "sha256": "934b852517f843ff75e55cd78f1fb6da634d1a5c576a039ed628aa401b074ef2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000186.npz",
+        "rows": 2048,
+        "sha256": "65d5f50bb6e9180a194b6b902348f76de877a63284a8a93ec6c0031f228bdac2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000187.npz",
+        "rows": 2048,
+        "sha256": "ece5431bc8d9468f23d45757931317a297582878e7f83558ff21b5fb748f6303"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000188.npz",
+        "rows": 2048,
+        "sha256": "864de1e8d9696bd88b294a9d2b74169f9c876f4774fd9d21f520abee9138c30a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000189.npz",
+        "rows": 2048,
+        "sha256": "6e5d4875978ee58753be92e7efbbac6f7dd23ee6a31e2c4beb34a0c87c3299db"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000190.npz",
+        "rows": 2048,
+        "sha256": "9f56f438d335063f0733ca86519c4311ca00558e1b835d9b0d4ef767af882132"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000191.npz",
+        "rows": 2048,
+        "sha256": "333dc88d058f923a01cbb10f30b89aeffff258afe1fa095c017787f3e95251f1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000192.npz",
+        "rows": 2048,
+        "sha256": "2dc0457620f444a40cd84a5c0a1d2d624da31b807a80f3cfc4aba11b83adb3ee"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000193.npz",
+        "rows": 2048,
+        "sha256": "798fe9b94f239a9f8374d1f581f8a809279a0ba8882e774033c4bef300b1da83"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000194.npz",
+        "rows": 2048,
+        "sha256": "80780692d5d4fbea5fe03cc183dd300c3d6950a0a9f8f45ceefde5cfeed53442"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000195.npz",
+        "rows": 2048,
+        "sha256": "977435c1ee4e02f70717d60d3718acb9e8d3f4dc6722669a3bbce54223134ac8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000196.npz",
+        "rows": 2048,
+        "sha256": "8bf6884776356a04691325a59b3aa92721742fb53e6fe581352d91923e811889"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000197.npz",
+        "rows": 2048,
+        "sha256": "131a468714f49d035244b0e6f2f5571069ff5b7f801d608bd0ceaa2d0a552e4e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000198.npz",
+        "rows": 2048,
+        "sha256": "651045903d2972bcd089ce2de9d5adabf1b9c681860ebdfe029af7a7c2fd684f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000199.npz",
+        "rows": 2048,
+        "sha256": "8862a8dd41cb6103623357bed5aafa2e8122590c83cf42c84fae111d464e3b20"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000200.npz",
+        "rows": 2048,
+        "sha256": "d4608152bb847ef839b328aeff3b5a079bc7178a064429892eec3194c3dd3d81"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000201.npz",
+        "rows": 2048,
+        "sha256": "6d6b1bfefac8326b8ef177eed868db5abb376379555afd74d6211cd18d1db6e4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000202.npz",
+        "rows": 2048,
+        "sha256": "089ceb3e4bf958b7f416f0249f43406df050ea9a672995c62b68f4e59d7555b2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000203.npz",
+        "rows": 2048,
+        "sha256": "9a53ddeb6743ea88305941f95b0e63fe363b1a38fba7864041ef37c2f34d8178"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000204.npz",
+        "rows": 2048,
+        "sha256": "fc3115fd61942e8d95c85dfa8b6df76128922e2d243d4e917210800b4bf5c780"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000205.npz",
+        "rows": 2048,
+        "sha256": "ea792ab95b92b26e20bd8206d7472c4b92fb21939db828cdb0dc64b7e883c856"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000206.npz",
+        "rows": 2048,
+        "sha256": "e942a3669cc403e994eaa1b1743b4547a9ff362a9e3db6c08a118a426f9573b4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000207.npz",
+        "rows": 2048,
+        "sha256": "257ebae28fc037c3ada385b938388b63cd737410cec69443719a509cfd3ab99e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000208.npz",
+        "rows": 2048,
+        "sha256": "0dadd0ed5b9e68e63c73a159952f4192a807e4140dde3c35b9b82cf6d5793799"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000209.npz",
+        "rows": 2048,
+        "sha256": "9f87f9b70868d65e9893daa0872e1f1e71b84eb5010e3aca3796f0600623b1e2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000210.npz",
+        "rows": 2048,
+        "sha256": "4dced2ae0b9062abb4aac25a9cc71b2c207c3f6227c4c5673be99d4d2555fefe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000211.npz",
+        "rows": 2048,
+        "sha256": "12ad168788d7c91e8bf40c832898a8be1aa1bb9cd63dff68cd87834b2a4fc2dd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000212.npz",
+        "rows": 2048,
+        "sha256": "aa7211971cb929f00ea7d04d2839216d769f8f2fe82c5d78ae286493b4f36ce3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000213.npz",
+        "rows": 2048,
+        "sha256": "e81c7c218adc75f0f3fd48ce056dc858c18d65cf8b96e780f0e28e47e47bc7f1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000214.npz",
+        "rows": 2048,
+        "sha256": "eba09bca59dc0fdfc2a5b450b81718f953fee8c1b6a318b7ebd851d635e02789"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000215.npz",
+        "rows": 2048,
+        "sha256": "dc9b7f0028fe6c73d4321b0f9cff329aeda013a9d29af2232c2125a3d5f65910"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000216.npz",
+        "rows": 2048,
+        "sha256": "0dc153105714a0d5d607366b5d9249e34112b1619139b7d8068a67a104e6d95c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000217.npz",
+        "rows": 2048,
+        "sha256": "97611c798a06a4fb694d5eb46ab86ceb8efa6014cb09d9e6da54f501d8e69ed6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000218.npz",
+        "rows": 2048,
+        "sha256": "f1a2788f94362681c9089d7cc8d53d967608cc1466f59c2f66797d883b05e50d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000219.npz",
+        "rows": 2048,
+        "sha256": "613b9d30a37f5f5f7e9ab01582198b900fdfe10e05b8de77a35bb29210f5a0db"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000220.npz",
+        "rows": 2048,
+        "sha256": "a4ed334be15911cf4401719cdad9a0bd7165af942dc7632ae97671438be1ea47"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000221.npz",
+        "rows": 2048,
+        "sha256": "a1ca21f866810aa532a3224b87acb272b71dbd2baf2fa888afd624e746a53144"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000222.npz",
+        "rows": 2048,
+        "sha256": "1b233c8ebf737d50a564d61a2076d1288ddb7b7091144de47c09a95e35941ba3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000223.npz",
+        "rows": 2048,
+        "sha256": "0cb679f90f8da0e370858704a27cca8481adde8122440b0963df31a62f63e4bf"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000224.npz",
+        "rows": 2048,
+        "sha256": "0289b3d15bce8d6d1499b9e5659516f9b93423165bcbd5d8d74c920573f6da8e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000225.npz",
+        "rows": 2048,
+        "sha256": "01da77544ba46995676a6e62b3ee6161adb298bbb7104de5c9a9d8a1d724a5ac"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000226.npz",
+        "rows": 2048,
+        "sha256": "a87d491d9ac62b54930dfc4c223ca280419d3c29a3e76eed2ee3ff3a55a6f93b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000227.npz",
+        "rows": 2048,
+        "sha256": "0f715d7c8af7e49f8e1019dcf2a9d604b1b4f65f60ac066521af5e881df38da5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000228.npz",
+        "rows": 2048,
+        "sha256": "e5bc0050578bc0ad495dc6afec3bf1ce76a039348a0bd293475fe72a3af9498c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000229.npz",
+        "rows": 2048,
+        "sha256": "1bc1f36e2face445cb45f8335c9c18bbcba8aac85c28bcece3322c78f0bf7b2e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000230.npz",
+        "rows": 2048,
+        "sha256": "676fe3bdb468dbd03262db2592ce68ef807763da91db96cb3f5239a9c94d04fe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000231.npz",
+        "rows": 2048,
+        "sha256": "6ebba0438f194a1db3352daccfa366e2eebee9f096cbdaffea71d3a03455d001"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000232.npz",
+        "rows": 2048,
+        "sha256": "41cb0b72871f91a4e74eea23ba0482294c8095ec6972710770f9fd2bcaaec810"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000233.npz",
+        "rows": 2048,
+        "sha256": "d3d6d4e264cbdb387c60f59e913d40a36f0c0e18363cba735ff87d04dfe0af1e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000234.npz",
+        "rows": 2048,
+        "sha256": "e118bc443a0da1f5bef7b623aa9cf3c1abf8b1c611ab569d3a1f78d98f86016b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000235.npz",
+        "rows": 2048,
+        "sha256": "5e7907e4ec4f3382176199c22d044ab935aac3d440e5fab61a9383a35329d942"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000236.npz",
+        "rows": 2048,
+        "sha256": "c85bc89bf70e38205510089012021ba04c82e7b56e38a52fbf40fcdaa9a031e7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000237.npz",
+        "rows": 2048,
+        "sha256": "28211ea7aeb7b0e19957d21ea16dccac5479534278a1208aff7e2227e1b4b830"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000238.npz",
+        "rows": 2048,
+        "sha256": "ef0d2152f2eee839de4b7888903f23685341f9bfa5242bd762a251c6df0afe18"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000239.npz",
+        "rows": 2048,
+        "sha256": "febc787f21566fdabd4446b5c222d5510414cbde18ecab148edf74e707c1ea1a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000240.npz",
+        "rows": 2048,
+        "sha256": "5d2cc4ebbfef35ee9fe907f7dcc86fd9eaedb5391b84195af515aaffbefa318f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000241.npz",
+        "rows": 2048,
+        "sha256": "967d93b2bdce1ede4db296cbc0e23e7b2baf9eaf914c296250b4f73fa4da6db6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000242.npz",
+        "rows": 2048,
+        "sha256": "ead3aab8d269abc455acd2c1004fbbdfe4d66fcfff52686a7c38a0e2ef14a5a3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000243.npz",
+        "rows": 2048,
+        "sha256": "7da8e7749d922d1d2e334079c149fb2b6baa1a8294f787331e69e7f5ac060722"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000244.npz",
+        "rows": 2048,
+        "sha256": "1c10b7a944dd41a3747683dbb121df27aa567538282d441a3b0487dd30359cc0"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000245.npz",
+        "rows": 2048,
+        "sha256": "753607a1076fd6b14db35cfbde686a841f1102ccebfd15165ff7d6f0ce030f7c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000246.npz",
+        "rows": 2048,
+        "sha256": "f34fac50faa076b0f44dead561cc41e4bf102fc29cd563d6bcee5a2dec12c35c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000247.npz",
+        "rows": 2048,
+        "sha256": "3f294c05a868be5e735e9f6d0272d83f7090178714ba527e35bb6086dc72e0f2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000248.npz",
+        "rows": 2048,
+        "sha256": "14c3964ce5d13c3e3bb7d88fefbe23ea8d54456e70668f9a4c88088c5bb34a69"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000249.npz",
+        "rows": 2048,
+        "sha256": "c4809444cb59bfb332579a807c02de565bb89e410dccf878358496d0857cee27"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000250.npz",
+        "rows": 2048,
+        "sha256": "ea8c7300ad8b198728116af36c64107f3ca16497d32ec98bb58cd8ad048faf43"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000251.npz",
+        "rows": 2048,
+        "sha256": "e12351f9ef2a8f786962615ca495895db0cbd4a8f0006950d5921735ccc462cd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000252.npz",
+        "rows": 2048,
+        "sha256": "3dadf0a4b834d7d8c0704417b4a36bde7456cc4771cb205b12e23f2275cb2d69"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000253.npz",
+        "rows": 2048,
+        "sha256": "eb5da8ca809f7d87b7eec839cc1092aa1b0defda5b0aeac5b092447adad73e80"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000254.npz",
+        "rows": 2048,
+        "sha256": "d804b4fa9127cbaeb2808162f07ff8905cc8ca7270dc84ae48d59be45e447752"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000255.npz",
+        "rows": 2048,
+        "sha256": "1028f5a27759d1a85f4094156cdbac05b63fd3cd99c359a1274817c729105dfa"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000256.npz",
+        "rows": 2048,
+        "sha256": "966077f1ca0f1e5dd67dc4aaa08fcbc556f8b7d9f68122d3c7a8b4cb4cc1d419"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000257.npz",
+        "rows": 2048,
+        "sha256": "759d367fafa69623e26d1c6ae42d0c0f05bc03e656660d24a40c97abdff8029a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000258.npz",
+        "rows": 2048,
+        "sha256": "f9647755c24dbeee81f07d0a9a90d4792a8cd0d277e723a2a4110b2caf882a97"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000259.npz",
+        "rows": 2048,
+        "sha256": "6dc627af81d94cbe8482fb095583dd6c3534bce5b80ae335358e14bdede7f35c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000260.npz",
+        "rows": 2048,
+        "sha256": "59d6fa408a4abe9e5ebcdc7048182cf94cf805067c15ca0566355d16207da26e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000261.npz",
+        "rows": 2048,
+        "sha256": "bb64f715b580085100a67994bfe4d08f74f00a0c275ab65e86410fb4a696137d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000262.npz",
+        "rows": 2048,
+        "sha256": "aa33243db6719ef3d8203db550896da40b45d373d75882d101d9aad796f25328"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000263.npz",
+        "rows": 2048,
+        "sha256": "c3b4aa3084d7a100fe0a8b06cf9e57e33720d1629966bbf2cfc0e0b651791ee1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000264.npz",
+        "rows": 2048,
+        "sha256": "d26b9aeec9368f6da07e717961a89ee1cdcfafe3fafad6a2f855ec7f5dc244b2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000265.npz",
+        "rows": 2048,
+        "sha256": "a87cb99390a82e95d4fa51577b0a0ecde554f3fb77d80159116b3b563295fc49"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000266.npz",
+        "rows": 2048,
+        "sha256": "59e611d8419d96182f7e6cacc90f884c8fffcc50168b5aeadcc56cf5684199f3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000267.npz",
+        "rows": 2048,
+        "sha256": "ba2a03bd8fca985a229bba8c92addff4d2ed18aa3572e738807a85b7c973ca5a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000268.npz",
+        "rows": 2048,
+        "sha256": "ef1c09fcc55807658cdb78ea07678a70c6fddb6ef5a281617ff84ac6c111d24b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000269.npz",
+        "rows": 2048,
+        "sha256": "90ef76a971a07a12881ba281b31b2adfd2391bd00aebc2331233d5e228bf97b0"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000270.npz",
+        "rows": 2048,
+        "sha256": "b5bf86f62478144eb6ca51f32e3565024f57ba30ab48d8e1d8523fca9cf70e04"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000271.npz",
+        "rows": 2048,
+        "sha256": "6a5563425f9c6481e7997d4e95d17e56a1a187909e00d561d0125f37a4633630"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000272.npz",
+        "rows": 2048,
+        "sha256": "deacbd0afc609dc1cc34d28dc151326d14f42504fd5b2aaef2c969dd4a9414cc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000273.npz",
+        "rows": 2048,
+        "sha256": "9a4acb0a23a1a6e763924b85e1005252e6d2a4337fe04c907ed1cf615d2839ee"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000274.npz",
+        "rows": 2048,
+        "sha256": "b0c8b63468cbe5c4cdbc7a7847afd40ba13953ff6c09f003ff71b13b36de1de2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000275.npz",
+        "rows": 2048,
+        "sha256": "c6ec1e885b913a218fd68cfdcf400614635db75ef0772b1d204e5404307362be"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000276.npz",
+        "rows": 2048,
+        "sha256": "4327d631409d214d509526eff77f259c2761e4d4eef9a604d1309d8a16493f1b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000277.npz",
+        "rows": 2048,
+        "sha256": "09b69012ed9d1feeb65e45940c7e5194dfe5f5969d4ef10c748c4c612e51b7a7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000278.npz",
+        "rows": 2048,
+        "sha256": "881e76f139d259709122629d68795b174b125a08fe44e90d61d6d74ed0945cbe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000279.npz",
+        "rows": 2048,
+        "sha256": "d920287a3c088091f3609b3c2c80f7fdc5826d1ea1a5251530b16c3ddc592022"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000280.npz",
+        "rows": 2048,
+        "sha256": "7afe87e403514e09f489973d5fcf7b4e40b4558d75018c1d90601d26db0244cb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000281.npz",
+        "rows": 2048,
+        "sha256": "58866d870f7ac553bd033430f6684fdf4968eec2a42490b51960aefb6b3913b3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000282.npz",
+        "rows": 2048,
+        "sha256": "6f9ec4837fbd57486e652e6f7dad71bafd602ec7b1a1cc85f712ac2d3d119eef"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000283.npz",
+        "rows": 2048,
+        "sha256": "714adf41ec725e1e1889b13f360905243dde367d48341279f50375652f7c5664"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000284.npz",
+        "rows": 2048,
+        "sha256": "70012a13965683986575e1a9a4dee0e0ba85e16a3df92f11bf98b2f6f30ca240"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000285.npz",
+        "rows": 2048,
+        "sha256": "d59493906e4b8ef0d0a87b7f68d578669ee99622d283e9daca1f695ca0f5ddff"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000286.npz",
+        "rows": 2048,
+        "sha256": "c16dbcbe375c377a54b44d4d942320ce46c119e2d512447dce72b381368186c4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000287.npz",
+        "rows": 2048,
+        "sha256": "a451be2274e118c87b1d3f104211b86f258a90eda0e268133f687b086f5dbfd1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000288.npz",
+        "rows": 2048,
+        "sha256": "8db338920dec875b4ea196e7feb8f1d67559e725d561086c90a37414b0908e01"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000289.npz",
+        "rows": 2048,
+        "sha256": "8b7ca9332f326d6e7c594bc690e79e2b4ed1b490829e989088327b4a4c4469bd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000290.npz",
+        "rows": 2048,
+        "sha256": "df73464c7ad13c0a7f74f6412477b9e8a7b2cf31eb1f4eb79e847bcee254a5cc"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000291.npz",
+        "rows": 2048,
+        "sha256": "510bad288041a5b6735d175c71e87c41828cdf36fdf1fe6b50a4e6ee44c202e1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000292.npz",
+        "rows": 2048,
+        "sha256": "6dfb88f01bcaf9baaf199002c2e16c4b4af6b68ac84bc47451266e5b2bf09e52"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000293.npz",
+        "rows": 2048,
+        "sha256": "4403f433824b88d644446910ecc3a886ced84268d3ebb1103a479c75084cc31e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000294.npz",
+        "rows": 2048,
+        "sha256": "532f4e98fcb6f4e3bc970f09fb8b2872623c6347da9e7a631f83d73a5e4e1f4a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000295.npz",
+        "rows": 2048,
+        "sha256": "3f31bcfdade1a8ee9cadc0df0d1cecf24bdea5f763a702afc3cdf7d40109b2ea"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000296.npz",
+        "rows": 2048,
+        "sha256": "3d3155ba90d975b6b2667ba4c80f62c735fb73004ce8c0b655cb7c2c8d91d1de"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000297.npz",
+        "rows": 2048,
+        "sha256": "25b3589a2377550a4d06d6e2e6d458c5a63a53d0010c1188efee23fbdc60212a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000298.npz",
+        "rows": 2048,
+        "sha256": "f128b806f41bc31a035aac2543dc8794a77aa300263c2ea5e5a0a4d628424eed"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000299.npz",
+        "rows": 2048,
+        "sha256": "5099074559022c5329cf862a8e8b53eaedb0e4625202edbdfa04bf4e17427f4c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000300.npz",
+        "rows": 2048,
+        "sha256": "32721f187464dede31afb3e0d87c1025166f6365d7d8fdb0dc41dcccbfbba526"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000301.npz",
+        "rows": 2048,
+        "sha256": "86f0367fece72f9ade9622fbdd4a7dacdbffd1e74f996f9f92610267852f0181"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000302.npz",
+        "rows": 2048,
+        "sha256": "7cd222b3caae25d54cc7cf6a39e57e381eb204e9ffa0238e17d2465cd70e246d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000303.npz",
+        "rows": 2048,
+        "sha256": "338e008af2f8150401e632d37a9a01cddcba3a373e7cb3d06af1462b75da6781"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000304.npz",
+        "rows": 2048,
+        "sha256": "f43b59ec5d131fb1bb21ab44d28bbbd8ae0d361414e154eb78e7436c6e1bf860"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000305.npz",
+        "rows": 2048,
+        "sha256": "3d4039d9450b3467cf31d4db808943286caf94713e600cd55e62205189adc211"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000306.npz",
+        "rows": 2048,
+        "sha256": "419f29a9b1be7b710c817ffef4541fa43e0fc5abf57a2cb149e8ba63809c840f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000307.npz",
+        "rows": 2048,
+        "sha256": "a240c4951246f242ed9fc1bf3b83dd7b09ce9af96d2766c6fd49d594147b188b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000308.npz",
+        "rows": 2048,
+        "sha256": "71aadfe453bc0df78cab902ed278d89cac33337a0e1fa5c1bfd41095b36843a6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000309.npz",
+        "rows": 2048,
+        "sha256": "3eac038b9e4569f236b32ed50eecb5875f474d495291d4b3976533d8dd9a7a96"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000310.npz",
+        "rows": 2048,
+        "sha256": "13be0ccf78f04df422a30180de8019a1c4558ed251f1d6670f2ae0159678083b"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000311.npz",
+        "rows": 2048,
+        "sha256": "2e9ee16cacc68c49fe725775b384aa6b6bad41b2cce7f65b54486fbeb264ced5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000312.npz",
+        "rows": 2048,
+        "sha256": "eda46363ec641cabbd459f488853481ec22710b28727930ff7c081355cfab836"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000313.npz",
+        "rows": 2048,
+        "sha256": "cab5467c36af38827c1ae635b5ed9629aec9c18e6391fdb74afb24c1ce6ff30d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000314.npz",
+        "rows": 2048,
+        "sha256": "9b176d814a30785adedf24ea873672850457eccfd207a0fba454f22589a4b085"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000315.npz",
+        "rows": 2048,
+        "sha256": "95c482bbdb9b7d894b14ee4c91b663e477fd4b8582d87a1fd714d2529a0a95ac"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000316.npz",
+        "rows": 2048,
+        "sha256": "52c2b31ffae95df978cad55d1989f8332e7006b23a3923378c46c932812a292e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000317.npz",
+        "rows": 2048,
+        "sha256": "24b674d2714b3986ed15b2c35d70590077448137185ceb36c053ad62b3976155"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000318.npz",
+        "rows": 2048,
+        "sha256": "d8697037221b76368f5b3a468517ecf28801491f5f8af8d7fb5f3d6906472e52"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000319.npz",
+        "rows": 2048,
+        "sha256": "50effa165c0e0dde7c9e74b53e98676c37bde6dbccde4eb4cafea0bca48d6686"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000320.npz",
+        "rows": 2048,
+        "sha256": "3d9b4849124787430f3a07ff5da41a7b857a2c50b19b5bb3548a01b66994f6ca"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000321.npz",
+        "rows": 2048,
+        "sha256": "899958ed225c9f6470315b1c7d8916d3273ea8535d598b55ab4571fdb0da2e11"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000322.npz",
+        "rows": 2048,
+        "sha256": "43eee038149f4e619a60dea7a9fecc92642042887c85f35c8b13cbf16aaab957"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000323.npz",
+        "rows": 2048,
+        "sha256": "77d60dc98a615334f1fe0c061f28e6073db850aeb3003b07e7a79e2ae04bb0f7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000324.npz",
+        "rows": 2048,
+        "sha256": "a78d0bc9abe72efc487dcf6305e70588c30a7cfc4d8d205e90d95c4fb0b226d5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000325.npz",
+        "rows": 2048,
+        "sha256": "7ee5a73085e70df95e54f6a4a1b5dcfac22b8defbb163eeee33a670eafe96230"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000326.npz",
+        "rows": 2048,
+        "sha256": "4835789cf11847094b9aaeb3532732ff86a35dd98e00d09706986185f1dd3b40"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000327.npz",
+        "rows": 2048,
+        "sha256": "c140e00152ae3be0aec5c8d6cba9676a4a29a5eff1649c34a0aa93cbcc27855f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000328.npz",
+        "rows": 2048,
+        "sha256": "34f51db14f0f2196692e979a427149e6ddb127e5432be8503f87dc892e64a595"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000329.npz",
+        "rows": 2048,
+        "sha256": "5126ed0720a1523788a6aa4bd13993e06c2afd861f978142a098afae2325266a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000330.npz",
+        "rows": 2048,
+        "sha256": "efb53154bbe5d68b5a5e41aa5d58981d8095c2625d4d56308f03e3766115b74d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000331.npz",
+        "rows": 2048,
+        "sha256": "b5338507c82060b5accdfa042a182cfcdbcb28e16ce68967eb8d793fe208ba70"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000332.npz",
+        "rows": 2048,
+        "sha256": "86530089202a553377972f0212cc558211d5b023817541a6a816534b1e21600a"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000333.npz",
+        "rows": 2048,
+        "sha256": "8fc13e71528cc486c3fc027415e0e84b82e40d12877a7335ff0259680547b89f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000334.npz",
+        "rows": 2048,
+        "sha256": "183977685dd9f6f3087148990ac18257177396e7a05ef0515a7dfec1cb5d71f8"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000335.npz",
+        "rows": 2048,
+        "sha256": "60b6169e0b81c5657e354b9a91b073e8600bc62f754cb81a0a3e016e17a83143"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000336.npz",
+        "rows": 2048,
+        "sha256": "8fa326a6ee6a2dd2ed93b8a8de47851f95c3fefd7a308059e56e7b9dc3b57b60"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000337.npz",
+        "rows": 2048,
+        "sha256": "254c50a3a4ed4b9108312121454d5e61e4170780956a4f6a3ffa40a114da0bb3"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000338.npz",
+        "rows": 2048,
+        "sha256": "7552e1eb70ce9eebb094bc5aed1119d28ebeed8f2c791d370b9390d802b8c864"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000339.npz",
+        "rows": 2048,
+        "sha256": "a4750003d00383809c559a4f3f19a95f52e35eb7dc32804aa94caa6f2e585dc9"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000340.npz",
+        "rows": 2048,
+        "sha256": "e62c5879c92afb197e94d39c302486eafcb205a315436ac5063d0e2ee7503440"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000341.npz",
+        "rows": 2048,
+        "sha256": "247ac5c24198eafcd74b0b132ae80c6b891aa6fb7c75a5b4489f5a54453009c6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000342.npz",
+        "rows": 2048,
+        "sha256": "1f6d97dcfb23281c71b9279a6184fbe50cbd668bdec4022a3982c46c35b26829"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000343.npz",
+        "rows": 2048,
+        "sha256": "e0113cfb554b56592d9182cd091d22006f33508fdb667bd644d1feea0943ea1c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000344.npz",
+        "rows": 2048,
+        "sha256": "0286095fb4e4b59c9f4715600e0434f8f7d30150a768d3a53f880b3cc7230bbe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000345.npz",
+        "rows": 2048,
+        "sha256": "928daa414647abac2d0a32799af90df05ac654c36cf1f26f1eafd0b26076ddaa"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000346.npz",
+        "rows": 2048,
+        "sha256": "75e1fb7ffbff3f081c00bea8a2d10d95c83bc32af048f394c38e1e0cf33ed96d"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000347.npz",
+        "rows": 2048,
+        "sha256": "b8c714fea3f4dc38fcb2459e6af4c07859fdaae46ea7c7b16a6542fd87a11d92"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000348.npz",
+        "rows": 2048,
+        "sha256": "b714cf7aebe0cdabe3753f761558984f7d6d267f9a1211828c8bcbc5aa9e8c2f"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000349.npz",
+        "rows": 2048,
+        "sha256": "9fcb239235e4180a031851f054083360e06bce3554203570e9f13646f2125233"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000350.npz",
+        "rows": 2048,
+        "sha256": "614399f8f9820ea97f2542bd85060966bec42bd20d309b14f7de46cdbb891077"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000351.npz",
+        "rows": 2048,
+        "sha256": "6ce07d71d91962896f2a8fdfd7bf1dded78b537d383fc001a64b90953f752523"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000352.npz",
+        "rows": 2048,
+        "sha256": "8192a292a413f02a8d46b7105286724c71843936d3dc0ccf36188e2d5b7fd4c5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000353.npz",
+        "rows": 2048,
+        "sha256": "9349e11ec67d35b8863db238fd514d00b003ea3317ad7a6c2d167af3162ec4fd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000354.npz",
+        "rows": 2048,
+        "sha256": "a6acefced7b1814bac5d369ff913d96ff3e8d6a90ca7df49849aa0bf7e4a38dd"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000355.npz",
+        "rows": 2048,
+        "sha256": "a86800c0af02b8062bce87acff533fb07ed71eb24f703ec79d111f39508a90d4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000356.npz",
+        "rows": 2048,
+        "sha256": "87698416bbbaedefbefdb7f2d3a9c734560d2797b5050dc1d015d929531558f9"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000357.npz",
+        "rows": 2048,
+        "sha256": "d146e15eb58ee235f5e1c8ed9cbde38cc5cc706fd43a3936bbba59411c84ed82"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000358.npz",
+        "rows": 2048,
+        "sha256": "cd822f9fe87cc85bd8396d6e2bbf3510dc71047b3a5892ab363f615c77792503"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000359.npz",
+        "rows": 2048,
+        "sha256": "b381e2ed43fe703b14ad4a32921b6d840c4f2f62028f02f7b378321abf9d87c6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000360.npz",
+        "rows": 2048,
+        "sha256": "9a8f0b5a153db56eaf76a3e580bf5b482919d3b6272541a149cf4d5fcca6f400"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000361.npz",
+        "rows": 2048,
+        "sha256": "11eb7c1bce4260550e3ce43c055e2bb230e00750fd0c6a8ef60b1f3046abfa33"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000362.npz",
+        "rows": 2048,
+        "sha256": "b4091633639f1c58c9b0075099717989ce720591858f385147edd6be188f5272"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000363.npz",
+        "rows": 2048,
+        "sha256": "d3e80387c4181a9e405e56a673b052f0ac45b16a6582a07101edeccbdfbacff6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000364.npz",
+        "rows": 2048,
+        "sha256": "9c501b36113a1fdf32336ff2924d7bef56c0a4103f5085f24a5a46184b867ae1"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000365.npz",
+        "rows": 2048,
+        "sha256": "75b256f344df31a7fcbc15eff79a412e54e61e508ec105d4b8e38714e6e93347"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000366.npz",
+        "rows": 2048,
+        "sha256": "a9f7cd3196f39977f0f066e907c3893d0e0c247374ce4f24f89a01d3203e695e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000367.npz",
+        "rows": 2048,
+        "sha256": "2f11d4b74cfda372637d5ef78f0d99b881c2453d00aad0f0ae405d3702cee449"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000368.npz",
+        "rows": 2048,
+        "sha256": "9bb4dfd08966881635aeb80b0bd8286372e0b3d8cd9d1d6cf944649d191b2fa6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000369.npz",
+        "rows": 2048,
+        "sha256": "8c344ad5417eb15acc120169ee7258ebd95cfdfe7052a4cea3146f00cad50b9c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000370.npz",
+        "rows": 2048,
+        "sha256": "189afa98dbca88c387ef8d5004566358a248b8ff56d56d8d8781cc840c5c2deb"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000371.npz",
+        "rows": 2048,
+        "sha256": "05b38fb7641fe38538db66085fb918473ddf2bd831f5061b133d667670ba7e64"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000372.npz",
+        "rows": 2048,
+        "sha256": "82b3cc13f53097f6ab3443b08584b67f695734f6b1724365115887377ed722b6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000373.npz",
+        "rows": 2048,
+        "sha256": "6ab0a8e1c648027c564d53aeec373103d0c2a8d9bbe6890945895197749b2043"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000374.npz",
+        "rows": 2048,
+        "sha256": "aec9310daaa23e9d27ccf2c5f0580a8bd0ddef3d4a16ff61f80e26ef0128eab9"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000375.npz",
+        "rows": 2048,
+        "sha256": "5d09a6d951f256f3ed63f4922657b12c5f3725b904064b281e067764245a9ab5"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000376.npz",
+        "rows": 2048,
+        "sha256": "c15d571a22f2b0b98b3d9f00ee2e228411bd8770b867d68cacf4340bb8bae2e6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000377.npz",
+        "rows": 2048,
+        "sha256": "3819946649470f05f1e41f7146b58272eba8a80613ac255a1d06ec87fe67775e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000378.npz",
+        "rows": 2048,
+        "sha256": "36ccc6c8d27dfd0e71856b1525c696c4545c9523691f99a219172d48c629681e"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000379.npz",
+        "rows": 2048,
+        "sha256": "02d3ea02b37b69bbb4f62d3aaae02cec607968659dde95179f9192029aef1c68"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000380.npz",
+        "rows": 2048,
+        "sha256": "1820ff5b3eb606f8031d7c98813f9b95bf74d4543deee6c1ef6ab7117191d259"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000381.npz",
+        "rows": 2048,
+        "sha256": "06a9b4cb31bb45db98718166a5ba5d5468c8b8dcfb410439986fbae3e9b9bbf4"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000382.npz",
+        "rows": 2048,
+        "sha256": "183283438a583e8701339d3d4125dc45193e509fbabcb0a28b61ddf8a34e3abe"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000383.npz",
+        "rows": 2048,
+        "sha256": "18d7c6b13d65ad61ea1dd5a793cafaac2cd7e3a5b003db27971ac70b6c737f97"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000384.npz",
+        "rows": 2048,
+        "sha256": "f3a8abd5bd3a2e63106f682b8e87ce995eca81c3e23ffc9e8763e8a391be5da2"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000385.npz",
+        "rows": 2048,
+        "sha256": "3f848f9223697307df507c872104fb719f9fe5a09d121da7e3e89aa1a2651c48"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000386.npz",
+        "rows": 2048,
+        "sha256": "c7bc099096952bcb7f98d69a9fc20b050ef9226b76aeb3fbea19f04edb8ea603"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000387.npz",
+        "rows": 2048,
+        "sha256": "bc020e9e6c037b3bbf311205e37a070a6d6d137e7c31763ff1f58a0a21c8cce6"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000388.npz",
+        "rows": 2048,
+        "sha256": "11daff1d615e99c0872010deff07552c76792be5e70385f7572ba41988ba29d7"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000389.npz",
+        "rows": 2048,
+        "sha256": "ff35a4f41b2dfdbf2646cf8976be992bf1c4cbd532590a0cdf4060ddd53b617c"
+      },
+      {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/native/native_000390.npz",
+        "rows": 1280,
+        "sha256": "98641b89b6f4ab7c6eee8e777a926cab3aa9d1230601cf07ae10b7e36b7ab3cd"
+      }
+    ],
+    "pending_rows": 0,
+    "force_balance_note": "COM velocity before/after integration; solve forces before refresh; finite difference/stagger diagnostic, not original D6 certification; includes applied body forces and free-root generalized translational forces",
+    "force_units": "native; absolute SI NOT_ESTABLISHED"
+  },
+  "roadmap_D1_D8": {
+    "D1": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D2": {
+      "status": "UNKNOWN",
+      "reason": "native low-pass acceleration and autonomous window not supplied"
+    },
+    "D3": {
+      "status": "UNKNOWN",
+      "reason": "same-run auxiliary window absent"
+    },
+    "D4": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D4b": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D5": {
+      "status": "UNKNOWN",
+      "reason": "same-run auxiliary window absent"
+    },
+    "D6": {
+      "status": "UNKNOWN",
+      "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+    },
+    "D7": {
+      "status": "UNKNOWN",
+      "reason": "native window and loading-leg threshold absent"
+    },
+    "D8": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    }
+  },
+  "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+  "complete_per_leg": {
+    "LF": 1,
+    "LH": 2,
+    "LM": 2,
+    "RF": 2,
+    "RH": 2,
+    "RM": 2
+  },
+  "events": [
+    {
+      "type": "complete",
+      "leg": "RM",
+      "time": 1.9029999999972322,
+      "start_time": 1.0799999999991503,
+      "lift": 0.08043874289061997,
+      "advance": 0.3080007359800234,
+      "reload_dwell": 0.009999999999976694,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.004999999999988347,
+      "unloaded_duration": 0.7369999999982824,
+      "duration": 0.8229999999980819,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "LH",
+      "time": 2.636999999995522,
+      "start_time": 1.8859999999972719,
+      "lift": 0.05997083933827132,
+      "advance": 0.2623404200795272,
+      "reload_dwell": 0.009999999999976694,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.004999999999988347,
+      "unloaded_duration": 0.7199999999983222,
+      "duration": 0.75099999999825,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "LM",
+      "time": 5.01200000002594,
+      "start_time": 3.458999999993606,
+      "lift": 0.09097757369966808,
+      "advance": 0.2969647489916871,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.004999999999988347,
+      "unloaded_duration": 0.7730000000064403,
+      "duration": 1.5530000000323336,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "RH",
+      "time": 5.03700000002677,
+      "start_time": 4.283000000001739,
+      "lift": 0.05948245164272737,
+      "advance": 0.1781516607478142,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 0.7250000000240675,
+      "duration": 0.7540000000250302,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "RF",
+      "time": 5.041000000026902,
+      "start_time": 1.8669999999973161,
+      "lift": 0.10916205537867085,
+      "advance": 0.2524962034573175,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.004999999999988347,
+      "unloaded_duration": 1.5729999999963342,
+      "duration": 3.1740000000295865,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "LF",
+      "time": 6.618000000079253,
+      "start_time": 4.266000000001175,
+      "lift": 0.11040149233833033,
+      "advance": 0.2676970616889882,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 1.5730000000522182,
+      "duration": 2.3520000000780783,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "RM",
+      "time": 6.703000000082075,
+      "start_time": 5.868000000054356,
+      "lift": 0.08045824711911922,
+      "advance": 0.309870421057335,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 0.7490000000248642,
+      "duration": 0.8350000000277191,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "LH",
+      "time": 7.437000000106441,
+      "start_time": 6.686000000081511,
+      "lift": 0.06025086949705496,
+      "advance": 0.2627830268383584,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 0.7200000000239015,
+      "duration": 0.7510000000249306,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "LM",
+      "time": 9.812000000185282,
+      "start_time": 8.259000000133728,
+      "lift": 0.09095622741589515,
+      "advance": 0.29680930589329135,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 0.7730000000256609,
+      "duration": 1.5530000000515543,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "RH",
+      "time": 9.837000000186112,
+      "start_time": 9.083000000161082,
+      "lift": 0.05934113869387609,
+      "advance": 0.1783445704341462,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 0.7250000000240675,
+      "duration": 0.7540000000250302,
+      "bonus": 0.1
+    },
+    {
+      "type": "complete",
+      "leg": "RF",
+      "time": 9.841000000186245,
+      "start_time": 6.66700000008088,
+      "lift": 0.10907690428012431,
+      "advance": 0.2525280757380479,
+      "reload_dwell": 0.010000000000331966,
+      "initial_loaded_dwell": 0.01,
+      "unload_dwell": 0.005000000000165983,
+      "unloaded_duration": 1.5730000000522173,
+      "duration": 3.174000000105365,
+      "bonus": 0.1
+    },
+    {
+      "type": "abort",
+      "reason": "terminal",
+      "leg": "LF",
+      "time": 11.00000000022472,
+      "start_time": 9.066000000160518,
+      "lift": 0.11041358733668705,
+      "advance": 0.2676038150434077,
+      "unloaded_duration": 1.5730000000522182
+    }
+  ],
+  "wall_s": 475.3271160949953,
+  "sample_file_sha256": "03cecd98ec5a983bc62f1f55a0f951af8ff3bb94106c0cab798df8214f2e1660",
+  "trace_sha256": "7500c5e21c2d056803d9cb83de30b497002d875d681993da91e69aa5c7a6667e",
+  "control_source": "algorithm-assisted inverse-statics measured-shape wave teacher ONLY",
+  "actor_features": "238 current sensory + ownpreviousactualaction andconstantdesiredspeed; no source_phase usedasactorinput",
+  "source_phase_field": "teacher provenance only, excludedfromactorinputs",
+  "independent_replay_differences": {
+    "forward_signed_native_per_s": 0.0,
+    "com_height_min": 0.0,
+    "foot_support_mean": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "slip_ratio_max": 0.0
+  },
+  "cycles": {
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "all_legs_completed": true,
+    "events": [
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 1.9029999999972322,
+        "start_time": 1.0799999999991503,
+        "lift": 0.08043874289061997,
+        "advance": 0.3080007359800234,
+        "reload_dwell": 0.009999999999976694,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.004999999999988347,
+        "unloaded_duration": 0.7369999999982824,
+        "duration": 0.8229999999980819,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 2.636999999995522,
+        "start_time": 1.8859999999972719,
+        "lift": 0.05997083933827132,
+        "advance": 0.2623404200795272,
+        "reload_dwell": 0.009999999999976694,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.004999999999988347,
+        "unloaded_duration": 0.7199999999983222,
+        "duration": 0.75099999999825,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 5.01200000002594,
+        "start_time": 3.458999999993606,
+        "lift": 0.09097757369966808,
+        "advance": 0.2969647489916871,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.004999999999988347,
+        "unloaded_duration": 0.7730000000064403,
+        "duration": 1.5530000000323336,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 5.03700000002677,
+        "start_time": 4.283000000001739,
+        "lift": 0.05948245164272737,
+        "advance": 0.1781516607478142,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.7250000000240675,
+        "duration": 0.7540000000250302,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 5.041000000026902,
+        "start_time": 1.8669999999973161,
+        "lift": 0.10916205537867085,
+        "advance": 0.2524962034573175,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.004999999999988347,
+        "unloaded_duration": 1.5729999999963342,
+        "duration": 3.1740000000295865,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LF",
+        "time": 6.618000000079253,
+        "start_time": 4.266000000001175,
+        "lift": 0.11040149233833033,
+        "advance": 0.2676970616889882,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.5730000000522182,
+        "duration": 2.3520000000780783,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 6.703000000082075,
+        "start_time": 5.868000000054356,
+        "lift": 0.08045824711911922,
+        "advance": 0.309870421057335,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.7490000000248642,
+        "duration": 0.8350000000277191,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 7.437000000106441,
+        "start_time": 6.686000000081511,
+        "lift": 0.06025086949705496,
+        "advance": 0.2627830268383584,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.7200000000239015,
+        "duration": 0.7510000000249306,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 9.812000000185282,
+        "start_time": 8.259000000133728,
+        "lift": 0.09095622741589515,
+        "advance": 0.29680930589329135,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.7730000000256609,
+        "duration": 1.5530000000515543,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 9.837000000186112,
+        "start_time": 9.083000000161082,
+        "lift": 0.05934113869387609,
+        "advance": 0.1783445704341462,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.7250000000240675,
+        "duration": 0.7540000000250302,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 9.841000000186245,
+        "start_time": 6.66700000008088,
+        "lift": 0.10907690428012431,
+        "advance": 0.2525280757380479,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.5730000000522173,
+        "duration": 3.174000000105365,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "reason": "terminal",
+        "leg": "LF",
+        "time": 11.00000000022472,
+        "start_time": 9.066000000160518,
+        "lift": 0.11041358733668705,
+        "advance": 0.2676038150434077,
+        "unloaded_duration": 1.5730000000522182
+      }
+    ],
+    "config": {
+      "weight": 24.446354755878005,
+      "dt": 0.001,
+      "gamma": 0.999000499833375,
+      "loaded": 0.1,
+      "unloaded": 0.05,
+      "ground": 0.004,
+      "clearance": 0.015,
+      "advance": 0.03,
+      "loaded_dwell": 0.01,
+      "unload_dwell": 0.005,
+      "timeout": 4.0,
+      "phi_cap": 0.05,
+      "completion_bonus": 0.1
+    }
+  },
+  "teacher_episode_condition_passed": true,
+  "reused_episode": {
+    "original_files": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/BC_SAMPLES.npz": "03cecd98ec5a983bc62f1f55a0f951af8ff3bb94106c0cab798df8214f2e1660",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/RESULT.json": "ea2bffe89689e467e9cc62cbc4f32de819c6380ee6d783a9c1d0ccedb9a3b3e9",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/teacher_native_replay/IDENTITY.json": "176df3854c69b59816ce1da7d4c8207b4b19c1135ba03bd82050c58b46f1826e"
+    },
+    "landing_tail_excluded": true,
+    "source_phase": "provenance only; excluded from actor",
+    "first_actual_command_time_s": 0.9999999999993368
+  }
+}

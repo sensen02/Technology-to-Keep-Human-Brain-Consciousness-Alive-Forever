@@ -1,0 +1,11 @@
+{
+  "version": "mechanical-followup-v1",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z",
+  "goal": "S2/S5 identify physical contact oscillation and training proxy saturation before more policy budget",
+  "evidence": ["same-input FF/GRU 3update zero-speed curriculum did not solve slip; costs near clipping ceilings", "native GRU2s data: slip cost cap active68.9%, raw COM instant velocities much greater than net displacement", "zero action500ms pairing: loaded foot speed .3-.5s defaultadhesion .285 vs off .0293"],
+  "hypothesis": "declared bang-bang releasable adhesion can sustain velocity oscillations even at zero commanded target rate; must distinguish contact/interface behavior from learned gait",
+  "experiment": {"conditions": ["zero action adhesion=True", "zero action adhesion=False", "legacy best ff495 mean policy adhesion=True", "legacy best ff495 mean policy adhesion=False"], "duration_each_s": 2.0, "total_sim_s": 8.0, "initial_pose": "same frozen declared pose", "unchanged": ["XML", "friction1.5", "mass/inertia", "gravity", "PD gains", "rate/torque limits", "integration step12.5us"], "sole_physical_variable": "explicit Core.adhesion_on bool; no other model/force changes", "windows_s": [[0,0.1],[0.3,0.5],[0.5,2.0]]},
+  "scope": "derived triad pad body / engineering contact diagnostic; not walking acceptance and not proof of body impossibility",
+  "followup": "If sustained shaking persists only with adhesion, separately preregister revised contact or adhesion-free training condition; do not silently mix results with existing policy runs. Reward log/smooth calibration only after physical comparison and new config declaration.",
+  "artifacts": "mechanical_probe.py, config/identity/hash/exit status, full1ms quantities and window summaries in mechanical_diag; preserve old snapshots and failures"
+}

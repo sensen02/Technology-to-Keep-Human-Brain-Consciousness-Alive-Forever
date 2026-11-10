@@ -1,0 +1,30 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-5",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the warm-start teacher only; PREREG.json and all acceptance criteria unchanged",
+  "when": "after the acceptance-aligned gate run, before the next run",
+  "evidence": {
+    "four_arms_compared": {
+      "300ms_24u": "LF lift 0.0214-0.0448, end load 0.036-0.041 (never lifts and lands together)",
+      "300ms_64u": "LF lift 0.0035, end load 0.041; RM end load 0.123 but lift 0.0019",
+      "500ms_24u": "LF end load 0.054 but COM fell to 0.858",
+      "300ms_24u_aligned_gates": "LF lift 0.1475, end load 0.000; RM end load 0.103 but lift 0.000"
+    },
+    "pattern": "in every arm each leg does one half of the step and never both: the deterministic policy emits what is effectively a constant action for the whole 300 ms episode, so it either holds the foot up or presses it down",
+    "diagnosis": "the previous teacher was itself constant (the screened lift direction for the whole swing), so supervised initialisation could only ever teach a constant action. A sequence cannot come out of a teacher that has no second phase."
+  },
+  "teacher_changes": {
+    "form": {"old": "command the screened lift direction while the leg carries load, else zero",
+             "new": "two phases selected by measured state: lift while the leg carries load, keep lifting while the leg has travelled less than half the commanded travel, then command the mirrored (press) direction"},
+    "switch_signal": {"old": "foot load only", "new": "foot load, then the fraction of commanded joint travel already achieved",
+                      "reason": "the 183-feature sensory vector contains joint angles, tracking error, velocities, targets, foot loads, gravity and body velocities but NOT the pad height, so a pad-height switch would be unobservable to the network being taught. The joint excursion is observable."},
+    "declared_limits": "this teacher is a rule-based demonstration generator. The deployed artefact remains the network, which is fine-tuned by PPO with the teacher absent. Nothing in this amendment may be reported as connectome capability, and any result must be labelled 'network initialised from a declared two-phase demonstration'."
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical",
+    "reward": "achievement flags, aligned swing gates (PREREG_AMENDMENT_4.json), unchanged weights",
+    "optimizer_and_window": "unchanged, 24 updates, 300 ticks",
+    "preregistered_outcomes": "identical"
+  },
+  "discipline": "amendments 1-4 and the original PREREG are left byte-identical. This is the fifth documented change of the round: four reward or gate changes and one teacher change, each with its measurement. The report states all five explicitly."
+}

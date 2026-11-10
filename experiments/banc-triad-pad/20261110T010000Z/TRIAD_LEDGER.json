@@ -1,0 +1,67 @@
+{
+  "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-tarsus-pad/20261109T010000Z/MODEL_TARSUS_PAD_R02.xml",
+  "source_sha256": "1d55d7d36312e5017150f1d8a7141b8ffac42a48b51484d2c13af7c09b8d5acb",
+  "output": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_s012_x200.xml",
+  "output_sha256": "ce9ab08a183e92fe69323045812f5bad91c5980567f001d6dc598b2aee3520fe",
+  "radius": 0.008,
+  "spread": 0.012,
+  "torque_factor": 2.0,
+  "invariants": {
+    "nq": true,
+    "nv": true,
+    "nu": true,
+    "neq": true,
+    "nmesh": true,
+    "ranges_equal": true,
+    "mass_equal": true,
+    "inertia_equal": true,
+    "gain_equal": true,
+    "bias_equal": true,
+    "gravity_equal": true,
+    "timestep_equal": true,
+    "ngeom_from": 72,
+    "ngeom_to": 90,
+    "torque_factor": 2.0,
+    "all_pad_bottoms_at_material_point": true,
+    "pads_per_leg": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "lowest_vertex": {
+    "LF": [
+      -0.011273,
+      0.012826,
+      -0.09946
+    ],
+    "LH": [
+      -0.013194,
+      0.006882,
+      -0.107032
+    ],
+    "LM": [
+      -0.010349,
+      0.017148,
+      -0.110706
+    ],
+    "RF": [
+      -0.020093,
+      -0.01092,
+      -0.100591
+    ],
+    "RH": [
+      -0.012777,
+      0.000301,
+      -0.10702
+    ],
+    "RM": [
+      -0.019651,
+      -0.011294,
+      -0.127424
+    ]
+  }
+}

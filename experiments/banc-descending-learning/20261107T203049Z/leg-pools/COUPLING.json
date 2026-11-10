@@ -1,0 +1,394 @@
+{
+  "levels_documented": [
+    "L0_direct_premotor_interconnect",
+    "L1_shared_bridge",
+    "L2_two_hop",
+    "L3_verdict"
+  ],
+  "path_lengths_analyzed": [
+    1,
+    2
+  ],
+  "path_lengths_not_analyzed": ">=3",
+  "definition_of_paths2": "sum over non-MN x of (#edges into x from the source bucket) * (#edges from x into MN cells of the destination leg)",
+  "pairs": {
+    "lf-rf": {
+      "L0": {
+        "edges_a_to_b": {
+          "_We": 273,
+          "_Wi": 225,
+          "both": 498
+        },
+        "edges_b_to_a": {
+          "_We": 282,
+          "_Wi": 287,
+          "both": 569
+        },
+        "conductance_a_to_b_uS": {
+          "_We": 0.08638102170185144,
+          "_Wi": 0.08314914378598284,
+          "both": 0.16953016548783428
+        },
+        "conductance_b_to_a_uS": {
+          "_We": 0.09264106024914001,
+          "_Wi": 0.10338497367582042,
+          "both": 0.19602603392496043
+        },
+        "definitional_note": "a pool_lf cell has every direct MN target in lf by construction, so a direct pool_lf -> MN_rf edge is impossible by definition, not missing data"
+      },
+      "L1": {
+        "cells_targeting_both_legs": 62,
+        "their_incoming_edges": 4217,
+        "their_outgoing_edges_to_mn": 1158,
+        "their_outgoing_conductance_to_mn_uS": 0.24134637383202787
+      },
+      "L2": {
+        "a_to_b": {
+          "paths": 4498,
+          "distinct_intermediates": 147
+        },
+        "b_to_a": {
+          "paths": 3837,
+          "distinct_intermediates": 259
+        },
+        "a_to_b_via_shared_intermediate": {
+          "paths": 1901,
+          "distinct_intermediates": 75
+        },
+        "b_to_a_via_shared_intermediate": {
+          "paths": 1468,
+          "distinct_intermediates": 77
+        }
+      },
+      "L3_verdict": "L0_direct_interconnect_present",
+      "category": "contralateral_same_row"
+    },
+    "lm-rm": {
+      "L0": {
+        "edges_a_to_b": {
+          "_We": 182,
+          "_Wi": 117,
+          "both": 299
+        },
+        "edges_b_to_a": {
+          "_We": 214,
+          "_Wi": 193,
+          "both": 407
+        },
+        "conductance_a_to_b_uS": {
+          "_We": 0.0818065369471355,
+          "_Wi": 0.08154377333098867,
+          "both": 0.16335031027812416
+        },
+        "conductance_b_to_a_uS": {
+          "_We": 0.10702623134220898,
+          "_Wi": 0.13035752389154734,
+          "both": 0.23738375523375632
+        },
+        "definitional_note": "a pool_lm cell has every direct MN target in lm by construction, so a direct pool_lm -> MN_rm edge is impossible by definition, not missing data"
+      },
+      "L1": {
+        "cells_targeting_both_legs": 87,
+        "their_incoming_edges": 6459,
+        "their_outgoing_edges_to_mn": 1737,
+        "their_outgoing_conductance_to_mn_uS": 0.27204171275988986
+      },
+      "L2": {
+        "a_to_b": {
+          "paths": 8809,
+          "distinct_intermediates": 224
+        },
+        "b_to_a": {
+          "paths": 9910,
+          "distinct_intermediates": 306
+        },
+        "a_to_b_via_shared_intermediate": {
+          "paths": 7720,
+          "distinct_intermediates": 124
+        },
+        "b_to_a_via_shared_intermediate": {
+          "paths": 8000,
+          "distinct_intermediates": 133
+        }
+      },
+      "L3_verdict": "L0_direct_interconnect_present",
+      "category": "contralateral_same_row"
+    },
+    "lh-rh": {
+      "L0": {
+        "edges_a_to_b": {
+          "_We": 244,
+          "_Wi": 254,
+          "both": 498
+        },
+        "edges_b_to_a": {
+          "_We": 231,
+          "_Wi": 166,
+          "both": 397
+        },
+        "conductance_a_to_b_uS": {
+          "_We": 0.1227167628947787,
+          "_Wi": 0.12977669901273475,
+          "both": 0.25249346190751343
+        },
+        "conductance_b_to_a_uS": {
+          "_We": 0.10649086178286324,
+          "_Wi": 0.09128993839808328,
+          "both": 0.19778080018094651
+        },
+        "definitional_note": "a pool_lh cell has every direct MN target in lh by construction, so a direct pool_lh -> MN_rh edge is impossible by definition, not missing data"
+      },
+      "L1": {
+        "cells_targeting_both_legs": 110,
+        "their_incoming_edges": 6140,
+        "their_outgoing_edges_to_mn": 2028,
+        "their_outgoing_conductance_to_mn_uS": 0.35581348131074897
+      },
+      "L2": {
+        "a_to_b": {
+          "paths": 10154,
+          "distinct_intermediates": 261
+        },
+        "b_to_a": {
+          "paths": 10127,
+          "distinct_intermediates": 193
+        },
+        "a_to_b_via_shared_intermediate": {
+          "paths": 6014,
+          "distinct_intermediates": 136
+        },
+        "b_to_a_via_shared_intermediate": {
+          "paths": 6156,
+          "distinct_intermediates": 124
+        }
+      },
+      "L3_verdict": "L0_direct_interconnect_present",
+      "category": "contralateral_same_row"
+    },
+    "lf-rh": {
+      "L0": {
+        "edges_a_to_b": {
+          "_We": 17,
+          "_Wi": 17,
+          "both": 34
+        },
+        "edges_b_to_a": {
+          "_We": 50,
+          "_Wi": 34,
+          "both": 84
+        },
+        "conductance_a_to_b_uS": {
+          "_We": 0.004274965352121058,
+          "_Wi": 0.0064832084871334255,
+          "both": 0.010758173839254485
+        },
+        "conductance_b_to_a_uS": {
+          "_We": 0.025726652879370676,
+          "_Wi": 0.02628509720888458,
+          "both": 0.05201175008825526
+        },
+        "definitional_note": "a pool_lf cell has every direct MN target in lf by construction, so a direct pool_lf -> MN_rh edge is impossible by definition, not missing data"
+      },
+      "L1": {
+        "cells_targeting_both_legs": 27,
+        "their_incoming_edges": 2832,
+        "their_outgoing_edges_to_mn": 1013,
+        "their_outgoing_conductance_to_mn_uS": 0.17866183355571555
+      },
+      "L2": {
+        "a_to_b": {
+          "paths": 3704,
+          "distinct_intermediates": 73
+        },
+        "b_to_a": {
+          "paths": 1248,
+          "distinct_intermediates": 83
+        },
+        "a_to_b_via_shared_intermediate": {
+          "paths": 3613,
+          "distinct_intermediates": 57
+        },
+        "b_to_a_via_shared_intermediate": {
+          "paths": 1026,
+          "distinct_intermediates": 54
+        }
+      },
+      "L3_verdict": "L0_direct_interconnect_present",
+      "category": "tripod_partner"
+    },
+    "rf-lh": {
+      "L0": {
+        "edges_a_to_b": {
+          "_We": 20,
+          "_Wi": 23,
+          "both": 43
+        },
+        "edges_b_to_a": {
+          "_We": 35,
+          "_Wi": 70,
+          "both": 105
+        },
+        "conductance_a_to_b_uS": {
+          "_We": 0.005549990533216955,
+          "_Wi": 0.011217662807533712,
+          "both": 0.016767653340750668
+        },
+        "conductance_b_to_a_uS": {
+          "_We": 0.015601463229570886,
+          "_Wi": 0.03968353531732682,
+          "both": 0.0552849985468977
+        },
+        "definitional_note": "a pool_rf cell has every direct MN target in rf by construction, so a direct pool_rf -> MN_lh edge is impossible by definition, not missing data"
+      },
+      "L1": {
+        "cells_targeting_both_legs": 32,
+        "their_incoming_edges": 3536,
+        "their_outgoing_edges_to_mn": 1133,
+        "their_outgoing_conductance_to_mn_uS": 0.18499561868050582
+      },
+      "L2": {
+        "a_to_b": {
+          "paths": 5278,
+          "distinct_intermediates": 91
+        },
+        "b_to_a": {
+          "paths": 2383,
+          "distinct_intermediates": 120
+        },
+        "a_to_b_via_shared_intermediate": {
+          "paths": 5145,
+          "distinct_intermediates": 78
+        },
+        "b_to_a_via_shared_intermediate": {
+          "paths": 1657,
+          "distinct_intermediates": 64
+        }
+      },
+      "L3_verdict": "L0_direct_interconnect_present",
+      "category": "tripod_partner"
+    }
+  },
+  "all_15_pairs_compact": {
+    "lf-lm": {
+      "cells_targeting_both_legs": 73,
+      "direct_edges_a_to_b": 202,
+      "direct_edges_b_to_a": 305,
+      "paths2_a_to_b": 3991,
+      "paths2_b_to_a": 2735
+    },
+    "lm-lh": {
+      "cells_targeting_both_legs": 130,
+      "direct_edges_a_to_b": 441,
+      "direct_edges_b_to_a": 542,
+      "paths2_a_to_b": 7893,
+      "paths2_b_to_a": 8076
+    },
+    "lf-lh": {
+      "cells_targeting_both_legs": 53,
+      "direct_edges_a_to_b": 92,
+      "direct_edges_b_to_a": 157,
+      "paths2_a_to_b": 3674,
+      "paths2_b_to_a": 1239
+    },
+    "rf-rm": {
+      "cells_targeting_both_legs": 94,
+      "direct_edges_a_to_b": 343,
+      "direct_edges_b_to_a": 506,
+      "paths2_a_to_b": 6139,
+      "paths2_b_to_a": 4955
+    },
+    "rm-rh": {
+      "cells_targeting_both_legs": 129,
+      "direct_edges_a_to_b": 712,
+      "direct_edges_b_to_a": 500,
+      "paths2_a_to_b": 9268,
+      "paths2_b_to_a": 7518
+    },
+    "rf-rh": {
+      "cells_targeting_both_legs": 64,
+      "direct_edges_a_to_b": 78,
+      "direct_edges_b_to_a": 118,
+      "paths2_a_to_b": 4026,
+      "paths2_b_to_a": 1550
+    },
+    "lf-rf": {
+      "cells_targeting_both_legs": 62,
+      "direct_edges_a_to_b": 498,
+      "direct_edges_b_to_a": 569,
+      "paths2_a_to_b": 4498,
+      "paths2_b_to_a": 3837
+    },
+    "lm-rm": {
+      "cells_targeting_both_legs": 87,
+      "direct_edges_a_to_b": 299,
+      "direct_edges_b_to_a": 407,
+      "paths2_a_to_b": 8809,
+      "paths2_b_to_a": 9910
+    },
+    "lh-rh": {
+      "cells_targeting_both_legs": 110,
+      "direct_edges_a_to_b": 498,
+      "direct_edges_b_to_a": 397,
+      "paths2_a_to_b": 10154,
+      "paths2_b_to_a": 10127
+    },
+    "lf-rm": {
+      "cells_targeting_both_legs": 27,
+      "direct_edges_a_to_b": 40,
+      "direct_edges_b_to_a": 162,
+      "paths2_a_to_b": 3358,
+      "paths2_b_to_a": 2648
+    },
+    "lf-rh": {
+      "cells_targeting_both_legs": 27,
+      "direct_edges_a_to_b": 34,
+      "direct_edges_b_to_a": 84,
+      "paths2_a_to_b": 3704,
+      "paths2_b_to_a": 1248
+    },
+    "lh-rm": {
+      "cells_targeting_both_legs": 49,
+      "direct_edges_a_to_b": 98,
+      "direct_edges_b_to_a": 159,
+      "paths2_a_to_b": 4428,
+      "paths2_b_to_a": 11365
+    },
+    "lh-rf": {
+      "cells_targeting_both_legs": 32,
+      "direct_edges_a_to_b": 105,
+      "direct_edges_b_to_a": 43,
+      "paths2_a_to_b": 2383,
+      "paths2_b_to_a": 5278
+    },
+    "lm-rf": {
+      "cells_targeting_both_legs": 37,
+      "direct_edges_a_to_b": 103,
+      "direct_edges_b_to_a": 77,
+      "paths2_a_to_b": 2920,
+      "paths2_b_to_a": 3903
+    },
+    "lm-rh": {
+      "cells_targeting_both_legs": 50,
+      "direct_edges_a_to_b": 104,
+      "direct_edges_b_to_a": 61,
+      "paths2_a_to_b": 8686,
+      "paths2_b_to_a": 3615
+    }
+  },
+  "dominant_mode_reference": {
+    "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/intrinsic/REPORT.md",
+    "source_sha256": "e356f1a8001cb5f4ed376514414bd6447514f2a9dbf7249907b25fb6fd1ff24d",
+    "pc1_variance_fraction": 0.495,
+    "pc1_loadings": {
+      "lf": 0.58,
+      "rf": 0.7,
+      "lh": -0.31,
+      "rh": -0.28,
+      "lm": 0.02,
+      "rm": 0.05
+    },
+    "pearson_lf_rh": 0.036,
+    "pearson_rf_lh": 0.082,
+    "note": "quoted from the frozen upstream report; not recomputed here (no rate data touched this round)"
+  }
+}

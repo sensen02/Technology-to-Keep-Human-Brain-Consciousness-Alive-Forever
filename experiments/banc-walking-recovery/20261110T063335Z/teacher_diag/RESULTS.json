@@ -1,0 +1,2650 @@
+{
+  "status": "completed",
+  "results": [
+    {
+      "native_steps": 44880,
+      "sample_count": 561,
+      "duration_s": 0.5599999999986949,
+      "forward_speed_native_per_s": 0.6756856914272492,
+      "forward_signed_native_per_s": 0.3088592260704205,
+      "lateral_speed_native_per_s": 0.6009635031103807,
+      "foot_support_mean": 1.0005972104862841,
+      "foot_support_min": 0.9957575368924968,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 0.9998337865993203,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 1.347364616552142,
+        "LH": 0.8929214694643792,
+        "LM": 0.9560054924369726,
+        "RF": 1.5566046121291264,
+        "RH": 1.0187096297858662,
+        "RM": 1.901348439856649
+      },
+      "slip_ratio_max": 1.901348439856649,
+      "slip_ratio_mean": 1.2788257100375227,
+      "com_start": 1.2751611232961746,
+      "com_end": 0.9998337865993203,
+      "com_xy_travel": 0.3783839871983777,
+      "slip_load_denominator_native": [
+        727.5950298549636,
+        2942.2019003767073,
+        1891.3857122652514,
+        1331.9428564664663,
+        3333.349808190318,
+        3496.1200973837863
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": false,
+        "forward": true,
+        "slip": false
+      },
+      "all_gates": false,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": 0.3088592260704205,
+        "lateral_signed_native_per_s": -0.6009635031103807,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "reference_window": {
+        "native_steps": 4880,
+        "sample_count": 61,
+        "duration_s": 0.059999999999860165,
+        "forward_speed_native_per_s": 0.8324001813765536,
+        "forward_signed_native_per_s": 0.7552544576348135,
+        "lateral_speed_native_per_s": 0.3499725220334636,
+        "foot_support_mean": 1.006440997037252,
+        "foot_support_min": 1.0038470959013672,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 0.9998337865993203,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.4625993791448169,
+          "LH": 0.914868942246796,
+          "LM": 0.4537017993243873,
+          "RF": 0.971990492616786,
+          "RH": 0.6781495860146277,
+          "RM": 1.0152532059013841
+        },
+        "slip_ratio_max": 1.4625993791448169,
+        "slip_ratio_mean": 0.9160939008747997,
+        "com_start": 1.1200066284687493,
+        "com_end": 0.9998337865993203,
+        "com_xy_travel": 0.04994401088247682,
+        "slip_load_denominator_native": [
+          175.21677014278126,
+          190.95917544003407,
+          116.19220348459177,
+          237.05166228001085,
+          466.41956076302324,
+          314.9932608099247
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.7552544576348135,
+          "lateral_signed_native_per_s": 0.3499725220334636,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "name": "A_w10_z025_h0",
+      "config": {
+        "name": "A_w10_z025_h0",
+        "teacher": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 10.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 0.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "settle_ms": 1000,
+        "adhesion": false,
+        "control_source": "algorithm-assisted measured-reference teacher, not autonomous ANN"
+      },
+      "teacher_metadata": {
+        "config": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 10.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 0.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "reference": {
+          "cfg": {
+            "scale": 10.0,
+            "vertical_gain": 0.25,
+            "time_warp": 10.0,
+            "stance_height_cm": 0.005,
+            "blend_s": 0.5,
+            "source_duration_s": 0.24,
+            "referencepath": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+            "smoothing_samples": 5,
+            "smoothing_kernel": "box",
+            "smooth_xy": true,
+            "smooth_height": true,
+            "blend_curve": "smoothstep"
+          },
+          "duration_s": 2.9,
+          "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+          "source_order": [
+            "RF",
+            "RM",
+            "RH",
+            "LH",
+            "LM",
+            "LF"
+          ],
+          "target_order": [
+            "LF",
+            "LH",
+            "LM",
+            "RF",
+            "RH",
+            "RM"
+          ],
+          "source_index_for_target": [
+            5,
+            3,
+            4,
+            0,
+            2,
+            1
+          ],
+          "kinematics_path": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+          "kinematics_sha256": "75d964f14950ed50357dc40474b2ed52b49a420927e47dd0c8ca6d782e4736bd",
+          "source_provenance": {
+            "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+            "official_code": "https://github.com/TuragaLab/flybody",
+            "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+            "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+            "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+            "archive_md5": "de7d5367850430adbe03a3783967c712",
+            "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+            "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+          },
+          "source_selection": {
+            "trajectory_id": "054",
+            "start_index": 50,
+            "end_index_exclusive": 351,
+            "eligible": true,
+            "score": 0.7178478770731659,
+            "complete_peak_intervals_per_leg": [
+              6,
+              6,
+              5,
+              6,
+              5,
+              6
+            ],
+            "duration_s": 0.6,
+            "sample_count": 301,
+            "net_forward_cm": 1.277296338654113,
+            "net_lateral_cm": 0.004335998279179136,
+            "lateral_to_forward_ratio": 0.0033946689957226194,
+            "yaw_range_deg": 7.657625736728858,
+            "yaw_net_deg": 1.3618030271678618,
+            "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+            "horizontal_speed_cm_s": {
+              "min": 0.9097949862480164,
+              "median": 2.070589542388916,
+              "p95": 3.9522424578666686,
+              "p99": 4.694579324722287,
+              "max": 4.982871055603027
+            },
+            "backward_velocity_fraction": 0.0
+          },
+          "source_time_range_s": [
+            0.1,
+            0.7000000000000001
+          ],
+          "source_mean_xy_cm": [
+            [
+              0.09937306300449213,
+              0.07406145939448742
+            ],
+            [
+              -0.2196164202452498,
+              0.11566478912517478
+            ],
+            [
+              -0.0842735228187519,
+              0.1718394293440537
+            ],
+            [
+              0.10155411122793771,
+              -0.05622414980343608
+            ],
+            [
+              -0.21677224174686444,
+              -0.09823465745809466
+            ],
+            [
+              -0.0802806919275093,
+              -0.1597661971055788
+            ]
+          ],
+          "xy_center": "per-leg full-clip temporal mean before smoothing",
+          "smoothing": {
+            "weights": [
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ],
+            "padding": "edge",
+            "symmetric": true,
+            "future_samples": true,
+            "stage": "before interpolation and height clipping"
+          },
+          "frames": {
+            "target_xy": "body/root-local native",
+            "target_z": "pad-bottom world height native",
+            "velocity": "native per elapsed second",
+            "source_time_s": "absolute source dataset clock"
+          },
+          "stance": "interpolated smoothed source height <= stance_height_cm; blend effective height = threshold + blend_weight*max(0,height0-threshold)",
+          "derivatives": "piecewise linear right-hand at knots; zero at clamped end; blend/source velocity may jump",
+          "geometry": {
+            "LF": {
+              "rest_body_xy": [
+                0.8591203774350334,
+                0.8956487464882875
+              ],
+              "nominal_source_stance_mean_xy": [
+                0.912129077556971,
+                0.7724667614376223
+              ]
+            },
+            "LH": {
+              "rest_body_xy": [
+                -1.8442631898325312,
+                0.9526947062509473
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.163252296007198,
+                1.1204474403158478
+              ]
+            },
+            "LM": {
+              "rest_body_xy": [
+                -0.28921890557226104,
+                1.1912635416833393
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8557070527292255,
+                1.6802570010934557
+              ]
+            },
+            "RF": {
+              "rest_body_xy": [
+                0.8575545864468298,
+                -0.9019814773943823
+              ],
+              "nominal_source_stance_mean_xy": [
+                1.0285052700388817,
+                -0.6192859428063515
+              ]
+            },
+            "RH": {
+              "rest_body_xy": [
+                -1.886720054192656,
+                -0.8868136249007669
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.1175507308604815,
+                -0.9715122857596725
+              ]
+            },
+            "RM": {
+              "rest_body_xy": [
+                -0.3946460040484364,
+                -1.2182803714873323
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8178489648260422,
+                -1.5515032186754432
+              ]
+            }
+          },
+          "foot_excursions": {
+            "LF": {
+              "xy_peak_to_peak_native": [
+                0.9985221922397614,
+                0.2651580199599267
+              ],
+              "max_padbottom_height_native": 0.19498211070895197,
+              "padbottom_peak_to_peak_native": 0.19498211070895197
+            },
+            "LH": {
+              "xy_peak_to_peak_native": [
+                0.908213198184967,
+                0.5007631033658982
+              ],
+              "max_padbottom_height_native": 0.1062248472124338,
+              "padbottom_peak_to_peak_native": 0.1062248472124338
+            },
+            "LM": {
+              "xy_peak_to_peak_native": [
+                1.2095684558153152,
+                0.28021499514579795
+              ],
+              "max_padbottom_height_native": 0.09648590460419657,
+              "padbottom_peak_to_peak_native": 0.09648590460419657
+            },
+            "RF": {
+              "xy_peak_to_peak_native": [
+                1.1256293728947642,
+                0.2507387176156044
+              ],
+              "max_padbottom_height_native": 0.19690355211496352,
+              "padbottom_peak_to_peak_native": 0.19690355211496352
+            },
+            "RH": {
+              "xy_peak_to_peak_native": [
+                1.1276933848857884,
+                0.3452138602733613
+              ],
+              "max_padbottom_height_native": 0.1072247263044119,
+              "padbottom_peak_to_peak_native": 0.1072247263044119
+            },
+            "RM": {
+              "xy_peak_to_peak_native": [
+                1.2627946976572275,
+                0.40775805711746216
+              ],
+              "max_padbottom_height_native": 0.09829679802060129,
+              "padbottom_peak_to_peak_native": 0.09829679802060129
+            }
+          },
+          "limitations": [
+            "Offline privileged teacher only",
+            "Inferred plane is not measured contact/force",
+            "Targets are not achieved physical kinematics or demonstrated walking",
+            "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+          ]
+        },
+        "rest_body_feet": [
+          [
+            0.8591203774350334,
+            0.8956487464882875,
+            -1.4759824126577699
+          ],
+          [
+            -1.8442631898325312,
+            0.9526947062509473,
+            -1.3716034642594248
+          ],
+          [
+            -0.28921890557226104,
+            1.1912635416833393,
+            -1.43752920866623
+          ],
+          [
+            0.8575545864468298,
+            -0.9019814773943823,
+            -1.4679125075236366
+          ],
+          [
+            -1.886720054192656,
+            -0.8868136249007669,
+            -1.3538545071436912
+          ],
+          [
+            -0.3946460040484364,
+            -1.2182803714873323,
+            -1.4254964117728457
+          ]
+        ],
+        "rest_target": [
+          -0.115977,
+          0.273551,
+          0.708628,
+          0.003386,
+          -2.016738,
+          0.289577,
+          1.16592,
+          -0.083533,
+          0.344821,
+          2.488651,
+          -0.057925,
+          -2.016303,
+          0.188358,
+          1.859952,
+          0.173921,
+          0.174211,
+          1.624997,
+          0.027115,
+          -1.995578,
+          0.32179,
+          1.967488,
+          -0.23167,
+          -0.055289,
+          0.408718,
+          -0.042003,
+          -2.040967,
+          0.147638,
+          1.08821,
+          -0.13658,
+          0.265174,
+          -1.925099,
+          -0.056666,
+          -1.893548,
+          0.21867,
+          1.882828,
+          -0.049801,
+          0.154982,
+          -1.336129,
+          -0.077886,
+          -2.187728,
+          -0.110501,
+          1.957781
+        ],
+        "regulated_height": 1.2751612877661458,
+        "control_source": "declared measured-reference algorithm teacher only",
+        "physical_interface": "42bounded rate outputs through unchanged finite PD; no root writes or external force"
+      },
+      "complete_per_leg": {
+        "LF": 0,
+        "LH": 0,
+        "LM": 0,
+        "RF": 0,
+        "RH": 0,
+        "RM": 0
+      },
+      "events": [],
+      "early_stop": "COM<1.0 or nonfoot>.2W",
+      "requested_ticks": 2900,
+      "actual_ticks": 561,
+      "npz_sha256": "9220acbbe0c050c548634f7cc59997f4543a333bd9ea73b816076fc00f839446",
+      "per_leg_max_clearance": [
+        0.0008210505976139273,
+        -0.012585975640045606,
+        -0.008143599069768075,
+        -0.004604732055218642,
+        -0.02049652577266301,
+        -0.02171462234096027
+      ],
+      "rate_unbounded_p95": [
+        0.618821707376539,
+        2.0092164572500044,
+        1.0808390577918743,
+        2.46220128771456,
+        5.0361900717046595,
+        2.8208350552899124,
+        4.354802299290413,
+        0.32177835065025445,
+        0.42124027794807345,
+        0.2981693147625999,
+        0.14105677066963104,
+        0.863360597693812,
+        0.1376970326848635,
+        1.5613515982133905,
+        1.5715340734808096,
+        0.4691647059951178,
+        1.1111822937404745,
+        0.3454293391835175,
+        2.2410515656104004,
+        0.36030175310925244,
+        3.0359558593298366,
+        1.9047664687766204,
+        0.6554383713263858,
+        3.9959409753231534,
+        1.0640967781999895,
+        6.239778320959588,
+        1.2834167414498445,
+        1.9791021422398123,
+        0.9834104560730859,
+        0.4299306350282852,
+        0.48751906720086247,
+        0.31561800901722165,
+        1.3573957303097852,
+        0.3270798500147837,
+        1.4404618394004205,
+        1.9792886068648232,
+        0.5528442169392342,
+        0.8126120830404236,
+        0.6125689026844784,
+        2.737141633013461,
+        0.5487937058300603,
+        2.132656430594305
+      ],
+      "bounded_fraction": 0.1424751718869366,
+      "tracking_xy_rms": 0.03929075542176899,
+      "tracking_z_rms": 0.0214300515740107,
+      "torque_saturation_fraction": 0.0
+    },
+    {
+      "native_steps": 46960,
+      "sample_count": 587,
+      "duration_s": 0.5859999999986343,
+      "forward_speed_native_per_s": 0.612795923105377,
+      "forward_signed_native_per_s": 0.38176816284595766,
+      "lateral_speed_native_per_s": 0.47934529643232493,
+      "foot_support_mean": 1.0005639878800336,
+      "foot_support_min": 0.9928613129409879,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 0.9983277688282569,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 1.9841147180417336,
+        "LH": 0.9935454025547028,
+        "LM": 1.0740043875547585,
+        "RF": 1.705207060527259,
+        "RH": 1.1715183410815126,
+        "RM": 2.0523851272889817
+      },
+      "slip_ratio_max": 2.0523851272889817,
+      "slip_ratio_mean": 1.496795839508158,
+      "com_start": 1.2751611232961746,
+      "com_end": 0.9983277688282569,
+      "com_xy_travel": 0.35909841093891404,
+      "slip_load_denominator_native": [
+        825.2712188513146,
+        3016.2145602254836,
+        1943.710141784363,
+        1404.5253135376367,
+        3516.503719094432,
+        3651.8785200618345
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": false,
+        "forward": true,
+        "slip": false
+      },
+      "all_gates": false,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": 0.38176816284595766,
+        "lateral_signed_native_per_s": -0.47934529643232493,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "reference_window": {
+        "native_steps": 6960,
+        "sample_count": 87,
+        "duration_s": 0.08599999999979957,
+        "forward_speed_native_per_s": 1.3312835077114236,
+        "forward_signed_native_per_s": 1.0621483075574767,
+        "lateral_speed_native_per_s": 0.8025937644021539,
+        "foot_support_mean": 1.003577540041022,
+        "foot_support_min": 0.9928613129409879,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 0.9983277688282569,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.593879162429349,
+          "LH": 0.6588995734237787,
+          "LM": 0.4281318173035518,
+          "RF": 0.7228819829009038,
+          "RH": 0.5099956844174627,
+          "RM": 0.61233269851163
+        },
+        "slip_ratio_max": 1.593879162429349,
+        "slip_ratio_mean": 0.7543534864977793,
+        "com_start": 1.1252357454351545,
+        "com_end": 0.9983277688282569,
+        "com_xy_travel": 0.1144903816629156,
+        "slip_load_denominator_native": [
+          255.83921892487174,
+          264.1923886615175,
+          181.70328197410296,
+          345.06512821232064,
+          641.965903919718,
+          445.67577179952315
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 1.0621483075574767,
+          "lateral_signed_native_per_s": 0.8025937644021539,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "name": "B_w10_z025_h2",
+      "config": {
+        "name": "B_w10_z025_h2",
+        "teacher": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 10.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "settle_ms": 1000,
+        "adhesion": false,
+        "control_source": "algorithm-assisted measured-reference teacher, not autonomous ANN"
+      },
+      "teacher_metadata": {
+        "config": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 10.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "reference": {
+          "cfg": {
+            "scale": 10.0,
+            "vertical_gain": 0.25,
+            "time_warp": 10.0,
+            "stance_height_cm": 0.005,
+            "blend_s": 0.5,
+            "source_duration_s": 0.24,
+            "referencepath": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+            "smoothing_samples": 5,
+            "smoothing_kernel": "box",
+            "smooth_xy": true,
+            "smooth_height": true,
+            "blend_curve": "smoothstep"
+          },
+          "duration_s": 2.9,
+          "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+          "source_order": [
+            "RF",
+            "RM",
+            "RH",
+            "LH",
+            "LM",
+            "LF"
+          ],
+          "target_order": [
+            "LF",
+            "LH",
+            "LM",
+            "RF",
+            "RH",
+            "RM"
+          ],
+          "source_index_for_target": [
+            5,
+            3,
+            4,
+            0,
+            2,
+            1
+          ],
+          "kinematics_path": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+          "kinematics_sha256": "75d964f14950ed50357dc40474b2ed52b49a420927e47dd0c8ca6d782e4736bd",
+          "source_provenance": {
+            "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+            "official_code": "https://github.com/TuragaLab/flybody",
+            "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+            "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+            "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+            "archive_md5": "de7d5367850430adbe03a3783967c712",
+            "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+            "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+          },
+          "source_selection": {
+            "trajectory_id": "054",
+            "start_index": 50,
+            "end_index_exclusive": 351,
+            "eligible": true,
+            "score": 0.7178478770731659,
+            "complete_peak_intervals_per_leg": [
+              6,
+              6,
+              5,
+              6,
+              5,
+              6
+            ],
+            "duration_s": 0.6,
+            "sample_count": 301,
+            "net_forward_cm": 1.277296338654113,
+            "net_lateral_cm": 0.004335998279179136,
+            "lateral_to_forward_ratio": 0.0033946689957226194,
+            "yaw_range_deg": 7.657625736728858,
+            "yaw_net_deg": 1.3618030271678618,
+            "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+            "horizontal_speed_cm_s": {
+              "min": 0.9097949862480164,
+              "median": 2.070589542388916,
+              "p95": 3.9522424578666686,
+              "p99": 4.694579324722287,
+              "max": 4.982871055603027
+            },
+            "backward_velocity_fraction": 0.0
+          },
+          "source_time_range_s": [
+            0.1,
+            0.7000000000000001
+          ],
+          "source_mean_xy_cm": [
+            [
+              0.09937306300449213,
+              0.07406145939448742
+            ],
+            [
+              -0.2196164202452498,
+              0.11566478912517478
+            ],
+            [
+              -0.0842735228187519,
+              0.1718394293440537
+            ],
+            [
+              0.10155411122793771,
+              -0.05622414980343608
+            ],
+            [
+              -0.21677224174686444,
+              -0.09823465745809466
+            ],
+            [
+              -0.0802806919275093,
+              -0.1597661971055788
+            ]
+          ],
+          "xy_center": "per-leg full-clip temporal mean before smoothing",
+          "smoothing": {
+            "weights": [
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ],
+            "padding": "edge",
+            "symmetric": true,
+            "future_samples": true,
+            "stage": "before interpolation and height clipping"
+          },
+          "frames": {
+            "target_xy": "body/root-local native",
+            "target_z": "pad-bottom world height native",
+            "velocity": "native per elapsed second",
+            "source_time_s": "absolute source dataset clock"
+          },
+          "stance": "interpolated smoothed source height <= stance_height_cm; blend effective height = threshold + blend_weight*max(0,height0-threshold)",
+          "derivatives": "piecewise linear right-hand at knots; zero at clamped end; blend/source velocity may jump",
+          "geometry": {
+            "LF": {
+              "rest_body_xy": [
+                0.8591203774350334,
+                0.8956487464882875
+              ],
+              "nominal_source_stance_mean_xy": [
+                0.912129077556971,
+                0.7724667614376223
+              ]
+            },
+            "LH": {
+              "rest_body_xy": [
+                -1.8442631898325312,
+                0.9526947062509473
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.163252296007198,
+                1.1204474403158478
+              ]
+            },
+            "LM": {
+              "rest_body_xy": [
+                -0.28921890557226104,
+                1.1912635416833393
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8557070527292255,
+                1.6802570010934557
+              ]
+            },
+            "RF": {
+              "rest_body_xy": [
+                0.8575545864468298,
+                -0.9019814773943823
+              ],
+              "nominal_source_stance_mean_xy": [
+                1.0285052700388817,
+                -0.6192859428063515
+              ]
+            },
+            "RH": {
+              "rest_body_xy": [
+                -1.886720054192656,
+                -0.8868136249007669
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.1175507308604815,
+                -0.9715122857596725
+              ]
+            },
+            "RM": {
+              "rest_body_xy": [
+                -0.3946460040484364,
+                -1.2182803714873323
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8178489648260422,
+                -1.5515032186754432
+              ]
+            }
+          },
+          "foot_excursions": {
+            "LF": {
+              "xy_peak_to_peak_native": [
+                0.9985221922397614,
+                0.2651580199599267
+              ],
+              "max_padbottom_height_native": 0.19498211070895197,
+              "padbottom_peak_to_peak_native": 0.19498211070895197
+            },
+            "LH": {
+              "xy_peak_to_peak_native": [
+                0.908213198184967,
+                0.5007631033658982
+              ],
+              "max_padbottom_height_native": 0.1062248472124338,
+              "padbottom_peak_to_peak_native": 0.1062248472124338
+            },
+            "LM": {
+              "xy_peak_to_peak_native": [
+                1.2095684558153152,
+                0.28021499514579795
+              ],
+              "max_padbottom_height_native": 0.09648590460419657,
+              "padbottom_peak_to_peak_native": 0.09648590460419657
+            },
+            "RF": {
+              "xy_peak_to_peak_native": [
+                1.1256293728947642,
+                0.2507387176156044
+              ],
+              "max_padbottom_height_native": 0.19690355211496352,
+              "padbottom_peak_to_peak_native": 0.19690355211496352
+            },
+            "RH": {
+              "xy_peak_to_peak_native": [
+                1.1276933848857884,
+                0.3452138602733613
+              ],
+              "max_padbottom_height_native": 0.1072247263044119,
+              "padbottom_peak_to_peak_native": 0.1072247263044119
+            },
+            "RM": {
+              "xy_peak_to_peak_native": [
+                1.2627946976572275,
+                0.40775805711746216
+              ],
+              "max_padbottom_height_native": 0.09829679802060129,
+              "padbottom_peak_to_peak_native": 0.09829679802060129
+            }
+          },
+          "limitations": [
+            "Offline privileged teacher only",
+            "Inferred plane is not measured contact/force",
+            "Targets are not achieved physical kinematics or demonstrated walking",
+            "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+          ]
+        },
+        "rest_body_feet": [
+          [
+            0.8591203774350334,
+            0.8956487464882875,
+            -1.4759824126577699
+          ],
+          [
+            -1.8442631898325312,
+            0.9526947062509473,
+            -1.3716034642594248
+          ],
+          [
+            -0.28921890557226104,
+            1.1912635416833393,
+            -1.43752920866623
+          ],
+          [
+            0.8575545864468298,
+            -0.9019814773943823,
+            -1.4679125075236366
+          ],
+          [
+            -1.886720054192656,
+            -0.8868136249007669,
+            -1.3538545071436912
+          ],
+          [
+            -0.3946460040484364,
+            -1.2182803714873323,
+            -1.4254964117728457
+          ]
+        ],
+        "rest_target": [
+          -0.115977,
+          0.273551,
+          0.708628,
+          0.003386,
+          -2.016738,
+          0.289577,
+          1.16592,
+          -0.083533,
+          0.344821,
+          2.488651,
+          -0.057925,
+          -2.016303,
+          0.188358,
+          1.859952,
+          0.173921,
+          0.174211,
+          1.624997,
+          0.027115,
+          -1.995578,
+          0.32179,
+          1.967488,
+          -0.23167,
+          -0.055289,
+          0.408718,
+          -0.042003,
+          -2.040967,
+          0.147638,
+          1.08821,
+          -0.13658,
+          0.265174,
+          -1.925099,
+          -0.056666,
+          -1.893548,
+          0.21867,
+          1.882828,
+          -0.049801,
+          0.154982,
+          -1.336129,
+          -0.077886,
+          -2.187728,
+          -0.110501,
+          1.957781
+        ],
+        "regulated_height": 1.2751612877661458,
+        "control_source": "declared measured-reference algorithm teacher only",
+        "physical_interface": "42bounded rate outputs through unchanged finite PD; no root writes or external force"
+      },
+      "complete_per_leg": {
+        "LF": 0,
+        "LH": 0,
+        "LM": 0,
+        "RF": 0,
+        "RH": 0,
+        "RM": 0
+      },
+      "events": [],
+      "early_stop": "COM<1.0 or nonfoot>.2W",
+      "requested_ticks": 2900,
+      "actual_ticks": 587,
+      "npz_sha256": "72f359b55ddbe744236ed21bb695290342759de15b2f02ba8671f65c342b9dcf",
+      "per_leg_max_clearance": [
+        0.0007085578932907247,
+        -0.011820481247101618,
+        -0.008004360771147488,
+        -0.00457941096176797,
+        -0.020484040282227868,
+        -0.021842283004113484
+      ],
+      "rate_unbounded_p95": [
+        0.62651905772663,
+        2.1441564715050188,
+        1.1422292320654008,
+        2.5037610856119854,
+        5.253171879207277,
+        3.16918604750898,
+        4.605177216483749,
+        0.3155298441698392,
+        0.6191394896258473,
+        0.38947144032990944,
+        0.12976372961617466,
+        1.189188526517321,
+        0.16888195797097544,
+        1.8212409901558497,
+        1.750870601366401,
+        0.473001465552497,
+        1.4558388875171544,
+        0.36424947154529363,
+        2.537504835611559,
+        0.36863464307824867,
+        3.45304431004196,
+        1.889405988977649,
+        0.8495689420674106,
+        3.883206954895962,
+        1.1010690100311606,
+        6.06768971834855,
+        1.339370712808777,
+        1.9522301043323236,
+        0.6875995631214278,
+        0.2842886776197983,
+        0.49308763566731956,
+        0.2201269117296467,
+        1.0911935479511234,
+        0.2952608746669371,
+        1.4237188051080607,
+        1.5119464243447307,
+        0.508406189872921,
+        0.6391737963656721,
+        0.38931631163217484,
+        2.1617324779117952,
+        0.5533849626710025,
+        1.5702749460472114
+      ],
+      "bounded_fraction": 0.14626429788269651,
+      "tracking_xy_rms": 0.04295343217942355,
+      "tracking_z_rms": 0.023503093560354224,
+      "torque_saturation_fraction": 0.0
+    },
+    {
+      "native_steps": 45120,
+      "sample_count": 564,
+      "duration_s": 0.5629999999986879,
+      "forward_speed_native_per_s": 0.6940732875859595,
+      "forward_signed_native_per_s": 0.3398905248794751,
+      "lateral_speed_native_per_s": 0.6051546576186431,
+      "foot_support_mean": 1.0006967425735769,
+      "foot_support_min": 0.9965558182998787,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 0.9990330155834894,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 1.1056904771531075,
+        "LH": 0.8430780421132076,
+        "LM": 0.9183564432482548,
+        "RF": 1.509889667468685,
+        "RH": 0.9947387287464765,
+        "RM": 1.8346019762628578
+      },
+      "slip_ratio_max": 1.8346019762628578,
+      "slip_ratio_mean": 1.2010592224987648,
+      "com_start": 1.2751611232961746,
+      "com_end": 0.9990330155834894,
+      "com_xy_travel": 0.39076326090998453,
+      "slip_load_denominator_native": [
+        749.3516210052982,
+        2950.148315807078,
+        1891.2976308129676,
+        1311.5830658752084,
+        3356.3007459015585,
+        3538.6692112088144
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": false,
+        "forward": true,
+        "slip": false
+      },
+      "all_gates": false,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": 0.3398905248794751,
+        "lateral_signed_native_per_s": -0.6051546576186431,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "reference_window": {
+        "native_steps": 5120,
+        "sample_count": 64,
+        "duration_s": 0.06299999999985317,
+        "forward_speed_native_per_s": 0.9477294805560154,
+        "forward_signed_native_per_s": 0.9363665792726663,
+        "lateral_speed_native_per_s": 0.14631745465316243,
+        "foot_support_mean": 1.0058304360857264,
+        "foot_support_min": 1.0041424489946085,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 0.9990330155834894,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.6716675827739359,
+          "LH": 0.6478872503986081,
+          "LM": 0.2435767656902366,
+          "RF": 0.9999487071547805,
+          "RH": 0.5007230621887961,
+          "RM": 0.8769763698892477
+        },
+        "slip_ratio_max": 0.9999487071547805,
+        "slip_ratio_mean": 0.6567966230159341,
+        "com_start": 1.1252315627113454,
+        "com_end": 0.9990330155834894,
+        "com_xy_travel": 0.05970695727488982,
+        "slip_load_denominator_native": [
+          179.9196210788556,
+          198.12614424311207,
+          129.29077100270771,
+          252.12288054989187,
+          481.76293072684274,
+          332.4664629465035
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.9363665792726663,
+          "lateral_signed_native_per_s": 0.14631745465316243,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "name": "C_w20_z025_h2",
+      "config": {
+        "name": "C_w20_z025_h2",
+        "teacher": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 20.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "settle_ms": 1000,
+        "adhesion": false,
+        "control_source": "algorithm-assisted measured-reference teacher, not autonomous ANN"
+      },
+      "teacher_metadata": {
+        "config": {
+          "scale": 10.0,
+          "vertical_gain": 0.25,
+          "time_warp": 20.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "reference": {
+          "cfg": {
+            "scale": 10.0,
+            "vertical_gain": 0.25,
+            "time_warp": 20.0,
+            "stance_height_cm": 0.005,
+            "blend_s": 0.5,
+            "source_duration_s": 0.24,
+            "referencepath": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+            "smoothing_samples": 5,
+            "smoothing_kernel": "box",
+            "smooth_xy": true,
+            "smooth_height": true,
+            "blend_curve": "smoothstep"
+          },
+          "duration_s": 5.3,
+          "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+          "source_order": [
+            "RF",
+            "RM",
+            "RH",
+            "LH",
+            "LM",
+            "LF"
+          ],
+          "target_order": [
+            "LF",
+            "LH",
+            "LM",
+            "RF",
+            "RH",
+            "RM"
+          ],
+          "source_index_for_target": [
+            5,
+            3,
+            4,
+            0,
+            2,
+            1
+          ],
+          "kinematics_path": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+          "kinematics_sha256": "75d964f14950ed50357dc40474b2ed52b49a420927e47dd0c8ca6d782e4736bd",
+          "source_provenance": {
+            "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+            "official_code": "https://github.com/TuragaLab/flybody",
+            "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+            "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+            "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+            "archive_md5": "de7d5367850430adbe03a3783967c712",
+            "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+            "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+          },
+          "source_selection": {
+            "trajectory_id": "054",
+            "start_index": 50,
+            "end_index_exclusive": 351,
+            "eligible": true,
+            "score": 0.7178478770731659,
+            "complete_peak_intervals_per_leg": [
+              6,
+              6,
+              5,
+              6,
+              5,
+              6
+            ],
+            "duration_s": 0.6,
+            "sample_count": 301,
+            "net_forward_cm": 1.277296338654113,
+            "net_lateral_cm": 0.004335998279179136,
+            "lateral_to_forward_ratio": 0.0033946689957226194,
+            "yaw_range_deg": 7.657625736728858,
+            "yaw_net_deg": 1.3618030271678618,
+            "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+            "horizontal_speed_cm_s": {
+              "min": 0.9097949862480164,
+              "median": 2.070589542388916,
+              "p95": 3.9522424578666686,
+              "p99": 4.694579324722287,
+              "max": 4.982871055603027
+            },
+            "backward_velocity_fraction": 0.0
+          },
+          "source_time_range_s": [
+            0.1,
+            0.7000000000000001
+          ],
+          "source_mean_xy_cm": [
+            [
+              0.09937306300449213,
+              0.07406145939448742
+            ],
+            [
+              -0.2196164202452498,
+              0.11566478912517478
+            ],
+            [
+              -0.0842735228187519,
+              0.1718394293440537
+            ],
+            [
+              0.10155411122793771,
+              -0.05622414980343608
+            ],
+            [
+              -0.21677224174686444,
+              -0.09823465745809466
+            ],
+            [
+              -0.0802806919275093,
+              -0.1597661971055788
+            ]
+          ],
+          "xy_center": "per-leg full-clip temporal mean before smoothing",
+          "smoothing": {
+            "weights": [
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ],
+            "padding": "edge",
+            "symmetric": true,
+            "future_samples": true,
+            "stage": "before interpolation and height clipping"
+          },
+          "frames": {
+            "target_xy": "body/root-local native",
+            "target_z": "pad-bottom world height native",
+            "velocity": "native per elapsed second",
+            "source_time_s": "absolute source dataset clock"
+          },
+          "stance": "interpolated smoothed source height <= stance_height_cm; blend effective height = threshold + blend_weight*max(0,height0-threshold)",
+          "derivatives": "piecewise linear right-hand at knots; zero at clamped end; blend/source velocity may jump",
+          "geometry": {
+            "LF": {
+              "rest_body_xy": [
+                0.8591203774350334,
+                0.8956487464882875
+              ],
+              "nominal_source_stance_mean_xy": [
+                0.912129077556971,
+                0.7724667614376223
+              ]
+            },
+            "LH": {
+              "rest_body_xy": [
+                -1.8442631898325312,
+                0.9526947062509473
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.163252296007198,
+                1.1204474403158478
+              ]
+            },
+            "LM": {
+              "rest_body_xy": [
+                -0.28921890557226104,
+                1.1912635416833393
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8557070527292255,
+                1.6802570010934557
+              ]
+            },
+            "RF": {
+              "rest_body_xy": [
+                0.8575545864468298,
+                -0.9019814773943823
+              ],
+              "nominal_source_stance_mean_xy": [
+                1.0285052700388817,
+                -0.6192859428063515
+              ]
+            },
+            "RH": {
+              "rest_body_xy": [
+                -1.886720054192656,
+                -0.8868136249007669
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.1175507308604815,
+                -0.9715122857596725
+              ]
+            },
+            "RM": {
+              "rest_body_xy": [
+                -0.3946460040484364,
+                -1.2182803714873323
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8178489648260422,
+                -1.5515032186754432
+              ]
+            }
+          },
+          "foot_excursions": {
+            "LF": {
+              "xy_peak_to_peak_native": [
+                0.9985221922397614,
+                0.2651580199599267
+              ],
+              "max_padbottom_height_native": 0.19498211070895197,
+              "padbottom_peak_to_peak_native": 0.19498211070895197
+            },
+            "LH": {
+              "xy_peak_to_peak_native": [
+                0.908213198184967,
+                0.5007631033658982
+              ],
+              "max_padbottom_height_native": 0.1062248472124338,
+              "padbottom_peak_to_peak_native": 0.1062248472124338
+            },
+            "LM": {
+              "xy_peak_to_peak_native": [
+                1.2095684558153152,
+                0.28021499514579795
+              ],
+              "max_padbottom_height_native": 0.09648590460419657,
+              "padbottom_peak_to_peak_native": 0.09648590460419657
+            },
+            "RF": {
+              "xy_peak_to_peak_native": [
+                1.1256293728947642,
+                0.2507387176156044
+              ],
+              "max_padbottom_height_native": 0.19690355211496352,
+              "padbottom_peak_to_peak_native": 0.19690355211496352
+            },
+            "RH": {
+              "xy_peak_to_peak_native": [
+                1.1276933848857884,
+                0.3452138602733613
+              ],
+              "max_padbottom_height_native": 0.1072247263044119,
+              "padbottom_peak_to_peak_native": 0.1072247263044119
+            },
+            "RM": {
+              "xy_peak_to_peak_native": [
+                1.2627946976572275,
+                0.40775805711746216
+              ],
+              "max_padbottom_height_native": 0.09829679802060129,
+              "padbottom_peak_to_peak_native": 0.09829679802060129
+            }
+          },
+          "limitations": [
+            "Offline privileged teacher only",
+            "Inferred plane is not measured contact/force",
+            "Targets are not achieved physical kinematics or demonstrated walking",
+            "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+          ]
+        },
+        "rest_body_feet": [
+          [
+            0.8591203774350334,
+            0.8956487464882875,
+            -1.4759824126577699
+          ],
+          [
+            -1.8442631898325312,
+            0.9526947062509473,
+            -1.3716034642594248
+          ],
+          [
+            -0.28921890557226104,
+            1.1912635416833393,
+            -1.43752920866623
+          ],
+          [
+            0.8575545864468298,
+            -0.9019814773943823,
+            -1.4679125075236366
+          ],
+          [
+            -1.886720054192656,
+            -0.8868136249007669,
+            -1.3538545071436912
+          ],
+          [
+            -0.3946460040484364,
+            -1.2182803714873323,
+            -1.4254964117728457
+          ]
+        ],
+        "rest_target": [
+          -0.115977,
+          0.273551,
+          0.708628,
+          0.003386,
+          -2.016738,
+          0.289577,
+          1.16592,
+          -0.083533,
+          0.344821,
+          2.488651,
+          -0.057925,
+          -2.016303,
+          0.188358,
+          1.859952,
+          0.173921,
+          0.174211,
+          1.624997,
+          0.027115,
+          -1.995578,
+          0.32179,
+          1.967488,
+          -0.23167,
+          -0.055289,
+          0.408718,
+          -0.042003,
+          -2.040967,
+          0.147638,
+          1.08821,
+          -0.13658,
+          0.265174,
+          -1.925099,
+          -0.056666,
+          -1.893548,
+          0.21867,
+          1.882828,
+          -0.049801,
+          0.154982,
+          -1.336129,
+          -0.077886,
+          -2.187728,
+          -0.110501,
+          1.957781
+        ],
+        "regulated_height": 1.2751612877661458,
+        "control_source": "declared measured-reference algorithm teacher only",
+        "physical_interface": "42bounded rate outputs through unchanged finite PD; no root writes or external force"
+      },
+      "complete_per_leg": {
+        "LF": 0,
+        "LH": 0,
+        "LM": 0,
+        "RF": 0,
+        "RH": 0,
+        "RM": 0
+      },
+      "events": [],
+      "early_stop": "COM<1.0 or nonfoot>.2W",
+      "requested_ticks": 5300,
+      "actual_ticks": 564,
+      "npz_sha256": "11d33b56f33421143963536a01668fc729153587fbe53e8e7b0003595f90e4a2",
+      "per_leg_max_clearance": [
+        0.0007085578932907247,
+        -0.012412422543301306,
+        -0.008678344153570723,
+        -0.00457941096176797,
+        -0.020484040282227868,
+        -0.021842283004113484
+      ],
+      "rate_unbounded_p95": [
+        0.6077530528603845,
+        2.1461027581143775,
+        1.1424152932719873,
+        2.308210816725792,
+        5.203712874130892,
+        2.3678473768425574,
+        4.605689822778137,
+        0.3146793817019525,
+        0.5920148781550066,
+        0.365639880991926,
+        0.1292273512907078,
+        1.131117790544173,
+        0.12561770753642618,
+        1.7286109441560351,
+        1.2924072272213512,
+        0.4730663791040799,
+        0.8016246658282209,
+        0.36036421906008886,
+        1.7954894632385028,
+        0.36995869318189517,
+        2.6651765432108747,
+        1.8195640722247242,
+        0.5868132236438007,
+        3.519472583429818,
+        1.043970580935091,
+        6.06336424932206,
+        1.3025365734276344,
+        1.9536090677167615,
+        0.6903752057116463,
+        0.2946135423617333,
+        0.4935057726232374,
+        0.22751787531908757,
+        1.0940763760422014,
+        0.2961504981793198,
+        1.426765888143788,
+        1.5949678529365348,
+        0.5136139357490449,
+        0.7005191537536516,
+        0.41372337797016223,
+        2.306076438114659,
+        0.5542572729898624,
+        1.5772352141609658
+      ],
+      "bounded_fraction": 0.13390746369469775,
+      "tracking_xy_rms": 0.03888160076379432,
+      "tracking_z_rms": 0.020635978009767502,
+      "torque_saturation_fraction": 0.0
+    },
+    {
+      "native_steps": 52880,
+      "sample_count": 661,
+      "duration_s": 0.6599999999984618,
+      "forward_speed_native_per_s": 0.2818243753289978,
+      "forward_signed_native_per_s": 0.28107308185561275,
+      "lateral_speed_native_per_s": 0.02056456140470338,
+      "foot_support_mean": 1.0006194319503459,
+      "foot_support_min": 0.9639132399321724,
+      "nonfoot_force_max_W": 0.0,
+      "nonfoot_force_max_native": 0.0,
+      "com_height_min": 0.9984847714738513,
+      "free_fall_fraction": 0.0,
+      "per_leg_slip_ratio": {
+        "LF": 3.8721481719553634,
+        "LH": 2.1409647822673046,
+        "LM": 2.739742728368505,
+        "RF": 3.2069993934053747,
+        "RH": 2.3490021120350364,
+        "RM": 4.270611060946762
+      },
+      "slip_ratio_max": 4.270611060946762,
+      "slip_ratio_mean": 3.096578041496391,
+      "com_start": 1.2751611232961746,
+      "com_end": 0.9984847714738513,
+      "com_xy_travel": 0.18600408771670504,
+      "slip_load_denominator_native": [
+        933.7473089031579,
+        3453.741555061556,
+        2506.4236438406856,
+        1628.4331681928804,
+        3820.2989065447764,
+        3826.405337061003
+      ],
+      "slip_valid_per_leg": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "slip_has_progress": true,
+      "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+      "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+      "sample_dt_s": 0.0009999999999976694,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": false,
+        "forward": true,
+        "slip": false
+      },
+      "all_gates": false,
+      "initial_heading_diagnostics": {
+        "status": "MEASURED",
+        "forward_signed_native_per_s": 0.28107308185561275,
+        "lateral_signed_native_per_s": 0.02056456140470338,
+        "heading_world_xy": [
+          1.0,
+          0.0
+        ],
+        "gate_applied": false
+      },
+      "native_peak_summary": null,
+      "roadmap_D1_D8": {
+        "D1": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D2": {
+          "status": "UNKNOWN",
+          "reason": "native low-pass acceleration and autonomous window not supplied"
+        },
+        "D3": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D4": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D4b": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        },
+        "D5": {
+          "status": "UNKNOWN",
+          "reason": "same-run auxiliary window absent"
+        },
+        "D6": {
+          "status": "UNKNOWN",
+          "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+        },
+        "D7": {
+          "status": "UNKNOWN",
+          "reason": "native window and loading-leg threshold absent"
+        },
+        "D8": {
+          "status": "UNKNOWN",
+          "reason": "autonomous native window not supplied"
+        }
+      },
+      "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "reference_window": {
+        "native_steps": 12880,
+        "sample_count": 161,
+        "duration_s": 0.1599999999996271,
+        "forward_speed_native_per_s": 1.5385352576466627,
+        "forward_signed_native_per_s": 0.6052757851194183,
+        "lateral_speed_native_per_s": 1.4144723266893395,
+        "foot_support_mean": 1.0018840831277303,
+        "foot_support_min": 0.9639132399321724,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 0.9984847714738513,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.0979025906955515,
+          "LH": 0.35294788522966203,
+          "LM": 0.6907076966709234,
+          "RF": 0.6075434340369811,
+          "RH": 0.3340319206655541,
+          "RM": 0.4323837007509499
+        },
+        "slip_ratio_max": 1.0979025906955515,
+        "slip_ratio_mean": 0.5859195380082703,
+        "com_start": 1.1293987045441853,
+        "com_end": 0.9984847714738513,
+        "com_xy_travel": 0.2461656412228923,
+        "slip_load_denominator_native": [
+          359.8033912180999,
+          607.9730992994488,
+          630.4884674810053,
+          587.0951978068143,
+          1047.274895978403,
+          710.643557201927
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.6052757851194183,
+          "lateral_signed_native_per_s": 1.4144723266893395,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "name": "D_w20_z050_h2",
+      "config": {
+        "name": "D_w20_z050_h2",
+        "teacher": {
+          "scale": 10.0,
+          "vertical_gain": 0.5,
+          "time_warp": 20.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "settle_ms": 1000,
+        "adhesion": false,
+        "control_source": "algorithm-assisted measured-reference teacher, not autonomous ANN"
+      },
+      "teacher_metadata": {
+        "config": {
+          "scale": 10.0,
+          "vertical_gain": 0.5,
+          "time_warp": 20.0,
+          "source_duration_s": 0.24,
+          "blend_s": 0.5,
+          "tau_xy_s": 0.08,
+          "tau_z_s": 0.08,
+          "height_gain": 2.0,
+          "height_damping": 0.2,
+          "orientation_gain": 1.0,
+          "orientation_damping": 0.1,
+          "vertical_velocity_limit": 2.0,
+          "body_velocity_limit": 0.5,
+          "ridge": 0.01,
+          "posture_gain": 0.05,
+          "command_dt_s": 0.005
+        },
+        "reference": {
+          "cfg": {
+            "scale": 10.0,
+            "vertical_gain": 0.5,
+            "time_warp": 20.0,
+            "stance_height_cm": 0.005,
+            "blend_s": 0.5,
+            "source_duration_s": 0.24,
+            "referencepath": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+            "smoothing_samples": 5,
+            "smoothing_kernel": "box",
+            "smooth_xy": true,
+            "smooth_height": true,
+            "blend_curve": "smoothstep"
+          },
+          "duration_s": 5.3,
+          "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+          "source_order": [
+            "RF",
+            "RM",
+            "RH",
+            "LH",
+            "LM",
+            "LF"
+          ],
+          "target_order": [
+            "LF",
+            "LH",
+            "LM",
+            "RF",
+            "RH",
+            "RM"
+          ],
+          "source_index_for_target": [
+            5,
+            3,
+            4,
+            0,
+            2,
+            1
+          ],
+          "kinematics_path": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+          "kinematics_sha256": "75d964f14950ed50357dc40474b2ed52b49a420927e47dd0c8ca6d782e4736bd",
+          "source_provenance": {
+            "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+            "official_code": "https://github.com/TuragaLab/flybody",
+            "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+            "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+            "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+            "archive_md5": "de7d5367850430adbe03a3783967c712",
+            "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+            "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+          },
+          "source_selection": {
+            "trajectory_id": "054",
+            "start_index": 50,
+            "end_index_exclusive": 351,
+            "eligible": true,
+            "score": 0.7178478770731659,
+            "complete_peak_intervals_per_leg": [
+              6,
+              6,
+              5,
+              6,
+              5,
+              6
+            ],
+            "duration_s": 0.6,
+            "sample_count": 301,
+            "net_forward_cm": 1.277296338654113,
+            "net_lateral_cm": 0.004335998279179136,
+            "lateral_to_forward_ratio": 0.0033946689957226194,
+            "yaw_range_deg": 7.657625736728858,
+            "yaw_net_deg": 1.3618030271678618,
+            "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+            "horizontal_speed_cm_s": {
+              "min": 0.9097949862480164,
+              "median": 2.070589542388916,
+              "p95": 3.9522424578666686,
+              "p99": 4.694579324722287,
+              "max": 4.982871055603027
+            },
+            "backward_velocity_fraction": 0.0
+          },
+          "source_time_range_s": [
+            0.1,
+            0.7000000000000001
+          ],
+          "source_mean_xy_cm": [
+            [
+              0.09937306300449213,
+              0.07406145939448742
+            ],
+            [
+              -0.2196164202452498,
+              0.11566478912517478
+            ],
+            [
+              -0.0842735228187519,
+              0.1718394293440537
+            ],
+            [
+              0.10155411122793771,
+              -0.05622414980343608
+            ],
+            [
+              -0.21677224174686444,
+              -0.09823465745809466
+            ],
+            [
+              -0.0802806919275093,
+              -0.1597661971055788
+            ]
+          ],
+          "xy_center": "per-leg full-clip temporal mean before smoothing",
+          "smoothing": {
+            "weights": [
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ],
+            "padding": "edge",
+            "symmetric": true,
+            "future_samples": true,
+            "stage": "before interpolation and height clipping"
+          },
+          "frames": {
+            "target_xy": "body/root-local native",
+            "target_z": "pad-bottom world height native",
+            "velocity": "native per elapsed second",
+            "source_time_s": "absolute source dataset clock"
+          },
+          "stance": "interpolated smoothed source height <= stance_height_cm; blend effective height = threshold + blend_weight*max(0,height0-threshold)",
+          "derivatives": "piecewise linear right-hand at knots; zero at clamped end; blend/source velocity may jump",
+          "geometry": {
+            "LF": {
+              "rest_body_xy": [
+                0.8591203774350334,
+                0.8956487464882875
+              ],
+              "nominal_source_stance_mean_xy": [
+                0.912129077556971,
+                0.7724667614376223
+              ]
+            },
+            "LH": {
+              "rest_body_xy": [
+                -1.8442631898325312,
+                0.9526947062509473
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.163252296007198,
+                1.1204474403158478
+              ]
+            },
+            "LM": {
+              "rest_body_xy": [
+                -0.28921890557226104,
+                1.1912635416833393
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8557070527292255,
+                1.6802570010934557
+              ]
+            },
+            "RF": {
+              "rest_body_xy": [
+                0.8575545864468298,
+                -0.9019814773943823
+              ],
+              "nominal_source_stance_mean_xy": [
+                1.0285052700388817,
+                -0.6192859428063515
+              ]
+            },
+            "RH": {
+              "rest_body_xy": [
+                -1.886720054192656,
+                -0.8868136249007669
+              ],
+              "nominal_source_stance_mean_xy": [
+                -2.1175507308604815,
+                -0.9715122857596725
+              ]
+            },
+            "RM": {
+              "rest_body_xy": [
+                -0.3946460040484364,
+                -1.2182803714873323
+              ],
+              "nominal_source_stance_mean_xy": [
+                -0.8178489648260422,
+                -1.5515032186754432
+              ]
+            }
+          },
+          "foot_excursions": {
+            "LF": {
+              "xy_peak_to_peak_native": [
+                0.9985221922397614,
+                0.2651580199599267
+              ],
+              "max_padbottom_height_native": 0.38996422141790393,
+              "padbottom_peak_to_peak_native": 0.38996422141790393
+            },
+            "LH": {
+              "xy_peak_to_peak_native": [
+                0.908213198184967,
+                0.5007631033658982
+              ],
+              "max_padbottom_height_native": 0.2124496944248676,
+              "padbottom_peak_to_peak_native": 0.2124496944248676
+            },
+            "LM": {
+              "xy_peak_to_peak_native": [
+                1.2095684558153152,
+                0.28021499514579795
+              ],
+              "max_padbottom_height_native": 0.19297180920839313,
+              "padbottom_peak_to_peak_native": 0.19297180920839313
+            },
+            "RF": {
+              "xy_peak_to_peak_native": [
+                1.1256293728947642,
+                0.2507387176156044
+              ],
+              "max_padbottom_height_native": 0.39380710422992704,
+              "padbottom_peak_to_peak_native": 0.39380710422992704
+            },
+            "RH": {
+              "xy_peak_to_peak_native": [
+                1.1276933848857884,
+                0.3452138602733613
+              ],
+              "max_padbottom_height_native": 0.2144494526088238,
+              "padbottom_peak_to_peak_native": 0.2144494526088238
+            },
+            "RM": {
+              "xy_peak_to_peak_native": [
+                1.2627946976572275,
+                0.40775805711746216
+              ],
+              "max_padbottom_height_native": 0.19659359604120258,
+              "padbottom_peak_to_peak_native": 0.19659359604120258
+            }
+          },
+          "limitations": [
+            "Offline privileged teacher only",
+            "Inferred plane is not measured contact/force",
+            "Targets are not achieved physical kinematics or demonstrated walking",
+            "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+          ]
+        },
+        "rest_body_feet": [
+          [
+            0.8591203774350334,
+            0.8956487464882875,
+            -1.4759824126577699
+          ],
+          [
+            -1.8442631898325312,
+            0.9526947062509473,
+            -1.3716034642594248
+          ],
+          [
+            -0.28921890557226104,
+            1.1912635416833393,
+            -1.43752920866623
+          ],
+          [
+            0.8575545864468298,
+            -0.9019814773943823,
+            -1.4679125075236366
+          ],
+          [
+            -1.886720054192656,
+            -0.8868136249007669,
+            -1.3538545071436912
+          ],
+          [
+            -0.3946460040484364,
+            -1.2182803714873323,
+            -1.4254964117728457
+          ]
+        ],
+        "rest_target": [
+          -0.115977,
+          0.273551,
+          0.708628,
+          0.003386,
+          -2.016738,
+          0.289577,
+          1.16592,
+          -0.083533,
+          0.344821,
+          2.488651,
+          -0.057925,
+          -2.016303,
+          0.188358,
+          1.859952,
+          0.173921,
+          0.174211,
+          1.624997,
+          0.027115,
+          -1.995578,
+          0.32179,
+          1.967488,
+          -0.23167,
+          -0.055289,
+          0.408718,
+          -0.042003,
+          -2.040967,
+          0.147638,
+          1.08821,
+          -0.13658,
+          0.265174,
+          -1.925099,
+          -0.056666,
+          -1.893548,
+          0.21867,
+          1.882828,
+          -0.049801,
+          0.154982,
+          -1.336129,
+          -0.077886,
+          -2.187728,
+          -0.110501,
+          1.957781
+        ],
+        "regulated_height": 1.2751612877661458,
+        "control_source": "declared measured-reference algorithm teacher only",
+        "physical_interface": "42bounded rate outputs through unchanged finite PD; no root writes or external force"
+      },
+      "complete_per_leg": {
+        "LF": 0,
+        "LH": 0,
+        "LM": 0,
+        "RF": 0,
+        "RH": 0,
+        "RM": 0
+      },
+      "events": [
+        {
+          "type": "abort",
+          "reason": "terminal",
+          "leg": "LF",
+          "time": 1.6609999999977962,
+          "start_time": 1.6369999999978522,
+          "lift": 0.01300283414333498,
+          "advance": 0.0,
+          "unloaded_duration": 0.023999999999944066
+        }
+      ],
+      "early_stop": "COM<1.0 or nonfoot>.2W",
+      "requested_ticks": 5300,
+      "actual_ticks": 661,
+      "npz_sha256": "fadd1f937d3472b40a0dd34f7b1d57688820dc502e932522733eda173b1425c8",
+      "per_leg_max_clearance": [
+        0.01300283414333498,
+        -0.015719565032005035,
+        -0.012089275827324587,
+        -0.00498431774949968,
+        -0.02039772004412182,
+        -0.016636161563439035
+      ],
+      "rate_unbounded_p95": [
+        0.7690045612561206,
+        2.245226005651964,
+        1.4135601485549396,
+        2.2284729636294536,
+        5.622763465136285,
+        2.4613240375197,
+        5.172255538862405,
+        0.7116375218745146,
+        0.994818416822438,
+        0.579699976332246,
+        0.1254179145848842,
+        1.8123065735199706,
+        0.1461399677891283,
+        1.9655220158480526,
+        1.7062457223254615,
+        0.46628000460632013,
+        1.3877542833713574,
+        0.7862308335231663,
+        2.5350299932388474,
+        0.40296101683758423,
+        2.5255433358206507,
+        1.207913525628328,
+        0.8558559387730783,
+        3.130563614686635,
+        0.9636615066830405,
+        5.215807623407636,
+        1.1049302754314705,
+        1.8830819240728178,
+        1.4612671099909695,
+        0.6066937684493875,
+        0.4793810571030427,
+        0.3618723202567866,
+        2.0536839749518947,
+        0.28552102449776906,
+        2.4792237528111807,
+        2.0604832323753057,
+        0.48701079180591644,
+        0.5632701074570622,
+        0.5825481839882455,
+        2.815059689172256,
+        0.542633925396999,
+        2.551519340810243
+      ],
+      "bounded_fraction": 0.14764786398674448,
+      "tracking_xy_rms": 0.03872032452812586,
+      "tracking_z_rms": 0.03517369764515625,
+      "torque_saturation_fraction": 0.0
+    }
+  ],
+  "wall_s": 69.84104833996389,
+  "scope": "declared algorithm teacher only; failed conditions retained; not original walking certification"
+}

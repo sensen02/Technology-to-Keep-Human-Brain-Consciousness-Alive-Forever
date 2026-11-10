@@ -1,0 +1,22 @@
+{
+  "version": "measured-foot-teacher-v1",
+  "goal": "S2/S5 build a physically validated teacher from actual measured-keypoint-fitted six-leg trajectories before further imitation/PPO",
+  "source_reference": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+  "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+  "source_description": "official Flybody walking data, clip054 frames50:351, dt.002s, cm/rad/s, wxyz root-local feet; fittedkinematics not measured contact forces",
+  "physical_identity": "same declared derived triad full body, noadhesion, normalgravity/friction1.5, original finitePD2rad/s and torque bounds,12.5usnative/1msactuator",
+  "forbidden": ["root trajectory writes", "qpos/qvel writes afterinitialreset duringactualrollout", "hidden forces", "direct59actions or102joint copying", "callingtargetkinematics physicalwalking"],
+  "teacher": {"settle_s": 1.0, "blend_s": 0.5, "source_duration_s": 0.24, "policy_ms": 5, "reference_scale_native_per_cm": 10.0, "horizontal_mapping": "subtract each sourceleg temporalmean and add measured own settled footXY; source leg phases preserved", "vertical_mapping": "scaled inferred source worldheightaboveplane minus.005cm stanceband,clamp0; separate declared verticalamplitude factor", "smoothing": "five source samples edge-paddedbox; offlineprivilegedteacher only", "joint_solver": "bounded ridge leastsquares/BVLS sevenjointperleg, mixed bodyrelativeXY+lowestpadbottom worldZ; actual finitePD/contact executes", "body_regulation": "common COM height and orientation error delivered through stancejointcommands only, no rootactuator; stance Z is a velocity task from body feedback, NOT tracking geometric z=0, so actual contact compression remains determined by physics; swing tracks inferred-reference height", "time_scaling": "10/20 candidates calibrated by actual target-body resolvedrates, NOT assumed sourceanglemapping"},
+  "bounded_conditions": [
+    {"name": "A_w10_z025_h0", "time_warp": 10.0, "vertical_gain": 0.25, "height_gain": 0.0},
+    {"name": "B_w10_z025_h2", "time_warp": 10.0, "vertical_gain": 0.25, "height_gain": 2.0},
+    {"name": "C_w20_z025_h2", "time_warp": 20.0, "vertical_gain": 0.25, "height_gain": 2.0},
+    {"name": "D_w20_z050_h2", "time_warp": 20.0, "vertical_gain": 0.50, "height_gain": 2.0}
+  ],
+  "unchanged_controls": "tauXY/Z.08s,ridge.01,posturegain.05,orientationgain1,damping.1,heightdamping.2; noextra sweep inside runs",
+  "checks": "referenceSHA/legorder/interpolation/derivatives, clearanceJacobian finite diff usingactive bottom sphere, boundedsolverconstraints, actual1msheld5ms integration, noforces/posewrites, actualsourcehash manifest",
+  "evaluation": "1ms records separately settle/blend/reference windows, alllegacyengineeringgates plus perleg strictcompletecycle (timeout4s forslowteacherproxy), requestedunlimitedrates/2, boundfraction/targetclip/trackingresidual/COM/nonfoot/contact/slip",
+  "early_failure": "stop actual teacher rollout if COM<1.0 or nonfoot force>0.2W or numeric/physics warning; keep failedprefix/actualduration and no shortwindow successclaim",
+  "decision": "Only teacher conditions with safe support and real observed completecycles can seed imitation; no claimbodyimpossible ifallfour fail; diagnose actual tracking vsload transfer before nextbounded change",
+  "original_acceptance": "not established by teacher; full originalnative windows/controlsource closure/continuoushandover video remain required"
+}

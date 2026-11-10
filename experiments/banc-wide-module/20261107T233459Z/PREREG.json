@@ -1,0 +1,23 @@
+{
+  "schema": "round13-wide-intrinsic-comparison/1",
+  "scope": "Compare the intrinsic leg-rate structure of the frozen 20k module against a whole-BANC strict-transmitter module, both from rest under the same recorded sensory drive. Neural only: no physics, no learning, no descending current, no new edges beyond the source cache, no acceptance change.",
+  "why": "Rounds 11-12 showed the 20k strict subgraph has bilaterally symmetric leg dynamics with no tripod anti-phase, and that re-weighting its existing leg-pair classes or its premotor adaptation cannot create alternation. A structural audit found 35,307 intermediate cells on strict descending-to-motor routes that the selected 20k omits. This round asks directly whether including them changes the leg-rate modality.",
+  "frozen_sources": {
+    "banc_cache": "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz",
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "candidate_20k": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz",
+    "sensory_currents": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz",
+    "motor_leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz"
+  },
+  "construction_rule": "Keep every cache edge whose presynaptic cell has exactly one verified transmitter in acetylcholine/gaba/glutamate; multiply raw synapse count by 0.020 uS and divide by the target neuron's total incoming raw count. Excitatory = acetylcholine, inhibitory = gaba/glutamate. Adaptation conductance, refractory period, threshold, delays and time constants unchanged from the frozen 192931Z core. Nothing invented, no measured receptor sign claimed.",
+  "guard_fixed_in_advance": "Restricting this construction to the 20k candidate cells must reproduce the frozen 20k matrices elementwise exactly (max absolute difference 0). If it does not, the whole comparison is invalid and must be reported as a failure rather than run.",
+  "conditions": {
+    "frozen20k": "the same construction restricted to the 20k candidate cells",
+    "banc_strict": "the whole strict cache (no restriction)"
+  },
+  "protocol": "Both circuits start from rest. A 500 ms warm-up replays the recorded 100 sensory bins once; the following 2000 ms (400 bins) replay the same 100 bins cyclically and are analysed. 556 sensory ports and 391 leg motor neurons are mapped from the 20k local indices to cache indices by exact root identity; the 1327 descending cells are mapped too but never driven.",
+  "fixed_analysis": "Identical to rounds 11-12: per-leg mean rate, tripod alternation score = -corr(mean(LF,RM,LH), mean(RF,LM,RH)), ipsilateral score, LF-RH / RF-LH / LF-RF / LH-RH correlations, group means, PCA variance fractions and loadings, plus voltage range and spike totals.",
+  "decision_relevant_note": "This round makes no acceptance decision and runs no physical trial. If the wide module shows tripod anti-phase absent as well, the next step is a physical experiment only under a new preregistration; if it shows anti-phase, that is still only a neural observation.",
+  "explicit_difference_from_earlier_rounds": "Earlier rounds analysed the frozen canonical 1 s neural state; here both conditions start from rest because a 127k-cell state does not exist for the canonical checkpoint. Numbers are therefore not interchangeable with rounds 10-12.",
+  "limits": "Whole-BANC strict module: single verified transmitter per presynaptic cell, uniform per-target 0.020 uS, inhibitory sign taken from GABA/glutamate label only, no measured receptor signs, no compensation for missing cell types or gap junctions, no anatomical validation of the 2-hop structure, and the sensory encoder remains an uncalibrated proxy. Whole-cache dynamics are not a fly and not a behaviour."
+}

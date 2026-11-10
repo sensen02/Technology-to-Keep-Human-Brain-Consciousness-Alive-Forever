@@ -1,0 +1,49 @@
+{
+  "condition": "trial_048",
+  "episode_id": "trial_048",
+  "evaluation_seed": 20261155,
+  "duration_s": 1.0,
+  "start_time_s": 0.9999999999993368,
+  "physics_dt": 1.25e-05,
+  "command_dt": 0.001,
+  "policy_dt": 0.005,
+  "slip_dt": 0.005,
+  "checkpoint_episode": true,
+  "warmup_in_this_trace": false,
+  "previous_warmup_source": "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T192931Z/closed_loop",
+  "controller": "qualified556sensory->fixed20kconductancecore->MN-onlysameleglowrankactor->finitePD128",
+  "actor_inputs": "MN323filteredHz only; no body/root/time/teacher/target",
+  "reward_inputs": "privileged physicalbody evaluation only; no withintrial feedback into actor",
+  "assist": {
+    "foot_support_mean": 1.001101361597766,
+    "com_z_mean": 1.183746232118977
+  },
+  "initial_heading_xy": [
+    0.951478334279399,
+    0.30771574447353245
+  ],
+  "initial_COM": [
+    1.1968256985873045,
+    1.572955204334914,
+    1.2559737576320162
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/episode.py": "f81f2228652fc7bf5f11ebef796f37ddf8c968ce1205202e12506adea6a7474a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/scoring.py": "4f70fff190a03ae2895c1df8ca5ded13a16f9751c43562a6a49337fe278442e3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/search_rules.py": "dfc05c995f2cf346b7926c93474a225fd15135f8d955135afbf4cd792640f291",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/PREREG.json": "cdf29ba42d7e1e63c336a0ea4c7f35715c818641cc4ed4c7eafab0d2b80e4154",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T192931Z/closed_loop/HANDOVER.npz": "4f66a3be43411cf8e657249217b35d5e2e0345caa849a368535bf705b34789ff",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T192931Z/closed_loop/INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T192931Z/closed_loop/NATIVE.npz": "81d7245fd4b5e3b52863a2bfefd970a7af499f6f6dd2554e548ede2f6cb790f7",
+    "/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054"
+  },
+  "body_source": "/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+  "body_source_sha256": "517cec0eed476f825535b56858b434c949bcbf8ed18ce954189689c784d1d2d1",
+  "native_retention": "all native20fields retained for this trial",
+  "run_source_sha256": "f81f2228652fc7bf5f11ebef796f37ddf8c968ce1205202e12506adea6a7474a",
+  "final_validation": false
+}

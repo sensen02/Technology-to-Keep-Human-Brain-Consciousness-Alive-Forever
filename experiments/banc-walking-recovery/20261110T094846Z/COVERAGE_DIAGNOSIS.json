@@ -1,0 +1,405 @@
+{
+  "training_rows": 3840,
+  "training_clipping": {
+    "q": 0.0,
+    "target_error": 0.0,
+    "qvel": 0.0,
+    "target": 0.0,
+    "load": 0.0,
+    "gravity": 0.0,
+    "root_v": 0.0,
+    "root_omega": 0.0,
+    "pad_height": 0.0,
+    "pad_velocity": 0.0
+  },
+  "evaluations": {
+    "smoothFF": {
+      "intervals": [
+        {
+          "seconds": [
+            0,
+            0.1
+          ],
+          "nearest_training_standardized_L2_median": 2.760936275769896,
+          "normalized_per_feature_RMS": 0.197714753335386,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.1,
+            0.5
+          ],
+          "nearest_training_standardized_L2_median": 15.221832891995094,
+          "normalized_per_feature_RMS": 1.0900580944100364,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.5,
+            1.0
+          ],
+          "nearest_training_standardized_L2_median": 44.85424697979455,
+          "normalized_per_feature_RMS": 3.212079342606919,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.015,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            1.0,
+            2.0
+          ],
+          "nearest_training_standardized_L2_median": 90.99894478553458,
+          "normalized_per_feature_RMS": 6.516569788281441,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.02666666666666667,
+            "root_omega": 0.03,
+            "pad_height": 0.5375,
+            "pad_velocity": 0.0
+          }
+        }
+      ],
+      "interpretation": "distance in physical195 rawfeatures, frozen TRAIN scale floor.05; excludes directpreviousaction and speedcommand"
+    },
+    "normFF": {
+      "intervals": [
+        {
+          "seconds": [
+            0,
+            0.1
+          ],
+          "nearest_training_standardized_L2_median": 5.082469609519313,
+          "normalized_per_feature_RMS": 0.3639632084230168,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.1,
+            0.5
+          ],
+          "nearest_training_standardized_L2_median": 8.105603130688785,
+          "normalized_per_feature_RMS": 0.5804542964946832,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.5,
+            1.0
+          ],
+          "nearest_training_standardized_L2_median": 17.613119631562594,
+          "normalized_per_feature_RMS": 1.261301694639791,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            1.0,
+            2.0
+          ],
+          "nearest_training_standardized_L2_median": 73.44465324160741,
+          "normalized_per_feature_RMS": 5.259480860498352,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.065,
+            "root_omega": 0.045,
+            "pad_height": 0.42083333333333334,
+            "pad_velocity": 0.0
+          }
+        }
+      ],
+      "interpretation": "distance in physical195 rawfeatures, frozen TRAIN scale floor.05; excludes directpreviousaction and speedcommand"
+    },
+    "normGRU": {
+      "intervals": [
+        {
+          "seconds": [
+            0,
+            0.1
+          ],
+          "nearest_training_standardized_L2_median": 1.1849438218801216,
+          "normalized_per_feature_RMS": 0.08485558957494875,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.1,
+            0.5
+          ],
+          "nearest_training_standardized_L2_median": 6.806048422345528,
+          "normalized_per_feature_RMS": 0.4873912508674249,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.5,
+            1.0
+          ],
+          "nearest_training_standardized_L2_median": 25.388421229491925,
+          "normalized_per_feature_RMS": 1.8181026070817674,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.013333333333333334,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            1.0,
+            2.0
+          ],
+          "nearest_training_standardized_L2_median": 48.95177188086598,
+          "normalized_per_feature_RMS": 3.505509195447339,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0033333333333333335,
+            "root_omega": 0.0,
+            "pad_height": 0.31666666666666665,
+            "pad_velocity": 0.0
+          }
+        }
+      ],
+      "interpretation": "distance in physical195 rawfeatures, frozen TRAIN scale floor.05; excludes directpreviousaction and speedcommand"
+    },
+    "recoveryFF": {
+      "intervals": [
+        {
+          "seconds": [
+            0,
+            0.1
+          ],
+          "nearest_training_standardized_L2_median": 1.2083464244184245,
+          "normalized_per_feature_RMS": 0.08653148475183993,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.1,
+            0.5
+          ],
+          "nearest_training_standardized_L2_median": 10.573033975931427,
+          "normalized_per_feature_RMS": 0.7571506893888779,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.0,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            0.5,
+            1.0
+          ],
+          "nearest_training_standardized_L2_median": 17.82688218803461,
+          "normalized_per_feature_RMS": 1.2766095492600213,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.0,
+            "root_omega": 0.0,
+            "pad_height": 0.016666666666666666,
+            "pad_velocity": 0.0
+          }
+        },
+        {
+          "seconds": [
+            1.0,
+            2.0
+          ],
+          "nearest_training_standardized_L2_median": 117.4684435184196,
+          "normalized_per_feature_RMS": 8.41208996338013,
+          "clipping": {
+            "q": 0.0,
+            "target_error": 0.0,
+            "qvel": 0.0,
+            "target": 0.0,
+            "load": 0.0,
+            "gravity": 0.0,
+            "root_v": 0.06166666666666667,
+            "root_omega": 0.056666666666666664,
+            "pad_height": 0.6733333333333333,
+            "pad_velocity": 0.0016666666666666668
+          }
+        }
+      ],
+      "interpretation": "distance in physical195 rawfeatures, frozen TRAIN scale floor.05; excludes directpreviousaction and speedcommand"
+    }
+  },
+  "assisted_recovery_coverage": [
+    {
+      "mixed_nearest_training_L2_median": 0.7700550220381128,
+      "mixed_clipping": {
+        "q": 0.0,
+        "target_error": 0.0,
+        "qvel": 0.0,
+        "target": 0.0,
+        "load": 0.0,
+        "gravity": 0.0,
+        "root_v": 0.0,
+        "root_omega": 0.0,
+        "pad_height": 0.0,
+        "pad_velocity": 0.0
+      }
+    },
+    {
+      "mixed_nearest_training_L2_median": 0.7609702578764598,
+      "mixed_clipping": {
+        "q": 0.0,
+        "target_error": 0.0,
+        "qvel": 0.0,
+        "target": 0.0,
+        "load": 0.0,
+        "gravity": 0.0,
+        "root_v": 0.0,
+        "root_omega": 0.0,
+        "pad_height": 0.0,
+        "pad_velocity": 0.0
+      }
+    },
+    {
+      "mixed_nearest_training_L2_median": 0.7731254172050115,
+      "mixed_clipping": {
+        "q": 0.0,
+        "target_error": 0.0,
+        "qvel": 0.0,
+        "target": 0.0,
+        "load": 0.0,
+        "gravity": 0.0,
+        "root_v": 0.0,
+        "root_omega": 0.0,
+        "pad_height": 0.0,
+        "pad_velocity": 0.0
+      }
+    }
+  ],
+  "conclusion": "Quantifies on-trajectory narrowness and observed drift, not impossibility/sole-cause proof. Stronger mixed/burst aggregation needs independent physical validation."
+}

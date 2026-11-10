@@ -1,0 +1,29 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-12",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the value function only; actor architecture, world, task, reward, observation and acceptance criteria untouched",
+  "when": "after the independent-sub-network runs, before the next run",
+  "evidence": {
+    "per_leg_training_passes_five_of_six": "with sampling restricted to one leg, LF (update 16), LM (update 8), RM (update 8), RF (update 16) and LH (update 16) each reached all five criteria in their own run. Only RH failed (lift 0.063, advance 0.0000)",
+    "but_the_combined_network_still_passes_three": "with six independent sub-networks and mixed sampling the count was 3 of 6 at update 24 and still exactly the same three at update 48, with the same per-leg failure modes, so more budget did not help",
+    "the_only_remaining_coupling": "the sub-networks no longer share actor weights, but they still shared ONE value function. Advantages are computed against that shared baseline, so six reward scales were mixed into one critic and every leg's advantage was biased by the others"
+  },
+  "change": {
+    "old": "one value function for all legs (495->128->1)",
+    "new": "one value function per leg (495->128->1, six of them), selected by the leg prompt exactly like the actor",
+    "gradient_isolation": "a sample for leg L now updates only sub-network L and value function L; verified: gradients for the other five are exactly zero",
+    "gradient_check": "three-point central difference on the critic matches the analytic gradient for both wc0 (0.000117) and wc (2.422062)"
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical",
+    "reward": "identical, achievement-flag potential",
+    "teacher": "identical, raise 60 / swing 90 / hold 0.5",
+    "budget": "3600 imitation samples, 1500 imitation steps, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "if the passing count rises toward five or six, the remaining conflict really was the shared advantage baseline and the single-leg step task is solved by an isolated replacement ANN for those legs",
+    "if it stays at three, no part of the network is shared any more, so the limit would be in how PPO allocates its budget across six prompts in one update, and the report must say so",
+    "no result may be described as walking, as connectome capability or as frozen-body acceptance"
+  ],
+  "discipline": "all earlier preregistrations and amendments are left byte-identical. This is the twelfth documented change of the round."
+}

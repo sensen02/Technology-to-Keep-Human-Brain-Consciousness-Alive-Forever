@@ -1,0 +1,334 @@
+{
+  "schema": "banc-local-information-diagnostic-result/1",
+  "status": "PASS_OFFLINE_INFORMATION_DIAGNOSTIC",
+  "scope": "S3/S4 offline information audit of the frozen coarse encoder and same-leg MN readout; zero physical/neural steps; diagnosis only, no deployed policy fitting and no acceptance-threshold change",
+  "workspace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information",
+  "desktop_mirror": "/home/sensen/Desktop/engine修复验收/banc-descending-learning/20261107T203049Z/information",
+  "prereg": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/PREREG.json",
+  "prereg_sha256": "a5a90d8723287f9a9448616da937e0bec28da5e147a33b133ac64153cff102c9",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/PREREG.json": "a5a90d8723287f9a9448616da937e0bec28da5e147a33b133ac64153cff102c9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/audit_encoder.py": "9b64acade389253abfe4919f6482c84822fca04a0d83744408d2b6f8e4ea64ed",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/fit_information.py": "765fdc3c27c7a99155b4ac82c25d712d8d8dbe1f9cb4af8c6ee067cf60f6da8c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/ENCODER_AUDIT.json": "3fae7797202e97e0e2c5bea368dc71f6a895962b8c181f9b011ccc6ba656c6f2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/SAVED_DATA.npz": "fac05db43d6512afa93a7c1974e6fb7e0439e4ee8a40d6a5e050532a6b8c79d1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054"
+  },
+  "counts": {
+    "fits_performed": 72,
+    "fits_not_estimable": 0,
+    "maximum_fits_allowed": 72,
+    "fitter_artifact_reads": 2,
+    "verifier_artifact_reads": 246,
+    "encoder_audit_artifact_reads": 290,
+    "encoder_calls": 11711,
+    "trial_artifacts_hashed": 288,
+    "saved_bins_fitted": 9600,
+    "old_source_bins": 1817,
+    "physics_steps": 0,
+    "neural_steps": 0,
+    "training_updates": 0,
+    "semantics": "one fit = one ridge solve on train-only standardized features of one (leg, representation, target) cell; feature construction, standardization and metrics are not counted as fits; NOT_ESTIMABLE cells are counted but perform no solve"
+  },
+  "encoder": {
+    "encoder_rank_all": 24,
+    "zero_input_columns": 54,
+    "nonzero_q_columns": 24,
+    "zero_q_columns": 18,
+    "nonzero_qvel_columns": 6,
+    "zero_qvel_columns": 36,
+    "q_independent_directions": 12,
+    "qvel_independent_directions": 6,
+    "foot_load_independent_directions": 6,
+    "alias_fixtures": 18,
+    "all_alias_fixtures_bit_identical": true,
+    "sensitivity_controls": 6,
+    "all_controls_detected": true,
+    "encoded4_stance_air_test_ba_range": [
+      0.9784642157929084,
+      0.9929456297315898
+    ],
+    "mn_stance_air_test_ba_range": [
+      0.43574086279500907,
+      0.8218133394439674
+    ],
+    "rawphysical_stance_air_test_ba_range": [
+      0.934149787814679,
+      0.97883295194508
+    ],
+    "encoded4_knee_sign_test_ba_range": [
+      0.4421124049509732,
+      0.6465927997993456
+    ],
+    "mn_knee_sign_test_ba_range": [
+      0.49060881920186894,
+      0.5813508511525277
+    ],
+    "rawphysical_knee_sign_test_ba_range": [
+      0.6930357789048633,
+      0.9580354512422665
+    ],
+    "encoded4_knee_sign_mean_train_ba": 0.588089085392007,
+    "mn_knee_sign_mean_train_ba": 0.5897440780686545,
+    "signed_knee_velocity_r2_test_range_encoded4": [
+      -0.09546068285186782,
+      0.6531552378557459
+    ],
+    "signed_knee_velocity_r2_test_range_mn": [
+      -0.08567123980336788,
+      0.5215323587343113
+    ],
+    "signed_knee_velocity_r2_test_range_rawphysical": [
+      0.999999738498115,
+      0.9999999515525609
+    ],
+    "signed_knee_velocity_negative_r2_fits": 5,
+    "rawphysical_ridge_shrinkage_one_minus_r2": [
+      8.443186549911275e-08,
+      1.0586363619058403e-07,
+      4.8447439060517183e-08,
+      7.433475524010191e-08,
+      6.76518584485919e-08,
+      2.6150188503493155e-07
+    ],
+    "regression_mse_vs_baseline_better_than_baseline": 19,
+    "mn_vs_encoded_stance_air_gap_mean": -0.4252842075899539,
+    "mn_vs_encoded_knee_sign_gap_mean": -0.018740137431892068,
+    "rawphysical_minus_encoded_stance_air_mean": -0.030735373456973747,
+    "rawphysical_minus_mn_stance_air_mean": 0.39454883413298014,
+    "rawphysical_minus_encoded_knee_sign_mean": 0.2815797430799676,
+    "rawphysical_minus_mn_knee_sign_mean": 0.30031988051185965
+  },
+  "aggregates_by_task_and_representation": {
+    "stance_air/encoded4": {
+      "fits": 6,
+      "feature_dimensions": [
+        4
+      ],
+      "test_mean": 0.9860229118246541,
+      "test_min": 0.9784642157929084,
+      "test_max": 0.9929456297315898,
+      "train_mean": 0.9895750277440207,
+      "old_source_mean": 0.9388050562375723,
+      "deployable": true
+    },
+    "stance_air/MNinstant": {
+      "fits": 6,
+      "feature_dimensions": [
+        42,
+        43,
+        59,
+        60
+      ],
+      "test_mean": 0.5594878730742582,
+      "test_min": 0.45479693115886743,
+      "test_max": 0.7629475644382168,
+      "train_mean": 0.6746753854442279,
+      "old_source_mean": 0.5200433511691281,
+      "deployable": true
+    },
+    "stance_air/MNhistory": {
+      "fits": 6,
+      "feature_dimensions": [
+        168,
+        172,
+        236,
+        240
+      ],
+      "test_mean": 0.5619895353951425,
+      "test_min": 0.43574086279500907,
+      "test_max": 0.8218133394439674,
+      "train_mean": 0.7559897407730234,
+      "old_source_mean": 0.5273993338685247,
+      "deployable": true
+    },
+    "stance_air/rawphysical": {
+      "fits": 6,
+      "feature_dimensions": [
+        15
+      ],
+      "test_mean": 0.9552875383676803,
+      "test_min": 0.934149787814679,
+      "test_max": 0.97883295194508,
+      "train_mean": 0.97553657672802,
+      "old_source_mean": 0.8853274123132565,
+      "deployable": false
+    },
+    "knee_velocity_sign/encoded4": {
+      "fits": 6,
+      "feature_dimensions": [
+        4
+      ],
+      "test_mean": 0.5528310391060223,
+      "test_min": 0.4421124049509732,
+      "test_max": 0.6465927997993456,
+      "train_mean": 0.588089085392007,
+      "old_source_mean": 0.5136370034693384,
+      "deployable": true
+    },
+    "knee_velocity_sign/MNinstant": {
+      "fits": 6,
+      "feature_dimensions": [
+        42,
+        43,
+        59,
+        60
+      ],
+      "test_mean": 0.532972922251739,
+      "test_min": 0.49060881920186894,
+      "test_max": 0.5813508511525277,
+      "train_mean": 0.5705420818723498,
+      "old_source_mean": 0.4765741032911281,
+      "deployable": true
+    },
+    "knee_velocity_sign/MNhistory": {
+      "fits": 6,
+      "feature_dimensions": [
+        168,
+        172,
+        236,
+        240
+      ],
+      "test_mean": 0.5352088810965218,
+      "test_min": 0.5115513699976413,
+      "test_max": 0.5775673314622405,
+      "train_mean": 0.6089460742649592,
+      "old_source_mean": 0.4709216787858676,
+      "deployable": true
+    },
+    "knee_velocity_sign/rawphysical": {
+      "fits": 6,
+      "feature_dimensions": [
+        15
+      ],
+      "test_mean": 0.8344107821859899,
+      "test_min": 0.6930357789048633,
+      "test_max": 0.9580354512422665,
+      "train_mean": 0.8655891674078903,
+      "old_source_mean": 0.8550966235767707,
+      "deployable": false
+    },
+    "signed_knee_velocity/encoded4": {
+      "fits": 6,
+      "feature_dimensions": [
+        4
+      ],
+      "test_mean": 0.2981361859682685,
+      "test_min": -0.09546068285186782,
+      "test_max": 0.6531552378557459,
+      "train_mean": 0.2931994247326892,
+      "old_source_mean": 12.517738119292824,
+      "deployable": true
+    },
+    "signed_knee_velocity/MNinstant": {
+      "fits": 6,
+      "feature_dimensions": [
+        42,
+        43,
+        59,
+        60
+      ],
+      "test_mean": 0.10729097196093325,
+      "test_min": -0.015896123042314247,
+      "test_max": 0.40876209125933016,
+      "train_mean": 0.13587455687943809,
+      "old_source_mean": 86526234.7483568,
+      "deployable": true
+    },
+    "signed_knee_velocity/MNhistory": {
+      "fits": 6,
+      "feature_dimensions": [
+        168,
+        172,
+        236,
+        240
+      ],
+      "test_mean": 0.18606250185443915,
+      "test_min": -0.08567123980336788,
+      "test_max": 0.5215323587343113,
+      "train_mean": 0.266994818591044,
+      "old_source_mean": 157465042.1972717,
+      "deployable": true
+    },
+    "signed_knee_velocity/rawphysical": {
+      "fits": 6,
+      "feature_dimensions": [
+        15
+      ],
+      "test_mean": 0.9999998929614268,
+      "test_min": 0.999999738498115,
+      "test_max": 0.9999999515525609,
+      "train_mean": 0.9999999086328685,
+      "old_source_mean": 4.364880413062502e-06,
+      "deployable": false
+    }
+  },
+  "verification": {
+    "status": "PASS",
+    "checks": 1914,
+    "passed": 1914,
+    "failed": 0,
+    "fits_recomputed": 72,
+    "data_artifact_reads": 246,
+    "max_beta_delta": 2.3220672692664616e-14,
+    "max_prediction_delta": 8.614733815193176e-09,
+    "max_metric_delta": 2.3899907915697414e-16,
+    "max_stored_normal_equation_residual": 3.0127011996228248e-12
+  },
+  "failed_attempts": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/FAILED_DIAGNOSTIC_ATTEMPTS.json",
+  "figures": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/FIT_SUMMARY.png"
+  ],
+  "two_hypothesis_reading": {
+    "hypothesis_A_encoder_too_coarse": "SUPPORTED for velocity direction: the frozen hook_direction channel is 0.05*tanh(|knee_speed|/10), an exact absolute-value alias, and no leg representation other than the privileged raw source exceeds ~0.65 balanced accuracy on knee-velocity sign; 36 of 42 joint-speed columns and all 18 trochanter angles have no input port at all, so the 90-input map has rank 24 with 54 exactly zero columns.",
+    "hypothesis_B_readout_compression": "SUPPORTED for the stance/air state: encoded4 recovers the stance/air label at 0.978-0.993 test balanced accuracy, but the same-leg MN representations reach only 0.436-0.822 (mean gap vs encoded4 recorded in aggregates) on the same bins, so the MN observation compresses information the encoder does expose. Because campaniform strain contains foot load by construction this stance/air task is tautological for encoded4 and is an availability/compression check only.",
+    "not_established": "Neither result is a causal statement about the neural circuit, perception, or movement; all 48 episodes share one canonical checkpoint and deterministic policy variants, and no physical or neural step was run in this diagnostic."
+  },
+  "limits": "Recoverability from correlated saved data is not causal neural representation, perception, or movement success. The coarse encoder was an intentionally uncalibrated proxy; its information loss does not make source sensory biology false. A zero input column is an uncalibrated interface gap, not evidence that source sensory biology lacks that information. No cell identities were fabricated and no tuning directions inferred. rawphysical is privileged diagnostic ground truth and is never deployable. All prior failures and frozen artifacts are retained unchanged.",
+  "next_step": {
+    "runner": "information/run_dn_pair.py",
+    "written_but_not_executed": true,
+    "plan_mode_executed": true,
+    "plan_mode_contract": "default invocation is plan-only (no mujoco import, no physical step); --execute performs the two 2 s releases",
+    "selection_rule": "among the 48 saved nonzero candidates in the 195435Z fixed physical search, keep those with RESULT.valid==True and RESULT.feasible==True (the preregistered support/score gate) and a nonzero theta; select the maximum saved training reward; tie-break by the smaller trial index; the zero incumbent trial_000 and the incumbent-control trials 013/026/039/052 are never eligible",
+    "eligible_candidates": 12,
+    "selected_trial": 17,
+    "selected_reward": -1.0144429917827316,
+    "selected_theta_max_abs": 0.02210676619751213,
+    "selected_actor_sha256": "a9044d5f1fa8ee4d873ef1bfb28b5e3637858c8156c15eb1476ed2d9329ab4bd",
+    "descending_command_sha256": "ba84bca2b7e3ee710c3412467db2a4eadcd839dd38d027d44241b7b9363b455c",
+    "descending_root_ids": [
+      720575941433155799,
+      720575941566493282
+    ],
+    "conditions": [
+      {
+        "name": "dn_zero",
+        "descending_amplitude_nA": 0.0
+      },
+      {
+        "name": "dn_on",
+        "descending_amplitude_nA": 0.05
+      }
+    ],
+    "timing": {
+      "policy_dt_s": 0.005,
+      "command_dt_s": 0.001,
+      "native_dt_s": 1.25e-05,
+      "slip_dt_s": 0.0005,
+      "horizon_s": 2.0,
+      "ticks": 400,
+      "native_steps_per_condition": 160000,
+      "forward_calls_per_condition": 160002,
+      "neural_advance_calls": 400,
+      "neural_steps": 2000
+    },
+    "native_steps_if_executed": 320000,
+    "neural_steps_if_executed": 4000,
+    "outputs": {
+      "dn_zero": "/home/sensen/Desktop/engine修复验收/banc-descending-learning/20261107T203049Z/physical/dn_zero",
+      "dn_on": "/home/sensen/Desktop/engine修复验收/banc-descending-learning/20261107T203049Z/physical/dn_on"
+    },
+    "note": "matched 2 s physical pair on the same complete canonical 1 s checkpoint with DN 0 vs 0.05 nA; only the descending current differs; the parent executes and independently replays it; this diagnostic agent performed no physical or neural step"
+  }
+}

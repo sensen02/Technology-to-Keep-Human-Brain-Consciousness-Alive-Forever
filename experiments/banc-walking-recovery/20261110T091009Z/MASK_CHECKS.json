@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "architecture": "ff238",
+      "masked_invariant": true,
+      "masked_gradient_zero": true,
+      "physical_gradient_nonzero": true,
+      "critic_unmasked": true,
+      "checkpoint_contract_enforced": true
+    },
+    {
+      "architecture": "gru238",
+      "masked_invariant": true,
+      "masked_gradient_zero": true,
+      "physical_gradient_nonzero": true,
+      "critic_unmasked": true,
+      "checkpoint_contract_enforced": true
+    }
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T091009Z/models.py": "d107f8bf74c89648219491959e2f6b3276b42bd15e25e8895b7b9b0104268717",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T091009Z/check_mask.py": "7d47d74c1cbb845cb24574d2ad5b6c983d177c85f2b7511fb8c6b4ced79ad3b9"
+  }
+}

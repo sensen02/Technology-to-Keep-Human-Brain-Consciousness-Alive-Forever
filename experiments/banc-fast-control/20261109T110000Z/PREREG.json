@@ -1,0 +1,14 @@
+{
+  "schema": "fast-control/1",
+  "origin": "route 1 of the two the user approved. The open-loop probe shows the actuator can lift a foot (torque demand 11.7 of 14.9) but a three-leg stance collapses immediately, and every trained policy that permits lift ends up with support 0.38-0.58. The suspicion is control latency: the policy only corrects every 5 ms while the native model runs at 12.5 microseconds, so weight transfer may be a real-time problem, not a torque problem.",
+  "change": {
+    "policy_tick": "5 ms -> 1 ms (five times faster correction). One tick is now one 1 ms actuator update plus 80 native steps instead of five updates and 400 steps",
+    "base_network_cadence": "unchanged at 200 Hz: the recorded-imitation base target is refreshed every 5th tick, so the 7-lag history keeps its trained 200 Hz meaning",
+    "rollout_length": "256 ticks -> 1024 ticks, so one rollout still covers about one second of simulated time",
+    "action_authority": "two declared variants: C = 0.01 rad/tick keeps the same 10 rad/s as before, C = 0.02 rad/tick doubles the commanded rate authority",
+    "everything_else": "pad body R=.02, mu=1.5, releasable adhesion A=0.25 body weight, reward v4, 42-joint PPO, gates and evaluation unchanged"
+  },
+  "why_it_counts_as_a_real_route": "control period is a property of the loop, not of the solver; it needs no new body, no new hash and no new physics, and it directly tests the latency hypothesis",
+  "labelling": "derived channel (pad body, friction, releasable adhesion) plus a replacement ANN; not frozen-body acceptance",
+  "accounting": "native steps, wall time, gate checks, and the full evaluation including stance fraction and swing clearance"
+}

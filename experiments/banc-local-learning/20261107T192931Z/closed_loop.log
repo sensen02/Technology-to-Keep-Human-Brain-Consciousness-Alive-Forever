@@ -1,0 +1,76 @@
+{"physical_s": 0.500000000000502, "neural_s": 0.5, "wall_s": 7.207907528965734}
+{"physical_s": 0.9999999999993368, "neural_s": 1.0, "wall_s": 14.16147908498533}
+{"physical_s": 1.4999999999981715, "neural_s": 1.5, "wall_s": 21.219082211959176}
+{"physical_s": 1.9999999999970062, "neural_s": 2.0, "wall_s": 28.78931314597139}
+{"physical_s": 2.499999999995841, "neural_s": 2.5, "wall_s": 36.21683661499992}
+{"physical_s": 2.999999999994676, "neural_s": 3.0, "wall_s": 43.193715949950274}
+{
+  "status": "NEW_MECHANISM_HISTORY_PILOT_NOT_WALKING_ACCEPTANCE",
+  "physical_gate": {
+    "passed": false,
+    "checks": {
+      "D1_no_nonfoot_ground_force": false,
+      "D2_no_free_fall": true,
+      "D3_foot_support_not_below_assist": false,
+      "D4_foot_support_never_collapses": false,
+      "D4b_nonfoot_is_not_carrying_the_body": false,
+      "D5_com_height_not_below_assist": false,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": false
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.001101361597766,
+      "com_z_mean": 1.183746232118977
+    },
+    "release": {
+      "foot_support_mean": 0.7534872180469895,
+      "foot_support_p10": 0.21843316704719257,
+      "foot_support_min": 0.0,
+      "nonfoot_share_mean": 0.24583349168846935,
+      "ground_support_mean": 1.0001086843039255,
+      "com_z_min": 0.5420667578609205,
+      "com_z_mean": 0.774487768554383,
+      "free_fall_fraction": 0.0,
+      "force_balance_residual_p95": 0.025268788976385775,
+      "force_balance_residual_p50": 0.0017671510469887707,
+      "bearing_legs_median": 5.0,
+      "bearing_legs_min": 0,
+      "per_leg_mean_load": [
+        0.12670581360531358,
+        0.06662544463813708,
+        0.2274056697493144,
+        0.06518142181031403,
+        0.18013353062007909,
+        0.08743533762383134
+      ],
+      "per_leg_duty": [
+        0.6005625,
+        0.55055,
+        0.7301875,
+        0.5191875,
+        0.9646125,
+        0.80120625
+      ],
+      "samples": 160000
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "warmup_qpos_max_error": 0.0,
+  "MN_spikes": 15960,
+  "slip_to_pathspeed_ratio": [
+    1.2210907186504547,
+    1.1132353445959915,
+    1.6395249227805426,
+    1.2034775757891276,
+    1.0757946872869535,
+    1.9889559337099345
+  ],
+  "wall_s": 44.31161756796064
+}

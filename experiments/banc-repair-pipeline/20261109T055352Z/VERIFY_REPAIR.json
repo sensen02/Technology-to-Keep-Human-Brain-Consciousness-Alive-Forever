@@ -1,0 +1,110 @@
+{
+  "determinism": {
+    "identical_qpos": true,
+    "max_abs_qpos_diff": 0.0
+  },
+  "pad_lookup": {
+    "per_leg": {
+      "LF": 3,
+      "LH": 3,
+      "LM": 3,
+      "RF": 3,
+      "RH": 3,
+      "RM": 3
+    },
+    "obs_dim": 495,
+    "history_is_own_commands": true
+  },
+  "authority": {
+    "repaired": {
+      "channel_ticks_changed": 84000,
+      "total": 84000,
+      "fraction": 1.0
+    },
+    "legacy": {
+      "channel_ticks_changed": 47361,
+      "total": 84000,
+      "fraction": 0.5638214285714286
+    },
+    "note": "same-state counterfactual per tick, not a full causal ablation"
+  },
+  "teacher_reference": {
+    "label": "teacher rate emulation in the repaired pipeline (NOT a policy result)",
+    "ticks": 3200,
+    "native_time_s": 3.2,
+    "foot_support_mean": 1.4904498013931238,
+    "foot_support_min": 0.9634643564156843,
+    "nonfoot_force_max_W": 1.100258107077291,
+    "com_height_min": 1.0371200766504889,
+    "forward_signed_mean": 0.19649115514364685,
+    "forward_signed_end": -1.4714344882268164,
+    "per_leg_stance_speed": {
+      "LF": 0.2834984477692968,
+      "LH": 0.37896474302875593,
+      "LM": 0.2674364070346081,
+      "RF": 0.3193626750410519,
+      "RH": 0.8048924221670848,
+      "RM": 1.4278224338134888
+    },
+    "per_leg_slip_ratio_vs_mean_forward": {
+      "LF": 1.4428051357428398,
+      "LH": 1.928660568724887,
+      "LM": 1.3610607909505952,
+      "RF": 1.625328502993321,
+      "RH": 4.096329025999466,
+      "RM": 7.266599011897838
+    },
+    "foot_slip_ratio_max": 7.266599011897838,
+    "mean_pad_bottom_z": {
+      "LF": -0.026546883100805073,
+      "LH": -0.04013641799414584,
+      "LM": -0.033148014602591716,
+      "RF": -0.03248954231121915,
+      "RH": -0.006425905591443863,
+      "RM": -0.0038699260182934
+    },
+    "max_pad_bottom_z": {
+      "LF": 0.011495830234406847,
+      "LH": -0.0026707059168911626,
+      "LM": -0.0032834538448638997,
+      "RF": 0.0019101674062783,
+      "RH": -0.0006436490250495072,
+      "RM": 0.002043908781225852
+    }
+  },
+  "leg_order": {
+    "actuator_order": [
+      "LF",
+      "LH",
+      "LM",
+      "RF",
+      "RH",
+      "RM"
+    ],
+    "sensory_order": [
+      "LF",
+      "LM",
+      "LH",
+      "RF",
+      "RM",
+      "RH"
+    ],
+    "sensory_index_map": [
+      0,
+      2,
+      1,
+      3,
+      5,
+      4
+    ],
+    "note": "foot loads are handed to the encoder in its declared order"
+  },
+  "hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T091243Z/proprioception.py": "1867ccc711f6bc8dc8a1c0bc88aafed0e6ea78907fa4e86c8f016c19c062cfb0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-stand-pose/20261110T030000Z/STAND_POSE_TRIAD_1.45.json": "574152bb05155c808b4c6fcafb453554f0904a860770e137aa64fd97bffb04fe",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb"
+  }
+}

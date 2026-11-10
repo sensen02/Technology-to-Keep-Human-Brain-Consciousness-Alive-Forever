@@ -1,0 +1,29 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-4",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "PREREG.json (acceptance criteria unchanged)",
+  "when": "after the 64-update run, before the next run; found by comparing the training gates with the evaluator",
+  "evidence": {
+    "training_placement_rate": "placed_fraction reached a maximum of 0.814 and averaged 0.247 over the last eight updates of the 64-update run",
+    "evaluation_end_load": "the same checkpoint ends the deterministic episode with 0.000 to 0.041 body weight on the prompted leg",
+    "codes": "train_single_leg.py before this amendment used HIGH = 0.30 * body weight to close a swing and to set the 'placed' flag, while evaluate() calls a leg placed at THRESH['place_load'] = 0.10 * body weight",
+    "diagnosis": "the training signal for landing required three times the load that the acceptance test requires, so the dense 'placed' credit was gated behind a state almost never reached (a leg at rest carries about 0.17 body weight). This is a mismatch between my reward code and my own declared criteria, not a capability limit."
+  },
+  "changes": {
+    "swing_start": {"old": "load <= 0.10 * body weight", "new": "load <= 0.05 * body weight",
+                    "reason": "hysteresis: the swing must start below the acceptance unload bar so that closing at 0.10 cannot chatter at the boundary"},
+    "swing_end": {"old": "load >= 0.30 * body weight", "new": "load >= 0.10 * body weight AND pad bottom height <= 0.004",
+                  "reason": "this is exactly the acceptance definition of a placement"},
+    "placed_flag": {"old": "max lift >= 0.008 and load >= 0.30 * body weight", "new": "max lift >= 0.008 and advanced >= 0.03 and closed at load >= 0.10 with pad <= 0.004",
+                    "reason": "the advance requirement moves from a multiplier on the bonus into a gate, so the bonus is no longer paid for a swing that barely moved"},
+    "evaluator": {"old": "closed a swing at 0.30 * body weight", "new": "closed at 0.10 * body weight with pad <= 0.004",
+                  "reason": "training and evaluation must share one definition of a swing, otherwise the numbers are not comparable"}
+  },
+  "unchanged": {
+    "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+    "reward_weights": "0.8 / 1.2 / 1.0 / place 2.0 / place_hold 0.6 and all safety penalties",
+    "potential_form": "achievement flags (PREREG_AMENDMENT_3.json)",
+    "warm_start_and_optimizer": "unchanged, 24 updates, 300-tick window"
+  },
+  "discipline": "amendments 1, 2 and 3 and the original PREREG are left byte-identical; this is the fourth documented reward change in the round and the report lists all four with their measurements"
+}

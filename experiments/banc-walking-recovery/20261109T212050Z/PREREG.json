@@ -1,0 +1,18 @@
+{
+  "schema": "banc-walking-recovery/1",
+  "created_runtime_utc": "20261109T212050Z",
+  "purpose": "S5: declared algorithm-assisted whole-body gait warm-up (six legs, 42 joints), no neural claim",
+  "why": "All earlier work stepped one leg with the other five holding fixed targets. The user's authorised route is algorithm-assisted physical walking first, then neural take-over. This tries a real alternating tripod gait over all six legs.",
+  "interface": "unchanged incremental actuators; action in [-1,1]^42 mapped to joint target rates within the engineering limit of 2 rad/s; native torque and angle limits remain enforced",
+  "controller": "declared algorithm-assisted warm-up: body-frame foot trajectories (stance ramp back, swing ramp forward with lift) tracked by resolved-rate control using the thorax-relative Jacobian, plus a body-height feedback term",
+  "authorised_by": "user instruction: algorithm plus physics simulation should walk a few steps first, then neural take-over; this stage is labelled algorithm-assisted and is not counted as neural autonomous movement",
+  "gates_frozen": {"foot_support_mean_min": 0.90, "nonfoot_force_max_W": 4.889270951175601, "com_height_min": 1.20, "slip_ratio_max": 0.5, "forward_speed_min": 0.05},
+  "gates_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-strong-actuator/20261109T230000Z/train_strong.py GATES and summarise(); copied verbatim in gait_teacher.py",
+  "physics": "core_v2 (COM-referenced adhesion wrench fix), frozen XML, derived triad world; no qpos/qvel writes after reset, no root translation, no pose locking, no external support force",
+  "preregistered_outcomes": [
+    "if a configuration satisfies all five frozen gates, that is an algorithm-assisted walking result and the take-over stage becomes the next step",
+    "if no configuration satisfies all gates, record which gate fails and the best measured values; a failure here is not evidence about the body's limits",
+    "no outcome may be described as neural autonomous walking, connectome capability, or frozen-body acceptance"
+  ],
+  "limits": "SI calibration NOT_ESTABLISHED. No injury. Teacher and replacement ANN remain separate from connectome capability."
+}

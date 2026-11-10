@@ -1,0 +1,10 @@
+{
+  "objective": "S2/S5: recover autonomous walking work; no other platform stage before walking acceptance",
+  "status": "diagnostic and declared teacher construction; not autonomous walking",
+  "hypothesis": "Old teacher differentiates world-x pad position, while measured foot advance is thorax-relative x. Correct differentiation and direction may improve hind-leg swing; failure cannot prove physical impossibility.",
+  "invariants": "Frozen XML, derived world, actuator limits and original acceptance thresholds remain unchanged. Old files are not changed. No body pose or velocity writes after reset, no root stabilization, no scripted translation.",
+  "diagnostics": ["Analytic thorax-relative pad Jacobian versus central finite difference at nominal, rotated and displaced configurations", "Compare old and corrected single-leg teacher in all six legs with the original load-window criterion, full terminal and safety metrics"],
+  "acceptance": "Diagnostic pass requires max Jacobian absolute error < 1e-5. Teacher success uses existing train_single_leg.THRESH and identical load window semantics, not a walking gate.",
+  "next_method": "Construct whole-body teacher with stance-foot constraints and swing-foot targets jointly; then train a single observation-driven 42-output ANN with all-leg closed-loop observations. Teacher is explicitly training-only. Evaluate sustained free-body walking and slip under original gates; neither single-leg pass nor teacher motion is autonomous walking.",
+  "limits": "A finite teacher or policy search is not an impossibility proof. Matching teacher and student pass counts is not proof of a teacher-imposed learning ceiling. SI calibration NOT_ESTABLISHED. No injury."
+}

@@ -1,0 +1,45 @@
+{
+  "status": "PLATFORM_WITH_LABELLED_ANN_MOVEMENT_RUN",
+  "condition": "reachable",
+  "tag": "reachable_base",
+  "radius": 0.05,
+  "food_distance_native": 0.3,
+  "ticks": 800,
+  "duration_s": 3.9999999999923452,
+  "movement_label": "replacement_ANN_not_connectome",
+  "movement_source": "frozen u32 residual policy recorded trajectory",
+  "movement_known_deficiency": "material foot slip criterion FAILS; support gates pass",
+  "selector_label": "engineering_not_neural",
+  "feeding_label": "declared_virtual_gate",
+  "arrived": true,
+  "arrival": {
+    "tick": 224,
+    "time_s": 1.1249999999990454,
+    "mouth_to_center": 0.04917818186803904
+  },
+  "decisions": {
+    "feed": 58,
+    "forage": 0,
+    "rest": 742
+  },
+  "energy_start": 0.5999,
+  "energy_end": 0.5924999999999842,
+  "food_start": 1.0,
+  "food_end": 0.927500000000169,
+  "max_forward_travel": 1.1354876117932233,
+  "min_mouth_to_food": 0.025856435080958404,
+  "native_steps_added": 0,
+  "neural_steps_added": 0,
+  "training_updates": 0,
+  "provenance": {
+    "kinematics": "frozen model, one mj_forward per recorded qpos; no stepping",
+    "channel": "feeding has no feedback to the movement controller (it has no food sensing)"
+  },
+  "limits": "ANN movement fails the frozen slip criterion, so this is not accepted walking and not connectome control. Feeding/food/selector are declared engineering components. No injury, no new physics claim.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T234820Z/platform_state.py": "e4a5c81a30edef24da77761c0e484eeddf41e51f648c6c66e33f02f9f836dbc8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T235900Z/ANN_BODY_u32.npz": "1f45021726fc2bf599cfcd3772ae6ac23bb07d641653be3609801c626bfa0951",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T235900Z/PREREG.json": "eee6b045108cea24055b13b714ab99d2ba7537d17bbe5940572193c3ba4261e2"
+  }
+}

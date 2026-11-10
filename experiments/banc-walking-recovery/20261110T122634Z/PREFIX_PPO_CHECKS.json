@@ -1,0 +1,338 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "actual_PPO_clip_branches",
+      "passed": true
+    },
+    {
+      "name": "FD_actor_head",
+      "passed": true,
+      "analytic": 2.9302892752528815,
+      "numeric": 2.930289275067388
+    },
+    {
+      "name": "FD_actor_encoder",
+      "passed": true,
+      "analytic": -0.00019229993480972913,
+      "numeric": -0.00019230060599451093
+    },
+    {
+      "name": "FD_actor_gain",
+      "passed": true,
+      "analytic": 1.0955312081646238,
+      "numeric": 1.095531207681577
+    },
+    {
+      "name": "FD_logstd",
+      "passed": true,
+      "analytic": -0.7493431520342763,
+      "numeric": -0.7493431520011473
+    },
+    {
+      "name": "FD_critic",
+      "passed": true,
+      "analytic": -0.04468279781945944,
+      "numeric": -0.04468279780900364
+    },
+    {
+      "name": "prefix_excluded_from_GAE",
+      "passed": true
+    },
+    {
+      "name": "prefix_counterfactual_density_targets_not_objective",
+      "passed": true
+    },
+    {
+      "name": "normalize_auto_only",
+      "passed": true
+    },
+    {
+      "name": "full_BPTT_prefix_gradient_nonzero",
+      "passed": true,
+      "prefix_gradient": 0.029494261416516013
+    },
+    {
+      "name": "prefix_observation_history_affects_auto",
+      "passed": true
+    },
+    {
+      "name": "replay_from_zero_exact",
+      "passed": true
+    },
+    {
+      "name": "replay_prefix_count",
+      "passed": true
+    },
+    {
+      "name": "stale_prefix_rejected",
+      "passed": true
+    },
+    {
+      "name": "stale_auto_rejected",
+      "passed": true
+    },
+    {
+      "name": "reject_nonmonotonic",
+      "passed": true
+    },
+    {
+      "name": "reject_no_auto",
+      "passed": true
+    },
+    {
+      "name": "reject_no_prefix",
+      "passed": true
+    },
+    {
+      "name": "reject_boundary_inside",
+      "passed": true
+    },
+    {
+      "name": "reject_missing_reset",
+      "passed": true
+    },
+    {
+      "name": "reject_nan",
+      "passed": true
+    },
+    {
+      "name": "masked_joint_KL_hand_formula",
+      "passed": true
+    },
+    {
+      "name": "prefix_KL_excluded",
+      "passed": true
+    },
+    {
+      "name": "synthetic_actual_update_accepted",
+      "passed": true
+    },
+    {
+      "name": "both_Adam_states_initialized",
+      "passed": true
+    },
+    {
+      "name": "forced_joint_KL_rejection",
+      "passed": true
+    },
+    {
+      "name": "transaction_restores_model_both_Adam_counters_LRs",
+      "passed": true
+    },
+    {
+      "name": "nonfinite_candidate_transaction",
+      "passed": true
+    },
+    {
+      "name": "retry_half_LRs_persist",
+      "passed": true
+    },
+    {
+      "name": "mock_cycle_observer_starts_at_handover_1ms",
+      "passed": true
+    },
+    {
+      "name": "mock_one_5ms_decision",
+      "passed": true
+    },
+    {
+      "name": "mock_no_teacher_after_prefix",
+      "passed": true
+    },
+    {
+      "name": "mock_actual_previous_action",
+      "passed": true
+    },
+    {
+      "name": "mock_source_flags",
+      "passed": true
+    },
+    {
+      "name": "mock_remaining_autonomous_time",
+      "passed": true
+    },
+    {
+      "name": "mock_no_actor_bootstrap_step",
+      "passed": true
+    },
+    {
+      "name": "mock_bootstrap_critic_actual_post_state",
+      "passed": true
+    },
+    {
+      "name": "actor_excludes_critic_remaining_time",
+      "passed": true
+    },
+    {
+      "name": "mock_physical_state_copies",
+      "passed": true
+    },
+    {
+      "name": "mock_full_history_replay",
+      "passed": true
+    },
+    {
+      "name": "mock_hidden_evidence_only_zero_start",
+      "passed": true
+    },
+    {
+      "name": "mock_prefix_counterfactual_not_executed",
+      "passed": true
+    },
+    {
+      "name": "mock_action_held_0",
+      "passed": true
+    },
+    {
+      "name": "mock_action_held_1",
+      "passed": true
+    },
+    {
+      "name": "mock_action_held_2",
+      "passed": true
+    },
+    {
+      "name": "mock_action_held_3",
+      "passed": true
+    },
+    {
+      "name": "failed_prefix_retained_no_NN_samples",
+      "passed": true
+    },
+    {
+      "name": "reward_exact_target_progress",
+      "passed": true
+    },
+    {
+      "name": "reward_dt_integral",
+      "passed": true
+    },
+    {
+      "name": "raw_slip_unclipped_total_floor_explicit",
+      "passed": true
+    },
+    {
+      "name": "slip_no_achieved_speed_denominator",
+      "passed": true
+    },
+    {
+      "name": "slip_at_zero_forward_same_physical_cost",
+      "passed": true
+    },
+    {
+      "name": "reward_nan_rejected",
+      "passed": true
+    },
+    {
+      "name": "absorbing_longer_early_failure_worse",
+      "passed": true
+    },
+    {
+      "name": "absorbing_discount_exact",
+      "passed": true
+    },
+    {
+      "name": "absorbing_zero_remaining",
+      "passed": true
+    },
+    {
+      "name": "absorption_equals_worst_bounded_continuation",
+      "passed": true
+    },
+    {
+      "name": "GAE_truncation_actual_successor",
+      "passed": true
+    },
+    {
+      "name": "GAE_terminal_zero_bootstrap",
+      "passed": true
+    },
+    {
+      "name": "GAE_two_row_recursion",
+      "passed": true
+    },
+    {
+      "name": "pure_hard_logstd_bounds",
+      "passed": true
+    },
+    {
+      "name": "standard_config_only_fields",
+      "passed": true
+    },
+    {
+      "name": "trainer_default_5ms_discount",
+      "passed": true
+    },
+    {
+      "name": "CLI_train_contract",
+      "passed": true
+    },
+    {
+      "name": "CLI_eval_contract",
+      "passed": true
+    },
+    {
+      "name": "full_960_prefix_1200_autonomous_replay",
+      "passed": true,
+      "rows": 2160,
+      "prefix": 960,
+      "autonomous": 1200
+    },
+    {
+      "name": "full_length_loss_counts_only_1200",
+      "passed": true
+    },
+    {
+      "name": "full_length_BPTT_finite",
+      "passed": true
+    },
+    {
+      "name": "original_trainer_checkpoint_load_exact",
+      "passed": true
+    },
+    {
+      "name": "original_sw_load_student_exact",
+      "passed": true
+    },
+    {
+      "name": "BC_mean_gain_preserved_model_only",
+      "passed": true
+    },
+    {
+      "name": "fresh_both_Adam_zero",
+      "passed": true
+    },
+    {
+      "name": "BC_std_reset_metadata",
+      "passed": true
+    },
+    {
+      "name": "actual_physical_H_constructor",
+      "passed": true
+    }
+  ],
+  "check_count": 74,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/student_wave.py": "fce8eedcfa33e056b9e040d0fc78aa65fdca1b7b550508a5c92b6d1e4fc39cb7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/prefix_ppo.py": "157232e370b7ce9f5a0c70c34832b40d95e127f6e260935534402055f03bb175",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/check_prefix_ppo.py": "7db766df401f9a8c28f7dc2fa41ea550c17b5e802888c2104f7449fa14ff155e"
+  },
+  "environment": {
+    "executable": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/env/bin/python",
+    "torch": "2.5.1+cpu",
+    "threads": 1
+  },
+  "physical_integration_ms": 0,
+  "actual_training": false,
+  "synthetic_optimizer_steps": true,
+  "interpretation": "numerical/software validation only; no neural walking or physical gate claim"
+}

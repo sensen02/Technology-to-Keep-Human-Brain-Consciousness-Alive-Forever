@@ -1,0 +1,18 @@
+{
+  "interpreter": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python3",
+  "authorized_scope": ["/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface", "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/neural-interface"],
+  "runs": [
+    {"job": "bash-174", "operation": "initial static source audit", "exit_code": 1, "failure": "AssertionError: root_888 and banc_888_id assumed identical row-by-row", "resolution": "Actual source inspection found2 unannotated exceptions, all4 values absent from cache; recorded explicitly instead of reconciling. No source table changed."},
+    {"job": "bash-178", "operation": "corrected full static audit, raw streaming reaggregation and candidate export", "exit_code": 0},
+    {"job": "bash-180", "operation": "independent static verification", "exit_code": 0},
+    {"job": "bash-181", "operation": "final export with exact source row multiplicity and both annotation vocabularies", "exit_code": 0},
+    {"job": "bash-184", "operation": "independent final manifest verification", "exit_code": 0},
+    {"job": "foreground final verification", "operation": "all invariants plus duplicate-ID row counts and4 sensory-channel ambiguity records", "exit_code": 0}
+  ],
+  "initial_path_discovery": "ls exit2 established literal/data/flywire and not-yet-created output roots absent; actual source cache resolved through repository builder. Not an access denial.",
+  "verification_manifest_sha256": "7d056f20fea8d0761468fe9ebbda4144077aeb5858d62a1a9afcd3372319ca92",
+  "calls": {"model_load": 0, "physics_forward": 0, "physics_step": 0, "neural_step": 0, "training_update": 0, "lesion": 0, "external_research": 0},
+  "core_or_tracker_modifications": 0,
+  "source_inputs_unchanged": true,
+  "status": "STATIC_AUDIT_COMPLETE_NOT_BEHAVIOR_VALIDATION"
+}

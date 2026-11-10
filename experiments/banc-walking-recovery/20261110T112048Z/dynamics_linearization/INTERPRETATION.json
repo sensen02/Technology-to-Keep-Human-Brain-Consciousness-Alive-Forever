@@ -1,0 +1,81 @@
+{
+  "status": "verified auxiliary engineering diagnostic only",
+  "goal": "S2/S5 actual physical feedback map at one dynamically reconstructed NN handover state",
+  "baseline": "1s actual zero settle + 4.8s actual teacher, no post-construction reset/pose/force intervention during prefix; absolute simulation time 5.800000000052099s",
+  "provenance": "All 960 teacher observations/actions, handover obs238, and first student action match independently saved actual evaluation bitwise. Exact snapshot restore and two unperturbed 5ms runs match full copied physical data arrays, caches, observations, actions, target, previous action and contacts bitwise.",
+  "full_192_spectral_radius": 1.4664762717017936,
+  "fixed_physics_target_block_spectral_radius": 0.9046591630498465,
+  "what_comparison_supports": "Contraction of the isolated target-memory subblock does not imply contraction of the coupled physical/neural derivative at this state.",
+  "passive_readout_check": {
+    "previous_action_input_columns_max_abs": 0.0,
+    "pad_previous_input_columns_max_abs": 0.0,
+    "explanation": "Previous action is masked by the actor; pad_previous is overwritten during the five-tick action hold before the next decision. They remain declared coordinates and their output rows are preserved in J. Large previous_action output eigenvector energy cannot be interpreted as feedback through previous_action input.",
+    "algebraic_reduction": "Remove the zero input-column coordinates previous_action[138:180] and pad_previous[180:186], keeping 144 coordinates. This is matrix analysis of the same probes, not a new simulated control condition.",
+    "remaining_144_spectral_radius": 1.466476271701795,
+    "remaining_144_scaled_norm2": 415.6574889798649,
+    "remaining_144_frozen_power20_scaled_norm2": 132103.20757235656,
+    "remaining_dominant_mode_scaled_block_energy": {
+      "root_position": 0.00044433935829127775,
+      "root_rotation": 0.00007317298614231117,
+      "joint_position": 0.005636875085789494,
+      "qvel": 0.28088360847209604,
+      "target": 0.023294856169291278,
+      "pad_rate": 0.6896671479283897
+    },
+    "energy_caveat": "These energies depend on the declared coordinate scales and indicate mode composition, not a causal attribution to individual sensors or joints."
+  },
+  "finite_difference_sensitivity": {
+    "main_epsilon": 0.00001,
+    "checked_epsilon": 0.000003,
+    "checked_columns": [0, 2, 3, 6, 27, 48, 69, 96, 117, 138, 180, 186],
+    "max_native_relative_column_difference": 0.043663895021126324,
+    "max_scaled_relative_column_difference": 0.075747214644815,
+    "max_difference_column": 69,
+    "scaled_relative_difference_column48": 0.004974626799722241,
+    "other_checked_scaled_relative_differences_max": 0.001552491092586069,
+    "rho_after_only12_columns_substituted": 1.4666736963451386,
+    "caveat": "Only 12 representative columns are checked at the smaller epsilon. The hybrid-column spectrum is an algebraic sensitivity check, not a full second Jacobian or a bound on spectral error. Existing sensory.features first183 channels use float32 before upcasting to float64."
+  },
+  "hybrid_contact_checks": {
+    "private_holds": 410,
+    "native_steps_per_hold": 400,
+    "native_contact_constraint_sequence_changes": 0,
+    "endpoint_contact_pair_changes": 0,
+    "mujoco_warnings": 0,
+    "detail": "Every native solve logs contact geom pairs and all efc_state values; transition records plus full sequence SHA256 and boundary loads are retained in PROBES.json. Unchanged discrete state does not guarantee globally smooth behavior."
+  },
+  "fixture_accounting": {
+    "actual_prefix_native_steps": 464000,
+    "private_probe_native_steps": 164000,
+    "private_aggregate_simulated_seconds": 2.05,
+    "private_perturbed_holds": 408,
+    "unperturbed_restore_proof_holds": 2,
+    "full_MjData_snapshot_allocations": 1,
+    "restore_calls_including_final_restore": 411,
+    "offline_qpos_perturbed_holds": 106,
+    "offline_qvel_perturbed_holds": 100,
+    "offline_target_perturbed_holds": 88,
+    "offline_previous_action_perturbed_holds": 86,
+    "offline_pad_previous_perturbed_holds": 14,
+    "offline_pad_rate_perturbed_holds": 14,
+    "teacher_calls_after_prefix": 0,
+    "reset_API_calls_after_Core_construction": 0,
+    "explicit_script_force_writes_during_prefix": 0,
+    "clarification": "Unchanged Core internally clears xfrc_applied while adhesion is disabled, as its original tick implementation specifies. No forces are added by this diagnostic. All restores and perturbation writes are private offline fixtures, not accepted motion."
+  },
+  "verification": "Managed job bash-112 exit0; independent new-process --validate exit0. Input source identities, compiled model arrays, actuator configuration and output artifact hashes verified. All numerical metrics reload exactly. No helper source edited.",
+  "limits": [
+    "ONE nonstationary operating state, not a fixed point, periodic orbit, or multistep physical rollout.",
+    "Eigenvalues and J^20 characterize the frozen local coefficient matrix in the declared tangent coordinates; no full-cycle stability or falling root-cause proof follows.",
+    "The parent actual NN evaluation stayed supported but failed walking metrics; this local spectral result does not contradict that finite actual trajectory.",
+    "MuJoCo warmstart and other internal solver state are fully restored but not independent coordinates in the requested 192D embedding.",
+    "Units remain native; absolute SI NOT_ESTABLISHED. This is a replacement ANN diagnostic, not a connectome or biological capability claim."
+  ],
+  "primary_outputs": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/linearize_plant.py",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/LINEARIZATION_CHECKS.json",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/RESULT.json",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/JACOBIAN.npz",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112048Z/dynamics_linearization/VALIDATION.json"
+  ]
+}

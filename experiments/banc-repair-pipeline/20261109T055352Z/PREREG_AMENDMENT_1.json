@@ -1,0 +1,31 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-1",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "PREREG.json",
+  "when": "before the main 48-update run, after a measured reward-scale probe",
+  "evidence": {
+    "script": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/reward_scale.py",
+    "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/REWARD_SCALE.json",
+    "measured_on": "warm-start policy, 6 prompts x 300 ticks, zero PPO updates",
+    "mean_term_values": {
+      "unload": 0.229, "lift": 0.0069, "nonfoot": -0.00016, "support": 0.0, "com": 0.0,
+      "other_stance": -6.53, "act": -0.0101, "omega": -0.447, "grav": -0.000025
+    },
+    "mean_total_reward": -6.756,
+    "interpretation": "the summed stance-slip penalty was 6.53 per tick against 0.236 of combined task reward, i.e. about 28 times larger. Raw summed stance excess averaged 3.27 native/s across the other five legs, which is the same slipping that the earlier line of work found the policy cannot reduce on planted feet. Running with the original weight would have re-created the stand-still degeneracy instead of testing whether a single leg can be lifted."
+  },
+  "weight_changes": {
+    "other_leg_stance_excess": {"old": 2.0, "new": 0.05,
+      "reason": "demoted from a driver to a reported quantity; slip remains measured and reported but must not dominate a task that is not about slip yet"},
+    "omega": {"old": 0.05, "new": 0.01,
+      "reason": "body angular-rate penalty was 0.447 per tick, twice the task terms"}
+  },
+  "unchanged": {
+    "task_terms": "unload 0.8, lift 1.2, advance_rate 1.0, place_event 2.0",
+    "safety_terms": "nonfoot 20, support 30, com 60",
+    "success_criteria": "the five pre-registered criteria are untouched",
+    "optimizer": "48 updates, rollout 1024, epochs 4, lr 3e-4, gamma half-life 1.0 s, GAE 0.99",
+    "preregistered_outcomes": "unchanged, including that no result may be reported as walking"
+  },
+  "discipline": "the original PREREG.json is left byte-identical; this amendment records what changed, why, and the measurement that justified it before the run started"
+}

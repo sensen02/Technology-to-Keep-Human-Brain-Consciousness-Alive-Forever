@@ -1,0 +1,363 @@
+{
+  "label": "coordinate audit and declared teacher comparison; NOT walking",
+  "jacobian_checks": [
+    {
+      "pose": "nominal",
+      "leg": "LF",
+      "relative_error": 5.018115506461029e-10,
+      "old_worldx_vs_measured_error": 1.563584065699479
+    },
+    {
+      "pose": "nominal",
+      "leg": "LH",
+      "relative_error": 6.661340368196988e-10,
+      "old_worldx_vs_measured_error": 1.567395335863723
+    },
+    {
+      "pose": "nominal",
+      "leg": "LM",
+      "relative_error": 2.7755575615628914e-10,
+      "old_worldx_vs_measured_error": 1.5675479149120857
+    },
+    {
+      "pose": "nominal",
+      "leg": "RF",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 1.5600766101752253
+    },
+    {
+      "pose": "nominal",
+      "leg": "RH",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 1.5620043397972945
+    },
+    {
+      "pose": "nominal",
+      "leg": "RM",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 1.5603510989493243
+    },
+    {
+      "pose": "yaw90",
+      "leg": "LF",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 1.5635840661435683
+    },
+    {
+      "pose": "yaw90",
+      "leg": "LH",
+      "relative_error": 5.727007756917146e-10,
+      "old_worldx_vs_measured_error": 1.9967936945736366
+    },
+    {
+      "pose": "yaw90",
+      "leg": "LM",
+      "relative_error": 4.4575487745390774e-10,
+      "old_worldx_vs_measured_error": 1.5675479147733073
+    },
+    {
+      "pose": "yaw90",
+      "leg": "RF",
+      "relative_error": 4.801524733366591e-10,
+      "old_worldx_vs_measured_error": 1.6022180712642593
+    },
+    {
+      "pose": "yaw90",
+      "leg": "RH",
+      "relative_error": 5.688094439904035e-10,
+      "old_worldx_vs_measured_error": 1.8949927235093273
+    },
+    {
+      "pose": "yaw90",
+      "leg": "RM",
+      "relative_error": 7.771560617264583e-10,
+      "old_worldx_vs_measured_error": 1.578035638085303
+    },
+    {
+      "pose": "yaw180",
+      "leg": "LF",
+      "relative_error": 5.257602131436556e-10,
+      "old_worldx_vs_measured_error": 2.4979175427114626
+    },
+    {
+      "pose": "yaw180",
+      "leg": "LH",
+      "relative_error": 4.4408943189466754e-10,
+      "old_worldx_vs_measured_error": 1.9980832643878679
+    },
+    {
+      "pose": "yaw180",
+      "leg": "LM",
+      "relative_error": 3.885780586188048e-10,
+      "old_worldx_vs_measured_error": 2.5194069432482467
+    },
+    {
+      "pose": "yaw180",
+      "leg": "RF",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 2.661911646076353
+    },
+    {
+      "pose": "yaw180",
+      "leg": "RH",
+      "relative_error": 4.440892098500626e-10,
+      "old_worldx_vs_measured_error": 2.30734211368606
+    },
+    {
+      "pose": "yaw180",
+      "leg": "RM",
+      "relative_error": 5.551115123125783e-10,
+      "old_worldx_vs_measured_error": 2.4312012668533827
+    }
+  ],
+  "teacher_comparison": {
+    "old": {
+      "LF": {
+        "advance_implemented": 0.5916071024923204,
+        "advance_height_filtered": 0.5916071024923204,
+        "max_lift": 0.7263234967578431,
+        "final_load": 0.44280956399641824,
+        "final_padz": -0.03637329338289195,
+        "support_min": 0.9670686990923928,
+        "com_min": 1.2473700769876523,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "LH": {
+        "advance_implemented": 0.05702530463183142,
+        "advance_height_filtered": 0.028125177273673474,
+        "max_lift": 0.037643991089989566,
+        "final_load": 0.6541866092440809,
+        "final_padz": -0.06749899218516886,
+        "support_min": 0.9844971651783018,
+        "com_min": 1.112429087930467,
+        "nonfoot_max": 0.7615107370434755,
+        "passed_implemented": true,
+        "passed_height_filtered": false,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "LM": {
+        "advance_implemented": 0.8838880128751532,
+        "advance_height_filtered": 0.8838880128751532,
+        "max_lift": 0.32227041238272963,
+        "final_load": 0.25293245149679855,
+        "final_padz": -0.028724431721215644,
+        "support_min": 0.9562351267967463,
+        "com_min": 1.1740882889752455,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "RF": {
+        "advance_implemented": 0.7213394759239002,
+        "advance_height_filtered": 0.7213394759239002,
+        "max_lift": 0.8968803487061885,
+        "final_load": 0.38893306358119867,
+        "final_padz": -0.03145417863033509,
+        "support_min": 0.9648516712344452,
+        "com_min": 1.2393920773897447,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "RH": {
+        "advance_implemented": 0.0,
+        "advance_height_filtered": 0.0,
+        "max_lift": 0.05413137335709483,
+        "final_load": 0.6483491683913722,
+        "final_padz": -0.053018087549706,
+        "support_min": 0.961861000425487,
+        "com_min": 1.1265750939814678,
+        "nonfoot_max": 0.7654337879559752,
+        "passed_implemented": false,
+        "passed_height_filtered": false,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": false
+        }
+      },
+      "RM": {
+        "advance_implemented": 0.6885242288398595,
+        "advance_height_filtered": 0.6885242288398595,
+        "max_lift": 0.2586731157784553,
+        "final_load": 0.6113788708472059,
+        "final_padz": -0.06002426550254789,
+        "support_min": 0.9712781503819816,
+        "com_min": 1.1125314357422313,
+        "nonfoot_max": 1.1507037217658922,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      }
+    },
+    "coordinate_corrected": {
+      "LF": {
+        "advance_implemented": 0.5594361984006078,
+        "advance_height_filtered": 0.5594361984006078,
+        "max_lift": 0.8207220366303023,
+        "final_load": 0.44339934743280296,
+        "final_padz": -0.034025004826499554,
+        "support_min": 0.9670686990923928,
+        "com_min": 1.2462846709154678,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "LH": {
+        "advance_implemented": 0.06228424394924437,
+        "advance_height_filtered": 0.028183398237619173,
+        "max_lift": 0.037643991089989566,
+        "final_load": 0.6732620397820488,
+        "final_padz": -0.06359711322855907,
+        "support_min": 1.0116991141399443,
+        "com_min": 1.0605704366920952,
+        "nonfoot_max": 0.7615576242966788,
+        "passed_implemented": true,
+        "passed_height_filtered": false,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "LM": {
+        "advance_implemented": 0.8780095400793797,
+        "advance_height_filtered": 0.8780095400793797,
+        "max_lift": 0.425261587210367,
+        "final_load": 0.2361400931545755,
+        "final_padz": -0.025676061533644275,
+        "support_min": 0.9517079557545753,
+        "com_min": 1.1720996172766929,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "RF": {
+        "advance_implemented": 0.7194077537157655,
+        "advance_height_filtered": 0.7194077537157655,
+        "max_lift": 0.8987027574893008,
+        "final_load": 0.38685475074161524,
+        "final_padz": -0.03118227110507104,
+        "support_min": 0.9641843670152549,
+        "com_min": 1.2390945648969705,
+        "nonfoot_max": 0.0,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      },
+      "RH": {
+        "advance_implemented": 0.0,
+        "advance_height_filtered": 0.0,
+        "max_lift": 0.05559889350404961,
+        "final_load": 0.7170947878953903,
+        "final_padz": -0.07269312257484312,
+        "support_min": 0.9590052518160307,
+        "com_min": 1.0862612152976765,
+        "nonfoot_max": 0.7656635682658335,
+        "passed_implemented": false,
+        "passed_height_filtered": false,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": false
+        }
+      },
+      "RM": {
+        "advance_implemented": 0.6780273430644096,
+        "advance_height_filtered": 0.6780273430644096,
+        "max_lift": 0.4305274059893861,
+        "final_load": 0.5705507027321937,
+        "final_padz": -0.05588944493021827,
+        "support_min": 0.9774252735674301,
+        "com_min": 1.1122176762877796,
+        "nonfoot_max": 1.2183356724226537,
+        "passed_implemented": true,
+        "passed_height_filtered": true,
+        "criteria_implemented": {
+          "unload": true,
+          "lift": true,
+          "place": true,
+          "safe": true,
+          "advance": true
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/train_single_leg.py": "9237bc94525ddc9f166cf1c0ed99ee4896241b8bd42bb3d1ff094048d2f642ac",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/teacher_eval.py": "ba3184e8c30c2aca1cb7261c400434ad2b78f9bee7088e5ae4214aa85ddc2325",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a"
+  },
+  "acceptance_thresholds": {
+    "unload": 0.1,
+    "lift": 0.015,
+    "advance": 0.03,
+    "place_load": 0.1,
+    "place_padz": 0.004,
+    "support": 0.9,
+    "nonfoot": 4.889270951175601,
+    "com": 1.0
+  }
+}

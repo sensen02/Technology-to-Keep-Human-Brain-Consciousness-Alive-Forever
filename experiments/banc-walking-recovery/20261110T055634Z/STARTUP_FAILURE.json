@@ -1,0 +1,8 @@
+{
+  "job_id": "bash-38",
+  "exit_code": 1,
+  "stage": "before output directory, identity capture or physics rollout",
+  "reason": "Cycle checker emitted legacy sources basename mapping but runner requires standard source_hashes absolute mapping; KeyError source_hashes blocked launch",
+  "fix": "Add standard absolute source_hashes to check_cycle_reward.py output, retain existing sources; rerun checker and required_reports before next launch",
+  "scope": "report schema integration correction only; cycle reward/physics/model/training definitions unchanged; no experiment identity was published or data collected"
+}

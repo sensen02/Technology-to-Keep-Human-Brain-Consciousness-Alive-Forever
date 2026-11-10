@@ -1,0 +1,12 @@
+{
+ "version":"bounded-recovery-imitation-preparation-v1",
+ "goal":"S2/S5 improveclosedloopcoverageafterpureon-trajectoryBCfails,withoutaddingdeploymentteacher",
+ "basis":"smoothteacherpassedbutFFneuraldriftsandfallswithin~1.2s despitefirstactionRMSE.0035. Thus rareedgeproblemreducedbutclosedloopdistribution stillnotcovered. GRUcomparisonandnormalization remainindependent",
+ "conditional":"prepareandcheckcodeonly untilnormalizationsamebudgettrialresult; parentmaycollectboundedrecoveryvariantsnext, noclaimfrommixedassist",
+ "collector":"1szerosettle,smallindependent20msmotorpulse,first4.8steacher (GRUactualobsprimed), next4.8s90%teacher+10%student plus.01normal commandnoise. Executeonlybounded42rates, noforces/noqposwrites. Queryteacherlabels atactualcurrentstates;clockonlyteacherlabel,neveractor",
+ "episodes":"3independent newseeds20261201/2/3, lastheldout. Stoprecoverycollection COM<1.2/nonfoot>0; thisisearlyunsafe-data cut,notrelaxedwalkinggate",
+ "training":"model-onlywarmstartfreshBCAdam,originalraw238model,fullprefix+mixedsequence supervision exactGRUhistory, originalbaseTRAIN0/1 +newtrainrecoveries, holdoutbase2/newlastneverseentraining, boundedMSE sampleweighted lr.0003 steps1000ifneeded",
+ "limits":"currentstaticteacher maynotstabilizeoff-manifoldstates,logphysicaloutcomesandunsupportedmodelinstead ofassumingoraclecorrectness. Mixedrolloutnotautonomy; finalevalpurestudentcontinuoushandoverstillrequired",
+ "identity":"allbase/recoveryinput/checkpoint/sourcehashes +RNG/Adam;fullclosedloopstate/controlsource trace, nohiddenphaseinput",
+ "scope":"preparedcontrolleddataaggregation,notphysicalwalkingpassororiginalacceptance"
+}

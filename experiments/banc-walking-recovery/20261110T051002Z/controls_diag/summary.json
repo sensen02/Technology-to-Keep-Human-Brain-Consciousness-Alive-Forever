@@ -1,0 +1,438 @@
+{
+  "config": {
+    "goal": "S2/S5 diagnostic: does contact velocity exist without active policy?",
+    "duration_each_s": 0.5,
+    "ticks_each": 500,
+    "sample_dt_s": 0.001,
+    "initial_sample": true,
+    "cases": {
+      "A_default_adhesion": true,
+      "B_adhesion_false": false
+    },
+    "action": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "action_path": "unchanged physics.Core.tick(np.zeros(42)); finite PD hold enabled",
+    "post_reset_writes": "none by probe: no pose, force, ctrl or gain writes; only unchanged Core.tick",
+    "lowpass": "causal trailing uniform boxcar COM, 20/60 samples at 1ms; full windows only; velocity backward difference of filtered COM",
+    "speed_contract": "horizontal world XY magnitude; loads positive normal native force; Core.measure speed=load weighted contact velocity, raw_speed=unweighted contact mean (0 if none); pad center speeds measured separately regardless of contact",
+    "summary_window": "tick ends 1..500ms; initial sample only for displacements/filter boundary",
+    "units": {
+      "position": "native length; absolute SI NOT_ESTABLISHED",
+      "speed": "native length/s",
+      "load": "native force; absolute SI NOT_ESTABLISHED"
+    },
+    "exclusions": "not walking/gait inference; not frozen acceptance; no native recorder; no video; no motor cut; no gain search",
+    "executable": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/env/bin/python",
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/env/bin/python -B /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/control_probe.py",
+    "environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "script_sha256": "73cc60d0bc26fc7b1dd235b2d1d5a2c3cdeae9422d999e57f7002c3fef88ebc9"
+  },
+  "results": {
+    "A_default_adhesion": {
+      "duration_s": 0.500000000000502,
+      "sample_count": 501,
+      "ticks": 500,
+      "native_steps": 40000,
+      "com_start_native": [
+        -0.8044941273280273,
+        0.003649323353493184,
+        1.4497390267654338
+      ],
+      "com_end_native": [
+        -0.871561832852669,
+        -0.0221931374923198,
+        1.2760493477613537
+      ],
+      "com_delta_native": [
+        -0.0670677055246417,
+        -0.025842460845812987,
+        -0.17368967900408006
+      ],
+      "com_xy_displacement_native": 0.0718742645660283,
+      "com_xy_speed_raw_native_per_s": {
+        "mean": 1.976522672099793,
+        "p95": 3.3036224194121093,
+        "max": 4.462727684926392,
+        "rms": 2.094818171258241
+      },
+      "com_lowpass": {
+        "20ms": {
+          "first_full_window_time_s": 0.018999999999999947,
+          "xy_speed": {
+            "mean": 1.0205476022662536,
+            "p95": 1.7109106963086202,
+            "max": 2.470390530515019,
+            "rms": 1.0840635964115537
+          }
+        },
+        "60ms": {
+          "first_full_window_time_s": 0.05899999999999554,
+          "xy_speed": {
+            "mean": 0.25875726813072725,
+            "p95": 0.5248184341345745,
+            "max": 0.7614275412577965,
+            "rms": 0.29407211498743124
+          }
+        }
+      },
+      "com_z_min_native": 1.2492553671840405,
+      "total_contact_load_mean_native": 37.516941380602965,
+      "nonfoot_peak_native": 0.0,
+      "contact_load_weighted_speed_native_per_s": 0.5372287277230648,
+      "per_leg": {
+        "LF": {
+          "load_mean_native": 2.1040730719096357,
+          "contact_samples": 496,
+          "load_sum_native": 1052.0365359548177,
+          "load_weighted_speed_native_per_s": 0.6262550129789096,
+          "weighted_contact_speed_peak_native_per_s": 3.3632534885357352,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.5341413977713175,
+            "p95": 1.1039759096249018,
+            "max": 3.36709027186747,
+            "rms": 0.6978886050126215
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.549805264962597,
+            "p95": 1.1644484041246028,
+            "max": 3.3431112943513313,
+            "rms": 0.7315764261679948
+          }
+        },
+        "LH": {
+          "load_mean_native": 9.202228404501323,
+          "contact_samples": 500,
+          "load_sum_native": 4601.114202250661,
+          "load_weighted_speed_native_per_s": 0.6736641624149221,
+          "weighted_contact_speed_peak_native_per_s": 4.030419592703605,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.6445612569411294,
+            "p95": 1.7042980103905816,
+            "max": 4.030362694036977,
+            "rms": 0.8913611287472147
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.6580409105425646,
+            "p95": 1.7450744135478613,
+            "max": 4.118983909147527,
+            "rms": 0.9061181644971401
+          }
+        },
+        "LM": {
+          "load_mean_native": 7.586661796186379,
+          "contact_samples": 500,
+          "load_sum_native": 3793.3308980931897,
+          "load_weighted_speed_native_per_s": 0.4607326182976095,
+          "weighted_contact_speed_peak_native_per_s": 2.5979742586949057,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.4381562118790935,
+            "p95": 1.752662412347581,
+            "max": 2.5978197148726756,
+            "rms": 0.6906563374706539
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.44430310993945493,
+            "p95": 1.767985670616711,
+            "max": 2.645170367271808,
+            "rms": 0.700360793636349
+          }
+        },
+        "RF": {
+          "load_mean_native": 2.040444365198367,
+          "contact_samples": 500,
+          "load_sum_native": 1020.2221825991835,
+          "load_weighted_speed_native_per_s": 0.4713783780649908,
+          "weighted_contact_speed_peak_native_per_s": 4.0090505832937575,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.38984132398951343,
+            "p95": 1.015829050554016,
+            "max": 4.007768380938638,
+            "rms": 0.6566087028172849
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.39335837717303107,
+            "p95": 1.015745258708486,
+            "max": 3.9990709303169747,
+            "rms": 0.6570470950906555
+          }
+        },
+        "RH": {
+          "load_mean_native": 7.836671400872093,
+          "contact_samples": 500,
+          "load_sum_native": 3918.3357004360464,
+          "load_weighted_speed_native_per_s": 0.5234262072687071,
+          "weighted_contact_speed_peak_native_per_s": 3.3000152539228433,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.5014109201506094,
+            "p95": 1.8147394420128915,
+            "max": 3.3000625181748604,
+            "rms": 0.8106064579210733
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.5078644315929728,
+            "p95": 1.821229286527295,
+            "max": 3.3269270506128095,
+            "rms": 0.8176067350250652
+          }
+        },
+        "RM": {
+          "load_mean_native": 8.746862341935168,
+          "contact_samples": 500,
+          "load_sum_native": 4373.431170967584,
+          "load_weighted_speed_native_per_s": 0.46635211910389524,
+          "weighted_contact_speed_peak_native_per_s": 3.048858955251422,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.4669053453397478,
+            "p95": 1.7807280373663803,
+            "max": 3.0487433329083373,
+            "rms": 0.7512656581883715
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.47196815142708815,
+            "p95": 1.7968016788508065,
+            "max": 3.0985369027421132,
+            "rms": 0.7574910135735373
+          }
+        }
+      },
+      "reset_matches": true,
+      "actuator_target_unchanged": true,
+      "mujoco_warning_count": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "B_adhesion_false": {
+      "duration_s": 0.500000000000502,
+      "sample_count": 501,
+      "ticks": 500,
+      "native_steps": 40000,
+      "com_start_native": [
+        -0.8044941273280273,
+        0.003649323353493184,
+        1.4497390267654338
+      ],
+      "com_end_native": [
+        -0.8567556392283805,
+        -0.01461003144891496,
+        1.2755656280264045
+      ],
+      "com_delta_native": [
+        -0.05226151190035322,
+        -0.018259354802408145,
+        -0.17417339873902926
+      ],
+      "com_xy_displacement_native": 0.05535945866706959,
+      "com_xy_speed_raw_native_per_s": {
+        "mean": 0.20102324036614355,
+        "p95": 0.9120233886884133,
+        "max": 3.7247681975738502,
+        "rms": 0.5582459973028414
+      },
+      "com_lowpass": {
+        "20ms": {
+          "first_full_window_time_s": 0.018999999999999947,
+          "xy_speed": {
+            "mean": 0.1089906582088007,
+            "p95": 0.519076902344566,
+            "max": 1.4097967831990497,
+            "rms": 0.21213309377685918
+          }
+        },
+        "60ms": {
+          "first_full_window_time_s": 0.05899999999999554,
+          "xy_speed": {
+            "mean": 0.07715389515072964,
+            "p95": 0.3068266917764509,
+            "max": 0.5510812450001368,
+            "rms": 0.12419697856950077
+          }
+        }
+      },
+      "com_z_min_native": 1.2755656280264045,
+      "total_contact_load_mean_native": 24.464863527877604,
+      "nonfoot_peak_native": 0.0,
+      "contact_load_weighted_speed_native_per_s": 0.3331035476856893,
+      "per_leg": {
+        "LF": {
+          "load_mean_native": 1.4293037939840785,
+          "contact_samples": 495,
+          "load_sum_native": 714.6518969920393,
+          "load_weighted_speed_native_per_s": 0.2024520571856425,
+          "weighted_contact_speed_peak_native_per_s": 3.5790510264242523,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.18403453672161085,
+            "p95": 0.9110126331376853,
+            "max": 3.5790510264242523,
+            "rms": 0.486414210295604
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.21707934514777044,
+            "p95": 1.0561153082049577,
+            "max": 3.9826532559535495,
+            "rms": 0.6025807955091578
+          }
+        },
+        "LH": {
+          "load_mean_native": 6.054949028454905,
+          "contact_samples": 500,
+          "load_sum_native": 3027.4745142274523,
+          "load_weighted_speed_native_per_s": 0.331994179036159,
+          "weighted_contact_speed_peak_native_per_s": 3.785112177288287,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.3344925069755382,
+            "p95": 1.4154782068151093,
+            "max": 3.784992502056685,
+            "rms": 0.7095017958428533
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.33504800444078287,
+            "p95": 1.411885215929323,
+            "max": 3.8240712321266552,
+            "rms": 0.710785844359555
+          }
+        },
+        "LM": {
+          "load_mean_native": 4.727988245202758,
+          "contact_samples": 500,
+          "load_sum_native": 2363.9941226013793,
+          "load_weighted_speed_native_per_s": 0.3900478838796308,
+          "weighted_contact_speed_peak_native_per_s": 2.4828210816796585,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.37396359602760665,
+            "p95": 1.7884379464033286,
+            "max": 2.482816860724727,
+            "rms": 0.6669947716487826
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.37400027662213947,
+            "p95": 1.7875698721965922,
+            "max": 2.4936163163569405,
+            "rms": 0.6669761532550957
+          }
+        },
+        "RF": {
+          "load_mean_native": 1.77705191792425,
+          "contact_samples": 500,
+          "load_sum_native": 888.5259589621251,
+          "load_weighted_speed_native_per_s": 0.21679793141164483,
+          "weighted_contact_speed_peak_native_per_s": 4.434271754316174,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.21806999572934013,
+            "p95": 0.9729796422945948,
+            "max": 4.434271754316174,
+            "rms": 0.6764572370486474
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.2167472109728723,
+            "p95": 0.9671669730167972,
+            "max": 4.430459038882752,
+            "rms": 0.6730627845379917
+          }
+        },
+        "RH": {
+          "load_mean_native": 4.680997554071321,
+          "contact_samples": 500,
+          "load_sum_native": 2340.4987770356606,
+          "load_weighted_speed_native_per_s": 0.3593772450646397,
+          "weighted_contact_speed_peak_native_per_s": 3.0793221208526402,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.34387278541046207,
+            "p95": 1.5944586070465094,
+            "max": 3.079255535957687,
+            "rms": 0.7088952815011117
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.3439842295341443,
+            "p95": 1.599321506140526,
+            "max": 3.090647330516252,
+            "rms": 0.7091578610367677
+          }
+        },
+        "RM": {
+          "load_mean_native": 5.794572988240295,
+          "contact_samples": 500,
+          "load_sum_native": 2897.286494120148,
+          "load_weighted_speed_native_per_s": 0.33447029116207316,
+          "weighted_contact_speed_peak_native_per_s": 3.152452410188821,
+          "raw_contact_speed_native_per_s": {
+            "mean": 0.3335959018053471,
+            "p95": 1.7575178422837519,
+            "max": 3.1523502008543467,
+            "rms": 0.7289422910263212
+          },
+          "pad_center_xy_speed_native_per_s": {
+            "mean": 0.3342618445004839,
+            "p95": 1.7697578802245024,
+            "max": 3.162845260072948,
+            "rms": 0.7301765157787851
+          }
+        }
+      },
+      "reset_matches": true,
+      "actuator_target_unchanged": true,
+      "mujoco_warning_count": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "wall_time_s": 12.25172424397897,
+  "input_hashes_unchanged": true,
+  "conclusion_scope": "500ms diagnostic only: no gait inference or frozen acceptance; native substep peaks not measured"
+}

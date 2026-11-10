@@ -1,0 +1,125 @@
+{
+  "format_version": 1,
+  "kind": "bounded_burst_recovery",
+  "config": {
+    "mode": "collect",
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/BC_FF_HALF_RECOVERY/final.pt",
+    "out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA",
+    "episodes": 3,
+    "burst_ms": 50,
+    "recover_ms": 200,
+    "noise_std": 0.01,
+    "seed": 20261301,
+    "trace": true
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/student_wave.py": "932f3176aef2d02bddeb4ce3c0cc47d441065ba4d670b7e8def386825ae14a32",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/recovery_bc.py": "6956a22dd5e54e5147502098f4ff8717d3d90d6dc3aafa43b5124b4e638c32fc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/burst_recovery.py": "689ef5c29fe50bc57b2db8efb97f13cd627e52e49a842a428320922eb406504a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/check_burst.py": "0fafc1b2440dfcf5fe2f90077b86fff1995a548f18a226bca0980ba5202c0a49"
+  },
+  "checkpoint_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T102045Z/BC_FF_HALF_RECOVERY/final.pt",
+  "checkpoint_sha256": "9da91b716fa82832142c677da6baa5437d85e4059a7d8f03fbaf15594e44fd5f",
+  "teacher_reference_evidence": {
+    "condition": {
+      "mode": "measuredwave",
+      "gravity_ff": true,
+      "stance_force_pref": "uniform",
+      "step_s": 0.8,
+      "cycles": 2,
+      "stride": 0.36,
+      "lift": 0.12,
+      "contact_transition_height": 0.01
+    },
+    "all_gates": true,
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "files": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/SMOOTH_CHECKS.json": "5190e460600f9674e0ac52d081cd4289cbbc30f2ce2a35bb6a13bd7eb7c4de7d",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/RESULT.json": "fe7ad734c1f4eb2b48818570453b991be59cd149c9135048ea742b97d793f160",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/IDENTITY.json": "3f26cac01f9664026a08badbfb2b1cd2ed7e93e7734249c36d0ec9eb65b28a30",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/TRACE_1MS.npz": "73e20c0960b264d17af6b84905f3b199d648a3c4186ae205c1b92310e4f540f8"
+    }
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 20261301,
+      "split": "train",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_000.npz",
+      "sha256": "12ba5a6872e37dfa2c7036660485e3f74b49665983148de7b3a7a8c1ebc075f8",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_000_IDENTITY.json",
+      "identity_sha256": "4f44fe32c9cace065268545d5d1a0cba5530babe87eadf3489a1e747dce36e5f",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_000_RESULT.json",
+      "report_sha256": "8eebb1a3d3355d72874f89d0b8ccff39943e21546470d2f0666259b90d186df4",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_000_trace.npz",
+        "sha256": "134878539932d143967c8e0e40a84d1bbb5c48be395b096a26f8772ab046055d",
+        "samples": 10620
+      }
+    },
+    {
+      "episode": 1,
+      "seed": 20261302,
+      "split": "train",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_001.npz",
+      "sha256": "13f6bf5cb6340d24c75c3d3fe5a10a349708a296943a212bdafc278decefbfe9",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_001_IDENTITY.json",
+      "identity_sha256": "339c6c5f35272e61e7e2154f807673b40cf60e1be7632ae2e4161f0266c98361",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_001_RESULT.json",
+      "report_sha256": "ffedb80a3d286ad98b13604a25397c825b6725a21ef73a3a20f8dce677abc487",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_001_trace.npz",
+        "sha256": "44a3bac290332ec2271e2ad1935d92126bb68c6e2341b4051a73f810ff7b4f20",
+        "samples": 10620
+      }
+    },
+    {
+      "episode": 2,
+      "seed": 20261303,
+      "split": "validation",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_002.npz",
+      "sha256": "5bba4e58298fbb5639912de8c6652813b5820a73cc904b8daa1146ca10e09425",
+      "samples": 1920,
+      "identity_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_002_IDENTITY.json",
+      "identity_sha256": "2c92cb98c53376c182891189da1d7f080eb949e7003372e7643a69554361791f",
+      "report_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_002_RESULT.json",
+      "report_sha256": "ff6a4885889e476588768933f72f6699a54dbe238d6a4690519c19e5edd268c4",
+      "mixed_samples": 960,
+      "early_stop": null,
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T103413Z/BURST_DATA/episode_002_trace.npz",
+        "sha256": "7edb12296a94c858ec93b09cfae92688e8562200b8255626e52a605f43348881",
+        "samples": 10620
+      }
+    }
+  ],
+  "collection_complete": true,
+  "split_contract": "last independent episode held out; no random intra-episode split",
+  "label_coverage": "every prefix/burst/recovery decision; sample weight 1; full zero-hidden GRU sequence",
+  "actor_inputs": "raw actual X238 including previous executed action; no clock/teacher phase/reference",
+  "noise": "independent Gaussian on all 42 student burst rates only; clip [-1,1], hold 5ms",
+  "schedule": "4800ms exact teacher prefix; 4800ms alternating beta0 burst/beta1 recovery; final partial segment retained",
+  "safety": "COM<1.2 or nonfoot>0 stops only collection; failed prefix retained; acceptance unchanged",
+  "interpretation": "bounded pure-student bursts and teacher-only adaptation/recovery commands; NOT autonomous walking evidence; actual correction effectiveness must be measured; static root residual is diagnostic, not recovery oracle proof; native units, SI NOT_ESTABLISHED"
+}

@@ -1,0 +1,144 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "triad-slip-constraint/1",
+    "origin": "three geometric and strength changes were tested this round and all left slip where it was: triad spread doubled, RH/RM pad radius plus 50 percent, and the doubled torque. Per-leg slip in the triad world is LF .63, LM .80, LH .94, RF .41, RH 1.15, RM 1.86, i.e. the feet are being dragged at close to body speed during stance. Since geometry cannot change that, constrain the measured quantity directly",
+    "change": "add a fourth Lagrangian multiplier on the per-leg slip ratio: the violation is max(0, max_leg slip - 0.50) averaged over the rollout, dual ascent 0.05 per rollout, lambda_max 50. The slip ratio is the same quantity the gate measures: force-weighted tangential contact speed divided by the forward speed with the same floor as the evaluator",
+    "why_this_can_work_now": "the two failed constraint runs earlier failed because the constrained statistic was never violated in training (support stayed at 0.98, non-foot at 0.0). Per-leg slip in the triad world is violated at every epoch by up to 1.9, so the multiplier has something to push against",
+    "kept": "triad body with doubled torque, the pose re-solved for triad contact at COM 1.45, 1 ms policy tick, C = 0.02, releasable adhesion 0.25 body weight, mu 1.5, reward v4, the three existing constraints, 48 updates, gates unchanged",
+    "labelling": "derived body, derived actuator, derived adhesion, replacement ANN, engineered constraint; not frozen-body acceptance",
+    "accounting": "all four multipliers and per-leg slip logged per update, both evaluation protocols, and the per-leg slip table before and after"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "state_curriculum": {
+    "mix": 0.0,
+    "bank": "/media/nonexistent.npz",
+    "constraints": "support, non-foot, height",
+    "bank_sha256": null,
+    "note": "initial states recorded from our own simulation during the release phase; no external generator"
+  },
+  "body": {
+    "xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml",
+    "sha256": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "label": "derived body (pad spheres) and derived actuator strength; never frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, triad body, solved pose, four constraints including per-leg slip",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.20362930449726419,
+        "foot_support_mean": 2.500250623611103,
+        "foot_support_min": 1.015315774146842,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 1.0299701961039907,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.6333340055106093,
+          "LH": 0.9397574444415191,
+          "LM": 0.8003330476365135,
+          "RF": 0.4074193448162786,
+          "RH": 1.1523225841534004,
+          "RM": 1.8612417441996818
+        },
+        "slip_ratio_max": 1.8612417441996818,
+        "slip_ratio_mean": 0.9657346951263338,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.2043027675935077,
+    "foot_support_mean": 2.5002491197893737,
+    "foot_support_min": 1.015315774146842,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 1.0311876401689246,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.6349046604762736,
+      "LH": 0.9472275056415097,
+      "LM": 0.793758409332088,
+      "RF": 0.4147132228479954,
+      "RH": 1.1716832680526883,
+      "RM": 1.865242720169489
+    },
+    "slip_ratio_max": 1.865242720169489,
+    "slip_ratio_mean": 0.9712549644200074,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 2015232000,
+  "wall_s": 802.921394109726,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-slipconstraint/20261110T090000Z/MODEL_slip.npz",
+    "sha256": "fba889e296894e76b06c76cca7f304df27a8a21753b1bffda01f31c0b58912fd"
+  }
+}

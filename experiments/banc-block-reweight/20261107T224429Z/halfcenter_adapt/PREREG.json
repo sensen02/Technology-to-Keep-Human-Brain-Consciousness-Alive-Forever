@@ -1,0 +1,30 @@
+{
+  "schema": "round12-halfcenter-adaptation-screen/1",
+  "scope": "Third preregistered neural open-loop screen of round 12: reciprocal inhibition between the two tripod groups plus enhanced spike-frequency adaptation on the PREMOTOR leg pools (never on motor neurons, which are strict sinks). Existing edges only, per-row renormalised 0.020 uS. No physics, no learning, no new edges, no external oscillator.",
+  "why": "Screen 2 (../halfcenter/) found that reciprocal inhibition plus reduced cross-excitation drives the tripod score from -0.624 to at most +0.090, but only by silencing group A to 0.2 Hz while group B stays near 8 Hz: winner-take-all suppression, not alternation, and it failed the preregistered 'both groups > 2 Hz' condition. The classical half-centre needs an escape mechanism, and this module's escape candidate is spike-frequency adaptation. Round 11 showed that scaling adaptation on motor neurons cannot work because all 323 MNs are graph sinks, so the adaptation must act on the premotor leg pools.",
+  "frozen_sources": {
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "canonical_neural_state": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+    "sensory_currents": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz",
+    "leg_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz",
+    "pools_and_reach": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz"
+  },
+  "mechanism": "Two changes to the frozen core, both on existing structure only: (a) existing A<->B tripod-group edge conductances re-weighted per direction and renormalised per row, (b) the per-spike adaptation increment of neurons in the six leg-specific premotor pools (buckets pool_lf..pool_rm, 4,286 neurons) multiplied by a fixed scalar. Motor neurons and all other neurons keep the frozen adaptation.",
+  "grid": {
+    "inh_values": [2.0, 4.0, 8.0],
+    "pool_adapt_values": [1.0, 4.0, 16.0],
+    "fixed": {
+      "ab_exc": 0.5,
+      "ba_exc": 0.5,
+      "note": "cross-excitation reduced symmetrically; screen 2's asymmetric reduction is not reused because it also silenced one group"
+    },
+    "combinations": 27,
+    "rule": "complete factorial (inh_AB = inh_BA in this screen); every combination run and reported"
+  },
+  "protocol": "Identical to screens 1-2: canonical 2000-step state, 400 bins x 5 ms of recorded sensory replay, zero descending current, 323 exported MN rates recorded every 5 ms. Physical steps 0.",
+  "fixed_analysis": "Same metric definitions as screens 1-2 and round-11 intrinsic: tripod alternation score = -corr(mean(A), mean(B)), ipsilateral score, LF-RH and RF-LH correlations, per-leg means, group means, PC1 variance fraction and loadings.",
+  "decision_rule_fixed_in_advance": "ALTERNATION-POSITIVE only if tripod score >= 0.30, both tripod-group mean rates > 2 Hz, and both LF-RH and RF-LH correlations are negative. A positive result licenses only a further preregistered physical experiment; it is not walking, not a gait, and not a biological claim. All-negative must be reported as negative.",
+  "guards": "With every scalar 1 the matrices must equal the frozen ones and behaviour must be bit-identical to the frozen core before the grid.",
+  "limits": "Open-loop neural replay only; no body, contact or sensorimotor loop. Scalars are uncalibrated engineering weights; the half-centre plus adaptation mechanism is a modelling hypothesis, not a measurement of fly circuitry; the pool definitions come from direct strict-graph MN projection and are not anatomical cell types. Nothing here is a lesion or surgical model."
+}

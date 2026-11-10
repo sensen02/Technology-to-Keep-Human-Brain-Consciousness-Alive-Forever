@@ -1,0 +1,31 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T053813Z/walk_zero_ff238_3u/final.pt",
+  "checkpoint_sha256": "63157cf6f4de6a242f104709d083eee30e66abaab92ba29c72703cddc4d63475",
+  "model_identity": {
+    "architecture": "ff238",
+    "obs_dim": 238,
+    "critic_obs_dim": 255,
+    "logstd_bounds": [
+      -3.0,
+      0.3
+    ],
+    "dtype": "torch.float64"
+  },
+  "source_identity": "fa436ce00f78dede11c1d1f4a79c63dbab5b3810e3b3e833604f5e72a8947f0e",
+  "script_sha256": "748c7a430710f89047a2d23dea374db984d86dfcb7e2c2689e4f3614578dc5d8",
+  "total_s": 6.0,
+  "ticks": 6000,
+  "decision_ms": 5,
+  "target_speed": 0.1,
+  "adhesion_enabled": false,
+  "critic_remaining": "max(0,2-time_s), raw seconds exactly as original trainer (not /6)",
+  "reset": "Core initial reset only; no reset at 2s or 4s",
+  "sampling": "1ms endpoints plus initial state; NOT native recording",
+  "event_criteria": "prior loaded>=.1W and bottom<=.004; unload<=.05W; height rise>.015; forward>=.03 during unloaded; reload>=.1W and bottom<=.004; 3ms transition confirmation",
+  "scope": "bounded derived-world diagnostic windows, NOT final acceptance",
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  }
+}

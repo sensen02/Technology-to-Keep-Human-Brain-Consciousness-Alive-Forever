@@ -1,0 +1,1046 @@
+{
+  "status": "completed",
+  "config": {
+    "architecture": "gru238",
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238/bc.pt",
+    "checkpoint_sha256": "866a496e5dee8652e0e924eae8ac3c2061d7c2c6f39a7bed37d5f54f274e3b17",
+    "target_speed": 0.0,
+    "seed": 20261113,
+    "updates": 3,
+    "ticks": 2000,
+    "rollout_ticks": 8000,
+    "decision_ms": 5,
+    "adhesion_enabled": false,
+    "ppo": {
+      "gamma": 0.9950124791926823,
+      "gae_lambda": 0.9753099120283327,
+      "clip": 0.1,
+      "value_coef": 0.5,
+      "entropy_coef": 0.0,
+      "actor_lr": 3e-05,
+      "critic_lr": 0.0001,
+      "epochs": 4,
+      "minibatch": 64,
+      "max_grad_norm": 0.5,
+      "target_kl": 0.03,
+      "backtracks": 6,
+      "normalize_advantage": true,
+      "episodes_per_minibatch": 100000,
+      "replay_tolerance": 1e-08
+    },
+    "reward": {
+      "version": "curriculum-v1",
+      "dt_s": 0.001,
+      "body_weight_native": 24.446354755878005,
+      "velocity_scale_native_per_s": 0.1,
+      "slip_reference_native_per_s": 0.1,
+      "load_gate_fraction": 0.1,
+      "height_warning_native": 1.3,
+      "height_floor_native": 1.2,
+      "height_risk_scale_native": 0.1,
+      "support_target": 0.9,
+      "tilt_safe_rad": 0.15,
+      "tilt_scale_rad": 0.3,
+      "rate_limit_rad_per_s": 2.0,
+      "action_change_window_s": 0.02,
+      "action_change_acceleration_ref_rad_per_s2": 100.0,
+      "height_weight": 2.0,
+      "nonfoot_weight": 2.0,
+      "support_weight": 1.0,
+      "slip_weight": 0.5,
+      "tilt_weight": 0.1,
+      "heading_weight": 0.1,
+      "action_weight": 0.02,
+      "action_change_weight": 0.01,
+      "min_rate": -20.0,
+      "max_rate": 2.0,
+      "terminal_com_native": 0.8,
+      "terminal_nonfoot_fraction": 1.0,
+      "terminal_tilt_rad": 1.2,
+      "discount_time_constant_s": 1.0,
+      "policy_discount_dt_s": 0.005
+    },
+    "optimizer": "new PPO states after source checkpoint; no inherited BC moments",
+    "finite_horizon": "2s finite task zero bootstrap, mathematical worst-rate absorbing tail on training failure"
+  },
+  "updates": [
+    {
+      "update": 0,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/hold_gru238_noadh_3u/checkpoints/update_0000.pt",
+      "checkpoint_sha256": "9100520c16230eaebd523b8dfc7a5c0d834ddf9f27d10c795ff3ba65a19b7577",
+      "episodes": [
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -9.230651086258375,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.113901226325436,
+            "height_risk": 0.07079718167821378,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014405285339661348,
+            "slip_cost": 3.9467985243203936,
+            "tilt_cost": 0.00014152091407041795,
+            "heading_cost": 0.0008636185553184766,
+            "action_cost": 0.0410775415017525,
+            "action_change_cost": 0.06901167856066144
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.926940268501976,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.265980603140577,
+            "height_risk": 0.0033168732049871493,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014785823537954494,
+            "slip_cost": 3.3049008174209296,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.00068409638181796,
+            "action_cost": 0.04263471898000558,
+            "action_change_cost": 0.08065479874509757
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -9.15529079332136,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.251377259260594,
+            "height_risk": 0.022681593397711527,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014228711058318817,
+            "slip_cost": 3.7132141452830645,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0009618172477312449,
+            "action_cost": 0.043503577229187636,
+            "action_change_cost": 0.08347342435152444
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.968366389609576,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.023390456364524,
+            "height_risk": 0.001776387717756028,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.0001452571605384259,
+            "slip_cost": 3.878683105594969,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.001571986450997533,
+            "action_cost": 0.0450453848171726,
+            "action_change_cost": 0.08782415097557193
+          }
+        }
+      ],
+      "actual_physics_ticks": 8000,
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": 1.4210854715202004e-16,
+            "critic_loss": 0.2389618146748014,
+            "entropy": -37.11315551115366,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1600,
+            "epoch": 0,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.00694875780355356,
+            "kl": 0.00694875780355356,
+            "actor_grad_before": 4.196761199107916,
+            "critic_grad_before": 1.385530236888872,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": 0.0013012914221300997,
+            "critic_loss": 0.2206970202759834,
+            "entropy": -37.11351551427137,
+            "clip_fraction": 0.329375,
+            "ratio_mean": 0.9998665639707995,
+            "samples": 1600,
+            "epoch": 1,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.006743497840234882,
+            "kl": 0.006743497840234882,
+            "actor_grad_before": 8.738397085122335,
+            "critic_grad_before": 1.3305934440361509,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.004638791587594056,
+            "critic_loss": 0.20319450502494749,
+            "entropy": -37.11386786736112,
+            "clip_fraction": 0.3525,
+            "ratio_mean": 1.0023785464884616,
+            "samples": 1600,
+            "epoch": 2,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0051377533764227525,
+            "kl": 0.0051377533764227525,
+            "actor_grad_before": 7.650598053815208,
+            "critic_grad_before": 1.276930147488388,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.010988541464417327,
+            "critic_loss": 0.18643700237178706,
+            "entropy": -37.114168114156435,
+            "clip_fraction": 0.29125,
+            "ratio_mean": 1.0010674017608752,
+            "samples": 1600,
+            "epoch": 3,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.003618442982994222,
+            "kl": 0.003618442982994222,
+            "actor_grad_before": 5.788190895834497,
+            "critic_grad_before": 1.2243412421375828,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.003618442982994222,
+        "kl_per_dim": 8.615340435700529e-05,
+        "explained_variance": 0.05354491227094904,
+        "std_min": 0.09998808606807481,
+        "std_max": 0.10001182420953549,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3e-05,
+        "critic_lr": 0.0001,
+        "accepted_steps": 4,
+        "updates": 1,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "episodes": 4,
+        "samples": 1600,
+        "bptt": "full_episode_from_reset"
+      },
+      "evaluation": {
+        "native_steps": 160000,
+        "sample_count": 2000,
+        "duration_s": 1.998999999997006,
+        "forward_speed_native_per_s": 0.31588358740732553,
+        "forward_signed_native_per_s": 0.3143095470076647,
+        "lateral_speed_native_per_s": 0.0314952290539066,
+        "foot_support_mean": 1.0000867051168025,
+        "foot_support_min": 0.5619940174064593,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.1844716244899611,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.6984081718274293,
+          "LH": 1.1914823589849575,
+          "LM": 0.8019952014679352,
+          "RF": 1.6632760410990755,
+          "RH": 0.8409658600335951,
+          "RM": 2.258357542538945
+        },
+        "slip_ratio_max": 2.258357542538945,
+        "slip_ratio_mean": 1.4090808626586562,
+        "com_start": 1.4461617345420188,
+        "com_end": 1.1844716244899611,
+        "com_xy_travel": 0.631451291226298,
+        "slip_load_denominator_native": [
+          5367.184133101531,
+          9861.11647141109,
+          9706.645425644516,
+          9941.260509864918,
+          11585.318748298978,
+          2435.4234715239872
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.3143095470076647,
+          "lateral_signed_native_per_s": 0.0314952290539066,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "wall_s": 21.392046688997652,
+        "decision_ms": 5,
+        "target_speed": 0.0,
+        "adhesion_enabled": false,
+        "evaluation_scope": "derived engineering; no continuous prewarm handover; original acceptance unverified"
+      }
+    },
+    {
+      "update": 1,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/hold_gru238_noadh_3u/checkpoints/update_0001.pt",
+      "checkpoint_sha256": "b26f72586b86660fa985e0cffc9f805388392d208d18bdec1498b6f18d3b1343",
+      "episodes": [
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.9591990823615,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.136603244889969,
+            "height_risk": 0.02622558712603945,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.0001458879731481518,
+            "slip_cost": 3.5358702478450637,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0015550511600894922,
+            "action_cost": 0.047176041436165904,
+            "action_change_cost": 0.0964625378697956
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -10.188136819911369,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.407431120537779,
+            "height_risk": 0.29858972741506373,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014606130542409073,
+            "slip_cost": 4.363076868948958,
+            "tilt_cost": 0.00015050750976339022,
+            "heading_cost": 0.0012358452962675844,
+            "action_cost": 0.044493448593773695,
+            "action_change_cost": 0.0813244510688546
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.985876523967008,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.165536948404108,
+            "height_risk": 0.018321740671366632,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014519454091164096,
+            "slip_cost": 3.563093309851402,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0013061003499343353,
+            "action_cost": 0.04583704478593783,
+            "action_change_cost": 0.09568938224990904
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -9.077020269124642,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.289034841355012,
+            "height_risk": 0.01149074887049484,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.0001443696608601351,
+            "slip_cost": 3.5263530906250065,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0013088023400335783,
+            "action_cost": 0.0411312538647257,
+            "action_change_cost": 0.0729509743628718
+          }
+        }
+      ],
+      "actual_physics_ticks": 8000,
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": -1.5987211554602254e-16,
+            "critic_loss": 0.2372429544015785,
+            "entropy": -37.114442081448026,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1600,
+            "epoch": 0,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0011910392952196138,
+            "kl": 0.0011910392952196138,
+            "actor_grad_before": 4.45947656868499,
+            "critic_grad_before": 1.3858820740738014,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.0030211770855913755,
+            "critic_loss": 0.21898606903092585,
+            "entropy": -37.11468767223306,
+            "clip_fraction": 0.063125,
+            "ratio_mean": 1.0000158429099202,
+            "samples": 1600,
+            "epoch": 1,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.002035305296370467,
+            "kl": 0.002035305296370467,
+            "actor_grad_before": 4.990116096450338,
+            "critic_grad_before": 1.3358184753278612,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.005863499816529885,
+            "critic_loss": 0.20140454820264433,
+            "entropy": -37.11492863364574,
+            "clip_fraction": 0.11875,
+            "ratio_mean": 0.999435892453042,
+            "samples": 1600,
+            "epoch": 2,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.002464862702201018,
+            "kl": 0.002464862702201018,
+            "actor_grad_before": 5.085605211103824,
+            "critic_grad_before": 1.2861925605168532,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.010147334082181825,
+            "critic_loss": 0.18449201857048017,
+            "entropy": -37.11515994220652,
+            "clip_fraction": 0.143125,
+            "ratio_mean": 0.9983683549286603,
+            "samples": 1600,
+            "epoch": 3,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0029708573417349697,
+            "kl": 0.0029708573417349697,
+            "actor_grad_before": 4.677898932955344,
+            "critic_grad_before": 1.2366916401920887,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.0029708573417349697,
+        "kl_per_dim": 7.073469861273738e-05,
+        "explained_variance": 0.014193922728744313,
+        "std_min": 0.09997640698947549,
+        "std_max": 0.10002321505390041,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3e-05,
+        "critic_lr": 0.0001,
+        "accepted_steps": 8,
+        "updates": 2,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "episodes": 4,
+        "samples": 1600,
+        "bptt": "full_episode_from_reset"
+      },
+      "evaluation": {
+        "native_steps": 160000,
+        "sample_count": 2000,
+        "duration_s": 1.998999999997006,
+        "forward_speed_native_per_s": 0.3274687933516145,
+        "forward_signed_native_per_s": 0.3259757287384037,
+        "lateral_speed_native_per_s": 0.031235154755965073,
+        "foot_support_mean": 1.0000823432302,
+        "foot_support_min": 0.5619896050434244,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.1762263872632552,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.6826603264940803,
+          "LH": 1.1611258648447782,
+          "LM": 0.7794215732371286,
+          "RF": 1.6387946399047864,
+          "RH": 0.8166142782975142,
+          "RM": 2.1848236074955385
+        },
+        "slip_ratio_max": 2.1848236074955385,
+        "slip_ratio_mean": 1.3772400483789708,
+        "com_start": 1.4461617256081847,
+        "com_end": 1.1762263872632552,
+        "com_xy_travel": 0.654610117908897,
+        "slip_load_denominator_native": [
+          5476.280988538899,
+          9858.84379087216,
+          9618.547384406584,
+          9966.921006087441,
+          11554.907169411816,
+          2421.235156073531
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.3259757287384037,
+          "lateral_signed_native_per_s": 0.031235154755965073,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "wall_s": 21.455088404007256,
+        "decision_ms": 5,
+        "target_speed": 0.0,
+        "adhesion_enabled": false,
+        "evaluation_scope": "derived engineering; no continuous prewarm handover; original acceptance unverified"
+      }
+    },
+    {
+      "update": 2,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z/hold_gru238_noadh_3u/checkpoints/update_0002.pt",
+      "checkpoint_sha256": "34cf57f7ad0b2d7559c0eb918e4698196905c153e3aaf0b105cedf127236758b",
+      "episodes": [
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -9.0910956912742,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.40521835223671,
+            "height_risk": 0.0006098134708454925,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014400665585971765,
+            "slip_cost": 3.3651975487326675,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0007457877737368436,
+            "action_cost": 0.04531631453805865,
+            "action_change_cost": 0.09340260051034417
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -9.72926026574789,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.494387403525503,
+            "height_risk": 0.0890013673173993,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014709251499704166,
+            "slip_cost": 4.109935933338835,
+            "tilt_cost": 1.5020524254470144e-05,
+            "heading_cost": 0.0008815140626078636,
+            "action_cost": 0.04381547912941686,
+            "action_change_cost": 0.07891053615141469
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.968893503707339,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.190255472449792,
+            "height_risk": 0.009890385348616627,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.00014594815266551255,
+            "slip_cost": 3.513998336213598,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0006601913720150809,
+            "action_cost": 0.04184410323025949,
+            "action_change_cost": 0.08092430986918278
+          }
+        },
+        {
+          "actual_ticks": 2000,
+          "decision_steps": 400,
+          "return_sum": -8.816757716850887,
+          "absorbing_math_only_penalty": 0.0,
+          "terminal_reason": "deadline",
+          "component_integrals": {
+            "forward": -7.276647603726663,
+            "height_risk": 0.0006427172932191319,
+            "nonfoot_cost": 0.0,
+            "support_risk": 0.0001466534900125189,
+            "slip_cost": 3.07361211270792,
+            "tilt_cost": 0.0,
+            "heading_cost": 0.0007855959873324887,
+            "action_cost": 0.04403144215134257,
+            "action_change_cost": 0.09127802517088837
+          }
+        }
+      ],
+      "actual_physics_ticks": 8000,
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": 1.865174681370263e-16,
+            "critic_loss": 0.2136974278802194,
+            "entropy": -37.11538357762496,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1600,
+            "epoch": 0,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0006370213836374533,
+            "kl": 0.0006370213836374533,
+            "actor_grad_before": 4.620320486758115,
+            "critic_grad_before": 1.3384573168982234,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.003708513911474878,
+            "critic_loss": 0.19623799033435624,
+            "entropy": -37.11549855444741,
+            "clip_fraction": 0.013125,
+            "ratio_mean": 0.9996367547238597,
+            "samples": 1600,
+            "epoch": 1,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.002665998654477643,
+            "kl": 0.002665998654477643,
+            "actor_grad_before": 4.205749355664626,
+            "critic_grad_before": 1.2905188967538823,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.004443419882519832,
+            "critic_loss": 0.17941585817763817,
+            "entropy": -37.11559114770271,
+            "clip_fraction": 0.156875,
+            "ratio_mean": 0.999418466815732,
+            "samples": 1600,
+            "epoch": 2,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.003789045642843872,
+            "kl": 0.003789045642843872,
+            "actor_grad_before": 5.544784766185312,
+            "critic_grad_before": 1.2419012257430597,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.005699317477826216,
+            "critic_loss": 0.16324033468375304,
+            "entropy": -37.115668365918765,
+            "clip_fraction": 0.225,
+            "ratio_mean": 0.9981887792419109,
+            "samples": 1600,
+            "epoch": 3,
+            "episodes": 4,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0034602966249795684,
+            "kl": 0.0034602966249795684,
+            "actor_grad_before": 5.937904963230874,
+            "critic_grad_before": 1.1922610264302655,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.0034602966249795684,
+        "kl_per_dim": 8.238801488046592e-05,
+        "explained_variance": -0.05569576792464326,
+        "std_min": 0.09996637546709579,
+        "std_max": 0.1000319189806164,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3e-05,
+        "critic_lr": 0.0001,
+        "accepted_steps": 12,
+        "updates": 3,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "episodes": 4,
+        "samples": 1600,
+        "bptt": "full_episode_from_reset"
+      },
+      "evaluation": {
+        "native_steps": 160000,
+        "sample_count": 2000,
+        "duration_s": 1.998999999997006,
+        "forward_speed_native_per_s": 0.3236346863554974,
+        "forward_signed_native_per_s": 0.32208974677821917,
+        "lateral_speed_native_per_s": 0.03158488931061542,
+        "foot_support_mean": 1.00008886954215,
+        "foot_support_min": 0.5619836391035473,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.1723868642151511,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.7043057364506526,
+          "LH": 1.1706261851032624,
+          "LM": 0.7893813504103407,
+          "RF": 1.6587176915491086,
+          "RH": 0.8230157387818358,
+          "RM": 2.214924912780506
+        },
+        "slip_ratio_max": 2.214924912780506,
+        "slip_ratio_mean": 1.3934952691792841,
+        "com_start": 1.4461617233900255,
+        "com_end": 1.1723868642151511,
+        "com_xy_travel": 0.6469457380236704,
+        "slip_load_denominator_native": [
+          5433.848131927486,
+          9903.578916718696,
+          9629.28258517889,
+          9964.063741015882,
+          11545.139025118475,
+          2421.1421845053587
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": false,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.32208974677821917,
+          "lateral_signed_native_per_s": 0.03158488931061542,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "wall_s": 21.346761951979715,
+        "decision_ms": 5,
+        "target_speed": 0.0,
+        "adhesion_enabled": false,
+        "evaluation_scope": "derived engineering; no continuous prewarm handover; original acceptance unverified"
+      }
+    }
+  ],
+  "initial_evaluation": {
+    "native_steps": 160000,
+    "sample_count": 2000,
+    "duration_s": 1.998999999997006,
+    "forward_speed_native_per_s": 0.3114186789302232,
+    "forward_signed_native_per_s": 0.3099462736471711,
+    "lateral_speed_native_per_s": 0.030247331103394014,
+    "foot_support_mean": 1.0000865768017757,
+    "foot_support_min": 0.5620025884918214,
+    "nonfoot_force_max_W": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "com_height_min": 1.1889281225958193,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.7064805731430346,
+      "LH": 1.2094562424964739,
+      "LM": 0.815084105279631,
+      "RF": 1.67411242531738,
+      "RH": 0.8620928386224197,
+      "RM": 2.299463389320911
+    },
+    "slip_ratio_max": 2.299463389320911,
+    "slip_ratio_mean": 1.4277815956966418,
+    "com_start": 1.446161748381275,
+    "com_end": 1.1889281225958193,
+    "com_xy_travel": 0.6225259391805837,
+    "slip_load_denominator_native": [
+      5332.855157102583,
+      9869.298567524776,
+      9692.222567672285,
+      9944.178631791756,
+      11600.593682984756,
+      2457.793879099513
+    ],
+    "slip_valid_per_leg": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slip_has_progress": true,
+    "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+    "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+    "sample_dt_s": 0.0009999999999976694,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": false,
+      "forward": true,
+      "slip": false
+    },
+    "all_gates": false,
+    "initial_heading_diagnostics": {
+      "status": "MEASURED",
+      "forward_signed_native_per_s": 0.3099462736471711,
+      "lateral_signed_native_per_s": 0.030247331103394014,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ],
+      "gate_applied": false
+    },
+    "native_peak_summary": null,
+    "roadmap_D1_D8": {
+      "D1": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D2": {
+        "status": "UNKNOWN",
+        "reason": "native low-pass acceleration and autonomous window not supplied"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D4": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D4b": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D6": {
+        "status": "UNKNOWN",
+        "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "reason": "native window and loading-leg threshold absent"
+      },
+      "D8": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      }
+    },
+    "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+    "wall_s": 21.38577685900964,
+    "decision_ms": 5,
+    "target_speed": 0.0,
+    "adhesion_enabled": false,
+    "evaluation_scope": "derived engineering; no continuous prewarm handover; original acceptance unverified"
+  },
+  "wall_s": 340.9070081569953
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "tarsus-pad-body/1",
+  "origin": "the feet of this body are mesh vertices of Tarsus5, not pads. Every evaluation so far measured the contact of a mesh corner against the floor, and the friction scan showed that raising mu alone saturates at slip ~0.99. This round replaces the foot contact with a declared spherical pad geom per leg.",
+  "derived_body": {
+    "base": "/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+    "change_1": "one sphere geom named <LEG>Tarsus5_pad added inside each <LEG>Tarsus5 body, radius 0.01 native units, centre placed so the sphere's lowest point coincides with the mesh's lowest vertex (so the standing height and key pose are unchanged)",
+    "change_2": "the six Tarsus5 mesh geoms get contype=0 conaffinity=0, so the pads are the only foot contacts",
+    "unchanged": ["all other geom types, sizes and positions", "masses, inertias, joints, ranges, springs", "actuator gains, force limits, timestep, gravity", "the floor", "nothing is written to the frozen XML"],
+    "invariants_to_verify": "nq 49, nv 48, nu 42, nmesh 71, neq 0, joint ranges and body masses bit-identical to the frozen model; ngeom 72 -> 78"
+  },
+  "friction": "sliding friction mu = 1.5 on every geom at runtime (the best value from the friction scan), declared as friction-derived",
+  "controller": "the same full-42-joint PPO recipe as the stand-pose run: start from the solved stand pose, base network MODEL_MEASURED_STAND as a faded prior, reward v4, adhesion channel on during training, 64 updates with a gate check every 16",
+  "evaluation": "cold-start 4 s and assist-then-release 4 s, grip on (derived channel) and grip off (frozen-body-style comparison, but with the pad body and mu 1.5, therefore also derived), full and steady windows, per-leg slip measured on the pad geoms",
+  "gates": "unchanged: support mean >= 0.90, non-foot max <= 0.05W*4, COM min >= 1.20, slip max <= 0.50, forward >= 0.05",
+  "labelling": "derived body + derived friction + replacement ANN; none of this is frozen-body acceptance and none of it is connectome or brain output",
+  "accounting": "pad geometry, radius, positions, the old and new XML sha256, the invariant check, native steps, and every metric including failures are recorded"
+}

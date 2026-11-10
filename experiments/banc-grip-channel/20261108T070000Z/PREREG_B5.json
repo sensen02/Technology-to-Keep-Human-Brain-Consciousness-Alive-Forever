@@ -1,0 +1,9 @@
+{
+  "schema": "residual-with-adhesion-B5/1",
+  "question": "B4 showed grip helps but the controllers were trained without it. If the residual is trained WITH the declared normal adhesion present, can per-leg material slip reach 0.5 while support and height stay acceptable?",
+  "environment": "identical to residual v2 except the declared normal adhesion channel is active during training as well: A = 0.5 W per loaded leg, shared across that leg's contacts, applied every 0.5 ms, only when normal load > 0.1 W",
+  "unchanged": ["base network MODEL_MEASURED", "reward definition (per-leg slip hinge at 0.35 plus stance foot-speed penalty)", "action space (six tibia, +-0.003 rad/tick)", "curriculum targets 0.05/0.12/0.20/0.30", "level gates", "acceptance thresholds", "frozen body XML"],
+  "budget": "16 updates at the first curriculum level (v=0.05) only, then evaluation with adhesion ON and OFF",
+  "labelling": "any pass here is a derived-channel pass and does NOT change the frozen-body status, which remains unaccepted",
+  "failure_rule": "if slip stays above 0.5 with adhesion ON after the allocated updates, the negative result is reported and no weight, cap or threshold is changed"
+}

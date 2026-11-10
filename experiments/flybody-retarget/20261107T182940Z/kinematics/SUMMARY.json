@@ -1,0 +1,118 @@
+{
+  "scope": "S2/S5 offline kinematics only",
+  "primary": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/kinematics/TARGETS.npz",
+  "secondary": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/kinematics/MEASURED_TARGETS.npz",
+  "verification": {
+    "passed": true,
+    "datasets": {
+      "teacher": {
+        "independent_fk_max_abs_error": 2.220446049250313e-15,
+        "independent_target_max_abs_error": 1.3322676295501878e-15,
+        "max_rate_rad_s": 30.000000000003304,
+        "finite_limits_rate_pass": true,
+        "geometry_gate": false,
+        "max_normalized_landmark_error": 0.19501574985124895,
+        "rms_normalized_landmark_error": 0.03724495430183113,
+        "holdout_max": 0.17427491835469838
+      },
+      "measured": {
+        "independent_fk_max_abs_error": 2.220446049250313e-15,
+        "independent_target_max_abs_error": 1.3322676295501878e-15,
+        "max_rate_rad_s": 30.000000000003304,
+        "finite_limits_rate_pass": true,
+        "geometry_gate": false,
+        "max_normalized_landmark_error": 0.2576742107864666,
+        "rms_normalized_landmark_error": 0.04555656872890276,
+        "holdout_max": 0.19449630932822798
+      }
+    },
+    "source_sample_fk_max_error": 9.43689570931383e-16,
+    "independent_serial_fk_calls": 2234,
+    "jacobian_fd_max_abs_error": 8.046847632670051e-10,
+    "current_runtime_saved_fk_max_error": 0.0,
+    "current_runtime_calls": {
+      "mj_forward": 0,
+      "mj_kinematics": 635,
+      "mj_comPos": 215,
+      "mj_jac": 210,
+      "mj_step": 0,
+      "mj_step1": 0,
+      "mj_step2": 0
+    },
+    "current_model_compiles": 1,
+    "step_calls": 0,
+    "training_updates": 0,
+    "root_reference_not_deployed": true
+  },
+  "datasets": {
+    "teacher": {
+      "max_normalized_error": 0.19501574985124898,
+      "rms_normalized_error": 0.037244954301831126,
+      "per_leg_max": [
+        0.1135101261854209,
+        0.14616371194275227,
+        0.1431207323732242,
+        0.1557445563183842,
+        0.19501574985124898,
+        0.11727097547468569
+      ],
+      "per_leg_rms": [
+        0.021844523464912762,
+        0.04069552596290295,
+        0.02663186768234355,
+        0.022066725555845806,
+        0.0664566881072803,
+        0.024023374860150257
+      ],
+      "holdout_max": 0.1742749183546983,
+      "holdout_rms": 0.04240631842195413,
+      "max_rate": 30.0,
+      "geometry_gate": false,
+      "max_nfev_terminations": 8,
+      "finite_inbounds": true
+    },
+    "measured": {
+      "max_normalized_error": 0.25767421078646663,
+      "rms_normalized_error": 0.04555656872890276,
+      "per_leg_max": [
+        0.25767421078646663,
+        0.18919824998340506,
+        0.14589664248648468,
+        0.17770969894724567,
+        0.19752935138127614,
+        0.13051614375722556
+      ],
+      "per_leg_rms": [
+        0.06118186256724334,
+        0.041313163302135136,
+        0.028424259433649672,
+        0.041888120057034475,
+        0.06051456290109708,
+        0.027889828029350125
+      ],
+      "holdout_max": 0.1944963093282279,
+      "holdout_rms": 0.04992574487304196,
+      "max_rate": 30.0,
+      "geometry_gate": false,
+      "max_nfev_terminations": 18,
+      "finite_inbounds": true
+    }
+  },
+  "cumulative_explicit_mujoco_calls": {
+    "mj_forward": 2290,
+    "mj_kinematics": 102753,
+    "mj_comPos": 102333,
+    "mj_jac": 919272,
+    "mj_resetDataKeyframe": 2,
+    "mj_step": 0,
+    "mj_step1": 0,
+    "mj_step2": 0
+  },
+  "model_loads_official": 1,
+  "current_model_compiles": 2,
+  "independent_numpy_fk_calls": 2234,
+  "environment_steps": 0,
+  "training_updates": 0,
+  "geometry_units": "current native SI NOT_ESTABLISHED",
+  "preview_opened": true
+}

@@ -1,0 +1,10 @@
+{
+  "job":"bash-217",
+  "exit_code":1,
+  "phase":"pre-neural basis construction assertion",
+  "actual_neural_steps":0,
+  "physical_steps":0,
+  "error":"Preserved old TRAIN_TRACE train_mask differs from recomputed decimal boundary at one floating timestamp.",
+  "detail":"old train_mask count=1160; recomputed (time>=0.2)&(time<6) count=1159; index40 time=0.19999999999998003 has old train_mask=True.",
+  "repair":"Use exact preserved old train_mask as preregistered, document boundary and do not recompute it. No model, source, or basis was produced by failed run."
+}

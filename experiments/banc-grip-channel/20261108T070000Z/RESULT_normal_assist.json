@@ -1,0 +1,163 @@
+{
+  "schema": "grip-probe/2",
+  "mode": "assist",
+  "law": "normal",
+  "k_grip": 5000.0,
+  "f_max_per_leg": 12.223177377939002,
+  "stance_load": 2.4446354755878006,
+  "results": {
+    "grip_OFF_assist": {
+      "mode": "assist",
+      "grip": false,
+      "native_steps": 320000,
+      "labels": {
+        "grip": "frozen-body"
+      },
+      "grip_log": {
+        "peak_force": 0.0,
+        "impulse": 0.0,
+        "cap_hits": 0,
+        "active_updates": 0,
+        "updates": 0
+      },
+      "prereg": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/PREREG.json",
+      "assist": {
+        "duration_s": 0.7999999999997912,
+        "forward_speed_native_per_s": 0.6816045877369056,
+        "foot_support_mean": 0.9880527683485094,
+        "foot_support_min": 0.8898581934704146,
+        "nonfoot_force_max_W": 2.6859898929707358,
+        "com_height_min": 0.7265393809903401,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.1034383465608815,
+          "LH": 2.1814574487615,
+          "LM": 2.1555156326636116,
+          "RF": 1.0217202823326925,
+          "RH": 2.657821446054968,
+          "RM": 2.846033871972166
+        },
+        "slip_ratio_max": 2.846033871972166,
+        "slip_ratio_mean": 1.9943311713909697,
+        "slip_criterion_passed": false
+      },
+      "release": {
+        "duration_s": 3.1899999999925654,
+        "forward_speed_native_per_s": 0.2917541408669753,
+        "foot_support_mean": 0.8342974789949126,
+        "foot_support_min": 0.8061929506992622,
+        "nonfoot_force_max_W": 4.734004881086915,
+        "com_height_min": 0.6850980040650424,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.677359827591125,
+          "LH": 1.4294874404398927,
+          "LM": 0.9423819364573732,
+          "RF": 2.8172877152188422,
+          "RH": 4.9274696757609275,
+          "RM": 6.9358084388590955
+        },
+        "slip_ratio_max": 6.9358084388590955,
+        "slip_ratio_mean": 2.954965839054543,
+        "slip_criterion_passed": false
+      },
+      "all": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.33554966295573463,
+        "foot_support_mean": 0.865240730977324,
+        "foot_support_min": 0.8061929506992622,
+        "nonfoot_force_max_W": 4.734004881086915,
+        "com_height_min": 0.6850980040650424,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.7697623796668657,
+          "LH": 1.8816177656274151,
+          "LM": 1.4802046179432913,
+          "RF": 2.3131368276445317,
+          "RH": 5.215539291222392,
+          "RM": 5.883034745469428
+        },
+        "slip_ratio_max": 5.883034745469428,
+        "slip_ratio_mean": 2.923882604595654,
+        "slip_criterion_passed": false
+      }
+    },
+    "grip_ON_assist": {
+      "mode": "assist",
+      "grip": true,
+      "native_steps": 320000,
+      "labels": {
+        "grip": "derived-channel"
+      },
+      "grip_log": {
+        "peak_force": 12.223177377939002,
+        "impulse": 290.7221623456338,
+        "cap_hits": 0,
+        "active_updates": 8000,
+        "updates": 8000
+      },
+      "prereg": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-grip-channel/20261108T070000Z/PREREG.json",
+      "assist": {
+        "duration_s": 0.7999999999997912,
+        "forward_speed_native_per_s": 0.6641836128176318,
+        "foot_support_mean": 3.873649066521332,
+        "foot_support_min": 2.4468683497461448,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 0.7962233434572206,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.9691372941755961,
+          "LH": 2.2038315337200087,
+          "LM": 1.309291621040613,
+          "RF": 0.8071322686084567,
+          "RH": 2.583466505133124,
+          "RM": 1.6939640044191002
+        },
+        "slip_ratio_max": 2.583466505133124,
+        "slip_ratio_mean": 1.5944705378494832,
+        "slip_criterion_passed": false
+      },
+      "release": {
+        "duration_s": 3.1899999999925654,
+        "forward_speed_native_per_s": 0.388395853209631,
+        "foot_support_mean": 3.633393515814751,
+        "foot_support_min": 3.4039603522196407,
+        "nonfoot_force_max_W": 21.379393451127353,
+        "com_height_min": 0.6566271946543778,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.9860839036494219,
+          "LH": 1.483776326770242,
+          "LM": 0.9325041659094955,
+          "RF": 1.0779917682388263,
+          "RH": 1.76301223607892,
+          "RM": 1.824823461405941
+        },
+        "slip_ratio_max": 1.824823461405941,
+        "slip_ratio_mean": 1.3446986436754742,
+        "slip_criterion_passed": false
+      },
+      "all": {
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.3559876582376585,
+        "foot_support_mean": 3.6817449453944504,
+        "foot_support_min": 2.4468683497461448,
+        "nonfoot_force_max_W": 21.379393451127353,
+        "com_height_min": 0.6566271946543778,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.2041821688237995,
+          "LH": 2.0832090644694894,
+          "LM": 1.264105003260321,
+          "RF": 1.2506884229411526,
+          "RH": 2.816300406349974,
+          "RM": 2.2900406894236798
+        },
+        "slip_ratio_max": 2.816300406349974,
+        "slip_ratio_mean": 1.8180876258780696,
+        "slip_criterion_passed": false
+      }
+    }
+  },
+  "prereg_sha256": "8a3845f124d73496a3b631c87206991bca083d5457de358da3d819a34891648b"
+}

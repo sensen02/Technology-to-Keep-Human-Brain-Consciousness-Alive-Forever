@@ -1,0 +1,37 @@
+{
+  "schema": "banc-repair-pipeline/obs-v2",
+  "created_runtime_utc": "20261109T055352Z",
+  "what_this_is": "a declared engineering encoding added to the REPLACEMENT ANN observation. It is NOT connectome capability, NOT a new sensory cell, and NOT a change to the 556-cell encoder or its port contract.",
+  "motivation": {
+    "measurement": "FOOT_HEIGHT_VISIBILITY.json: a linear decoder recovers 0.6488 of the variance of the per-leg pad height from the full 483-dimensional observation, 0.0594 from the 42 joint angles alone and 0.0445 from the six foot-load channels alone",
+    "observed_failure": "in all six arms each leg reaches 4 of the 5 acceptance criteria and the missing one is always either lift or placement; with the two-phase teacher LF lifts to 2.5314 but never comes down (placement rate 0.000)",
+    "inference": "the policy has no direct channel for its own foot clearance, so 'lift until the pad clears the ground, then put it back down' must be learned through an inferred inverse-kinematic estimate. Adding the clearance channel tests whether that inference is the binding difficulty."
+  },
+  "change": {
+    "observation_dimension": {"old": 483, "new": 495},
+    "added_entries": {
+      "count": 12,
+      "per_leg": ["pad bottom height (native)", "pad vertical velocity (native per second)"],
+      "leg_order": ["LF", "LM", "LH", "RF", "RM", "RH"],
+      "scales": {"pad_height_divisor_native": 0.05, "pad_vertical_velocity_divisor_native_per_s": 10.0},
+      "clipping": "same declared saturation as the rest of the sensory vector, +/-10"
+    },
+    "carried_caveats": "the pad height is derived from the three-sphere triad geometry (per-leg minimum), so it inherits every caveat of that derived body. It is a simulation observable, not a measured biological one."
+  },
+  "unchanged": {
+    "proprioception_183": "byte-identical call into the frozen experiments/s5-ann-walk/20261107T091243Z/proprioception.py; that file is not touched",
+    "history_294": "the last seven commanded joint targets, unchanged",
+    "leg_prompt_6": "unchanged",
+    "connectome_encoder": "encoder_v2.py and its 556 qualified cells and ports are untouched by this file; the encoder contract SENSORY_V2_CONTRACT.json stays as declared",
+    "acceptance_criteria": "identical: unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+    "reward_and_gates": "achievement-flag potential with the aligned swing gates (amendments 3 and 4), unchanged weights",
+    "teacher": "two-phase declared demonstration (amendment 5), unchanged",
+    "optimizer_and_window": "unchanged, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "if a leg passes all five criteria, the clearance channel was the binding difficulty and the result must still be labelled 'replacement ANN with a declared engineering encoding'",
+    "if the legs still end with the foot in the air, the difficulty is not observability and the next step is not another reward change",
+    "if the legs place but lose the lift or the safety margin, the behaviour is now a genuine trade-off between phases and must be reported as such"
+  ],
+  "discipline": "PREREG.json, amendments 1-5 and PREREG_TASK_V2.json are left byte-identical. This is an interface change, recorded separately so it can never be confused with a reward tweak."
+}

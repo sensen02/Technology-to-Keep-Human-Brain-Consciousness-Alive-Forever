@@ -1,0 +1,33 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-11",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the network architecture again (supersedes amendment 9's shared trunk); the task, world, reward, observation and acceptance criteria are untouched",
+  "when": "after the per-leg diagnostic runs, before the mixed-leg run",
+  "evidence": {
+    "single_leg_training_works": "with sampling restricted to one leg, the left front leg reached all five criteria at update 16 and held them at update 32 (lift 0.727, advance 0.540, final load 0.448, body height 1.250); the left middle and right middle legs each reached all five at update 8 in their own runs",
+    "but_it_destroys_the_other_five": "in the same runs every other leg degrades to 'place only' with lift exactly 0.0000, because the six output heads still share one trunk and the trunk moves under one head's gradient",
+    "mixed_training_never_exceeded_three": "six mixed-leg arms landed between 1 and 3 of 6, which is what one trunk pulled by six objectives would produce",
+    "diagnosis": "the remaining conflict is inside the network, not between the network and the task"
+  },
+  "architecture_change": {
+    "old": "shared trunk (495->128->128) plus six 42-joint output heads",
+    "new": "six fully independent sub-networks (495->128->128->42 each) selected by the leg prompt, plus ONE shared value function on the observation",
+    "value_function": "the critic now has its own small trunk (495->128->1); previously it borrowed the actor's trunk, which is no longer shared",
+    "gradient_isolation": "a sample for leg L updates only sub-network L and the value function; verified: gradients for the other five sub-networks are exactly zero",
+    "gradient_check": "checked against a three-point central difference for both the actor head (w2 entry 5,7 of leg 2) and the critic (wc0 entry 3,4): analytic and numeric agree to six decimals. Note that two earlier checks of mine divided a one-sided difference by two epsilon and appeared to disagree by a factor of two; both were mistakes in the check, not in the code",
+    "declared_limit": "independent per-leg sub-networks cannot coordinate legs by construction, so this is explicitly NOT a walking architecture and no result from it may be described as walking"
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical",
+    "observation": "495 dimensions with the declared clearance channels",
+    "reward": "achievement-flag potential with aligned swing gates",
+    "teacher": "three phase demonstration, raise 60 / swing 90 / hold 0.5 (amendment 8)",
+    "budget": "3600 imitation samples, 1500 imitation steps, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "four or more legs passing in one mixed-leg run means the conflict was inside the network and the single-leg step task is solved for those legs by a replacement ANN in the derived world",
+    "fewer than four means the conflict is not only representational, and the report must give the per-leg criteria again",
+    "no result may be described as walking, as connectome capability or as frozen-body acceptance"
+  ],
+  "discipline": "all earlier preregistrations and amendments are left byte-identical. This is the eleventh documented change of the round and the report lists all eleven with their measurements."
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-7",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the warm-start teacher again (supersedes amendment 6's lift command); acceptance criteria unchanged",
+  "when": "after the 3/6 run, before the next training run",
+  "evidence": {
+    "rear_leg_diagnosis": {
+      "weight_shift_hypothesis": "DISPROVED. SHIFT_PROBE.json: the three rear legs already carry almost nothing in the stand pose (LH 0.08, RH 0.00, RM 0.00 body weight at reset), and every candidate push makes them carry MORE (0.17-0.66). A weight shift forward is not what the rear legs are missing; that hypothesis is withdrawn.",
+      "real_cause": "the hand-made lift directions in LIFT_DEMO.json were the weak link. Measured rise over 90 ticks: RM hand-made +0.0000 (it drives only four joints) versus Jacobian-at-current-pose +0.2089; LH hand-made +0.0124 versus Jacobian +0.0563. RM could not lift at all because its fallback direction was degenerate, not because of its body position."
+    },
+    "teacher_self_check": "DEMO_JAC_TEACHER.json: with both phases computed from the vertical Jacobian at the current pose, the demonstration passes all five criteria on ALL SIX legs (LF rise 0.760, LH 0.058, LM 0.346, RF 0.752, RH 0.199, RM 0.224; final loads 0.26-0.66; support 0.912-0.975; body height 1.04-1.25; non-foot 0.00-2.09 W)"
+  },
+  "teacher_changes": {
+    "lift_command": {"old": "the screened hand-made direction from LIFT_DEMO.json", "new": "joint rates that raise the pads along the vertical Jacobian recomputed at the current pose"},
+    "press_command": "unchanged: the descending Jacobian direction (amendment 6)",
+    "phase_switch": "unchanged: a declared 90-tick lift window then press. The teacher has a schedule; the deployed network has none."
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical: unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+    "observation": "495 dimensions with the declared clearance channels",
+    "reward": "achievement-flag potential with aligned swing gates, unchanged weights",
+    "optimizer_and_window": "unchanged, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "the teacher now passes on six of six legs, so any leg the network fails is an imitation failure, not a feasibility limit",
+    "if the network now passes the legs the previous teacher could not reach, the earlier rear-leg failure was my demonstration data and not the body",
+    "if the network still fails the same legs, the difficulty is in what a network can learn from these observations, and the report must say so"
+  ],
+  "discipline": "PREREG.json, amendments 1-6, PREREG_TASK_V2.json and PREREG_OBS_V2.json are left byte-identical. The teacher remains a declared rule-based demonstration; the deployed artefact is the network, fine-tuned with the teacher absent."
+}

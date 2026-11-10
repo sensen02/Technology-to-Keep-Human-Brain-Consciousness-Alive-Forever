@@ -1,0 +1,184 @@
+{
+  "scope": "30 ticks each, deterministic final checkpoint; training schedule uses final C, no stochastic exploration. 7200 native steps total; no retraining.",
+  "actor_shapes": {
+    "w0": [
+      477,
+      128
+    ],
+    "b0": [
+      128
+    ],
+    "w1": [
+      128,
+      128
+    ],
+    "b1": [
+      128
+    ],
+    "w2": [
+      128,
+      42
+    ],
+    "b2": [
+      42
+    ],
+    "wc": [
+      128,
+      1
+    ],
+    "bc": [
+      1
+    ],
+    "logstd": [
+      42
+    ]
+  },
+  "actor_parameters": 83114,
+  "all_optimizer_parameters": 83285,
+  "base_shapes": {
+    "center": [
+      42
+    ],
+    "scale": [
+      42
+    ],
+    "lags": [
+      7
+    ],
+    "K": [],
+    "w0": [
+      294,
+      128
+    ],
+    "b0": [
+      128
+    ],
+    "w1": [
+      128,
+      128
+    ],
+    "b1": [
+      128
+    ],
+    "w2": [
+      128,
+      42
+    ],
+    "b2": [
+      42
+    ],
+    "joint_names": [
+      42
+    ],
+    "metadata_json": []
+  },
+  "K": 40,
+  "lags": [
+    0,
+    8,
+    24,
+    32,
+    36,
+    38,
+    39
+  ],
+  "actual_max_rate_range": [
+    2.0,
+    2.0
+  ],
+  "actual_kp_range": [
+    24.12378615255,
+    149.2859010565
+  ],
+  "actual_kd_range": [
+    0.02412378615255,
+    0.1492859010565
+  ],
+  "actual_torque_limit_range": [
+    4.82475723051,
+    29.8571802113
+  ],
+  "gamma_time_constant_s": 0.19949958228835613,
+  "gamma_gae_time_constant_s": 0.01776014827754131,
+  "training_updates_recorded": 48,
+  "training_decisions_recorded": 49152,
+  "training_native_steps_reconstructed": 3932160,
+  "logged_total_physics_steps": 2015232000,
+  "actual_control_legs": [
+    "LF",
+    "LH",
+    "LM",
+    "RF",
+    "RH",
+    "RM"
+  ],
+  "sensory_declared_legs": [
+    "LF",
+    "LM",
+    "LH",
+    "RF",
+    "RM",
+    "RH"
+  ],
+  "pad_bottom_z_at_last_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "run_diagnostics": {
+    "training_deterministic": {
+      "requested_over_2_count": 1217,
+      "channel_tick_count": 1260,
+      "effective_rate_unchanged_if_actor_removed_at_same_states_count": 1210,
+      "limited_abs_max": 2.0,
+      "obs_shape": [
+        30,
+        477
+      ]
+    },
+    "evaluation": {
+      "requested_over_2_count": 1185,
+      "channel_tick_count": 1260,
+      "effective_rate_unchanged_if_actor_removed_at_same_states_count": 1167,
+      "limited_abs_max": 2.0,
+      "obs_shape": [
+        30,
+        477
+      ]
+    },
+    "video": {
+      "requested_over_2_count": 1204,
+      "channel_tick_count": 1260,
+      "effective_rate_unchanged_if_actor_removed_at_same_states_count": 1195,
+      "limited_abs_max": 2.0,
+      "obs_shape": [
+        30,
+        477
+      ]
+    }
+  },
+  "schedule_differences": {
+    "evaluation_vs_training": {
+      "target_max_abs": 0.2597240219293284,
+      "obs_max_abs": 1.9967045783996582,
+      "q_max_abs": 0.062925616041656
+    },
+    "video_vs_training": {
+      "target_max_abs": 0.019723717480713,
+      "obs_max_abs": 0.1537933349609375,
+      "q_max_abs": 0.005643008968028995
+    }
+  },
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-adh-namebug/20261110T150000Z/train_adhfix.py": "3761fd8155660c3c125d50133c390deea2dc2be412f05dbf1994db8a1f0bebae",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-walk/20261107T091243Z/proprioception.py": "1867ccc711f6bc8dc8a1c0bc88aafed0e6ea78907fa4e86c8f016c19c062cfb0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-adh-namebug/20261110T150000Z/MODEL_adhfix.npz": "e6b8c6640b5b922327d64f6f42d2caf6d9557dda79f62ae86b358ee781b3415a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walk-video/20261110T130000Z/render_walk.py": "b3b934a5b2ee3135361f13b2f7329848345c145cc839f9faa404f67a3ab1d6ec"
+  }
+}

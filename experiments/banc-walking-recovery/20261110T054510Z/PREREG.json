@@ -1,0 +1,12 @@
+{
+  "version": "exact-continuation-v1",
+  "goal": "S2/S5 retain actual learning state while extending a promising safe low-speed policy rather than resetting Adam every short run",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T053813Z",
+  "basis": "safe-zero FF3u improves signed speed -.026787 -> .001369 -> .025886 -> .057871 while COM>=1.28/nonfoot0; GRU improves to.036513 but no demonstrated memory advantage",
+  "scope": "same declared noadh derived body and original strict success boundary; not walking claim",
+  "implementation_change": "explicit exact --resume: restore parent model, both Adam counters/moments, all RNG, saved task and PPO config; next physical episode starts at reset as original complete-episode loop would; keep local/global update counters and parent hash",
+  "conditional_training": {"candidate": "FF238 final3u, choose simpler model first based on actual safety/propulsion trend", "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T053813Z/walk_zero_ff238_3u/final.pt", "additional_updates": 9, "effective_total_updates": 12, "condition": "exact resume check passes and parent2s independent replay matches", "task": "preserve target0.10, policy5ms, episode2s, rollout8s, noadh, same reward and PPOhyperparameters", "no_extra_changes": "do not tune reward, dynamics or architecture during continuation"},
+  "evaluation": "save each update/hash and same2s engineering metrics; independent final replay; separate longer-window diagnostics to detect finite-stroke drift and lack of cyclic stepping",
+  "stopping": "numerical/physics/identity/write failures stop dependent work. Behavior failures remain records; no all-goal claim from speedalone",
+  "original_acceptance": "still incomplete: requires native synchronized continuous prewarm/handover and all original physics criteria"
+}

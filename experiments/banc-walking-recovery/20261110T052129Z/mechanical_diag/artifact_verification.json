@@ -1,0 +1,151 @@
+{
+  "exit_code": 0,
+  "simulation_rerun": false,
+  "checks": [
+    "17 saved output hashes match",
+    "exit status zero, script copy exact",
+    "all 4 cases: arrays finite, timestamps, initial states, zero-action targets, windows, filters, warnings and input hashes verified"
+  ],
+  "results": {
+    "zero_A_adhesion": {
+      "windows_weighted_speed": [
+        1.399318741951074,
+        0.2845007722604261,
+        0.2789389444321078
+      ],
+      "tail_blocks_weighted_speed": [
+        0.27924801850118597,
+        0.27909135456698003,
+        0.2784726451779002
+      ],
+      "late_com_xy_raw_mean": 1.466235176306214,
+      "late_com_xy_20ms_mean": 0.7063863341576986,
+      "late_com_xy_60ms_mean": 0.11792835481059089,
+      "late_com_z_range": [
+        1.2482830045768705,
+        1.279927134536708
+      ],
+      "late_nonfoot_peak": 0.0,
+      "late_perleg_weighted_speed": {
+        "LF": 0.30733815165510897,
+        "LH": 0.4565274917812908,
+        "LM": 0.14930245494429709,
+        "RF": 0.10377077118829317,
+        "RH": 0.30559260855074993,
+        "RM": 0.20815334268159066
+      },
+      "legacy_engineering": {
+        "forward_signed_native_per_s": -0.03760392061308985,
+        "foot_support_mean": 1.5045725116061366,
+        "com_height_min": 1.2482830045768705,
+        "nonfoot_force_max_native": 0.0,
+        "slip_ratio_max": 12.863017278187437
+      }
+    },
+    "zero_B_noadhesion": {
+      "windows_weighted_speed": [
+        1.3198079157840648,
+        0.02922082030607945,
+        0.0018693605015791283
+      ],
+      "tail_blocks_weighted_speed": [
+        0.00520414129952954,
+        0.00036939703058086514,
+        3.4541726356760505e-05
+      ],
+      "late_com_xy_raw_mean": 0.0008305993281424105,
+      "late_com_xy_20ms_mean": 0.0008839899324774983,
+      "late_com_xy_60ms_mean": 0.0010046528664223995,
+      "late_com_z_range": [
+        1.2751298242154738,
+        1.2755656280264045
+      ],
+      "late_nonfoot_peak": 0.0,
+      "late_perleg_weighted_speed": {
+        "LF": 0.0028181182362049017,
+        "LH": 0.0013000548889603764,
+        "LM": 0.004921664815315485,
+        "RF": 0.001079133898970824,
+        "RH": 0.0008857074831363422,
+        "RM": 0.00084936776185963
+      },
+      "legacy_engineering": {
+        "forward_signed_native_per_s": -0.026786856671107206,
+        "foot_support_mean": 1.0001893997982778,
+        "com_height_min": 1.2751298242154738,
+        "nonfoot_force_max_native": 0.0,
+        "slip_ratio_max": 3.6603333401495566
+      }
+    },
+    "policy_A_adhesion": {
+      "windows_weighted_speed": [
+        1.1483711941496588,
+        0.4364384624994222,
+        0.4468301776470647
+      ],
+      "tail_blocks_weighted_speed": [
+        0.4049920134337457,
+        0.4407839457140748,
+        0.493955712084286
+      ],
+      "late_com_xy_raw_mean": 3.163855413944402,
+      "late_com_xy_20ms_mean": 1.9614077320306424,
+      "late_com_xy_60ms_mean": 0.6170073898885078,
+      "late_com_z_range": [
+        1.2870726660376286,
+        1.3676703532307786
+      ],
+      "late_nonfoot_peak": 0.0,
+      "late_perleg_weighted_speed": {
+        "LF": 0.555104282053158,
+        "LH": 0.5265776483075526,
+        "LM": 0.23064037746786303,
+        "RF": 0.6079160834944449,
+        "RH": 0.39647312557694486,
+        "RM": 0.41781751326889444
+      },
+      "legacy_engineering": {
+        "forward_signed_native_per_s": 0.1875300131327878,
+        "foot_support_mean": 1.6452894923266534,
+        "com_height_min": 1.2870726660376286,
+        "nonfoot_force_max_native": 0.0,
+        "slip_ratio_max": 3.359907666622762
+      }
+    },
+    "policy_B_noadhesion": {
+      "windows_weighted_speed": [
+        1.127348718871239,
+        0.17029353386190427,
+        0.239774736845919
+      ],
+      "tail_blocks_weighted_speed": [
+        0.17576429593429982,
+        0.23309635212211044,
+        0.3105143312512192
+      ],
+      "late_com_xy_raw_mean": 0.971636134467882,
+      "late_com_xy_20ms_mean": 0.7140864447176543,
+      "late_com_xy_60ms_mean": 0.25118519979141707,
+      "late_com_z_range": [
+        1.3394629556172062,
+        1.3956102389658855
+      ],
+      "late_nonfoot_peak": 0.0,
+      "late_perleg_weighted_speed": {
+        "LF": 0.33988388044309553,
+        "LH": 0.1760470961512851,
+        "LM": 0.12468028887129316,
+        "RF": 0.37466681992810846,
+        "RH": 0.15799428021976897,
+        "RM": 0.2513227449693251
+      },
+      "legacy_engineering": {
+        "forward_signed_native_per_s": 0.1665295472390393,
+        "foot_support_mean": 0.9999917719549939,
+        "com_height_min": 1.3355166118965671,
+        "nonfoot_force_max_native": 0.0,
+        "slip_ratio_max": 3.462640169071813
+      }
+    }
+  }
+}

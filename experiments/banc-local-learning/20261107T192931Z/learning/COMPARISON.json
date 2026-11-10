@@ -1,0 +1,55 @@
+{
+  "primary_fixed_before_results": "newhistory",
+  "source_quality": "failed slow4 sameepisode temporaldiagnostics only",
+  "cases": {
+    "oldinstant": {
+      "metrics": {
+        "train_RMS_rad_s": 3.1983161147166013,
+        "temporal_RMS_rad_s": 3.6848873470228107,
+        "zero_train_RMS_rad_s": 3.411938923376233,
+        "zero_temporal_RMS_rad_s": 3.6618457263912414
+      },
+      "primary": false,
+      "fit_solves": 0,
+      "temporal_better_than_zero": false
+    },
+    "oldhistory": {
+      "metrics": {
+        "train_RMS_rad_s": 2.952735331684847,
+        "temporal_RMS_rad_s": 3.826357337334943,
+        "zero_train_RMS_rad_s": 3.411938923376233,
+        "zero_temporal_RMS_rad_s": 3.6618457263912414
+      },
+      "primary": false,
+      "fit_solves": 42,
+      "temporal_better_than_zero": false
+    },
+    "newinstant": {
+      "metrics": {
+        "train_RMS_rad_s": 3.15920714729879,
+        "temporal_RMS_rad_s": 3.734605986391207,
+        "zero_train_RMS_rad_s": 3.411938923376233,
+        "zero_temporal_RMS_rad_s": 3.6618457263912414
+      },
+      "primary": false,
+      "fit_solves": 42,
+      "temporal_better_than_zero": false
+    },
+    "newhistory": {
+      "metrics": {
+        "train_RMS_rad_s": 2.767699683043002,
+        "temporal_RMS_rad_s": 4.036152109565135,
+        "zero_train_RMS_rad_s": 3.411938923376233,
+        "zero_temporal_RMS_rad_s": 3.6618457263912414
+      },
+      "primary": true,
+      "fit_solves": 42,
+      "temporal_better_than_zero": false
+    }
+  },
+  "independent_verification_checks": 1203,
+  "total_new_fit_solves": 126,
+  "new_neural_steps": 6000,
+  "new_physical_steps": 0,
+  "biological_calibration": "NOT_ESTABLISHED"
+}

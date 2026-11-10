@@ -1,0 +1,16 @@
+{
+  "version": "same-task-roleGRU-exact2000to3000-v1",
+  "goal": "S2/S5 bounded neural fit continuation; complete physical walking remains unestablished until evaluations, full audit and same-run video",
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/final.pt",
+  "sole_change": "Exact same actor, training-only Linear128to6 head, all13 BC Adam states and RNG: global2000 to fixed3000, 1000 additional updates. Original300 and parent1000 ancestry fully validated before restore.",
+  "controls": "Same original dataset train episodes0/1 validation2, float64 CPU threads1, lr.001 roleCE.001 full contiguous BPTT, seed stream restored, architecture/H/tau/physical inputs unchanged; PPO optimizer states fresh, critic/logstd unchanged.",
+  "evidence": "Actual RH slip 1000=.53465475,1500=.51638262,2000=.5040258933630966 still FAIL; decreasing fit error motivates this single bounded continuation.",
+  "checkpoints": [2250,2500,2750,3000],
+  "physical_eval_only": [2500,3000],
+  "selection": "Parent executes ONLY2500 and3000 physical evaluations, never2250/2750. Earliest checkpoint meeting ALL unchanged engineering gates and six-leg cycles becomes candidate for independent native full-original verification; training still completes3000. All failures retained.",
+  "engineering_gates": "Unchanged foot-load mean>=.90; nonfoot peak<=.20*weight; COM minimum>=1.20; maximum per-leg slip<=.5; signed forward speed>=.05, complete same9.6s pureNN window. No rounding/threshold relaxation. Original D1-D8 separate.",
+  "deployment": "Replacement ANN and declared derived full71mesh body / finitePD incremental actuators; raw238 actual sensory plus explicit hidden only; role head training-only never deployment input or action path. No phase/order/time/teacher input after withdrawal.",
+  "checks": "Real2000 zero-update model/head/13Adam/RNG/metrics exact; tiny direct2to3 versus resumed2to3 equality; negative tests reject config/head/ancestry/curve/identity changes before loading; student regression. All required before main training.",
+  "runtime": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/env/bin/python -B",
+  "scope": "This delegated task runs checks and training only. Parent handles physical evaluations, confirmation, audit/video and master state/tracker. Stop on numeric, source identity or save failure; preserve failure evidence and repair only before freeze."
+}

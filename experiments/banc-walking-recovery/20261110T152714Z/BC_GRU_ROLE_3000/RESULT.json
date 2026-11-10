@@ -1,0 +1,87 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/final.pt",
+  "checkpoint_sha256": "f94c6223c9494ff49318b6b518c768fc6fbde36faf9f89e38d4abfbf5d009577",
+  "steps": 3000,
+  "parent": {
+    "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/final.pt",
+    "checkpoint_sha256": "b946c8cd022812f280a1b1d8077a5705981dfd911f830b7e81f449c51783a67b",
+    "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/RESULT.json",
+    "result_sha256": "66993fdfd7c6445e7e6a37fa3039d93df4499c7f03ec6c12a07cdbc30b039814",
+    "identity_sha256": "88543f474c82d24ecd229daafa758052725d76d2cd21b7fb532f7de9eebf6431",
+    "step": 2000,
+    "total_steps": 3000,
+    "additional_steps": 1000
+  },
+  "initial": {
+    "step": 2000,
+    "train": {
+      "MSE": 0.00011219279659485923,
+      "role_CE": 0.021759481048776074,
+      "role_accuracy": 0.9994791666666667
+    },
+    "heldout": {
+      "MSE": 0.00017166712725583163,
+      "role_CE": 0.021808660228630206,
+      "role_accuracy": 0.9994791666666667
+    },
+    "train_loss": 0.0001339522776436353
+  },
+  "final": {
+    "step": 3000,
+    "train": {
+      "MSE": 6.658337901821221e-05,
+      "role_CE": 0.015225758826600546,
+      "role_accuracy": 1.0
+    },
+    "heldout": {
+      "MSE": 0.00012614681841551867,
+      "role_CE": 0.015265942811686853,
+      "role_accuracy": 1.0
+    },
+    "train_loss": 8.180913784481276e-05
+  },
+  "aux_head_sha256": "c3b3dc01be523ee139495b7c3ac8691df12e7fbf10ab41dda315642208f1716a",
+  "aux_config_sha256": "aa89ae844d74eb76ebe8b82ac3f6c82239bbf20513350183b7c240c26051d322",
+  "actor_and_head_optimizer_steps": [
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000,
+    3000
+  ],
+  "critic_unchanged": true,
+  "std_unchanged": true,
+  "checkpoint_reload_exact": true,
+  "physical_steps": 0,
+  "closed_loop": "NOT_EVALUATED",
+  "checkpoints": [
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002250.pt",
+      "sha256": "2b32b0f710d3a0a59ce3c65f1ae70e0a9bf7db3f3e28b3e931f404f8855e165e",
+      "step": 2250
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+      "sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+      "step": 2500
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002750.pt",
+      "sha256": "d8f5c86e874e3d730e7e1183634de18820ac4cbb30f9931582025648f021d19a",
+      "step": 2750
+    },
+    {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_003000.pt",
+      "sha256": "f94c6223c9494ff49318b6b518c768fc6fbde36faf9f89e38d4abfbf5d009577",
+      "step": 3000
+    }
+  ]
+}

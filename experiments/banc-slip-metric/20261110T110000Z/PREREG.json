@@ -1,0 +1,13 @@
+{
+  "schema": "slip-metric/1",
+  "origin": "the fourth multiplier rose to 3.79 last round and the per-leg slip moved by less than 0.3 percent, and the training log showed why: max_slip_seen was pinned at 23.44 for all 48 updates while the evaluation measures 1.86. The ratio divides by max(forward speed, 0.05), so a cold start from rest makes the denominator a floor and every small foot speed becomes a 20-plus ratio. The multiplier was pushing on that startup artefact, not on stance dragging",
+  "change": {
+    "training signal only": "the constraint now uses an absolute stance-foot speed hinge with a speed gate: per leg the excess is max(0, v_stance - max(0.50 * |forward speed|, 0.02)) when |forward speed| >= 0.10, and max(0, v_stance - 0.02) below that, so at rest the allowance is a small absolute speed instead of a collapsing denominator",
+    "windowed": "the violation is averaged over the rollout, force-weighted across the six legs, and enters the reward as minus the multiplier times that average; dual ascent 0.05 per rollout, lambda_max 50",
+    "gate untouched": "the acceptance gate is still the frozen per-leg slip ratio with its 0.05 floor, measured exactly as before by the unchanged evaluator; only the training signal changes, and this is written down so no one can claim the gate was relaxed",
+    "kept": "triad body with doubled torque, the pose re-solved for triad contact at COM 1.45, 1 ms policy tick, C = 0.02, releasable adhesion 0.25 body weight, mu 1.5, reward v4 without its ratio slip term (so the new signal is the only slip pressure), the three other constraints, 48 updates"
+  },
+  "prediction_stated_before_running": "if the earlier null result was caused by the degenerate metric, the new multiplier should engage and the stance foot speed should fall during training; if the stance foot speed does not fall even with a clean signal, then the policy genuinely cannot keep a planted foot and the conclusion changes from a measurement defect to a behavioural one",
+  "labelling": "derived body, derived actuator, derived adhesion, replacement ANN, engineered constraint; not frozen-body acceptance",
+  "accounting": "per update: the multiplier, the windowed violation mean, the mean force-weighted stance foot speed, and the forward speed; both evaluation protocols with the unchanged gate"
+}

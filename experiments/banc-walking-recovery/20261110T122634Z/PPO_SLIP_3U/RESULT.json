@@ -1,0 +1,1213 @@
+{
+  "status": "complete",
+  "reports": [
+    {
+      "prefix_rows": 960,
+      "autonomous_rows": 1200,
+      "teacher_queries": 960,
+      "autonomous_teacher_queries": 0,
+      "autonomous_1ms_ticks": 6000,
+      "termination": null,
+      "reward": -12.797654936806145,
+      "reward_components": {
+        "forward": 17.019688782111135,
+        "speed_error": -24.996623424138996,
+        "slip": -4.855420223895269,
+        "height": 0.0,
+        "nonfoot": 0.0,
+        "support": 0.0,
+        "action": -7.559188994310283e-05,
+        "slew": -0.005342156471046356,
+        "floor_adjustment": 0.04011767747787786
+      },
+      "absorbing_penalty": 0.0,
+      "raw_reward_integral": -12.837772614284047,
+      "floor_ticks": 7,
+      "floor_fraction": 0.0011666666666666668,
+      "cycles": {
+        "complete_per_leg": {
+          "LF": 1,
+          "LH": 1,
+          "LM": 1,
+          "RF": 1,
+          "RH": 1,
+          "RM": 2
+        },
+        "all_legs_completed": true,
+        "events": [
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 6.553000000077096,
+            "start_time": 5.987000000058306,
+            "lift": 0.077837389153769,
+            "advance": 0.33359325570631865,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4980000000165319,
+            "duration": 0.5660000000187893,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LH",
+            "time": 7.330000000102889,
+            "start_time": 6.808000000085561,
+            "lift": 0.05245882495275007,
+            "advance": 0.27771662831351174,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.48400000001606713,
+            "duration": 0.5220000000173286,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LM",
+            "time": 8.97000000015733,
+            "start_time": 8.380000000137745,
+            "lift": 0.08835400775391278,
+            "advance": 0.3235061769216955,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.529000000017561,
+            "duration": 0.590000000019586,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RH",
+            "time": 9.735000000182726,
+            "start_time": 9.1950000001648,
+            "lift": 0.05869755970408346,
+            "advance": 0.1946036558992872,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.509000000016897,
+            "duration": 0.5400000000179261,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RF",
+            "time": 9.956000000190063,
+            "start_time": 6.7610000000840005,
+            "lift": 0.11980332155553203,
+            "advance": 0.2742008845496372,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1740000000389719,
+            "duration": 3.195000000106062,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 11.346000000236206,
+            "start_time": 10.790000000217749,
+            "lift": 0.07908617615302696,
+            "advance": 0.33778380159430277,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4890000000162331,
+            "duration": 0.5560000000184573,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LF",
+            "time": 11.528000000242248,
+            "start_time": 9.14800000016324,
+            "lift": 0.10696350503295854,
+            "advance": 0.28040423322224417,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.165000000038674,
+            "duration": 2.380000000079008,
+            "bonus": 0.1
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "LH",
+            "time": 11.800000000251277,
+            "start_time": 11.591000000244339,
+            "lift": 0.06624807840478256,
+            "advance": 0.12836548251150814,
+            "unloaded_duration": 0.20900000000693808
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "RF",
+            "time": 11.800000000251277,
+            "start_time": 11.546000000242845,
+            "lift": 0.012427104263026616,
+            "advance": 0.0,
+            "unloaded_duration": 0.2540000000084319
+          }
+        ],
+        "config": {
+          "weight": 24.446354755878005,
+          "dt": 0.001,
+          "gamma": 0.999000499833375,
+          "loaded": 0.1,
+          "unloaded": 0.05,
+          "ground": 0.004,
+          "clearance": 0.015,
+          "advance": 0.03,
+          "loaded_dwell": 0.01,
+          "unload_dwell": 0.005,
+          "timeout": 4.0,
+          "phi_cap": 0.05,
+          "completion_bonus": 0.1
+        },
+        "interpretation": "strict sensed cycle diagnostic; no actions generated"
+      },
+      "starts_at_reset": true,
+      "initial_actor_hidden_zero": true,
+      "settle_actor_forwards": 0,
+      "prefix_density": "deterministic mean counterfactual; not executed; replay only",
+      "prefix_failed": false,
+      "episode": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_001.npz",
+        "sha256": "ba8b8ca68f9f0096ccfbe840430b400a0dc27a48a8f401c900ab946d88410740"
+      },
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_001_1ms.npz",
+        "sha256": "d63bb89b205d2e0061faf8db09fa1330a094512f4bab71f834df3b4a940d81a1",
+        "samples": 11800
+      },
+      "autonomous_gates": {
+        "native_steps": 480000,
+        "sample_count": 6000,
+        "duration_s": 5.999000000199145,
+        "forward_speed_native_per_s": 0.07134647276037602,
+        "forward_signed_native_per_s": 0.07121325631553273,
+        "lateral_speed_native_per_s": 0.004357900903567515,
+        "foot_support_mean": 1.0000590518881645,
+        "foot_support_min": 0.9962094578570256,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2566156095730565,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.36816597028771203,
+          "LH": 0.5331175052779424,
+          "LM": 0.4641309868524665,
+          "RF": 0.4189509495343383,
+          "RH": 0.6062502105785443,
+          "RM": 0.49663774387870235
+        },
+        "slip_ratio_max": 0.6062502105785443,
+        "slip_ratio_mean": 0.48120889440161774,
+        "com_start": 1.2758686117431473,
+        "com_end": 1.2648629351358338,
+        "com_xy_travel": 0.42800749010370404,
+        "slip_load_denominator_native": [
+          14016.049771873828,
+          33960.327793899145,
+          23996.900065911825,
+          13684.908355290292,
+          38155.22603409328,
+          22873.3781346421
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07121325631553273,
+          "lateral_signed_native_per_s": 0.004357900903567515,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 11.800000000251277,
+          "sample_count": 6000
+        }
+      },
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": -2.886579864025407e-17,
+            "critic_loss": 0.3957363641090864,
+            "entropy": -104.70954783338587,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1200,
+            "epoch": 0,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 4,
+            "candidate_kl": 0.0094067676363413,
+            "kl": 0.0094067676363413,
+            "actor_grad_before": 92.38876504200935,
+            "critic_grad_before": 0.8131525978308962,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.0029017373932944375,
+            "critic_loss": 0.39435269920922145,
+            "entropy": -104.70953280888362,
+            "clip_fraction": 0.35833333333333334,
+            "ratio_mean": 0.9997425251032511,
+            "samples": 1200,
+            "epoch": 1,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.00744660719898052,
+            "kl": 0.00744660719898052,
+            "actor_grad_before": 81.36105148182813,
+            "critic_grad_before": 0.8023790678769961,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.016553627960066097,
+            "critic_loss": 0.3929871225894628,
+            "entropy": -104.7095162740973,
+            "clip_fraction": 0.36916666666666664,
+            "ratio_mean": 0.9997736790268598,
+            "samples": 1200,
+            "epoch": 2,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.01044357008965366,
+            "kl": 0.01044357008965366,
+            "actor_grad_before": 53.190474712291454,
+            "critic_grad_before": 0.791611521774522,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.018399031879430684,
+            "critic_loss": 0.3916396135645897,
+            "entropy": -104.70950858415327,
+            "clip_fraction": 0.4741666666666667,
+            "ratio_mean": 1.0043058532641982,
+            "samples": 1200,
+            "epoch": 3,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.012172863937568723,
+            "kl": 0.012172863937568723,
+            "actor_grad_before": 63.67273925715082,
+            "critic_grad_before": 0.780851243372923,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.012172863937568723,
+        "kl_per_dim": 0.00028983009375163626,
+        "explained_variance": 0.0008334120439722481,
+        "std_min": 0.019999700067902623,
+        "std_max": 0.020000298885300697,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3.75e-06,
+        "critic_lr": 1.25e-05,
+        "accepted_steps": 4,
+        "updates": 1,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "replay_rows": 2160,
+        "episodes": 1,
+        "samples": 1200,
+        "prefix_rows": 960,
+        "bptt": "full_reset_prefix_and_autonomous_current_weights"
+      },
+      "gae": {
+        "autonomous_adv_mean": -0.32521441192002326,
+        "autonomous_return_sum": -620.6387873597839
+      },
+      "update_index": 1
+    },
+    {
+      "prefix_rows": 960,
+      "autonomous_rows": 1200,
+      "teacher_queries": 960,
+      "autonomous_teacher_queries": 0,
+      "autonomous_1ms_ticks": 6000,
+      "termination": null,
+      "reward": -12.652750381044934,
+      "reward_components": {
+        "forward": 17.03761563731839,
+        "speed_error": -24.836134934295682,
+        "slip": -4.848802559568177,
+        "height": 0.0,
+        "nonfoot": 0.0,
+        "support": 0.0,
+        "action": -7.578043225274504e-05,
+        "slew": -0.0053527440673171445,
+        "floor_adjustment": 0.0
+      },
+      "absorbing_penalty": 0.0,
+      "raw_reward_integral": -12.652750381044926,
+      "floor_ticks": 0,
+      "floor_fraction": 0.0,
+      "cycles": {
+        "complete_per_leg": {
+          "LF": 1,
+          "LH": 1,
+          "LM": 1,
+          "RF": 1,
+          "RH": 1,
+          "RM": 2
+        },
+        "all_legs_completed": true,
+        "events": [
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 6.54800000007693,
+            "start_time": 5.987000000058306,
+            "lift": 0.080889236751573,
+            "advance": 0.332816757105824,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4970000000164987,
+            "duration": 0.5610000000186233,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LH",
+            "time": 7.329000000102856,
+            "start_time": 6.809000000085594,
+            "lift": 0.05753642878965979,
+            "advance": 0.2823787528834323,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.48100000001596754,
+            "duration": 0.5200000000172622,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LM",
+            "time": 8.97300000015743,
+            "start_time": 8.38500000013791,
+            "lift": 0.0896013842004017,
+            "advance": 0.32336281569817255,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5280000000175278,
+            "duration": 0.5880000000195196,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RH",
+            "time": 9.73600000018276,
+            "start_time": 9.201000000165,
+            "lift": 0.060473441353389425,
+            "advance": 0.19456304341787511,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5030000000166979,
+            "duration": 0.5350000000177602,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RF",
+            "time": 9.958000000190129,
+            "start_time": 6.7610000000840005,
+            "lift": 0.11944990369466207,
+            "advance": 0.27398542993668595,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1710000000388723,
+            "duration": 3.1970000001061285,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 11.349000000236305,
+            "start_time": 10.791000000217782,
+            "lift": 0.07686772138105138,
+            "advance": 0.3385728396781199,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4920000000163327,
+            "duration": 0.5580000000185237,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LF",
+            "time": 11.533000000242414,
+            "start_time": 9.152000000163373,
+            "lift": 0.10679711746787832,
+            "advance": 0.2792914249170375,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1610000000385412,
+            "duration": 2.381000000079041,
+            "bonus": 0.1
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "LH",
+            "time": 11.800000000251277,
+            "start_time": 11.594000000244439,
+            "lift": 0.062446776986972506,
+            "advance": 0.13431670066112478,
+            "unloaded_duration": 0.2060000000068385
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "RF",
+            "time": 11.800000000251277,
+            "start_time": 11.547000000242878,
+            "lift": 0.015390726655631758,
+            "advance": 0.0,
+            "unloaded_duration": 0.25300000000839873
+          }
+        ],
+        "config": {
+          "weight": 24.446354755878005,
+          "dt": 0.001,
+          "gamma": 0.999000499833375,
+          "loaded": 0.1,
+          "unloaded": 0.05,
+          "ground": 0.004,
+          "clearance": 0.015,
+          "advance": 0.03,
+          "loaded_dwell": 0.01,
+          "unload_dwell": 0.005,
+          "timeout": 4.0,
+          "phi_cap": 0.05,
+          "completion_bonus": 0.1
+        },
+        "interpretation": "strict sensed cycle diagnostic; no actions generated"
+      },
+      "starts_at_reset": true,
+      "initial_actor_hidden_zero": true,
+      "settle_actor_forwards": 0,
+      "prefix_density": "deterministic mean counterfactual; not executed; replay only",
+      "prefix_failed": false,
+      "episode": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_002.npz",
+        "sha256": "854db6a11fefb6874595ed2e673870aed207d01c47362cfe0bbbdb5262653aa0"
+      },
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_002_1ms.npz",
+        "sha256": "2d4717b8655db7418ea34638118e9baf9afdc9b148ead323016e6b80e81eea67",
+        "samples": 11800
+      },
+      "autonomous_gates": {
+        "native_steps": 480000,
+        "sample_count": 6000,
+        "duration_s": 5.999000000199145,
+        "forward_speed_native_per_s": 0.0714184853328388,
+        "forward_signed_native_per_s": 0.07128411529895792,
+        "lateral_speed_native_per_s": 0.0043789214747221965,
+        "foot_support_mean": 1.0000590970601455,
+        "foot_support_min": 0.9946220966919916,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2569810110813553,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.3494943014775418,
+          "LH": 0.5435746711013336,
+          "LM": 0.4732124068641992,
+          "RF": 0.41392386886947014,
+          "RH": 0.5892234771299795,
+          "RM": 0.5198251605858628
+        },
+        "slip_ratio_max": 0.5892234771299795,
+        "slip_ratio_mean": 0.48154231433806455,
+        "com_start": 1.2758695888969285,
+        "com_end": 1.264399931958709,
+        "com_xy_travel": 0.4284394935259226,
+        "slip_load_denominator_native": [
+          14004.988754958495,
+          33975.219509496404,
+          23997.02843666372,
+          13689.455755470663,
+          38124.51409556608,
+          22895.59022929679
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07128411529895792,
+          "lateral_signed_native_per_s": 0.0043789214747221965,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 11.800000000251277,
+          "sample_count": 6000
+        }
+      },
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": 7.327471962526034e-17,
+            "critic_loss": 0.4092787398047762,
+            "entropy": -104.7095079996642,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1200,
+            "epoch": 0,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0010250515898391113,
+            "kl": 0.0010250515898391113,
+            "actor_grad_before": 96.26538895408368,
+            "critic_grad_before": 0.765685182129355,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.007974124436236811,
+            "critic_loss": 0.40798375749668886,
+            "entropy": -104.70950096156076,
+            "clip_fraction": 0.04666666666666667,
+            "ratio_mean": 1.0013862685124304,
+            "samples": 1200,
+            "epoch": 1,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.003104658947192179,
+            "kl": 0.003104658947192179,
+            "actor_grad_before": 85.08356747643994,
+            "critic_grad_before": 0.7550477107483747,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.01421672822139799,
+            "critic_loss": 0.4067067583860645,
+            "entropy": -104.70949579268112,
+            "clip_fraction": 0.20833333333333334,
+            "ratio_mean": 1.0034892767178039,
+            "samples": 1200,
+            "epoch": 2,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.005135370634403096,
+            "kl": 0.005135370634403096,
+            "actor_grad_before": 70.09850770893698,
+            "critic_grad_before": 0.7444374383831962,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.019364684623047457,
+            "critic_loss": 0.4054475726868306,
+            "entropy": -104.70949187289683,
+            "clip_fraction": 0.3275,
+            "ratio_mean": 1.0062382776780787,
+            "samples": 1200,
+            "epoch": 3,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.007536293728914859,
+            "kl": 0.007536293728914859,
+            "actor_grad_before": 57.88175180391773,
+            "critic_grad_before": 0.7338499901913608,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.007536293728914859,
+        "kl_per_dim": 0.00017943556497416332,
+        "explained_variance": -0.0074776917680279276,
+        "std_min": 0.019999415398430608,
+        "std_max": 0.02000058437504613,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3.75e-06,
+        "critic_lr": 1.25e-05,
+        "accepted_steps": 8,
+        "updates": 2,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "replay_rows": 2160,
+        "episodes": 1,
+        "samples": 1200,
+        "prefix_rows": 960,
+        "bptt": "full_reset_prefix_and_autonomous_current_weights"
+      },
+      "gae": {
+        "autonomous_adv_mean": -0.3206554746931395,
+        "autonomous_return_sum": -635.0948155934589
+      },
+      "update_index": 2
+    },
+    {
+      "prefix_rows": 960,
+      "autonomous_rows": 1200,
+      "teacher_queries": 960,
+      "autonomous_teacher_queries": 0,
+      "autonomous_1ms_ticks": 6000,
+      "termination": null,
+      "reward": -13.587173994254982,
+      "reward_components": {
+        "forward": 16.844075962714463,
+        "speed_error": -25.50615965190823,
+        "slip": -4.937587389805655,
+        "height": 0.0,
+        "nonfoot": 0.0,
+        "support": 0.0,
+        "action": -7.581274038466395e-05,
+        "slew": -0.005354446785143691,
+        "floor_adjustment": 0.01792734426993732
+      },
+      "absorbing_penalty": 0.0,
+      "raw_reward_integral": -13.605101338524888,
+      "floor_ticks": 7,
+      "floor_fraction": 0.0011666666666666668,
+      "cycles": {
+        "complete_per_leg": {
+          "LF": 1,
+          "LH": 1,
+          "LM": 1,
+          "RF": 1,
+          "RH": 1,
+          "RM": 2
+        },
+        "all_legs_completed": true,
+        "events": [
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 6.551000000077029,
+            "start_time": 5.9880000000583395,
+            "lift": 0.07797860783651045,
+            "advance": 0.3360067649933619,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4970000000164987,
+            "duration": 0.5630000000186897,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LH",
+            "time": 7.328000000102823,
+            "start_time": 6.808000000085561,
+            "lift": 0.054392266314033454,
+            "advance": 0.27993124742639597,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.48200000001600074,
+            "duration": 0.5200000000172622,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LM",
+            "time": 8.966000000157198,
+            "start_time": 8.377000000137645,
+            "lift": 0.0896412762600973,
+            "advance": 0.3213772101747767,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.529000000017561,
+            "duration": 0.5890000000195528,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RH",
+            "time": 9.728000000182494,
+            "start_time": 9.199000000164933,
+            "lift": 0.05297691195338126,
+            "advance": 0.16769633651697147,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4970000000164987,
+            "duration": 0.529000000017561,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RF",
+            "time": 9.953000000189963,
+            "start_time": 6.762000000084034,
+            "lift": 0.12058542441736797,
+            "advance": 0.2719298442031869,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1710000000388723,
+            "duration": 3.1910000001059293,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 11.339000000235973,
+            "start_time": 10.782000000217483,
+            "lift": 0.07744959007450308,
+            "advance": 0.33491652101556163,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4900000000162663,
+            "duration": 0.5570000000184905,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LF",
+            "time": 11.51600000024185,
+            "start_time": 9.149000000163273,
+            "lift": 0.10677671152314056,
+            "advance": 0.28158381813668065,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.165000000038674,
+            "duration": 2.3670000000785762,
+            "bonus": 0.1
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "LH",
+            "time": 11.800000000251277,
+            "start_time": 11.583000000244073,
+            "lift": 0.061924755105074274,
+            "advance": 0.14616923325651743,
+            "unloaded_duration": 0.21700000000720365
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "RF",
+            "time": 11.800000000251277,
+            "start_time": 11.537000000242546,
+            "lift": 0.01499442040334683,
+            "advance": 0.0,
+            "unloaded_duration": 0.2630000000087307
+          }
+        ],
+        "config": {
+          "weight": 24.446354755878005,
+          "dt": 0.001,
+          "gamma": 0.999000499833375,
+          "loaded": 0.1,
+          "unloaded": 0.05,
+          "ground": 0.004,
+          "clearance": 0.015,
+          "advance": 0.03,
+          "loaded_dwell": 0.01,
+          "unload_dwell": 0.005,
+          "timeout": 4.0,
+          "phi_cap": 0.05,
+          "completion_bonus": 0.1
+        },
+        "interpretation": "strict sensed cycle diagnostic; no actions generated"
+      },
+      "starts_at_reset": true,
+      "initial_actor_hidden_zero": true,
+      "settle_actor_forwards": 0,
+      "prefix_density": "deterministic mean counterfactual; not executed; replay only",
+      "prefix_failed": false,
+      "episode": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_003.npz",
+        "sha256": "def685d03b92c76af6ec992ba54a865f47c70909e0d7106849c9dc1a3f3ea984"
+      },
+      "trace": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/episode_003_1ms.npz",
+        "sha256": "c8bf5dada4022caa8f6cd5dc1133e2c040a54b55cd94fda4d8ee0186f3715feb",
+        "samples": 11800
+      },
+      "autonomous_gates": {
+        "native_steps": 480000,
+        "sample_count": 6000,
+        "duration_s": 5.999000000199145,
+        "forward_speed_native_per_s": 0.07062716214673859,
+        "forward_signed_native_per_s": 0.07047709898549111,
+        "lateral_speed_native_per_s": 0.004601581411970578,
+        "foot_support_mean": 1.0000578948259526,
+        "foot_support_min": 0.9945374422108363,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2561161919978916,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.34305780780412126,
+          "LH": 0.5182826377752296,
+          "LM": 0.46918540082730337,
+          "RF": 0.42039304544675205,
+          "RH": 0.6255654528657547,
+          "RM": 0.5164793615368819
+        },
+        "slip_ratio_max": 0.6255654528657547,
+        "slip_ratio_mean": 0.4821606177093405,
+        "com_start": 1.2758696252514579,
+        "com_end": 1.2644358351738432,
+        "com_xy_travel": 0.4236923457323499,
+        "slip_load_denominator_native": [
+          14010.103432770755,
+          33887.97808910775,
+          24047.48735292349,
+          13645.36720676976,
+          38235.10466858503,
+          22860.579689833816
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07047709898549111,
+          "lateral_signed_native_per_s": 0.004601581411970578,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 11.800000000251277,
+          "sample_count": 6000
+        }
+      },
+      "optimization": {
+        "steps": [
+          {
+            "actor_loss": 3.7747582837255325e-17,
+            "critic_loss": 0.4420207484769774,
+            "entropy": -104.70948583083288,
+            "clip_fraction": 0.0,
+            "ratio_mean": 1.0,
+            "samples": 1200,
+            "epoch": 0,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.000497247185426864,
+            "kl": 0.000497247185426864,
+            "actor_grad_before": 82.37814278310124,
+            "critic_grad_before": 0.8490189458316545,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.0034448401558446837,
+            "critic_loss": 0.4405827622928187,
+            "entropy": -104.70947549620121,
+            "clip_fraction": 0.0075,
+            "ratio_mean": 1.0003524009932279,
+            "samples": 1200,
+            "epoch": 1,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0016745577780959738,
+            "kl": 0.0016745577780959738,
+            "actor_grad_before": 81.27731161119831,
+            "critic_grad_before": 0.8384203354497674,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.009619175909321317,
+            "critic_loss": 0.439162055630358,
+            "entropy": -104.70946194367684,
+            "clip_fraction": 0.08416666666666667,
+            "ratio_mean": 1.0011123413035155,
+            "samples": 1200,
+            "epoch": 2,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.003717199480078602,
+            "kl": 0.003717199480078602,
+            "actor_grad_before": 73.53277680803443,
+            "critic_grad_before": 0.8278109479955695,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          },
+          {
+            "actor_loss": -0.0135057912302271,
+            "critic_loss": 0.4377587322311543,
+            "entropy": -104.7094458834658,
+            "clip_fraction": 0.24666666666666667,
+            "ratio_mean": 1.0021449400120697,
+            "samples": 1200,
+            "epoch": 3,
+            "episodes": 1,
+            "sample_weight_scale": 1.0,
+            "accepted": true,
+            "attempts": 1,
+            "candidate_kl": 0.0059429937883212595,
+            "kl": 0.0059429937883212595,
+            "actor_grad_before": 69.87685556627143,
+            "critic_grad_before": 0.817194827348195,
+            "actor_grad_after": 0.5,
+            "critic_grad_after": 0.5
+          }
+        ],
+        "stopped": false,
+        "kl": 0.0059429937883212595,
+        "kl_per_dim": 0.00014149985210288712,
+        "explained_variance": -0.001309544465648571,
+        "std_min": 0.019999205251248126,
+        "std_max": 0.020000839073510687,
+        "saturation_fraction": 0.0,
+        "actor_lr": 3.75e-06,
+        "critic_lr": 1.25e-05,
+        "accepted_steps": 12,
+        "updates": 3,
+        "replay_errors": {
+          "mean": 0.0,
+          "logstd": 0.0,
+          "log_prob": 0.0
+        },
+        "replay_rows": 2160,
+        "episodes": 1,
+        "samples": 1200,
+        "prefix_rows": 960,
+        "bptt": "full_reset_prefix_and_autonomous_current_weights"
+      },
+      "gae": {
+        "autonomous_adv_mean": -0.34361022909491207,
+        "autonomous_return_sum": -682.5946924546568
+      },
+      "update_index": 3
+    }
+  ],
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T122634Z/PPO_SLIP_3U/final.pt",
+  "checkpoint_sha256": "6ba5ae6144d586ac12dd2de3dd9d91afebbf8f12ce2de21d5aecf7d77c91ee4a",
+  "standard_loader_exact": true,
+  "evaluation": "not run; use separate deterministic original evaluate CLI",
+  "closed_loop_acceptance": "NOT_ESTABLISHED"
+}

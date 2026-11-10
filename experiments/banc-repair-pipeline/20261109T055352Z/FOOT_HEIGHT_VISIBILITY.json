@@ -1,0 +1,24 @@
+{
+  "label": "how readable is the prompted leg own foot height; offline, no learning",
+  "samples": 2000,
+  "pad_height_range": [
+    -0.062280691030038283,
+    0.20307790830496017
+  ],
+  "observation_dimension": 495,
+  "prompt_aware": {
+    "clearance_height_selected_by_prompt": 0.999996862663089,
+    "clearance_height_and_rate_selected": 0.9999968540908178,
+    "joint_angles_with_prompt": 0.6321584720396494,
+    "foot_loads_with_prompt": 0.624056556808057,
+    "all_senses_without_clearance_channels": 0.6479831595059327,
+    "everything": 0.6522067972128147
+  },
+  "earlier_measurement_ignoring_prompt": {
+    "note": "this is the number quoted in the previous report; it used one linear map for all six legs and therefore could not select the prompted leg",
+    "full_observation_483": 0.6488,
+    "joint_angles_only": 0.0594,
+    "foot_loads_only": 0.0445
+  },
+  "conclusion": "with the prompt handled, the declared clearance channels make the prompted leg's own foot height directly readable, while the rest of the sensory vector still leaves it to be inferred"
+}

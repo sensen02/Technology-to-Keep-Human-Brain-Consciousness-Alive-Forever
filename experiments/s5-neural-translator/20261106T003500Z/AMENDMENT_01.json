@@ -1,0 +1,23 @@
+{
+  "importance": "核心必需",
+  "stage": "Before successful registration and before Runtime construction",
+  "failed_job": "bash-31",
+  "exit_code": 1,
+  "actual_physics_trials": 0,
+  "actual_model_fits": 0,
+  "original_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-neural-translator/20261106T003500Z/experiment.py",
+  "original_source_sha256": "e65ce23014288f12e5196136ec8eab12a56102fa97d3492894a46b29b4499377",
+  "failure": "prereg -> dump(PREREGISTRATION.json) -> assert Path(p).resolve().is_relative_to(O): AssertionError. PREREGISTRATION and INPUT_HASHES_BEFORE had not been written.",
+  "root_cause": "Desktop is a symlink to /run/media/sensen/Data2/root-space-relocation/20261022-215857/Desktop. Comparing canonical file paths against noncanonical O falsely rejects our own output.",
+  "repair": "Execute an explicitly patched in-memory copy of the unchanged original script: normalize O.resolve() in all three descendant comparisons. Include this amendment and launcher in first successful immutable input registration. No old output or original source is changed.",
+  "additional_preflight_edge": "Independent parent review found first_nonfoot_s may be None when no contact occurs. Treat it as duration_s for guard comparison (right censored), declare in registration, mirror in independent verifier/report before first successful registration. This does not change any observed candidate because none ran yet.",
+  "cleanup_executed": [
+    {"path":"/home/sensen/Desktop/engine修复验收/s5-neural-translator/20261106T003500Z/DATA","bytes":0,"importance":"可再生临时","reason":"Empty directory created by failed pre-registration; rmdir succeeded."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s5-neural-translator/20261106T003500Z/CONFIGS","bytes":0,"importance":"可再生临时","reason":"Empty directory created by failed pre-registration; rmdir succeeded."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s5-neural-translator/20261106T003500Z/RUNS","bytes":0,"importance":"可再生临时","reason":"Empty directory created by failed pre-registration; rmdir succeeded."},
+    {"path":"/home/sensen/Desktop/engine修复验收/s5-neural-translator/20261106T003500Z","bytes":0,"importance":"可再生临时","reason":"Empty output root removed after its empty subdirectories; rmdir succeeded. First successful registration recreates it."}
+  ],
+  "originals_preserved": true,
+  "BEFORE_overwritten": false,
+  "scope": "One reasoned amendment before any training or physical run; no repeated blind retries."
+}

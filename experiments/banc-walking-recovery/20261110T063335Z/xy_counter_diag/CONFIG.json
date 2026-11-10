@@ -1,0 +1,30 @@
+{
+  "name": "B_reference_XY_frozen_at_settled_rest",
+  "teacher": {
+    "scale": 10.0,
+    "vertical_gain": 0.25,
+    "time_warp": 10.0,
+    "source_duration_s": 0.24,
+    "blend_s": 0.5,
+    "tau_xy_s": 0.08,
+    "tau_z_s": 0.08,
+    "height_gain": 2.0,
+    "height_damping": 0.2,
+    "orientation_gain": 1.0,
+    "orientation_damping": 0.1,
+    "vertical_velocity_limit": 2.0,
+    "body_velocity_limit": 0.5,
+    "ridge": 0.01,
+    "posture_gain": 0.05,
+    "command_dt_s": 0.005
+  },
+  "settle_ms": 1000,
+  "diagnostic_ms": 800,
+  "adhesion": false,
+  "sole_intervention": "private reference.sample target_xy=controller.rest[:,:2] and velocity_xy=zeros(6,2)",
+  "preserved": "source stance/swing mask and source Z; common body height/orientation feedback, bounded solver, original physical integration/PD/limits",
+  "early_stop": "COM<1.0 or nonfoot>.2W or numerical/physics exception",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/teacher_diag/B_w10_z025_h2.npz",
+  "comparison": "same common prefix from physical settled start; full new window separately",
+  "scope": "algorithm teacher controller counterfactual; not walking acceptance"
+}

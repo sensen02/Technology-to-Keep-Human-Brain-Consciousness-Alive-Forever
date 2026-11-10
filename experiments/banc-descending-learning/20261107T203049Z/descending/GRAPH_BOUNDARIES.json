@@ -1,0 +1,153 @@
+{
+  "source_audit_reused": true,
+  "runtime_graph_verified": true,
+  "candidates": [
+    {
+      "identity": {
+        "global_index": 10567,
+        "local_index": 1414,
+        "root_id_string": "720575941433155799",
+        "primary_type": "DNp09",
+        "class": "descending_neuron",
+        "superclass": "descending",
+        "source_verified_nt": "acetylcholine",
+        "in_descending_boundary": true
+      },
+      "outgoing": {
+        "full_original": 181,
+        "full_strict": 181,
+        "selected_strict": 114
+      },
+      "incoming": {
+        "full_original": 216,
+        "full_strict": 20,
+        "selected_strict": 6
+      }
+    },
+    {
+      "identity": {
+        "global_index": 99854,
+        "local_index": 13170,
+        "root_id_string": "720575941566493282",
+        "primary_type": "DNp09",
+        "class": "descending_neuron",
+        "superclass": "descending",
+        "source_verified_nt": "acetylcholine",
+        "in_descending_boundary": true
+      },
+      "outgoing": {
+        "full_original": 161,
+        "full_strict": 161,
+        "selected_strict": 112
+      },
+      "incoming": {
+        "full_original": 140,
+        "full_strict": 11,
+        "selected_strict": 2
+      }
+    }
+  ],
+  "union_downstream_targets": {
+    "exported323": {
+      "full_strict": {
+        "total": 323,
+        "hop0": 0,
+        "hop1": 3,
+        "hop2": 195,
+        "hop3": 125,
+        "hop_ge4": 0,
+        "unreachable": 0,
+        "reachable_positive_hops": 323
+      },
+      "local_strict_induced": {
+        "total": 323,
+        "hop0": 0,
+        "hop1": 3,
+        "hop2": 195,
+        "hop3": 125,
+        "hop_ge4": 0,
+        "unreachable": 0,
+        "reachable_positive_hops": 323
+      },
+      "lost_reachability_in_local": 0,
+      "longer_shortest_path_in_local": 0
+    },
+    "all391_leg_motor": {
+      "full_strict": {
+        "total": 391,
+        "hop0": 0,
+        "hop1": 3,
+        "hop2": 233,
+        "hop3": 155,
+        "hop_ge4": 0,
+        "unreachable": 0,
+        "reachable_positive_hops": 391
+      },
+      "local_strict_induced": {
+        "total": 391,
+        "hop0": 0,
+        "hop1": 3,
+        "hop2": 233,
+        "hop3": 155,
+        "hop_ge4": 0,
+        "unreachable": 0,
+        "reachable_positive_hops": 391
+      },
+      "lost_reachability_in_local": 0,
+      "longer_shortest_path_in_local": 0
+    }
+  },
+  "union_upstream_full_all": {
+    "total": 153962,
+    "hop0": 2,
+    "hop1": 27,
+    "hop2": 339,
+    "hop3": 5596,
+    "hop_ge4": 46068,
+    "unreachable": 101930,
+    "reachable_positive_hops": 52030
+  },
+  "union_upstream_local_selected": {
+    "total": 20000,
+    "hop0": 2,
+    "hop1": 8,
+    "hop2": 271,
+    "hop3": 4600,
+    "hop_ge4": 6034,
+    "unreachable": 9085,
+    "reachable_positive_hops": 10913
+  },
+  "union_upstream_outside_selected": 41087,
+  "upstream_full_superclasses": {
+    "": 16,
+    "ascending": 1273,
+    "central_brain_intrinsic": 7156,
+    "descending": 131,
+    "motor": 2,
+    "optic_lobe_intrinsic": 28262,
+    "sensory": 3784,
+    "sensory_ascending": 21,
+    "ventral_nerve_cord_intrinsic": 9769,
+    "visual_centrifugal": 18,
+    "visual_projection": 1598
+  },
+  "upstream_local_superclasses": {
+    "ascending": 1265,
+    "descending": 125,
+    "sensory": 816,
+    "sensory_ascending": 21,
+    "ventral_nerve_cord_intrinsic": 8686
+  },
+  "extra_route_intermediates": {
+    "exported323": {
+      "definition": "Non-endpoint cells reachable from either DN and able to reach any target; existence on a directed walk, not necessarily a shortest/simple path.",
+      "full_route_intermediate_cells": 46091,
+      "outside_selected_intermediate_cells": 35307
+    },
+    "all391_leg_motor": {
+      "definition": "Non-endpoint cells reachable from either DN and able to reach any target; existence on a directed walk, not necessarily a shortest/simple path.",
+      "full_route_intermediate_cells": 46097,
+      "outside_selected_intermediate_cells": 35309
+    }
+  }
+}

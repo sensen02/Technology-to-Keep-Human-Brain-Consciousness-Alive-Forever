@@ -1,0 +1,64 @@
+2026-11-07 10:02:35.420057: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+{"replay_s": 1.9999999999998124, "wall_s": 8.125930820999201}
+{"replay_s": 3.9999999999995923, "wall_s": 15.452739455999108}
+{"replay_s": 6.000000000003813, "wall_s": 22.40015852500801}
+{"replay_s": 8.000000000008033, "wall_s": 29.78083887899993}
+{"replay_s": 10.000000000003372, "wall_s": 37.27439454299747}
+{
+  "status": "ENGINEERING_REPLAY_VERIFIED",
+  "checks": {
+    "hashes": true,
+    "policy_replay": true,
+    "observation_replay": true,
+    "body_replay": true,
+    "diagnostic_force_replay": true,
+    "contact_point_jacobian_crosscheck": true,
+    "environmental_replay": true,
+    "continuous_no_reset": true
+  },
+  "max_errors": {
+    "obs": 0.0,
+    "policy": 0.0,
+    "action_scaling": 0.0,
+    "qpos": 0.0,
+    "qvel": 0.0,
+    "act": 0.0,
+    "ctrl": 0.0,
+    "qacc_warmstart": 0.0,
+    "time": 0.0,
+    "com": 0.0,
+    "diagnostic_load": 0.0,
+    "diagnostic_com": 0.0,
+    "environmental": 0.0,
+    "terminal_obs": 0.0,
+    "contact_velocity_twist_vs_jacobian": 5.329070518200751e-15
+  },
+  "counters": {
+    "native": 50000,
+    "contact_crosschecks": 2271
+  },
+  "physics": {
+    "root_forward_speed_native": 2.0026498625089504,
+    "diagnostic_positive_claw_load_over_weight": 4.704289946247978,
+    "nonfoot_max": 0.0,
+    "slip_ratios_diagnostic": [
+      0.3338412386432347,
+      0.4839213758701405,
+      0.66435032896079,
+      0.31467625685211337,
+      0.6339027163370151,
+      0.32570756936699014
+    ],
+    "statistic_window": "after .5s for longer run; entire run for default",
+    "net_root_environmental_support_over_weight": 1.000109718753138,
+    "adhesive_root_z_over_weight": -3.70418022749484
+  },
+  "wall_s": 37.28278933602269,
+  "limitations": [
+    "Independent fresh env reset+step preserves official split stepping and observation buffers.",
+    "Diagnostic forces recomputed on scratch; not frozen live solver forces.",
+    "Reference-conditioned policy, original adhesive actuation, not original brain or current42 acceptance."
+  ],
+  "source_sha256": "7579f4af05581f34d7f3b91c3a54423661a9c17a9dd613f3e9d394b97bedfd13"
+}

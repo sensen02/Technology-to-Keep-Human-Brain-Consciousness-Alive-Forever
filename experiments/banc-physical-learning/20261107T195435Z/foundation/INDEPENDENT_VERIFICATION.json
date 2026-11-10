@@ -1,0 +1,196 @@
+{
+  "status": "PASS_INDEPENDENT_VERIFICATION",
+  "checker": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/independent_verify.py",
+  "contract": {
+    "runtime_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "core_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+    "core_sha256": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "expected_core_sha256": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "physical_steps": 0,
+    "optimizer_updates": 0,
+    "labels_loaded": []
+  },
+  "checks": {
+    "saved_policy_and_input_contract": true,
+    "replay_matches_all_neural_start_arrays": true,
+    "replay_policy_pre_step_max_error": 0.0,
+    "all_available_handover_neural_fields_exact": {
+      "v": true,
+      "ge": true,
+      "gi": true,
+      "g_adapt": true,
+      "_ring": true,
+      "_ring_i": true,
+      "MN_rates": true,
+      "POLICY200_MN_rates": true,
+      "POLICY200_MN_voltage": true
+    },
+    "handover_non_neural_fields_skipped_without_physics": [
+      "physics_state",
+      "actuator_target",
+      "predictor_history_rates_hz",
+      "predictor_observations_seen",
+      "predictor_lags_bins",
+      "predictor_bin_ms"
+    ],
+    "continuous_next5ms_matches_expected": true,
+    "manual_restore_without_runtime_restore_matches_expected": true,
+    "load_circuit_default_relative_from_workspace_root": true,
+    "preserved_old_train_mask_exact": {
+      "training_rows": 1160,
+      "boundary_index_40_time_s": 0.19999999999998003,
+      "boundary_index_40_train": true,
+      "recomputed_inequality_index_40": false,
+      "mask_difference_count": 1
+    },
+    "independent_uncentered_per_leg_svd_exact": true,
+    "basis_identity_csv_mn_order_joint_order_leg_order": true,
+    "basis_stats": {
+      "LF": {
+        "mn_count": 43,
+        "orthogonality_max_error": 1.1102230246251565e-15,
+        "max_cross_leg_loading": 0.0
+      },
+      "LH": {
+        "mn_count": 59,
+        "orthogonality_max_error": 1.7763568394002505e-15,
+        "max_cross_leg_loading": 0.0
+      },
+      "LM": {
+        "mn_count": 60,
+        "orthogonality_max_error": 1.9984014443252818e-15,
+        "max_cross_leg_loading": 0.0
+      },
+      "RF": {
+        "mn_count": 42,
+        "orthogonality_max_error": 8.156277030266818e-16,
+        "max_cross_leg_loading": 0.0
+      },
+      "RH": {
+        "mn_count": 59,
+        "orthogonality_max_error": 8.881784197001252e-16,
+        "max_cross_leg_loading": 0.0
+      },
+      "RM": {
+        "mn_count": 60,
+        "orthogonality_max_error": 7.771561172376096e-16,
+        "max_cross_leg_loading": 0.0
+      }
+    },
+    "independent_actor_math_zero_silent_same_leg_clip_bounds": true,
+    "actor_cases": 19,
+    "actor_manual_max_abs_error": 0.0,
+    "actor_clipped_weight_counts": [
+      0,
+      14,
+      14,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "invalid_actor_current_duration_guards_transactional_zero_step": true,
+    "guard_rejections": 16,
+    "transactional_restore_rejections": [
+      "shape_v",
+      "nan_v",
+      "negative_ge",
+      "negative_gi",
+      "negative_g_adapt",
+      "negative_rate",
+      "negative_spike_count",
+      "bad_ring_shape",
+      "bad_ring_index",
+      "bad_clock",
+      "bad_root_identity",
+      "bad_mn_identity",
+      "bad_contract"
+    ],
+    "no_physics_or_optimizer_steps": true,
+    "expected_primary_total_2030": true
+  },
+  "actual_network_steps": {
+    "saved_policy_replay_200x5ms": 2000,
+    "continuous_recorded_next5ms": 10,
+    "manual_array_restore_next5ms": 10,
+    "cwd_root_load_circuit_next5ms": 10,
+    "invalid_input_tests": 0,
+    "transactional_restore_tests": 0,
+    "total": 2030
+  },
+  "artifacts": {
+    "NEURAL_START.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz",
+      "sha256": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463"
+    },
+    "CONTINUATION_INPUT.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/CONTINUATION_INPUT.npz",
+      "sha256": "c4dffe0d3332d5f976eebb9ef0c13cf729ac1e675dae8f65589c15fff8947b84"
+    },
+    "CONTINUATION_EXPECTED.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/CONTINUATION_EXPECTED.npz",
+      "sha256": "b1d8a93e4e3bae1c446ea3776d771493e9a552bd9fe74acfd53a064b02cfa500"
+    },
+    "BASE.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASE.npz",
+      "sha256": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1"
+    },
+    "CANONICAL.json": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/CANONICAL.json",
+      "sha256": "60f5014bdb406573158240c61e5e0f3f2d0696bbc61578902d654be21e720c3d"
+    },
+    "BASIS.json": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/BASIS.json",
+      "sha256": "63d85aa57786914e578772fa38c4d762355e5de50f79772dd8c3699e90d63ebb"
+    },
+    "FOUNDATION_RESULTS.json": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/FOUNDATION_RESULTS.json",
+      "sha256": "b34f2862aa4378b1be519a40158d7b2269fea07b65f09e43228b7c7ba21d41d5"
+    },
+    "runtime.py": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+      "sha256": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd"
+    },
+    "independent_verify.py": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/independent_verify.py",
+      "sha256": "4646d88466b020871b7098a851d7cb9c2a261181b32415930ba08d76e1f8a749"
+    }
+  },
+  "preserved_builder_failure_artifact": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/FAILED_BUILD.json",
+    "sha256": "9ef3afa7ffddc1c647b8d166b3e299b70236865cf28c196520ba6bb340f1b9dd",
+    "error": "AssertionError()",
+    "traceback_tail": "AssertionError",
+    "preserved": true
+  },
+  "source_identity": {
+    "leg_order": [
+      "LF",
+      "LH",
+      "LM",
+      "RF",
+      "RH",
+      "RM"
+    ],
+    "mn_count": 323,
+    "qualified_sensory_count": 556,
+    "training_rows": 1160,
+    "basis_shape": [
+      323,
+      24
+    ],
+    "joint_count": 42
+  }
+}

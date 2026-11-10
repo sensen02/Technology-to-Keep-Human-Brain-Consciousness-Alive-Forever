@@ -1,0 +1,9 @@
+{
+  "schema": "triad-slip-constraint/1",
+  "origin": "three geometric and strength changes were tested this round and all left slip where it was: triad spread doubled, RH/RM pad radius plus 50 percent, and the doubled torque. Per-leg slip in the triad world is LF .63, LM .80, LH .94, RF .41, RH 1.15, RM 1.86, i.e. the feet are being dragged at close to body speed during stance. Since geometry cannot change that, constrain the measured quantity directly",
+  "change": "add a fourth Lagrangian multiplier on the per-leg slip ratio: the violation is max(0, max_leg slip - 0.50) averaged over the rollout, dual ascent 0.05 per rollout, lambda_max 50. The slip ratio is the same quantity the gate measures: force-weighted tangential contact speed divided by the forward speed with the same floor as the evaluator",
+  "why_this_can_work_now": "the two failed constraint runs earlier failed because the constrained statistic was never violated in training (support stayed at 0.98, non-foot at 0.0). Per-leg slip in the triad world is violated at every epoch by up to 1.9, so the multiplier has something to push against",
+  "kept": "triad body with doubled torque, the pose re-solved for triad contact at COM 1.45, 1 ms policy tick, C = 0.02, releasable adhesion 0.25 body weight, mu 1.5, reward v4, the three existing constraints, 48 updates, gates unchanged",
+  "labelling": "derived body, derived actuator, derived adhesion, replacement ANN, engineered constraint; not frozen-body acceptance",
+  "accounting": "all four multipliers and per-leg slip logged per update, both evaluation protocols, and the per-leg slip table before and after"
+}

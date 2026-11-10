@@ -1,0 +1,152 @@
+{
+  "reward_v5": {
+    "w_duty": 2.0,
+    "w_swing": 1.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "reward-v5-duty/1",
+    "origin": "the slip videos show all six feet in contact for 100 percent of the autonomous phase: the controller paddles, it never lifts a leg. Eight physical levers (data, reward shape, action space, height term, start pose, grip channel, friction, contact geometry) are all recorded as exhausted, with slip pinned at 0.96-1.0 on the derived channel. This round changes the training objective so that stance/swing separation becomes worth something.",
+    "world": "derived tarsus-pad body MODEL_TARSUS_PAD_R02.xml (pad radius 0.02) with sliding friction mu = 1.5, adhesion channel on during training, stand pose start, MODEL_MEASURED_STAND base network as a faded prior, 42-joint actions - identical to the previous pad run except the reward",
+    "reward_v5_additions": {
+      "duty_factor": "-w_d * sum_i (duty_i - 0.6)^2 where duty_i is an exponential running average (tau 0.2 s, declared) of the per-leg stance indicator (leg load > 0.1 W), so each leg is pushed to spend about 60 percent of the time in stance and 40 percent in swing",
+      "swing_clearance": "+w_s * sum_i [swing_i] * clamp(pad_bottom_height_i / 0.02, 0, 1) with swing_i = load_i <= 0.1 W, so a lifting foot is rewarded for actually clearing the floor instead of dragging",
+      "weights": {
+        "w_d": 2.0,
+        "w_s": 1.0,
+        "duty_target": 0.6,
+        "duty_tau_s": 0.2,
+        "swing_load_W": 0.1,
+        "clearance_ref_native": 0.02
+      },
+      "no_clock": "every quantity is measured from contact load and geometry at the current tick; no external phase, oscillator, oscillator state, scripted sequence or lookup table is introduced"
+    },
+    "everything_unchanged": [
+      "reward v4 terms (progress, absolute slip hinge, stance foot-speed, attitude, action, support, non-foot, height)",
+      "terminations",
+      "gates and thresholds",
+      "action space",
+      "PPO hyperparameters",
+      "adversarial checks: none are relaxed"
+    ],
+    "acceptance": "same five frozen gates; the question is whether duty forcing produces a gait that finally pulls the per-leg slip below 0.50",
+    "labelling": "derived body + derived friction + derived adhesion + replacement ANN; not connectome, not brain output, not frozen-body acceptance",
+    "accounting": "per-update reward, per-leg duty and swing statistics, gate checks every 16 updates, native steps, and every metric including failures"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "derived pad body r02",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.16551923668107166,
+        "foot_support_mean": 3.918443914878444,
+        "foot_support_min": 3.86895837723611,
+        "nonfoot_force_max_W": 2.7198605327002827,
+        "com_height_min": 0.8222309855285965,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.7170144538456822,
+          "LH": 1.0230254509774503,
+          "LM": 0.8414355726476038,
+          "RF": 0.5882343780906213,
+          "RH": 1.2707886288996117,
+          "RM": 1.4234919710168037
+        },
+        "slip_ratio_max": 1.4234919710168037,
+        "slip_ratio_mean": 0.977331742579629,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.16710213963015424,
+    "foot_support_mean": 3.9107030787749433,
+    "foot_support_min": 3.856450908234272,
+    "nonfoot_force_max_W": 2.962212890248354,
+    "com_height_min": 0.8239526728987503,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.7250325079423386,
+      "LH": 1.0577442725002197,
+      "LM": 0.7936112918869458,
+      "RF": 0.5907827569560544,
+      "RH": 1.1679604298223452,
+      "RM": 1.4350560095249172
+    },
+    "slip_ratio_max": 1.4350560095249172,
+    "slip_ratio_mean": 0.9616978781054701,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 13184000,
+  "wall_s": 391.68904185295105,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-duty-reward/20261109T030000Z/MODEL_duty.npz",
+    "sha256": "3282fef270ac552dc52213f2674bdefb1d2ba063662ce35dfd054853aa1c255f"
+  }
+}

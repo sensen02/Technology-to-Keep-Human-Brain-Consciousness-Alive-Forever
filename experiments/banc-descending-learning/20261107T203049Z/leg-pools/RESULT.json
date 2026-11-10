@@ -1,0 +1,953 @@
+{
+  "round": "banc-descending-learning/20261107T203049Z/leg-pools",
+  "task": "offline strict-subgraph leg-pool structural audit",
+  "steps": {
+    "neural_steps": 0,
+    "physical_steps": 0,
+    "learning_updates": 0,
+    "new_edges": 0,
+    "renders": 0,
+    "forward_calls": 0,
+    "analyses": 1
+  },
+  "preregistration": {
+    "PREREGISTRATION.md": "135d97157edd4e68435aa2c0e0a7f580c9330b0b8a7125605ae94c91941c9326",
+    "PREREGISTRATION.json": "a5465c4c9c88b5ccd1c325623472ed3ef3a5f2cf18ecb5363d3462941eacd9e8"
+  },
+  "analysis_code": {
+    "leg_pools.py": "f6b391c38d047c7363bdf67812d950dc71fa9d5f2ef6d2c09bc6a3a1812b149c"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676",
+    "/run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py": "27e46d0a9d2b3014ead4c07c4ae64a6b46a069c35ff772c7533210b053164a4e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MOTOR_READOUT_PORTS.csv": "c78650b4a8b705512523674f4c47dd7e7718261db5b51d37519f910b558df39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/GROUP_CACHE_INDICES.npz": "557cfc944270a34053d74d3eebe39af453eefe530c22ae5ce656f92fbff3b09a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_REVIEW.json": "906ccfca7b27698d59666d0d9ce15f37ff43b23a013d44168902467757bb4b64"
+  },
+  "weight_contract": {
+    "max_abs_diff_We_vs_source_formula_uS": 0.0,
+    "max_abs_diff_Wi_vs_source_formula_uS": 0.0,
+    "reproduced_from_source_formula": true,
+    "frozen_pre_post_pairs_identical_to_strict_edge_list": true,
+    "We_nnz": 207166,
+    "Wi_nnz": 227960,
+    "total_nnz": 435126,
+    "We_total_uS": 126.82030644091996,
+    "Wi_total_uS": 254.01969355908005,
+    "module_total_uS": 380.84000000000003,
+    "neurons_with_incoming": 19042,
+    "per_neuron_incoming_total_uS_distinct_values": [
+      0.01999999999999999,
+      0.019999999999999993,
+      0.019999999999999997,
+      0.02,
+      0.020000000000000004,
+      0.020000000000000007
+    ],
+    "per_edge_weight_uS_min": 8.3904349042092e-06,
+    "per_edge_weight_uS_max": 0.02,
+    "source_synapses_total": 4199733.0,
+    "source_synapses_We": 1899978.0,
+    "source_synapses_Wi": 2299755.0,
+    "formula": "weight[e] = 0.02 uS * synapse_counts[e] / sum_both_receptors(synapse_counts into post[e])",
+    "weight_uS_global_min": 8.3904349042092e-06,
+    "weight_uS_global_max": 0.02,
+    "weight_uS_global_median": 0.0003243243243243243,
+    "weight_uS_global_q05": 3.614457831325301e-05,
+    "weight_uS_global_q95": 0.003448275862068966,
+    "motor_neurons_with_any_outgoing_edge": 0,
+    "motor_neurons_incoming_edges_min": 4,
+    "motor_neurons_incoming_edges_max": 265,
+    "motor_neurons_total_incoming_uS": 6.46
+  },
+  "pool_sizes": {
+    "pool_lf": 548,
+    "pool_lh": 771,
+    "pool_lm": 756,
+    "pool_rf": 639,
+    "pool_rh": 776,
+    "pool_rm": 796,
+    "pool_shared": 437,
+    "pool_nonmotor": 14954,
+    "pool_mn": 323
+  },
+  "pool_sizes_union_partition": {
+    "pool_lf": 317,
+    "pool_lh": 446,
+    "pool_lm": 403,
+    "pool_rf": 418,
+    "pool_rh": 562,
+    "pool_rm": 327,
+    "pool_shared": 7362,
+    "pool_nonmotor": 9842,
+    "pool_mn": 323
+  },
+  "mn_leg_counts": {
+    "lf": 43,
+    "lh": 59,
+    "lm": 60,
+    "rf": 42,
+    "rh": 59,
+    "rm": 60
+  },
+  "blocks_edges_both_receptors": {
+    "pool_lf": {
+      "pool_lf": 10692,
+      "pool_lh": 92,
+      "pool_lm": 202,
+      "pool_rf": 498,
+      "pool_rh": 34,
+      "pool_rm": 40,
+      "pool_shared": 1141,
+      "pool_nonmotor": 12245,
+      "pool_mn": 1815
+    },
+    "pool_lh": {
+      "pool_lf": 157,
+      "pool_lh": 14888,
+      "pool_lm": 542,
+      "pool_rf": 105,
+      "pool_rh": 498,
+      "pool_rm": 98,
+      "pool_shared": 1387,
+      "pool_nonmotor": 10766,
+      "pool_mn": 5354
+    },
+    "pool_lm": {
+      "pool_lf": 305,
+      "pool_lh": 441,
+      "pool_lm": 14935,
+      "pool_rf": 103,
+      "pool_rh": 104,
+      "pool_rm": 299,
+      "pool_shared": 1865,
+      "pool_nonmotor": 11976,
+      "pool_mn": 4653
+    },
+    "pool_rf": {
+      "pool_lf": 569,
+      "pool_lh": 43,
+      "pool_lm": 77,
+      "pool_rf": 9655,
+      "pool_rh": 78,
+      "pool_rm": 343,
+      "pool_shared": 1171,
+      "pool_nonmotor": 11790,
+      "pool_mn": 2443
+    },
+    "pool_rh": {
+      "pool_lf": 84,
+      "pool_lh": 397,
+      "pool_lm": 61,
+      "pool_rf": 118,
+      "pool_rh": 13295,
+      "pool_rm": 500,
+      "pool_shared": 1155,
+      "pool_nonmotor": 11190,
+      "pool_mn": 4880
+    },
+    "pool_rm": {
+      "pool_lf": 162,
+      "pool_lh": 159,
+      "pool_lm": 407,
+      "pool_rf": 506,
+      "pool_rh": 712,
+      "pool_rm": 17453,
+      "pool_shared": 2260,
+      "pool_nonmotor": 14742,
+      "pool_mn": 5381
+    },
+    "pool_shared": {
+      "pool_lf": 2408,
+      "pool_lh": 2457,
+      "pool_lm": 3100,
+      "pool_rf": 2159,
+      "pool_rh": 2140,
+      "pool_rm": 3415,
+      "pool_shared": 2771,
+      "pool_nonmotor": 17095,
+      "pool_mn": 5488
+    },
+    "pool_nonmotor": {
+      "pool_lf": 7567,
+      "pool_lh": 4950,
+      "pool_lm": 7214,
+      "pool_rf": 6000,
+      "pool_rh": 5569,
+      "pool_rm": 7814,
+      "pool_shared": 9994,
+      "pool_nonmotor": 150119,
+      "pool_mn": 0
+    },
+    "pool_mn": {
+      "pool_lf": 0,
+      "pool_lh": 0,
+      "pool_lm": 0,
+      "pool_rf": 0,
+      "pool_rh": 0,
+      "pool_rm": 0,
+      "pool_shared": 0,
+      "pool_nonmotor": 0,
+      "pool_mn": 0
+    }
+  },
+  "blocks_conductance_uS_both_receptors": {
+    "pool_lf": {
+      "pool_lf": 5.174604388041611,
+      "pool_lh": 0.022647777447742382,
+      "pool_lm": 0.08359578948451471,
+      "pool_rf": 0.16953016548783428,
+      "pool_rh": 0.010758173839254485,
+      "pool_rm": 0.024963096338138716,
+      "pool_shared": 0.4091070359982705,
+      "pool_nonmotor": 8.649907487636735,
+      "pool_mn": 0.7360971613973661
+    },
+    "pool_lh": {
+      "pool_lf": 0.1095354848374344,
+      "pool_lh": 9.506277506857622,
+      "pool_lm": 0.29234060041169874,
+      "pool_rf": 0.0552849985468977,
+      "pool_rh": 0.25249346190751343,
+      "pool_rm": 0.073017177347375,
+      "pool_shared": 0.7783204063259845,
+      "pool_nonmotor": 10.258935431781564,
+      "pool_mn": 0.932044292790055
+    },
+    "pool_lm": {
+      "pool_lf": 0.1729154987545816,
+      "pool_lh": 0.2075580911312045,
+      "pool_lm": 7.89570899045947,
+      "pool_rf": 0.0896578801850944,
+      "pool_rh": 0.060894437572041084,
+      "pool_rm": 0.16335031027812416,
+      "pool_shared": 0.6494011973929189,
+      "pool_nonmotor": 9.076524626958768,
+      "pool_mn": 1.065123985664645
+    },
+    "pool_rf": {
+      "pool_lf": 0.19602603392496043,
+      "pool_lh": 0.016767653340750668,
+      "pool_lm": 0.04146648426956498,
+      "pool_rf": 5.91444899554834,
+      "pool_rh": 0.04786899897264438,
+      "pool_rm": 0.12656624871019412,
+      "pool_shared": 0.3729306976786321,
+      "pool_nonmotor": 9.44662735475023,
+      "pool_mn": 0.7467728141465235
+    },
+    "pool_rh": {
+      "pool_lf": 0.05201175008825526,
+      "pool_lh": 0.19778080018094651,
+      "pool_lm": 0.05772043434797792,
+      "pool_rf": 0.09089243452498416,
+      "pool_rh": 8.672336213136623,
+      "pool_rm": 0.2502341763346118,
+      "pool_shared": 0.6377114870057607,
+      "pool_nonmotor": 14.822072138965748,
+      "pool_mn": 1.0189126725255448
+    },
+    "pool_rm": {
+      "pool_lf": 0.1213053598274646,
+      "pool_lh": 0.14250811103295127,
+      "pool_lm": 0.23738375523375632,
+      "pool_rf": 0.31320880379334837,
+      "pool_rh": 0.3789637281272069,
+      "pool_rm": 8.884195019934445,
+      "pool_shared": 0.7781320052048548,
+      "pool_nonmotor": 12.126355742291931,
+      "pool_mn": 1.0413598452327906
+    },
+    "pool_shared": {
+      "pool_lf": 1.174948955955822,
+      "pool_lh": 1.5022705643252878,
+      "pool_lm": 1.6454395611156698,
+      "pool_rf": 1.3022751402913486,
+      "pool_rh": 1.3930185320816157,
+      "pool_rm": 1.8077677900008402,
+      "pool_shared": 1.3378219790727237,
+      "pool_nonmotor": 13.583071916909706,
+      "pool_mn": 0.9196892282430749
+    },
+    "pool_nonmotor": {
+      "pool_lf": 3.9186525285698717,
+      "pool_lh": 3.7641894956834965,
+      "pool_lm": 4.806344384677348,
+      "pool_rf": 4.764701581622153,
+      "pool_rh": 4.663666454363101,
+      "pool_rm": 4.569906181056272,
+      "pool_shared": 3.716575191320855,
+      "pool_nonmotor": 202.31650530070533,
+      "pool_mn": 0.0
+    },
+    "pool_mn": {
+      "pool_lf": 0.0,
+      "pool_lh": 0.0,
+      "pool_lm": 0.0,
+      "pool_rf": 0.0,
+      "pool_rh": 0.0,
+      "pool_rm": 0.0,
+      "pool_shared": 0.0,
+      "pool_nonmotor": 0.0,
+      "pool_mn": 0.0
+    }
+  },
+  "blocks_edges_We": {
+    "pool_lf": {
+      "pool_lf": 5171,
+      "pool_lh": 55,
+      "pool_lm": 90,
+      "pool_rf": 273,
+      "pool_rh": 17,
+      "pool_rm": 20,
+      "pool_shared": 547,
+      "pool_nonmotor": 5847,
+      "pool_mn": 941
+    },
+    "pool_lh": {
+      "pool_lf": 48,
+      "pool_lh": 7334,
+      "pool_lm": 280,
+      "pool_rf": 35,
+      "pool_rh": 244,
+      "pool_rm": 42,
+      "pool_shared": 627,
+      "pool_nonmotor": 5113,
+      "pool_mn": 3098
+    },
+    "pool_lm": {
+      "pool_lf": 234,
+      "pool_lh": 275,
+      "pool_lm": 7687,
+      "pool_rf": 73,
+      "pool_rh": 69,
+      "pool_rm": 182,
+      "pool_shared": 1053,
+      "pool_nonmotor": 6256,
+      "pool_mn": 2661
+    },
+    "pool_rf": {
+      "pool_lf": 282,
+      "pool_lh": 20,
+      "pool_lm": 36,
+      "pool_rf": 4575,
+      "pool_rh": 45,
+      "pool_rm": 161,
+      "pool_shared": 511,
+      "pool_nonmotor": 5369,
+      "pool_mn": 1284
+    },
+    "pool_rh": {
+      "pool_lf": 50,
+      "pool_lh": 231,
+      "pool_lm": 42,
+      "pool_rf": 104,
+      "pool_rh": 6785,
+      "pool_rm": 345,
+      "pool_shared": 568,
+      "pool_nonmotor": 5869,
+      "pool_mn": 2839
+    },
+    "pool_rm": {
+      "pool_lf": 86,
+      "pool_lh": 64,
+      "pool_lm": 214,
+      "pool_rf": 265,
+      "pool_rh": 331,
+      "pool_rm": 8918,
+      "pool_shared": 1108,
+      "pool_nonmotor": 6627,
+      "pool_mn": 3085
+    },
+    "pool_shared": {
+      "pool_lf": 1761,
+      "pool_lh": 1824,
+      "pool_lm": 2352,
+      "pool_rf": 1604,
+      "pool_rh": 1651,
+      "pool_rm": 2420,
+      "pool_shared": 1860,
+      "pool_nonmotor": 12489,
+      "pool_mn": 4077
+    },
+    "pool_nonmotor": {
+      "pool_lf": 3104,
+      "pool_lh": 1558,
+      "pool_lm": 2719,
+      "pool_rf": 2285,
+      "pool_rh": 1816,
+      "pool_rm": 3071,
+      "pool_shared": 4371,
+      "pool_nonmotor": 60118,
+      "pool_mn": 0
+    },
+    "pool_mn": {
+      "pool_lf": 0,
+      "pool_lh": 0,
+      "pool_lm": 0,
+      "pool_rf": 0,
+      "pool_rh": 0,
+      "pool_rm": 0,
+      "pool_shared": 0,
+      "pool_nonmotor": 0,
+      "pool_mn": 0
+    }
+  },
+  "blocks_edges_Wi": {
+    "pool_lf": {
+      "pool_lf": 5521,
+      "pool_lh": 37,
+      "pool_lm": 112,
+      "pool_rf": 225,
+      "pool_rh": 17,
+      "pool_rm": 20,
+      "pool_shared": 594,
+      "pool_nonmotor": 6398,
+      "pool_mn": 874
+    },
+    "pool_lh": {
+      "pool_lf": 109,
+      "pool_lh": 7554,
+      "pool_lm": 262,
+      "pool_rf": 70,
+      "pool_rh": 254,
+      "pool_rm": 56,
+      "pool_shared": 760,
+      "pool_nonmotor": 5653,
+      "pool_mn": 2256
+    },
+    "pool_lm": {
+      "pool_lf": 71,
+      "pool_lh": 166,
+      "pool_lm": 7248,
+      "pool_rf": 30,
+      "pool_rh": 35,
+      "pool_rm": 117,
+      "pool_shared": 812,
+      "pool_nonmotor": 5720,
+      "pool_mn": 1992
+    },
+    "pool_rf": {
+      "pool_lf": 287,
+      "pool_lh": 23,
+      "pool_lm": 41,
+      "pool_rf": 5080,
+      "pool_rh": 33,
+      "pool_rm": 182,
+      "pool_shared": 660,
+      "pool_nonmotor": 6421,
+      "pool_mn": 1159
+    },
+    "pool_rh": {
+      "pool_lf": 34,
+      "pool_lh": 166,
+      "pool_lm": 19,
+      "pool_rf": 14,
+      "pool_rh": 6510,
+      "pool_rm": 155,
+      "pool_shared": 587,
+      "pool_nonmotor": 5321,
+      "pool_mn": 2041
+    },
+    "pool_rm": {
+      "pool_lf": 76,
+      "pool_lh": 95,
+      "pool_lm": 193,
+      "pool_rf": 241,
+      "pool_rh": 381,
+      "pool_rm": 8535,
+      "pool_shared": 1152,
+      "pool_nonmotor": 8115,
+      "pool_mn": 2296
+    },
+    "pool_shared": {
+      "pool_lf": 647,
+      "pool_lh": 633,
+      "pool_lm": 748,
+      "pool_rf": 555,
+      "pool_rh": 489,
+      "pool_rm": 995,
+      "pool_shared": 911,
+      "pool_nonmotor": 4606,
+      "pool_mn": 1411
+    },
+    "pool_nonmotor": {
+      "pool_lf": 4463,
+      "pool_lh": 3392,
+      "pool_lm": 4495,
+      "pool_rf": 3715,
+      "pool_rh": 3753,
+      "pool_rm": 4743,
+      "pool_shared": 5623,
+      "pool_nonmotor": 90001,
+      "pool_mn": 0
+    },
+    "pool_mn": {
+      "pool_lf": 0,
+      "pool_lh": 0,
+      "pool_lm": 0,
+      "pool_rf": 0,
+      "pool_rh": 0,
+      "pool_rm": 0,
+      "pool_shared": 0,
+      "pool_nonmotor": 0,
+      "pool_mn": 0
+    }
+  },
+  "blocks_conductance_uS_We": {
+    "pool_lf": {
+      "pool_lf": 2.2662936818936874,
+      "pool_lh": 0.010293045867525361,
+      "pool_lm": 0.03974575977500572,
+      "pool_rf": 0.08638102170185144,
+      "pool_rh": 0.004274965352121058,
+      "pool_rm": 0.007696471141692609,
+      "pool_shared": 0.1895213739180316,
+      "pool_nonmotor": 2.6885643640125956,
+      "pool_mn": 0.28648429446738566
+    },
+    "pool_lh": {
+      "pool_lf": 0.03649270925953367,
+      "pool_lh": 3.862008693294491,
+      "pool_lm": 0.1395259768889177,
+      "pool_rf": 0.015601463229570886,
+      "pool_rh": 0.1227167628947787,
+      "pool_rm": 0.03974174214474091,
+      "pool_shared": 0.31226577322436266,
+      "pool_nonmotor": 3.4687079539412595,
+      "pool_mn": 0.40932328768222037
+    },
+    "pool_lm": {
+      "pool_lf": 0.14282144549645953,
+      "pool_lh": 0.14010831921328343,
+      "pool_lm": 3.539206112288623,
+      "pool_rf": 0.06786580853294885,
+      "pool_rh": 0.04913055617833003,
+      "pool_rm": 0.0818065369471355,
+      "pool_shared": 0.3129657999529696,
+      "pool_nonmotor": 3.630960054414414,
+      "pool_mn": 0.4366344148343857
+    },
+    "pool_rf": {
+      "pool_lf": 0.09264106024914001,
+      "pool_lh": 0.005549990533216955,
+      "pool_lm": 0.021732351767241843,
+      "pool_rf": 2.40932632899593,
+      "pool_rh": 0.025675152347267978,
+      "pool_rm": 0.06340911957562403,
+      "pool_shared": 0.14774754220365816,
+      "pool_nonmotor": 2.814446110071154,
+      "pool_mn": 0.26743804038940644
+    },
+    "pool_rh": {
+      "pool_lf": 0.025726652879370676,
+      "pool_lh": 0.10649086178286324,
+      "pool_lm": 0.03037937720708177,
+      "pool_rf": 0.07825433746991096,
+      "pool_rh": 3.7363864359834533,
+      "pool_rm": 0.18091467989834764,
+      "pool_shared": 0.2546153767723695,
+      "pool_nonmotor": 4.530452300015319,
+      "pool_mn": 0.442357901751139
+    },
+    "pool_rm": {
+      "pool_lf": 0.07328231248161425,
+      "pool_lh": 0.047001180895812046,
+      "pool_lm": 0.10702623134220898,
+      "pool_rf": 0.18460685980223288,
+      "pool_rh": 0.14769357520756188,
+      "pool_rm": 3.886081861007023,
+      "pool_shared": 0.3191571493338944,
+      "pool_nonmotor": 3.4248640065429123,
+      "pool_mn": 0.4275250859459583
+    },
+    "pool_shared": {
+      "pool_lf": 0.8641563304205994,
+      "pool_lh": 1.098417809326584,
+      "pool_lm": 1.2187252930979784,
+      "pool_rf": 1.003278764166493,
+      "pool_rh": 1.0543609652655603,
+      "pool_rm": 1.2635280691041124,
+      "pool_shared": 0.9636032863730852,
+      "pool_nonmotor": 10.024187380913375,
+      "pool_mn": 0.5665625777729915
+    },
+    "pool_nonmotor": {
+      "pool_lf": 1.2893414516868682,
+      "pool_lh": 0.8894184426574294,
+      "pool_lm": 1.3803721917777154,
+      "pool_rf": 1.3895148520210967,
+      "pool_rh": 1.1130734717395936,
+      "pool_rm": 1.3762750357926872,
+      "pool_shared": 1.5438477930704537,
+      "pool_nonmotor": 53.543722454733306,
+      "pool_mn": 0.0
+    },
+    "pool_mn": {
+      "pool_lf": 0.0,
+      "pool_lh": 0.0,
+      "pool_lm": 0.0,
+      "pool_rf": 0.0,
+      "pool_rh": 0.0,
+      "pool_rm": 0.0,
+      "pool_shared": 0.0,
+      "pool_nonmotor": 0.0,
+      "pool_mn": 0.0
+    }
+  },
+  "blocks_conductance_uS_Wi": {
+    "pool_lf": {
+      "pool_lf": 2.9083107061479234,
+      "pool_lh": 0.012354731580217021,
+      "pool_lm": 0.04385002970950899,
+      "pool_rf": 0.08314914378598284,
+      "pool_rh": 0.0064832084871334255,
+      "pool_rm": 0.017266625196446107,
+      "pool_shared": 0.21958566208023889,
+      "pool_nonmotor": 5.9613431236241405,
+      "pool_mn": 0.44961286692998054
+    },
+    "pool_lh": {
+      "pool_lf": 0.07304277557790073,
+      "pool_lh": 5.64426881356313,
+      "pool_lm": 0.15281462352278102,
+      "pool_rf": 0.03968353531732682,
+      "pool_rh": 0.12977669901273475,
+      "pool_rm": 0.033275435202634096,
+      "pool_shared": 0.46605463310162193,
+      "pool_nonmotor": 6.790227477840305,
+      "pool_mn": 0.5227210051078346
+    },
+    "pool_lm": {
+      "pool_lf": 0.030094053258122054,
+      "pool_lh": 0.06744977191792108,
+      "pool_lm": 4.356502878170847,
+      "pool_rf": 0.021792071652145546,
+      "pool_rh": 0.011763881393711052,
+      "pool_rm": 0.08154377333098867,
+      "pool_shared": 0.3364353974399493,
+      "pool_nonmotor": 5.445564572544354,
+      "pool_mn": 0.6284895708302594
+    },
+    "pool_rf": {
+      "pool_lf": 0.10338497367582042,
+      "pool_lh": 0.011217662807533712,
+      "pool_lm": 0.019734132502323132,
+      "pool_rf": 3.50512266655241,
+      "pool_rh": 0.022193846625376403,
+      "pool_rm": 0.06315712913457008,
+      "pool_shared": 0.2251831554749739,
+      "pool_nonmotor": 6.632181244679076,
+      "pool_mn": 0.479334773757117
+    },
+    "pool_rh": {
+      "pool_lf": 0.02628509720888458,
+      "pool_lh": 0.09128993839808328,
+      "pool_lm": 0.027341057140896147,
+      "pool_rf": 0.012638097055073195,
+      "pool_rh": 4.935949777153169,
+      "pool_rm": 0.06931949643626416,
+      "pool_shared": 0.3830961102333912,
+      "pool_nonmotor": 10.291619838950428,
+      "pool_mn": 0.576554770774406
+    },
+    "pool_rm": {
+      "pool_lf": 0.048023047345850355,
+      "pool_lh": 0.09550693013713923,
+      "pool_lm": 0.13035752389154734,
+      "pool_rf": 0.1286019439911155,
+      "pool_rh": 0.23127015291964503,
+      "pool_rm": 4.998113158927422,
+      "pool_shared": 0.45897485587096043,
+      "pool_nonmotor": 8.701491735749018,
+      "pool_mn": 0.6138347592868323
+    },
+    "pool_shared": {
+      "pool_lf": 0.31079262553522263,
+      "pool_lh": 0.40385275499870393,
+      "pool_lm": 0.4267142680176914,
+      "pool_rf": 0.29899637612485547,
+      "pool_rh": 0.33865756681605547,
+      "pool_rm": 0.5442397208967278,
+      "pool_shared": 0.3742186926996384,
+      "pool_nonmotor": 3.558884535996331,
+      "pool_mn": 0.35312665047008335
+    },
+    "pool_nonmotor": {
+      "pool_lf": 2.6293110768830035,
+      "pool_lh": 2.874771053026067,
+      "pool_lm": 3.4259721928996325,
+      "pool_rf": 3.3751867296010563,
+      "pool_rh": 3.5505929826235074,
+      "pool_rm": 3.1936311452635846,
+      "pool_shared": 2.172727398250401,
+      "pool_nonmotor": 148.77278284597202,
+      "pool_mn": 0.0
+    },
+    "pool_mn": {
+      "pool_lf": 0.0,
+      "pool_lh": 0.0,
+      "pool_lm": 0.0,
+      "pool_rf": 0.0,
+      "pool_rh": 0.0,
+      "pool_rm": 0.0,
+      "pool_shared": 0.0,
+      "pool_nonmotor": 0.0,
+      "pool_mn": 0.0
+    }
+  },
+  "aggregates_summary": {
+    "within_pool_diagonal": {
+      "pool_lf": {
+        "edges": 10692,
+        "conductance_uS": 5.174604388041611
+      },
+      "pool_lh": {
+        "edges": 14888,
+        "conductance_uS": 9.506277506857622
+      },
+      "pool_lm": {
+        "edges": 14935,
+        "conductance_uS": 7.89570899045947
+      },
+      "pool_rf": {
+        "edges": 9655,
+        "conductance_uS": 5.91444899554834
+      },
+      "pool_rh": {
+        "edges": 13295,
+        "conductance_uS": 8.672336213136623
+      },
+      "pool_rm": {
+        "edges": 17453,
+        "conductance_uS": 8.884195019934445
+      }
+    },
+    "left_to_right": {
+      "edges": 1779,
+      "conductance_uS": 0.8999497015022733
+    },
+    "right_to_left": {
+      "edges": 1959,
+      "conductance_uS": 1.062970382246628
+    },
+    "left_internal": {
+      "edges": 42254,
+      "conductance_uS": 23.46518412742588
+    },
+    "right_internal": {
+      "edges": 42660,
+      "conductance_uS": 24.6787146190824
+    },
+    "front_to_hind": {
+      "edges": 247,
+      "conductance_uS": 0.09804260360039191
+    },
+    "hind_to_front": {
+      "edges": 464,
+      "conductance_uS": 0.3077246679975715
+    },
+    "front_internal": {
+      "edges": 21414,
+      "conductance_uS": 11.454609583002744
+    },
+    "hind_internal": {
+      "edges": 29078,
+      "conductance_uS": 18.628887982082702
+    },
+    "leg_pools_to_mn_bucket": {
+      "edges": 24526,
+      "conductance_uS": 5.540310771756925
+    },
+    "shared_to_mn_bucket": {
+      "edges": 5488,
+      "conductance_uS": 0.9196892282430749
+    },
+    "nonmotor_to_mn_bucket": {
+      "edges": 0,
+      "conductance_uS": 0.0
+    },
+    "shared_to_leg_pools": {
+      "edges": 15679,
+      "conductance_uS": 8.825720543770586
+    },
+    "leg_pools_to_shared": {
+      "edges": 8979,
+      "conductance_uS": 3.6256028296064216
+    },
+    "nonmotor_to_leg_pools": {
+      "edges": 39114,
+      "conductance_uS": 26.487460625972243
+    },
+    "leg_pools_to_nonmotor": {
+      "edges": 72709,
+      "conductance_uS": 64.38042278238498
+    },
+    "mn_to_mn": {
+      "edges": 0,
+      "conductance_uS": 0.0
+    },
+    "shared_internal": {
+      "edges": 2771,
+      "conductance_uS": 1.3378219790727237
+    },
+    "nonmotor_internal": {
+      "edges": 150119,
+      "conductance_uS": 202.31650530070533
+    }
+  },
+  "symmetry_headline": {
+    "asym_index_L1_We": 0.2408103999248847,
+    "asym_index_L1_Wi": 0.12874122498797627,
+    "asym_index_L1_both": 0.16499904459721387,
+    "asym_index_L1_We_corrected_rule": 0.023604915745943676,
+    "asym_index_L1_Wi_corrected_rule": 0.04807572068961674,
+    "asym_index_L1_both_corrected_rule": 0.038152191481482065,
+    "abs_diff_sum_uS_both_corrected_rule": 29.05976120761526,
+    "sum_uS_both_corrected_rule": 761.6800000000001,
+    "asym_index_L1_legpools_only_corrected_We": 0.04010018871843802,
+    "asym_index_L1_legpools_only_corrected_Wi": 0.09301764887819959,
+    "asym_index_L1_legpools_only_corrected_both": 0.06610872716171905,
+    "cell_count_asymmetry_primary": {
+      "pool_lf_vs_pool_rf": {
+        "count_a": 548,
+        "count_b": 639,
+        "abs_diff": 91,
+        "asym_count": -0.07666385846672283,
+        "asymmetry_detected": true
+      },
+      "pool_lh_vs_pool_rh": {
+        "count_a": 771,
+        "count_b": 776,
+        "abs_diff": 5,
+        "asym_count": -0.003232062055591467,
+        "asymmetry_detected": false
+      },
+      "pool_lm_vs_pool_rm": {
+        "count_a": 756,
+        "count_b": 796,
+        "abs_diff": 40,
+        "asym_count": -0.02577319587628866,
+        "asymmetry_detected": false
+      },
+      "pool_shared_vs_pool_shared": {
+        "count_a": 437,
+        "count_b": 437,
+        "abs_diff": 0,
+        "asym_count": 0.0,
+        "asymmetry_detected": false
+      },
+      "pool_nonmotor_vs_pool_nonmotor": {
+        "count_a": 14954,
+        "count_b": 14954,
+        "abs_diff": 0,
+        "asym_count": 0.0,
+        "asymmetry_detected": false
+      },
+      "pool_mn_vs_pool_mn": {
+        "count_a": 323,
+        "count_b": 323,
+        "abs_diff": 0,
+        "asym_count": 0.0,
+        "asymmetry_detected": false
+      }
+    },
+    "mn_leg_counts_asymmetry": {
+      "lf_vs_rf": {
+        "mn_count_a": 43,
+        "mn_count_b": 42,
+        "abs_diff": 1,
+        "asym_count": 0.011764705882352941,
+        "asymmetry_detected": false
+      },
+      "lh_vs_rh": {
+        "mn_count_a": 59,
+        "mn_count_b": 59,
+        "abs_diff": 0,
+        "asym_count": 0.0,
+        "asymmetry_detected": false
+      },
+      "lm_vs_rm": {
+        "mn_count_a": 60,
+        "mn_count_b": 60,
+        "abs_diff": 0,
+        "asym_count": 0.0,
+        "asymmetry_detected": false
+      }
+    }
+  },
+  "coupling_headline": {
+    "lf-rf": {
+      "L3_verdict": "L0_direct_interconnect_present",
+      "L0_edges_both": 1067,
+      "L1_cells": 62,
+      "L2_paths_a_to_b": 4498,
+      "L2_paths_b_to_a": 3837
+    },
+    "lm-rm": {
+      "L3_verdict": "L0_direct_interconnect_present",
+      "L0_edges_both": 706,
+      "L1_cells": 87,
+      "L2_paths_a_to_b": 8809,
+      "L2_paths_b_to_a": 9910
+    },
+    "lh-rh": {
+      "L3_verdict": "L0_direct_interconnect_present",
+      "L0_edges_both": 895,
+      "L1_cells": 110,
+      "L2_paths_a_to_b": 10154,
+      "L2_paths_b_to_a": 10127
+    },
+    "lf-rh": {
+      "L3_verdict": "L0_direct_interconnect_present",
+      "L0_edges_both": 118,
+      "L1_cells": 27,
+      "L2_paths_a_to_b": 3704,
+      "L2_paths_b_to_a": 1248
+    },
+    "rf-lh": {
+      "L3_verdict": "L0_direct_interconnect_present",
+      "L0_edges_both": 148,
+      "L1_cells": 32,
+      "L2_paths_a_to_b": 5278,
+      "L2_paths_b_to_a": 2383
+    }
+  },
+  "proposal": {
+    "path": "PROPOSED_SCALING_PARAMS.json",
+    "free_scalar_count": 3,
+    "bounds": {
+      "lower": 0.25,
+      "upper": 4.0,
+      "inclusive": true,
+      "suggested_grid": [
+        0.25,
+        0.5,
+        1.0,
+        2.0,
+        4.0
+      ],
+      "grid_combinations": 125
+    }
+  },
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "python": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python",
+    "dash_B": true,
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "files_written": [
+    "POOLS.json",
+    "POOLS_AND_REACH.npz",
+    "BLOCKS.json",
+    "SYMMETRY.json",
+    "COUPLING.json",
+    "PROPOSED_SCALING_PARAMS.json",
+    "RESULT.json"
+  ]
+}

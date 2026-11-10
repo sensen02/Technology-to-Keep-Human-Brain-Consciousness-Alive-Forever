@@ -1,0 +1,45 @@
+{
+  "status": "FROZEN_PLATFORM_REPRODUCED",
+  "movement": {
+    "controller": "replacement_ANN_not_connectome",
+    "accepted": false,
+    "support_gates": "D1-D8 pass (frozen verifier)",
+    "slip_criterion": "FAILS material foot slip criterion",
+    "source": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-ann-walk/20261107T123634Z/evaluation/ann_residual_u32/",
+    "deficiencies": [
+      "material foot slip above the frozen threshold",
+      "no food sensing: feeding cannot feed back into locomotion",
+      "not connectome-derived and not evidence about the fly"
+    ]
+  },
+  "ticks": 800,
+  "duration_s": 3.9999999999923452,
+  "arrived": true,
+  "arrival": {
+    "tick": 224,
+    "time_s": 1.1249999999990454
+  },
+  "decisions": {
+    "feed": 58,
+    "forage": 0,
+    "rest": 742
+  },
+  "energy_start": 0.5999,
+  "energy_end": 0.5924999999999842,
+  "food_end": 0.927500000000169,
+  "min_mouth_to_food": 0.025856435080958404,
+  "native_steps_added": 0,
+  "neural_steps_added": 0,
+  "labels": {
+    "movement": "replacement_ANN_not_connectome_not_accepted",
+    "feeding": "declared_virtual_gate_no_food_collision",
+    "selector": "engineering_threshold_rule_not_neural",
+    "energy": "declared_engineering_state_uncalibrated"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261107T234820Z/platform_state.py": "e4a5c81a30edef24da77761c0e484eeddf41e51f648c6c66e33f02f9f836dbc8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/ANN_BODY_u32.npz": "1f45021726fc2bf599cfcd3772ae6ac23bb07d641653be3609801c626bfa0951",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-platform/20261108T001200Z/movement_status.py": "6f29f162589dbc21dd26a8ba423bcaf73654509ef578a7f88832ba14defc6d2e"
+  }
+}

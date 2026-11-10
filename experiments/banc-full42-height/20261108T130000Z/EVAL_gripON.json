@@ -1,0 +1,76 @@
+{
+  "model": "MODEL_height_after192.npz",
+  "model_sha256": "f82eabb53e1cc90d3deb6a57af029b0346a7e3b50b77f273769171915881fd77",
+  "grip": true,
+  "labels": {
+    "grip": "derived-channel (NOT frozen-body acceptance)"
+  },
+  "amplitude_C": 0.05,
+  "native_steps": 320000,
+  "assist": {
+    "duration_s": 0.7999999999997912,
+    "forward_speed_native_per_s": 0.6310909710263078,
+    "foot_support_mean": 3.90734434665947,
+    "foot_support_min": 3.423123648996297,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 0.7977411102533016,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.0199605111304912,
+      "LH": 2.3342166844319188,
+      "LM": 1.4938405024190295,
+      "RF": 0.9122159298769411,
+      "RH": 2.781526485303078,
+      "RM": 1.8029177542473669
+    },
+    "slip_ratio_max": 2.781526485303078,
+    "slip_ratio_mean": 1.724112977901471
+  },
+  "release": {
+    "duration_s": 3.1899999999925654,
+    "forward_speed_native_per_s": 0.38841378978321195,
+    "foot_support_mean": 3.5367786239126424,
+    "foot_support_min": 3.306146588892398,
+    "nonfoot_force_max_W": 18.724651189039918,
+    "com_height_min": 0.6620668240672598,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.0258659256030358,
+      "LH": 1.5009859494557334,
+      "LM": 1.0323529329858112,
+      "RF": 1.0657317646468816,
+      "RH": 1.801450829425293,
+      "RM": 1.8701416273874265
+    },
+    "slip_ratio_max": 1.8701416273874265,
+    "slip_ratio_mean": 1.382754838250697
+  },
+  "steady": {
+    "duration_s": 2.6899999999937307,
+    "forward_speed_native_per_s": 0.41663259065622704,
+    "foot_support_mean": 3.451133323545477,
+    "foot_support_min": 3.306146588892398,
+    "nonfoot_force_max_W": 18.724651189039918,
+    "com_height_min": 0.6620668240672598,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.8073394458450363,
+      "LH": 1.0948164919313064,
+      "LM": 0.37679732655294423,
+      "RF": 0.9596019282233691,
+      "RH": 1.079689998776808,
+      "RM": 1.0097166040370353
+    },
+    "slip_ratio_max": 1.0948164919313064,
+    "slip_ratio_mean": 0.8879936325610832
+  },
+  "steady_note": "additional information only; the gates below are judged on the full release window",
+  "release_gates": {
+    "foot_support_mean": true,
+    "nonfoot": false,
+    "com_height": false,
+    "slip": false,
+    "forward": true
+  },
+  "release_gates_passed": false
+}

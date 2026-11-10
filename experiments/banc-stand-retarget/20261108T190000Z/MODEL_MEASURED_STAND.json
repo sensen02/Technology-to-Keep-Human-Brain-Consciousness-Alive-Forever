@@ -1,0 +1,72 @@
+{
+  "status": "BASE_NETWORK_TRAINED_ON_STAND_RETARGET",
+  "samples_train": 23632,
+  "samples_val": 5748,
+  "segments_train": 271,
+  "segments_val": 67,
+  "final_train_mse": 0.24985073506832123,
+  "final_val_mse": 0.258881151676178,
+  "log": [
+    {
+      "step": 500,
+      "train_mse": 0.7188925743103027,
+      "val_mse": 0.6718266010284424
+    },
+    {
+      "step": 1000,
+      "train_mse": 0.46090346574783325,
+      "val_mse": 0.4457654356956482
+    },
+    {
+      "step": 1500,
+      "train_mse": 0.3427523076534271,
+      "val_mse": 0.36747172474861145
+    },
+    {
+      "step": 2000,
+      "train_mse": 0.3193180561065674,
+      "val_mse": 0.311107873916626
+    },
+    {
+      "step": 2500,
+      "train_mse": 0.2577960789203644,
+      "val_mse": 0.28821229934692383
+    },
+    {
+      "step": 3000,
+      "train_mse": 0.2292231023311615,
+      "val_mse": 0.2677694857120514
+    },
+    {
+      "step": 3500,
+      "train_mse": 0.2510302662849426,
+      "val_mse": 0.26288700103759766
+    },
+    {
+      "step": 4000,
+      "train_mse": 0.2507022023200989,
+      "val_mse": 0.258881151676178
+    }
+  ],
+  "steps": 4000,
+  "batch": 96,
+  "lr": 0.002,
+  "architecture": "294->128tanh->128tanh->42",
+  "lags": [
+    0,
+    8,
+    24,
+    32,
+    36,
+    38,
+    39
+  ],
+  "K": 40,
+  "centre_scale_from": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-ann-walk/20261107T111149Z/MODEL_VELOCITY.npz",
+  "centre_scale_sha256": "08732229ce06ba201f88fd67d29aefdc50ccdf95e5a522a5125986748c6245f7",
+  "training_set": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/TRAINING_SET_STAND.npz",
+  "wall_s": 1.8661839962005615,
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "note": "supervised only on filtered retargeted measured motion; no teacher, no synthetic periodic curve, no physics in training"
+}

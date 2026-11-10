@@ -1,0 +1,14 @@
+{
+  "version": "adhesion-free-training-v1",
+  "goal": "S2/S5 compare balance learning after explicit removal of chattering adhesion, preserving all other physical parameters and reward",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z",
+  "mechanical_evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052129Z/mechanical_diag/summary.json",
+  "evidence_summary": "paired zero target2s: .5-2s loaded foot speed with adhesion .278939, without .001869; same old learned policy remains slip3.46 without adhesion, so this is not a walking solution",
+  "scope": "new explicitly declared contact condition on same derived triad-pad full body; not frozen original body certification",
+  "physical_change": "Core(adhesion=False): no xfrc adhesion; same XML/mass/gravity/friction1.5/PD/rate2rad/s/torque/1ms actuator/12.5us physics",
+  "initialization": {"ff238": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_ff238/bc.pt", "gru238": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238/bc.pt"},
+  "pilot": {"seed": 20261113, "target_speed": 0.0, "updates": 3, "episode_ticks": 2000, "rollout_ticks": 8000, "policy_ms": 5, "reward": "unchanged curriculum-v1; physical contact is the primary experimental variable", "PPO": "same architecture-specific settings as prior hold pilots; no claim of isolated GRU advantage"},
+  "checks": "repeat relevant suites; explicit adhesion mode in identity/task/replay; same source checkpoint contract checked in its original contact condition before declared domain warm-start",
+  "decision": "after3updates inspect COM/nonfoot/loaded slip and reward saturation plus independent final replay. No hours-long budget without evidence; cadence teacher or reward remapping are separate future variables",
+  "gates": "original strict full acceptance remains required; derived engineering thresholds unchanged; failure record retained"
+}

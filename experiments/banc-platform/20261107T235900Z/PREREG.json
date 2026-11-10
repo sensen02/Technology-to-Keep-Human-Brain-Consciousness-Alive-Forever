@@ -1,0 +1,29 @@
+{
+  "schema": "round14-platform-with-labelled-ann-movement/1",
+  "scope": "Second-version platform test: the locomotion layer is the EXISTING frozen replacement ANN residual policy (u32) whose recorded trajectory is replayed through the frozen body kinematics; the platform layer (energy, virtual food, feeding gate, behaviour selector) runs on that motion. Labels are explicit: movement = replacement ANN (NOT the connectome module), feeding = declared virtual gate, selector = engineering rule.",
+  "why": "Round 13 built and tested energy/food/feeding/selector but the connectome module produces no displacement, so foraging could never succeed. The approved plan allows a clearly labelled replacement ANN control layer. An audited ANN residual policy already exists and was measured at 4 s with all original D1-D8 support checks passing, forward speed 0.302 native/s, straightness 0.99999, while FAILING the frozen material foot-slip criterion. That is the honest state of the movement layer and it is sufficient to exercise foraging and feeding.",
+  "movement_layer": {
+    "identity": "frozen learned history motor ANN + learned proprioceptive residual ANN (u32), replacement ANN controller, explicitly NOT connectome and NOT the original brain",
+    "artifacts": "/home/sensen/Desktop/engine修复验收/s5-ann-walk/20261107T123634Z/evaluation/ann_residual_u32/",
+    "snapshot_used_here": "ANN_BODY_u32.npz (byte copy of BODY.npz, sha256 1f45021726fc2bf599cfcd3772ae6ac23bb07d641653be3609801c626bfa0951)",
+    "known_deficiency_recorded_not_hidden": "material foot slip criterion FAILS (physical_screen_passed=false in that round's own GOAL_ASSESSMENT); support gates D1-D8 pass; therefore this is not an accepted walking result and is used only as a labelled movement source for platform testing"
+  },
+  "no_new_physics_claim": "This round does NOT re-simulate the ANN and does not alter or re-verify its result. It replays the recorded qpos through the frozen model kinematics to obtain mouth-part positions (single mj_forward per record, no stepping), so zero native physics steps are added.",
+  "platform_parameters": {
+    "energy": "declared 0..1, initial 0.6, drain .02/s, intake .25/s",
+    "food": "virtual point+radius; no food geometry exists in the frozen body",
+    "selector": "declared thresholds: eat if mouth in food and energy<.95; forage if energy<.5 and food remains; else rest",
+    "note": "all platform numbers are declared engineering constants, uncalibrated to fly metabolism, food detection distance or feeding rate"
+  },
+  "conditions": {
+    "reachable": "food patch radius .05 native placed .30 native ahead of the walking direction",
+    "unreachable": "same patch placed 3.0 native ahead (beyond 4 s of travel at .302/s)"
+  },
+  "checks_fixed_in_advance": {
+    "arrival": "first tick whose mouth point lies inside the patch radius is reported as arrival; if none, arrival must be null",
+    "energy": "energy must rise only while the feeding gate is open and food mass remains; energy must never leave [0,1]",
+    "food": "food mass must never go negative or increase",
+    "labels": "every recorded episode must carry the movement label 'replacement_ANN_not_connectome' and the selector label 'engineering_not_neural'"
+  },
+  "limits": "The locomotion layer's slip criterion fails and no connectome control is used, so this episode must NOT be reported as connectome-driven walking, as an accepted gait, or as platform validation of movement quality. Feeding has no food collision, no proboscis mechanics and does not feed back into the locomotion controller (that controller has no food sensing), so the coupling is one-way. No injury experiment. Absolute SI calibration remains NOT_ESTABLISHED."
+}

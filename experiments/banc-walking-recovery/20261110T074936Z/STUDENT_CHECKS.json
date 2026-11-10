@@ -1,0 +1,464 @@
+{
+  "status": "PASS",
+  "purpose": "S2/S5 tiny BC and 20ms wiring only; no walking evidence",
+  "command": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/env/bin/python",
+    "-B",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/check_student_wave.py"
+  ],
+  "all_passed": true,
+  "passed": 74,
+  "total": 74,
+  "checks": [
+    {
+      "name": "actor observation uses actual obs238 and constant .075",
+      "passed": true
+    },
+    {
+      "name": "no phase/reference/teacher input in observation builder",
+      "passed": true
+    },
+    {
+      "name": "critic concatenates actual extras and remaining time only",
+      "passed": true
+    },
+    {
+      "name": "collector excludes landing tail targets",
+      "passed": true
+    },
+    {
+      "name": "reuse excludes provenance phase and landing tail from actor",
+      "passed": true
+    },
+    {
+      "name": "bounded tanh mean loss, no expert atanh or .95 clipping",
+      "passed": true
+    },
+    {
+      "name": "declared unchanged physics step and zero force requirement",
+      "passed": true
+    },
+    {
+      "name": "actor file contains no teacher implementation",
+      "passed": true
+    },
+    {
+      "name": "CLI collection defaults four episodes two cycles",
+      "passed": true
+    },
+    {
+      "name": "CLI accepts ordered repeated independent reuse",
+      "passed": true
+    },
+    {
+      "name": "CLI BC defaults 300 steps lr .001",
+      "passed": true
+    },
+    {
+      "name": "CLI evaluation defaults two autonomous cycles and no native trace",
+      "passed": true
+    },
+    {
+      "name": "existing strict teacher reference gates and source closure",
+      "passed": true
+    },
+    {
+      "name": "actual obs dimensions and float64",
+      "passed": true
+    },
+    {
+      "name": "critic exact actor prefix",
+      "passed": true
+    },
+    {
+      "name": "reject wrong previous actual action dimension",
+      "passed": true
+    },
+    {
+      "name": "reject out of bound action",
+      "passed": true
+    },
+    {
+      "name": "reject nonfinite action",
+      "passed": true
+    },
+    {
+      "name": "synthetic independent train/holdout metadata accepted",
+      "passed": true
+    },
+    {
+      "name": "reject wrong holdout split",
+      "passed": true
+    },
+    {
+      "name": "reject same exact trajectory train/validation",
+      "passed": true
+    },
+    {
+      "name": "reject repeated episode seed identity",
+      "passed": true
+    },
+    {
+      "name": "reject dataset executable source drift",
+      "passed": true
+    },
+    {
+      "name": "reject dataset report digest drift",
+      "passed": true
+    },
+    {
+      "name": "reject metadata permitting supervised landing tail",
+      "passed": true
+    },
+    {
+      "name": "reject inconsistent aggregate teacher condition",
+      "passed": true
+    },
+    {
+      "name": "CLI refuses existing output directory",
+      "passed": true
+    },
+    {
+      "name": "ff238 finite differentiable synthetic bounded loss",
+      "passed": true
+    },
+    {
+      "name": "ff238 synthetic actor gradients nonzero",
+      "passed": true
+    },
+    {
+      "name": "ff238 std initialized .05",
+      "passed": true
+    },
+    {
+      "name": "ff238 BC critic and std excluded from loss",
+      "passed": true
+    },
+    {
+      "name": "ff238 BC complete path and exact compatible checkpoint reload",
+      "passed": true
+    },
+    {
+      "name": "ff238 fresh PPO actor/critic optimizers",
+      "passed": true
+    },
+    {
+      "name": "ff238 retained BC Adam state",
+      "passed": true
+    },
+    {
+      "name": "ff238 retained complete RNG/config/dataset closure",
+      "passed": true
+    },
+    {
+      "name": "ff238 deployment load verifies physical/data identity",
+      "passed": true
+    },
+    {
+      "name": "ff238 deployment bounded42 action",
+      "passed": true
+    },
+    {
+      "name": "ff238 two tiny BC steps decrease synthetic training loss",
+      "passed": true
+    },
+    {
+      "name": "gru238 finite differentiable synthetic bounded loss",
+      "passed": true
+    },
+    {
+      "name": "gru238 synthetic actor gradients nonzero",
+      "passed": true
+    },
+    {
+      "name": "gru238 std initialized .05",
+      "passed": true
+    },
+    {
+      "name": "gru238 BC critic and std excluded from loss",
+      "passed": true
+    },
+    {
+      "name": "GRU full episode replay equals sequential recurrence",
+      "passed": true
+    },
+    {
+      "name": "gru238 BC complete path and exact compatible checkpoint reload",
+      "passed": true
+    },
+    {
+      "name": "gru238 fresh PPO actor/critic optimizers",
+      "passed": true
+    },
+    {
+      "name": "gru238 retained BC Adam state",
+      "passed": true
+    },
+    {
+      "name": "gru238 retained complete RNG/config/dataset closure",
+      "passed": true
+    },
+    {
+      "name": "gru238 deployment load verifies physical/data identity",
+      "passed": true
+    },
+    {
+      "name": "gru238 deployment bounded42 action",
+      "passed": true
+    },
+    {
+      "name": "gru238 two tiny BC steps decrease synthetic training loss",
+      "passed": true
+    },
+    {
+      "name": "reuse excludes 80 diagnostic tail decisions from BC",
+      "passed": true
+    },
+    {
+      "name": "reuse phase provenance excluded from saved actor arrays",
+      "passed": true
+    },
+    {
+      "name": "reuse binds all three original artifact hashes",
+      "passed": true
+    },
+    {
+      "name": "reuse preserves independent physical pulse seed and holdout role",
+      "passed": true
+    },
+    {
+      "name": "all-reuse collect completes without physical replay",
+      "passed": true
+    },
+    {
+      "name": "all-reuse last independent episode held out",
+      "passed": true
+    },
+    {
+      "name": "all-reuse dataset closure validates",
+      "passed": true
+    },
+    {
+      "name": "actual 20ms total physical ticks exactly",
+      "passed": true
+    },
+    {
+      "name": "actual handover exact all state/history/hidden hashes",
+      "passed": true
+    },
+    {
+      "name": "actual GRU primed before every teacher command and continued",
+      "passed": true
+    },
+    {
+      "name": "actual no teacher query after switch instrumented",
+      "passed": true
+    },
+    {
+      "name": "actual 5ms action hold and previous actual action handover",
+      "passed": true
+    },
+    {
+      "name": "actual no external force / no adhesion throughout",
+      "passed": true
+    },
+    {
+      "name": "actual control sources exactly teacher then student",
+      "passed": true
+    },
+    {
+      "name": "actual native timestep unchanged 12.5us",
+      "passed": true
+    },
+    {
+      "name": "all compiled physical model arrays unchanged",
+      "passed": true
+    },
+    {
+      "name": "actual actuator requested action equals bounded command",
+      "passed": true
+    },
+    {
+      "name": "full trace required physical fields present",
+      "passed": true
+    },
+    {
+      "name": "zero control actor called only for warmup priming",
+      "passed": true
+    },
+    {
+      "name": "zero branch teacher query count exact",
+      "passed": true
+    },
+    {
+      "name": "zero branch control-source flags",
+      "passed": true
+    },
+    {
+      "name": "teacher control actor called only for warmup priming",
+      "passed": true
+    },
+    {
+      "name": "teacher branch teacher query count exact",
+      "passed": true
+    },
+    {
+      "name": "teacher branch control-source flags",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/student_wave.py": "242fc0d4f1459bdd1357e9a7629aa5225eae4ae9a2b77b410f9508ce9e4316d8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/static_teacher.py": "f66dd87437e37ebd5aebc44ad8f406e5492e72ddb0a1ff3bc5354a3ab1237eaa",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/wave_reference.py": "b9cb86d3254396269f42157fc8d853c0678891871659a3aef2365def90e9e9ad",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/check_student_wave.py": "6d24916db317e8292253fe51afa43e70af47b1470972e6294d42d6516d5f1ecb"
+  },
+  "synthetic_bc": {
+    "ff238": {
+      "steps": 2,
+      "initial": {
+        "step": 0,
+        "train_MSE": 0.35865918948819436,
+        "heldout_MSE": 0.375040791298188
+      },
+      "final": {
+        "step": 2,
+        "train_MSE": 0.3507129730545776,
+        "heldout_MSE": 0.3760070985152019
+      }
+    },
+    "gru238": {
+      "steps": 2,
+      "initial": {
+        "step": 0,
+        "train_MSE": 0.3586639509723497,
+        "heldout_MSE": 0.37507653023516546
+      },
+      "final": {
+        "step": 2,
+        "train_MSE": 0.3537376663071266,
+        "heldout_MSE": 0.37640157473173597
+      }
+    }
+  },
+  "actual_physical": {
+    "duration_s": 0.02,
+    "decision_ms": 5,
+    "teacher_ms": 10,
+    "student_ms": 10,
+    "transition": {
+      "time_s": 0.010000000000000158,
+      "exact": {
+        "qpos": true,
+        "qvel": true,
+        "ctrl": true,
+        "target": true,
+        "history": true,
+        "padz_previous": true,
+        "pad_rate": true,
+        "requested_rate": true,
+        "previous_actual_action": true,
+        "time": true,
+        "external_body": true,
+        "external_generalized": true,
+        "hidden": true
+      },
+      "all_exact": true,
+      "before_sha256": {
+        "qpos": "6c1950de9287fae5d955e9f1345de5191bfe8e63de7ebe7feacd12499dea6d75",
+        "qvel": "f206ccab2a52f8ed07b6a1dbee1e146125a462d5eb92ab80407653ac9e8d0c87",
+        "ctrl": "8b2f90e8d38c8de4a379dce74a89a30e9b34528726e2ad9e436a373e280f758c",
+        "target": "fe500baa3f9481c03640a3fcb20fdc87803c2a955bfbcfc173407394d05370e6",
+        "history": "4fb98798177b914c3208d22384736cffc44024f86672a032f8f32b606190d9d7",
+        "padz_previous": "7f309b390cf4cd6bbd02824d9764d311ab8e5ff98a72874fefcf561b8ee891f5",
+        "pad_rate": "d3bbc6cc940b57205a263003d8b1ee04567ea40c3866c23890183914cc12b866",
+        "requested_rate": "35a729b85e54bff1a8ff9ba5f2c32abd0ad14875edf6210ba71d716ac038714b",
+        "previous_actual_action": "3622f364f107d3cba176b815ad23b4beff47793a3015f9b83fae70531c6e2363",
+        "time": "4f902deac1def9adeaf4d8b1254ff9556797f3485bb3307cf75d075b1bf0c42c",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "6d874c45dde113731eeff1485dc057b4deb38baa96e8741ee999dc77844004ff"
+      },
+      "after_sha256": {
+        "qpos": "6c1950de9287fae5d955e9f1345de5191bfe8e63de7ebe7feacd12499dea6d75",
+        "qvel": "f206ccab2a52f8ed07b6a1dbee1e146125a462d5eb92ab80407653ac9e8d0c87",
+        "ctrl": "8b2f90e8d38c8de4a379dce74a89a30e9b34528726e2ad9e436a373e280f758c",
+        "target": "fe500baa3f9481c03640a3fcb20fdc87803c2a955bfbcfc173407394d05370e6",
+        "history": "4fb98798177b914c3208d22384736cffc44024f86672a032f8f32b606190d9d7",
+        "padz_previous": "7f309b390cf4cd6bbd02824d9764d311ab8e5ff98a72874fefcf561b8ee891f5",
+        "pad_rate": "d3bbc6cc940b57205a263003d8b1ee04567ea40c3866c23890183914cc12b866",
+        "requested_rate": "35a729b85e54bff1a8ff9ba5f2c32abd0ad14875edf6210ba71d716ac038714b",
+        "previous_actual_action": "3622f364f107d3cba176b815ad23b4beff47793a3015f9b83fae70531c6e2363",
+        "time": "4f902deac1def9adeaf4d8b1254ff9556797f3485bb3307cf75d075b1bf0c42c",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "6d874c45dde113731eeff1485dc057b4deb38baa96e8741ee999dc77844004ff"
+      },
+      "previous_actual_action": [
+        -0.3572673987712714,
+        0.47606354034170906,
+        -0.027791548957757373,
+        0.07780431479730102,
+        0.2791893439117876,
+        -0.08176164499829774,
+        0.16603736265058622,
+        -0.39224890483183433,
+        -0.40221580071675367,
+        -0.2130673319711418,
+        0.024091547410445696,
+        0.3962034193628705,
+        0.05014695133988861,
+        0.20633889624729562,
+        -0.3067063279955934,
+        0.1205969706920948,
+        -0.08549020054462675,
+        0.18339904476731372,
+        0.28419815068804866,
+        -0.10365766273757959,
+        0.1374586177649073,
+        -0.01689870401546556,
+        0.5532384699664527,
+        0.7755899746589834,
+        0.31568524593628755,
+        0.47108471081860337,
+        -0.43859009203754545,
+        0.34920490763524326,
+        0.6552395709686678,
+        -0.7510384240220954,
+        0.17482213651037526,
+        0.7199295027628825,
+        0.5912877339552636,
+        -0.6911473574503781,
+        0.34970390913193317,
+        -0.123572522969254,
+        -0.03306019432830376,
+        -0.03144001924516804,
+        -0.007345679986505843,
+        -0.13464903411021023,
+        0.036036480967543555,
+        0.07771306199628736
+      ],
+      "hidden_preserved": true,
+      "no_reset": true,
+      "algorithm_prefix_declared": true
+    },
+    "teacher_calls": 2,
+    "actor_calls": 4,
+    "no_external_force": true,
+    "no_adhesion": true,
+    "native_dt_s": 1.25e-05
+  },
+  "not_executed": [
+    "full collection",
+    "long BC",
+    "full walking evaluation",
+    "native long recording"
+  ],
+  "interpretation": "engineering checks only; parent schedules real independent teacher episodes and closed-loop evaluation"
+}

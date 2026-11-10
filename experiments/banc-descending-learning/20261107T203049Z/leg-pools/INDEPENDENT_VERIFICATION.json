@@ -1,0 +1,591 @@
+{
+  "verification": "independent, does not import leg_pools.py",
+  "method": "pools rebuilt with plain Python dicts/sets over the edge list; block conductances recomputed from the raw synapse counts and the nt column rather than from the csr matrices; path counts recomputed as products over intermediates",
+  "checks_total": 74,
+  "checks_passed": 74,
+  "checks_failed": 0,
+  "all_passed": true,
+  "steps": {
+    "neural_steps": 0,
+    "physical_steps": 0,
+    "learning_updates": 0,
+    "new_edges": 0
+  },
+  "checks": [
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+      "pass": true,
+      "detail": {
+        "expected": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+        "actual": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py",
+      "pass": true,
+      "detail": {
+        "expected": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676",
+        "actual": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py",
+      "pass": true,
+      "detail": {
+        "expected": "27e46d0a9d2b3014ead4c07c4ae64a6b46a069c35ff772c7533210b053164a4e",
+        "actual": "27e46d0a9d2b3014ead4c07c4ae64a6b46a069c35ff772c7533210b053164a4e"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz",
+      "pass": true,
+      "detail": {
+        "expected": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+        "actual": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MOTOR_READOUT_PORTS.csv",
+      "pass": true,
+      "detail": {
+        "expected": "c78650b4a8b705512523674f4c47dd7e7718261db5b51d37519f910b558df39a",
+        "actual": "c78650b4a8b705512523674f4c47dd7e7718261db5b51d37519f910b558df39a"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/GROUP_CACHE_INDICES.npz",
+      "pass": true,
+      "detail": {
+        "expected": "557cfc944270a34053d74d3eebe39af453eefe530c22ae5ce656f92fbff3b09a",
+        "actual": "557cfc944270a34053d74d3eebe39af453eefe530c22ae5ce656f92fbff3b09a"
+      }
+    },
+    {
+      "check": "sha256 /run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_REVIEW.json",
+      "pass": true,
+      "detail": {
+        "expected": "906ccfca7b27698d59666d0d9ce15f37ff43b23a013d44168902467757bb4b64",
+        "actual": "906ccfca7b27698d59666d0d9ce15f37ff43b23a013d44168902467757bb4b64"
+      }
+    },
+    {
+      "check": "strict edge count is 435126",
+      "pass": true,
+      "detail": 435126
+    },
+    {
+      "check": "acetylcholine edge count is 207166",
+      "pass": true,
+      "detail": 207166
+    },
+    {
+      "check": "inhibitory edge count is 227960",
+      "pass": true,
+      "detail": 227960
+    },
+    {
+      "check": "CSV gives 323 single-leg motor cells",
+      "pass": true,
+      "detail": 323
+    },
+    {
+      "check": "circuit mn_local equals the CSV index set",
+      "pass": true,
+      "detail": {
+        "circuit": 323,
+        "csv": 323
+      }
+    },
+    {
+      "check": "circuit mn_leg labels equal the CSV labels",
+      "pass": true,
+      "detail": "label order"
+    },
+    {
+      "check": "mn leg counts lf43 lh59 lm60 rf42 rh59 rm60",
+      "pass": true,
+      "detail": {
+        "lf": 43,
+        "lh": 59,
+        "lm": 60,
+        "rf": 42,
+        "rh": 59,
+        "rm": 60
+      }
+    },
+    {
+      "check": "total module conductance 380.84 uS",
+      "pass": true,
+      "detail": 380.84
+    },
+    {
+      "check": "every neuron with incoming edges has 0.02 uS",
+      "pass": true,
+      "detail": {
+        "n": 19042,
+        "min": 0.019999999999999955,
+        "max": 0.020000000000000046
+      }
+    },
+    {
+      "check": "frozen matrix nnz total is 435126",
+      "pass": true,
+      "detail": {
+        "we": 207166,
+        "wi": 227960,
+        "frozen_dict": 435126
+      }
+    },
+    {
+      "check": "frozen matrices reproduce 0.02*syn/incoming exactly",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "check": "sum(_We)+sum(_Wi) equals 380.84",
+      "pass": true,
+      "detail": [
+        126.82030644091996,
+        254.01969355908005
+      ]
+    },
+    {
+      "check": "partition covers every one of the 20000 neurons exactly once",
+      "pass": true,
+      "detail": {
+        "pool_lf": 548,
+        "pool_lh": 771,
+        "pool_lm": 756,
+        "pool_rf": 639,
+        "pool_rh": 776,
+        "pool_rm": 796,
+        "pool_shared": 437,
+        "pool_nonmotor": 14954,
+        "pool_mn": 323
+      }
+    },
+    {
+      "check": "POOLS.json primary partition sizes reproduce",
+      "pass": true,
+      "detail": {
+        "json": {
+          "pool_lf": 548,
+          "pool_lh": 771,
+          "pool_lm": 756,
+          "pool_rf": 639,
+          "pool_rh": 776,
+          "pool_rm": 796,
+          "pool_shared": 437,
+          "pool_nonmotor": 14954,
+          "pool_mn": 323
+        },
+        "rebuilt": {
+          "pool_lf": 548,
+          "pool_lh": 771,
+          "pool_lm": 756,
+          "pool_rf": 639,
+          "pool_rh": 776,
+          "pool_rm": 796,
+          "pool_shared": 437,
+          "pool_nonmotor": 14954,
+          "pool_mn": 323
+        }
+      }
+    },
+    {
+      "check": "POOLS.json union partition sizes reproduce",
+      "pass": true,
+      "detail": {
+        "json": {
+          "pool_lf": 317,
+          "pool_lh": 446,
+          "pool_lm": 403,
+          "pool_rf": 418,
+          "pool_rh": 562,
+          "pool_rm": 327,
+          "pool_shared": 7362,
+          "pool_nonmotor": 9842,
+          "pool_mn": 323
+        },
+        "rebuilt": {
+          "pool_lf": 317,
+          "pool_lh": 446,
+          "pool_lm": 403,
+          "pool_rf": 418,
+          "pool_rh": 562,
+          "pool_rm": 327,
+          "pool_shared": 7362,
+          "pool_nonmotor": 9842,
+          "pool_mn": 323
+        }
+      }
+    },
+    {
+      "check": "union partition also covers 20000 neurons",
+      "pass": true,
+      "detail": 20000
+    },
+    {
+      "check": "saved bucket_id array equals the independent partition",
+      "pass": true,
+      "detail": "per-neuron compare"
+    },
+    {
+      "check": "saved bucket_id_union array equals the independent partition",
+      "pass": true,
+      "detail": "per-neuron compare"
+    },
+    {
+      "check": "saved direct leg mask equals the independent direct-leg sets",
+      "pass": true,
+      "detail": "per-neuron compare"
+    },
+    {
+      "check": "saved two-hop leg mask equals the independent two-hop-leg sets",
+      "pass": true,
+      "detail": "per-neuron compare"
+    },
+    {
+      "check": "direct reach count 4723 reproduces",
+      "pass": true,
+      "detail": [
+        4723,
+        4723
+      ]
+    },
+    {
+      "check": "two-hop reach count 9785 reproduces",
+      "pass": true,
+      "detail": [
+        9785,
+        9785
+      ]
+    },
+    {
+      "check": "no duplicated edge in the strict edge list",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "check": "no self loop in the strict edge list",
+      "pass": true,
+      "detail": "selfloops"
+    },
+    {
+      "check": "block edge counts sum to 435126",
+      "pass": true,
+      "detail": 435126
+    },
+    {
+      "check": "block conductance sums to 380.84 uS",
+      "pass": true,
+      "detail": 380.83999999997525
+    },
+    {
+      "check": "all 81 block edge counts reproduce exactly (both receptors)",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "all 81 block conductances reproduce (1e-12 rel)",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "receptor-split block edges and conductances reproduce from the nt column",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "raw-order vs receptor-split summation agree within 1e-12",
+      "pass": true,
+      "detail": 6.764366844436154e-12
+    },
+    {
+      "check": "aggregate blocks reproduce (L->R, R->L, F->H, H->F, drives, nonmotor internal, mn<-mn)",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "preregistered-rule asym_index_L1 (both receptors) reproduces",
+      "pass": true,
+      "detail": [
+        0.16499904459721387,
+        0.16499904459722306
+      ]
+    },
+    {
+      "check": "preregistered-rule abs_diff_sum_uS (both) reproduces",
+      "pass": true,
+      "detail": [
+        125.67647228880587,
+        125.67647228880467
+      ]
+    },
+    {
+      "check": "preregistered-rule asym_index_L1 (_We) reproduces",
+      "pass": true,
+      "detail": [
+        0.2408103999248847,
+        0.24081039992489098
+      ]
+    },
+    {
+      "check": "asym_index_L1 corrected rule (_We) reproduces",
+      "pass": true,
+      "detail": [
+        0.023604915745943676,
+        0.02360491574594466
+      ]
+    },
+    {
+      "check": "abs_diff_sum_uS corrected rule (_We) reproduces",
+      "pass": true,
+      "detail": [
+        5.9871652968253475,
+        5.987165296825445
+      ]
+    },
+    {
+      "check": "asym_index_L1 corrected rule (_Wi) reproduces",
+      "pass": true,
+      "detail": [
+        0.04807572068961674,
+        0.04807572068961953
+      ]
+    },
+    {
+      "check": "abs_diff_sum_uS corrected rule (_Wi) reproduces",
+      "pass": true,
+      "detail": [
+        24.42435967441674,
+        24.424359674416788
+      ]
+    },
+    {
+      "check": "asym_index_L1 corrected rule (both receptors) reproduces",
+      "pass": true,
+      "detail": [
+        0.038152191481482065,
+        0.038152191481484014
+      ]
+    },
+    {
+      "check": "leg-pools-only corrected asym index (_We) reproduces",
+      "pass": true,
+      "detail": [
+        0.04010018871843802,
+        0.04010018871843962
+      ]
+    },
+    {
+      "check": "leg-pools-only corrected asym index (_Wi) reproduces",
+      "pass": true,
+      "detail": [
+        0.09301764887819959,
+        0.0930176488781995
+      ]
+    },
+    {
+      "check": "leg-pools-only corrected asym index (both) reproduces",
+      "pass": true,
+      "detail": [
+        0.06610872716171905,
+        0.06610872716171966
+      ]
+    },
+    {
+      "check": "preregistered mirror rule reports zero difference on LF<->RF, LM<->RM, LH<->RH (documented blindness)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "check": "corrected mirror rule does report a non-zero LF->RF vs RF->LF difference",
+      "pass": true,
+      "detail": 0.026495868437126147
+    },
+    {
+      "check": "all 15 leg-pair direction asymmetries reproduce",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "the three contralateral same-row pairs are flagged self_mirror_pair",
+      "pass": true,
+      "detail": "self mirror flags"
+    },
+    {
+      "check": "cell-count asymmetry values reproduce",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "lf pool 548 and rf pool 639 reproduce",
+      "pass": true,
+      "detail": [
+        548,
+        639
+      ]
+    },
+    {
+      "check": "incoming decomposition integer check reproduces (0.02 uS per live neuron)",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "L0/L1/L2 coupling counts for the five gait pairs reproduce",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "all 15 leg-pair bridge cell counts and direct edge counts reproduce",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "all five gait pairs have a non-absent structural verdict",
+      "pass": true,
+      "detail": [
+        "lf-rf",
+        "lm-rm",
+        "lh-rh",
+        "lf-rh",
+        "rf-lh"
+      ]
+    },
+    {
+      "check": "proposal classes partition all 435126 edges",
+      "pass": true,
+      "detail": 435126
+    },
+    {
+      "check": "proposal class conductance totals sum to 380.84 uS",
+      "pass": true,
+      "detail": 380.84000000000003
+    },
+    {
+      "check": "proposal per-class edge and conductance totals reproduce",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "free scalar count is 3 within preregistered cap of 5",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "check": "scalar bounds are [0.25, 4.0]",
+      "pass": true,
+      "detail": {
+        "lower": 0.25,
+        "upper": 4.0,
+        "inclusive": true,
+        "suggested_grid": [
+          0.25,
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "grid_combinations": 125
+      }
+    },
+    {
+      "check": "proposal keeps the .02 uS convention option (V1 exact / V2 bounded)",
+      "pass": true,
+      "detail": {
+        "frozen": "every neuron with incoming edges has exactly 0.02 uS total incoming conductance",
+        "V1_row_renormalized": {
+          "rule": "after scaling, divide each target neuron row by (scaled row sum / 0.02 uS) so the row total is exactly 0.02 uS",
+          "resulting_per_neuron_incoming_uS": 0.02,
+          "rows_untouched": "neurons with zero incoming edges have no entries and are unaffected"
+        },
+        "V2_bounded_unrenormalized": {
+          "rule": "no renormalisation; each target neuron total must stay in [0.5, 2.0] * 0.02 uS",
+          "allowed_per_neuron_incoming_uS": [
+            0.01,
+            0.04
+          ],
+          "projection": "if a row total exceeds a bound, multiply that whole row by one per-row factor to land on the bound",
+          "units": "uS"
+        },
+        "must_choose_one_next_round": true
+      }
+    },
+    {
+      "check": "tripod class conductance 0.1348 uS at upper bound 4.0 gives 0.5393 uS",
+      "pass": true,
+      "detail": [
+        0.5392903032606324,
+        0.5392903032606324
+      ]
+    },
+    {
+      "check": "all 323 motor neurons have zero outgoing edges",
+      "pass": true,
+      "detail": 323
+    },
+    {
+      "check": "RESULT.json records zero motor outgoing edges",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "check": "mn_to_mn block has zero edges",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "check": "RESULT.json prereg hashes match the files on disk",
+      "pass": true,
+      "detail": {
+        "PREREGISTRATION.md": "135d97157edd4e68435aa2c0e0a7f580c9330b0b8a7125605ae94c91941c9326",
+        "PREREGISTRATION.json": "a5465c4c9c88b5ccd1c325623472ed3ef3a5f2cf18ecb5363d3462941eacd9e8"
+      }
+    },
+    {
+      "check": "RESULT.json analysis-code hash matches leg_pools.py",
+      "pass": true,
+      "detail": {
+        "leg_pools.py": "f6b391c38d047c7363bdf67812d950dc71fa9d5f2ef6d2c09bc6a3a1812b149c"
+      }
+    },
+    {
+      "check": "RESULT.json source hashes match this verifier expectation",
+      "pass": true,
+      "detail": "hash tables"
+    },
+    {
+      "check": "RESULT.json records zero simulation steps",
+      "pass": true,
+      "detail": {
+        "neural_steps": 0,
+        "physical_steps": 0,
+        "learning_updates": 0,
+        "new_edges": 0,
+        "renders": 0,
+        "forward_calls": 0,
+        "analyses": 1
+      }
+    },
+    {
+      "check": "DEVIATIONS.md exists and records the mirror-rule deviation",
+      "pass": true,
+      "detail": true
+    }
+  ],
+  "verified_hashes": {
+    "verify_leg_pools.py": "76292388f7dd5ce2d46b6c3a2df971b36d1936ea25966423449529ecd752ba48",
+    "leg_pools.py": "f6b391c38d047c7363bdf67812d950dc71fa9d5f2ef6d2c09bc6a3a1812b149c",
+    "PREREGISTRATION.md": "135d97157edd4e68435aa2c0e0a7f580c9330b0b8a7125605ae94c91941c9326",
+    "PREREGISTRATION.json": "a5465c4c9c88b5ccd1c325623472ed3ef3a5f2cf18ecb5363d3462941eacd9e8",
+    "DEVIATIONS.md": "d5bd43698ef7a3427248bcd7f0095d548181b7774e78b96d3e330d673f435c9b",
+    "POOLS.json": "7f8e84983f012e726eee22eb7892f94e4d1167aa6a4490d6da3a847bb8d58e59",
+    "POOLS_AND_REACH.npz": "abd2a0c10501458f927c6ccbe53bbf2e1c982bd139f7388cbd26fb08218aa39a",
+    "BLOCKS.json": "eb40d8d4fb9c4ed89017078024faee1060c21a249639b2b9ea45322be97828e5",
+    "SYMMETRY.json": "d9b5630774267d86c28b546e37f432293bc11989c608a49562e500b860cc19f8",
+    "COUPLING.json": "8c61a4e0e9a919ea1e6faf919f3384f2ccb100e988dfa322f2a87d2e24fd0f59",
+    "PROPOSED_SCALING_PARAMS.json": "2c08529f88aad23c1803210350b5f7c7df7f318bdbd82a8622d2221e921aca08",
+    "RESULT.json": "cbaf51cbf0417d856cac7644a351942e8ead0a39c27ca4d1013876de6503e307"
+  }
+}

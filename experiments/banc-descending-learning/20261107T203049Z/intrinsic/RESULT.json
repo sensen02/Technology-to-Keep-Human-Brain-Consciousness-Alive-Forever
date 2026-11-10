@@ -1,0 +1,132 @@
+{
+  "status": "INTRINSIC_DYNAMICS_AUDIT_COMPLETE_NOT_WALKING",
+  "conditions": {
+    "held": {
+      "neural_steps": 10000,
+      "physical_steps": 0,
+      "training_updates": 0,
+      "per_leg_mean_hz": {
+        "LF": 21.154154326095917,
+        "LH": 21.406578047879236,
+        "LM": 8.771422581480216,
+        "RF": 20.86769448270641,
+        "RH": 16.76043377052441,
+        "RM": 13.342973749523724
+      },
+      "per_leg_mean_rate_cv": {
+        "LF": 0.34669324855216455,
+        "LH": 0.4434850293757509,
+        "LM": 0.3159818864148347,
+        "RF": 0.5031526599094928,
+        "RH": 0.4999726512845697,
+        "RM": 0.2733754771298253
+      },
+      "cross_correlation": {
+        "LF_LH": -0.04232367561921732,
+        "LF_LM": -0.07496995122135243,
+        "LF_RF": 0.8170833361111779,
+        "LF_RH": 0.03606458228715235,
+        "LF_RM": 0.07521617784934258,
+        "LH_LM": -0.004450372757091775,
+        "LH_RF": 0.08195733903659808,
+        "LH_RH": 0.5639075223598363,
+        "LH_RM": -0.05536968232547921,
+        "LM_RF": -0.054725208760697516,
+        "LM_RH": -0.10863911511024255,
+        "LM_RM": 0.3810586290017428,
+        "RF_RH": 0.11778986497473838,
+        "RF_RM": 0.11017388598321229,
+        "RH_RM": -0.1044053178703103
+      },
+      "dominant_frequency_hz": {
+        "LF": 4.0,
+        "LH": 3.5555555555555554,
+        "LM": 2.0,
+        "RF": 3.7777777777777777,
+        "RH": 3.5555555555555554,
+        "RM": 6.444444444444444
+      },
+      "alternation_score_minus_corr": {
+        "LF_RH": -0.03606458228715235,
+        "RF_LH": -0.08195733903659806,
+        "LM_LM": 1.0
+      },
+      "all_leg_mean_rate_std_hz": 4.0653205487798685,
+      "DN_spikes": [
+        19,
+        0
+      ],
+      "rates_sha256": "a02fbae05bc32a588a0a54b5b7cb0f5dc11e04cd5447ef7a92bcdbdf022aef3f",
+      "voltage_min_mV": -75.80956067247843,
+      "voltage_max_mV": -50.00622679661115
+    },
+    "replay": {
+      "neural_steps": 10000,
+      "physical_steps": 0,
+      "training_updates": 0,
+      "per_leg_mean_hz": {
+        "LF": 21.27056530257877,
+        "LH": 21.638719180397086,
+        "LM": 8.643767433706389,
+        "RF": 20.321726482872116,
+        "RH": 16.958263125814288,
+        "RM": 13.04533642809791
+      },
+      "per_leg_mean_rate_cv": {
+        "LF": 0.35608598926966295,
+        "LH": 0.43737088403878116,
+        "LM": 0.308818620303702,
+        "RF": 0.4922376493927421,
+        "RH": 0.5189336468343295,
+        "RM": 0.2801369386623491
+      },
+      "cross_correlation": {
+        "LF_LH": -0.12313620580695489,
+        "LF_LM": 0.014766036798866278,
+        "LF_RF": 0.8371085891906221,
+        "LF_RH": -0.15917285714436358,
+        "LF_RM": 0.1463456919471426,
+        "LH_LM": -0.14661546240053444,
+        "LH_RF": -0.03139094518476739,
+        "LH_RH": 0.6154397875962588,
+        "LH_RM": -0.1439745554422264,
+        "LM_RF": -0.00645543999790679,
+        "LM_RH": -0.09881828147220852,
+        "LM_RM": 0.2383176329533126,
+        "RF_RH": -0.04693252443454469,
+        "RF_RM": 0.09570352756252219,
+        "RH_RM": -0.09881468742436374
+      },
+      "dominant_frequency_hz": {
+        "LF": 2.888888888888889,
+        "LH": 3.7777777777777777,
+        "LM": 0.4444444444444444,
+        "RF": 2.888888888888889,
+        "RH": 3.7777777777777777,
+        "RM": 9.555555555555555
+      },
+      "alternation_score_minus_corr": {
+        "LF_RH": 0.15917285714436358,
+        "RF_LH": 0.031390945184767385,
+        "LM_LM": 1.0
+      },
+      "all_leg_mean_rate_std_hz": 3.7743416017461384,
+      "DN_spikes": [
+        25,
+        0
+      ],
+      "rates_sha256": "2f5ccd152657fb252e4bb865611b85ee5eec5003f39fd72a056de2b9eb3f85af",
+      "voltage_min_mV": -76.0311545501201,
+      "voltage_max_mV": -50.01743629126594
+    }
+  },
+  "total_neural_steps": 20000,
+  "physical_steps": 0,
+  "limits": "Saved-current replay only. The module is a strict-filtered 20000-neuron subset with illustrative receptor signs and uncalibrated gains; absence of alternation here does not show fly VNC lacks it, and presence would not show walking. Not a learned policy, not a descending-command test (DN current is zero), and not a physical result.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py": "719a1e61614cb464a7c86bd803a144e33a6339c2b45797668fde624ef77d3afd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/NEURAL_START.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1"
+  }
+}

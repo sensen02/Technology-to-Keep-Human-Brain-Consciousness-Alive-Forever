@@ -1,0 +1,15 @@
+{
+ "version":"fully-neural-inhibitory-targeterror-synapses-v1",
+ "goal":"S2/S5 encodelearnablecorrective neuralfeedback architecture afterMLPlearnsweakwrongtargetdirection",
+ "conditional":"preparenumericalchecks whilepairedlabelmodelrealphysicalevaluationruns; realtrainingifpaired/burststillfail",
+ "basis":"frozenbodyKT learnedpositive11-13diagonals, expertKT−10I verifiedfullactionFDerror2.12e-11; rawpairedtraining1000steps leavesnormalizeddirectionerror.934,onlysmallimprovement. Notproofwholephysicalstability.",
+ "architecture":"FF238 physicalMLP 2x128tanh masks directtargeterror42:84,targetposition126:168,previousaction195:237; neuraloutputlatent=sumlearnedMLP +42TRAINABLEinhibitorydiagonal synapses fromtargeterror42:84, withnegativeweights−softplus(rawgain). Everyweighttrainable, gainsinit10*compiledhalfspanH. Finalnormalizedrate=tanh(latent).",
+ "neural_scope":"This isexplicitANNarchitecturalbias/initialization,notbiologicalconnectome. No fixed(Tdesired−T)/taucontrolleroutsideANN, no teacherqueriesafterhandover,no hiddenphase/order/future. Initialinhibitorygaininferredfromcertifiedteacherlocalfeedback,learnednotfrozen. ExistingphysicalPDremainssoledeclaredjointservo.",
+ "contract":"modelidentitydeclaresinputmask/branch/signconstraint/initialH; Hsamecompiledactuatorjointorder,checkpointbuffers; rawFFcheckpointsrejected; criticraw255 unchanged. GRU/raw495 retainedbutnotthiscondition",
+ "training":"scratchFF1000stepslr.001 sameSMOOTH_DATASETtrain0/1,val2,originalboundedactionMSEonly (nopairedloss) firstcondition,std.05seedasprior; no normalizationorPPOchange. CompareactualpreviousrawFFbaselinewithsamebudget, architecturediffexplicit",
+ "physical":"fullbody/noadh/massgravityfrictionPDtorque2rad/s/native12.5us1ms unchanged",
+ "checks":"coherentTperturb rawtargetanderrorblocks gives nonpositiveactiondiagonal/zerooffdiag,prevactionJac0,physicalgradientnonzero,gainsgradupdateandsignpreserved,criticismraw,checkpointsfullstats/RNG/optimizers/rejectoldcontract,actual20mshandoverphysicsidentity",
+ "limitations":"negativefeedbackinonefrozenbodymemorymap doesnotguarantee fullfreebody/contactstability; gainsunboundedsoftpluscanbecometoolarge; pureactualNNhandoverrequiredbeforeanywalkingclaim",
+ "evaluation":"actual1sstand4.8steacherthen9.6sANNcontinuously,allsource/actualstatesrecorded,originalgatesunchanged",
+ "scope":"controlledfullyneuralcandidate, notfinaloriginalcompletegoal"
+}

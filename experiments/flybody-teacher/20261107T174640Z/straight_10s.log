@@ -1,0 +1,12 @@
+2026-11-07 09:56:35.070817: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/run_teacher_audited.py", line 79, in <module>
+    base.main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/run_teacher.py", line 101, in main
+    rec=Recorder(physics);rec.state()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/run_teacher_audited.py", line 63, in __init__
+    def __init__(self,p):super().__init__(p);live.append(self)
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/run_teacher_audited.py", line 17, in __init__
+    assert self.root_qpos==0 and self.root_dof==0
+AssertionError

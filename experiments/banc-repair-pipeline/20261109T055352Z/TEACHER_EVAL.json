@@ -1,0 +1,404 @@
+{
+  "label": "teacher scores under the implemented advance rule and under the stricter rule",
+  "implemented_rule": "advance = max forward pad displacement inside the load defined swing window",
+  "note": "the height filtered column is the stricter variant my earlier self-checks used",
+  "teachers": {
+    "three_phase_used_in_training": {
+      "n_passed_implemented": 5,
+      "n_passed_strict": 4,
+      "passed_implemented": [
+        "LF",
+        "LH",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "passed_strict": [
+        "LF",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "per_leg": {
+        "LF": {
+          "advance_implemented": 0.5916071024923204,
+          "advance_height_filtered": 0.5916071024923204,
+          "max_lift": 0.7263234967578431,
+          "final_load": 0.44280956399641824,
+          "final_padz": -0.03637329338289195,
+          "support_min": 0.9670686990923928,
+          "com_min": 1.2473700769876523,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "LH": {
+          "advance_implemented": 0.05702530463183142,
+          "advance_height_filtered": 0.028125177273673474,
+          "max_lift": 0.037643991089989566,
+          "final_load": 0.6541866092440809,
+          "final_padz": -0.06749899218516886,
+          "support_min": 0.9844971651783018,
+          "com_min": 1.112429087930467,
+          "nonfoot_max": 0.7615107370434755,
+          "passed_implemented": true,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "LM": {
+          "advance_implemented": 0.8838880128751532,
+          "advance_height_filtered": 0.8838880128751532,
+          "max_lift": 0.32227041238272963,
+          "final_load": 0.25293245149679855,
+          "final_padz": -0.028724431721215644,
+          "support_min": 0.9562351267967463,
+          "com_min": 1.1740882889752455,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RF": {
+          "advance_implemented": 0.7213394759239002,
+          "advance_height_filtered": 0.7213394759239002,
+          "max_lift": 0.8968803487061885,
+          "final_load": 0.38893306358119867,
+          "final_padz": -0.03145417863033509,
+          "support_min": 0.9648516712344452,
+          "com_min": 1.2393920773897447,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RH": {
+          "advance_implemented": 0.0,
+          "advance_height_filtered": 0.0,
+          "max_lift": 0.05413137335709483,
+          "final_load": 0.6483491683913722,
+          "final_padz": -0.053018087549706,
+          "support_min": 0.961861000425487,
+          "com_min": 1.1265750939814678,
+          "nonfoot_max": 0.7654337879559752,
+          "passed_implemented": false,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": false
+          }
+        },
+        "RM": {
+          "advance_implemented": 0.6885242288398595,
+          "advance_height_filtered": 0.6885242288398595,
+          "max_lift": 0.2586731157784553,
+          "final_load": 0.6113788708472059,
+          "final_padz": -0.06002426550254789,
+          "support_min": 0.9712781503819816,
+          "com_min": 1.1125314357422313,
+          "nonfoot_max": 1.1507037217658922,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        }
+      }
+    },
+    "lift_then_swing_clear006": {
+      "n_passed_implemented": 4,
+      "n_passed_strict": 4,
+      "passed_implemented": [
+        "LF",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "passed_strict": [
+        "LF",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "per_leg": {
+        "LF": {
+          "advance_implemented": 0.5892502054727191,
+          "advance_height_filtered": 0.5892502054727191,
+          "max_lift": 0.568831070346672,
+          "final_load": 0.2615624429736443,
+          "final_padz": -0.03228667725137451,
+          "support_min": 0.9634586899178701,
+          "com_min": 1.2483902628913637,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "LH": {
+          "advance_implemented": 0.17251064504855007,
+          "advance_height_filtered": 0.17251064504855007,
+          "max_lift": 0.08857892277528043,
+          "final_load": 0.0,
+          "final_padz": 0.07831716658784105,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "passed_implemented": false,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": false,
+            "safe": false,
+            "advance": true
+          }
+        },
+        "LM": {
+          "advance_implemented": 0.2608653788908744,
+          "advance_height_filtered": 0.21381198412577343,
+          "max_lift": 0.06203649785461388,
+          "final_load": 0.3179077009865039,
+          "final_padz": -0.03590323094495081,
+          "support_min": 0.9371826876675037,
+          "com_min": 1.2558810483509462,
+          "nonfoot_max": 1.108056746383287,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RF": {
+          "advance_implemented": 0.6464245717296342,
+          "advance_height_filtered": 0.6464245717296342,
+          "max_lift": 0.5166848005091631,
+          "final_load": 0.48021968655585434,
+          "final_padz": -0.024930405843904595,
+          "support_min": 0.9629036408855837,
+          "com_min": 1.2392474089218481,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RH": {
+          "advance_implemented": 0.0,
+          "advance_height_filtered": 0.0,
+          "max_lift": 0.08398273339174678,
+          "final_load": 0.4089692855691806,
+          "final_padz": -0.043875252721818185,
+          "support_min": 0.9449735361748124,
+          "com_min": 1.175132057460019,
+          "nonfoot_max": 0.7662606266288294,
+          "passed_implemented": false,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": false
+          }
+        },
+        "RM": {
+          "advance_implemented": 0.7698047708682818,
+          "advance_height_filtered": 0.7698047708682818,
+          "max_lift": 0.15706848561062864,
+          "final_load": 0.6357759059841593,
+          "final_padz": -0.062503925996586,
+          "support_min": 0.9774252735674301,
+          "com_min": 1.118391323970743,
+          "nonfoot_max": 0.9883544802699985,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        }
+      }
+    },
+    "lift_then_swing_clear012": {
+      "n_passed_implemented": 4,
+      "n_passed_strict": 4,
+      "passed_implemented": [
+        "LF",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "passed_strict": [
+        "LF",
+        "LM",
+        "RF",
+        "RM"
+      ],
+      "per_leg": {
+        "LF": {
+          "advance_implemented": 0.7464515485690024,
+          "advance_height_filtered": 0.7464515485690024,
+          "max_lift": 0.7077917916260307,
+          "final_load": 0.40258701389894014,
+          "final_padz": -0.029731327510683345,
+          "support_min": 0.9667812208107647,
+          "com_min": 1.246162697790173,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "LH": {
+          "advance_implemented": 0.1661900806583596,
+          "advance_height_filtered": 0.1661900806583596,
+          "max_lift": 0.11656350577445782,
+          "final_load": 0.0,
+          "final_padz": 0.11656350577445782,
+          "support_min": 0.059106190597154294,
+          "com_min": 0.7288128406321966,
+          "nonfoot_max": 22.950011850799655,
+          "passed_implemented": false,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": false,
+            "safe": false,
+            "advance": true
+          }
+        },
+        "LM": {
+          "advance_implemented": 1.2697454878810193,
+          "advance_height_filtered": 1.2697454878810193,
+          "max_lift": 0.4006601133367913,
+          "final_load": 0.3998785078466618,
+          "final_padz": -0.040944231802014376,
+          "support_min": 0.9781781138310254,
+          "com_min": 1.1658964020051386,
+          "nonfoot_max": 0.12264661680954413,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RF": {
+          "advance_implemented": 0.7514292519541192,
+          "advance_height_filtered": 0.7514292519541192,
+          "max_lift": 0.8110696687485998,
+          "final_load": 0.3467356839087501,
+          "final_padz": -0.027426245346039928,
+          "support_min": 0.9770142117850065,
+          "com_min": 1.2431156668335912,
+          "nonfoot_max": 0.0,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        },
+        "RH": {
+          "advance_implemented": 0.0,
+          "advance_height_filtered": 0.0,
+          "max_lift": 0.13630349216533577,
+          "final_load": 0.3092092503644397,
+          "final_padz": -0.029536534373248956,
+          "support_min": 0.9882052365941958,
+          "com_min": 1.1430363797070715,
+          "nonfoot_max": 0.7667458726053078,
+          "passed_implemented": false,
+          "passed_height_filtered": false,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": false
+          }
+        },
+        "RM": {
+          "advance_implemented": 1.1518961556073026,
+          "advance_height_filtered": 1.1518961556073026,
+          "max_lift": 0.2182386600886514,
+          "final_load": 0.44368334107214374,
+          "final_padz": -0.04521901201249668,
+          "support_min": 0.9729477318405599,
+          "com_min": 1.0937081468996166,
+          "nonfoot_max": 1.424089969175013,
+          "passed_implemented": true,
+          "passed_height_filtered": true,
+          "criteria_implemented": {
+            "unload": true,
+            "lift": true,
+            "place": true,
+            "safe": true,
+            "advance": true
+          }
+        }
+      }
+    }
+  }
+}

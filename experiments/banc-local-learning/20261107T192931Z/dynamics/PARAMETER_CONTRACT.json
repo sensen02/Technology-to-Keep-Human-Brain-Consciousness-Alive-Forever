@@ -1,0 +1,17 @@
+{
+  "schema":"typed-conductance-adaptation-contract/1",
+  "variant":"illustrative conductance adaptation, fixed hypothesis; NOT fitted/calibrated biology",
+  "active_neuron_parameters":{"capacitance_nF":0.02,"leak_uS":0.001,"rest_mV":-65.0,"threshold_mV":-50.0,"reset_mV":-65.0,"exc_reversal_mV":0.0,"inh_reversal_mV":-70.0,"exc_tau_ms":3.0,"inh_tau_ms":8.0,"refractory_ms":2.0,"delay_ms":2.0},
+  "active_adaptation_parameters":{"typed_python_class":"AdaptationConductanceParams","reversal_mV":-80.0,"tau_ms":100.0,"spike_increment_uS":0.00013333333333333334},
+  "state_units":{"v":"mV","ge":"uS","gi":"uS","g_adapt":"uS","refractory_until_ms":"ms","spike_count":"integer event count","filtered_rates_hz":"Hz"},
+  "external_input_units":"nA, finite nonnegative currents only",
+  "adaptation_current_at_voltage":"g_adapt_uS * (EA_mV - V_mV) gives nA; this is state dependent, not an independent adaptation-current state",
+  "matching_point":"increment .002/15uS yields -.002nA at V=-65mV and EA=-80mV only; matching this one point does not calibrate whole dynamics",
+  "source_parameter_compatibility":"net.p retains frozen original ConductanceParams values including adaptation_increment_nA .002 and adaptation_tau_ms100 as SOURCE METADATA. The active adaptation mechanism uses net.adaptation_params. No net.adaptation field exists; g_adapt is never mislabeled as nA.",
+  "synapses":{"strict_original_edges":435126,"total_incoming_uS":0.02,"normalization":"raw source synapse count divided by sum raw strict incoming counts at each post, across excitation and inhibition together","receptor_assumption":"ACh excitatory/GABA+glutamate inhibitory illustrative; not receptor measurement; unknown/mixed inactive"},
+  "discretization":{"nominal_dt_ms":0.5,"sensitivity_dt_ms":0.25,"voltage":"backward Euler with frozen start conductances","conductance_decay":"exact exp(-dt/tau) after end-step threshold and reset; g_adapt increment follows decay","spike_delay":"end-step emit, interval-start receive exactly2ms later","filter":"r_next=exp(-dt/20ms)*r + 50Hz*spike"},
+  "fixed_no_search":true,
+  "prior_failure_status":"The185910Z current-adaptation calibration and -90mV engineering-bound failures remain valid historical evidence. This is a separate mechanistic hypothesis, not threshold reinterpretation.",
+  "source_identity_loader":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py",
+  "source_identity_loader_sha256":"3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676"
+}

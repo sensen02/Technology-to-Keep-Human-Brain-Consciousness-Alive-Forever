@@ -1,0 +1,6071 @@
+{
+  "status": "small_member_verified_and_schema_inspected",
+  "archive_sha256": "65f0ed466a5ecdea6fc3e8837a9e26f6eb2d3d08904bbd4dd2761331d5e2c798",
+  "member": "walking-dataset-small_female-only_snippets-100_min-len-0.5s_trk-files-0-9.hdf5",
+  "member_crc32": 1918851071,
+  "bytes": 94818544,
+  "sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+  "output": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+  "reader_python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/.venv/bin/python",
+  "h5py": "3.16.0",
+  "numpy": "1.26.4",
+  "root_keys": [
+    "id2name",
+    "timestep_seconds",
+    "trajectories",
+    "trajectory_lengths"
+  ],
+  "root_attributes": {},
+  "schema": [
+    {
+      "name": "id2name",
+      "type": "group"
+    },
+    {
+      "name": "id2name/joints",
+      "type": "dataset",
+      "shape": [
+        102
+      ],
+      "dtype": "object"
+    },
+    {
+      "name": "id2name/qpos",
+      "type": "dataset",
+      "shape": [
+        102
+      ],
+      "dtype": "object"
+    },
+    {
+      "name": "id2name/sites",
+      "type": "dataset",
+      "shape": [
+        6
+      ],
+      "dtype": "object"
+    },
+    {
+      "name": "timestep_seconds",
+      "type": "dataset",
+      "shape": [],
+      "dtype": "float64"
+    },
+    {
+      "name": "trajectories",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/000",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/000/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/000/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/000/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/000/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/000/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/000/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/001/joint_quat",
+      "type": "dataset",
+      "shape": [
+        250,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001/qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001/qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001/root2site",
+      "type": "dataset",
+      "shape": [
+        250,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001/root_qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/001/root_qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/002/joint_quat",
+      "type": "dataset",
+      "shape": [
+        320,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002/qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002/qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002/root2site",
+      "type": "dataset",
+      "shape": [
+        320,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002/root_qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/002/root_qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/003/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/003/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/004/joint_quat",
+      "type": "dataset",
+      "shape": [
+        433,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004/qpos",
+      "type": "dataset",
+      "shape": [
+        433,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004/qvel",
+      "type": "dataset",
+      "shape": [
+        433,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004/root2site",
+      "type": "dataset",
+      "shape": [
+        433,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004/root_qpos",
+      "type": "dataset",
+      "shape": [
+        433,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/004/root_qvel",
+      "type": "dataset",
+      "shape": [
+        433,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/005/joint_quat",
+      "type": "dataset",
+      "shape": [
+        320,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005/qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005/qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005/root2site",
+      "type": "dataset",
+      "shape": [
+        320,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005/root_qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/005/root_qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/006/joint_quat",
+      "type": "dataset",
+      "shape": [
+        253,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006/qpos",
+      "type": "dataset",
+      "shape": [
+        253,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006/qvel",
+      "type": "dataset",
+      "shape": [
+        253,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006/root2site",
+      "type": "dataset",
+      "shape": [
+        253,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006/root_qpos",
+      "type": "dataset",
+      "shape": [
+        253,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/006/root_qvel",
+      "type": "dataset",
+      "shape": [
+        253,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/007/joint_quat",
+      "type": "dataset",
+      "shape": [
+        430,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007/qpos",
+      "type": "dataset",
+      "shape": [
+        430,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007/qvel",
+      "type": "dataset",
+      "shape": [
+        430,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007/root2site",
+      "type": "dataset",
+      "shape": [
+        430,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007/root_qpos",
+      "type": "dataset",
+      "shape": [
+        430,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/007/root_qvel",
+      "type": "dataset",
+      "shape": [
+        430,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/008/joint_quat",
+      "type": "dataset",
+      "shape": [
+        286,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008/qpos",
+      "type": "dataset",
+      "shape": [
+        286,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008/qvel",
+      "type": "dataset",
+      "shape": [
+        286,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008/root2site",
+      "type": "dataset",
+      "shape": [
+        286,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008/root_qpos",
+      "type": "dataset",
+      "shape": [
+        286,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/008/root_qvel",
+      "type": "dataset",
+      "shape": [
+        286,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/009/joint_quat",
+      "type": "dataset",
+      "shape": [
+        276,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009/qpos",
+      "type": "dataset",
+      "shape": [
+        276,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009/qvel",
+      "type": "dataset",
+      "shape": [
+        276,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009/root2site",
+      "type": "dataset",
+      "shape": [
+        276,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009/root_qpos",
+      "type": "dataset",
+      "shape": [
+        276,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/009/root_qvel",
+      "type": "dataset",
+      "shape": [
+        276,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/010/joint_quat",
+      "type": "dataset",
+      "shape": [
+        340,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010/qpos",
+      "type": "dataset",
+      "shape": [
+        340,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010/qvel",
+      "type": "dataset",
+      "shape": [
+        340,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010/root2site",
+      "type": "dataset",
+      "shape": [
+        340,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010/root_qpos",
+      "type": "dataset",
+      "shape": [
+        340,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/010/root_qvel",
+      "type": "dataset",
+      "shape": [
+        340,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/011/joint_quat",
+      "type": "dataset",
+      "shape": [
+        323,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011/qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011/qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011/root2site",
+      "type": "dataset",
+      "shape": [
+        323,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011/root_qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/011/root_qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/012/joint_quat",
+      "type": "dataset",
+      "shape": [
+        313,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012/qpos",
+      "type": "dataset",
+      "shape": [
+        313,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012/qvel",
+      "type": "dataset",
+      "shape": [
+        313,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012/root2site",
+      "type": "dataset",
+      "shape": [
+        313,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012/root_qpos",
+      "type": "dataset",
+      "shape": [
+        313,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/012/root_qvel",
+      "type": "dataset",
+      "shape": [
+        313,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/013/joint_quat",
+      "type": "dataset",
+      "shape": [
+        283,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013/qpos",
+      "type": "dataset",
+      "shape": [
+        283,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013/qvel",
+      "type": "dataset",
+      "shape": [
+        283,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013/root2site",
+      "type": "dataset",
+      "shape": [
+        283,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013/root_qpos",
+      "type": "dataset",
+      "shape": [
+        283,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/013/root_qvel",
+      "type": "dataset",
+      "shape": [
+        283,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/014/joint_quat",
+      "type": "dataset",
+      "shape": [
+        393,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014/qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014/qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014/root2site",
+      "type": "dataset",
+      "shape": [
+        393,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014/root_qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/014/root_qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/015/joint_quat",
+      "type": "dataset",
+      "shape": [
+        253,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015/qpos",
+      "type": "dataset",
+      "shape": [
+        253,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015/qvel",
+      "type": "dataset",
+      "shape": [
+        253,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015/root2site",
+      "type": "dataset",
+      "shape": [
+        253,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015/root_qpos",
+      "type": "dataset",
+      "shape": [
+        253,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/015/root_qvel",
+      "type": "dataset",
+      "shape": [
+        253,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/016/joint_quat",
+      "type": "dataset",
+      "shape": [
+        330,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016/qpos",
+      "type": "dataset",
+      "shape": [
+        330,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016/qvel",
+      "type": "dataset",
+      "shape": [
+        330,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016/root2site",
+      "type": "dataset",
+      "shape": [
+        330,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016/root_qpos",
+      "type": "dataset",
+      "shape": [
+        330,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/016/root_qvel",
+      "type": "dataset",
+      "shape": [
+        330,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/017/joint_quat",
+      "type": "dataset",
+      "shape": [
+        390,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017/qpos",
+      "type": "dataset",
+      "shape": [
+        390,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017/qvel",
+      "type": "dataset",
+      "shape": [
+        390,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017/root2site",
+      "type": "dataset",
+      "shape": [
+        390,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017/root_qpos",
+      "type": "dataset",
+      "shape": [
+        390,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/017/root_qvel",
+      "type": "dataset",
+      "shape": [
+        390,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/018/joint_quat",
+      "type": "dataset",
+      "shape": [
+        316,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018/qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018/qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018/root2site",
+      "type": "dataset",
+      "shape": [
+        316,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018/root_qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/018/root_qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/019/joint_quat",
+      "type": "dataset",
+      "shape": [
+        450,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019/qpos",
+      "type": "dataset",
+      "shape": [
+        450,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019/qvel",
+      "type": "dataset",
+      "shape": [
+        450,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019/root2site",
+      "type": "dataset",
+      "shape": [
+        450,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019/root_qpos",
+      "type": "dataset",
+      "shape": [
+        450,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/019/root_qvel",
+      "type": "dataset",
+      "shape": [
+        450,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/020/joint_quat",
+      "type": "dataset",
+      "shape": [
+        446,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020/qpos",
+      "type": "dataset",
+      "shape": [
+        446,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020/qvel",
+      "type": "dataset",
+      "shape": [
+        446,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020/root2site",
+      "type": "dataset",
+      "shape": [
+        446,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020/root_qpos",
+      "type": "dataset",
+      "shape": [
+        446,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/020/root_qvel",
+      "type": "dataset",
+      "shape": [
+        446,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/021/joint_quat",
+      "type": "dataset",
+      "shape": [
+        363,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021/qpos",
+      "type": "dataset",
+      "shape": [
+        363,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021/qvel",
+      "type": "dataset",
+      "shape": [
+        363,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021/root2site",
+      "type": "dataset",
+      "shape": [
+        363,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021/root_qpos",
+      "type": "dataset",
+      "shape": [
+        363,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/021/root_qvel",
+      "type": "dataset",
+      "shape": [
+        363,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/022/joint_quat",
+      "type": "dataset",
+      "shape": [
+        453,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022/qpos",
+      "type": "dataset",
+      "shape": [
+        453,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022/qvel",
+      "type": "dataset",
+      "shape": [
+        453,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022/root2site",
+      "type": "dataset",
+      "shape": [
+        453,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022/root_qpos",
+      "type": "dataset",
+      "shape": [
+        453,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/022/root_qvel",
+      "type": "dataset",
+      "shape": [
+        453,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/023/joint_quat",
+      "type": "dataset",
+      "shape": [
+        250,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023/qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023/qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023/root2site",
+      "type": "dataset",
+      "shape": [
+        250,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023/root_qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/023/root_qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/024/joint_quat",
+      "type": "dataset",
+      "shape": [
+        460,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024/qpos",
+      "type": "dataset",
+      "shape": [
+        460,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024/qvel",
+      "type": "dataset",
+      "shape": [
+        460,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024/root2site",
+      "type": "dataset",
+      "shape": [
+        460,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024/root_qpos",
+      "type": "dataset",
+      "shape": [
+        460,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/024/root_qvel",
+      "type": "dataset",
+      "shape": [
+        460,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/025/joint_quat",
+      "type": "dataset",
+      "shape": [
+        326,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025/qpos",
+      "type": "dataset",
+      "shape": [
+        326,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025/qvel",
+      "type": "dataset",
+      "shape": [
+        326,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025/root2site",
+      "type": "dataset",
+      "shape": [
+        326,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025/root_qpos",
+      "type": "dataset",
+      "shape": [
+        326,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/025/root_qvel",
+      "type": "dataset",
+      "shape": [
+        326,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/026/joint_quat",
+      "type": "dataset",
+      "shape": [
+        380,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026/qpos",
+      "type": "dataset",
+      "shape": [
+        380,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026/qvel",
+      "type": "dataset",
+      "shape": [
+        380,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026/root2site",
+      "type": "dataset",
+      "shape": [
+        380,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026/root_qpos",
+      "type": "dataset",
+      "shape": [
+        380,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/026/root_qvel",
+      "type": "dataset",
+      "shape": [
+        380,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/027/joint_quat",
+      "type": "dataset",
+      "shape": [
+        316,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027/qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027/qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027/root2site",
+      "type": "dataset",
+      "shape": [
+        316,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027/root_qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/027/root_qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/028/joint_quat",
+      "type": "dataset",
+      "shape": [
+        300,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028/qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028/qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028/root2site",
+      "type": "dataset",
+      "shape": [
+        300,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028/root_qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/028/root_qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/029/joint_quat",
+      "type": "dataset",
+      "shape": [
+        300,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029/qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029/qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029/root2site",
+      "type": "dataset",
+      "shape": [
+        300,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029/root_qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/029/root_qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/030/joint_quat",
+      "type": "dataset",
+      "shape": [
+        260,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030/qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030/qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030/root2site",
+      "type": "dataset",
+      "shape": [
+        260,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030/root_qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/030/root_qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/031/joint_quat",
+      "type": "dataset",
+      "shape": [
+        340,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031/qpos",
+      "type": "dataset",
+      "shape": [
+        340,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031/qvel",
+      "type": "dataset",
+      "shape": [
+        340,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031/root2site",
+      "type": "dataset",
+      "shape": [
+        340,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031/root_qpos",
+      "type": "dataset",
+      "shape": [
+        340,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/031/root_qvel",
+      "type": "dataset",
+      "shape": [
+        340,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/032/joint_quat",
+      "type": "dataset",
+      "shape": [
+        336,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032/qpos",
+      "type": "dataset",
+      "shape": [
+        336,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032/qvel",
+      "type": "dataset",
+      "shape": [
+        336,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032/root2site",
+      "type": "dataset",
+      "shape": [
+        336,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032/root_qpos",
+      "type": "dataset",
+      "shape": [
+        336,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/032/root_qvel",
+      "type": "dataset",
+      "shape": [
+        336,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/033/joint_quat",
+      "type": "dataset",
+      "shape": [
+        306,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033/qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033/qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033/root2site",
+      "type": "dataset",
+      "shape": [
+        306,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033/root_qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/033/root_qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/034/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/034/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/035/joint_quat",
+      "type": "dataset",
+      "shape": [
+        430,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035/qpos",
+      "type": "dataset",
+      "shape": [
+        430,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035/qvel",
+      "type": "dataset",
+      "shape": [
+        430,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035/root2site",
+      "type": "dataset",
+      "shape": [
+        430,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035/root_qpos",
+      "type": "dataset",
+      "shape": [
+        430,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/035/root_qvel",
+      "type": "dataset",
+      "shape": [
+        430,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/036/joint_quat",
+      "type": "dataset",
+      "shape": [
+        423,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036/qpos",
+      "type": "dataset",
+      "shape": [
+        423,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036/qvel",
+      "type": "dataset",
+      "shape": [
+        423,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036/root2site",
+      "type": "dataset",
+      "shape": [
+        423,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036/root_qpos",
+      "type": "dataset",
+      "shape": [
+        423,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/036/root_qvel",
+      "type": "dataset",
+      "shape": [
+        423,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/037/joint_quat",
+      "type": "dataset",
+      "shape": [
+        383,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037/qpos",
+      "type": "dataset",
+      "shape": [
+        383,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037/qvel",
+      "type": "dataset",
+      "shape": [
+        383,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037/root2site",
+      "type": "dataset",
+      "shape": [
+        383,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037/root_qpos",
+      "type": "dataset",
+      "shape": [
+        383,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/037/root_qvel",
+      "type": "dataset",
+      "shape": [
+        383,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/038/joint_quat",
+      "type": "dataset",
+      "shape": [
+        810,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038/qpos",
+      "type": "dataset",
+      "shape": [
+        810,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038/qvel",
+      "type": "dataset",
+      "shape": [
+        810,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038/root2site",
+      "type": "dataset",
+      "shape": [
+        810,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038/root_qpos",
+      "type": "dataset",
+      "shape": [
+        810,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/038/root_qvel",
+      "type": "dataset",
+      "shape": [
+        810,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/039/joint_quat",
+      "type": "dataset",
+      "shape": [
+        466,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039/qpos",
+      "type": "dataset",
+      "shape": [
+        466,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039/qvel",
+      "type": "dataset",
+      "shape": [
+        466,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039/root2site",
+      "type": "dataset",
+      "shape": [
+        466,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039/root_qpos",
+      "type": "dataset",
+      "shape": [
+        466,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/039/root_qvel",
+      "type": "dataset",
+      "shape": [
+        466,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/040/joint_quat",
+      "type": "dataset",
+      "shape": [
+        293,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040/qpos",
+      "type": "dataset",
+      "shape": [
+        293,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040/qvel",
+      "type": "dataset",
+      "shape": [
+        293,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040/root2site",
+      "type": "dataset",
+      "shape": [
+        293,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040/root_qpos",
+      "type": "dataset",
+      "shape": [
+        293,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/040/root_qvel",
+      "type": "dataset",
+      "shape": [
+        293,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/041/joint_quat",
+      "type": "dataset",
+      "shape": [
+        376,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041/qpos",
+      "type": "dataset",
+      "shape": [
+        376,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041/qvel",
+      "type": "dataset",
+      "shape": [
+        376,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041/root2site",
+      "type": "dataset",
+      "shape": [
+        376,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041/root_qpos",
+      "type": "dataset",
+      "shape": [
+        376,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/041/root_qvel",
+      "type": "dataset",
+      "shape": [
+        376,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/042/joint_quat",
+      "type": "dataset",
+      "shape": [
+        410,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042/qpos",
+      "type": "dataset",
+      "shape": [
+        410,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042/qvel",
+      "type": "dataset",
+      "shape": [
+        410,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042/root2site",
+      "type": "dataset",
+      "shape": [
+        410,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042/root_qpos",
+      "type": "dataset",
+      "shape": [
+        410,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/042/root_qvel",
+      "type": "dataset",
+      "shape": [
+        410,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/043/joint_quat",
+      "type": "dataset",
+      "shape": [
+        283,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043/qpos",
+      "type": "dataset",
+      "shape": [
+        283,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043/qvel",
+      "type": "dataset",
+      "shape": [
+        283,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043/root2site",
+      "type": "dataset",
+      "shape": [
+        283,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043/root_qpos",
+      "type": "dataset",
+      "shape": [
+        283,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/043/root_qvel",
+      "type": "dataset",
+      "shape": [
+        283,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/044/joint_quat",
+      "type": "dataset",
+      "shape": [
+        303,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044/qpos",
+      "type": "dataset",
+      "shape": [
+        303,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044/qvel",
+      "type": "dataset",
+      "shape": [
+        303,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044/root2site",
+      "type": "dataset",
+      "shape": [
+        303,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044/root_qpos",
+      "type": "dataset",
+      "shape": [
+        303,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/044/root_qvel",
+      "type": "dataset",
+      "shape": [
+        303,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/045/joint_quat",
+      "type": "dataset",
+      "shape": [
+        356,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045/qpos",
+      "type": "dataset",
+      "shape": [
+        356,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045/qvel",
+      "type": "dataset",
+      "shape": [
+        356,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045/root2site",
+      "type": "dataset",
+      "shape": [
+        356,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045/root_qpos",
+      "type": "dataset",
+      "shape": [
+        356,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/045/root_qvel",
+      "type": "dataset",
+      "shape": [
+        356,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/046/joint_quat",
+      "type": "dataset",
+      "shape": [
+        443,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046/qpos",
+      "type": "dataset",
+      "shape": [
+        443,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046/qvel",
+      "type": "dataset",
+      "shape": [
+        443,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046/root2site",
+      "type": "dataset",
+      "shape": [
+        443,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046/root_qpos",
+      "type": "dataset",
+      "shape": [
+        443,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/046/root_qvel",
+      "type": "dataset",
+      "shape": [
+        443,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/047/joint_quat",
+      "type": "dataset",
+      "shape": [
+        306,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047/qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047/qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047/root2site",
+      "type": "dataset",
+      "shape": [
+        306,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047/root_qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/047/root_qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/048/joint_quat",
+      "type": "dataset",
+      "shape": [
+        250,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048/qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048/qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048/root2site",
+      "type": "dataset",
+      "shape": [
+        250,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048/root_qpos",
+      "type": "dataset",
+      "shape": [
+        250,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/048/root_qvel",
+      "type": "dataset",
+      "shape": [
+        250,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/049/joint_quat",
+      "type": "dataset",
+      "shape": [
+        300,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049/qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049/qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049/root2site",
+      "type": "dataset",
+      "shape": [
+        300,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049/root_qpos",
+      "type": "dataset",
+      "shape": [
+        300,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/049/root_qvel",
+      "type": "dataset",
+      "shape": [
+        300,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/050/joint_quat",
+      "type": "dataset",
+      "shape": [
+        393,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050/qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050/qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050/root2site",
+      "type": "dataset",
+      "shape": [
+        393,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050/root_qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/050/root_qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/051/joint_quat",
+      "type": "dataset",
+      "shape": [
+        356,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051/qpos",
+      "type": "dataset",
+      "shape": [
+        356,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051/qvel",
+      "type": "dataset",
+      "shape": [
+        356,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051/root2site",
+      "type": "dataset",
+      "shape": [
+        356,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051/root_qpos",
+      "type": "dataset",
+      "shape": [
+        356,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/051/root_qvel",
+      "type": "dataset",
+      "shape": [
+        356,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/052/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/052/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/053/joint_quat",
+      "type": "dataset",
+      "shape": [
+        306,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053/qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053/qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053/root2site",
+      "type": "dataset",
+      "shape": [
+        306,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053/root_qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/053/root_qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/054/joint_quat",
+      "type": "dataset",
+      "shape": [
+        500,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054/qpos",
+      "type": "dataset",
+      "shape": [
+        500,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054/qvel",
+      "type": "dataset",
+      "shape": [
+        500,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054/root2site",
+      "type": "dataset",
+      "shape": [
+        500,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054/root_qpos",
+      "type": "dataset",
+      "shape": [
+        500,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/054/root_qvel",
+      "type": "dataset",
+      "shape": [
+        500,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/055/joint_quat",
+      "type": "dataset",
+      "shape": [
+        423,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055/qpos",
+      "type": "dataset",
+      "shape": [
+        423,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055/qvel",
+      "type": "dataset",
+      "shape": [
+        423,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055/root2site",
+      "type": "dataset",
+      "shape": [
+        423,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055/root_qpos",
+      "type": "dataset",
+      "shape": [
+        423,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/055/root_qvel",
+      "type": "dataset",
+      "shape": [
+        423,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/056/joint_quat",
+      "type": "dataset",
+      "shape": [
+        393,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056/qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056/qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056/root2site",
+      "type": "dataset",
+      "shape": [
+        393,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056/root_qpos",
+      "type": "dataset",
+      "shape": [
+        393,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/056/root_qvel",
+      "type": "dataset",
+      "shape": [
+        393,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/057/joint_quat",
+      "type": "dataset",
+      "shape": [
+        410,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057/qpos",
+      "type": "dataset",
+      "shape": [
+        410,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057/qvel",
+      "type": "dataset",
+      "shape": [
+        410,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057/root2site",
+      "type": "dataset",
+      "shape": [
+        410,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057/root_qpos",
+      "type": "dataset",
+      "shape": [
+        410,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/057/root_qvel",
+      "type": "dataset",
+      "shape": [
+        410,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/058/joint_quat",
+      "type": "dataset",
+      "shape": [
+        570,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058/qpos",
+      "type": "dataset",
+      "shape": [
+        570,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058/qvel",
+      "type": "dataset",
+      "shape": [
+        570,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058/root2site",
+      "type": "dataset",
+      "shape": [
+        570,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058/root_qpos",
+      "type": "dataset",
+      "shape": [
+        570,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/058/root_qvel",
+      "type": "dataset",
+      "shape": [
+        570,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/059/joint_quat",
+      "type": "dataset",
+      "shape": [
+        320,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059/qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059/qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059/root2site",
+      "type": "dataset",
+      "shape": [
+        320,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059/root_qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/059/root_qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/060/joint_quat",
+      "type": "dataset",
+      "shape": [
+        353,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060/qpos",
+      "type": "dataset",
+      "shape": [
+        353,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060/qvel",
+      "type": "dataset",
+      "shape": [
+        353,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060/root2site",
+      "type": "dataset",
+      "shape": [
+        353,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060/root_qpos",
+      "type": "dataset",
+      "shape": [
+        353,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/060/root_qvel",
+      "type": "dataset",
+      "shape": [
+        353,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/061/joint_quat",
+      "type": "dataset",
+      "shape": [
+        310,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061/qpos",
+      "type": "dataset",
+      "shape": [
+        310,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061/qvel",
+      "type": "dataset",
+      "shape": [
+        310,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061/root2site",
+      "type": "dataset",
+      "shape": [
+        310,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061/root_qpos",
+      "type": "dataset",
+      "shape": [
+        310,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/061/root_qvel",
+      "type": "dataset",
+      "shape": [
+        310,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/062/joint_quat",
+      "type": "dataset",
+      "shape": [
+        576,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062/qpos",
+      "type": "dataset",
+      "shape": [
+        576,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062/qvel",
+      "type": "dataset",
+      "shape": [
+        576,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062/root2site",
+      "type": "dataset",
+      "shape": [
+        576,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062/root_qpos",
+      "type": "dataset",
+      "shape": [
+        576,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/062/root_qvel",
+      "type": "dataset",
+      "shape": [
+        576,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/063/joint_quat",
+      "type": "dataset",
+      "shape": [
+        390,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063/qpos",
+      "type": "dataset",
+      "shape": [
+        390,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063/qvel",
+      "type": "dataset",
+      "shape": [
+        390,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063/root2site",
+      "type": "dataset",
+      "shape": [
+        390,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063/root_qpos",
+      "type": "dataset",
+      "shape": [
+        390,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/063/root_qvel",
+      "type": "dataset",
+      "shape": [
+        390,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/064/joint_quat",
+      "type": "dataset",
+      "shape": [
+        326,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064/qpos",
+      "type": "dataset",
+      "shape": [
+        326,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064/qvel",
+      "type": "dataset",
+      "shape": [
+        326,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064/root2site",
+      "type": "dataset",
+      "shape": [
+        326,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064/root_qpos",
+      "type": "dataset",
+      "shape": [
+        326,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/064/root_qvel",
+      "type": "dataset",
+      "shape": [
+        326,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/065/joint_quat",
+      "type": "dataset",
+      "shape": [
+        260,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065/qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065/qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065/root2site",
+      "type": "dataset",
+      "shape": [
+        260,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065/root_qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/065/root_qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/066/joint_quat",
+      "type": "dataset",
+      "shape": [
+        333,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066/qpos",
+      "type": "dataset",
+      "shape": [
+        333,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066/qvel",
+      "type": "dataset",
+      "shape": [
+        333,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066/root2site",
+      "type": "dataset",
+      "shape": [
+        333,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066/root_qpos",
+      "type": "dataset",
+      "shape": [
+        333,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/066/root_qvel",
+      "type": "dataset",
+      "shape": [
+        333,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/067/joint_quat",
+      "type": "dataset",
+      "shape": [
+        330,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067/qpos",
+      "type": "dataset",
+      "shape": [
+        330,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067/qvel",
+      "type": "dataset",
+      "shape": [
+        330,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067/root2site",
+      "type": "dataset",
+      "shape": [
+        330,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067/root_qpos",
+      "type": "dataset",
+      "shape": [
+        330,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/067/root_qvel",
+      "type": "dataset",
+      "shape": [
+        330,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/068/joint_quat",
+      "type": "dataset",
+      "shape": [
+        400,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068/qpos",
+      "type": "dataset",
+      "shape": [
+        400,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068/qvel",
+      "type": "dataset",
+      "shape": [
+        400,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068/root2site",
+      "type": "dataset",
+      "shape": [
+        400,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068/root_qpos",
+      "type": "dataset",
+      "shape": [
+        400,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/068/root_qvel",
+      "type": "dataset",
+      "shape": [
+        400,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/069/joint_quat",
+      "type": "dataset",
+      "shape": [
+        643,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069/qpos",
+      "type": "dataset",
+      "shape": [
+        643,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069/qvel",
+      "type": "dataset",
+      "shape": [
+        643,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069/root2site",
+      "type": "dataset",
+      "shape": [
+        643,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069/root_qpos",
+      "type": "dataset",
+      "shape": [
+        643,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/069/root_qvel",
+      "type": "dataset",
+      "shape": [
+        643,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/070/joint_quat",
+      "type": "dataset",
+      "shape": [
+        276,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070/qpos",
+      "type": "dataset",
+      "shape": [
+        276,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070/qvel",
+      "type": "dataset",
+      "shape": [
+        276,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070/root2site",
+      "type": "dataset",
+      "shape": [
+        276,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070/root_qpos",
+      "type": "dataset",
+      "shape": [
+        276,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/070/root_qvel",
+      "type": "dataset",
+      "shape": [
+        276,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/071/joint_quat",
+      "type": "dataset",
+      "shape": [
+        323,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071/qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071/qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071/root2site",
+      "type": "dataset",
+      "shape": [
+        323,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071/root_qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/071/root_qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/072/joint_quat",
+      "type": "dataset",
+      "shape": [
+        290,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072/qpos",
+      "type": "dataset",
+      "shape": [
+        290,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072/qvel",
+      "type": "dataset",
+      "shape": [
+        290,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072/root2site",
+      "type": "dataset",
+      "shape": [
+        290,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072/root_qpos",
+      "type": "dataset",
+      "shape": [
+        290,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/072/root_qvel",
+      "type": "dataset",
+      "shape": [
+        290,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/073/joint_quat",
+      "type": "dataset",
+      "shape": [
+        396,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073/qpos",
+      "type": "dataset",
+      "shape": [
+        396,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073/qvel",
+      "type": "dataset",
+      "shape": [
+        396,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073/root2site",
+      "type": "dataset",
+      "shape": [
+        396,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073/root_qpos",
+      "type": "dataset",
+      "shape": [
+        396,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/073/root_qvel",
+      "type": "dataset",
+      "shape": [
+        396,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/074/joint_quat",
+      "type": "dataset",
+      "shape": [
+        463,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074/qpos",
+      "type": "dataset",
+      "shape": [
+        463,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074/qvel",
+      "type": "dataset",
+      "shape": [
+        463,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074/root2site",
+      "type": "dataset",
+      "shape": [
+        463,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074/root_qpos",
+      "type": "dataset",
+      "shape": [
+        463,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/074/root_qvel",
+      "type": "dataset",
+      "shape": [
+        463,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/075/joint_quat",
+      "type": "dataset",
+      "shape": [
+        256,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075/qpos",
+      "type": "dataset",
+      "shape": [
+        256,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075/qvel",
+      "type": "dataset",
+      "shape": [
+        256,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075/root2site",
+      "type": "dataset",
+      "shape": [
+        256,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075/root_qpos",
+      "type": "dataset",
+      "shape": [
+        256,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/075/root_qvel",
+      "type": "dataset",
+      "shape": [
+        256,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/076/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/076/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/077/joint_quat",
+      "type": "dataset",
+      "shape": [
+        316,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077/qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077/qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077/root2site",
+      "type": "dataset",
+      "shape": [
+        316,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077/root_qpos",
+      "type": "dataset",
+      "shape": [
+        316,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/077/root_qvel",
+      "type": "dataset",
+      "shape": [
+        316,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/078/joint_quat",
+      "type": "dataset",
+      "shape": [
+        260,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078/qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078/qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078/root2site",
+      "type": "dataset",
+      "shape": [
+        260,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078/root_qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/078/root_qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/079/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/079/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/080/joint_quat",
+      "type": "dataset",
+      "shape": [
+        260,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080/qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080/qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080/root2site",
+      "type": "dataset",
+      "shape": [
+        260,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080/root_qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/080/root_qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/081/joint_quat",
+      "type": "dataset",
+      "shape": [
+        380,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081/qpos",
+      "type": "dataset",
+      "shape": [
+        380,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081/qvel",
+      "type": "dataset",
+      "shape": [
+        380,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081/root2site",
+      "type": "dataset",
+      "shape": [
+        380,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081/root_qpos",
+      "type": "dataset",
+      "shape": [
+        380,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/081/root_qvel",
+      "type": "dataset",
+      "shape": [
+        380,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/082/joint_quat",
+      "type": "dataset",
+      "shape": [
+        796,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082/qpos",
+      "type": "dataset",
+      "shape": [
+        796,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082/qvel",
+      "type": "dataset",
+      "shape": [
+        796,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082/root2site",
+      "type": "dataset",
+      "shape": [
+        796,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082/root_qpos",
+      "type": "dataset",
+      "shape": [
+        796,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/082/root_qvel",
+      "type": "dataset",
+      "shape": [
+        796,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/083/joint_quat",
+      "type": "dataset",
+      "shape": [
+        426,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083/qpos",
+      "type": "dataset",
+      "shape": [
+        426,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083/qvel",
+      "type": "dataset",
+      "shape": [
+        426,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083/root2site",
+      "type": "dataset",
+      "shape": [
+        426,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083/root_qpos",
+      "type": "dataset",
+      "shape": [
+        426,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/083/root_qvel",
+      "type": "dataset",
+      "shape": [
+        426,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/084/joint_quat",
+      "type": "dataset",
+      "shape": [
+        440,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084/qpos",
+      "type": "dataset",
+      "shape": [
+        440,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084/qvel",
+      "type": "dataset",
+      "shape": [
+        440,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084/root2site",
+      "type": "dataset",
+      "shape": [
+        440,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084/root_qpos",
+      "type": "dataset",
+      "shape": [
+        440,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/084/root_qvel",
+      "type": "dataset",
+      "shape": [
+        440,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/085/joint_quat",
+      "type": "dataset",
+      "shape": [
+        533,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085/qpos",
+      "type": "dataset",
+      "shape": [
+        533,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085/qvel",
+      "type": "dataset",
+      "shape": [
+        533,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085/root2site",
+      "type": "dataset",
+      "shape": [
+        533,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085/root_qpos",
+      "type": "dataset",
+      "shape": [
+        533,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/085/root_qvel",
+      "type": "dataset",
+      "shape": [
+        533,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/086/joint_quat",
+      "type": "dataset",
+      "shape": [
+        683,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086/qpos",
+      "type": "dataset",
+      "shape": [
+        683,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086/qvel",
+      "type": "dataset",
+      "shape": [
+        683,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086/root2site",
+      "type": "dataset",
+      "shape": [
+        683,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086/root_qpos",
+      "type": "dataset",
+      "shape": [
+        683,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/086/root_qvel",
+      "type": "dataset",
+      "shape": [
+        683,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/087/joint_quat",
+      "type": "dataset",
+      "shape": [
+        323,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087/qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087/qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087/root2site",
+      "type": "dataset",
+      "shape": [
+        323,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087/root_qpos",
+      "type": "dataset",
+      "shape": [
+        323,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/087/root_qvel",
+      "type": "dataset",
+      "shape": [
+        323,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/088/joint_quat",
+      "type": "dataset",
+      "shape": [
+        566,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088/qpos",
+      "type": "dataset",
+      "shape": [
+        566,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088/qvel",
+      "type": "dataset",
+      "shape": [
+        566,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088/root2site",
+      "type": "dataset",
+      "shape": [
+        566,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088/root_qpos",
+      "type": "dataset",
+      "shape": [
+        566,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/088/root_qvel",
+      "type": "dataset",
+      "shape": [
+        566,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/089/joint_quat",
+      "type": "dataset",
+      "shape": [
+        363,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089/qpos",
+      "type": "dataset",
+      "shape": [
+        363,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089/qvel",
+      "type": "dataset",
+      "shape": [
+        363,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089/root2site",
+      "type": "dataset",
+      "shape": [
+        363,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089/root_qpos",
+      "type": "dataset",
+      "shape": [
+        363,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/089/root_qvel",
+      "type": "dataset",
+      "shape": [
+        363,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/090/joint_quat",
+      "type": "dataset",
+      "shape": [
+        656,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090/qpos",
+      "type": "dataset",
+      "shape": [
+        656,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090/qvel",
+      "type": "dataset",
+      "shape": [
+        656,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090/root2site",
+      "type": "dataset",
+      "shape": [
+        656,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090/root_qpos",
+      "type": "dataset",
+      "shape": [
+        656,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/090/root_qvel",
+      "type": "dataset",
+      "shape": [
+        656,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/091/joint_quat",
+      "type": "dataset",
+      "shape": [
+        403,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091/qpos",
+      "type": "dataset",
+      "shape": [
+        403,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091/qvel",
+      "type": "dataset",
+      "shape": [
+        403,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091/root2site",
+      "type": "dataset",
+      "shape": [
+        403,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091/root_qpos",
+      "type": "dataset",
+      "shape": [
+        403,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/091/root_qvel",
+      "type": "dataset",
+      "shape": [
+        403,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/092/joint_quat",
+      "type": "dataset",
+      "shape": [
+        306,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092/qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092/qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092/root2site",
+      "type": "dataset",
+      "shape": [
+        306,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092/root_qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/092/root_qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/093/joint_quat",
+      "type": "dataset",
+      "shape": [
+        266,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093/qpos",
+      "type": "dataset",
+      "shape": [
+        266,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093/qvel",
+      "type": "dataset",
+      "shape": [
+        266,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093/root2site",
+      "type": "dataset",
+      "shape": [
+        266,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093/root_qpos",
+      "type": "dataset",
+      "shape": [
+        266,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/093/root_qvel",
+      "type": "dataset",
+      "shape": [
+        266,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/094/joint_quat",
+      "type": "dataset",
+      "shape": [
+        306,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094/qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094/qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094/root2site",
+      "type": "dataset",
+      "shape": [
+        306,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094/root_qpos",
+      "type": "dataset",
+      "shape": [
+        306,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/094/root_qvel",
+      "type": "dataset",
+      "shape": [
+        306,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/095/joint_quat",
+      "type": "dataset",
+      "shape": [
+        350,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095/qpos",
+      "type": "dataset",
+      "shape": [
+        350,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095/qvel",
+      "type": "dataset",
+      "shape": [
+        350,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095/root2site",
+      "type": "dataset",
+      "shape": [
+        350,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095/root_qpos",
+      "type": "dataset",
+      "shape": [
+        350,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/095/root_qvel",
+      "type": "dataset",
+      "shape": [
+        350,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/096/joint_quat",
+      "type": "dataset",
+      "shape": [
+        320,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096/qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096/qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096/root2site",
+      "type": "dataset",
+      "shape": [
+        320,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096/root_qpos",
+      "type": "dataset",
+      "shape": [
+        320,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/096/root_qvel",
+      "type": "dataset",
+      "shape": [
+        320,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/097/joint_quat",
+      "type": "dataset",
+      "shape": [
+        473,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097/qpos",
+      "type": "dataset",
+      "shape": [
+        473,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097/qvel",
+      "type": "dataset",
+      "shape": [
+        473,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097/root2site",
+      "type": "dataset",
+      "shape": [
+        473,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097/root_qpos",
+      "type": "dataset",
+      "shape": [
+        473,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/097/root_qvel",
+      "type": "dataset",
+      "shape": [
+        473,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/098/joint_quat",
+      "type": "dataset",
+      "shape": [
+        260,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098/qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098/qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098/root2site",
+      "type": "dataset",
+      "shape": [
+        260,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098/root_qpos",
+      "type": "dataset",
+      "shape": [
+        260,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/098/root_qvel",
+      "type": "dataset",
+      "shape": [
+        260,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099",
+      "type": "group"
+    },
+    {
+      "name": "trajectories/099/joint_quat",
+      "type": "dataset",
+      "shape": [
+        263,
+        102,
+        4
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099/qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099/qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        102
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099/root2site",
+      "type": "dataset",
+      "shape": [
+        263,
+        6,
+        3
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099/root_qpos",
+      "type": "dataset",
+      "shape": [
+        263,
+        7
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectories/099/root_qvel",
+      "type": "dataset",
+      "shape": [
+        263,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "trajectory_lengths",
+      "type": "dataset",
+      "shape": [
+        100
+      ],
+      "dtype": "int64"
+    }
+  ],
+  "limitations": [
+    "schema inspection only; joint/frame/unit mapping to42actuator derived body not established",
+    "no direct action transfer, body replacement or behavioral success from this dataset"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "leg-lift-capability/1",
+  "question": "can this body + this actuator lift a single foot off the floor at all? Every controller so far keeps all six feet in contact for 100 percent of the run. This test commands one leg at a time to a lifted pose and measures the pad height actually reached, with and without the adhesion channel.",
+  "design": {
+    "open_loop": "no policy network, no reward, no learning: the actuator target is set directly",
+    "sequence": "hold the solved stand pose for 200 ms, then ramp one leg's joints by a declared delta over 100 ms, hold 400 ms, ramp back over 100 ms, hold 200 ms",
+    "delta": "per-leg flexion delta on that leg's pitch axes (Coxa_pitch, Trochanter_pitch, Tibia_pitch) plus roll, magnitude 0.4 rad, chosen as a large but in-range lift; the exact per-joint deltas are recorded",
+    "legs": "all six, one run each",
+    "adhesion": "both off (frozen body physics) and on (declared derived channel)",
+    "readout": "pad bottom height above the floor per leg over time, whether the pad ever leaves contact, the body COM z, non-foot contact force, and the peak actuator torque demand"
+  },
+  "gates": "none are being tested here; this is a capability probe, not an acceptance run",
+  "labelling": "engineering capability probe on the frozen body plus the declared adhesion channel; no walking claim",
+  "accounting": "torque demand is compared against the model's actuator force limits so a negative result can distinguish 'cannot lift' from 'controller never tried'"
+}

@@ -1,0 +1,586 @@
+{
+  "video": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/FULL_BODY_ANN_TAKEOVER_NOT_WALKING.mp4",
+  "video_sha256": "92b29e97d94d20e6cdbfb5d20979bda34b1fa92be35e00d031047c54abb3372c",
+  "frames": 770,
+  "decoded_frames": 770,
+  "resolution": [
+    1000,
+    480
+  ],
+  "body_view": [
+    640,
+    480
+  ],
+  "measurement_panel": [
+    360,
+    480
+  ],
+  "fps": 30,
+  "physical_duration_s": 15.4,
+  "playback_duration_s": 25.666666666666668,
+  "physical_frame_dt_s": 0.02,
+  "slow_factor": 1.6666666666666667,
+  "first_source_time_s": 0.0010000000000000009,
+  "last_source_time_s": 15.400000000370785,
+  "last_video_source_time_s": 15.381000000370154,
+  "sampling_note": "Post-step trace begins .001s; frames at .001+.020*k; targets use nearest decoded frame. No invented t=0 pose. Last frame represents final 20ms interval.",
+  "source_trace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/trace_1ms.npz",
+  "source_trace_sha256": "6c736fda30aad53efa4915a109505d089feed6773008e79e7a7340bbd387d960",
+  "source_report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/RESULT.json",
+  "source_report_sha256": "66c1761d22d7b2abf0e1bf21304a22d3ceaadb68301b8d1af2b7c5f80a9d01dd",
+  "source_identity": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/IDENTITY.json",
+  "source_identity_file_sha256": "790b4c2366df6d0be3a71e675ccdfe308b885c617148ec5ebd9ac5d53d6ba886",
+  "source_identity_sha256": "b0b3c539269520c7c311fe4b97350c7c672b5fb5c4ce18c14bda94c69a463cd0",
+  "identity_runtime_verified": true,
+  "renderer_sha256": "fe957886aa3da0b49638aa6dfb92ae020216a892ff5a3d8889479b15a2a1a494",
+  "frozen_inputs": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/RESULT.json": "66c1761d22d7b2abf0e1bf21304a22d3ceaadb68301b8d1af2b7c5f80a9d01dd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/IDENTITY.json": "790b4c2366df6d0be3a71e675ccdfe308b885c617148ec5ebd9ac5d53d6ba886",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/trace_1ms.npz": "6c736fda30aad53efa4915a109505d089feed6773008e79e7a7340bbd387d960",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/EVAL_FF_TARGET/decisions_5ms.npz": "2062903904839131867b62c7ab4383337782e7caca8377cf6933fe4dd456f777",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/render_diagnostic.py": "fe957886aa3da0b49638aa6dfb92ae020216a892ff5a3d8889479b15a2a1a494"
+  },
+  "frame_index_mapping": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/FRAME_INDEX_MAPPING.json",
+  "frame_index_mapping_sha256": "a66aa719599191894983ced1e3741ab9179a93b162a436b7cc68db608b62f2f7",
+  "control_chunks": [
+    {
+      "trace_start": 0,
+      "trace_stop_exclusive": 1000,
+      "physical_interval_s": [
+        0.0,
+        1.0
+      ],
+      "control_source": 0,
+      "label": "ZERO RATE SETTLE",
+      "samples": 1000,
+      "external_body_force_max": 0.0,
+      "external_generalized_force_max": 0.0
+    },
+    {
+      "trace_start": 1000,
+      "trace_stop_exclusive": 5800,
+      "physical_interval_s": [
+        1.0,
+        5.8
+      ],
+      "control_source": 2,
+      "label": "ALGORITHM TEACHER",
+      "samples": 4800,
+      "external_body_force_max": 0.0,
+      "external_generalized_force_max": 0.0
+    },
+    {
+      "trace_start": 5800,
+      "trace_stop_exclusive": 15400,
+      "physical_interval_s": [
+        5.8,
+        15.4
+      ],
+      "control_source": 3,
+      "label": "PURE SUBSTITUTE ANN",
+      "samples": 9600,
+      "external_body_force_max": 0.0,
+      "external_generalized_force_max": 0.0
+    }
+  ],
+  "control_sources": {
+    "settle": 0,
+    "perturb": 1,
+    "teacher": 2,
+    "student": 3,
+    "zero": 4,
+    "teacher_replay": 5
+  },
+  "handover_time_s": 5.800000000052099,
+  "transition_all_exact": true,
+  "external_forces": {
+    "external_body_force_max": 0.0,
+    "external_generalized_force_max": 0.0
+  },
+  "no_external_force": true,
+  "adhesion_enabled": false,
+  "qpos_dimension": 49,
+  "qvel_dimension": 48,
+  "all_qpos_qvel_saved": true,
+  "pose_reconstruction": "All49 qpos and48 qvel assigned exactly from same-run trace; mj_forward only. No physics stepping, controller or action generator.",
+  "visible_mesh_geoms": 71,
+  "all_71_mesh_alpha_one": true,
+  "mesh_alpha_checks": [
+    {
+      "id": 1,
+      "name": "Thorax_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 2,
+      "name": "A1A2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 3,
+      "name": "A3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 4,
+      "name": "A4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 5,
+      "name": "A5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 6,
+      "name": "A6_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 7,
+      "name": "Head_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 8,
+      "name": "LEye_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 9,
+      "name": "LPedicel_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 10,
+      "name": "LFuniculus_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 11,
+      "name": "LArista_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 12,
+      "name": "REye_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 13,
+      "name": "RPedicel_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 14,
+      "name": "RFuniculus_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 15,
+      "name": "RArista_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 16,
+      "name": "Rostrum_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 17,
+      "name": "Haustellum_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 18,
+      "name": "LFCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 19,
+      "name": "LFTrochanter_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 20,
+      "name": "LFFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 21,
+      "name": "LFTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 22,
+      "name": "LFTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 23,
+      "name": "LFTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 24,
+      "name": "LFTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 25,
+      "name": "LFTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 26,
+      "name": "LFTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 30,
+      "name": "LHCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 31,
+      "name": "LHFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 32,
+      "name": "LHTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 33,
+      "name": "LHTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 34,
+      "name": "LHTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 35,
+      "name": "LHTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 36,
+      "name": "LHTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 37,
+      "name": "LHTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 41,
+      "name": "LHaltere_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 42,
+      "name": "LMCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 43,
+      "name": "LMFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 44,
+      "name": "LMTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 45,
+      "name": "LMTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 46,
+      "name": "LMTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 47,
+      "name": "LMTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 48,
+      "name": "LMTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 49,
+      "name": "LMTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 53,
+      "name": "LWing_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 54,
+      "name": "RFCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 55,
+      "name": "RFTrochanter_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 56,
+      "name": "RFFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 57,
+      "name": "RFTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 58,
+      "name": "RFTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 59,
+      "name": "RFTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 60,
+      "name": "RFTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 61,
+      "name": "RFTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 62,
+      "name": "RFTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 66,
+      "name": "RHCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 67,
+      "name": "RHFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 68,
+      "name": "RHTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 69,
+      "name": "RHTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 70,
+      "name": "RHTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 71,
+      "name": "RHTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 72,
+      "name": "RHTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 73,
+      "name": "RHTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 77,
+      "name": "RHaltere_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 78,
+      "name": "RMCoxa_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 79,
+      "name": "RMFemur_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 80,
+      "name": "RMTibia_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 81,
+      "name": "RMTarsus1_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 82,
+      "name": "RMTarsus2_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 83,
+      "name": "RMTarsus3_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 84,
+      "name": "RMTarsus4_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 85,
+      "name": "RMTarsus5_geom",
+      "alpha": 1.0
+    },
+    {
+      "id": 89,
+      "name": "RWing_geom",
+      "alpha": 1.0
+    }
+  ],
+  "no_mesh_or_body_deleted": true,
+  "all_geometry_groups_enabled": true,
+  "compiled_model_arrays_unchanged": true,
+  "tendon_overlay_hidden_only_via_view_option": true,
+  "camera": {
+    "type": "fixed world free camera",
+    "lookat": [
+      -0.8044550300004133,
+      0.0030128631878353017,
+      1.446164562239419
+    ],
+    "distance": 8.0,
+    "azimuth": 140.0,
+    "elevation": -25.0,
+    "follow": false,
+    "visual_only": true,
+    "root_written": false
+  },
+  "ffmpeg_executable": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+  "sequential_decode_verified": true,
+  "keyframes": [
+    {
+      "target_time_s": 0.0,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t000.00_frame0000.png",
+      "sha256": "c539371ec2eee14e3c514abbdb8b4535b2a587d5caadd7c5a0d6ac3cab166b79",
+      "video_frame": 0,
+      "playback_time_s": 0.0,
+      "trace_index": 0,
+      "actual_time_s": 0.0010000000000000009,
+      "control_source": 0,
+      "phase": "ZERO RATE SETTLE",
+      "stage_elapsed_s": 0.0010000000000000009
+    },
+    {
+      "target_time_s": 1.0,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t001.00_frame0050.png",
+      "sha256": "3de458c35faf12e584d09480773e68135a01c06637ec5c550c470666c22556b4",
+      "video_frame": 50,
+      "playback_time_s": 1.6666666666666667,
+      "trace_index": 1000,
+      "actual_time_s": 1.0009999999993344,
+      "control_source": 2,
+      "phase": "ALGORITHM TEACHER",
+      "stage_elapsed_s": 0.0009999999993344222
+    },
+    {
+      "target_time_s": 5.78,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t005.78_frame0289.png",
+      "sha256": "1630364314c4a5fa496e988139d808f3fa3a60fa608feb334a1579b55b45a204",
+      "video_frame": 289,
+      "playback_time_s": 9.633333333333333,
+      "trace_index": 5780,
+      "actual_time_s": 5.781000000051468,
+      "control_source": 2,
+      "phase": "ALGORITHM TEACHER",
+      "stage_elapsed_s": 4.781000000051468
+    },
+    {
+      "target_time_s": 5.8,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t005.80_frame0290.png",
+      "sha256": "808e973947fb28bacb1eadc34e6cdffa4b5b90379ead03ba4ada7682f6cee199",
+      "video_frame": 290,
+      "playback_time_s": 9.666666666666666,
+      "trace_index": 5800,
+      "actual_time_s": 5.801000000052132,
+      "control_source": 3,
+      "phase": "PURE ANN TAKEOVER",
+      "stage_elapsed_s": 0.0010000000000331966
+    },
+    {
+      "target_time_s": 7.3,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t007.30_frame0365.png",
+      "sha256": "10df6995492baeb0f383ea9dd589d671443fd9573114a7870eea5b645cfc7ce0",
+      "video_frame": 365,
+      "playback_time_s": 12.166666666666666,
+      "trace_index": 7300,
+      "actual_time_s": 7.301000000101927,
+      "control_source": 3,
+      "phase": "PURE ANN TAKEOVER",
+      "stage_elapsed_s": 1.501000000049828
+    },
+    {
+      "target_time_s": 15.38,
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/decoded_t015.38_frame0769.png",
+      "sha256": "fc18cfd0e6b2cc7c27fcbaf1794b3493d1c08a6a1bb1e605d640e0e94ab5c390",
+      "video_frame": 769,
+      "playback_time_s": 25.633333333333333,
+      "trace_index": 15380,
+      "actual_time_s": 15.381000000370154,
+      "control_source": 3,
+      "phase": "PURE ANN TAKEOVER",
+      "stage_elapsed_s": 9.581000000318056
+    }
+  ],
+  "montage": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z/VIDEO_DIAGNOSTIC/DECODED_MONTAGE.png",
+  "montage_sha256": "e6fa658202c426b025ce48c438a254c7a5d39ce287919dd29445a1d23a59eeb2",
+  "autonomous_metrics": {
+    "foot_support_mean": 0.9999385866649675,
+    "com_height_min": 1.2422384550191836,
+    "nonfoot_force_max_native": 0.0,
+    "forward_signed_native_per_s": -0.028788692187184346,
+    "slip_ratio_max": 13.78553072676171,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": true,
+      "forward": false,
+      "slip": false
+    },
+    "all_gates": false
+  },
+  "autonomous_complete_per_leg": {
+    "LF": 2,
+    "LH": 0,
+    "LM": 0,
+    "RF": 0,
+    "RH": 0,
+    "RM": 18
+  },
+  "interpretation": "Continuous same-run 1s zero settle +4.8s algorithm teacher +9.6s substitute ANN. ANN standing support/COM/nonfoot engineering gates pass; forward/slip/all-six-cycles fail. NOT walking, NOT original connectome, NOT full original acceptance.",
+  "visual_review": "Parent actually opened decoded six-phase montage and boundary5.801s/final15.381s frames; full head/thorax/abdomen/wings/legs visible, actual support retained and phase labels correct. Negative forward/highslip/partiallegcycling shown, NOT WALKING label explicit. No successful walking claim."
+}

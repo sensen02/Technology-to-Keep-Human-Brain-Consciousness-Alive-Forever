@@ -1,0 +1,60 @@
+{
+  "schema": "full42-ppo-A/1",
+  "goal": "give the learner enough authority to actually produce a gait, instead of the six-tibia +-0.003 rad/tick residual that could only trim a stance",
+  "action_space": {
+    "joints": "all 42",
+    "command": "rate = base_rate_from_measured_network + tanh(mean) * C(t) / dt, clipped to the frozen +-30 rad/s actuator bound; base_rate = (base_target - actuator.target_rad) / dt",
+    "amplitude_schedule": "C(t) = 0.003 + (0.05 - 0.003) * min(1, global_update / 32) rad per 5 ms tick, so the measured-data network acts as a prior that is faded out over the first 32 updates",
+    "no_joint_is_penalised_differently": true
+  },
+  "reward": "reward v3 exactly as recorded in experiments/banc-reward-v3/20261108T090000Z: absolute slip hinge 2*sum max(0, v_i - 0.5*max(|fwd|, v_target))^2, progress clip(fwd/v_target,-1,1.5) doubled below 0.5*v_target, stance foot-speed penalty, attitude, action, support and non-foot terms, terminations COM<0.95 and non-foot>0.05 W",
+  "environment": "declared normal adhesion channel active during training (A = 0.5 W per loaded leg, shared across contacts, every 0.5 ms); evaluation is reported BOTH with adhesion off (frozen-body, the honest acceptance number) and with adhesion on (derived-channel)",
+  "curriculum": {
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "budget_per_level": [
+      64,
+      32,
+      32,
+      32
+    ],
+    "gate_check_every": 16,
+    "escalation_rule": "a level is left only when all five gates pass; if a level's budget is exhausted without passing, the run stops there and the negative result is reported"
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "gates_note": "identical to the frozen verifier quantities used in every previous round; nothing relaxed",
+  "ppo": {
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ]
+  },
+  "labelling": "the controller is a replacement ANN trained by PPO, not a connectome and not brain output; adhesion results are derived-channel and do not change the frozen-body status",
+  "accounting": "native steps, wall time, per-update reward, and every gate evaluation are recorded",
+  "amendment_1": {
+    "reason": "after 64 updates at level 0 the run had not passed the gates but every metric was still improving fast (forward .039 -> .324, slip mean 2.72 -> .94, slip max 3.80 -> 1.44); the failing gates are exactly the reward terms that are still being traded against progress",
+    "change": "extend level 0 by 64 more updates, continuing from MODEL_full42_after64.npz; amplitude schedule already saturated at 0.05 rad/tick; nothing else changed (same reward, same adhesion, same gates)",
+    "recorded_before_running": true,
+    "decision_after_extension": "if after 128 total updates the gates still fail, the negative result is reported as final for this budget and no further tuning of the gates or thresholds is allowed"
+  }
+}

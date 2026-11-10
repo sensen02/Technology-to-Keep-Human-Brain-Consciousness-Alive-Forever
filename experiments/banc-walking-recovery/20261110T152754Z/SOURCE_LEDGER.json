@@ -1,0 +1,21 @@
+{
+ "scope":"S2/S5 confirmation scripts; actual physical full input/assets/compiled/body/checkpoint identity separately captured by each actual run",
+ "directory":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z",
+ "source_hashes":{
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/confirm_candidate.py":"a07b4992d9835369b360b23b4fe8b619fbb30176f81581b50e1f93f3981fa22f",
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/confirm_perturb.py":"c2976a561af7814514fa8600e95a99516c97b764efe79ec6dc2273f27ed7acbe",
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/render_actual.py":"697a0125d2ab4cc5511c35eb1d220b04d027c8e9999c156ad440569cbafda21f",
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/plot_progress.py":"2db45a35db3205ef86945f28104d16b96baf76f3c003e336520f49ab15ebdb91",
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/plot_actual_gait.py":"bb4b919ea7f16fe353878c02008550060562f159bb9e3486565812cb0e6ca026",
+  "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/PREREG.json":"a7464fca27d103bf626aac46481e98e0c03549e115cb2a879b6531fb9605650c"
+ },
+ "changes":[
+  "Created new preregistered20ms actualmotorpulse confirmation; two seeds, same9.6s fullNN window, no pose/root writes or forces.",
+  "Independent staticreview found no timing/control reset bug. Before first perturb run added baseline archive hashes/deterministicstudent/exacttransition plus explicit teacherfiles/STUDENT_CHECKS sourceclosure.",
+  "Generic same-run renderer disables all integration and reconstructs saved completeqpos/qvel, dynamic engineering labels, checks71opaque meshes and decodes770frames.",
+  "Event-driven parent confirmation pipeline selects earliest2500/3000 nominal pass, then native independent record, original audit, two perturbations and same-runvideo. Script selfhash captured in confirmation status at startup. No training changes.",
+  "Actual gait plot uses full recorded values, power.25 color mapping only for visibility; no clipping or metric changes. Progressplot waits both preregistered nominalresults."
+ ],
+ "failure_evidence":"2000step prior actualslip.504025893 stillFAIL, diagnosticvideo retained. Redundant eventwatcher bash166 cancelled/collected, no effect on training.",
+ "source_immutability":"Do not modify any of these scripts/prereg while confirmation runs; changes require new snapshot. Mutable progress/status/report docs not experimentinputs."
+}

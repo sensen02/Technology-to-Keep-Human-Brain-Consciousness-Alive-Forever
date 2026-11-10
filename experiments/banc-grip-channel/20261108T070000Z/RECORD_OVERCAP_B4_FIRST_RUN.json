@@ -1,0 +1,11 @@
+{
+  "status": "DEVIATION_RECORDED_NOT_A_RESULT_FILE",
+  "what": "The first B4 run applied the declared per-foot adhesion magnitude to every tarsus contact instead of sharing it across the foot's contacts, so a foot with five contacts received five times the declared force (logged peak_force 146.7 = 6.0 W, cap_hits 0).",
+  "why_kept": "The prereg said per loaded foot, the implementation did per contact. That is a deviation and it is recorded rather than hidden. The corrected run enforces the cap per leg.",
+  "numbers_from_the_deviating_run": {"phase": "release (3 s autonomous after 1 s assist)", "forward_speed_native_per_s": 0.382,
+    "foot_support_mean": 13.1859, "nonfoot_force_max_W": 2.7566, "com_height_min": 0.683,
+    "slip_ratio_max": 1.5938, "slip_ratio_mean": 1.0344, "grip_log_peak_force": 146.67812853526806,
+    "grip_log_impulse": 1109.2105659271094, "grip_log_cap_hits": 0},
+  "note": "these numbers came from the console output of that run; the JSON file was overwritten when the cap was fixed, so this record is a transcription, not the raw artifact",
+  "corrected_run_file": "RESULT_normal_assist.json"
+}

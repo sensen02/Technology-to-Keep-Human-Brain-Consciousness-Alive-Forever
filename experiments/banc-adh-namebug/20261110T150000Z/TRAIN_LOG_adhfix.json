@@ -1,0 +1,144 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "adh-namebug/1",
+    "discovered_by": "rendering the walk video. The renderer released the adhesion when any of a leg's three pads moved upward, while the trainer looks the pad up by the exact name <LEG>Tarsus5_pad. The triad body names its pads <LEG>Tarsus5_pad0..2, so in every trainer run on the triad body that lookup returned None and the adhesion never released on lift",
+    "consequence": "the triad numbers reported so far (support 2.500, slip .906 in the triad run, .965 in the pose runs) were produced with the adhesion permanently clamped on any loaded leg, i.e. the earlier clamp regime, not the releasable law that was declared. The renderer, which used the correct prefix match, measured per-leg slip of 1.36 / 1.90 / 1.32 / 1.75 / 3.57 / 8.76 under the releasable law, which is a completely different picture",
+    "fix": "pad lookup by prefix, so all three spheres of a leg count and a leg releases as soon as any of its pads moves upward",
+    "rerun": "the same triad configuration as the pose run (triad body with doubled torque, pose solved for triad contact at COM 1.45, 1 ms tick, C = 0.02, three Lagrangian constraints, 48 updates) with the corrected adhesion",
+    "no_claim_about_earlier_numbers": "the earlier triad and pose numbers stay in the record as measured, but they are labelled as having been produced under clamped adhesion and are not comparable to releasable runs",
+    "labelling": "derived body, derived actuator, derived adhesion, replacement ANN; not frozen-body acceptance"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 0.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "state_curriculum": {
+    "mix": 0.0,
+    "bank": "/media/nonexistent.npz",
+    "constraints": "support, non-foot, height",
+    "bank_sha256": null,
+    "note": "initial states recorded from our own simulation during the release phase; no external generator"
+  },
+  "body": {
+    "xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml",
+    "sha256": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "label": "derived body (pad spheres) and derived actuator strength; never frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, triad body, solved pose, corrected releasable adhesion, absolute stance-speed slip constraint",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.21684422428136604,
+        "foot_support_mean": 1.4575563306961827,
+        "foot_support_min": 0.9706536138779981,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 1.0320402567824056,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 1.2062646006264615,
+          "LH": 1.760847956116725,
+          "LM": 1.4305970514067214,
+          "RF": 1.194905971962024,
+          "RH": 3.905064947091649,
+          "RM": 7.036984592202671
+        },
+        "slip_ratio_max": 7.036984592202671,
+        "slip_ratio_mean": 2.755777519901042,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.21413515469712,
+    "foot_support_mean": 1.4764320896072969,
+    "foot_support_min": 0.9634643564156843,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 1.033328844794469,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.287066686623001,
+      "LH": 1.9259295788745996,
+      "LM": 1.4222933074138,
+      "RF": 1.2474869284141996,
+      "RH": 3.9769027236127577,
+      "RM": 6.777752781953896
+    },
+    "slip_ratio_max": 6.777752781953896,
+    "slip_ratio_mean": 2.7729053344820422,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 2015232000,
+  "wall_s": 751.3461489677429,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-adh-namebug/20261110T150000Z/MODEL_adhfix.npz",
+    "sha256": "e6b8c6640b5b922327d64f6f42d2caf6d9557dda79f62ae86b358ee781b3415a"
+  }
+}

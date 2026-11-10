@@ -1,0 +1,747 @@
+{
+  "label": "open-loop constant joint-rate probe, diagnostic only, no learning",
+  "actuator_rate_limit_rad_s": 2.0,
+  "candidates": [
+    "tibia_up",
+    "tibia_down",
+    "troch_pitch_up",
+    "troch_pitch_down",
+    "coxa_pitch_up",
+    "coxa_pitch_down",
+    "troch_roll_up",
+    "troch_roll_down",
+    "coxa_yaw_up",
+    "flex_combo",
+    "extend_combo"
+  ],
+  "joint_block_order_verified": true,
+  "intra_leg_joint_orders": [
+    [
+      "Coxa_roll",
+      "Coxa_yaw",
+      "Coxa_pitch",
+      "Trochanter_yaw",
+      "Trochanter_pitch",
+      "Trochanter_roll",
+      "Tibia_pitch"
+    ],
+    [
+      "Coxa_yaw",
+      "Coxa_pitch",
+      "Coxa_roll",
+      "Trochanter_yaw",
+      "Trochanter_pitch",
+      "Trochanter_roll",
+      "Tibia_pitch"
+    ]
+  ],
+  "note_intra_leg_order": "right legs order the coxa joints differently from the left legs, so actions must be indexed by joint name, not by offset",
+  "per_leg": {
+    "LF": {
+      "tibia_up": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.0019388099365101677,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.00788341309288383,
+        "support_min": 0.952613214108687,
+        "com_min": 1.2688830958546777,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.05065292007177225,
+        "lift": 0.048714110135262084,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9482981801038889,
+        "com_min": 1.2401783527105856,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "troch_pitch_up": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.0019388099365101677,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.01832975839515429,
+        "support_min": 0.9621924185399822,
+        "com_min": 1.2731237619161402,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.21977903482688096,
+        "lift": 0.2178402248903708,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9577791751430671,
+        "com_min": 1.2410900672463774,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "coxa_pitch_up": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.0019388099365101677,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.012880336104375077,
+        "support_min": 0.9521271620284933,
+        "com_min": 1.2709834598682088,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.14617857912535237,
+        "lift": 0.1442397691888422,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9528763902419086,
+        "com_min": 1.244694917464912,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "troch_roll_up": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.00806270529467689,
+        "lift": 0.006123895358166723,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9497996861195849,
+        "com_min": 1.2532293442676186,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.00530080869825688,
+        "lift": 0.0033619987617467123,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9498022975167569,
+        "com_min": 1.2646517011748828,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.07871837450747385,
+        "lift": 0.07677956457096369,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9499133402223132,
+        "com_min": 1.2443183350357987,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "flex_combo": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.11330760724356548,
+        "lift": 0.11136879730705532,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9507331601428519,
+        "com_min": 1.2424668346119592,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "extend_combo": {
+        "rest_padz": 0.0019388099365101677,
+        "max_padz": 0.0019388099365101677,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.011999523758822636,
+        "support_min": 0.9564490603143414,
+        "com_min": 1.267956105277936,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      }
+    },
+    "LH": {
+      "tibia_up": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.18312708841566422,
+        "support_min": 0.9505294322025442,
+        "com_min": 1.2853091238676464,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.15129668327810697,
+        "support_min": 0.9721353215235692,
+        "com_min": 1.1917798023156716,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_up": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.20485018486986142,
+        "support_min": 0.9492633946174793,
+        "com_min": 1.2988102629614522,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1387077966674068,
+        "support_min": 0.9803408141311555,
+        "com_min": 1.1391641021534087,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_up": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1407639407587698,
+        "support_min": 0.9742999116537908,
+        "com_min": 1.1661271459196596,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1998527257096932,
+        "support_min": 0.9501387500287244,
+        "com_min": 1.2937550712163495,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_up": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1810984690622752,
+        "support_min": 0.9522183441091601,
+        "com_min": 1.2355884161289434,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.17391130022811943,
+        "support_min": 0.9486175275130726,
+        "com_min": 1.2456829213943927,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.16317557950830122,
+        "support_min": 0.9514549462269597,
+        "com_min": 1.174815974430335,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "flex_combo": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.092447954049097,
+        "support_min": 0.9698518592516299,
+        "com_min": 0.9899476432212828,
+        "nonfoot_max": 0.94498625582144,
+        "passes_lift": false
+      },
+      "extend_combo": {
+        "rest_padz": -0.000698789113186972,
+        "max_padz": -0.000698789113186972,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.21438175186600325,
+        "support_min": 0.9529538994792471,
+        "com_min": 1.3144233093716522,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      }
+    },
+    "LM": {
+      "tibia_up": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.18514125164722964,
+        "support_min": 0.9501797676612033,
+        "com_min": 1.2706270725813895,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08322336957309298,
+        "support_min": 0.9471225108921167,
+        "com_min": 1.2322340619425436,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_up": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.20503500373569222,
+        "support_min": 0.9549786721572454,
+        "com_min": 1.283403941360206,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.027436551036970548,
+        "support_min": 0.9559543707909016,
+        "com_min": 1.2017997510869072,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_up": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.18086271604843765,
+        "support_min": 0.9494393721712483,
+        "com_min": 1.265028779630614,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.10667587182816173,
+        "support_min": 0.9503777763955918,
+        "com_min": 1.237523345063948,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_up": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.11224414545936803,
+        "support_min": 0.9503722929019881,
+        "com_min": 1.2396410013017993,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1806327456536725,
+        "support_min": 0.9493254246646002,
+        "com_min": 1.2607146824449422,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.11245821500686405,
+        "support_min": 0.9562581392261776,
+        "com_min": 1.240997561339947,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "flex_combo": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": 0.01938216752831331,
+        "lift": 0.019815746275678434,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9466177634435681,
+        "com_min": 1.1897706039350848,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "extend_combo": {
+        "rest_padz": -0.0004335787473651251,
+        "max_padz": -0.0004335787473651251,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.1964510485694581,
+        "support_min": 0.9529817110378546,
+        "com_min": 1.2680557180150096,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      }
+    },
+    "RF": {
+      "tibia_up": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.0376597657131187,
+        "support_min": 0.9495727778099352,
+        "com_min": 1.2614685422454308,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.02605797310365835,
+        "lift": 0.02076484572737232,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9546750200119815,
+        "com_min": 1.243291744685997,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "troch_pitch_up": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.04051332296272977,
+        "support_min": 0.9665639205580943,
+        "com_min": 1.2720152124629034,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.2169543447555502,
+        "lift": 0.21166121737926416,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9813923562457197,
+        "com_min": 1.2464915744461988,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "coxa_pitch_up": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.041972778001854595,
+        "support_min": 0.9495140856234996,
+        "com_min": 1.264365345682485,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.1857783336531774,
+        "lift": 0.18048520627689135,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9823062195378802,
+        "com_min": 1.2466325733082608,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "troch_roll_up": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.006361642622362475,
+        "lift": 0.001068515246076443,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9470286350481993,
+        "com_min": 1.2532650150352183,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.03252797796442643,
+        "support_min": 0.9495360905206818,
+        "com_min": 1.2594457104955064,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.03163929169391575,
+        "support_min": 0.9495954542367687,
+        "com_min": 1.2605811788785228,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "flex_combo": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.028312214699696796,
+        "lift": 0.023019087323410764,
+        "min_load_over_body_weight": 0.0,
+        "support_min": 0.9764314206674082,
+        "com_min": 1.2483647577776442,
+        "nonfoot_max": 0.0,
+        "passes_lift": true
+      },
+      "extend_combo": {
+        "rest_padz": 0.005293127376286032,
+        "max_padz": 0.005293127376286032,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.03874980775448821,
+        "support_min": 0.9489007844446391,
+        "com_min": 1.260403652541154,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      }
+    },
+    "RH": {
+      "tibia_up": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08762784443196521,
+        "support_min": 0.9518604310458851,
+        "com_min": 1.2786761792119592,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08883629833217181,
+        "support_min": 0.9488965686769554,
+        "com_min": 1.2245200624260537,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_up": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08935580011184034,
+        "support_min": 0.9511435792331834,
+        "com_min": 1.2957283787830673,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08339802567595761,
+        "support_min": 0.9502413766278374,
+        "com_min": 1.185265784067329,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_up": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.0734167228529928,
+        "support_min": 0.9480336927638932,
+        "com_min": 1.1872789085733262,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08873931083856103,
+        "support_min": 0.9505624577102486,
+        "com_min": 1.2916700737542846,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_up": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08806300971607355,
+        "support_min": 0.948165212652429,
+        "com_min": 1.2155176283587754,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08840038455349007,
+        "support_min": 0.9494195035546625,
+        "com_min": 1.2834659327772404,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08876352563323438,
+        "support_min": 0.951163377605938,
+        "com_min": 1.2877721633723298,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "flex_combo": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.05059846508156932,
+        "support_min": 0.9465412022779361,
+        "com_min": 1.0965598740171392,
+        "nonfoot_max": 0.5473370128160271,
+        "passes_lift": false
+      },
+      "extend_combo": {
+        "rest_padz": 0.0031640927045466435,
+        "max_padz": 0.0031640927045466435,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.08916586508264011,
+        "support_min": 0.9518190144914331,
+        "com_min": 1.3070263874779464,
+        "nonfoot_max": 0.44701287861287264,
+        "passes_lift": false
+      }
+    },
+    "RM": {
+      "tibia_up": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06089367908388125,
+        "support_min": 0.9511693148523841,
+        "com_min": 1.2703178915981126,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "tibia_down": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06029657590030166,
+        "support_min": 0.9491410816103771,
+        "com_min": 1.216672777733524,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_up": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06440249846980008,
+        "support_min": 0.9540424605858601,
+        "com_min": 1.2927693758417875,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_pitch_down": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.05786289357566331,
+        "support_min": 0.965095317387074,
+        "com_min": 1.1823081925139474,
+        "nonfoot_max": 0.1941888498305716,
+        "passes_lift": false
+      },
+      "coxa_pitch_up": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06059720134718979,
+        "support_min": 0.9502253991994948,
+        "com_min": 1.2622148999366922,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_pitch_down": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06036131697425592,
+        "support_min": 0.949457409603526,
+        "com_min": 1.231678446661494,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_up": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.060190843275129725,
+        "support_min": 0.9497366905132861,
+        "com_min": 1.2352358755107056,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "troch_roll_down": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06077582039228311,
+        "support_min": 0.9505480475326729,
+        "com_min": 1.2566339094694772,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "coxa_yaw_up": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06390024388489145,
+        "support_min": 0.9506871833799613,
+        "com_min": 1.2918614662750623,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      },
+      "flex_combo": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.05284791639799175,
+        "support_min": 0.949456230745039,
+        "com_min": 1.172108296232232,
+        "nonfoot_max": 0.28349100824714135,
+        "passes_lift": false
+      },
+      "extend_combo": {
+        "rest_padz": 0.006313345789386714,
+        "max_padz": 0.006313345789386714,
+        "lift": 0.0,
+        "min_load_over_body_weight": 0.06391582930003059,
+        "support_min": 0.9513892773550627,
+        "com_min": 1.2912216522252236,
+        "nonfoot_max": 0.0,
+        "passes_lift": false
+      }
+    }
+  },
+  "best_per_leg": {
+    "LF": {
+      "candidate": "troch_pitch_down",
+      "max_padz": 0.21977903482688096,
+      "passes_lift": true
+    },
+    "LH": {
+      "candidate": "tibia_up",
+      "max_padz": -0.000698789113186972,
+      "passes_lift": false
+    },
+    "LM": {
+      "candidate": "flex_combo",
+      "max_padz": 0.01938216752831331,
+      "passes_lift": true
+    },
+    "RF": {
+      "candidate": "troch_pitch_down",
+      "max_padz": 0.2169543447555502,
+      "passes_lift": true
+    },
+    "RH": {
+      "candidate": "tibia_up",
+      "max_padz": 0.0031640927045466435,
+      "passes_lift": false
+    },
+    "RM": {
+      "candidate": "tibia_up",
+      "max_padz": 0.006313345789386714,
+      "passes_lift": false
+    }
+  },
+  "any_leg_can_reach_0015": true,
+  "n_legs_reaching_0015": 3
+}

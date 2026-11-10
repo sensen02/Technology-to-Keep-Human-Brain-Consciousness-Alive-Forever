@@ -1,0 +1,269 @@
+{
+  "status": "PER_LEG_CALIBRATION_TEST",
+  "module": "frozen20k",
+  "calibrated": {
+    "per_leg_mean_hz": {
+      "LF": 20.21793048986585,
+      "LH": 7.431108659016315,
+      "LM": 6.706640923742785,
+      "RF": 12.615105655328861,
+      "RH": 11.437561858676004,
+      "RM": 11.170946101501464
+    },
+    "tripod_alternation_score": -0.7769905883499387,
+    "ipsilateral_score": 0.7968104786027357,
+    "lf_rh_correlation": 0.12673461033404904,
+    "rf_lh_correlation": 0.23920133761286988,
+    "group_mean_hz": {
+      "A_LF_RM_LH": 12.939995083461207,
+      "B_RF_LM_RH": 10.253102812582549
+    },
+    "PC1_variance_fraction": 0.7095776350538862,
+    "PC1_loadings": {
+      "LF": -0.6809396691266714,
+      "LH": -0.11061826455688134,
+      "LM": -0.11115596741824034,
+      "RF": -0.7085618764865608,
+      "RH": -0.060961180517202215,
+      "RM": -0.07715516264768807
+    },
+    "gains": {
+      "LF": 1.0,
+      "LH": 64.0,
+      "LM": 64.0,
+      "RF": 8.0,
+      "RH": 64.0,
+      "RM": 4.0
+    },
+    "max_gain_applied": 64.0,
+    "MN_spikes": 9007,
+    "voltage_min_mV": -74.2616911487505
+  },
+  "uncalibrated": {
+    "per_leg_mean_hz": {
+      "LF": 21.194798597451594,
+      "LH": 21.319634191588886,
+      "LM": 8.609930300163178,
+      "RF": 20.54960075175704,
+      "RH": 17.356444611383083,
+      "RM": 13.365491646665953
+    },
+    "tripod_alternation_score": -0.6432839630487803,
+    "ipsilateral_score": 0.7072097637420648,
+    "lf_rh_correlation": 0.00397597807679288,
+    "rf_lh_correlation": 0.26213392507815697,
+    "group_mean_hz": {
+      "A_LF_RM_LH": 18.626641478568807,
+      "B_RF_LM_RH": 15.5053252211011
+    },
+    "PC1_variance_fraction": 0.605602648872033,
+    "PC1_loadings": {
+      "LF": -0.5233050992950979,
+      "LH": -0.3490302089940681,
+      "LM": 0.03162933470782811,
+      "RF": -0.7273389994904235,
+      "RH": -0.2698260231480536,
+      "RM": 0.038744915790602
+    },
+    "gains": {
+      "LF": 1.0,
+      "LH": 1.0,
+      "LM": 1.0,
+      "RF": 1.0,
+      "RH": 1.0,
+      "RM": 1.0
+    },
+    "MN_spikes": 13028,
+    "voltage_min_mV": -75.79754041936934
+  },
+  "calibration_log": [
+    {
+      "leg": "LF",
+      "gain": 1.0,
+      "driven_leg_hz": 21.898373828723365,
+      "spikes": 6739
+    },
+    {
+      "leg": "LH",
+      "gain": 1.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "LH",
+      "gain": 2.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "LH",
+      "gain": 4.0,
+      "driven_leg_hz": 0.036443553952142826,
+      "spikes": 14
+    },
+    {
+      "leg": "LH",
+      "gain": 8.0,
+      "driven_leg_hz": 0.03297594332705777,
+      "spikes": 26
+    },
+    {
+      "leg": "LH",
+      "gain": 16.0,
+      "driven_leg_hz": 0.21437069913118484,
+      "spikes": 57
+    },
+    {
+      "leg": "LH",
+      "gain": 32.0,
+      "driven_leg_hz": 0.6900441460167532,
+      "spikes": 130
+    },
+    {
+      "leg": "LH",
+      "gain": 64.0,
+      "driven_leg_hz": 1.5866406273956837,
+      "spikes": 255
+    },
+    {
+      "leg": "LM",
+      "gain": 1.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "LM",
+      "gain": 2.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "LM",
+      "gain": 4.0,
+      "driven_leg_hz": 0.23670674571250486,
+      "spikes": 19
+    },
+    {
+      "leg": "LM",
+      "gain": 8.0,
+      "driven_leg_hz": 0.5816031731497615,
+      "spikes": 45
+    },
+    {
+      "leg": "LM",
+      "gain": 16.0,
+      "driven_leg_hz": 0.8940322078986274,
+      "spikes": 69
+    },
+    {
+      "leg": "LM",
+      "gain": 32.0,
+      "driven_leg_hz": 1.3915215824836047,
+      "spikes": 109
+    },
+    {
+      "leg": "LM",
+      "gain": 64.0,
+      "driven_leg_hz": 2.130569838018902,
+      "spikes": 162
+    },
+    {
+      "leg": "RF",
+      "gain": 1.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 9
+    },
+    {
+      "leg": "RF",
+      "gain": 2.0,
+      "driven_leg_hz": 6.0510882264429565e-06,
+      "spikes": 23
+    },
+    {
+      "leg": "RF",
+      "gain": 4.0,
+      "driven_leg_hz": 0.43749669609627595,
+      "spikes": 168
+    },
+    {
+      "leg": "RF",
+      "gain": 8.0,
+      "driven_leg_hz": 13.505114534326657,
+      "spikes": 5929
+    },
+    {
+      "leg": "RH",
+      "gain": 1.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "RH",
+      "gain": 2.0,
+      "driven_leg_hz": 0.05163081219989408,
+      "spikes": 5
+    },
+    {
+      "leg": "RH",
+      "gain": 4.0,
+      "driven_leg_hz": 0.20005662195323917,
+      "spikes": 16
+    },
+    {
+      "leg": "RH",
+      "gain": 8.0,
+      "driven_leg_hz": 0.5268241632786134,
+      "spikes": 42
+    },
+    {
+      "leg": "RH",
+      "gain": 16.0,
+      "driven_leg_hz": 1.3761749750641934,
+      "spikes": 120
+    },
+    {
+      "leg": "RH",
+      "gain": 32.0,
+      "driven_leg_hz": 2.932637977295464,
+      "spikes": 270
+    },
+    {
+      "leg": "RH",
+      "gain": 64.0,
+      "driven_leg_hz": 6.738989886243004,
+      "spikes": 639
+    },
+    {
+      "leg": "RM",
+      "gain": 1.0,
+      "driven_leg_hz": 0.0,
+      "spikes": 0
+    },
+    {
+      "leg": "RM",
+      "gain": 2.0,
+      "driven_leg_hz": 0.017470235216957872,
+      "spikes": 2
+    },
+    {
+      "leg": "RM",
+      "gain": 4.0,
+      "driven_leg_hz": 12.513184121689134,
+      "spikes": 6760
+    }
+  ],
+  "target_hz": 8.0,
+  "total_neural_steps": 155000,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "new_edges": 0,
+  "note": "Per-leg gains are an engineering calibration of an uncalibrated proxy encoder, applied at the input ports only. They do not add a rhythm and are declared, not hidden.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz": "abd2a0c10501458f927c6ccbe53bbf2e1c982bd139f7388cbd26fb08218aa39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/module_wide.py": "5102c1ea69a4881d650d7511af8e2c92470fca00f4f931715d9feadf17f79344"
+  }
+}

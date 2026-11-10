@@ -1,0 +1,14 @@
+{
+  "schema": "threeway/1",
+  "origin": "the two approved routes produced one positive and one honest failure. The positive: shrinking the policy tick from 5 ms to 1 ms with doubled rate authority took forward speed from .180 to .445 and slip from 3.45 to 1.50. The failure: the support Lagrangian never engaged because the training episodes were cold starts while the collapse only happens in the assist-then-release protocol. This run combines the three fixes that the evidence supports.",
+  "combination": {
+    "control": "1 ms policy tick, base target still refreshed at 200 Hz (every 5th tick), rollout covers 1 s of measured-target assist plus 2 s of autonomy",
+    "authority": "C = 0.02 rad/tick (double the original 10 rad/s)",
+    "distribution": "every training episode begins with 1000 ticks (1 s) of measured-target replay, so the release transient that collapses the body is inside the training distribution; transitions from the assist phase are not stored (the policy has no influence there), only the 2 s autonomy tail is used for PPO",
+    "constraint": "lagrangian on the windowed minimum support over 10 ticks, dual ascent rate 0.05, lambda_max 50, target 0.90; the existing soft support term is kept",
+    "world": "unchanged: derived pad body R=.02, mu=1.5, releasable adhesion 0.25 body weight per leg, reward v4, 42-joint PPO, 48 updates, gates and evaluation unchanged"
+  },
+  "what_would_count_as_progress": "slip falling below 1.0 with support minimum staying at or above 0.90 and non-foot contact back under 4.889 W; anything less is another honest negative",
+  "labelling": "derived channel (pad body, friction, releasable adhesion, and a Lagrangian constraint) plus a replacement ANN; never frozen-body acceptance and never connectome output",
+  "accounting": "lambda, mean and minimum support are logged at every update, plus native steps, wall time, and the full four-second evaluation with stance fractions"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "walk-video/1",
+  "purpose": "the user asked to see whether it walks and to see a video. This renders exactly what the current best configuration does, with no physics change and no rendering-side motion",
+  "model": "triad pad body (three spheres per tarsus, radius 0.008, pads coplanar with the material point) with actuator ctrlrange doubled, the pose re-solved for triad contact at COM 1.45, policy MODEL_slipmetric.npz",
+  "tick": "1 ms policy tick, base target at 200 Hz, C = 0.02, releasable adhesion 0.25 body weight, friction 1.5",
+  "two_videos": {
+    "cold_start_3.2s.mp4": "no assist at all: from the solved pose, 3.2 s",
+    "assist_then_release.mp4": "1 s measured-target assist then 3 s autonomous, which is the protocol used for the release numbers"
+  },
+  "honesty": "the assist phase is labelled on screen and is not autonomous. Slow motion (5x) is stated on screen. Nothing is scripted, translated or posed; the camera follows the fly but the checkered floor is world-fixed so slip is visible",
+  "labelling": "derived body, derived actuator, derived adhesion, replacement ANN. This is NOT accepted walking and NOT frozen-body acceptance"
+}

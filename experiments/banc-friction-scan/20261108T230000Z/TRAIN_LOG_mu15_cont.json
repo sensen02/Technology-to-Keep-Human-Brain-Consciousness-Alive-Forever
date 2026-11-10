@@ -1,0 +1,137 @@
+{
+  "prereg": {
+    "schema": "friction-scan/1",
+    "origin": "the user proposed raising the ground friction. The videos show the feet never leave the floor but skate at 0.20-0.36 native/s while the body moves 0.19; the friction of every geom is still the model default (1.0, 0.005, 0.0001) and has never been calibrated. This is the direct test of whether the slip is a contact-parameter problem.",
+    "design": {
+      "input": "the already trained stand-pose controller MODEL_stand.npz (experiments/banc-stand-retarget/20261108T190000Z); NO retraining, so any change is attributable to friction alone",
+      "sweep": "sliding friction coefficient mu = 1.0 (model default, baseline), 1.5, 2.0, 3.0, 5.0",
+      "applied_to": "every geom's first friction component, i.e. both the foot geoms and the floor plane, because MuJoCo combines a contact pair's friction from both geoms; torsion and rolling coefficients stay at their defaults",
+      "modes": "grip off (frozen body, the honest number) and grip on (derived adhesion channel), same run length and windows as every earlier evaluation",
+      "windows": "release window (the gate quantity) and the steady window (0.5 s onwards) are both reported"
+    },
+    "declared_not_frozen": "changing mu changes the physical world. Every result here is labelled friction-derived and is NOT frozen-body acceptance; the frozen body's friction stays 1.0 and its unaccepted movement status is unchanged. The model file is untouched: mu is set at runtime on the loaded model and both the old and new arrays are recorded.",
+    "gates": "unchanged: support mean >= 0.90, non-foot max <= 0.05W*4, COM min >= 1.20, slip max <= 0.50, forward >= 0.05",
+    "accounting": "per run: native steps, wall time, per-leg slip ratio, per-leg stance share, foot-speed-over-allowed fraction, and a checksum of the geometry/mass/actuator arrays proving only friction changed",
+    "success_read": "if slip falls monotonically with mu and can approach 0.50, the slip is a contact-parameter problem; if it plateaus well above 0.50, friction is not the binding limit",
+    "amendment_1": {
+      "reason": "the no-retraining sweep peaked at mu=1.5 (slip mean 1.221, still 2.4x the gate) and got worse above it, so the next fair test is to let the learner adapt to the higher-friction world",
+      "change": "train the same full-42-joint PPO from scratch at mu=1.5 (64 updates) and at mu=3.0 (64 updates), then evaluate each trained model at mu=1.5 and mu=1.0 in both grip modes to separate the world effect from the adaptation effect",
+      "recorded_before_running": true
+    },
+    "amendment_2": {
+      "reason": "mu=1.5 trained gave the best result so far (slip mean 0.994, non-foot 1.14 W passing for the first time, height 0.845) but stopped at the level-0 budget without passing all five gates",
+      "change": "continue the mu=1.5 model for 64 more updates at mu=1.5, same reward and gates",
+      "recorded_before_running": true
+    }
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 256,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 12.223177377939002,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "all 42 (derived mu world)",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 320000,
+        "duration_s": 3.9949999999923453,
+        "forward_speed_native_per_s": 0.17392886537744817,
+        "foot_support_mean": 3.956325995888069,
+        "foot_support_min": 3.945698172903693,
+        "nonfoot_force_max_W": 1.3272806185864277,
+        "com_height_min": 0.8490806774672133,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.7624410802879908,
+          "LH": 1.061224951291944,
+          "LM": 0.826825215377052,
+          "RF": 0.5241562986940049,
+          "RH": 1.1846177942361895,
+          "RM": 1.6045563361296022
+        },
+        "slip_ratio_max": 1.6045563361296022,
+        "slip_ratio_mean": 0.9939702793361307,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 320000,
+    "duration_s": 3.9949999999923453,
+    "forward_speed_native_per_s": 0.17377336525558265,
+    "foot_support_mean": 3.9389930012337038,
+    "foot_support_min": 3.9252333457831483,
+    "nonfoot_force_max_W": 1.8276514394964618,
+    "com_height_min": 0.8419433192965738,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.7217629015494251,
+      "LH": 1.0472994103059243,
+      "LM": 0.8476570207738578,
+      "RF": 0.536992284567505,
+      "RH": 1.1524732613508188,
+      "RM": 1.5773654467287268
+    },
+    "slip_ratio_max": 1.5773654467287268,
+    "slip_ratio_mean": 0.9805917208793765,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 45705600,
+  "wall_s": 465.60500407218933,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-friction-scan/20261108T230000Z/MODEL_mu15_cont.npz",
+    "sha256": "ea7153778c0f7ea913cfd6656053cb3030462e82c801b296b72deed532b9032a"
+  }
+}

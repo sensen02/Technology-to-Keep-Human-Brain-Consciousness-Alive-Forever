@@ -1,0 +1,249 @@
+{
+  "status": "PASS",
+  "all_passed": true,
+  "passed": 32,
+  "total": 32,
+  "checks": [
+    {
+      "name": "FF declared neural class, two 128 tanh layers",
+      "passed": true
+    },
+    {
+      "name": "physical H exact compiled actuator-order sensory scale",
+      "passed": true
+    },
+    {
+      "name": "initial gain equals 10H",
+      "passed": true
+    },
+    {
+      "name": "all actor parameters including 42 gains trainable",
+      "passed": true
+    },
+    {
+      "name": "PPO actor parameter collection includes gain",
+      "passed": true
+    },
+    {
+      "name": "probe0 target action diagonal nonpositive",
+      "passed": true,
+      "min": -9.99999999943034,
+      "max": -9.99999400256377
+    },
+    {
+      "name": "probe1 target action diagonal nonpositive",
+      "passed": true,
+      "min": -9.999262072033643,
+      "max": -0.6000385729093372
+    },
+    {
+      "name": "probe2 target action diagonal nonpositive",
+      "passed": true,
+      "min": -9.999993731786141,
+      "max": -0.21545974851586477
+    },
+    {
+      "name": "probe3 target action diagonal nonpositive",
+      "passed": true,
+      "min": -9.998766400208382,
+      "max": -0.5515704693775004
+    },
+    {
+      "name": "all target offdiagonals exactly zero",
+      "passed": true,
+      "maximum": 0.0
+    },
+    {
+      "name": "previous-action derivatives exactly zero",
+      "passed": true,
+      "maximum": 0.0
+    },
+    {
+      "name": "actual q retained with nonzero residual gradients",
+      "passed": true,
+      "minimum_max_abs": 0.00035295087602822174
+    },
+    {
+      "name": "initial frozen-body memory spectral radius <=1",
+      "passed": true,
+      "values": [
+        0.9000000599743623,
+        0.9939996142709067,
+        0.9978454025148413,
+        0.994484295306225
+      ],
+      "limitation": "initial model only; softplus has no upper bound; no full-physics stability guarantee"
+    },
+    {
+      "name": "only declared memory channels masked",
+      "passed": true
+    },
+    {
+      "name": "supervised and act deterministic mean/action identical",
+      "passed": true
+    },
+    {
+      "name": "critic raw inputs unchanged",
+      "passed": true
+    },
+    {
+      "name": "update0 every gain finite nonzero gradient",
+      "passed": true
+    },
+    {
+      "name": "update1 every gain finite nonzero gradient",
+      "passed": true
+    },
+    {
+      "name": "two bounded MSE updates change all 42 gain parameters",
+      "passed": true
+    },
+    {
+      "name": "large SGD retains finite nonnegative softplus gains",
+      "passed": true
+    },
+    {
+      "name": "checkpoint every weight/buffer and model identity exact",
+      "passed": true
+    },
+    {
+      "name": "checkpoint full RNG restoration exact",
+      "passed": true
+    },
+    {
+      "name": "checkpoint BC Adam gain moments and step exact",
+      "passed": true
+    },
+    {
+      "name": "checkpoint PPO optimizer states remain fresh",
+      "passed": true
+    },
+    {
+      "name": "deployment uses identity H before exact state load",
+      "passed": true
+    },
+    {
+      "name": "deployment rejects old raw FF identity",
+      "passed": true
+    },
+    {
+      "name": "PPO rejects old raw FF identity",
+      "passed": true
+    },
+    {
+      "name": "direct strict state load rejects raw FF weights",
+      "passed": true
+    },
+    {
+      "name": "deployment rejects physical H mismatch",
+      "passed": true
+    },
+    {
+      "name": "legacy GRU remains original raw actor and identity",
+      "passed": true
+    },
+    {
+      "name": "raw495 remains original MLP",
+      "passed": true
+    },
+    {
+      "name": "all compiled physical arrays unchanged",
+      "passed": true
+    }
+  ],
+  "model_identity": {
+    "architecture": "ff238",
+    "obs_dim": 238,
+    "critic_obs_dim": 255,
+    "logstd_bounds": [
+      -3.0,
+      0.3
+    ],
+    "dtype": "torch.float64",
+    "actor_input_transform": "physical_mlp_plus_trainable_inhibitory_error_v1",
+    "actor_mask_ranges": [
+      [
+        42,
+        84
+      ],
+      [
+        126,
+        168
+      ],
+      [
+        195,
+        237
+      ]
+    ],
+    "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+    "gain_init_version": "native_actuator_halfspan_x10_v1",
+    "gain_init_H": [
+      0.43574999999999997,
+      0.6579,
+      0.3384583060121321,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2190555268149066,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.7458035036806745,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43263502486291344,
+      0.4745269371779961,
+      0.7379067053719459,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      1.2793495780011144,
+      0.73525,
+      1.0125,
+      0.8292499999999999,
+      1.01155,
+      0.43574999999999997,
+      0.6579,
+      0.9848645841986645,
+      0.73525,
+      1.0125,
+      0.8497330240243897,
+      1.01155
+    ],
+    "gain_init_tau_s": 0.05,
+    "gain_init_rate_rad_s": 2.0,
+    "initialization_prior": "declared teacher error relaxation; not anatomical",
+    "residual": "238->128 tanh->128 tanh->42; masked channels have zero drive",
+    "all_actor_weights_trainable": true
+  },
+  "command": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/env/bin/python",
+    "-B",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/check_inhibitory.py"
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/student_wave.py": "58971252b44da48031e2957199eff01f48a86d520f20f949edf71197b027cba9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/models.py": "45829288c3abb931df324d5b3623fa12a0199462d44342e9a43a451e1d272a49",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T105518Z/check_inhibitory.py": "36a3c6c65871ba14c7bf3aeb5fde43a5adde06dee04205a51cb36d7236897e44"
+  },
+  "physical_steps": 0,
+  "interpretation": "replacement ANN architecture prior, not anatomical or walking evidence; initial frozen-body stability only"
+}

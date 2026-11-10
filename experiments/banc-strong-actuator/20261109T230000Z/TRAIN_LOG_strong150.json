@@ -1,0 +1,148 @@
+{
+  "reward_v5": {
+    "w_duty": 0.0,
+    "w_swing": 0.0,
+    "duty_target": 0.6,
+    "duty_tau_s": 0.2,
+    "swing_load": 0.1,
+    "clearance_ref": 0.02
+  },
+  "prereg": {
+    "schema": "strong-actuator/1",
+    "user_authorisation": "the user approved changing the actuator and the body, both as declared derived models with a new hash and a preregistration; this is route 1",
+    "finding_that_motivates_it": "the open-loop probe measured single-leg lift torque demand at 11.7 of a 14.9 limit and tripod lift at 12.3 of 14.9, i.e. 78-90 percent of saturation, and every configuration that lets feet lift loses the body (support .39-.46). If authority is the binding constraint, raising it should move that frontier",
+    "change": {
+      "model": "derived from MODEL_TARSUS_PAD_R02.xml (pad body, R=.02) by scaling every actuator ctrlrange by a declared factor: 1.5 and 2.0",
+      "invariants_checked": "nq, nv, nu, nbody, ngeom, nmesh, neq, joint ranges, body masses and inertias, gear, gain, bias, damping, armature, gravity, timestep and all geometry must be identical; only actuator_ctrlrange may differ",
+      "label": "derived-actuator: results are never frozen-body acceptance; absolute force values remain NOT_ESTABLISHED"
+    },
+    "training": "1 ms policy tick, C = 0.02, state curriculum (50 percent recorded transient starts, STATE_BANK_V2), three Lagrangian constraints (support, non-foot, height), 48 updates, gates unchanged",
+    "why_this_is_the_clean_test": "everything else is held identical to the run that produced support .459, so any change is attributable to the torque limit alone",
+    "accounting": "ledger file with old and new sha256, the exact scaling, the invariant check output, and the full evaluation of both variants"
+  },
+  "config": {
+    "updates_per_level": 16,
+    "rollout": 1024,
+    "epochs": 6,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.995,
+    "gae": 0.95,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "residual_rad": 0.003,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "forward_filter_tau": 0.05,
+    "v_targets": [
+      0.05,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "slip_margin": 0.35,
+    "slip_weight": 2.0,
+    "stance_weight": 0.5,
+    "terminate_com": 0.95,
+    "terminate_nonfoot": 1.2223177377939003,
+    "log_every": 8
+  },
+  "gates": {
+    "foot_support_mean_min": 0.9,
+    "nonfoot_force_max_W": 4.889270951175601,
+    "com_height_min": 1.2,
+    "slip_ratio_max": 0.5,
+    "forward_speed_min": 0.05
+  },
+  "adhesion": {
+    "enabled": true,
+    "per_leg": 6.111588688969501,
+    "stance_load": 2.4446354755878006,
+    "label": "derived-channel: results are NOT frozen-body acceptance"
+  },
+  "state_curriculum": {
+    "mix": 0.5,
+    "bank": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-state-curriculum-2/20261109T210000Z/STATE_BANK_V2.npz",
+    "constraints": "support, non-foot, height",
+    "bank_sha256": "03840a2216d4141b3a95691c053cb74ef484ce01ff3d3ded950659a39a1dcffc",
+    "note": "initial states recorded from our own simulation during the release phase; no external generator"
+  },
+  "body": {
+    "xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-strong-actuator/20261109T230000Z/MODEL_STRONG_x150.xml",
+    "sha256": "40066bc9d31c0ecb778a586367f244319d0ce2de280dbc10ade02e4d1b9fa0dc",
+    "label": "derived body (pad spheres) and derived actuator strength; never frozen-body acceptance"
+  },
+  "base": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-retarget/20261108T190000Z/MODEL_MEASURED_STAND.npz",
+    "sha256": "44051de0b003df687f5bed3d8825a8eaa8364344f55ed6308d668cd8aaf1ba6a"
+  },
+  "action_joints": "1 ms tick, C=.02, state curriculum, 3 constraints, derived actuator strength factor from PAD_XML",
+  "levels": [
+    {
+      "level": 0,
+      "v_target": 0.05,
+      "evaluation": {
+        "native_steps": 256000,
+        "duration_s": 3.19899999999421,
+        "forward_speed_native_per_s": 0.223009709831027,
+        "foot_support_mean": 1.4467949802955034,
+        "foot_support_min": 0.37207324082811044,
+        "nonfoot_force_max_W": 0.0,
+        "com_height_min": 0.9368108053798949,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 3.502329767810436,
+          "LH": 1.6853308436206347,
+          "LM": 1.0570660418208877,
+          "RF": 2.911464762327584,
+          "RH": 4.554091368093763,
+          "RM": 5.739442621956525
+        },
+        "slip_ratio_max": 5.739442621956525,
+        "slip_ratio_mean": 3.241620900938305,
+        "slip_criterion_passed": false
+      },
+      "gates": {
+        "foot_support_mean": true,
+        "nonfoot": true,
+        "com_height": false,
+        "slip": false,
+        "forward": true
+      },
+      "gates_passed": false
+    }
+  ],
+  "control_base_network_only": {
+    "native_steps": 256000,
+    "duration_s": 3.19899999999421,
+    "forward_speed_native_per_s": 0.2185408654608701,
+    "foot_support_mean": 1.4358214416549107,
+    "foot_support_min": 0.37207324082811044,
+    "nonfoot_force_max_W": 0.0,
+    "com_height_min": 0.9349772898309833,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 3.763987286062192,
+      "LH": 1.4303463579721185,
+      "LM": 1.19507653164531,
+      "RF": 2.8215797270509793,
+      "RH": 4.64784808094954,
+      "RM": 5.490809593971713
+    },
+    "slip_ratio_max": 5.490809593971713,
+    "slip_ratio_mean": 3.224941262941975,
+    "slip_criterion_passed": false
+  },
+  "stopped_at_level": 0,
+  "total_physics_steps": 226556480,
+  "wall_s": 279.3010506629944,
+  "model": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-strong-actuator/20261109T230000Z/MODEL_strong150.npz",
+    "sha256": "efbce486141d63ddc3d51eb8b2b6e43a4f417e19fd1686b8b3fea828246cb739"
+  }
+}

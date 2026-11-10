@@ -1,0 +1,13 @@
+{
+ "version":"same-task-roleGRU-exact1000to2000-v1",
+ "goal":"S2/S5 close remainingRHfoot-slip throughboundedneuralactionfitwithoutphysicalchanges",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T120531Z/BC_GRU_ROLE_1000/final.pt",
+ "evidence":"same-task300->1000 exactresumeheldoutMSE.003263->.000420 andslip1.351->.534655, now5legs<.5onlyRHfails, all6cycles+forward.07223COM1.25596nf0support1; PPO3updatepilot.544/pruning.540didnotimprove",
+ "sole_change":"EXACTBCAdam+actor+training-onlyrolehead+RNG1000->fixedTOTAL2000. Sameoriginaltrain/validation/data/role_weight.001/lr.001/seed/fullBPTT/model/H/tau/physicalconditions. Nevermodel-onlyreset orredo300->1000",
+ "checkpoints":"global1250/1500/1750/2000 plusfinal atomicfullstates;validationlossnotselectunsafehighscore",
+ "predeclared_physical_eval_budget":"evaluateONLYglobal1500and2000 (not1250/1750). Earliest checkpointmeetingALLunchangedengineeringgatesandsixlegcycles becomescandidateforindependentnative/fulloriginalverification. Trainingstillfinishesfixed2000evenif1500qualifies; allresults retained, no metricthresholdchange",
+ "checks":"parent1000fullsource/provenance/auxcfg/headsha/RESULT+IDENTITY+ptsha chain pinned;real13BCAdamcounters1000andinitialmetrics exactwith0updates; tinyuninterrupted/resumednextupdate model/head/Adam/RNGbitexact;noPPOmomentcross/criticstdchange",
+ "deployed_policy":"auxheadtrainonlyneverinfer, raw238actualsensation andexplicitGRUstate, sameinhibitorytargetpositionbranch, nophase/legorder/timeinput orscripts/actionsoutsideANN",
+ "physical":"samefull71meshbody/noadh/massgravityfrictionfinitePD2rad/s/torque/native12.5us1ms unchanged, noforces/rootwrites",
+ "scope":"onefixedoptimizationbudget basedonobservedunderfitandactualslipimprovement,notinfinitebudgetsearch,originalcompletegoalnotpassed untilallphysicalcriteria/proof/video"
+}

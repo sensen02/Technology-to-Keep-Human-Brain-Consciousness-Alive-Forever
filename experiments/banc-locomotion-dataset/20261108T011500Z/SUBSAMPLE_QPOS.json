@@ -1,0 +1,16 @@
+{
+  "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/dataset/walking-dataset_female-only_snippets-16252_trk-files-0-9.hdf5",
+  "source_sha256": "459d26ae6b59f599ea4838eaa3047551f01e9a6d19ec727312d48a82179357f9",
+  "snippets": 508,
+  "window": 30,
+  "step": 32,
+  "qpos_shape": [
+    508,
+    30,
+    109
+  ],
+  "layout": "7 root + 102 official joint angles, official task layout",
+  "runtime": "isolated teacher environment (dm_control + official flybody)",
+  "physics_steps": 0,
+  "note": "qpos read from the official snippet object; no quaternion conversion done by hand"
+}

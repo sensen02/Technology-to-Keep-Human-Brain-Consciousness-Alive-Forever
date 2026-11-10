@@ -1,0 +1,206 @@
+{
+  "proposal_id": "leg-pools-scaling-v1",
+  "status": "DESIGN ONLY - nothing simulated, not validated by any number in this round",
+  "scope": "multiplicative rescaling of EXISTING edge conductances inside the strict subgraph",
+  "rule": "w'[e] = s[class(e)] * w[e] with s > 0; no entry created or removed",
+  "free_scalars": [
+    "s_contra_same_row",
+    "s_front_hind",
+    "s_tripod_diagonal"
+  ],
+  "free_scalar_count": 3,
+  "bounds": {
+    "lower": 0.25,
+    "upper": 4.0,
+    "inclusive": true,
+    "suggested_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "grid_combinations": 125
+  },
+  "class_partition": {
+    "C_contra_same_row": {
+      "scalar": "s_contra_same_row",
+      "leg_pairs": [
+        [
+          "lf",
+          "rf"
+        ],
+        [
+          "lm",
+          "rm"
+        ],
+        [
+          "lh",
+          "rh"
+        ]
+      ],
+      "edges_per_receptor": {
+        "_We": 1426,
+        "_Wi": 1242
+      },
+      "conductance_uS_per_receptor": {
+        "_We": 0.5970624749179778,
+        "_Wi": 0.6195020520951573
+      },
+      "edges_total": 2668,
+      "frozen_conductance_uS_total": 1.216564527013135
+    },
+    "C_front_hind": {
+      "scalar": "s_front_hind",
+      "leg_pairs": [
+        [
+          "lf",
+          "lh"
+        ],
+        [
+          "rf",
+          "rh"
+        ]
+      ],
+      "edges_per_receptor": {
+        "_We": 252,
+        "_Wi": 193
+      },
+      "conductance_uS_per_receptor": {
+        "_We": 0.150715244944238,
+        "_Wi": 0.12022945083856734
+      },
+      "edges_total": 445,
+      "frozen_conductance_uS_total": 0.27094469578280533
+    },
+    "C_tripod_diagonal": {
+      "scalar": "s_tripod_diagonal",
+      "leg_pairs": [
+        [
+          "lf",
+          "rh"
+        ],
+        [
+          "rf",
+          "lh"
+        ]
+      ],
+      "edges_per_receptor": {
+        "_We": 122,
+        "_Wi": 144
+      },
+      "conductance_uS_per_receptor": {
+        "_We": 0.05115307199427958,
+        "_Wi": 0.08366950382087854
+      },
+      "edges_total": 266,
+      "frozen_conductance_uS_total": 0.1348225758151581
+    },
+    "C_fixed_everything_else": {
+      "scalar": 1.0,
+      "leg_pairs": "all remaining edges",
+      "edges_per_receptor": {
+        "note": "not split by receptor here"
+      },
+      "edges_total": 431747,
+      "frozen_conductance_uS_total": 379.21766820138896
+    }
+  },
+  "class_partition_sums_to_435126_edges": true,
+  "application": "row scaling of the frozen csr matrices: for every stored entry (post, pre) multiply the uS value in place by the scalar of class(pre, post); row index = postsynaptic neuron",
+  "conductance_convention": {
+    "frozen": "every neuron with incoming edges has exactly 0.02 uS total incoming conductance",
+    "V1_row_renormalized": {
+      "rule": "after scaling, divide each target neuron row by (scaled row sum / 0.02 uS) so the row total is exactly 0.02 uS",
+      "resulting_per_neuron_incoming_uS": 0.02,
+      "rows_untouched": "neurons with zero incoming edges have no entries and are unaffected"
+    },
+    "V2_bounded_unrenormalized": {
+      "rule": "no renormalisation; each target neuron total must stay in [0.5, 2.0] * 0.02 uS",
+      "allowed_per_neuron_incoming_uS": [
+        0.01,
+        0.04
+      ],
+      "projection": "if a row total exceeds a bound, multiply that whole row by one per-row factor to land on the bound",
+      "units": "uS"
+    },
+    "must_choose_one_next_round": true
+  },
+  "scalar_ceiling_if_applied_exactly": {
+    "C_contra_same_row": {
+      "frozen_uS": 1.216564527013135,
+      "at_scalar_lower_uS": 0.3041411317532838,
+      "at_scalar_upper_uS": 4.86625810805254,
+      "delta_at_upper_uS": 3.649693581039405,
+      "delta_at_upper_share_of_module_total": 0.009583272715679563,
+      "ratio_to_contralateral_same_row_class_at_upper": 4.0
+    },
+    "C_front_hind": {
+      "frozen_uS": 0.27094469578280533,
+      "at_scalar_lower_uS": 0.06773617394570133,
+      "at_scalar_upper_uS": 1.0837787831312213,
+      "delta_at_upper_uS": 0.812834087348416,
+      "delta_at_upper_share_of_module_total": 0.0021343191034251022,
+      "ratio_to_contralateral_same_row_class_at_upper": 0.8908518693965831
+    },
+    "C_tripod_diagonal": {
+      "frozen_uS": 0.1348225758151581,
+      "at_scalar_lower_uS": 0.03370564395378953,
+      "at_scalar_upper_uS": 0.5392903032606324,
+      "delta_at_upper_uS": 0.4044677274454743,
+      "delta_at_upper_share_of_module_total": 0.0010620410866649362,
+      "ratio_to_contralateral_same_row_class_at_upper": 0.4432895183822911
+    }
+  },
+  "per_neuron_class_share": {
+    "C_contra_same_row": {
+      "target_neurons_affected": 721,
+      "target_neurons_with_share_gt_0p5": 28,
+      "max_share": 0.9236947791164658,
+      "mean_share_over_affected": 0.08436647205361547
+    },
+    "C_front_hind": {
+      "target_neurons_affected": 306,
+      "target_neurons_with_share_gt_0p5": 1,
+      "max_share": 0.6,
+      "mean_share_over_affected": 0.04427200911483747
+    },
+    "C_tripod_diagonal": {
+      "target_neurons_affected": 114,
+      "target_neurons_with_share_gt_0p5": 3,
+      "max_share": 0.8495934959349591,
+      "mean_share_over_affected": 0.05913270869085881
+    }
+  },
+  "per_neuron_bound_consequence": {
+    "worst_case_row_total_at_all_scalars_upper_uS": 0.08,
+    "V1_keeps_exact_uS": 0.02,
+    "V2_would_project_rows_above_uS": 0.04,
+    "note": "V2 projection is active for any row whose scalable-class share exceeds 1/3 at s=4; V1 is the recommended variant because it keeps the frozen .02 uS convention exactly and only changes relative class weights"
+  },
+  "feasibility_flags_from_this_audit": {
+    "class_has_edges": {
+      "C_contra_same_row": true,
+      "C_front_hind": true,
+      "C_tripod_diagonal": true,
+      "C_fixed_everything_else": true
+    },
+    "class_edge_totals": {
+      "C_contra_same_row": 2668,
+      "C_front_hind": 445,
+      "C_tripod_diagonal": 266,
+      "C_fixed_everything_else": 431747
+    },
+    "note": "the scalars only change the strength of edges that already exist; a class with zero direct edges cannot be up-weighted by this proposal, and the two-hop / shared-pool routes reported in COUPLING.json are NOT reachable by any scalar of this class partition"
+  },
+  "not_allowed": [
+    "new edges",
+    "deleted edges",
+    "transmitter reclassification",
+    "sign flips",
+    "external oscillator or phase clock",
+    "acceptance-criteria changes",
+    "reading body or leg state into the premotor block"
+  ],
+  "next_round_requirements": "new timestamped directory, own preregistration, open-loop neural screen before any physics, one scalar set preregistered rather than searched post hoc"
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "official measured-reference teacher and action mapping audit",
+  "teacher_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T174640Z/official-flybody",
+  "commit": "d015e9bfe441bd90ae431bac24c55cb74bdbce26",
+  "dataset": "https://ndownloader.figshare.com/files/51196868",
+  "dataset_bytes": 3019999672,
+  "dataset_md5": "de7d5367850430adbe03a3783967c712",
+  "selection_rule": "Inspect schema without policies or performance; use trajectory index0 from official training dataset if provided, else first lexicographic compatible dataset. Fixed seed41, no retrospective best-clip selection. Any failed trajectory remains recorded.",
+  "split_rule": "Preserve official train/test partition if available. Treat all publicly supplied references as potential pretraining exposure for released teacher; no claim of teacher held-out generalization. Never split neighboring frames into train/test. Individual or original-recording separation requires metadata; if absent mark unknown instead of pretending independent trajectories.",
+  "runtime": "Existing isolated TFCPU2.8 TFP.16 MuJoCo3.1.6 dm_control1.0.20 environment. No physical parameter or weights tuning.",
+  "rollout": "Official walk_imitation(ref_path=dataset,traj_indices=[0]), original termination distance. Stop at first terminal or composer time limit, no implicit reset. Save original reference, full actual obs/actions/body, terminal observation, scratch-only consistent diagnostic contacts and adhesion contributions.",
+  "verification": "Fresh env/policy replay compares observations, actions, states and reference. Actual reward no longer constant inference reward. Report tracking separately from support. Same-run video only.",
+  "mapping": "Independent structural and no-step FK audit of original59actions versus current42increment actuators. Candidate anatomy correspondences do not authorize direct weight transplantation or changed current-body physics.",
+  "scientific_scope": "These processed imitation references are based on measured walking; establish raw-video/body-fit origin from metadata and paper, do not call fitted joint angles direct neuronal or muscle measurements.",
+  "platform_scope": "Feeding and behavior selection still required; surgeries only after complete platform and frozen pre-injury parameters."
+}

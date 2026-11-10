@@ -1,0 +1,24 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-13",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the demonstration only: a lead-in phase that moves the body into the solved five leg stance before the swing",
+  "not_amended": "the task, its start pose, the acceptance criteria, the reward, the observation, the world, the network and the training budget are all untouched",
+  "when": "after the sixteen configuration sweep in which the right hind leg could only advance by letting the body collapse",
+  "evidence": {
+    "advance_requires_collapse": "15 of 16 configurations gave the right hind leg a forward advance of 0.065 to 0.253, but every one of them did it with support 0.000, body height 0.662 and non-foot contact of 37 to 42 W, against a 4.889 W limit. The one configuration that kept the body up advanced 0.0000",
+    "a_stance_that_does_support_exists_kinematically": "solving the other five legs with the right hind leg held clear gives COM 1.4507, five supporting pads coplanar within 2.5 mm, and joints only 0.099 rad from the nominal pose",
+    "untested_assumption": "every demonstration so far started from the nominal six leg pose and raised a leg inside it. Nobody has tried reaching a stance that was solved to support five legs before moving the foot"
+  },
+  "change": {
+    "phase_0": "command joint rates toward the solved five leg stance until the joint error is small; the reference is a solved pose, not a clock",
+    "phase_1": "swing the raised leg forward",
+    "phase_2": "press down",
+    "declared_status": "this lead-in is a joint space interpolation to a solved pose. It is a declared rule based demonstration, not neural control, and nothing in the acceptance depends on it"
+  },
+  "preregistered_outcomes": [
+    "if the leg both advances and keeps the body supported, the collapse was caused by the starting pose and the demonstration can be fixed",
+    "if the body still collapses, the mutual exclusion is a property of the body under this actuator and the leg is recorded as a body level limit, closing the single leg effort",
+    "either way no result may be described as walking, as connectome capability or as frozen body acceptance"
+  ],
+  "discipline": "all earlier preregistrations and amendments are left byte identical. This is the thirteenth documented change of the round."
+}

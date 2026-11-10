@@ -1,0 +1,11 @@
+{
+  "schema": "triad-pose-train/1",
+  "origin": "the pose re-solved for the triad contact geometry holds statically at COM 1.3008 (gate 1.20) with all six feet loaded and zero non-foot contact, versus 0.998 for the pose that was solved for the single-sphere pad. The triad body reached COM 1.032 in a 3.2 s cold start with the old pose, so the new pose should move height toward the gate",
+  "runs": {
+    "P1": "train from the new pose with a cold start only, so the effect of the pose alone is visible",
+    "P2": "record 300 states during the release phase of P1 in the triad world, then retrain with a 50 percent state curriculum, so the release transient is in the training distribution for this body"
+  },
+  "kept": "triad pad body with doubled torque, 1 ms policy tick, C = 0.02, releasable adhesion 0.25 body weight, mu 1.5, reward v4, three Lagrangian constraints (support, non-foot, height), 48 updates, gates unchanged",
+  "labelling": "derived body, derived actuator, derived adhesion, replacement ANN; the pose is a solved starting condition; never frozen-body acceptance",
+  "accounting": "both evaluation protocols for P1 and P2, per-leg slip, support minimum, COM minimum, and the state bank composition"
+}

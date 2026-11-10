@@ -1,0 +1,286 @@
+{
+  "status": "WIDE_MODULE_LEG_SPECIFICITY_TEST_NOT_WALKING",
+  "results": {
+    "frozen20k": {
+      "cells": 20000,
+      "strict_edges": 435126,
+      "conditions": {
+        "all_legs": {
+          "driven_ports": 556,
+          "per_leg_mean_hz": {
+            "LF": 21.194798597451598,
+            "LH": 21.31963419158888,
+            "LM": 8.60993030016318,
+            "RF": 20.54960075175704,
+            "RH": 17.356444611383083,
+            "RM": 13.365491646665953
+          },
+          "driven_leg_hz": null,
+          "other_legs_mean_hz": null,
+          "selectivity_ratio": null,
+          "MN_spikes": 13028,
+          "voltage_min_mV": -75.79754041936934,
+          "rates_sha256": "dcf5abe64dd873e1f229ac582ca6ea1672b7ff755f2a2b102e063582378e76be"
+        },
+        "only_LF": {
+          "driven_ports": 100,
+          "per_leg_mean_hz": {
+            "LF": 21.411198100081915,
+            "LH": 20.928634056578233,
+            "LM": 8.881048780234831,
+            "RF": 20.604410169732997,
+            "RH": 16.993853337179875,
+            "RM": 12.99958106272426
+          },
+          "driven_leg_hz": 21.411198100081915,
+          "other_legs_mean_hz": 16.08150548129004,
+          "selectivity_ratio": 1.3314175171592413,
+          "MN_spikes": 13190,
+          "voltage_min_mV": -74.52189244777561,
+          "rates_sha256": "fe5d61755e5b0c7c3f674a110ad0c45f0a1fed64117cc85a172100ad50cc5017"
+        },
+        "only_LH": {
+          "driven_ports": 96,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -69.87993771955843,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        },
+        "only_LM": {
+          "driven_ports": 87,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -68.87729903755901,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        },
+        "only_RF": {
+          "driven_ports": 106,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.11363535302034965
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.022727070604069928,
+          "selectivity_ratio": 0.0,
+          "MN_spikes": 18,
+          "voltage_min_mV": -70.38192722530171,
+          "rates_sha256": "cff582acbf4cfc069996974ce0d2a877b696f73234f01870e186c522db719179"
+        },
+        "only_RH": {
+          "driven_ports": 88,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0173507122311815,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0173507122311815,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 2,
+          "voltage_min_mV": -68.87006487622216,
+          "rates_sha256": "d6a7a6c37aa5eead332d833ee6c6bda3f54ee2ae87fd9d65cc7cbcc57e950a57"
+        },
+        "only_RM": {
+          "driven_ports": 79,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -69.71922776857349,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        }
+      },
+      "argmax_leg_per_condition": {
+        "LF": "LF",
+        "LH": "LF",
+        "LM": "LF",
+        "RF": "RM",
+        "RH": "RH",
+        "RM": "LF"
+      },
+      "wall_s": 17.64961314201355
+    },
+    "banc_strict": {
+      "cells": 153962,
+      "strict_edges": 1223208,
+      "conditions": {
+        "all_legs": {
+          "driven_ports": 556,
+          "per_leg_mean_hz": {
+            "LF": 15.689769378469423,
+            "LH": 16.921109696699098,
+            "LM": 7.376979485371093,
+            "RF": 11.897511724109478,
+            "RH": 13.267033831193698,
+            "RM": 9.037634676065352
+          },
+          "driven_leg_hz": null,
+          "other_legs_mean_hz": null,
+          "selectivity_ratio": null,
+          "MN_spikes": 9863,
+          "voltage_min_mV": -74.2728538027048,
+          "rates_sha256": "6f6ce0c0aa5e907fd930e4297f5050f1f32dfcfb4a472ee73ee047f696e1c0b9"
+        },
+        "only_LF": {
+          "driven_ports": 100,
+          "per_leg_mean_hz": {
+            "LF": 16.11681289094433,
+            "LH": 17.14376861528232,
+            "LM": 7.0136209355857915,
+            "RF": 13.831784824665501,
+            "RH": 13.106129677571422,
+            "RM": 9.231975706714593
+          },
+          "driven_leg_hz": 16.11681289094433,
+          "other_legs_mean_hz": 12.065455951963925,
+          "selectivity_ratio": 1.3357815034185225,
+          "MN_spikes": 10094,
+          "voltage_min_mV": -72.73718722863525,
+          "rates_sha256": "8b0319891f546e9c30105f20a8e13e205beed702b6002defa22b1c564a842234"
+        },
+        "only_LH": {
+          "driven_ports": 96,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -69.01853080765471,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        },
+        "only_LM": {
+          "driven_ports": 87,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -69.19829687032788,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        },
+        "only_RF": {
+          "driven_ports": 106,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.12666467743188928
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.025332935486377856,
+          "selectivity_ratio": 0.0,
+          "MN_spikes": 18,
+          "voltage_min_mV": -69.8360120180089,
+          "rates_sha256": "da1d51b8b857320b883daee7f17854f6d3d9d74c03cf29121e2e7082b707dd73"
+        },
+        "only_RH": {
+          "driven_ports": 88,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.008450827400302799,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.008450827400302799,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 1,
+          "voltage_min_mV": -69.40927273431066,
+          "rates_sha256": "84251a80aa863c5fa5a119d9734aef0e19c1bf66bb36b78de03f4a64a047dc9e"
+        },
+        "only_RM": {
+          "driven_ports": 79,
+          "per_leg_mean_hz": {
+            "LF": 0.0,
+            "LH": 0.0,
+            "LM": 0.0,
+            "RF": 0.0,
+            "RH": 0.0,
+            "RM": 0.0
+          },
+          "driven_leg_hz": 0.0,
+          "other_legs_mean_hz": 0.0,
+          "selectivity_ratio": null,
+          "MN_spikes": 0,
+          "voltage_min_mV": -69.88411254145583,
+          "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+        }
+      },
+      "argmax_leg_per_condition": {
+        "LF": "LH",
+        "LH": "LF",
+        "LM": "LF",
+        "RF": "RM",
+        "RH": "RH",
+        "RM": "LF"
+      },
+      "wall_s": 134.52826976776123
+    }
+  },
+  "total_neural_steps": 70000,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "protocol": "single-leg sensory drive (one leg of 556 ports nonzero), 500 ms warm-up + 2000 ms recorded replay, zero descending, both modules from rest",
+  "limits": "Engineering drive test on an uncalibrated reconstruction; a leg-specific response would not prove the fly uses it, and its absence would not prove the fly cannot. No physics, no behaviour, no learning.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz": "abd2a0c10501458f927c6ccbe53bbf2e1c982bd139f7388cbd26fb08218aa39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/module_wide.py": "5102c1ea69a4881d650d7511af8e2c92470fca00f4f931715d9feadf17f79344"
+  }
+}

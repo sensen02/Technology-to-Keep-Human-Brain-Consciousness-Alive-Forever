@@ -1,0 +1,11 @@
+{
+  "scope": "Independent poststudy saved-data reconstruction only; does not import episode/optimize/scoring/search_rules or execute MuJoCo/neural steps",
+  "verification_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/learning/verify_study.py",
+  "identities": "Compare all recorded full NEURAL_INITIAL keys to frozen foundationNEURAL_START, physics INITIAL integrationstate/actuator target to canonicalHANDOVER, MNroot/local/leg/joint identities toBASE. Reconstruct actorB@theta clipping independently.",
+  "source_rows": "BODY start5ms q/v, precedingnativefootloads afterfirstsample, command actualtime and fivefoldheldrates; cycleendpointloads atnative400th samples; start/endCOM and frozenheading",
+  "score_reconstruction": "Independent explicit formula and state-run cycle parser, not imported scoringfunction; original dsm nativegate checked againstsavedgate. Score/term scalarreduction tolerance1e-10 due equivalent multiplication/division ordering (baseline independent -0.11704020147647108 vs saved -0.11704020147647107, difference1.4e-17); no rewardthreshold or optimizationlogic change.",
+  "search_reconstruction": "RNG20261107 exact draws and perpair plus/minuscoeff clipping, all53thetas, feasible-firstelite pools/order, exact mean/std arrays and bounds, strictfeasibleincumbent updates. Four repeatedincumbent cross-worker fullreset controls independently compare archived arrays max1e-9, preferexact. Validations never affectselection.",
+  "validation": "Both5s saved selectedandzero states/inputs/rates/gates/rewards/stepcounts audited. Since selectedremainszero, pairedvalidation is identicalpolicy evidence, not claimed learnedimprovement.",
+  "counts": "Original study expected5,040,000physics/126,000neural plusinit/liveforward actualledger; verifieradds0physics/0neural/0fitting. Initialbaseline smokeaudit206checks saved-dataonly and no steps, fullstudy audit repeatednecessaryforfinalevidence.",
+  "failure_handling": "If independent checker fails, preserve FAILED_INDEPENDENT_STUDY_VERIFICATION withchecks/traceback; never rerunphysicalstudy to conceal numerical/logic mismatch."
+}

@@ -1,0 +1,72 @@
+{
+  "status": "BASE_NETWORK_TRAINED_ON_MEASURED_DATA",
+  "samples_train": 21160,
+  "samples_val": 5263,
+  "segments_train": 266,
+  "segments_val": 66,
+  "final_train_mse": 0.21571005880832672,
+  "final_val_mse": 0.2586127817630768,
+  "log": [
+    {
+      "step": 500,
+      "train_mse": 0.5881751775741577,
+      "val_mse": 0.5955231189727783
+    },
+    {
+      "step": 1000,
+      "train_mse": 0.35675767064094543,
+      "val_mse": 0.41315045952796936
+    },
+    {
+      "step": 1500,
+      "train_mse": 0.3623468279838562,
+      "val_mse": 0.35827770829200745
+    },
+    {
+      "step": 2000,
+      "train_mse": 0.28794872760772705,
+      "val_mse": 0.31042930483818054
+    },
+    {
+      "step": 2500,
+      "train_mse": 0.22789254784584045,
+      "val_mse": 0.2937677800655365
+    },
+    {
+      "step": 3000,
+      "train_mse": 0.23782700300216675,
+      "val_mse": 0.2767984867095947
+    },
+    {
+      "step": 3500,
+      "train_mse": 0.25077345967292786,
+      "val_mse": 0.26377278566360474
+    },
+    {
+      "step": 4000,
+      "train_mse": 0.190440833568573,
+      "val_mse": 0.2586127817630768
+    }
+  ],
+  "steps": 4000,
+  "batch": 96,
+  "lr": 0.002,
+  "architecture": "294->128tanh->128tanh->42",
+  "lags": [
+    0,
+    8,
+    24,
+    32,
+    36,
+    38,
+    39
+  ],
+  "K": 40,
+  "centre_scale_from": "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/s5-ann-walk/20261107T111149Z/MODEL_VELOCITY.npz",
+  "centre_scale_sha256": "08732229ce06ba201f88fd67d29aefdc50ccdf95e5a522a5125986748c6245f7",
+  "training_set": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-locomotion-dataset/20261108T011500Z/TRAINING_SET.npz",
+  "wall_s": 1.7870378494262695,
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "note": "supervised only on filtered retargeted measured motion; no teacher, no synthetic periodic curve, no physics in training"
+}

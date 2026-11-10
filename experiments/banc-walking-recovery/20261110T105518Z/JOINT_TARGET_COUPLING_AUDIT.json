@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "index": 200,
+      "target_feedback_diag_mean": -9.744764113660258,
+      "actual_joint_position_feedback_diag_mean": 9.651929724480144,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 13.236148697396668
+    },
+    {
+      "index": 400,
+      "target_feedback_diag_mean": -9.698380532489637,
+      "actual_joint_position_feedback_diag_mean": 9.610783547350966,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 12.823582631634629
+    },
+    {
+      "index": 700,
+      "target_feedback_diag_mean": -9.777402285655059,
+      "actual_joint_position_feedback_diag_mean": 9.689642914376837,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 12.424282845293797
+    },
+    {
+      "index": 960,
+      "target_feedback_diag_mean": -9.793548596601982,
+      "actual_joint_position_feedback_diag_mean": 9.691088975840534,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 14.10290653725526
+    },
+    {
+      "index": 1000,
+      "target_feedback_diag_mean": -9.787615250426555,
+      "actual_joint_position_feedback_diag_mean": 9.682991612933368,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 13.544496792833101
+    },
+    {
+      "index": 1200,
+      "target_feedback_diag_mean": -9.722866927262693,
+      "actual_joint_position_feedback_diag_mean": 9.641324424175414,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 12.695308688982127
+    },
+    {
+      "index": 1500,
+      "target_feedback_diag_mean": -9.7761762710122,
+      "actual_joint_position_feedback_diag_mean": 9.701403178517802,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 13.668328331654179
+    },
+    {
+      "index": 1800,
+      "target_feedback_diag_mean": -9.788746632450756,
+      "actual_joint_position_feedback_diag_mean": 9.697264249638943,
+      "actual_joint_position_feedback_positive_diags": 42,
+      "actual_joint_position_feedback_spectral_norm": 13.84032917875327
+    }
+  ],
+  "formula": "KT=(Jerror+Jtarget)/H; Kq=(Jq-Jerror)/H atconstanttarget/velocity; coherent sensorchanges, not an actualphysical perturbation test",
+  "limitation": "Negative target-memory feedback can coexist with positive actual-q feedback via targeterror branch; this diagnostic cannot determine fullcontactplant stability",
+  "next": "Compare explicit trainable inhibitory target-position (126:168) synapses vs error (42:84), or actual augmented plant finite differences, before claimingtargetfeedbacksufficient. Must rerunphysicalhandover."
+}

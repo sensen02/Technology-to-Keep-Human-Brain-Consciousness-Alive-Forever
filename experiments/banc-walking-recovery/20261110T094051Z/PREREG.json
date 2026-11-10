@@ -1,0 +1,13 @@
+{
+ "version":"smooth-expert-original-student-v1",
+ "goal":"S2/S5 compare experttransition smoothing only withsameunclockedANN",
+ "baseline":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z",
+ "physical_teacher":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload",
+ "teacher_evidence":"smoothquinticswing/smoothcontact .01height, all5gatespassforward.068816COM1.25608nf0slip.47034, sixlegcycles; twomotorpulsevariants alsopass",
+ "unchanged_student":"originalraw238actor inclpreviousaction, originalFF/GRU128,BCtanhMSE,lr.001,FF1000steps/GRU300steps,seedunchanged,std.05,criticseparate; maskablationseparatefailednotmixed",
+ "data":"reuse3verifiedsmoothtrajectories,sametrain0/1validation2,.4tailnotBC; noactorphase/order/clock/future",
+ "comparison":"originalexpertFF/GRU failbaseline; maskbothfail; smoothteacherexperiment isolatesdemonstrationregularity withsameNNbudgets",
+ "evaluation":"continuous1ssettle4.8steacher9.6sstudent,hidden/targets unchanged,noexpertqueriesafterhandover; allphysicalgatesandfulloriginalfuturecriteria unchanged",
+ "checks":"sourcehash/staticsmooth81,studentwiring74/exclusiveoutputs/datasetsplit/actorinputproof/checkpointreload; newteacherpreflightreadsnewpassedsource identity andtrace",
+ "scope":"substituteANN ondeclaredderivedfullbody; algorithmteacherpassed != neuralgoalcompletion"
+}

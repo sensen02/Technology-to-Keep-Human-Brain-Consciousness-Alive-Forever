@@ -1,0 +1,3633 @@
+{
+  "schema": "neural-interface-candidate/1",
+  "status": "CANDIDATE_SOURCE_AUDITED_NOT_TRAINED_NOT_RUNTIME_ADMITTED",
+  "task_relation": "S3/S4/S5 anatomy interface for approved locomotion/feeding/choice platform",
+  "scope": {
+    "simulations": 0,
+    "neural_steps": 0,
+    "training_updates": 0,
+    "lesion_experiments": 0,
+    "core_or_tracker_edits": 0,
+    "external_research": 0,
+    "output_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface",
+    "desktop_mirror_root": "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/neural-interface"
+  },
+  "requested_absolute_cache_path": {
+    "path": "/data/flywire/banc_connectome.npz",
+    "exists": false,
+    "actual_source": "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz"
+  },
+  "sources": {
+    "cache": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz",
+      "sha256": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+      "bytes": 14243485
+    },
+    "raw_neurons": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_neurons.csv.gz",
+      "sha256": "40a2201554a8c34d2c4b07c8322543a07c1b3faf5acafbac363fd1a3d0fa617f",
+      "bytes": 2881728
+    },
+    "raw_connections": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connections_princeton.csv.gz",
+      "sha256": "8772298eb69455759c7b4a23ee1d1843f5b389965e312524e652415f8a09b312",
+      "bytes": 29164674
+    },
+    "builder": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/build_banc_cns.py",
+      "sha256": "23f202c500cddaa2c153bba05832036cd32c3ad188b3d09cb2a29466c1a8c911",
+      "bytes": 6188
+    },
+    "neck_data": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/engine/neck_cut_data.py",
+      "sha256": "510b74c777c3c5bf46e41a7fb80e4074e693528c3a726e2488cb5aee07c6bd99",
+      "bytes": 79885
+    },
+    "adapters": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/engine/embodied/adapters.py",
+      "sha256": "1e3a226ebc4d415b45321f2eeddfb8bec30956a8293ebc2e90c1b0f764472e4c",
+      "bytes": 92046
+    },
+    "access_map": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/engine/embodied/access_map.py",
+      "sha256": "fe7fef5508900900985386125df30b74b09c962c077a3337e7b604f2e168dac4",
+      "bytes": 82119
+    },
+    "feather": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc888/banc_888_meta.feather",
+      "sha256": "86ccf5df0c67419f8c5f43e93a7ed38d23a080e9f7fde26737290252f3780098",
+      "bytes": 57503026
+    },
+    "association": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc888/b888_to_root.npy",
+      "sha256": "9eee49a4974edd3a8feb690c07931a23af38a0771f5c4bd4135c11a0b537a7de",
+      "bytes": 3016256
+    },
+    "supplement": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc_dataverse/supplemental_data_2.txt",
+      "sha256": "3f9c78aa5d87ad893e3d4d7f37c58883196f067507c95e29af1a0cc126fed279",
+      "bytes": 31660830
+    },
+    "cell_info": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc_dataverse/cell_info.parquet",
+      "sha256": "4809f49aaac552c005f2b2adc81891482db0d11aa9623375de1b4e7ba233a67e",
+      "bytes": 12315918
+    },
+    "codex": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc_dataverse/codex_annotations.parquet",
+      "sha256": "8a52f5f84f439603881bb360ea990601fd593072261c8cfb9afb0b3842f89eda",
+      "bytes": 74350281
+    },
+    "somas": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/data/banc/somas_v1.parquet",
+      "sha256": "2307ad7c69b4a4c3d9ece090bfad462911d01125949881f7441fc6a658fb2ab9",
+      "bytes": 5350459
+    },
+    "sensory_lookup": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/outputs/neural_rebuild/sensory_channel_lookup.json",
+      "sha256": "710939c76092d5e60cc261bdd55e3b69c4cbe979db922afae34db230bd7b1b63",
+      "bytes": 195236
+    },
+    "sensory_exporter": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/tools_export_sensory_channel_lookup.py",
+      "sha256": "5ea0e7beb9a0eab16906ab12c4329c0f344c2f2e82cac3d60567058216e31c00",
+      "bytes": 4038
+    },
+    "motor_pools": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/outputs/neural_rebuild/neural_rebuild_11_mn_pools.json",
+      "sha256": "3244c8c1470ad3009dd3e12fc64b11f97d1672b8bda811f9ceacf0221e1dd94c",
+      "bytes": 43156
+    },
+    "motor_crosswalk": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/tools_p3_motor_version_crosswalk.py",
+      "sha256": "9d2e56fdf67f4b24e4a3cf6d92e70f9207e0e5f30f38570adbf2719a91a28e57",
+      "bytes": 18634
+    },
+    "candidate_exporter": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/tools/export_banc888_interface_candidates.py",
+      "sha256": "df4469a1a3652d6e43595529aac73961cf44a46298f18d0decf7b0d74ca3364f",
+      "bytes": 6485
+    },
+    "audit_script": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/audit_neural_interface.py",
+      "sha256": "4bc3ef4f8258583e8eecda86e7d47f53c2f8aa26b231784924bcbb49f2f37906",
+      "bytes": 31216
+    }
+  },
+  "artifacts": {
+    "mapping_feather_root_888.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_888.csv.gz",
+      "sha256": "7b16558af96ee1fdc68c420a068917f6778f25df499e7984a28a4cfd1cd7eb48",
+      "bytes": 1139136
+    },
+    "mapping_feather_root_626.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_626.csv.gz",
+      "sha256": "887dd221039c9061309862d7513bae5d3f54fee2e838054cd46615fc3f2132f7",
+      "bytes": 1008390
+    },
+    "DIRECTED_ROUTE_EDGE_ROWS.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/DIRECTED_ROUTE_EDGE_ROWS.npz",
+      "sha256": "465ac5de6d3ed73ce76cda27b616fd0e676f27b830d39e7e0ebb15b474a30c5f",
+      "bytes": 556778
+    },
+    "SENSORY_CHANNEL_CANDIDATES.csv": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/SENSORY_CHANNEL_CANDIDATES.csv",
+      "sha256": "2ff1b031a247d1d3124eb614192bd0f6b73d7160edecf28dff76b0d7cd233168",
+      "bytes": 498654
+    },
+    "LOCAL_MODULE_CANDIDATE.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz",
+      "sha256": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+      "bytes": 4399326
+    },
+    "mapping_somas.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_somas.csv.gz",
+      "sha256": "2bc4cf3bfc77b542c45dfe44b5737236ff9fc8a0f11fefbb6284fb4444442104",
+      "bytes": 943497
+    },
+    "mapping_feather_banc_888_id.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_banc_888_id.csv.gz",
+      "sha256": "6d531582ec50a6cbb10a2ffcf48a735c39d313ade9c2abb1eb214e27941cd730",
+      "bytes": 1139132
+    },
+    "GROUP_CACHE_INDICES.npz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/GROUP_CACHE_INDICES.npz",
+      "sha256": "557cfc944270a34053d74d3eebe39af453eefe530c22ae5ce656f92fbff3b09a",
+      "bytes": 553107
+    },
+    "mapping_feather_root_850.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_850.csv.gz",
+      "sha256": "ec30dcb402c6ac519b5ffa971d2ac93b148639ee51cdd4327a68b69b8828f171",
+      "bytes": 1121448
+    },
+    "mapping_feather_root_id.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_id.csv.gz",
+      "sha256": "706cc75e86319a03f61a429fe22f3d09dda6069da9f4939456e6d85871b42a3b",
+      "bytes": 1118708
+    },
+    "DIRECTED_SUPERCLASS_EDGE_COUNTS.csv": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/DIRECTED_SUPERCLASS_EDGE_COUNTS.csv",
+      "sha256": "c1acac92e42f721d11610d821e52068b940d0d9935f2f54668d3371b843e16c0",
+      "bytes": 10278
+    },
+    "MOTOR_UNRESOLVED_SOURCE_RECORDS.json": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/MOTOR_UNRESOLVED_SOURCE_RECORDS.json",
+      "sha256": "d51b0b39cf6f9032a1e85e62eb57d61a3001cc5d238e25171c96a26862df4cbf",
+      "bytes": 3915
+    },
+    "mapping_feather_root_890.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_890.csv.gz",
+      "sha256": "ca213d08e4be4704f0d86d851b6f77563fad1cd49fbfcedd7b6f4473fd3e31b1",
+      "bytes": 1129371
+    },
+    "MOTOR_TARGET_CANDIDATES.csv": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/MOTOR_TARGET_CANDIDATES.csv",
+      "sha256": "6bcf47eeb0942d60de6d9f3b7f6014157f621e623ae331560fadbcb176b3af0b",
+      "bytes": 38074
+    },
+    "mapping_cell_info.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_cell_info.csv.gz",
+      "sha256": "246148eeadc2a75ef6bb7cb8e12a195836675739762ab328e27529430e336742",
+      "bytes": 1111044
+    },
+    "mapping_codex.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_codex.csv.gz",
+      "sha256": "6d9af63c2cd4d03031f1f68aed9a0aecea090f1f1e25c44c3ac5a01b9e73e326",
+      "bytes": 1113602
+    },
+    "LOCAL_MOTOR_READOUT_PORTS.csv": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MOTOR_READOUT_PORTS.csv",
+      "sha256": "c78650b4a8b705512523674f4c47dd7e7718261db5b51d37519f910b558df39a",
+      "bytes": 35717
+    },
+    "mapping_raw_neurons.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_raw_neurons.csv.gz",
+      "sha256": "4c52bba5c4581bb09c627139ba32ddf69222676d1ae03ac18228200398f05f40",
+      "bytes": 1009882
+    },
+    "mapping_supplement.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_supplement.csv.gz",
+      "sha256": "76f0f72ca7e9cd7843d46614483809c1bb0d4ce63eef3e0cfec77cbd397917da",
+      "bytes": 996927
+    },
+    "NODE_IDENTITIES.csv.gz": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/NODE_IDENTITIES.csv.gz",
+      "sha256": "256fa1d16325c0c708d00fef59d7fe7d681c5738261ac05078987d7bb26e5783",
+      "bytes": 4999420
+    },
+    "audit_neural_interface.py": {
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/audit_neural_interface.py",
+      "sha256": "4bc3ef4f8258583e8eecda86e7d47f53c2f8aa26b231784924bcbb49f2f37906",
+      "bytes": 31216
+    }
+  },
+  "cache": {
+    "nodes": 153962,
+    "aggregated_directed_pairs": 3037361,
+    "raw_rows": 3990039,
+    "raw_row_synapse_min": 1,
+    "pair_synapse_min": 3.0,
+    "pair_synapse_max": 913.0,
+    "total_synapses": 23556214,
+    "nt_pair": {
+      "-1": 3037361
+    },
+    "nt_neuron": {
+      "-1": 153962
+    },
+    "verified_nt": {
+      "": 89075,
+      "acetylcholine": 43119,
+      "acetylcholine,dopamine": 3,
+      "acetylcholine,dopamine,nitric_oxide": 656,
+      "acetylcholine,gaba": 3,
+      "acetylcholine,glutamate": 32,
+      "acetylcholine,glycine": 2,
+      "acetylcholine,histamine": 907,
+      "acetylcholine,nitric_oxide": 162,
+      "acetylcholine,octopamine": 4,
+      "acetylcholine,serotonin": 72,
+      "dopamine": 329,
+      "dopamine,gaba": 5,
+      "dopamine,glutamate,serotonin": 6,
+      "dopamine,nitric_oxide": 4,
+      "dopamine,serotonin": 4,
+      "dopamine,tyramine": 5,
+      "gaba": 6820,
+      "gaba,nitric_oxide": 2872,
+      "gaba,serotonin": 2,
+      "glutamate": 8611,
+      "glutamate,octopamine": 2,
+      "glutamate,serotonin": 42,
+      "glutamate,serotonin,tyramine": 8,
+      "glutamate,tyramine": 6,
+      "glycine": 14,
+      "histamine": 927,
+      "nitric_oxide": 7,
+      "octopamine": 81,
+      "serotonin": 87,
+      "tyramine": 95
+    },
+    "raw_nt_type": {
+      "": 3990039
+    },
+    "raw_neuropil_row_counts": {
+      "ME_R": 405525,
+      "AL_R": 55950,
+      "VNC_T1_ProNm_R": 89789,
+      "VNC_T2_MesoNm_R": 117016,
+      "VNC_T3_MetaNm_R": 84759,
+      "LegNp_T3_R": 1091,
+      "IntTct": 103567,
+      "LTct": 40553,
+      "VNC_T2_MesoNm_L": 105551,
+      "VNC_HTct_L": 33506,
+      "ABDNM_L": 60445,
+      "VNC_WTct_L": 27327,
+      "VNC_WTct_R": 24906,
+      "VNC_HTct_R": 35923,
+      "WTct_UTct_T2_R": 3571,
+      "WTct_UTct_T2_L": 3374,
+      "VNC_NTct_L": 17025,
+      "VNC_NTct_R": 15274,
+      "VNC_T3_MetaNm_L": 88526,
+      "VNC_AMNp_L": 29488,
+      "LegNp_T3_L": 1664,
+      "ABDNM_R": 61217,
+      "GNG": 170033,
+      "FB": 45567,
+      "NO": 3699,
+      "SPS_L": 48617,
+      "IPS_L": 35804,
+      "VNC_AMNp_R": 25564,
+      "VNC_T2_mVAC_R": 13898,
+      "EB": 16377,
+      "GA_L": 1298,
+      "CRE_L": 30951,
+      "CRE_R": 36898,
+      "MB_VL_R": 5731,
+      "MB_CA_R": 13907,
+      "MB_ML_R": 3535,
+      "MB_PED_R": 4457,
+      "MB_VL_L": 6348,
+      "MB_CA_L": 14251,
+      "ME_L": 272632,
+      "LO_L": 130882,
+      "LOP_R": 107029,
+      "LO_R": 159843,
+      "LOP_L": 87911,
+      "PLP_R": 55539,
+      "AVLP_R": 105764,
+      "MB_ML_L": 2474,
+      "VNC_T1_ProNm_L": 108782,
+      "AVLP_L": 88782,
+      "VNC_T2_mVAC_L": 10711,
+      "WED_L": 21545,
+      "ICL_L": 33186,
+      "MB_PED_L": 3262,
+      "AL_L": 56894,
+      "SPS_R": 48062,
+      "IPS_R": 48812,
+      "PVLP_R": 41354,
+      "AMMC_L": 13784,
+      "SAD": 24965,
+      "CAN_L": 5322,
+      "ICL_R": 35635,
+      "WED_R": 19663,
+      "GOR_R": 9319,
+      "LAL_R": 30491,
+      "EPA_R": 8350,
+      "LH_R": 25758,
+      "SCL_R": 21809,
+      "PRW": 18688,
+      "PVLP_L": 23244,
+      "SCL_L": 18283,
+      "PLP_L": 42137,
+      "FLA_L": 21038,
+      "SIP_R": 14618,
+      "SMP_R": 42964,
+      "ATL_R": 8171,
+      "AMMC_R": 14322,
+      "LH_L": 19495,
+      "FLA_R": 18955,
+      "ANm": 1334,
+      "Tct": 61,
+      "SLP_L": 17599,
+      "SLP_R": 20202,
+      "HTct_UTct_T3_L": 1273,
+      "SIP_L": 11333,
+      "AOTU_L": 9917,
+      "ATL_L": 7157,
+      "SMP_L": 39175,
+      "VES_L": 28316,
+      "IB_L": 20683,
+      "LAL_L": 28721,
+      "NTct_UTct_T1_L": 394,
+      "LegNp_T1_L": 865,
+      "IB_R": 22567,
+      "PB": 8181,
+      "GA_R": 1440,
+      "VES_R": 29927,
+      "AOTU_R": 9233,
+      "GOR_L": 8533,
+      "HTct_UTct_T3_R": 2500,
+      "LegNp_T2_L": 2229,
+      "NTct_UTct_T1_R": 1328,
+      "cervical_connective": 23,
+      "BU_R": 617,
+      "CAN_R": 3174,
+      "EPA_L": 7091,
+      "AME_L": 853,
+      "BU_L": 486,
+      "AME_R": 737,
+      "LegNp_T1_R": 148,
+      "LegNp_T2_R": 471,
+      "Xnerve": 14
+    },
+    "threshold_statement": "Observed raw neuropil-row minimum1 and aggregated-pair minimum3; builder does not impose a threshold. Export filtering history remains unknown; absent pairs are not proven biologically absent.",
+    "raw_pairs_reaggregation_exact": true,
+    "raw_annotation_alignment_exact": {
+      "Flow": true,
+      "Super Class": true,
+      "Class": true,
+      "Nerve": true,
+      "Body Part": true,
+      "Function": true,
+      "Primary Cell Type": true,
+      "Verified NT type": true
+    },
+    "identity_indexing": "root_ids sorted int64; pre/post zero-based into root_ids; external JSON/CSV IDs are decimal strings, not float"
+  },
+  "coverage": {
+    "raw_neurons": {
+      "source_rows_with_id": 158262,
+      "unique_ids": 158262,
+      "duplicate_id_rows": 0,
+      "unique_in_cache": 153962,
+      "unique_not_in_cache": 4300,
+      "cache_ids_without_source": 0,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_raw_neurons.csv.gz",
+        "sha256": "4c52bba5c4581bb09c627139ba32ddf69222676d1ae03ac18228200398f05f40",
+        "bytes": 1009882
+      }
+    },
+    "feather_banc_888_id": {
+      "source_rows_with_id": 188508,
+      "unique_ids": 188508,
+      "duplicate_id_rows": 0,
+      "unique_in_cache": 153962,
+      "unique_not_in_cache": 34546,
+      "cache_ids_without_source": 0,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_banc_888_id.csv.gz",
+        "sha256": "6d531582ec50a6cbb10a2ffcf48a735c39d313ade9c2abb1eb214e27941cd730",
+        "bytes": 1139132
+      }
+    },
+    "feather_root_id": {
+      "source_rows_with_id": 188508,
+      "unique_ids": 188340,
+      "duplicate_id_rows": 168,
+      "unique_in_cache": 139342,
+      "unique_not_in_cache": 48998,
+      "cache_ids_without_source": 14620,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_id.csv.gz",
+        "sha256": "706cc75e86319a03f61a429fe22f3d09dda6069da9f4939456e6d85871b42a3b",
+        "bytes": 1118708
+      }
+    },
+    "feather_root_626": {
+      "source_rows_with_id": 188508,
+      "unique_ids": 185165,
+      "duplicate_id_rows": 3343,
+      "unique_in_cache": 92216,
+      "unique_not_in_cache": 92949,
+      "cache_ids_without_source": 61746,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_626.csv.gz",
+        "sha256": "887dd221039c9061309862d7513bae5d3f54fee2e838054cd46615fc3f2132f7",
+        "bytes": 1008390
+      }
+    },
+    "feather_root_850": {
+      "source_rows_with_id": 188508,
+      "unique_ids": 188196,
+      "duplicate_id_rows": 312,
+      "unique_in_cache": 142215,
+      "unique_not_in_cache": 45981,
+      "cache_ids_without_source": 11747,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_850.csv.gz",
+        "sha256": "ec30dcb402c6ac519b5ffa971d2ac93b148639ee51cdd4327a68b69b8828f171",
+        "bytes": 1121448
+      }
+    },
+    "feather_root_888": {
+      "source_rows_with_id": 188508,
+      "unique_ids": 188508,
+      "duplicate_id_rows": 0,
+      "unique_in_cache": 153962,
+      "unique_not_in_cache": 34546,
+      "cache_ids_without_source": 0,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_888.csv.gz",
+        "sha256": "7b16558af96ee1fdc68c420a068917f6778f25df499e7984a28a4cfd1cd7eb48",
+        "bytes": 1139136
+      }
+    },
+    "feather_root_890": {
+      "source_rows_with_id": 188226,
+      "unique_ids": 188196,
+      "duplicate_id_rows": 30,
+      "unique_in_cache": 146735,
+      "unique_not_in_cache": 41461,
+      "cache_ids_without_source": 7227,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_feather_root_890.csv.gz",
+        "sha256": "ca213d08e4be4704f0d86d851b6f77563fad1cd49fbfcedd7b6f4473fd3e31b1",
+        "bytes": 1129371
+      }
+    },
+    "supplement": {
+      "source_rows_with_id": 155927,
+      "unique_ids": 155927,
+      "duplicate_id_rows": 0,
+      "unique_in_cache": 152806,
+      "unique_not_in_cache": 3121,
+      "cache_ids_without_source": 1156,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_supplement.csv.gz",
+        "sha256": "76f0f72ca7e9cd7843d46614483809c1bb0d4ce63eef3e0cfec77cbd397917da",
+        "bytes": 996927
+      }
+    },
+    "cell_info": {
+      "source_rows_with_id": 376221,
+      "unique_ids": 173448,
+      "duplicate_id_rows": 202773,
+      "unique_in_cache": 141053,
+      "unique_not_in_cache": 32395,
+      "cache_ids_without_source": 12909,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_cell_info.csv.gz",
+        "sha256": "246148eeadc2a75ef6bb7cb8e12a195836675739762ab328e27529430e336742",
+        "bytes": 1111044
+      }
+    },
+    "codex": {
+      "source_rows_with_id": 1841078,
+      "unique_ids": 158227,
+      "duplicate_id_rows": 1682851,
+      "unique_in_cache": 153928,
+      "unique_not_in_cache": 4299,
+      "cache_ids_without_source": 34,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_codex.csv.gz",
+        "sha256": "6d9af63c2cd4d03031f1f68aed9a0aecea090f1f1e25c44c3ac5a01b9e73e326",
+        "bytes": 1113602
+      }
+    },
+    "somas": {
+      "source_rows_with_id": 153765,
+      "unique_ids": 153633,
+      "duplicate_id_rows": 132,
+      "unique_in_cache": 122369,
+      "unique_not_in_cache": 31264,
+      "cache_ids_without_source": 31593,
+      "id_mapping_file": {
+        "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/mapping_somas.csv.gz",
+        "sha256": "2bc4cf3bfc77b542c45dfe44b5737236ff9fc8a0f11fefbb6284fb4444442104",
+        "bytes": 943497
+      }
+    }
+  },
+  "feather_banc888_vs_root888_row_disagreements": [
+    {
+      "banc_888_id": "720575941229247158",
+      "root_888": "147423687484661800",
+      "root_id": "720575941229247158",
+      "cell_type": "",
+      "cell_class": "",
+      "super_class": "",
+      "root888_in_cache": false,
+      "banc888_in_cache": false
+    },
+    {
+      "banc_888_id": "720575940434812394",
+      "root_888": "150730400321262552",
+      "root_id": "720575940434812394",
+      "cell_type": "",
+      "cell_class": "",
+      "super_class": "",
+      "root888_in_cache": false,
+      "banc888_in_cache": false
+    }
+  ],
+  "feather_annotation_comparison": {
+    "ann_super_class_vs_super_class": {
+      "different_count": 109
+    },
+    "ann_class_vs_cell_class": {
+      "different_count": 113
+    },
+    "ann_nerve_vs_nerve": {
+      "different_count": 24
+    },
+    "ann_primary_type_vs_cell_type": {
+      "different_count": 4305
+    },
+    "ann_nt_verified_vs_neurotransmitter_verified": {
+      "different_count": 1654
+    }
+  },
+  "supplement_id_set_equals_full_feather": false,
+  "alternate_tables": {
+    "cell_info": {
+      "rows": 376231,
+      "valid_rows": 376231,
+      "interesting_label_counts": [
+        {
+          "field": "anterior-posterior projection pattern",
+          "label": "ascending",
+          "rows": 2180
+        },
+        {
+          "field": "anterior-posterior projection pattern",
+          "label": "descending",
+          "rows": 1277
+        },
+        {
+          "field": "freeform",
+          "label": "unusual ascending-then-descending morphology",
+          "rows": 3
+        },
+        {
+          "field": "neuron identity",
+          "label": "accessory_pharyngeal_nerve_sensory_group1",
+          "rows": 12
+        },
+        {
+          "field": "neuron identity",
+          "label": "accessory_pharyngeal_nerve_sensory_group2",
+          "rows": 22
+        },
+        {
+          "field": "neuron identity",
+          "label": "moonwalker descending neuron",
+          "rows": 4
+        },
+        {
+          "field": "neuron identity",
+          "label": "pharyngeal_nerve_sensory_group1",
+          "rows": 6
+        },
+        {
+          "field": "neuron identity",
+          "label": "pharyngeal_nerve_sensory_group2",
+          "rows": 14
+        },
+        {
+          "field": "neuron identity",
+          "label": "pharyngeal_nerve_sensory_group3",
+          "rows": 2
+        },
+        {
+          "field": "neuron identity",
+          "label": "synapseless ascending",
+          "rows": 6
+        },
+        {
+          "field": "neuron identity",
+          "label": "synapseless descending",
+          "rows": 2
+        }
+      ],
+      "note": "Coverage is exact ID overlap; repeated annotation rows do not imply duplicate neurons. No geometry or polarity inferred."
+    },
+    "codex": {
+      "rows": 1841078,
+      "valid_rows": 1841078,
+      "interesting_label_counts": [
+        {
+          "field": "body_part_effector",
+          "label": "crop",
+          "rows": 7
+        },
+        {
+          "field": "body_part_effector",
+          "label": "pharynx",
+          "rows": 26
+        },
+        {
+          "field": "body_part_effector",
+          "label": "proboscis",
+          "rows": 35
+        },
+        {
+          "field": "body_part_sensory",
+          "label": "hemolymph",
+          "rows": 1
+        },
+        {
+          "field": "body_part_sensory",
+          "label": "hemolymph_sensory",
+          "rows": 4
+        },
+        {
+          "field": "body_part_sensory",
+          "label": "pharynx",
+          "rows": 102
+        },
+        {
+          "field": "cell_class",
+          "label": "ascending_neuron",
+          "rows": 1841
+        },
+        {
+          "field": "cell_class",
+          "label": "crop_motor_neuron",
+          "rows": 7
+        },
+        {
+          "field": "cell_class",
+          "label": "descending_neuron",
+          "rows": 1315
+        },
+        {
+          "field": "cell_class",
+          "label": "pharynx_motor_neuron",
+          "rows": 22
+        },
+        {
+          "field": "cell_class",
+          "label": "proboscis_motor_neuron",
+          "rows": 35
+        },
+        {
+          "field": "cell_function",
+          "label": "crop_motor",
+          "rows": 7
+        },
+        {
+          "field": "cell_function",
+          "label": "feeding_suppression",
+          "rows": 4
+        },
+        {
+          "field": "cell_function",
+          "label": "interoceptive",
+          "rows": 4
+        },
+        {
+          "field": "cell_function",
+          "label": "pharynx_motor",
+          "rows": 22
+        },
+        {
+          "field": "cell_function",
+          "label": "proboscis_motor",
+          "rows": 35
+        },
+        {
+          "field": "cell_function_detailed",
+          "label": "crop_entry",
+          "rows": 7
+        },
+        {
+          "field": "cell_function_detailed",
+          "label": "hemolymph_sugar",
+          "rows": 1
+        },
+        {
+          "field": "cell_function_detailed",
+          "label": "pharyngeal_pumping",
+          "rows": 13
+        },
+        {
+          "field": "cell_function_detailed",
+          "label": "proboscis_positioning",
+          "rows": 25
+        },
+        {
+          "field": "cell_sub_class",
+          "label": "hemolymph_sensory_neuron",
+          "rows": 5
+        },
+        {
+          "field": "cell_sub_class",
+          "label": "pharynx_internal_sensillum_tactile_neuron",
+          "rows": 51
+        },
+        {
+          "field": "cell_sub_class",
+          "label": "pharynx_internal_taste_sensillum_gustatory_neuron",
+          "rows": 47
+        },
+        {
+          "field": "fanc_1116_cell_type",
+          "label": "auto:AN09A005, XA (synapseless ascending)",
+          "rows": 2
+        },
+        {
+          "field": "fanc_1116_cell_type",
+          "label": "auto:MDN, MDN4, moonwalker descending neuron",
+          "rows": 2
+        },
+        {
+          "field": "nerve",
+          "label": "left_accessory_pharyngeal_nerve",
+          "rows": 33
+        },
+        {
+          "field": "nerve",
+          "label": "left_pharyngeal_nerve",
+          "rows": 14
+        },
+        {
+          "field": "nerve",
+          "label": "left_pharyngeal_nerve_or_accessory_pharyngeal_nerve",
+          "rows": 17
+        },
+        {
+          "field": "nerve",
+          "label": "right_accessory_pharyngeal_nerve",
+          "rows": 47
+        },
+        {
+          "field": "nerve",
+          "label": "right_pharyngeal_nerve",
+          "rows": 20
+        },
+        {
+          "field": "nerve",
+          "label": "right_pharyngeal_nerve_or_accessory_pharyngeal_nerve",
+          "rows": 19
+        },
+        {
+          "field": "other_names",
+          "label": "TwoLumps Ascending",
+          "rows": 2
+        },
+        {
+          "field": "other_names",
+          "label": "moonwalker descending neuron",
+          "rows": 4
+        },
+        {
+          "field": "other_names",
+          "label": "synapseless ascending",
+          "rows": 6
+        },
+        {
+          "field": "other_names",
+          "label": "synapseless descending",
+          "rows": 2
+        },
+        {
+          "field": "other_names",
+          "label": "synapselessascending",
+          "rows": 1
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "crop_muscle",
+          "rows": 7
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "pharynx_m10_muscle",
+          "rows": 3
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "pharynx_m11d_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "pharynx_m11v_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "pharynx_m12d_muscle",
+          "rows": 4
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m1_muscle",
+          "rows": 4
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m2da_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m2db_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m2v_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m3l_muscle",
+          "rows": 3
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m3m_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m4a_muscle",
+          "rows": 4
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m4b_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m5_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m6_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m7_muscle",
+          "rows": 4
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m8_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_m9_muscle",
+          "rows": 2
+        },
+        {
+          "field": "peripheral_target_type",
+          "label": "proboscis_muscle",
+          "rows": 2
+        },
+        {
+          "field": "super_class",
+          "label": "ascending",
+          "rows": 1841
+        },
+        {
+          "field": "super_class",
+          "label": "ascending_visceral_circulatory",
+          "rows": 5
+        },
+        {
+          "field": "super_class",
+          "label": "descending",
+          "rows": 1315
+        },
+        {
+          "field": "super_class",
+          "label": "sensory_ascending",
+          "rows": 510
+        },
+        {
+          "field": "super_class",
+          "label": "sensory_descending",
+          "rows": 13
+        }
+      ],
+      "note": "Coverage is exact ID overlap; repeated annotation rows do not imply duplicate neurons. No geometry or polarity inferred."
+    },
+    "somas": {
+      "rows": 153892,
+      "valid_rows": 153892,
+      "interesting_label_counts": [],
+      "note": "Coverage is exact ID overlap; repeated annotation rows do not imply duplicate neurons. No geometry or polarity inferred."
+    }
+  },
+  "groups": {
+    "super_class__EMPTY": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": ""
+      },
+      "cache_count": 10845,
+      "index_array_key": "super_class__EMPTY",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 17,
+      "nt_verified_counts": {
+        "": 10828,
+        "acetylcholine": 8,
+        "gaba": 4,
+        "glutamate": 5
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__ascending": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "ascending"
+      },
+      "cache_count": 1847,
+      "index_array_key": "super_class__ascending",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1302,
+      "nt_verified_counts": {
+        "": 541,
+        "acetylcholine": 889,
+        "gaba": 345,
+        "glutamate": 68,
+        "histamine": 4
+      },
+      "selected_in_local_module": 1847
+    },
+    "super_class__ascending_visceral_circulatory": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "ascending_visceral_circulatory"
+      },
+      "cache_count": 5,
+      "index_array_key": "super_class__ascending_visceral_circulatory",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 4,
+        "octopamine": 1
+      },
+      "selected_in_local_module": 5
+    },
+    "super_class__central_brain_intrinsic": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "central_brain_intrinsic"
+      },
+      "cache_count": 30759,
+      "index_array_key": "super_class__central_brain_intrinsic",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 8533,
+      "nt_verified_counts": {
+        "": 21542,
+        "acetylcholine": 6865,
+        "acetylcholine,dopamine": 2,
+        "acetylcholine,gaba": 1,
+        "acetylcholine,glutamate": 24,
+        "acetylcholine,serotonin": 72,
+        "dopamine": 320,
+        "dopamine,gaba": 5,
+        "dopamine,glutamate,serotonin": 6,
+        "dopamine,nitric_oxide": 4,
+        "dopamine,serotonin": 4,
+        "dopamine,tyramine": 5,
+        "gaba": 1066,
+        "gaba,serotonin": 2,
+        "glutamate": 602,
+        "glutamate,serotonin": 42,
+        "glutamate,serotonin,tyramine": 8,
+        "glutamate,tyramine": 4,
+        "nitric_oxide": 7,
+        "octopamine": 35,
+        "serotonin": 52,
+        "tyramine": 91
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__descending": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "descending"
+      },
+      "cache_count": 1315,
+      "index_array_key": "super_class__descending",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 133,
+      "nt_verified_counts": {
+        "": 1160,
+        "acetylcholine": 113,
+        "acetylcholine,gaba": 2,
+        "acetylcholine,glutamate": 8,
+        "dopamine": 2,
+        "gaba": 4,
+        "glutamate": 16,
+        "glutamate,octopamine": 2,
+        "glutamate,tyramine": 2,
+        "serotonin": 6
+      },
+      "selected_in_local_module": 1315
+    },
+    "super_class__glia": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "glia"
+      },
+      "cache_count": 215,
+      "index_array_key": "super_class__glia",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 215
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__motor": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "motor"
+      },
+      "cache_count": 805,
+      "index_array_key": "super_class__motor",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 30,
+      "nt_verified_counts": {
+        "": 775,
+        "glutamate": 30
+      },
+      "selected_in_local_module": 391
+    },
+    "super_class__not_a_neuron": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "not_a_neuron"
+      },
+      "cache_count": 1,
+      "index_array_key": "super_class__not_a_neuron",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 1
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__optic_lobe_intrinsic": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "optic_lobe_intrinsic"
+      },
+      "cache_count": 71855,
+      "index_array_key": "super_class__optic_lobe_intrinsic",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 32401,
+      "nt_verified_counts": {
+        "": 35756,
+        "acetylcholine": 24670,
+        "acetylcholine,dopamine": 1,
+        "acetylcholine,dopamine,nitric_oxide": 656,
+        "acetylcholine,nitric_oxide": 162,
+        "gaba": 1062,
+        "gaba,nitric_oxide": 2872,
+        "glutamate": 6669,
+        "glycine": 6,
+        "serotonin": 1
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__sensory": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "sensory"
+      },
+      "cache_count": 15076,
+      "index_array_key": "super_class__sensory",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 3799,
+      "nt_verified_counts": {
+        "": 9424,
+        "acetylcholine": 3798,
+        "acetylcholine,histamine": 907,
+        "acetylcholine,octopamine": 4,
+        "gaba": 1,
+        "histamine": 923,
+        "serotonin": 19
+      },
+      "selected_in_local_module": 4995
+    },
+    "super_class__sensory_ascending": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "sensory_ascending"
+      },
+      "cache_count": 507,
+      "index_array_key": "super_class__sensory_ascending",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 21,
+      "nt_verified_counts": {
+        "": 486,
+        "acetylcholine": 21
+      },
+      "selected_in_local_module": 507
+    },
+    "super_class__sensory_descending": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "sensory_descending"
+      },
+      "cache_count": 12,
+      "index_array_key": "super_class__sensory_descending",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 12
+      },
+      "selected_in_local_module": 12
+    },
+    "super_class__ventral_nerve_cord_intrinsic": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "ventral_nerve_cord_intrinsic"
+      },
+      "cache_count": 12827,
+      "index_array_key": "super_class__ventral_nerve_cord_intrinsic",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 9942,
+      "nt_verified_counts": {
+        "": 2885,
+        "acetylcholine": 4521,
+        "gaba": 4329,
+        "glutamate": 1092
+      },
+      "selected_in_local_module": 10928
+    },
+    "super_class__visceral_circulatory": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "visceral_circulatory"
+      },
+      "cache_count": 210,
+      "index_array_key": "super_class__visceral_circulatory",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 181,
+        "octopamine": 27,
+        "serotonin": 2
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__visual_centrifugal": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "visual_centrifugal"
+      },
+      "cache_count": 458,
+      "index_array_key": "super_class__visual_centrifugal",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 22,
+      "nt_verified_counts": {
+        "": 400,
+        "acetylcholine": 4,
+        "dopamine": 7,
+        "gaba": 8,
+        "glutamate": 10,
+        "octopamine": 18,
+        "serotonin": 7,
+        "tyramine": 4
+      },
+      "selected_in_local_module": 0
+    },
+    "super_class__visual_projection": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "visual_projection"
+      },
+      "cache_count": 7225,
+      "index_array_key": "super_class__visual_projection",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 2350,
+      "nt_verified_counts": {
+        "": 4865,
+        "acetylcholine": 2230,
+        "acetylcholine,glycine": 2,
+        "gaba": 1,
+        "glutamate": 119,
+        "glycine": 8
+      },
+      "selected_in_local_module": 0
+    },
+    "ascending_boundary": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_in": [
+          "ascending",
+          "sensory_ascending",
+          "ascending_visceral_circulatory"
+        ]
+      },
+      "cache_count": 2359,
+      "index_array_key": "ascending_boundary",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1323,
+      "nt_verified_counts": {
+        "": 1031,
+        "acetylcholine": 910,
+        "gaba": 345,
+        "glutamate": 68,
+        "histamine": 4,
+        "octopamine": 1
+      },
+      "selected_in_local_module": 2359
+    },
+    "descending_boundary": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_in": [
+          "descending",
+          "sensory_descending"
+        ]
+      },
+      "cache_count": 1327,
+      "index_array_key": "descending_boundary",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 133,
+      "nt_verified_counts": {
+        "": 1172,
+        "acetylcholine": 113,
+        "acetylcholine,gaba": 2,
+        "acetylcholine,glutamate": 8,
+        "dopamine": 2,
+        "gaba": 4,
+        "glutamate": 16,
+        "glutamate,octopamine": 2,
+        "glutamate,tyramine": 2,
+        "serotonin": 6
+      },
+      "selected_in_local_module": 1327
+    },
+    "neck_crossing_union": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_in": [
+          "ascending",
+          "sensory_ascending",
+          "ascending_visceral_circulatory",
+          "descending",
+          "sensory_descending"
+        ]
+      },
+      "cache_count": 3686,
+      "index_array_key": "neck_crossing_union",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1456,
+      "nt_verified_counts": {
+        "": 2203,
+        "acetylcholine": 1023,
+        "acetylcholine,gaba": 2,
+        "acetylcholine,glutamate": 8,
+        "dopamine": 2,
+        "gaba": 349,
+        "glutamate": 84,
+        "glutamate,octopamine": 2,
+        "glutamate,tyramine": 2,
+        "histamine": 4,
+        "octopamine": 1,
+        "serotonin": 6
+      },
+      "selected_in_local_module": 3686
+    },
+    "brain_intrinsic_and_visual": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_in": [
+          "central_brain_intrinsic",
+          "optic_lobe_intrinsic",
+          "visual_projection",
+          "visual_centrifugal"
+        ]
+      },
+      "cache_count": 110297,
+      "index_array_key": "brain_intrinsic_and_visual",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 43306,
+      "nt_verified_counts": {
+        "": 62563,
+        "acetylcholine": 33769,
+        "acetylcholine,dopamine": 3,
+        "acetylcholine,dopamine,nitric_oxide": 656,
+        "acetylcholine,gaba": 1,
+        "acetylcholine,glutamate": 24,
+        "acetylcholine,glycine": 2,
+        "acetylcholine,nitric_oxide": 162,
+        "acetylcholine,serotonin": 72,
+        "dopamine": 327,
+        "dopamine,gaba": 5,
+        "dopamine,glutamate,serotonin": 6,
+        "dopamine,nitric_oxide": 4,
+        "dopamine,serotonin": 4,
+        "dopamine,tyramine": 5,
+        "gaba": 2137,
+        "gaba,nitric_oxide": 2872,
+        "gaba,serotonin": 2,
+        "glutamate": 7400,
+        "glutamate,serotonin": 42,
+        "glutamate,serotonin,tyramine": 8,
+        "glutamate,tyramine": 4,
+        "glycine": 14,
+        "nitric_oxide": 7,
+        "octopamine": 53,
+        "serotonin": 60,
+        "tyramine": 95
+      },
+      "selected_in_local_module": 0
+    },
+    "vnc_intrinsic": {
+      "source": "cache",
+      "rule": {
+        "ann_super_class_equals": "ventral_nerve_cord_intrinsic"
+      },
+      "cache_count": 12827,
+      "index_array_key": "vnc_intrinsic",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 9942,
+      "nt_verified_counts": {
+        "": 2885,
+        "acetylcholine": 4521,
+        "gaba": 4329,
+        "glutamate": 1092
+      },
+      "selected_in_local_module": 10928
+    },
+    "class_only_ascending_disagreement": {
+      "source": "cache",
+      "rule": {
+        "class": "ascending_neuron",
+        "super_class_not": "ascending"
+      },
+      "cache_count": 3,
+      "index_array_key": "class_only_ascending_disagreement",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1,
+      "nt_verified_counts": {
+        "": 2,
+        "acetylcholine": 1
+      },
+      "selected_in_local_module": 2
+    },
+    "class_only_descending_disagreement": {
+      "source": "cache",
+      "rule": {
+        "class": "descending_neuron",
+        "super_class_not": "descending"
+      },
+      "cache_count": 2,
+      "index_array_key": "class_only_descending_disagreement",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 2
+      },
+      "selected_in_local_module": 0
+    },
+    "leg_sensory_lf": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "left_prothoracic_leg_nerve"
+      },
+      "cache_count": 840,
+      "index_array_key": "leg_sensory_lf",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 117,
+      "nt_verified_counts": {
+        "": 723,
+        "acetylcholine": 117
+      },
+      "selected_in_local_module": 840
+    },
+    "leg_motor_nerve_lf": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "left_prothoracic_leg_nerve"
+      },
+      "cache_count": 43,
+      "index_array_key": "leg_motor_nerve_lf",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 43
+      },
+      "selected_in_local_module": 43
+    },
+    "leg_sensory_lm": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "left_mesothoracic_leg_nerve"
+      },
+      "cache_count": 812,
+      "index_array_key": "leg_sensory_lm",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 151,
+      "nt_verified_counts": {
+        "": 661,
+        "acetylcholine": 151
+      },
+      "selected_in_local_module": 812
+    },
+    "leg_motor_nerve_lm": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "left_mesothoracic_leg_nerve"
+      },
+      "cache_count": 60,
+      "index_array_key": "leg_motor_nerve_lm",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 60
+      },
+      "selected_in_local_module": 60
+    },
+    "leg_sensory_lh": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "left_metathoracic_leg_nerve"
+      },
+      "cache_count": 899,
+      "index_array_key": "leg_sensory_lh",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 154,
+      "nt_verified_counts": {
+        "": 745,
+        "acetylcholine": 154
+      },
+      "selected_in_local_module": 899
+    },
+    "leg_motor_nerve_lh": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "left_metathoracic_leg_nerve"
+      },
+      "cache_count": 62,
+      "index_array_key": "leg_motor_nerve_lh",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 62
+      },
+      "selected_in_local_module": 59
+    },
+    "leg_sensory_rf": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "right_prothoracic_leg_nerve"
+      },
+      "cache_count": 786,
+      "index_array_key": "leg_sensory_rf",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 116,
+      "nt_verified_counts": {
+        "": 670,
+        "acetylcholine": 115,
+        "gaba": 1
+      },
+      "selected_in_local_module": 786
+    },
+    "leg_motor_nerve_rf": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "right_prothoracic_leg_nerve"
+      },
+      "cache_count": 42,
+      "index_array_key": "leg_motor_nerve_rf",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 42
+      },
+      "selected_in_local_module": 42
+    },
+    "leg_sensory_rm": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "right_mesothoracic_leg_nerve"
+      },
+      "cache_count": 786,
+      "index_array_key": "leg_sensory_rm",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 132,
+      "nt_verified_counts": {
+        "": 654,
+        "acetylcholine": 132
+      },
+      "selected_in_local_module": 786
+    },
+    "leg_motor_nerve_rm": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "right_mesothoracic_leg_nerve"
+      },
+      "cache_count": 60,
+      "index_array_key": "leg_motor_nerve_rm",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 60
+      },
+      "selected_in_local_module": 60
+    },
+    "leg_sensory_rh": {
+      "source": "cache",
+      "rule": {
+        "super_class_in": [
+          "sensory",
+          "sensory_ascending",
+          "sensory_descending"
+        ],
+        "ann_nerve_contains_token": "right_metathoracic_leg_nerve"
+      },
+      "cache_count": 984,
+      "index_array_key": "leg_sensory_rh",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 177,
+      "nt_verified_counts": {
+        "": 807,
+        "acetylcholine": 177
+      },
+      "selected_in_local_module": 984
+    },
+    "leg_motor_nerve_rh": {
+      "source": "cache",
+      "rule": {
+        "super_class": "motor",
+        "ann_nerve_contains_token": "right_metathoracic_leg_nerve"
+      },
+      "cache_count": 62,
+      "index_array_key": "leg_motor_nerve_rh",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 62
+      },
+      "selected_in_local_module": 59
+    },
+    "leg_sensory_nerve_union": {
+      "source": "cache",
+      "rule": {
+        "union": [
+          "leg_sensory_lf",
+          "leg_sensory_lm",
+          "leg_sensory_lh",
+          "leg_sensory_rf",
+          "leg_sensory_rm",
+          "leg_sensory_rh"
+        ]
+      },
+      "cache_count": 5107,
+      "index_array_key": "leg_sensory_nerve_union",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 847,
+      "nt_verified_counts": {
+        "": 4260,
+        "acetylcholine": 846,
+        "gaba": 1
+      },
+      "selected_in_local_module": 5107
+    },
+    "leg_motor_nerve_union": {
+      "source": "cache",
+      "rule": {
+        "union": [
+          "leg_motor_nerve_lf",
+          "leg_motor_nerve_lm",
+          "leg_motor_nerve_lh",
+          "leg_motor_nerve_rf",
+          "leg_motor_nerve_rm",
+          "leg_motor_nerve_rh"
+        ]
+      },
+      "cache_count": 329,
+      "index_array_key": "leg_motor_nerve_union",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 329
+      },
+      "selected_in_local_module": 323
+    },
+    "leg_motor_class": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "leg_motor_neuron"
+      },
+      "cache_count": 391,
+      "index_array_key": "leg_motor_class",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 391
+      },
+      "selected_in_local_module": 391
+    },
+    "class__proboscis_motor_neuron": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "proboscis_motor_neuron"
+      },
+      "cache_count": 35,
+      "index_array_key": "class__proboscis_motor_neuron",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 35
+      },
+      "selected_in_local_module": 0
+    },
+    "class__pharynx_motor_neuron": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "pharynx_motor_neuron"
+      },
+      "cache_count": 22,
+      "index_array_key": "class__pharynx_motor_neuron",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 22
+      },
+      "selected_in_local_module": 0
+    },
+    "class__crop_motor_neuron": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "crop_motor_neuron"
+      },
+      "cache_count": 7,
+      "index_array_key": "class__crop_motor_neuron",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 7
+      },
+      "selected_in_local_module": 0
+    },
+    "class__taste_bristle_gustatory_neuron": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "taste_bristle_gustatory_neuron"
+      },
+      "cache_count": 1283,
+      "index_array_key": "class__taste_bristle_gustatory_neuron",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1,
+      "nt_verified_counts": {
+        "": 1282,
+        "gaba": 1
+      },
+      "selected_in_local_module": 769
+    },
+    "class__pars_intercerebralis_neurosecretory_cell": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "pars_intercerebralis_neurosecretory_cell"
+      },
+      "cache_count": 37,
+      "index_array_key": "class__pars_intercerebralis_neurosecretory_cell",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 37
+      },
+      "selected_in_local_module": 0
+    },
+    "class__pars_lateralis_neurosecretory_cell": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "pars_lateralis_neurosecretory_cell"
+      },
+      "cache_count": 21,
+      "index_array_key": "class__pars_lateralis_neurosecretory_cell",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 21
+      },
+      "selected_in_local_module": 0
+    },
+    "class__subesophageal_zone_neurosecretory_cell": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "subesophageal_zone_neurosecretory_cell"
+      },
+      "cache_count": 11,
+      "index_array_key": "class__subesophageal_zone_neurosecretory_cell",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 9,
+        "serotonin": 2
+      },
+      "selected_in_local_module": 0
+    },
+    "class__ventral_nerve_cord_neurosecretory_cell": {
+      "source": "cache",
+      "rule": {
+        "ann_class_equals": "ventral_nerve_cord_neurosecretory_cell"
+      },
+      "cache_count": 146,
+      "index_array_key": "class__ventral_nerve_cord_neurosecretory_cell",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 118,
+        "octopamine": 28
+      },
+      "selected_in_local_module": 5
+    },
+    "mouth_sensory": {
+      "source": "cache",
+      "rule": {
+        "body_part_any_token": [
+          "labellum",
+          "proboscis",
+          "pharynx",
+          "haustellum",
+          "labral_sense_organ_or_fishtrap_bristles",
+          "labral_or_ventral_cibarial_sense_organ",
+          "dorsal_cibarial_sense_organ"
+        ],
+        "sensory_super_class_required": true
+      },
+      "cache_count": 606,
+      "index_array_key": "mouth_sensory",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 606
+      },
+      "selected_in_local_module": 6
+    },
+    "digestive_body_labels": {
+      "source": "cache",
+      "rule": {
+        "body_part_any_token": [
+          "anterior_digestive_tract",
+          "digestive_tract",
+          "crop"
+        ],
+        "sensory_super_class_required": false
+      },
+      "cache_count": 84,
+      "index_array_key": "digestive_body_labels",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 82,
+        "serotonin": 2
+      },
+      "selected_in_local_module": 0
+    },
+    "hemolymph_body_labels": {
+      "source": "cache",
+      "rule": {
+        "body_part_any_token": [
+          "hemolymph",
+          "hemolymph_sensory"
+        ],
+        "sensory_super_class_required": false
+      },
+      "cache_count": 8,
+      "index_array_key": "hemolymph_body_labels",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 1,
+        "acetylcholine,octopamine": 4,
+        "serotonin": 3
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__feeding": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "feeding"
+      },
+      "cache_count": 4,
+      "index_array_key": "function_token__feeding",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 4
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__feeding_suppression": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "feeding_suppression"
+      },
+      "cache_count": 3,
+      "index_array_key": "function_token__feeding_suppression",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 3
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__interoceptive": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "interoceptive"
+      },
+      "cache_count": 4,
+      "index_array_key": "function_token__interoceptive",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "acetylcholine,octopamine": 4
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__hemolymph_sugar": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "hemolymph_sugar"
+      },
+      "cache_count": 1,
+      "index_array_key": "function_token__hemolymph_sugar",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 1
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__sugar": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "sugar"
+      },
+      "cache_count": 534,
+      "index_array_key": "function_token__sugar",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 534
+      },
+      "selected_in_local_module": 297
+    },
+    "function_token__water": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "water"
+      },
+      "cache_count": 25,
+      "index_array_key": "function_token__water",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 25
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__pharyngeal_pumping": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "pharyngeal_pumping"
+      },
+      "cache_count": 13,
+      "index_array_key": "function_token__pharyngeal_pumping",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 13
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__diuresis": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "diuresis"
+      },
+      "cache_count": 55,
+      "index_array_key": "function_token__diuresis",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 55
+      },
+      "selected_in_local_module": 0
+    },
+    "function_token__oxygenation": {
+      "source": "cache",
+      "rule": {
+        "ann_function_exact_token": "oxygenation"
+      },
+      "cache_count": 19,
+      "index_array_key": "function_token__oxygenation",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 19
+      },
+      "selected_in_local_module": 12
+    },
+    "feather_disagreement__ann_super_class": {
+      "source": "cache+feather",
+      "rule": {
+        "cache_column": "ann_super_class",
+        "root_888_joined_feather_column": "super_class"
+      },
+      "cache_count": 109,
+      "index_array_key": "feather_disagreement__ann_super_class",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 58,
+      "nt_verified_counts": {
+        "": 43,
+        "acetylcholine": 43,
+        "acetylcholine,dopamine,nitric_oxide": 3,
+        "gaba": 3,
+        "gaba,nitric_oxide": 5,
+        "glutamate": 12
+      },
+      "selected_in_local_module": 0
+    },
+    "feather_disagreement__ann_class": {
+      "source": "cache+feather",
+      "rule": {
+        "cache_column": "ann_class",
+        "root_888_joined_feather_column": "cell_class"
+      },
+      "cache_count": 113,
+      "index_array_key": "feather_disagreement__ann_class",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 58,
+      "nt_verified_counts": {
+        "": 47,
+        "acetylcholine": 43,
+        "acetylcholine,dopamine,nitric_oxide": 3,
+        "gaba": 3,
+        "gaba,nitric_oxide": 5,
+        "glutamate": 12
+      },
+      "selected_in_local_module": 0
+    },
+    "feather_disagreement__ann_nerve": {
+      "source": "cache+feather",
+      "rule": {
+        "cache_column": "ann_nerve",
+        "root_888_joined_feather_column": "nerve"
+      },
+      "cache_count": 24,
+      "index_array_key": "feather_disagreement__ann_nerve",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 9,
+        "octopamine": 15
+      },
+      "selected_in_local_module": 3
+    },
+    "feather_disagreement__ann_primary_type": {
+      "source": "cache+feather",
+      "rule": {
+        "cache_column": "ann_primary_type",
+        "root_888_joined_feather_column": "cell_type"
+      },
+      "cache_count": 4305,
+      "index_array_key": "feather_disagreement__ann_primary_type",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 1333,
+      "nt_verified_counts": {
+        "": 2946,
+        "acetylcholine": 963,
+        "acetylcholine,dopamine,nitric_oxide": 3,
+        "acetylcholine,glutamate": 1,
+        "dopamine": 6,
+        "gaba": 278,
+        "gaba,nitric_oxide": 5,
+        "glutamate": 92,
+        "serotonin": 7,
+        "tyramine": 4
+      },
+      "selected_in_local_module": 1861
+    },
+    "feather_disagreement__ann_nt_verified": {
+      "source": "cache+feather",
+      "rule": {
+        "cache_column": "ann_nt_verified",
+        "root_888_joined_feather_column": "neurotransmitter_verified"
+      },
+      "cache_count": 1654,
+      "index_array_key": "feather_disagreement__ann_nt_verified",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 59,
+      "nt_verified_counts": {
+        "acetylcholine": 43,
+        "acetylcholine,dopamine,nitric_oxide": 656,
+        "acetylcholine,gaba": 1,
+        "acetylcholine,glutamate": 9,
+        "acetylcholine,histamine": 907,
+        "acetylcholine,octopamine": 4,
+        "dopamine,gaba": 4,
+        "dopamine,glutamate,serotonin": 4,
+        "gaba": 3,
+        "gaba,nitric_oxide": 5,
+        "gaba,serotonin": 2,
+        "glutamate": 13,
+        "glutamate,serotonin,tyramine": 3
+      },
+      "selected_in_local_module": 0
+    },
+    "sensory_channel__lf__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 27,
+      "index_array_key": "sensory_channel__lf__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 27,
+      "nt_verified_counts": {
+        "acetylcholine": 27
+      },
+      "selected_in_local_module": 27
+    },
+    "sensory_channel__lf__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 25,
+      "index_array_key": "sensory_channel__lf__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 24,
+      "nt_verified_counts": {
+        "": 1,
+        "acetylcholine": 24
+      },
+      "selected_in_local_module": 25
+    },
+    "sensory_channel__lf__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 35,
+      "index_array_key": "sensory_channel__lf__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 4,
+      "nt_verified_counts": {
+        "": 31,
+        "acetylcholine": 4
+      },
+      "selected_in_local_module": 21
+    },
+    "sensory_channel__lf__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 28,
+      "index_array_key": "sensory_channel__lf__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 4,
+      "nt_verified_counts": {
+        "": 24,
+        "acetylcholine": 4
+      },
+      "selected_in_local_module": 28
+    },
+    "sensory_channel__lf__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 54,
+      "index_array_key": "sensory_channel__lf__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 48,
+      "nt_verified_counts": {
+        "": 6,
+        "acetylcholine": 48
+      },
+      "selected_in_local_module": 54
+    },
+    "sensory_channel__lf__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 469,
+      "index_array_key": "sensory_channel__lf__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 469
+      },
+      "selected_in_local_module": 449
+    },
+    "sensory_channel__lf__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "lf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 8,
+      "index_array_key": "sensory_channel__lf__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 8
+      },
+      "selected_in_local_module": 8
+    },
+    "sensory_channel__lm__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 34,
+      "index_array_key": "sensory_channel__lm__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 34,
+      "nt_verified_counts": {
+        "acetylcholine": 34
+      },
+      "selected_in_local_module": 34
+    },
+    "sensory_channel__lm__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 20,
+      "index_array_key": "sensory_channel__lm__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 20,
+      "nt_verified_counts": {
+        "acetylcholine": 20
+      },
+      "selected_in_local_module": 20
+    },
+    "sensory_channel__lm__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 32,
+      "index_array_key": "sensory_channel__lm__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 2,
+      "nt_verified_counts": {
+        "": 30,
+        "acetylcholine": 2
+      },
+      "selected_in_local_module": 32
+    },
+    "sensory_channel__lm__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 2,
+      "index_array_key": "sensory_channel__lm__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 2
+      },
+      "selected_in_local_module": 2
+    },
+    "sensory_channel__lm__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 52,
+      "index_array_key": "sensory_channel__lm__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 52,
+      "nt_verified_counts": {
+        "acetylcholine": 52
+      },
+      "selected_in_local_module": 52
+    },
+    "sensory_channel__lm__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 467,
+      "index_array_key": "sensory_channel__lm__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 467
+      },
+      "selected_in_local_module": 467
+    },
+    "sensory_channel__lm__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "lm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 6,
+      "index_array_key": "sensory_channel__lm__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 6
+      },
+      "selected_in_local_module": 6
+    },
+    "sensory_channel__lh__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 38,
+      "index_array_key": "sensory_channel__lh__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 38,
+      "nt_verified_counts": {
+        "acetylcholine": 38
+      },
+      "selected_in_local_module": 38
+    },
+    "sensory_channel__lh__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 22,
+      "index_array_key": "sensory_channel__lh__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 22,
+      "nt_verified_counts": {
+        "acetylcholine": 22
+      },
+      "selected_in_local_module": 22
+    },
+    "sensory_channel__lh__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 35,
+      "index_array_key": "sensory_channel__lh__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 7,
+      "nt_verified_counts": {
+        "": 28,
+        "acetylcholine": 7
+      },
+      "selected_in_local_module": 35
+    },
+    "sensory_channel__lh__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 2,
+      "index_array_key": "sensory_channel__lh__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 2
+      },
+      "selected_in_local_module": 2
+    },
+    "sensory_channel__lh__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 51,
+      "index_array_key": "sensory_channel__lh__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 46,
+      "nt_verified_counts": {
+        "": 5,
+        "acetylcholine": 46
+      },
+      "selected_in_local_module": 51
+    },
+    "sensory_channel__lh__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 490,
+      "index_array_key": "sensory_channel__lh__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 490
+      },
+      "selected_in_local_module": 490
+    },
+    "sensory_channel__lh__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "lh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 4,
+      "index_array_key": "sensory_channel__lh__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 4
+      },
+      "selected_in_local_module": 4
+    },
+    "sensory_channel__rf__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 25,
+      "index_array_key": "sensory_channel__rf__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 22,
+      "nt_verified_counts": {
+        "": 3,
+        "acetylcholine": 22
+      },
+      "selected_in_local_module": 25
+    },
+    "sensory_channel__rf__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 25,
+      "index_array_key": "sensory_channel__rf__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 24,
+      "nt_verified_counts": {
+        "": 1,
+        "acetylcholine": 24
+      },
+      "selected_in_local_module": 25
+    },
+    "sensory_channel__rf__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 43,
+      "index_array_key": "sensory_channel__rf__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 14,
+      "nt_verified_counts": {
+        "": 29,
+        "acetylcholine": 14
+      },
+      "selected_in_local_module": 32
+    },
+    "sensory_channel__rf__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 24,
+      "index_array_key": "sensory_channel__rf__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 8,
+      "nt_verified_counts": {
+        "": 16,
+        "acetylcholine": 8
+      },
+      "selected_in_local_module": 24
+    },
+    "sensory_channel__rf__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 41,
+      "index_array_key": "sensory_channel__rf__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 34,
+      "nt_verified_counts": {
+        "": 7,
+        "acetylcholine": 34
+      },
+      "selected_in_local_module": 41
+    },
+    "sensory_channel__rf__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 468,
+      "index_array_key": "sensory_channel__rf__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 468
+      },
+      "selected_in_local_module": 443
+    },
+    "sensory_channel__rf__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "rf",
+        "identity_column": "root_888"
+      },
+      "cache_count": 5,
+      "index_array_key": "sensory_channel__rf__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 5
+      },
+      "selected_in_local_module": 5
+    },
+    "sensory_channel__rm__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 13,
+      "index_array_key": "sensory_channel__rm__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 13,
+      "nt_verified_counts": {
+        "acetylcholine": 13
+      },
+      "selected_in_local_module": 13
+    },
+    "sensory_channel__rm__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 22,
+      "index_array_key": "sensory_channel__rm__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 21,
+      "nt_verified_counts": {
+        "": 1,
+        "acetylcholine": 21
+      },
+      "selected_in_local_module": 22
+    },
+    "sensory_channel__rm__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 42,
+      "index_array_key": "sensory_channel__rm__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 21,
+      "nt_verified_counts": {
+        "": 21,
+        "acetylcholine": 21
+      },
+      "selected_in_local_module": 42
+    },
+    "sensory_channel__rm__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 2,
+      "index_array_key": "sensory_channel__rm__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 2
+      },
+      "selected_in_local_module": 2
+    },
+    "sensory_channel__rm__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 56,
+      "index_array_key": "sensory_channel__rm__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 56,
+      "nt_verified_counts": {
+        "acetylcholine": 56
+      },
+      "selected_in_local_module": 56
+    },
+    "sensory_channel__rm__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 482,
+      "index_array_key": "sensory_channel__rm__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 482
+      },
+      "selected_in_local_module": 482
+    },
+    "sensory_channel__rm__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "rm",
+        "identity_column": "root_888"
+      },
+      "cache_count": 5,
+      "index_array_key": "sensory_channel__rm__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 5
+      },
+      "selected_in_local_module": 5
+    },
+    "sensory_channel__rh__claw_position": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "claw_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 23,
+      "index_array_key": "sensory_channel__rh__claw_position",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 23,
+      "nt_verified_counts": {
+        "acetylcholine": 23
+      },
+      "selected_in_local_module": 23
+    },
+    "sensory_channel__rh__hook_direction": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hook_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 23,
+      "index_array_key": "sensory_channel__rh__hook_direction",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 23,
+      "nt_verified_counts": {
+        "acetylcholine": 23
+      },
+      "selected_in_local_module": 23
+    },
+    "sensory_channel__rh__hairplate_angle": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "hair_plate_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 40,
+      "index_array_key": "sensory_channel__rh__hairplate_angle",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 23,
+      "nt_verified_counts": {
+        "": 17,
+        "acetylcholine": 23
+      },
+      "selected_in_local_module": 40
+    },
+    "sensory_channel__rh__campaniform_strain": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "campaniform_sensillum_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 2,
+      "index_array_key": "sensory_channel__rh__campaniform_strain",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 2
+      },
+      "selected_in_local_module": 2
+    },
+    "sensory_channel__rh__club_vibration": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "club_chordotonal_organ_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 71,
+      "index_array_key": "sensory_channel__rh__club_vibration",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 63,
+      "nt_verified_counts": {
+        "": 8,
+        "acetylcholine": 63
+      },
+      "selected_in_local_module": 71
+    },
+    "sensory_channel__rh__bristle_touch": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "bristle_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 552,
+      "index_array_key": "sensory_channel__rh__bristle_touch",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 552
+      },
+      "selected_in_local_module": 552
+    },
+    "sensory_channel__rh__multidendritic_noxious": {
+      "source": "feather",
+      "rule": {
+        "feather_cell_sub_class_contains": "multidendritic_neuron",
+        "body_prefix_and_side_to_leg": "rh",
+        "identity_column": "root_888"
+      },
+      "cache_count": 8,
+      "index_array_key": "sensory_channel__rh__multidendritic_noxious",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 0,
+      "nt_verified_counts": {
+        "": 8
+      },
+      "selected_in_local_module": 8
+    },
+    "local_module_selected": {
+      "source": "cache",
+      "rule": {
+        "reserved_groups": [
+          "neck_crossing_union",
+          "leg_sensory_nerve_union",
+          "leg_motor_class"
+        ],
+        "fill": "VNC intrinsic ranked by sum of incident synapses to reserved ports, descending; tie cache index ascending",
+        "cap": 20000
+      },
+      "cache_count": 20000,
+      "index_array_key": "local_module_selected",
+      "index_file": "GROUP_CACHE_INDICES.npz",
+      "ids_resolve_as": "cache.root_ids[index]; decimal strings also in NODE_IDENTITIES.csv.gz",
+      "pure_verified_nt_cells": 11091,
+      "nt_verified_counts": {
+        "": 8882,
+        "acetylcholine": 5842,
+        "acetylcholine,gaba": 2,
+        "acetylcholine,glutamate": 8,
+        "dopamine": 2,
+        "gaba": 4203,
+        "glutamate": 1046,
+        "glutamate,octopamine": 2,
+        "glutamate,tyramine": 2,
+        "histamine": 4,
+        "octopamine": 1,
+        "serotonin": 6
+      },
+      "selected_in_local_module": 20000
+    }
+  },
+  "crossing": {
+    "ascending": 2359,
+    "descending": 1327,
+    "union": 3686,
+    "class_ascending": 1850,
+    "class_descending": 1317,
+    "disagreement_records": [
+      {
+        "cache_index_0based": 23344,
+        "root_id_string": "720575941458374637",
+        "ann_flow": "afferent",
+        "ann_super_class": "sensory",
+        "ann_class": "ascending_neuron",
+        "ann_nerve": "",
+        "ann_body_part": "",
+        "ann_function": "",
+        "ann_primary_type": "SNxxx",
+        "ann_nt_verified": "",
+        "raw_neurons_row_0based": 24233,
+        "raw_sub_class": "",
+        "raw_verified_neuropeptide": "",
+        "feather_root_id": "720575941458374637",
+        "feather_banc_888_id": "720575941458374637",
+        "feather_side": "left",
+        "feather_super_class": "sensory",
+        "feather_cell_class": "ascending_neuron",
+        "feather_nerve": "",
+        "feather_neurotransmitter_verified": "",
+        "feather_cell_sub_class": "",
+        "feather_cell_type": "SNxxx",
+        "feather_body_part_sensory": "",
+        "feather_body_part_effector": "",
+        "feather_peripheral_target_type": "",
+        "feather_cell_function": "",
+        "feather_cell_function_detailed": "",
+        "feather_region": "ventral_nerve_cord",
+        "feather_tract": "cervical_connective",
+        "feather_neurotransmitter_predicted": "acetylcholine",
+        "feather_neurotransmitter_score": 0.8856,
+        "feather_neuropeptide_verified": ""
+      },
+      {
+        "cache_index_0based": 55729,
+        "root_id_string": "720575941507811422",
+        "ann_flow": "intrinsic",
+        "ann_super_class": "ventral_nerve_cord_intrinsic",
+        "ann_class": "ascending_neuron",
+        "ann_nerve": "",
+        "ann_body_part": "",
+        "ann_function": "",
+        "ann_primary_type": "IN10B032",
+        "ann_nt_verified": "acetylcholine",
+        "raw_neurons_row_0based": 57477,
+        "raw_sub_class": "ventral_nerve_cord_bilateral_interconnecting",
+        "raw_verified_neuropeptide": "",
+        "feather_root_id": "720575941507811422",
+        "feather_banc_888_id": "720575941507811422",
+        "feather_side": "left",
+        "feather_super_class": "ventral_nerve_cord_intrinsic",
+        "feather_cell_class": "ascending_neuron",
+        "feather_nerve": "",
+        "feather_neurotransmitter_verified": "acetylcholine",
+        "feather_cell_sub_class": "ventral_nerve_cord_bilateral_interconnecting",
+        "feather_cell_type": "IN10B032",
+        "feather_body_part_sensory": "",
+        "feather_body_part_effector": "",
+        "feather_peripheral_target_type": "",
+        "feather_cell_function": "",
+        "feather_cell_function_detailed": "",
+        "feather_region": "ventral_nerve_cord",
+        "feather_tract": "cervical_connective",
+        "feather_neurotransmitter_predicted": "acetylcholine",
+        "feather_neurotransmitter_score": 0.941,
+        "feather_neuropeptide_verified": ""
+      },
+      {
+        "cache_index_0based": 99949,
+        "root_id_string": "720575941566565174",
+        "ann_flow": "intrinsic",
+        "ann_super_class": "central_brain_intrinsic",
+        "ann_class": "descending_neuron",
+        "ann_nerve": "",
+        "ann_body_part": "",
+        "ann_function": "",
+        "ann_primary_type": "CB0191",
+        "ann_nt_verified": "",
+        "raw_neurons_row_0based": 102839,
+        "raw_sub_class": "",
+        "raw_verified_neuropeptide": "",
+        "feather_root_id": "720575941566565174",
+        "feather_banc_888_id": "720575941566565174",
+        "feather_side": "right",
+        "feather_super_class": "central_brain_intrinsic",
+        "feather_cell_class": "descending_neuron",
+        "feather_nerve": "",
+        "feather_neurotransmitter_verified": "",
+        "feather_cell_sub_class": "",
+        "feather_cell_type": "CB0191",
+        "feather_body_part_sensory": "",
+        "feather_body_part_effector": "",
+        "feather_peripheral_target_type": "",
+        "feather_cell_function": "",
+        "feather_cell_function_detailed": "",
+        "feather_region": "central_brain",
+        "feather_tract": "cervical_connective",
+        "feather_neurotransmitter_predicted": "acetylcholine",
+        "feather_neurotransmitter_score": 0.6468,
+        "feather_neuropeptide_verified": ""
+      },
+      {
+        "cache_index_0based": 117004,
+        "root_id_string": "720575941594292775",
+        "ann_flow": "intrinsic",
+        "ann_super_class": "ventral_nerve_cord_intrinsic",
+        "ann_class": "ascending_neuron",
+        "ann_nerve": "",
+        "ann_body_part": "",
+        "ann_function": "",
+        "ann_primary_type": "INXXX101",
+        "ann_nt_verified": "",
+        "raw_neurons_row_0based": 120340,
+        "raw_sub_class": "ventral_nerve_cord_bilateral_interconnecting",
+        "raw_verified_neuropeptide": "",
+        "feather_root_id": "720575941594292775",
+        "feather_banc_888_id": "720575941594292775",
+        "feather_side": "left",
+        "feather_super_class": "ventral_nerve_cord_intrinsic",
+        "feather_cell_class": "ascending_neuron",
+        "feather_nerve": "",
+        "feather_neurotransmitter_verified": "",
+        "feather_cell_sub_class": "ventral_nerve_cord_bilateral_interconnecting",
+        "feather_cell_type": "INXXX101",
+        "feather_body_part_sensory": "",
+        "feather_body_part_effector": "",
+        "feather_peripheral_target_type": "",
+        "feather_cell_function": "",
+        "feather_cell_function_detailed": "",
+        "feather_region": "ventral_nerve_cord",
+        "feather_tract": "cervical_connective",
+        "feather_neurotransmitter_predicted": "acetylcholine",
+        "feather_neurotransmitter_score": 0.9409,
+        "feather_neuropeptide_verified": ""
+      },
+      {
+        "cache_index_0based": 125968,
+        "root_id_string": "720575941612401510",
+        "ann_flow": "intrinsic",
+        "ann_super_class": "central_brain_intrinsic",
+        "ann_class": "descending_neuron",
+        "ann_nerve": "",
+        "ann_body_part": "",
+        "ann_function": "",
+        "ann_primary_type": "CB0191",
+        "ann_nt_verified": "",
+        "raw_neurons_row_0based": 129533,
+        "raw_sub_class": "",
+        "raw_verified_neuropeptide": "",
+        "feather_root_id": "720575941440601644",
+        "feather_banc_888_id": "720575941612401510",
+        "feather_side": "left",
+        "feather_super_class": "central_brain_intrinsic",
+        "feather_cell_class": "descending_neuron",
+        "feather_nerve": "",
+        "feather_neurotransmitter_verified": "",
+        "feather_cell_sub_class": "",
+        "feather_cell_type": "CB0191",
+        "feather_body_part_sensory": "",
+        "feather_body_part_effector": "",
+        "feather_peripheral_target_type": "",
+        "feather_cell_function": "",
+        "feather_cell_function_detailed": "",
+        "feather_region": "central_brain",
+        "feather_tract": "cervical_connective",
+        "feather_neurotransmitter_predicted": "acetylcholine",
+        "feather_neurotransmitter_score": 0.6548,
+        "feather_neuropeptide_verified": ""
+      }
+    ],
+    "meaning": "Super-class definition preserved; class contradictions exported, not reconciled. No independent single-neuron polarity verification; never relabel every crossing neuron descending."
+  },
+  "sensory_channels": {
+    "source_rows": 3903,
+    "legacy_unique": 3903,
+    "root888_unique": 3903,
+    "legacy_in_cache": 3847,
+    "root888_in_cache": 3873,
+    "by_leg_channel": {
+      "lf/claw_position": {
+        "source_rows": 27,
+        "unique_ids": 27,
+        "in_cache": 27,
+        "legacy_in_cache": 25
+      },
+      "lf/hook_direction": {
+        "source_rows": 25,
+        "unique_ids": 25,
+        "in_cache": 25,
+        "legacy_in_cache": 24
+      },
+      "lf/hairplate_angle": {
+        "source_rows": 35,
+        "unique_ids": 35,
+        "in_cache": 35,
+        "legacy_in_cache": 34
+      },
+      "lf/campaniform_strain": {
+        "source_rows": 29,
+        "unique_ids": 29,
+        "in_cache": 28,
+        "legacy_in_cache": 28
+      },
+      "lf/club_vibration": {
+        "source_rows": 58,
+        "unique_ids": 58,
+        "in_cache": 54,
+        "legacy_in_cache": 53
+      },
+      "lf/bristle_touch": {
+        "source_rows": 476,
+        "unique_ids": 476,
+        "in_cache": 469,
+        "legacy_in_cache": 469
+      },
+      "lf/multidendritic_noxious": {
+        "source_rows": 8,
+        "unique_ids": 8,
+        "in_cache": 8,
+        "legacy_in_cache": 8
+      },
+      "lm/claw_position": {
+        "source_rows": 34,
+        "unique_ids": 34,
+        "in_cache": 34,
+        "legacy_in_cache": 33
+      },
+      "lm/hook_direction": {
+        "source_rows": 20,
+        "unique_ids": 20,
+        "in_cache": 20,
+        "legacy_in_cache": 20
+      },
+      "lm/hairplate_angle": {
+        "source_rows": 32,
+        "unique_ids": 32,
+        "in_cache": 32,
+        "legacy_in_cache": 31
+      },
+      "lm/campaniform_strain": {
+        "source_rows": 2,
+        "unique_ids": 2,
+        "in_cache": 2,
+        "legacy_in_cache": 2
+      },
+      "lm/club_vibration": {
+        "source_rows": 52,
+        "unique_ids": 52,
+        "in_cache": 52,
+        "legacy_in_cache": 52
+      },
+      "lm/bristle_touch": {
+        "source_rows": 468,
+        "unique_ids": 468,
+        "in_cache": 467,
+        "legacy_in_cache": 466
+      },
+      "lm/multidendritic_noxious": {
+        "source_rows": 6,
+        "unique_ids": 6,
+        "in_cache": 6,
+        "legacy_in_cache": 6
+      },
+      "lh/claw_position": {
+        "source_rows": 38,
+        "unique_ids": 38,
+        "in_cache": 38,
+        "legacy_in_cache": 33
+      },
+      "lh/hook_direction": {
+        "source_rows": 22,
+        "unique_ids": 22,
+        "in_cache": 22,
+        "legacy_in_cache": 22
+      },
+      "lh/hairplate_angle": {
+        "source_rows": 35,
+        "unique_ids": 35,
+        "in_cache": 35,
+        "legacy_in_cache": 33
+      },
+      "lh/campaniform_strain": {
+        "source_rows": 2,
+        "unique_ids": 2,
+        "in_cache": 2,
+        "legacy_in_cache": 2
+      },
+      "lh/club_vibration": {
+        "source_rows": 51,
+        "unique_ids": 51,
+        "in_cache": 51,
+        "legacy_in_cache": 51
+      },
+      "lh/bristle_touch": {
+        "source_rows": 493,
+        "unique_ids": 493,
+        "in_cache": 490,
+        "legacy_in_cache": 489
+      },
+      "lh/multidendritic_noxious": {
+        "source_rows": 4,
+        "unique_ids": 4,
+        "in_cache": 4,
+        "legacy_in_cache": 4
+      },
+      "rf/claw_position": {
+        "source_rows": 25,
+        "unique_ids": 25,
+        "in_cache": 25,
+        "legacy_in_cache": 24
+      },
+      "rf/hook_direction": {
+        "source_rows": 26,
+        "unique_ids": 26,
+        "in_cache": 25,
+        "legacy_in_cache": 25
+      },
+      "rf/hairplate_angle": {
+        "source_rows": 43,
+        "unique_ids": 43,
+        "in_cache": 43,
+        "legacy_in_cache": 43
+      },
+      "rf/campaniform_strain": {
+        "source_rows": 25,
+        "unique_ids": 25,
+        "in_cache": 24,
+        "legacy_in_cache": 24
+      },
+      "rf/club_vibration": {
+        "source_rows": 47,
+        "unique_ids": 47,
+        "in_cache": 41,
+        "legacy_in_cache": 40
+      },
+      "rf/bristle_touch": {
+        "source_rows": 474,
+        "unique_ids": 474,
+        "in_cache": 468,
+        "legacy_in_cache": 466
+      },
+      "rf/multidendritic_noxious": {
+        "source_rows": 5,
+        "unique_ids": 5,
+        "in_cache": 5,
+        "legacy_in_cache": 5
+      },
+      "rm/claw_position": {
+        "source_rows": 13,
+        "unique_ids": 13,
+        "in_cache": 13,
+        "legacy_in_cache": 12
+      },
+      "rm/hook_direction": {
+        "source_rows": 22,
+        "unique_ids": 22,
+        "in_cache": 22,
+        "legacy_in_cache": 22
+      },
+      "rm/hairplate_angle": {
+        "source_rows": 42,
+        "unique_ids": 42,
+        "in_cache": 42,
+        "legacy_in_cache": 40
+      },
+      "rm/campaniform_strain": {
+        "source_rows": 2,
+        "unique_ids": 2,
+        "in_cache": 2,
+        "legacy_in_cache": 2
+      },
+      "rm/club_vibration": {
+        "source_rows": 56,
+        "unique_ids": 56,
+        "in_cache": 56,
+        "legacy_in_cache": 56
+      },
+      "rm/bristle_touch": {
+        "source_rows": 482,
+        "unique_ids": 482,
+        "in_cache": 482,
+        "legacy_in_cache": 482
+      },
+      "rm/multidendritic_noxious": {
+        "source_rows": 5,
+        "unique_ids": 5,
+        "in_cache": 5,
+        "legacy_in_cache": 5
+      },
+      "rh/claw_position": {
+        "source_rows": 23,
+        "unique_ids": 23,
+        "in_cache": 23,
+        "legacy_in_cache": 22
+      },
+      "rh/hook_direction": {
+        "source_rows": 23,
+        "unique_ids": 23,
+        "in_cache": 23,
+        "legacy_in_cache": 23
+      },
+      "rh/hairplate_angle": {
+        "source_rows": 40,
+        "unique_ids": 40,
+        "in_cache": 40,
+        "legacy_in_cache": 39
+      },
+      "rh/campaniform_strain": {
+        "source_rows": 2,
+        "unique_ids": 2,
+        "in_cache": 2,
+        "legacy_in_cache": 2
+      },
+      "rh/club_vibration": {
+        "source_rows": 71,
+        "unique_ids": 71,
+        "in_cache": 71,
+        "legacy_in_cache": 71
+      },
+      "rh/bristle_touch": {
+        "source_rows": 552,
+        "unique_ids": 552,
+        "in_cache": 552,
+        "legacy_in_cache": 551
+      },
+      "rh/multidendritic_noxious": {
+        "source_rows": 8,
+        "unique_ids": 8,
+        "in_cache": 8,
+        "legacy_in_cache": 8
+      }
+    },
+    "candidate_file": "SENSORY_CHANNEL_CANDIDATES.csv",
+    "limitations": [
+      "Source labels identify populations, not per-cell tuning or measured kinetics.",
+      "Channel substring rules inherited and explicit; bristle substring may overlap gustatory/tactile subtypes, inspect exported subclass before injection.",
+      "Nociceptive and load signals require actual physical sensing/encoding; no afferents or nerves are invented."
+    ]
+  },
+  "motor_crosswalk": {
+    "resolved_legacy_actuator_pools": 74,
+    "unresolved_legacy_actuator_pools": 16,
+    "legacy_unique_roots": 208,
+    "root888_unique_roots": 208,
+    "legacy_in_cache": 206,
+    "root888_in_cache": 208,
+    "candidate_file": "MOTOR_TARGET_CANDIDATES.csv",
+    "all_targets_are_42_joint_mapping": false,
+    "limitations": [
+      "Same-row version association is not split/merge validation.",
+      "Legacy muscle-target pools are for90 actuators, not calibrated mappings onto current42 increments.",
+      "Muscle aliases, many-to-many pools, missing16, force/activation calibration and neuron identity qualification remain explicit."
+    ]
+  },
+  "directed_routes": {
+    "brain_intrinsic_and_visual__TO__descending_boundary": {
+      "source_group": "brain_intrinsic_and_visual",
+      "target_group": "descending_boundary",
+      "edge_rows": 69628,
+      "synapse_sum": 793633,
+      "strict_label_edge_rows": 4276,
+      "selector_array_key": "brain_intrinsic_and_visual__TO__descending_boundary"
+    },
+    "descending_boundary__TO__vnc_intrinsic": {
+      "source_group": "descending_boundary",
+      "target_group": "vnc_intrinsic",
+      "edge_rows": 57077,
+      "synapse_sum": 517979,
+      "strict_label_edge_rows": 7261,
+      "selector_array_key": "descending_boundary__TO__vnc_intrinsic"
+    },
+    "vnc_intrinsic__TO__ascending_boundary": {
+      "source_group": "vnc_intrinsic",
+      "target_group": "ascending_boundary",
+      "edge_rows": 55557,
+      "synapse_sum": 505559,
+      "strict_label_edge_rows": 45537,
+      "selector_array_key": "vnc_intrinsic__TO__ascending_boundary"
+    },
+    "ascending_boundary__TO__brain_intrinsic_and_visual": {
+      "source_group": "ascending_boundary",
+      "target_group": "brain_intrinsic_and_visual",
+      "edge_rows": 48735,
+      "synapse_sum": 472534,
+      "strict_label_edge_rows": 25961,
+      "selector_array_key": "ascending_boundary__TO__brain_intrinsic_and_visual"
+    },
+    "leg_sensory_nerve_union__TO__vnc_intrinsic": {
+      "source_group": "leg_sensory_nerve_union",
+      "target_group": "vnc_intrinsic",
+      "edge_rows": 55171,
+      "synapse_sum": 328078,
+      "strict_label_edge_rows": 13467,
+      "selector_array_key": "leg_sensory_nerve_union__TO__vnc_intrinsic"
+    },
+    "vnc_intrinsic__TO__leg_motor_class": {
+      "source_group": "vnc_intrinsic",
+      "target_group": "leg_motor_class",
+      "edge_rows": 43897,
+      "synapse_sum": 777882,
+      "strict_label_edge_rows": 36087,
+      "selector_array_key": "vnc_intrinsic__TO__leg_motor_class"
+    },
+    "brain_intrinsic_and_visual__TO__vnc_intrinsic": {
+      "source_group": "brain_intrinsic_and_visual",
+      "target_group": "vnc_intrinsic",
+      "edge_rows": 0,
+      "synapse_sum": 0,
+      "strict_label_edge_rows": 0,
+      "selector_array_key": "brain_intrinsic_and_visual__TO__vnc_intrinsic"
+    },
+    "vnc_intrinsic__TO__brain_intrinsic_and_visual": {
+      "source_group": "vnc_intrinsic",
+      "target_group": "brain_intrinsic_and_visual",
+      "edge_rows": 9,
+      "synapse_sum": 52,
+      "strict_label_edge_rows": 0,
+      "selector_array_key": "vnc_intrinsic__TO__brain_intrinsic_and_visual"
+    },
+    "mouth_sensory__TO__brain_intrinsic_and_visual": {
+      "source_group": "mouth_sensory",
+      "target_group": "brain_intrinsic_and_visual",
+      "edge_rows": 6798,
+      "synapse_sum": 57151,
+      "strict_label_edge_rows": 0,
+      "selector_array_key": "mouth_sensory__TO__brain_intrinsic_and_visual"
+    },
+    "brain_intrinsic_and_visual__TO__class__proboscis_motor_neuron": {
+      "source_group": "brain_intrinsic_and_visual",
+      "target_group": "class__proboscis_motor_neuron",
+      "edge_rows": 1182,
+      "synapse_sum": 18552,
+      "strict_label_edge_rows": 0,
+      "selector_array_key": "brain_intrinsic_and_visual__TO__class__proboscis_motor_neuron"
+    },
+    "brain_intrinsic_and_visual__TO__class__pharynx_motor_neuron": {
+      "source_group": "brain_intrinsic_and_visual",
+      "target_group": "class__pharynx_motor_neuron",
+      "edge_rows": 902,
+      "synapse_sum": 17405,
+      "strict_label_edge_rows": 0,
+      "selector_array_key": "brain_intrinsic_and_visual__TO__class__pharynx_motor_neuron"
+    }
+  },
+  "edge_location_limit": "Directed pairs are real cached pre->post aggregates across neuropils. Endpoint super-class is not a synapse location, neck tract geometry, conduction delay, efficacy or physiological sign.",
+  "local_module": {
+    "file": "LOCAL_MODULE_CANDIDATE.npz",
+    "cap": 20000,
+    "nodes": 20000,
+    "reserved_nodes": 9072,
+    "vnc_intrinsic_nodes": 10928,
+    "edges": 705068,
+    "pure_verified_label_edges": 435126,
+    "excluded_from_strict_edges": 269942,
+    "source_synapse_sum": 6703494,
+    "all_edges_are_exact_cache_rows": true,
+    "selection_is_functional_validation": false,
+    "readout_eligible_motors_by_leg": {
+      "rm": 60,
+      "lf": 43,
+      "lh": 59,
+      "lm": 60,
+      "rh": 59,
+      "rf": 42
+    },
+    "readout_max_weights_for7_outputs_each_leg": 2261,
+    "readout_biases": 42,
+    "recommendation": "Implement identity-preserving sparse recurrent local neuron module over saved source edges; reserve descending/ascending ports and actual leg sensory/MN identities. A separate brain module may send through descending cells and receive ascending cells; no direct raw-body-to-brain or brain-to-joint shortcut. Candidate is locomotor-only, not complete brain/feeding/choice.",
+    "bounded_parameter_proposal": {
+      "status": "ENGINEERING_PROPOSAL_NOT_FITTED",
+      "neuron_update": "bounded point-neuron state; preserve identities and sparse source topology; dynamics and units declared",
+      "strict_label_mode": "Only pure acetylcholine/gaba/glutamate source labels eligible initially; excitation/inhibition mapping remains receptor model assumption, glutamate need not imply universally inhibitory biology. Unknown/mixed/modulatory labels do not silently gain signs.",
+      "trainable_gain_count_max": 8,
+      "gain_bounds": [
+        0.5,
+        2.0
+      ],
+      "gain_partition": "directed port/region groups, predeclare exact grouping before fit",
+      "neuron_time_constant_group_count_max": 8,
+      "time_constant_bounds_ms": [
+        5,
+        100
+      ],
+      "threshold_group_count_max": 8,
+      "threshold_normalized_bounds": [
+        -1,
+        1
+      ],
+      "external_drive": "only declared physically observed leg channels injected into listed sensory identities, plus declared commands on listed descending ports; no arbitrary all-neuron bias",
+      "readout": "per-leg bounded linear/tanh readout from unique leg motor ports to7 corresponding incremental joints; engineering decoder, not muscle anatomy",
+      "readout_weight_bounds": [
+        -1,
+        1
+      ],
+      "readout_bias_bounds": [
+        -1,
+        1
+      ],
+      "readout_output_bounds": [
+        -1,
+        1
+      ],
+      "final_actuation": "existing42-joint angle/velocity/torque safeguards; coordinate registration from parent retarget audit required",
+      "no_new_edges": true,
+      "unknown_edge_policy": "retained in anatomical artifact but inactive in strict dynamics; separate declared sensitivity model needed for any learned unknown sign",
+      "training_executed": false
+    },
+    "qualification_needed": [
+      "Recompute signed incoming/outgoing port coverage before training; disconnected signed ports cannot be declared restored.",
+      "Verify sparse scatter update, exact ID projection, finite state and timestep stability without full-body simulation first.",
+      "Then bounded offline teacher imitation plus real physics validation authorized by parent, with teacher/engineered readout labelled.",
+      "Add source-backed mouth/feeding/internal-state interfaces separately; labels alone do not implement ingestion, energy balance, reward or behavior choice.",
+      "No lesion/cut/electrode experiments until full platform implemented and preoperative model frozen."
+    ]
+  },
+  "missing_or_unknown": [
+    {
+      "item": "physical neck axon geometry and cell-specific crossing polarity",
+      "status": "UNKNOWN",
+      "existing_alternative": "cache crossing class labels; cell_info tag/tag2; feather tract/region; soma parquet only points, not axons"
+    },
+    {
+      "item": "per-cell mechanosensory tuning and receptor kinetics",
+      "status": "UNKNOWN",
+      "existing_alternative": "raw Sub Class and feather cell_sub_class/side/body labels, not measured gains"
+    },
+    {
+      "item": "calibrated MN-to-current42joint-or-muscle map",
+      "status": "NOT_ESTABLISHED",
+      "existing_alternative": "feather peripheral_target_type plus body_part_effector+side; legacy90actuator source pools with16unresolved; engineering motor-only readout"
+    },
+    {
+      "item": "feeding/homeostatic circuit dynamics and calibrated abdomen physiology",
+      "status": "NOT_ESTABLISHED",
+      "existing_alternative": "raw/cache function, mouth motor, gut/hemolymph body labels; feather neuropeptide_verified and cell_function_detailed; no inferred hunger/satiety afferents"
+    },
+    {
+      "item": "verified transmitter for every cell or receptor sign for every edge",
+      "status": "INCOMPLETE",
+      "existing_alternative": "ann_nt_verified; feather predicted NT with score, separately tagged predictions, no automatic fill"
+    },
+    {
+      "item": "export threshold source policy/materialization provenance",
+      "status": "PARTLY_UNKNOWN",
+      "existing_alternative": "raw row min3 and exact root_888 full coverage establish compatibility, not an independent authenticated release history"
+    },
+    {
+      "item": "spatial edge locations",
+      "status": "NOT_IN_CACHE",
+      "existing_alternative": "raw neuropil rows retain coarse locations but aggregated cache loses pair-by-neuropil partition; no micron axon coordinates"
+    },
+    {
+      "item": "current default embodied tier is whole brain",
+      "status": "FALSE",
+      "existing_alternative": "adapters TierConfig12000 leg-seeded, head false and visual false; candidate here separately versioned, no legacy tier replacement"
+    }
+  ],
+  "geometry": {
+    "source": "access_map",
+    "native_voxel_um": [
+      0.004,
+      0.004,
+      0.045
+    ],
+    "soma_table_contains": "nucleus centroid point only; not axon position",
+    "attribution": "BANC (2026), Distributed control circuits across a brain-and-cord connectome, Harvard Dataverse doi:10.7910/DVN/7WTH1N, somas_v1.parquet, CC BY4.0",
+    "no_geometry_exported": true
+  },
+  "invariants": {
+    "unique_sorted_cache_ids": true,
+    "edge_bounds": true,
+    "unique_lexicographic_pairs": true,
+    "positive_integer_synapse_counts": true,
+    "raw_reaggregation_exact": true,
+    "source_hashes_unchanged": true,
+    "local_indices_no_negative_wraparound": true,
+    "no_fabricated_edges": true,
+    "crossing_ascending_descending_disjoint": true
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "max_rss_kib": 1607212,
+    "dense_n_by_n_arrays": 0
+  }
+}

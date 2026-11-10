@@ -1,0 +1,19 @@
+/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/run_intrinsic_wide.py:30: RuntimeWarning: Mean of empty slice
+  series = np.stack([rates[:, leg_ids == L.lower()].mean(1) for L in LEGS], 1)
+/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/numpy/_core/_methods.py:134: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/run_intrinsic_wide.py", line 113, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/run_intrinsic_wide.py", line 92, in main
+    res = dict(analyse(rates, leg_ids), cells=stats['cells'], strict_edges=stats['strict_edges'],
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/run_intrinsic_wide.py", line 32, in analyse
+    U, S, Vt = np.linalg.svd(win, full_matrices=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 1840, in svd
+    u, s, vh = gufunc(a, signature=signature)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 153, in _raise_linalgerror_svd_nonconvergence
+    raise LinAlgError("SVD did not converge")
+numpy.linalg.LinAlgError: SVD did not converge

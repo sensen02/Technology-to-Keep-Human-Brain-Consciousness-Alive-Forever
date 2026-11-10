@@ -1,0 +1,27 @@
+{"sim_s": 0.500000000000502, "wall_s": 6.226109570008703}
+{"sim_s": 0.9999999999993368, "wall_s": 12.265190184989478}
+{"sim_s": 1.4999999999981715, "wall_s": 18.35772371198982}
+{"sim_s": 1.9999999999970062, "wall_s": 24.429549014981603}
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/run_physics.py", line 78, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/run_physics.py", line 76, in main
+    dump(folder/'RESULT.json',result);print(json.dumps(result,indent=2))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/run_physics.py", line 15, in dump
+    with Path(p).open('x') as f:json.dump(o,f,indent=2)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int64 is not JSON serializable

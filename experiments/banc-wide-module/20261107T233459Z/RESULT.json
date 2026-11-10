@@ -1,0 +1,142 @@
+{
+  "status": "WIDE_MODULE_INTRINSIC_COMPARISON_NOT_WALKING",
+  "module": "20261107T233459Z",
+  "protocol": "both from rest; 500 ms warm-up then 2000 ms recorded sensory replay; zero descending; identical metrics as rounds 11-12",
+  "results": {
+    "frozen20k": {
+      "per_leg_mean_hz": {
+        "LF": 21.194798597451594,
+        "LH": 21.319634191588886,
+        "LM": 8.609930300163178,
+        "RF": 20.54960075175704,
+        "RH": 17.356444611383083,
+        "RM": 13.365491646665953
+      },
+      "per_leg_cv": {
+        "LF": 0.3922926280981532,
+        "LH": 0.401754919772178,
+        "LM": 0.32171049086978637,
+        "RF": 0.5375454093316724,
+        "RH": 0.5026241412530776,
+        "RM": 0.26860193652489184
+      },
+      "tripod_alternation_score": -0.6432839630487803,
+      "ipsilateral_score": 0.7072097637420648,
+      "lf_rh_correlation": 0.00397597807679288,
+      "rf_lh_correlation": 0.26213392507815697,
+      "lf_rf_correlation": 0.8934922578141438,
+      "lh_rh_correlation": 0.4617021107860068,
+      "group_mean_hz": {
+        "A_LF_RM_LH": 18.626641478568807,
+        "B_RF_LM_RH": 15.5053252211011
+      },
+      "PC1_variance_fraction": 0.605602648872033,
+      "PC2_variance_fraction": 0.2428497693948437,
+      "PC1_loadings": {
+        "LF": -0.5233050992950979,
+        "LH": -0.3490302089940681,
+        "LM": 0.03162933470782811,
+        "RF": -0.7273389994904235,
+        "RH": -0.2698260231480536,
+        "RM": 0.038744915790602
+      },
+      "PC2_loadings": {
+        "LF": 0.3281178887088897,
+        "LH": -0.6218144823373142,
+        "LM": 0.028417731523397348,
+        "RF": 0.3041287814832479,
+        "RH": -0.6327710726987175,
+        "RM": 0.10947276843623005
+      },
+      "all_leg_mean_std_hz": 4.326878302068594,
+      "cells": 20000,
+      "strict_edges": 435126,
+      "exc_edges": 207166,
+      "inh_edges": 227960,
+      "total_conductance_uS": 380.84,
+      "row_sum_max_abs_deviation_uS": 1.3877787807814457e-17,
+      "neural_steps": 5000,
+      "physical_steps": 0,
+      "voltage_min_mV": -75.79754041936934,
+      "voltage_max_mV": -50.004004262756986,
+      "total_spikes": 607920,
+      "MN_spikes": 13028,
+      "wall_s": 2.88987398147583,
+      "rates_sha256": "dcf5abe64dd873e1f229ac582ca6ea1672b7ff755f2a2b102e063582378e76be"
+    },
+    "banc_strict": {
+      "per_leg_mean_hz": {
+        "LF": 15.689769378469418,
+        "LH": 16.921109696699094,
+        "LM": 7.376979485371092,
+        "RF": 11.89751172410948,
+        "RH": 13.267033831193698,
+        "RM": 9.037634676065354
+      },
+      "per_leg_cv": {
+        "LF": 0.46999160998484146,
+        "LH": 0.5609911954969466,
+        "LM": 0.3716389323773825,
+        "RF": 0.6116160919407709,
+        "RH": 0.5846290526399408,
+        "RM": 0.3687021780421011
+      },
+      "tripod_alternation_score": -0.7744697661799059,
+      "ipsilateral_score": 0.7855279030470695,
+      "lf_rh_correlation": 0.30496974709083574,
+      "rf_lh_correlation": 0.3596631158024134,
+      "lf_rf_correlation": 0.8830588330300111,
+      "lh_rh_correlation": 0.6364563266984934,
+      "group_mean_hz": {
+        "A_LF_RM_LH": 13.882837917077957,
+        "B_RF_LM_RH": 10.84717501355809
+      },
+      "PC1_variance_fraction": 0.5406115042682215,
+      "PC2_variance_fraction": 0.2903667408310515,
+      "PC1_loadings": {
+        "LF": 0.40817970193333936,
+        "LH": 0.6964267760863783,
+        "LM": -0.03290058924189683,
+        "RF": 0.38848159479794986,
+        "RH": 0.4430462674299379,
+        "RM": 0.009417171906772787
+      },
+      "PC2_loadings": {
+        "LF": 0.5764897011177623,
+        "LH": -0.3807743864532834,
+        "LM": 0.05618250327362697,
+        "RF": 0.5715623141752639,
+        "RH": -0.4313289286568366,
+        "RM": 0.08237653652922182
+      },
+      "all_leg_mean_std_hz": 4.234055903670244,
+      "cells": 153962,
+      "strict_edges": 1223208,
+      "exc_edges": 782320,
+      "inh_edges": 440888,
+      "total_conductance_uS": 2424.2599999999998,
+      "row_sum_max_abs_deviation_uS": 1.3877787807814457e-17,
+      "neural_steps": 5000,
+      "physical_steps": 0,
+      "voltage_min_mV": -74.2728538027048,
+      "voltage_max_mV": -50.00123194776177,
+      "total_spikes": 12542849,
+      "MN_spikes": 9863,
+      "wall_s": 20.52198815345764,
+      "rates_sha256": "6f6ce0c0aa5e907fd930e4297f5050f1f32dfcfb4a472ee73ee047f696e1c0b9"
+    }
+  },
+  "total_neural_steps": 10000,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "new_edges": 0,
+  "limits": "Whole-BANC strict module is an uncalibrated reconstruction: single verified transmitter per presynaptic cell, uniform per-target 0.020 uS total, inhibitory sign from GABA/glutamate label only, no measured receptor signs, no compensation for missing cell types, no anatomical validation. The 20k control here starts from rest, so it is NOT the frozen 1s canonical state used in rounds 10-12 and its numbers are not interchangeable with those rounds.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz": "abd2a0c10501458f927c6ccbe53bbf2e1c982bd139f7388cbd26fb08218aa39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/module_wide.py": "5102c1ea69a4881d650d7511af8e2c92470fca00f4f931715d9feadf17f79344"
+  }
+}

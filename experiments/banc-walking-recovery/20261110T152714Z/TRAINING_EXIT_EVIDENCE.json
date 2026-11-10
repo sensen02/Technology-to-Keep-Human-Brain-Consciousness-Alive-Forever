@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "training",
+    "command": [
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/env/bin/python",
+      "-B",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/continue_role_bc.py",
+      "--checkpoint",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/BC_GRU_ROLE_2000/final.pt",
+      "--out",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000",
+      "--total-steps",
+      "3000",
+      "--checkpoint-every",
+      "250"
+    ],
+    "pid": 328554,
+    "started_utc": "2026-11-10T15:31:39.382151+00:00",
+    "finished_utc": "2026-11-10T15:58:13.818851+00:00",
+    "wall_seconds": 1594.4367077350616,
+    "exit_code": 0,
+    "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/TRAINING.log"
+  },
+  {
+    "stage": "independent_verification",
+    "command": [
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/env/bin/python",
+      "-B",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/verify_saved_training.py"
+    ],
+    "pid": 329357,
+    "started_utc": "2026-11-10T15:58:13.819159+00:00",
+    "finished_utc": "2026-11-10T15:58:18.772551+00:00",
+    "wall_seconds": 4.953408241271973,
+    "exit_code": 0,
+    "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/SAVED_VERIFICATION.log"
+  }
+]

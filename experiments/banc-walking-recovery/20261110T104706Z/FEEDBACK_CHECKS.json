@@ -1,0 +1,440 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "episode 0/1 training and episode 2 heldout",
+      "passed": true
+    },
+    {
+      "name": "all original BC rows retained",
+      "passed": true
+    },
+    {
+      "name": "episode 0 both target blocks correct sign and scale",
+      "passed": true
+    },
+    {
+      "name": "episode 0 fixed body/history and previous action",
+      "passed": true
+    },
+    {
+      "name": "episode 0 independent target coherency",
+      "passed": true
+    },
+    {
+      "name": "episode 0 exact corrective labels",
+      "passed": true
+    },
+    {
+      "name": "episode 0 fixed deterministic independent directions",
+      "passed": true
+    },
+    {
+      "name": "episode 1 both target blocks correct sign and scale",
+      "passed": true
+    },
+    {
+      "name": "episode 1 fixed body/history and previous action",
+      "passed": true
+    },
+    {
+      "name": "episode 1 independent target coherency",
+      "passed": true
+    },
+    {
+      "name": "episode 1 exact corrective labels",
+      "passed": true
+    },
+    {
+      "name": "episode 1 fixed deterministic independent directions",
+      "passed": true
+    },
+    {
+      "name": "episode 2 both target blocks correct sign and scale",
+      "passed": true
+    },
+    {
+      "name": "episode 2 fixed body/history and previous action",
+      "passed": true
+    },
+    {
+      "name": "episode 2 independent target coherency",
+      "passed": true
+    },
+    {
+      "name": "episode 2 exact corrective labels",
+      "passed": true
+    },
+    {
+      "name": "episode 2 fixed deterministic independent directions",
+      "passed": true
+    },
+    {
+      "name": "complete teacher finite differences at eight frozen fixtures",
+      "passed": true
+    },
+    {
+      "name": "pair gradient matches independent finite difference and corrects negative slope",
+      "passed": true,
+      "analytic": 1.7484905608829894e-05,
+      "numeric": 1.7484905602375977e-05
+    },
+    {
+      "name": "tiny corrective optimization improves pair loss",
+      "passed": true,
+      "initial": 0.0016000000000000003,
+      "final": 0.0014342715940881406
+    },
+    {
+      "name": "unchanged raw FF238 deploys through frozen student loader",
+      "passed": true
+    },
+    {
+      "name": "model-only warmstart leaves critic and exploration std unchanged",
+      "passed": true
+    },
+    {
+      "name": "fresh PPO optimizers and retained BC Adam",
+      "passed": true
+    },
+    {
+      "name": "full base identities and parent closure retained",
+      "passed": true
+    },
+    {
+      "name": "validation pairs never supplied to training loss",
+      "passed": true
+    },
+    {
+      "name": "actual tiny training improves total objective",
+      "passed": true
+    },
+    {
+      "name": "atomic checkpoint exact model and BC optimizer reload",
+      "passed": true
+    },
+    {
+      "name": "exact numpy python torch RNG reload",
+      "passed": true
+    },
+    {
+      "name": "BC Adam resumed next update exactly",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/student_wave.py": "932f3176aef2d02bddeb4ce3c0cc47d441065ba4d670b7e8def386825ae14a32",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/models.py": "3618aba7a0cd608968df157e64798cdb8a2b438d28889cdb4cdd7e930750a8bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/ppo.py": "31087c0e59af8689ba62bee5e35ca125754e9c49856a85e51efe477794c4ade2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/recurrent.py": "0f96689f58ae065e19f2cece6ef31d91e74c4c01bfe58f266948bc97111f7a8a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/cycle_reward.py": "ea0f1da809473e043f0cb076a23296a05ba5a2e9cf9ebfa3063f8ed4adce4300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/feedback_bc.py": "bbb5b2a3bf005716cb0c13173033a9d4163b4ff111bd4b08f7a86c875acf7605",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T104706Z/check_feedback.py": "884d512f97201cf97899e4045c9f718e55af46f6eb00de5ff6613ecbc93eca16"
+  },
+  "eligible_counts": [
+    {
+      "episode": 0,
+      "split": "train",
+      "total_rows": 1920,
+      "eligible_rows": 1567
+    },
+    {
+      "episode": 1,
+      "split": "train",
+      "total_rows": 1920,
+      "eligible_rows": 1575
+    },
+    {
+      "episode": 2,
+      "split": "validation",
+      "total_rows": 1920,
+      "eligible_rows": 1543
+    }
+  ],
+  "pair_config": {
+    "epsilon": 0.002,
+    "pair_weight": 0.1,
+    "seed": 20261331,
+    "interior_max": 0.8,
+    "slope_per_rad": -10.0,
+    "command_dt_s": 0.005,
+    "max_rate_rad_s": 2.0,
+    "bound_margin_rad": 1e-06,
+    "directions": "one fixed independent Rademacher 42-vector per eligible row",
+    "target_blocks": [
+      [
+        42,
+        84
+      ],
+      [
+        126,
+        168
+      ]
+    ],
+    "previous_action_perturbed": false,
+    "loss": "base_MSE + pair_weight * mean(((a_plus-a_minus) - (y_plus-y_minus))**2)",
+    "pair_units": "normalized action squared; no division by epsilon or dt",
+    "sensor_quantization": "original float32 proprioception in float64 raw dataset; exact synthetic linear pair transform",
+    "evidence_scope": "offline fixed-body/history finite pairs, not physical trajectory or stability proof"
+  },
+  "teacher_complete_FD": {
+    "trace": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/TRACE_1MS.npz",
+    "trace_sha256": "73e20c0960b264d17af6b84905f3b199d648a3c4186ae205c1b92310e4f540f8",
+    "fixtures": 8,
+    "queries": 56,
+    "rows": [
+      {
+        "fixture_trace_index": 1100,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 1100,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 41,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 1100,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 41,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 2357,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 2357,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 2357,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 3614,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 38,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 3614,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 38,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 3614,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 38,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 4871,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 4871,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 4871,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 6128,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 6128,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 6128,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 7385,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 7385,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 7385,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 8642,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 8642,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 8642,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 9900,
+        "phase_s": 0.05,
+        "epsilon": 0.0001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 2.1103119252074976e-11,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 9900,
+        "phase_s": 0.05,
+        "epsilon": 0.001,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      },
+      {
+        "fixture_trace_index": 9900,
+        "phase_s": 0.05,
+        "epsilon": 0.002,
+        "interior_actions": 42,
+        "max_derivative_error_per_rad": 1.1013412404281553e-12,
+        "fresh_teacher_per_query": true,
+        "physical_ticks": 0
+      }
+    ],
+    "physical_ticks": 0,
+    "fixture_writes": "OFFLINE saved qpos/qvel only; restored",
+    "history": "fresh identical teacher q_des/rest/shadow initialization before each target assignment",
+    "scope": "same body/fresh frozen teacher history; not dataset teacher history or physical rollout"
+  },
+  "tiny_training": {
+    "steps": 2,
+    "initial": {
+      "step": 0,
+      "train_total": 0.00020533905405900618,
+      "train_MSE": 4.551103604333738e-05,
+      "train_pair_MSE": 0.0015982801801566878,
+      "train_normalized_directional_error": 0.9989251125979298,
+      "validation_total": 0.00020625452131521166,
+      "validation_MSE": 4.645400845494225e-05,
+      "validation_pair_MSE": 0.0015980051286026938,
+      "validation_normalized_directional_error": 0.9987532053766836
+    },
+    "final": {
+      "step": 2,
+      "train_total": 0.0002052447871982779,
+      "train_MSE": 4.541722653153665e-05,
+      "train_pair_MSE": 0.0015982756066674124,
+      "train_normalized_directional_error": 0.9989222541671327,
+      "validation_total": 0.00020619225080365853,
+      "validation_MSE": 4.6392208467309786e-05,
+      "validation_pair_MSE": 0.0015980004233634873,
+      "validation_normalized_directional_error": 0.9987502646021795
+    },
+    "checkpoint_reload_exact": true
+  },
+  "scope": "S2/S5 offline checks only; no gait, no full training, no physical stability claim",
+  "physical_simulation_steps": 0
+}

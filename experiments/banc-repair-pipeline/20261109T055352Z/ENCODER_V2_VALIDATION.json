@@ -1,0 +1,61 @@
+{
+  "label": "offline transduction comparison, no neural dynamics",
+  "cases": {
+    "tibia_rate_sign": {
+      "v1_max_abs_diff": 0.0,
+      "v2_max_abs_diff": 0.03222297401988211,
+      "v2_ports_changed": 10
+    },
+    "coxa_axis_separation": {
+      "v1_max_abs_diff": 0.0,
+      "v2_max_abs_diff": 0.0040000000000000036
+    },
+    "trochanter_angle_visible": {
+      "v1_max_abs_diff": 0.0,
+      "v2_max_abs_diff": 0.0039506172839506234
+    },
+    "trochanter_rate_still_unobserved": {
+      "v1_max_abs_diff": 0.0,
+      "v2_max_abs_diff": 0.0
+    },
+    "coxa_pitch_rate_still_unobserved": {
+      "v1_max_abs_diff": 0.0,
+      "v2_max_abs_diff": 0.0
+    },
+    "foot_load_visible": {
+      "v1_max_abs_diff": 0.03807970779778824,
+      "v2_max_abs_diff": 0.03807970779778824
+    }
+  },
+  "rank": {
+    "v1": 24,
+    "v2": 60,
+    "input_dimension": 90
+  },
+  "bounds": {
+    "min": 0.0,
+    "max": 0.05990047952185924,
+    "within_declared": true,
+    "nonzero_entries": 527,
+    "v1_nonzero": 420
+  },
+  "ports": {
+    "v2_ports": 556,
+    "v2_unique": 556,
+    "v1_ports": 556,
+    "same_port_set": true
+  },
+  "distinct_signals": {
+    "v1": 24,
+    "v2": 60
+  },
+  "expectation": {
+    "tibia_rate_sign": "v1 identical, v2 different",
+    "coxa_axis_separation": "v1 identical, v2 different",
+    "trochanter_angle_visible": "v1 identical, v2 different",
+    "trochanter_rate_still_unobserved": "both identical (declared)",
+    "coxa_pitch_rate_still_unobserved": "both identical (declared)",
+    "foot_load_visible": "both different"
+  },
+  "all_expected": true
+}

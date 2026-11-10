@@ -1,0 +1,184 @@
+{
+  "all_passed": true,
+  "checks": {
+    "measured_shapes_exactly_inherited": true,
+    "measured_segments_indices_and_provenance_exactly_inherited": true,
+    "measured_source_hash_inherited": true,
+    "order_geometry_config_preserved": true,
+    "teacher_only_adaptation_explicit": true,
+    "constant_stance_velocity_phase_0": true,
+    "constant_stance_velocity_phase_1": true,
+    "constant_stance_velocity_phase_2": true,
+    "constant_stance_velocity_phase_3": true,
+    "constant_stance_velocity_phase_4": true,
+    "constant_stance_velocity_phase_5": true,
+    "measured_shape_reconstruction_under_time_warp": true,
+    "source_clock_uses_same_warp": true,
+    "active_phase_velocity_finite_difference": true,
+    "C1_internal_boundary_1": true,
+    "endpoint_geometry_at_roundoff_1": true,
+    "C1_internal_boundary_2": true,
+    "endpoint_geometry_at_roundoff_2": true,
+    "C1_internal_boundary_3": true,
+    "endpoint_geometry_at_roundoff_3": true,
+    "C1_internal_boundary_4": true,
+    "endpoint_geometry_at_roundoff_4": true,
+    "C1_internal_boundary_5": true,
+    "endpoint_geometry_at_roundoff_5": true,
+    "C1_internal_boundary_6": true,
+    "endpoint_geometry_at_roundoff_6": true,
+    "measured_shape_endpoints_exact": true,
+    "cycle_returns_rest_xy_at_roundoff": true,
+    "finite_end_stop_explicit": true,
+    "all_one_allocation_exact_baseline": true,
+    "hypothetical_support_flags_leg_0": true,
+    "unsupported_residual_flag_leg_0": true,
+    "both_force_endpoints_continuous_leg_0": true,
+    "zero_activation_matches_five_leg_fit_0": true,
+    "zero_activation_exact_zero_force_0": true,
+    "hypothetical_support_flags_leg_1": true,
+    "unsupported_residual_flag_leg_1": true,
+    "both_force_endpoints_continuous_leg_1": true,
+    "zero_activation_matches_five_leg_fit_1": true,
+    "zero_activation_exact_zero_force_1": true,
+    "hypothetical_support_flags_leg_2": true,
+    "unsupported_residual_flag_leg_2": true,
+    "both_force_endpoints_continuous_leg_2": true,
+    "zero_activation_matches_five_leg_fit_2": true,
+    "zero_activation_exact_zero_force_2": true,
+    "hypothetical_support_flags_leg_3": true,
+    "unsupported_residual_flag_leg_3": true,
+    "both_force_endpoints_continuous_leg_3": true,
+    "zero_activation_matches_five_leg_fit_3": true,
+    "zero_activation_exact_zero_force_3": true,
+    "hypothetical_support_flags_leg_4": true,
+    "unsupported_residual_flag_leg_4": true,
+    "both_force_endpoints_continuous_leg_4": true,
+    "zero_activation_matches_five_leg_fit_4": true,
+    "zero_activation_exact_zero_force_4": true,
+    "hypothetical_support_flags_leg_5": true,
+    "unsupported_residual_flag_leg_5": true,
+    "both_force_endpoints_continuous_leg_5": true,
+    "zero_activation_matches_five_leg_fit_5": true,
+    "zero_activation_exact_zero_force_5": true,
+    "force_fraction_bounds": true,
+    "root_balance_uses_actual_positions_and_all_six_jacobians": true,
+    "all_zero_caps_removed_without_BVLS_zero_width": true,
+    "no_step_unbacked_support_remains_hypothetical": true,
+    "action_preserves_all_physical_state_arrays": true,
+    "action_preserves_actuator_targets": true,
+    "no_physics_steps_or_elapsed_time": true,
+    "finite_bounded_actions": true,
+    "activation_from_reference_height_exact": true,
+    "near_air_hypothetical_planned_force_logged": true,
+    "physics_validation_source_unchanged": true,
+    "PD_inverse_source_unchanged": true,
+    "IK_source_unchanged": true,
+    "physics_file_exact_baseline": true,
+    "source_helpers_exact_baseline": true,
+    "reject_transition_height_0.0": true,
+    "reject_transition_height_-0.03": true,
+    "reject_transition_height_inf": true,
+    "reject_transition_height_nan": true,
+    "unknown_config_rejected": true,
+    "source_hashes_unchanged_during_checks": true
+  },
+  "measurements": {
+    "reconstruction_max_abs": 1.6653345369377348e-15,
+    "source_clock_max_abs_s": 1.1102230246251565e-16,
+    "velocity_fd_max_abs": 7.3454164972730496e-09,
+    "seam_position_max_abs": [
+      7.50000006544127e-09,
+      7.500000176463573e-09,
+      7.500000176463573e-09,
+      7.500000176463573e-09,
+      7.500000398508178e-09,
+      7.50000006544127e-09
+    ],
+    "seam_velocity_max_abs": [
+      1.0565822796910272e-13,
+      2.1302783919419993e-13,
+      1.0186995073366644e-13,
+      1.389623547309937e-13,
+      1.4587447815137123e-13,
+      1.0205398382112957e-13
+    ],
+    "force_endpoint_max_abs": [
+      [
+        9.630096850982663e-10,
+        9.6300967200591e-10
+      ],
+      [
+        2.461822468102781e-09,
+        2.396823461925379e-09
+      ],
+      [
+        1.6541274562237385e-09,
+        1.6541274461268074e-09
+      ],
+      [
+        9.534115772510194e-10,
+        9.534115857912084e-10
+      ],
+      [
+        2.4418727595509893e-09,
+        2.386245950836141e-09
+      ],
+      [
+        1.646381874321751e-09,
+        1.6463818919287831e-09
+      ]
+    ],
+    "force_cap_violation": 2.7755575615628914e-17,
+    "root_residual_reconstruction_max_abs": 2.220446049250313e-16,
+    "no_step_root_residual_range": [
+      4.020336018020987e-10,
+      2.211608378300501e-09
+    ],
+    "actual_contact_counts": [
+      1,
+      2,
+      3,
+      0,
+      0,
+      0
+    ],
+    "unbacked_support_indices": [
+      3,
+      4,
+      5
+    ]
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/static_teacher.py": "616a66180c40ad7cd1d20279f23d44799885995ee7ad85b48db3b3859a68bf06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/wave_reference.py": "c9d5c67d88dd2ab2571311299c162060ab6fccb316e2c5de44b08b7345f66fc7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/check_smooth.py": "dbfdbe24f33ac7c21507abdf0128cf5c7cb7603123e8971244b07f4e50f72c37",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/identity.py": "80f90dc3eeadee32f11893af81cd6d8cccc023311b3091d1371b6a239d3a945f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/sources/incremental_actuator.py": "14dda86915a1ca3ba38261b9f8aaa8372dc177d317d4c02b3aab3cf9e77fc4e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/sources/proprioception.py": "1867ccc711f6bc8dc8a1c0bc88aafed0e6ea78907fa4e86c8f016c19c062cfb0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/sources/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/wave_reference.py": "b9cb86d3254396269f42157fc8d853c0678891871659a3aef2365def90e9e9ad",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T074936Z/static_teacher.py": "f66dd87437e37ebd5aebc44ad8f406e5492e72ddb0a1ff3bc5354a3ab1237eaa",
+    "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952"
+  },
+  "physical_steps": 0,
+  "simulated_hold_s": 0.0,
+  "status": "PREPARED_CONDITIONAL_EXPERIMENT",
+  "limitations": [
+    "No physical walking rollout or neural training performed",
+    "Positive optimized near-air support is hypothetical; actual contact and root residual flags remain authoritative",
+    "Internal measured interpolation knots and finite-reference stop are not globally C1",
+    "Native units; absolute SI NOT_ESTABLISHED"
+  ],
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/env/bin/python -B /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/check_smooth.py",
+  "environment": {
+    "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/env/bin/python",
+    "numpy": "2.5.3",
+    "thread_limits": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": null
+    }
+  }
+}

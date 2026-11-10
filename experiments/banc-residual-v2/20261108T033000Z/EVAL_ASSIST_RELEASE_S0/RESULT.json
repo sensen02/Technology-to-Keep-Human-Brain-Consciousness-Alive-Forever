@@ -1,0 +1,60 @@
+{
+  "controller": "base measured-data network + v2 residual (6 tibia, +-0.003 rad/tick)",
+  "assist_ticks": 200,
+  "release_ticks": 600,
+  "assist_label": "replay of measured targets; NOT autonomous",
+  "release_label": "autonomous: base network + learned residual, no teacher, no phase input",
+  "native_steps": 320000,
+  "residual": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-residual-v2/20261108T033000Z/MODEL_RESIDUAL_V2.npz",
+  "residual_sha256": "161a32b9ee4e6f2992dc5d01753e79572908c1109e55609006a074287eb8b21b",
+  "assist": {
+    "duration_s": 0.7999999999997912,
+    "forward_speed_native_per_s": 0.6816045877369056,
+    "foot_support_mean": 0.9880527683485094,
+    "foot_support_min": 0.8898581934704146,
+    "nonfoot_force_max_W": 2.6859898929707358,
+    "com_height_min": 0.7265393809903401,
+    "com_height_mean": 0.9202211387064211,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 1.1034383465608815,
+      "LH": 2.1814574487615,
+      "LM": 2.1555156326636116,
+      "RF": 1.0217202823326925,
+      "RH": 2.657821446054968,
+      "RM": 2.846033871972166
+    },
+    "slip_ratio_max": 2.846033871972166,
+    "slip_ratio_mean": 1.9943311713909697,
+    "slip_criterion_passed": false
+  },
+  "release": {
+    "duration_s": 3.1899999999925654,
+    "forward_speed_native_per_s": 0.2917541408669753,
+    "foot_support_mean": 0.8342974789949126,
+    "foot_support_min": 0.8061929506992622,
+    "nonfoot_force_max_W": 4.734004881086915,
+    "com_height_min": 0.6850980040650424,
+    "com_height_mean": 0.8363648632725679,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.677359827591125,
+      "LH": 1.4294874404398927,
+      "LM": 0.9423819364573732,
+      "RF": 2.8172877152188422,
+      "RH": 4.9274696757609275,
+      "RM": 6.9358084388590955
+    },
+    "slip_ratio_max": 6.9358084388590955,
+    "slip_ratio_mean": 2.954965839054543,
+    "slip_criterion_passed": false
+  },
+  "release_gates": {
+    "foot_support_mean": false,
+    "nonfoot": true,
+    "com_height": false,
+    "slip": false,
+    "forward": true
+  },
+  "release_gates_passed": false
+}

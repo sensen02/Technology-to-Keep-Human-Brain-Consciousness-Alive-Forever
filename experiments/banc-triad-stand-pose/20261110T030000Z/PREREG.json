@@ -1,0 +1,10 @@
+{
+  "schema": "triad-stand-pose/1",
+  "origin": "the three-sphere pad triad is the first body whose cold-start support minimum passes (0.906) and whose COM minimum exceeds 1.0 (1.032), but the standing pose in use was solved for the single-sphere pad, where each foot had one contact point. The support triangle has changed, so the pose should be re-solved for the new contact geometry before any further conclusion about height is drawn",
+  "task": "solve for 42 joint angles plus the root height so that all six lowest material points are coplanar on the floor, the centre of mass sits at the requested height, joint limits keep a margin, and no non-foot geometry touches",
+  "two_targets": "COM_TARGET 1.35 (same as the accepted single-pad solution, for a like-for-like comparison) and COM_TARGET 1.45 (a declared attempt to buy height for the height gate)",
+  "model": "derived triad body MODEL_TRIAD_x200.xml, sha recorded in the ledger; nothing in the model is modified here, only a pose is solved",
+  "gates": "unchanged; a pose is not walking",
+  "labelling": "engineering pose solution for a derived body; the pose is a starting condition, no behaviour claim",
+  "accounting": "solver residuals, achieved COM, foot heights and their spread, joint margin, non-foot clearance, and the static-hold support split for each solution"
+}

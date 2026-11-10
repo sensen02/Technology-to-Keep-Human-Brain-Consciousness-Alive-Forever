@@ -1,0 +1,64 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112848Z/BC_FF_LATENT_1000/final.pt",
+  "checkpoint_sha256": "7cfd064cce0a766053511b4fbe669cf97f16f2107e4d6e911fb412eb241ac8e7",
+  "steps": 1000,
+  "final": {
+    "step": 1000,
+    "train": {
+      "latent_MSE": 0.0021495537093084945,
+      "action_MSE": 0.0016610382950556443,
+      "clipped_action_MSE": 0.0016610299243743657,
+      "clipping_distortion_MSE": 7.440476190476205e-11,
+      "action_MSE_raw_minus_clipped": 8.370681278549799e-09
+    },
+    "validation": {
+      "latent_MSE": 0.002211158272388502,
+      "action_MSE": 0.0017200550076032493,
+      "clipped_action_MSE": 0.0017200465969301774,
+      "clipping_distortion_MSE": 7.440476190476205e-11,
+      "action_MSE_raw_minus_clipped": 8.410673071846883e-09
+    }
+  },
+  "label_stats": {
+    "train": {
+      "elements": 161280,
+      "raw_exact_plus_one_count": 12,
+      "raw_exact_minus_one_count": 0,
+      "raw_exact_abs_one_fraction": 7.440476190476191e-05,
+      "clipped_count": 12,
+      "clipped_fraction": 7.440476190476191e-05,
+      "clipping_distortion_MSE": 7.440476190476205e-11,
+      "raw_min": -0.9563901378994366,
+      "raw_max": 1.0
+    },
+    "validation": {
+      "elements": 80640,
+      "raw_exact_plus_one_count": 6,
+      "raw_exact_minus_one_count": 0,
+      "raw_exact_abs_one_fraction": 7.440476190476191e-05,
+      "clipped_count": 6,
+      "clipped_fraction": 7.440476190476191e-05,
+      "clipping_distortion_MSE": 7.440476190476205e-11,
+      "raw_min": -0.956234612549034,
+      "raw_max": 1.0
+    }
+  },
+  "label_contract": {
+    "action_epsilon": 0.001,
+    "clip_bounds": [
+      -0.999,
+      0.999
+    ],
+    "target": "atanh(clip(raw Y, -0.999, 0.999))",
+    "objective": "mean((actor(X)-z)**2)",
+    "deployment": "tanh(actor(X)); original FFv2 physical raw inputs",
+    "weighting": "changes saturation weighting, not pure bounded-loss rescaling",
+    "gaussian_equivalence": "per-coordinate fixed sigma=.05 Gaussian NLL = latent MSE/(2*.05**2) + log(.05*sqrt(2*pi)); action Jacobian is label-only constant",
+    "raw_action_metrics": "always against original unclipped Y"
+  },
+  "identity_sha256": "18a43cb44d5c8bca74a22c949920dec941ae4a11bef91577ee87f89e111de32d",
+  "checkpoint_reload_exact": true,
+  "critic_unchanged": true,
+  "std_unchanged": true,
+  "closed_loop": "NOT_EVALUATED"
+}

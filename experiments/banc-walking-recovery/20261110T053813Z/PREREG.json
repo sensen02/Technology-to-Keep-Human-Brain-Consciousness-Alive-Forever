@@ -1,0 +1,13 @@
+{
+  "version": "safe-zero-low-speed-pilot-v1",
+  "goal": "S2/S5 learn low-speed propulsion from mechanically stable zero-mean initialization, without importing old adhesion-specific BC behavior",
+  "parent": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T052624Z",
+  "evidence": "zero-mean noise probe .05/.1/.2 all full2s COM>=1.2/nonfoot0/meanload>=.9; .2 largest tested and targetRMS.028rad, not a robustness guarantee",
+  "physical_condition": "same derived full-body triad XML/mass/gravity/friction/PD/limits/native integration; adhesion explicitly off",
+  "architecture_candidates": ["ff238", "gru238"],
+  "initialization": {"seed": 20261114, "actor_head": "exact zero weights and biases; hidden/encoder initialized normally; no phase or teacher", "latent_std": 0.2, "critic": "separate255-feature critic, fresh optimizer"},
+  "training": {"seed": 20261115, "target_speed_native_per_s": 0.1, "policy_ms": 5, "episode_ticks": 2000, "rollout_ticks": 8000, "updates": 3, "reward": "unchanged curriculum-v1", "gamma": 0.9950124791926823, "gae_lambda": 0.9753099120283327, "actor_lr": 0.00003, "critic_lr": 0.0001, "epochs": 4, "recurrent_episodes_per_minibatch": 1, "note": "full-episode minibatches replace full-rollout minibatch for GRU; exact reset-replay KL remains; baseline optimizer differences explicit, no causal memory claim"},
+  "decision": "complete short budget, save each update and independent final replay; inspect learning signal/safety/slip. More iterations only after diagnosis, no success from drift or static stabilization.",
+  "acceptance": "derived five gates unchanged; original complete acceptance and continuous handover video still unachieved",
+  "artifacts": "all correctness reports, initial full checkpoints with source identity, updates/final Adam RNG checkpoint, evaluation by hash, failed outcomes retained"
+}

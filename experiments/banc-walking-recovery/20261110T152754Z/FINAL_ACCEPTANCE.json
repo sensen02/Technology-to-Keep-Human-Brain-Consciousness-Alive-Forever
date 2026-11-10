@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "scope": "authorized substitute-ANN / derived complete body / finite incremental PD bounded walking implementation",
+  "selected_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+  "checkpoint_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+  "native_audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500_AUDIT.json",
+  "native_audit_sha256": "410d1f5317bcb19a688f0982af11c0ed9ef1ab4b9631c630420a879d2b29e876",
+  "native_engineering": {
+    "support": {
+      "status": "PASS",
+      "value": 1.000000049933006,
+      "threshold": 0.9,
+      "reason": null
+    },
+    "nonfoot": {
+      "status": "PASS",
+      "value": 0.0,
+      "threshold": 4.8892709511756,
+      "reason": null
+    },
+    "com": {
+      "status": "PASS",
+      "value": 1.2561640816296098,
+      "threshold": 1.2,
+      "reason": null
+    },
+    "forward": {
+      "status": "PASS",
+      "value": 0.0713190529277483,
+      "threshold": 0.05,
+      "reason": null
+    },
+    "slip": {
+      "status": "PASS",
+      "value": 0.49411203866010717,
+      "threshold": 0.5,
+      "reason": "native load-weighted contact speed / signed forward endpoint speed; no-load legs UNKNOWN"
+    }
+  },
+  "physical_criteria": {
+    "D1": {
+      "status": "PASS",
+      "value": 0.0,
+      "threshold": 0.0,
+      "reason": null
+    },
+    "D2": {
+      "status": "PASS",
+      "value": 0.0,
+      "threshold": 0.0,
+      "reason": null,
+      "processing": "proposed causal filter; not fully frozen"
+    },
+    "D3": {
+      "status": "PASS",
+      "value": 1.000000049933006,
+      "threshold": 0.9000000373949318,
+      "reason": null
+    },
+    "D4": {
+      "status": "PASS",
+      "value": 0.9998708309832339,
+      "threshold": 0.5,
+      "reason": null
+    },
+    "D4b": {
+      "status": "PASS",
+      "value": 0.0,
+      "threshold": 0.2,
+      "reason": null
+    },
+    "D5": {
+      "status": "PASS",
+      "value": 1.2561640816296098,
+      "threshold": 1.171969549155009,
+      "reason": null
+    },
+    "D6": {
+      "status": "PASS",
+      "value": 2.464745405722336e-10,
+      "threshold": 0.15,
+      "reason": null,
+      "processing": "proposed causal filter; signed literal roadmap formula, extras NOT subtracted"
+    },
+    "D7": {
+      "status": "PASS",
+      "value": 4.0,
+      "threshold": 3,
+      "reason": "predeclared >=.1W sufficient evidence for any reported lower positive carrying threshold; failure does not establish original D7 failure"
+    },
+    "D8": {
+      "status": "PASS",
+      "value": 1.2561640816296098,
+      "threshold": 0.9658022579833525,
+      "reason": null
+    }
+  },
+  "legacy_D7": {
+    "status": "UNKNOWN",
+    "value": 4.0,
+    "threshold": 3.0,
+    "reason": "roadmap loaded-leg threshold missing; .1W indicator provisional",
+    "provisional_indicator_pass": true,
+    "loaded_leg_threshold_W": 0.1
+  },
+  "perturbations": [
+    {
+      "seed": 20261111,
+      "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/PERTURB_ROLE_2500_SEED_20261111",
+      "result_sha256": "c3e0e796058043419217ae687f8e0a492124be087542e238aeae69e84a34884a",
+      "slip": 0.49269334091673184,
+      "forward": 0.07130195048630435,
+      "COMmin": 1.2561652080225238,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "identity_verified": true
+    },
+    {
+      "seed": 20261112,
+      "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/PERTURB_ROLE_2500_SEED_20261112",
+      "result_sha256": "226481350b6aeae4399e82c075bdf3f3312b939963f990cc3f26670ac06bfb7d",
+      "slip": 0.494878086356009,
+      "forward": 0.0711540578627965,
+      "COMmin": 1.2561633103712773,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "identity_verified": true
+    }
+  ],
+  "video": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500/ACTUAL_ANN_HANDOVER.mp4",
+  "video_sha256": "b2a190e1a5cb9ca7adea0a1e0c40003a00485cbd850a9dba521f2401af193ba3",
+  "video_evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500/VIDEO.json",
+  "video_evidence_sha256": "6ad39d66b06f84b98e9d4fc5279c1660f430c802f48067abe73bbedee5280540",
+  "visual_review": {
+    "parent_opened_images": true,
+    "continuous_handover_and_full_body_visible": true,
+    "opened": [
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500/DECODED_MONTAGE.png",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500/decoded_0290.png",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/VIDEO_NATIVE_ROLE_2500/decoded_0769.png"
+    ],
+    "finding": "Actually opened six decoded phases plus individual ANN entry5.801s and last15.381s. Complete head/thorax/abdomen/wings/legs visible; ground-relative displacement and different leg postures apparent; no visible body collapse. Same physical source and frame mapping verified numerically, all770frames decoded. Panel metrics are1ms saved-trace engineering summaries (.4927888 slip); original native audit independently .4941120 slip, both pass. Derived-body/substituteANN/finitePD scope labels visible."
+  },
+  "neural_synchronization": {
+    "status": "PASS",
+    "samples": 2880,
+    "priming": 960,
+    "actual_neural": 1920,
+    "hchain_exact": true,
+    "all_checkpoint_outputs_bitexact": true,
+    "actual_actions_synchronized": true,
+    "physical_steps": 0
+  },
+  "dependency_scope": "matched actual zero-output physical prefix; current offline saved-hidden sensory cuts; old300 physical sensory intervention is historical lineage evidence, not a BC2500 physical cut",
+  "test_duration": {
+    "settle_s": 1.0,
+    "teacher_s": 4.8,
+    "autonomous_s": 9.6,
+    "perturb_seeds": [
+      20261111,
+      20261112
+    ]
+  },
+  "qualifications": [
+    "D7 legacy UNKNOWN retained; conservative >=.1W median4 supplies predeclared sufficient evidence for reported lower positive carrying thresholds",
+    "D6 primary continuous causal1ms native velocity-difference method, signed original p95 and raw/absolute/.25/.5/1/2ms sensitivities retained",
+    "two pulse-before-settle initial conditions do not establish arbitrary-disturbance or arbitrary-duration robustness"
+  ],
+  "not_established": [
+    "original connectome capability",
+    "frozen original-body certification",
+    "independent SI or biological validity",
+    "arbitrary-duration robustness"
+  ],
+  "physical_steps_in_final_checker": 0,
+  "all_confirmation_sources_unchanged": true,
+  "checker": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/close_acceptance.py",
+    "sha256": "0208ca9c2b9cfba532d6d19d8ff4d0b0589a674c14a7ec5d3b94d8dc1a8e5542"
+  }
+}

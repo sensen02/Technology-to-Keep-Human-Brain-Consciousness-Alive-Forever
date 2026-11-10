@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SAVED_EVENT_RECONSTRUCTION",
+  "network_steps": 0,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "saved_event_iterations": 18170,
+  "checks": [
+    "exact original currents, indices and source time",
+    "start-of-bin MNrate from saved spikes",
+    "every-step all/MN spike counts",
+    "every-step adaptation maximum",
+    "complete final gA/filter/count/refractory",
+    "absolute final time and all5delayqueue slots",
+    "lastspikes and every-stepclock"
+  ],
+  "errors_max": {
+    "start_MN_rate_Hz": 0.0,
+    "final_filtered_rate_Hz": 0.0,
+    "final_g_adapt_uS": 0.0,
+    "final_refractory_ms": 0.0
+  },
+  "hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/SOURCE_TRACE.npz": "8a73c8a221b0f752e7c53f9e129fcf9747c42dc3ead6209a7ce912f430e70847",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/FULL_FINAL_STATE.npz": "24d514b21ca53e0971e97ae92be47c19286264ef027017a32557a04b2ecec4f7",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T185910Z/readout/TRAIN_TRACE.npz": "ebf1f3a40c258c9f42cd8e096347e0ab00c7eef79f016ca1aa9e21851abee20a"
+  },
+  "limitation": "This checks saved event/filter/adaptation/queue integrity for all18170steps; it does not re-solve full18170step voltage trajectory. Separate independent solver verification covers both timesteps on100ms legal input."
+}

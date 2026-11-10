@@ -1,0 +1,56 @@
+2026-11-07 09:57:50.632335: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+{"control": 500, "time": 0.9999999999999225, "wall_s": 7.497901447000913}
+{"control": 1000, "time": 1.9999999999998124, "wall_s": 14.080400384991663}
+{"control": 1500, "time": 2.9999999999997025, "wall_s": 20.58593090501381}
+{"control": 2000, "time": 3.9999999999995923, "wall_s": 27.112296742998296}
+{"control": 2500, "time": 5.000000000001703, "wall_s": 33.72338526099338}
+{"control": 3000, "time": 6.000000000003813, "wall_s": 40.315069183008745}
+{"control": 3500, "time": 7.000000000005923, "wall_s": 46.986647862009704}
+{"control": 4000, "time": 8.000000000008033, "wall_s": 53.612627875991166}
+{"control": 4500, "time": 9.000000000005702, "wall_s": 60.237968689005356}
+{"control": 5000, "time": 10.000000000003372, "wall_s": 66.83302572200773}
+{
+  "status": "RECORDED_NOT_INDEPENDENTLY_VERIFIED",
+  "identity": "reference-conditioned pretrained ANN teacher",
+  "controls": 5000,
+  "native_steps": 50000,
+  "sim_s": 10.000000000003372,
+  "terminal": true,
+  "reference_end": true,
+  "discount": 1.0,
+  "root_displacement": [
+    20.026498625096256,
+    -0.0029388854212824087,
+    0.002615667875359995
+  ],
+  "com_z_min": 0.11128320351748273,
+  "foot_force_mean_over_weight": 4.694842256429004,
+  "nonfoot_max": 0.0,
+  "external_force_max": 0.0,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_s": 68.62705200500204,
+  "files": {
+    "MODEL.mjb": "5c9e55c8db9811c75e0d2e24766643f021e0830d0f7c824dae4347685c6631b7",
+    "OBS.npz": "b9bf80f8c01fcc0cf1d9ae70b8d349de2f92692f2aa887914cb0da5eb1a46bf1",
+    "MODEL_IDENTITY.json": "72b0c998d5c627dc600994e5211868ed27df5b92ec6ac3401ead32b819a92118",
+    "NATIVE.npz": "f50f7aef45c48f830e7c9cf4835d59c59fb07204f0a201f76baf8b68096a8cc6",
+    "BODY.npz": "785146907e4f9fc310ab24a9b0aa7d7b8f3c338152970c65ef1b93eec52d0e41",
+    "PROTOCOL.json": "e69de6f9de4e0ea0765361bb0278e07b20d6f7942aaf1e89026d3a919ddefda3",
+    "POLICY.npz": "04dfba7affb821776defa7bdd4db2d3b560e6187356b07b1c759cad02807cad9"
+  },
+  "caveats": [
+    "Official adhesive actuators enabled; contact loads alone do not prove muscle-only support.",
+    "No current42 support/slip gates or biological validation claimed.",
+    "Inference reward constant1 is not measured task success."
+  ]
+}

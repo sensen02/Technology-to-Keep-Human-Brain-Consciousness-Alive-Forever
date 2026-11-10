@@ -1,0 +1,40 @@
+{
+  "status": "TRAINING_SET_B2_BUILT",
+  "filter": {
+    "rolling_median_frames": 41,
+    "threshold": 0.15,
+    "min_segment_frames": 100,
+    "resample_hz": 200
+  },
+  "retargeted_frames": 146934,
+  "retargeted_snippets": 232,
+  "segments": 2,
+  "kept_frames_500hz": 430,
+  "kept_seconds_500hz": 0.86,
+  "samples_200hz": 173,
+  "samples_200hz_seconds": 0.865,
+  "kept_fraction_of_retargeted": 0.0029264839996188765,
+  "per_segment": [
+    {
+      "snippet": 12557,
+      "start_frame": 0,
+      "frames": 311,
+      "duration_s": 0.622,
+      "samples": 125,
+      "error_median": 0.14077935941095718,
+      "error_max": 0.14911101250150738
+    },
+    {
+      "snippet": 14131,
+      "start_frame": 0,
+      "frames": 119,
+      "duration_s": 0.23800000000000002,
+      "samples": 48,
+      "error_median": 0.13786828565829026,
+      "error_max": 0.14980553079466885
+    }
+  ],
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "limits": "filtered subset of the retargeted long snippets only; the discarded fraction is reported, not hidden; no claim that these targets produce planted-foot walking"
+}

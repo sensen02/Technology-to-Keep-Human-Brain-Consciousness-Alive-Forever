@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-slip-video/20261108T210000Z/render_slip_video.py", line 193, in <module>
+    main()
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-slip-video/20261108T210000Z/render_slip_video.py", line 62, in main
+    renderer = mj.Renderer(plant, height=420, width=720)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/mujoco/rendering/classic/renderer.py", line 60, in __init__
+    raise ValueError(f"""
+ValueError: Image width 720 > framebuffer width 640. Either reduce the image
+width or specify a larger offscreen framebuffer in the model XML using the
+clause:
+<visual>
+  <global offwidth="my_width"/>
+</visual>

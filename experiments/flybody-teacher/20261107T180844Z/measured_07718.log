@@ -1,0 +1,55 @@
+2026-11-07 10:19:07.855554: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+{"step": 500, "sim_s": 0.9999999999999225, "wall_s": 7.688819950999459}
+{"step": 1000, "sim_s": 1.9999999999998124, "wall_s": 14.461159755999688}
+{
+  "status": "RECORDED_PENDING_INDEPENDENT_REPLAY",
+  "controls": 1111,
+  "native_steps": 11110,
+  "sim_s": 2.221999999999788,
+  "expected_controls": 1111,
+  "terminal": true,
+  "reference_end": true,
+  "discount": 1.0,
+  "root_displacement": [
+    1.734652672409477,
+    -2.3577926541119263,
+    -0.00332300214615619
+  ],
+  "reward_mean": 0.3032873359783495,
+  "reward_min": 6.554056904411183e-10,
+  "reference_root_error_max": 0.04318324524524357,
+  "joint_tracking_RMSE_rad": 0.15989691078963475,
+  "net_support_over_weight": 0.9999085784234588,
+  "nonfoot_max": 0.0,
+  "explicit_external_force_max": 0.0,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wall_s": 16.4640066580032,
+  "files": {
+    "MODEL.mjb": "399afa314b025bbc595fad6042fc9ee2c47c70908c42d080f27f6972f25b0db9",
+    "TRACKING.npz": "0bc36488889aa4d1108d390ae4f4822d5cf1057d5f9c18c3f6f86e13c8c109c4",
+    "OBS.npz": "0ae8ab40cfc68dd0944e1bd69cc7adf0c3c374f787e9225af13c8a4a1e115c7b",
+    "MODEL_IDENTITY.json": "7c3d1509ed80a34ab7abc6a3a5f8ed9e422d59155838a2dd308b70493359be7f",
+    "REFERENCE.npz": "a03673f0299f447678938781291eca462fcf73290572202bc6067a60f685cdcc",
+    "NATIVE.npz": "5f8ca7d5b9715357074a5dde5c5c28b33772c3312c2345ac1e388f260145fcaa",
+    "BODY.npz": "66fd5429e222f81f4e0f960c5d3144235cf5e522dd8f5e05e88b3f05d210cbc4",
+    "TERMINAL_OBS.npz": "eb56a1a7d4ff169e07c6410ec8a704d02165b5ad3231d4e1026f59fe605bad1a",
+    "PROTOCOL.json": "305ed7b2fa295bafcd4be82159a9a792402e55f9d79a44a503b0269033ac8894",
+    "POLICY.npz": "90b942fe2deb7316eae98d10cabde9c3a6f56edb9c2e3153f22be4906448b7d0"
+  },
+  "not_claimed": [
+    "held-out teacher generalization",
+    "causal brain control",
+    "current42 gate pass",
+    "surgical validity"
+  ]
+}

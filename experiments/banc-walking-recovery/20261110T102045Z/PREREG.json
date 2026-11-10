@@ -1,0 +1,16 @@
+{
+ "version":"actual-state-half-student-recovery-v1",
+ "goal":"S2/S5 expand realclosedloop errorstatecoverage beyondnarrow90%-expert demonstrations",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z",
+ "baseline_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/BC_FF_RECOVERY/final.pt",
+ "basis":"90%teacher recoverydata RMS.055standardizedphysicalfeaturedistance vs purestudent.5-1sRMS1.277; firstrecoverytrainingdoesnotpreventphysicalcollapse. Needmoreactualstudenterrorstates, not MSEalone",
+ "sole_collection_change":"beta.5 instead.9:actual.5expert+.5student normalizedrates plusindependent.01noise;labelsexpertqueriedatcurrentactualstate; observationpreviousaction isACTUALexecutedmix, notexpertlabel. 1cycle4.8sprefixteacher+1cycle4.8smixed after1sstand20mspulse",
+ "episodes":"3newindependentseeds20261221..23,first2train,lastvalidation,teacherlabelphaseprovenanceexcludedactor. No randomintraepisode split",
+ "safety":"per1msactual COM<1.2 ornonfoot>0stopscollectiononly, retainprefix+reason. Noresetorforceintervention. Iftruncatedearlynextseparateburstexperiment, donotrelaxthreshold",
+ "physical":"samefullbody/native12.5us/1mstargetintegration/5mscommands,noadh,nochangeinmassgravityfrictionPD2rad/s/torque",
+ "model":"originalrawFF238 sameparentweights/modelinputcontract, not normalizationcompound; actorhasphysicalproprio/clearance/prevactualspeedconstant,no phase/legorder/futureclock",
+ "training":"ifnewdatausable,MODELONLYwarmstartparent,newBCAdam/RNG/emptyPPOstates,baseSMOOTHtrain0/1 +newtrainrecoverylabels equallyweightedpersample,validationbothlastindependent.1000stepslr.0003seed20261231; retiredweakrecovery isparenthistory notsilentlyduplicated",
+ "evaluation":"samecontinuous1sstand4.8sactualteacherthen9.6spurestudent; hidden/targets/previousact intact, noteacherafterboundary; physicalallgates/cycles, originalfullnativeacceptancestillseparate",
+ "checks":"beta.5/.9/0/1algebra,metadata/mix/actualpreviousactions,GRUreplay/prefixgradient,earlystop,holdoutclosure,atomiccheckpoint/reload+identity; no physicalgaitinmockchecks",
+ "scope":"mixedtrainingdatacollection isassistedteacher notANNautonomy. Cannotclaimwholeobjectiveorbodyimpossibilityfromtheseconditions"
+}

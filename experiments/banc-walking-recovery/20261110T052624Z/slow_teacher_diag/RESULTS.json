@@ -1,0 +1,1238 @@
+{
+  "config": {
+    "periods_ms": [
+      60,
+      200,
+      400,
+      800
+    ],
+    "cycles": 4,
+    "settle_ms": 300,
+    "stride_native": 0.03,
+    "lift_native": 0.08,
+    "tau_s": 0.02,
+    "adhesion": false,
+    "sampling_s": 0.001,
+    "max_rate_rad_s": 2.0,
+    "label": "algorithm teacher only",
+    "historical_difference": "adhesion disabled; zero-action settle300ms then rebase rest feet",
+    "acceptance": "legacy branch engineering gates only, not native original certification",
+    "event_definition": "load<=.05W initiates; max clearance>.015 and relative x advance>.03 during unloading; reload>=.1W and padz<=.004 completes",
+    "forward_caveat": "stride/period at800ms=.0375<.05 gate; rate limitation is not body impossibility",
+    "joint_names_by_leg": [
+      [
+        "joint_LFCoxa_yaw",
+        "joint_LFCoxa_pitch",
+        "joint_LFCoxa_roll",
+        "joint_LFTrochanter_yaw",
+        "joint_LFTrochanter_pitch",
+        "joint_LFTrochanter_roll",
+        "joint_LFTibia_pitch"
+      ],
+      [
+        "joint_LHCoxa_yaw",
+        "joint_LHCoxa_pitch",
+        "joint_LHCoxa_roll",
+        "joint_LHTrochanter_yaw",
+        "joint_LHTrochanter_pitch",
+        "joint_LHTrochanter_roll",
+        "joint_LHTibia_pitch"
+      ],
+      [
+        "joint_LMCoxa_yaw",
+        "joint_LMCoxa_pitch",
+        "joint_LMCoxa_roll",
+        "joint_LMTrochanter_yaw",
+        "joint_LMTrochanter_pitch",
+        "joint_LMTrochanter_roll",
+        "joint_LMTibia_pitch"
+      ],
+      [
+        "joint_RFCoxa_roll",
+        "joint_RFCoxa_yaw",
+        "joint_RFCoxa_pitch",
+        "joint_RFTrochanter_yaw",
+        "joint_RFTrochanter_pitch",
+        "joint_RFTrochanter_roll",
+        "joint_RFTibia_pitch"
+      ],
+      [
+        "joint_RHCoxa_yaw",
+        "joint_RHCoxa_pitch",
+        "joint_RHCoxa_roll",
+        "joint_RHTrochanter_yaw",
+        "joint_RHTrochanter_pitch",
+        "joint_RHTrochanter_roll",
+        "joint_RHTibia_pitch"
+      ],
+      [
+        "joint_RMCoxa_yaw",
+        "joint_RMCoxa_pitch",
+        "joint_RMCoxa_roll",
+        "joint_RMTrochanter_yaw",
+        "joint_RMTrochanter_pitch",
+        "joint_RMTrochanter_roll",
+        "joint_RMTibia_pitch"
+      ]
+    ]
+  },
+  "runs": [
+    {
+      "period_ms": 60,
+      "simulated_s": 0.24,
+      "summary": {
+        "native_steps": 19200,
+        "sample_count": 241,
+        "duration_s": 0.24000000000032878,
+        "forward_speed_native_per_s": 0.002406877301773539,
+        "forward_signed_native_per_s": -3.769064632799264e-05,
+        "lateral_speed_native_per_s": 0.0024065821741573773,
+        "foot_support_mean": 1.0011352386473313,
+        "foot_support_min": 0.9782616907186892,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2232706538197151,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 83.2279609476564,
+          "LH": 85.30917879103562,
+          "LM": 90.64890065027251,
+          "RF": 83.28775215449092,
+          "RH": 84.86567108514915,
+          "RM": 88.8879267753615
+        },
+        "slip_ratio_max": 90.64890065027251,
+        "slip_ratio_mean": 86.03789840066104,
+        "com_start": 1.2766133090730767,
+        "com_end": 1.224183472967619,
+        "com_xy_travel": 0.0005776505524264407,
+        "slip_load_denominator_native": [
+          416.6525873895596,
+          1591.5940704178386,
+          974.7920479054627,
+          404.49392032327745,
+          1053.4083142392828,
+          1457.3188955471421
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000021103,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": false,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": -3.769064632799264e-05,
+          "lateral_signed_native_per_s": -0.0024065821741573773,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "per_leg_joint_diagnostic": {
+        "LF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05891156744991813,
+            1.0080338590952165,
+            2.3402087941176157
+          ],
+          "raw_joint_overlimit_fraction": 0.050595238095238096,
+          "actual_rate_abs_max": 1.4012350355097065,
+          "joint_velocity_abs_max": 2.04332636880413,
+          "tracking_error_norm_p95": 0.04809148463138037
+        },
+        "LH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05016377033489128,
+            0.5451343004335254,
+            1.106238994033977
+          ],
+          "raw_joint_overlimit_fraction": 0.005952380952380952,
+          "actual_rate_abs_max": 1.0504401420422391,
+          "joint_velocity_abs_max": 1.1379224073529037,
+          "tracking_error_norm_p95": 0.05046052799803913
+        },
+        "LM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05952977700273186,
+            0.7290100333650307,
+            1.4464207480453823
+          ],
+          "raw_joint_overlimit_fraction": 0.018452380952380953,
+          "actual_rate_abs_max": 1.1824791374918069,
+          "joint_velocity_abs_max": 1.1855595348777923,
+          "tracking_error_norm_p95": 0.05673984198072581
+        },
+        "RF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05159701935527957,
+            0.9330272989132428,
+            2.412693481433746
+          ],
+          "raw_joint_overlimit_fraction": 0.04285714285714286,
+          "actual_rate_abs_max": 1.4139526415481778,
+          "joint_velocity_abs_max": 1.850238517498009,
+          "tracking_error_norm_p95": 0.056744126258471465
+        },
+        "RH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.06256596974266056,
+            0.5701436245104421,
+            1.0869017093911264
+          ],
+          "raw_joint_overlimit_fraction": 0.008333333333333333,
+          "actual_rate_abs_max": 1.0416414960992488,
+          "joint_velocity_abs_max": 1.071750659970646,
+          "tracking_error_norm_p95": 0.05900476850516109
+        },
+        "RM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05261468559258429,
+            0.6951715590859975,
+            1.4577798787669134
+          ],
+          "raw_joint_overlimit_fraction": 0.01607142857142857,
+          "actual_rate_abs_max": 1.1862574768073149,
+          "joint_velocity_abs_max": 1.2513632468777203,
+          "tracking_error_norm_p95": 0.04994705725858416
+        }
+      },
+      "completion": {
+        "LF": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.013871903211903791,
+          "max_clearance": -0.00538615482944612
+        },
+        "LH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.016735867631585633,
+          "max_clearance": -0.025665270967881147
+        },
+        "LM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.018585320949240203,
+          "max_clearance": -0.014602518394751789
+        },
+        "RF": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.015529968814804729,
+          "max_clearance": -0.005731593744009299
+        },
+        "RH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.014937648639040901,
+          "max_clearance": -0.018438315102753434
+        },
+        "RM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.01713297666143332,
+          "max_clearance": -0.022150433360798104
+        }
+      },
+      "com_displacement_native": [
+        -9.045755118730625e-06,
+        -0.0005775797217985618,
+        -0.052429836105457595
+      ],
+      "settle_end_load_over_W": [
+        0.05839874592347182,
+        0.2513759260862212,
+        0.1903771595426346,
+        0.07229698934600318,
+        0.1899079669017294,
+        0.23765703900369026
+      ]
+    },
+    {
+      "period_ms": 200,
+      "simulated_s": 0.8,
+      "summary": {
+        "native_steps": 64000,
+        "sample_count": 801,
+        "duration_s": 0.7999999999990237,
+        "forward_speed_native_per_s": 0.0013716299522431577,
+        "forward_signed_native_per_s": -0.0013703452274219166,
+        "lateral_speed_native_per_s": 5.9352199390942495e-05,
+        "foot_support_mean": 1.0003121563149198,
+        "foot_support_min": 0.9894571370491986,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2191216641926474,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 137.04843599939804,
+          "LH": 165.5136575991261,
+          "LM": 234.18831439350078,
+          "RF": 210.57859556233436,
+          "RH": 147.33953141567082,
+          "RM": 223.8010706730774
+        },
+        "slip_ratio_max": 234.18831439350078,
+        "slip_ratio_mean": 186.41160094051793,
+        "com_start": 1.2766133090730767,
+        "com_end": 1.229380920773862,
+        "com_xy_travel": 0.001097303961793187,
+        "slip_load_denominator_native": [
+          1539.851654419079,
+          5418.178479394587,
+          3048.7189407091373,
+          1054.1176623240963,
+          3241.4377246567788,
+          5285.338196249653
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": false,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": -0.0013703452274219166,
+          "lateral_signed_native_per_s": -5.9352199390942495e-05,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "per_leg_joint_diagnostic": {
+        "LF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.0670730732142081,
+            0.7835451907876902,
+            1.8029274856271953
+          ],
+          "raw_joint_overlimit_fraction": 0.02214285714285714,
+          "actual_rate_abs_max": 1.2864603132776118,
+          "joint_velocity_abs_max": 1.5109337279625723,
+          "tracking_error_norm_p95": 0.03914650590712618
+        },
+        "LH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.05331776642725605,
+            0.4117548968627173,
+            1.0235257477755615
+          ],
+          "raw_joint_overlimit_fraction": 0.00035714285714285714,
+          "actual_rate_abs_max": 1.0116261173357557,
+          "joint_velocity_abs_max": 0.8585076243682522,
+          "tracking_error_norm_p95": 0.04059358803799544
+        },
+        "LM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.09138256833074991,
+            0.5591030074661754,
+            1.130965485856329
+          ],
+          "raw_joint_overlimit_fraction": 0.0025,
+          "actual_rate_abs_max": 1.0614582857984207,
+          "joint_velocity_abs_max": 1.055222520556855,
+          "tracking_error_norm_p95": 0.04972286397350263
+        },
+        "RF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.07676194022146486,
+            0.7543262324802866,
+            1.7694454906292003
+          ],
+          "raw_joint_overlimit_fraction": 0.021964285714285714,
+          "actual_rate_abs_max": 1.2778337733068676,
+          "joint_velocity_abs_max": 1.3291003919695308,
+          "tracking_error_norm_p95": 0.04964167577650924
+        },
+        "RH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.0397765887538028,
+            0.4205954801868045,
+            1.03480268435577
+          ],
+          "raw_joint_overlimit_fraction": 0.00035714285714285714,
+          "actual_rate_abs_max": 1.0171037145878292,
+          "joint_velocity_abs_max": 0.8862762984204717,
+          "tracking_error_norm_p95": 0.050404477458612505
+        },
+        "RM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.08877012014157115,
+            0.5207289662602764,
+            1.013074695645861
+          ],
+          "raw_joint_overlimit_fraction": 0.0005357142857142857,
+          "actual_rate_abs_max": 1.0064948884778795,
+          "joint_velocity_abs_max": 1.013768254939272,
+          "tracking_error_norm_p95": 0.04221836086610108
+        }
+      },
+      "completion": {
+        "LF": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.02588964307967645,
+          "max_clearance": -0.005538379862378227
+        },
+        "LH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.02094023077121121,
+          "max_clearance": -0.024430285262656358
+        },
+        "LM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.02970120757379291,
+          "max_clearance": -0.011613325558759928
+        },
+        "RF": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": {
+            "start": 102,
+            "start_x": 0.8402151370610143,
+            "max_advance": 0.029291699495785806,
+            "max_clearance": -0.004202841279648421
+          },
+          "max_relative_x_range": 0.033258483607306766,
+          "max_clearance": -0.004202841279648421
+        },
+        "RH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.02740398597092142,
+          "max_clearance": -0.014875861356442581
+        },
+        "RM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.03081771892694002,
+          "max_clearance": -0.023349571457191194
+        }
+      },
+      "com_displacement_native": [
+        -0.0010962761819361955,
+        -4.748175951269605e-05,
+        -0.04723238829921472
+      ],
+      "settle_end_load_over_W": [
+        0.05839874592347182,
+        0.2513759260862212,
+        0.1903771595426346,
+        0.07229698934600318,
+        0.1899079669017294,
+        0.23765703900369026
+      ]
+    },
+    {
+      "period_ms": 400,
+      "simulated_s": 1.6,
+      "summary": {
+        "native_steps": 128000,
+        "sample_count": 1601,
+        "duration_s": 1.5999999999971593,
+        "forward_speed_native_per_s": 0.009821155921514765,
+        "forward_signed_native_per_s": 0.009429810352609027,
+        "lateral_speed_native_per_s": 0.002744773278165639,
+        "foot_support_mean": 1.0001503630305442,
+        "foot_support_min": 0.9935684461736007,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2174213690942064,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 31.0050677330002,
+          "LH": 22.215943055562224,
+          "LM": 44.665871037253645,
+          "RF": 26.486165137473947,
+          "RH": 22.442405163597332,
+          "RM": 33.711638483597014
+        },
+        "slip_ratio_max": 44.665871037253645,
+        "slip_ratio_mean": 30.08784843508073,
+        "com_start": 1.2766133090730767,
+        "com_end": 1.2419215983341816,
+        "com_xy_travel": 0.015713849474395726,
+        "slip_load_denominator_native": [
+          3054.8046076061373,
+          11032.088043502998,
+          5909.824548361475,
+          2285.1544914877463,
+          6427.848658393818,
+          10434.77861541546
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": false,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.009429810352609027,
+          "lateral_signed_native_per_s": -0.002744773278165639,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "per_leg_joint_diagnostic": {
+        "LF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.10257431122155239,
+            0.6086967648751742,
+            1.2649937276382905
+          ],
+          "raw_joint_overlimit_fraction": 0.006071428571428571,
+          "actual_rate_abs_max": 1.116995347229769,
+          "joint_velocity_abs_max": 1.177455588669668,
+          "tracking_error_norm_p95": 0.04713705024790713
+        },
+        "LH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.03587025281256931,
+            0.3047102029947577,
+            0.9414530681049521
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.9698437562787983,
+          "joint_velocity_abs_max": 0.9057558936764807,
+          "tracking_error_norm_p95": 0.03346401911301415
+        },
+        "LM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.14553074331125224,
+            0.41593021733726077,
+            0.7776422769538305
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.8749142468488081,
+          "joint_velocity_abs_max": 0.955726300560418,
+          "tracking_error_norm_p95": 0.05048318335678467
+        },
+        "RF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.08740506080987172,
+            0.5741934443298337,
+            1.314476122498904
+          ],
+          "raw_joint_overlimit_fraction": 0.009107142857142857,
+          "actual_rate_abs_max": 1.1358735652711633,
+          "joint_velocity_abs_max": 1.13013101721272,
+          "tracking_error_norm_p95": 0.04149702637483677
+        },
+        "RH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.049910619702070905,
+            0.3031307867927569,
+            1.0981903689071826
+          ],
+          "raw_joint_overlimit_fraction": 0.0008035714285714286,
+          "actual_rate_abs_max": 1.0467976454197165,
+          "joint_velocity_abs_max": 0.8611626960072956,
+          "tracking_error_norm_p95": 0.040917856897469074
+        },
+        "RM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.07259642602855201,
+            0.41913786165943423,
+            0.7961223481017242
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.886490109031966,
+          "joint_velocity_abs_max": 0.8543453156156542,
+          "tracking_error_norm_p95": 0.03927237455695798
+        }
+      },
+      "completion": {
+        "LF": {
+          "reloads": 1,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [
+            {
+              "start": 802,
+              "start_x": 0.8511387291226147,
+              "max_advance": 0.030157215624383227,
+              "max_clearance": -0.0038671513023339696,
+              "end": 1017,
+              "cycle": 2,
+              "complete": false
+            }
+          ],
+          "unfinished": {
+            "start": 1168,
+            "start_x": 0.8386792341211824,
+            "max_advance": 0.051165704872860096,
+            "max_clearance": -0.002785382261929474
+          },
+          "max_relative_x_range": 0.06172607775249539,
+          "max_clearance": -0.002785382261929474
+        },
+        "LH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.029214720283196938,
+          "max_clearance": -0.02413287232123385
+        },
+        "LM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.0966400222986677,
+          "max_clearance": -0.006426562617223137
+        },
+        "RF": {
+          "reloads": 2,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [
+            {
+              "start": 86,
+              "start_x": 0.8345106487425318,
+              "max_advance": 0.04414873490664606,
+              "max_clearance": 0.010166171520529212,
+              "end": 821,
+              "cycle": 2,
+              "complete": false
+            },
+            {
+              "start": 980,
+              "start_x": 0.8583967808184797,
+              "max_advance": 0.01941106118639324,
+              "max_clearance": -0.003484959897105226,
+              "end": 1204,
+              "cycle": 3,
+              "complete": false
+            }
+          ],
+          "unfinished": {
+            "start": 1402,
+            "start_x": 0.8680892916296549,
+            "max_advance": 0.009472936395214071,
+            "max_clearance": -0.004211833137744862
+          },
+          "max_relative_x_range": 0.04759101305800739,
+          "max_clearance": 0.010166171520529212
+        },
+        "RH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.030769506749989572,
+          "max_clearance": -0.010797889874755405
+        },
+        "RM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.05945436784730174,
+          "max_clearance": -0.01949004258507305
+        }
+      },
+      "com_displacement_native": [
+        0.015087696564147657,
+        -0.004391637245057225,
+        -0.0346917107388951
+      ],
+      "settle_end_load_over_W": [
+        0.05839874592347182,
+        0.2513759260862212,
+        0.1903771595426346,
+        0.07229698934600318,
+        0.1899079669017294,
+        0.23765703900369026
+      ]
+    },
+    {
+      "period_ms": 800,
+      "simulated_s": 3.2,
+      "summary": {
+        "native_steps": 256000,
+        "sample_count": 3201,
+        "duration_s": 3.1999999999934303,
+        "forward_speed_native_per_s": 0.017168124657869512,
+        "forward_signed_native_per_s": 0.016793617492532706,
+        "lateral_speed_native_per_s": 0.0035663588970610872,
+        "foot_support_mean": 1.000122106469445,
+        "foot_support_min": 0.994406820532793,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2161197357948683,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 8.35851644340425,
+          "LH": 7.9021982137605145,
+          "LM": 10.642373451671308,
+          "RF": 8.097827622871616,
+          "RH": 7.599411937203981,
+          "RM": 9.25680567451072
+        },
+        "slip_ratio_max": 10.642373451671308,
+        "slip_ratio_mean": 8.642855557237064,
+        "com_start": 1.2766133090730767,
+        "com_end": 1.2533114935616705,
+        "com_xy_travel": 0.05493799890506965,
+        "slip_load_denominator_native": [
+          6172.312885787222,
+          22975.3606017588,
+          10569.620376775378,
+          6448.160799641895,
+          13628.551664195722,
+          18468.330416288685
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0009999999999976694,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": false,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.016793617492532706,
+          "lateral_signed_native_per_s": 0.0035663588970610872,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification"
+      },
+      "per_leg_joint_diagnostic": {
+        "LF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.06299818104116865,
+            0.3847086737584667,
+            0.7649710310810905
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.8668369254905287,
+          "joint_velocity_abs_max": 0.8509155006990118,
+          "tracking_error_norm_p95": 0.051493718102576164
+        },
+        "LH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.03284283209071495,
+            0.1935957842320077,
+            0.8044008043932078
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.8915988093495839,
+          "joint_velocity_abs_max": 0.8480787138640117,
+          "tracking_error_norm_p95": 0.026220298721073405
+        },
+        "LM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.07622089803504045,
+            0.2646823203012583,
+            0.8453207342469702
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.9161775712577409,
+          "joint_velocity_abs_max": 1.757687808026318,
+          "tracking_error_norm_p95": 0.03021136479735735
+        },
+        "RF": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.07751674206520871,
+            0.3471390413457433,
+            0.7538326479156741
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.859640341182563,
+          "joint_velocity_abs_max": 0.8450508237424473,
+          "tracking_error_norm_p95": 0.04264237233715522
+        },
+        "RH": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.0472688161210943,
+            0.20393864444015494,
+            1.050473942233327
+          ],
+          "raw_joint_overlimit_fraction": 0.00013392857142857144,
+          "actual_rate_abs_max": 1.024615744289026,
+          "joint_velocity_abs_max": 0.8437271309971536,
+          "tracking_error_norm_p95": 0.03447437982846573
+        },
+        "RM": {
+          "raw_dq_over_max_abs_p50_p95_max": [
+            0.035765735707044256,
+            0.2757277810503907,
+            0.8186078042249196
+          ],
+          "raw_joint_overlimit_fraction": 0.0,
+          "actual_rate_abs_max": 0.9002576611880378,
+          "joint_velocity_abs_max": 0.8063505211425896,
+          "tracking_error_norm_p95": 0.028386049500461537
+        }
+      },
+      "completion": {
+        "LF": {
+          "reloads": 3,
+          "completed_events": 3,
+          "cycles_with_completion": [
+            1,
+            2,
+            3
+          ],
+          "events": [
+            {
+              "start": 614,
+              "start_x": 0.8367584381292529,
+              "max_advance": 0.05180371360974079,
+              "max_clearance": 0.021658760945909912,
+              "end": 1018,
+              "cycle": 1,
+              "complete": true
+            },
+            {
+              "start": 1409,
+              "start_x": 0.836146519848946,
+              "max_advance": 0.05203247529829069,
+              "max_clearance": 0.024192522614856042,
+              "end": 1817,
+              "cycle": 2,
+              "complete": true
+            },
+            {
+              "start": 2209,
+              "start_x": 0.8361158254061098,
+              "max_advance": 0.05211105237826563,
+              "max_clearance": 0.02380810438716146,
+              "end": 2617,
+              "cycle": 3,
+              "complete": true
+            }
+          ],
+          "unfinished": {
+            "start": 3009,
+            "start_x": 0.836091949873884,
+            "max_advance": 0.04349741819259256,
+            "max_clearance": 0.02373376274023902
+          },
+          "max_relative_x_range": 0.05668586671854037,
+          "max_clearance": 0.024192522614856042
+        },
+        "LH": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.036887591013890386,
+          "max_clearance": -0.02112573494386944
+        },
+        "LM": {
+          "reloads": 4,
+          "completed_events": 1,
+          "cycles_with_completion": [
+            0
+          ],
+          "events": [
+            {
+              "start": 188,
+              "start_x": -0.3381836918493249,
+              "max_advance": 0.054951030569194315,
+              "max_clearance": 0.020735987357900283,
+              "end": 505,
+              "cycle": 0,
+              "complete": true
+            },
+            {
+              "start": 1042,
+              "start_x": -0.3180872615677467,
+              "max_advance": 0.018518004912727926,
+              "max_clearance": -0.0034607212608343055,
+              "end": 1269,
+              "cycle": 1,
+              "complete": false
+            },
+            {
+              "start": 1863,
+              "start_x": -0.3166769355119196,
+              "max_advance": 0.011947777762956857,
+              "max_clearance": -0.004353679964629716,
+              "end": 2058,
+              "cycle": 2,
+              "complete": false
+            },
+            {
+              "start": 2672,
+              "start_x": -0.3156137999146398,
+              "max_advance": 0.008272026043433078,
+              "max_clearance": -0.004626266002326594,
+              "end": 2855,
+              "cycle": 3,
+              "complete": false
+            }
+          ],
+          "unfinished": null,
+          "max_relative_x_range": 0.057495887594175454,
+          "max_clearance": 0.020735987357900283
+        },
+        "RF": {
+          "reloads": 4,
+          "completed_events": 1,
+          "cycles_with_completion": [
+            0
+          ],
+          "events": [
+            {
+              "start": 116,
+              "start_x": 0.8362517498141134,
+              "max_advance": 0.04513873446715988,
+              "max_clearance": 0.044545173000914075,
+              "end": 602,
+              "cycle": 0,
+              "complete": true
+            },
+            {
+              "start": 1031,
+              "start_x": 0.8440858440264596,
+              "max_advance": 0.03506756304212544,
+              "max_clearance": 0.000598441877741808,
+              "end": 1394,
+              "cycle": 1,
+              "complete": false
+            },
+            {
+              "start": 1833,
+              "start_x": 0.8442871704600869,
+              "max_advance": 0.034848481267291564,
+              "max_clearance": 0.0003463847338040435,
+              "end": 2193,
+              "cycle": 2,
+              "complete": false
+            },
+            {
+              "start": 2633,
+              "start_x": 0.8443345923199775,
+              "max_advance": 0.03480462594665168,
+              "max_clearance": 0.000303146894209759,
+              "end": 2993,
+              "cycle": 3,
+              "complete": false
+            }
+          ],
+          "unfinished": null,
+          "max_relative_x_range": 0.04916766982443366,
+          "max_clearance": 0.044545173000914075
+        },
+        "RH": {
+          "reloads": 1,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [
+            {
+              "start": 229,
+              "start_x": -1.8731781058088217,
+              "max_advance": 0.0016131146968716426,
+              "max_clearance": -0.005964062477854033,
+              "end": 387,
+              "cycle": 0,
+              "complete": false
+            }
+          ],
+          "unfinished": null,
+          "max_relative_x_range": 0.02435006818238228,
+          "max_clearance": -0.005964062477854033
+        },
+        "RM": {
+          "reloads": 0,
+          "completed_events": 0,
+          "cycles_with_completion": [],
+          "events": [],
+          "unfinished": null,
+          "max_relative_x_range": 0.047212395701501375,
+          "max_clearance": -0.009904659609214321
+        }
+      },
+      "com_displacement_native": [
+        0.053739575975994325,
+        0.01141234847057205,
+        -0.0233018155114062
+      ],
+      "settle_end_load_over_W": [
+        0.05839874592347182,
+        0.2513759260862212,
+        0.1903771595426346,
+        0.07229698934600318,
+        0.1899079669017294,
+        0.23765703900369026
+      ]
+    }
+  ],
+  "wall_s": 79.0889949798584,
+  "complete": true,
+  "verification": "input hashes unchanged; all NPZ loaded finite; 1ms timestamps and 2rad/s limits verified",
+  "native_certificate": false
+}

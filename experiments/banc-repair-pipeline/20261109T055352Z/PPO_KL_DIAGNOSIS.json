@@ -1,0 +1,50 @@
+{
+  "rollout": 512,
+  "epochs": [
+    {
+      "epoch": 0,
+      "minibatches_run": 1,
+      "stopped": true,
+      "kl_trigger": 0.8929969814772521,
+      "kls": [
+        2.220446049250313e-15
+      ]
+    },
+    {
+      "epoch": 1,
+      "minibatches_run": 0,
+      "stopped": true,
+      "kl_trigger": 1.120043904315903,
+      "kls": []
+    },
+    {
+      "epoch": 2,
+      "minibatches_run": 0,
+      "stopped": true,
+      "kl_trigger": 0.8695645878677117,
+      "kls": []
+    },
+    {
+      "epoch": 3,
+      "minibatches_run": 0,
+      "stopped": true,
+      "kl_trigger": 0.7589289278478429,
+      "kls": []
+    }
+  ],
+  "total_minibatch_updates": 1,
+  "nominal_updates_per_iteration": 32,
+  "param_max_abs_delta": {
+    "w0": 0.00088316112311429,
+    "b0": 0.00031462498295550676,
+    "w1": 0.00041128871387868804,
+    "b1": 0.00018473425109196903,
+    "w2": 0.0002854023241556092,
+    "b2": 0.00012130263028035091,
+    "wc": 0.0006377191766186313,
+    "bc": 0.000637604279758397,
+    "logstd": 0.0006376273026740265
+  },
+  "mean_kl_after_iteration": 0.9952469255954077,
+  "target_kl": 0.03
+}

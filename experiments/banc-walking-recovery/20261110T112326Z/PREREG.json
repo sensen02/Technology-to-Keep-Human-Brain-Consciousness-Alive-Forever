@@ -1,0 +1,15 @@
+{
+ "version":"slow-neural-recurrent-target-position-v1",
+ "goal":"S2/S5 learncoordinatedcyclefromsensationhistory aftertargetpositionFFretainsfullbodyfoot-supportbutnotforwardgait",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T111240Z",
+ "basis":"FFv2pure9.6sCOMmin1.24224nf0support.99994butforward−.0288/slip13.7855/no6legcoordination; thiscontrolsfullbodyfeedbackbeforetestingtemporalrepresentation",
+ "sole_model_change":"GRU128physicalresidual withdeclaredneuralintegrationtau.1s, alpha=1-exp(-.005/.1), hnew=(1-alpha)h+alpha*GRUCell(maskedactualsensation,h). SamelearnableinhibitorytargetPOSITIONbranch−softplus(rawgain)*raw126:168,init10H. FFv2unchanged. No otherclock/timer orhardcodedoscillator/legsequence insideactor",
+ "inputs":"rawX238sensory/target/previousactual/constcmdrecorded, physicalencoder masks42:84,126:168,195:237 asFFv2; recurrenthiddenexplicitzeroonlyepisode reset,teacherprefixprimesalongactualobs/actions. Criticraw255",
+ "not_allowed":"noactorphase/teacherfuture/legorderinput,noauxphaseheadinitial,noexternalCPG orfixedcontrolleractions. Policyclockonlydeclarednumerical5msneuralupdate, no elapsedtimefeature",
+ "training":"scratchGRU300stepslr.001std.05defaultseed,fullcomplete1920decisionsequencesfromzero,cpu64thread1,sameSMOOTH_DATASETtrain0/1 val2,originalboundedMSEonly. No normalizationorPPOconfigschange",
+ "identity":"GRUnewtransform/tau/policy_dt/mask/H/signprior recorded;oldrawGRUreject, FFv2compatunchanged;allweights/gainstrainable",
+ "physical":"samefull71meshbody/noadh/massgravityfrictionfinitePD2rad/s/torquelimits/native12.5us/1mstargetintegration; noactualrootwrites/auxforces",
+ "checks":"stepsequence/resetpadding/alphaformula/fullseqgrad,maskedchannels,KTnegativeatfixedhidden,noextraqterm,allgainslearn,exactcheckpoint/RNG/Adam/PPOstates/newidentityrefusal,20msactualhandover",
+ "evaluation":"same1sphysicalstand4.8steacherwalkingwithGRUobserve-onlyprimingthen9.6spurestudent,noteacherqueriesafterboundary, fullactualstates/gates/cycles;noMSEorhiddenroleclaimwithoutphysicalevidence",
+ "scope":"declaredreplacementNNtemporalinductiveprior,notoriginalbrain/frozenbodyorcompleteacceptance"
+}

@@ -1,0 +1,122 @@
+{
+  "label": "offline pose-versus-workspace comparison; no learning, no new physics",
+  "pose_file": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-stand-pose/20261110T030000Z/STAND_POSE_TRIAD_1.45.json",
+  "margin_threshold_rad": 0.0105,
+  "legs_with_coxa_roll_on_margin": [
+    "LM",
+    "RF",
+    "RH",
+    "RM"
+  ],
+  "legs_that_can_raise_a_pad": [
+    "LF",
+    "LM",
+    "RF"
+  ],
+  "legs_that_cannot": [
+    "LH",
+    "RH",
+    "RM"
+  ],
+  "cooccurrence": "every leg that can raise a pad carries its probe foot load to zero and shows a pad height that changes with the command; the three legs that cannot show a pad height identical under all eleven candidates, i.e. the height is set by ground penetration rather than by the commanded joints",
+  "not_established": "the coxa-roll margin does not by itself explain the pattern: RF sits on the margin and still raises a pad by 0.217, while LH has 0.093 rad of margin and raises nothing. The cause of the hind-leg failure is NOT established by this probe and needs its own test, for example re-solving the pose with a roll-margin constraint and re-running the same probe",
+  "conclusion": "three of six legs cannot raise a foot from the current solved stand pose, so a single-leg stepping task cannot pass for them regardless of training; that must be fixed or declared before more stepping training is meaningful",
+  "per_leg": {
+    "LF": {
+      "coxa_roll_margin_rad": 0.11188861202426426,
+      "coxa_roll_at_margin": false,
+      "best_probe_candidate": "troch_pitch_down",
+      "best_probe_max_padz": 0.21977903482688096,
+      "probe_passes_lift": true,
+      "joint_margins_rad": {
+        "Coxa_yaw": 0.390477,
+        "Coxa_pitch": 0.46394900000000006,
+        "Coxa_roll": 0.11188861202426426,
+        "Trochanter_yaw": 0.271114,
+        "Trochanter_pitch": 0.7997380000000001,
+        "Trochanter_roll": 0.5640769999999999,
+        "Tibia_pitch": 0.6870200000000001
+      }
+    },
+    "LH": {
+      "coxa_roll_margin_rad": 0.0930600536298134,
+      "coxa_roll_at_margin": false,
+      "best_probe_candidate": "tibia_up",
+      "best_probe_max_padz": -0.000698789113186972,
+      "probe_passes_lift": false,
+      "joint_margins_rad": {
+        "Coxa_yaw": 0.35803300000000005,
+        "Coxa_pitch": 0.39267900000000006,
+        "Coxa_roll": 0.0930600536298134,
+        "Trochanter_yaw": 0.332425,
+        "Trochanter_pitch": 0.7993030000000001,
+        "Trochanter_roll": 0.462858,
+        "Tibia_pitch": 0.6420479999999997
+      }
+    },
+    "LM": {
+      "coxa_roll_margin_rad": 0.010210007361348916,
+      "coxa_roll_at_margin": true,
+      "best_probe_candidate": "flex_combo",
+      "best_probe_max_padz": 0.01938216752831331,
+      "probe_passes_lift": true,
+      "joint_margins_rad": {
+        "Coxa_yaw": 0.10057900000000003,
+        "Coxa_pitch": 0.563289,
+        "Coxa_roll": 0.010210007361348916,
+        "Trochanter_yaw": 0.24738500000000002,
+        "Trochanter_pitch": 0.778578,
+        "Trochanter_roll": 0.59629,
+        "Tibia_pitch": 0.5345119999999999
+      }
+    },
+    "RF": {
+      "coxa_roll_margin_rad": 0.010000049725826826,
+      "coxa_roll_at_margin": true,
+      "best_probe_candidate": "troch_pitch_down",
+      "best_probe_max_padz": 0.2169543447555502,
+      "probe_passes_lift": true,
+      "joint_margins_rad": {
+        "Coxa_roll": 0.010000049725826826,
+        "Coxa_yaw": 0.4073428743559922,
+        "Coxa_pitch": 0.48879541074389177,
+        "Trochanter_yaw": 0.31650300000000003,
+        "Trochanter_pitch": 0.8239670000000001,
+        "Trochanter_roll": 0.422138,
+        "Tibia_pitch": 0.6093099999999999
+      }
+    },
+    "RH": {
+      "coxa_roll_margin_rad": 0.010000156002228922,
+      "coxa_roll_at_margin": true,
+      "best_probe_candidate": "tibia_up",
+      "best_probe_max_padz": 0.0031640927045466435,
+      "probe_passes_lift": false,
+      "joint_margins_rad": {
+        "Coxa_yaw": 0.41108,
+        "Coxa_pitch": 0.472326,
+        "Coxa_roll": 0.010000156002228922,
+        "Trochanter_yaw": 0.331166,
+        "Trochanter_pitch": 0.6765479999999999,
+        "Trochanter_roll": 0.49317,
+        "Tibia_pitch": 0.6191719999999998
+      }
+    },
+    "RM": {
+      "coxa_roll_margin_rad": 0.010000168397328979,
+      "coxa_roll_at_margin": true,
+      "best_probe_candidate": "tibia_up",
+      "best_probe_max_padz": 0.006313345789386714,
+      "probe_passes_lift": false,
+      "joint_margins_rad": {
+        "Coxa_yaw": 0.324301,
+        "Coxa_pitch": 0.5825180000000001,
+        "Coxa_roll": 0.010000168397328979,
+        "Trochanter_yaw": 0.35238600000000003,
+        "Trochanter_pitch": 0.9707279999999998,
+        "Trochanter_roll": 0.20496504804877952,
+        "Tibia_pitch": 0.5442189999999998
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Bounded checks performed by implementation subagent; not long training or walking validation",
+  "interpreter": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python",
+  "environment": {"PYTHONDONTWRITEBYTECODE": "1", "OPENBLAS_NUM_THREADS": "1"},
+  "exit_code": 0,
+  "trainer_sha256": "9d5c328538319f669d8a6a9e225124dd9bc7720f1d813b5e5a8c8b5e15b1c2c1",
+  "checks": {
+    "syntax_import_without_main": true,
+    "actor_critic_finite_difference_all_ten_tensors": true,
+    "max_relative_gradient_error": 5.097556e-10,
+    "logstd_gradient": true,
+    "analytic_kl_formula": true,
+    "terminal_gae_no_episode_leakage": true,
+    "fixed_prompt_complete_bc_episodes": true,
+    "bc_requested_ticks": 11,
+    "bc_episode_ticks": 5,
+    "bc_actual_ticks": 15,
+    "synthetic_accepted_updates": 6,
+    "synthetic_final_kl": 2.388946e-5,
+    "synthetic_target_kl": 0.03,
+    "large_lr_candidate_kl": 275848095.4967311,
+    "large_lr_rollback_parameters_moments_counter_exact": true,
+    "rollback_after_preceding_accepted_update_exact": true,
+    "corrected_core_physics_ticks": 3
+  },
+  "limitations": "No full training. Inherited per-leg architecture remains diagnostic and cannot itself provide all-leg autonomous walking. Global exploration/optimizer coupling and teacher quality remain separate questions."
+}

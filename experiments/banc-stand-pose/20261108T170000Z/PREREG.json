@@ -1,0 +1,13 @@
+{
+  "schema": "stand-pose-ik/1",
+  "why": "RH diagnosis showed the built-in key pose is not a flat six-foot stance (feet spread 0.0166 in z), four legs sit on a joint limit, and holding that pose collapses to COM 0.18 with 29 percent of the weight on non-foot geometry. Every retarget and every controller in this project starts from that pose, so the crouch and the RH slip are inherited, not learned.",
+  "change": "compute a new standing pose by constrained IK: six material foot points coplanar, total COM height at or above 1.20 native, front/back foot spacing kept close to the built-in pose, joints inside their compiled ranges, and non-foot geometry clear of the floor. The body geometry, joint ranges, actuator gains and all acceptance thresholds are untouched.",
+  "acceptance_of_this_step": {
+    "coplanarity": "max |z_i - mean z| over the six feet <= 0.002 native",
+    "height": "total COM z >= 1.20 native at the solved pose",
+    "clearance": "non-foot geometry lowest point >= 0.010 above the solved foot plane",
+    "ranges": "every joint inside its compiled range, at least 0.01 rad away from each bound",
+    "physical": "with the frozen incremental actuator holding the solved pose at rate 0 for 0.4 s, total load share stays within 0.95-1.05 and non-foot load share stays <= 0.02"
+  },
+  "not_claimed": "this is an engineering starting-pose change only; it does not by itself produce accepted walking, and all gates stay exactly as they were"
+}

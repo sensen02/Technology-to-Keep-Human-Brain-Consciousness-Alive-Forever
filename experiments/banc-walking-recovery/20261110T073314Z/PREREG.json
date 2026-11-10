@@ -1,0 +1,12 @@
+{
+ "version":"wave-support-authority-v1",
+ "goal":"S2/S5 distinguish inadequate stance-height correction from inadequate swing clearance after physically stable but draggingwave",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T071955Z",
+ "evidence":"wave0height COMdrops.12 whilecommandedswingpad.12, activeRM remainsgroundloaded .12W; waveheight1 improvesminCOM1.194 butstillhideshind/middleswing; allsixloadedmotion cancelsbodyforward asstance/swing targetmotionssumzero",
+ "changes":"algorithmteacherheightpositionfeedbackgain3or6, swingheight.12or.20; no actuatorgain/torque/rate or modelphysics change; orientationfeedback0 toavoidconfound",
+ "conditions":[{"name":"height3_lift012","height_gain":3,"lift":0.12},{"name":"height6_lift012","height_gain":6,"lift":0.12},{"name":"height3_lift020","height_gain":3,"lift":0.20}],
+ "common":"wavefrommeasuredswingcurves,orderRM,LH,RF,LM,RH,LF;1cycle6*.8s, stride.36,1ssettle,privatefixedFKframe,preloadrelease,tau.1,originalfinitePD2rad/s/noadhphysicalbody",
+ "budget":"3conditions4.8s max,earlyCOM<1/nonfoot>.2W; sourceandoutputhash verification; no additionalgrid",
+ "measure":"actualunloading/clearance/reload,bodyheight,loadedslip/forward,torquesaturation, privateIKerror vsactualtracking. SmallIKerror notphysicalsuccess",
+ "scope":"declaredalgorithmteacheronly; originalfullacceptance andneuralhandover remainrequired"
+}

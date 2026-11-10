@@ -1,0 +1,13 @@
+{
+ "version":"training-only-gru-teacher-role-supervision-v1",
+ "goal":"S2/S5 testrecurrentrepresentation auxiliarysupervisionifslowGRUBConlydoesnotproduceactualcoordinatedgait",
+ "conditional":"implementation/checkonlyuntil112326BC-onlyGRUactualevalavailable;actualauxtrainingifbaselinegaitfails",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T112326Z",
+ "unchanged_deployed_model":"sameSlowGRUv1tau.1dt.005/mask/trainabletargetpositionbranch/rawsensory238/critic255/initialweights/300stepslr.001std.05seed20261110,samephysicalbodyandlimits; no newphase/legorder/clockfeature",
+ "sole_training_change":"sideLinear128->6 classifier predicts plannedteacherwave rolefromhidden withCEweight.001. Labels derivedfromverifiedcontiguousTRAINsampleindex160decisionsperrole/orderRM LH RF LM RH LF. HeadexistsONLYtraining/notinactorstate/notexecutedinference; noargmaxactiongating/nohiddeninitialization/resetfromlabels",
+ "auxiliary_rng":"createheadunderfork_rng separateauxseed afterbaselineactorconstruction so existingactor/criticweights/RNG remainbitexact. HeadgradientmayteachGRUrepresentation, allactoroutputsneural",
+ "data":"sameSMOOTH_DATASET train0/1 val2. Validationrolelabelsusedonlyreportingaccuracy/loss, nooptimization orstatfit. Actor/criticneverreceive labels. TeacherrolelabelsareprivilegedsupervisionlikeBCnotobservedcontacttruth",
+ "checks":"sideheadcannotchangepolicyforward/state,means/hloopmatchesbaselinefullsequence,roleweight0two-stepactorupdatebitexactbaseline,roleCEgradreachesGRU,labelsboundaries/sourceprovenance,holdouts/freshBCAdam/RNG/PPO/checkpointreload/unchangedloaderidentity. Corecompile0physicalsteps only",
+ "evaluation":"samecontinuousactualteacher4.8sprefixthen9.6spureNN,onlyactualsensoryprimedstate; nohead/teacherphasequeryafterboundary;physicalgatesand6legcyclesjudge,notclassificationaccuracy",
+ "scope":"declaredreplacementANNtraining-onlyauxlabels, notoriginalbrain, externalCPGorcompletedautonomy"
+}

@@ -1,0 +1,80 @@
+{
+  "status": "PASS_CROSS_WORKER_RESET_CONTROL",
+  "old_episode": "trial_000",
+  "new_episode": "trial_052",
+  "max_abs_error": 0.0,
+  "errors": {
+    "reward": 0.0,
+    "BODY.npz:time": 0.0,
+    "BODY.npz:qpos": 0.0,
+    "BODY.npz:qvel": 0.0,
+    "BODY.npz:ctrl": 0.0,
+    "BODY.npz:qacc_warmstart": 0.0,
+    "BODY.npz:com": 0.0,
+    "NATIVE.npz:rows": 0.0,
+    "COMMANDS.npz:rows": 0.0,
+    "POLICY.npz:time_s": 0.0,
+    "POLICY.npz:mn_rates_hz": 0.0,
+    "POLICY.npz:predicted_rate": 0.0,
+    "POLICY.npz:local_physical_input": 0.0,
+    "POLICY.npz:sensory_current_nA": 0.0,
+    "POLICY.npz:mn_voltages_mV": 0.0,
+    "POLICY.npz:teacher_warmup": 0.0,
+    "SLIP.npz:rows": 0.0,
+    "NEURAL_FINAL.npz:v": 0.0,
+    "NEURAL_FINAL.npz:ge": 0.0,
+    "NEURAL_FINAL.npz:gi": 0.0,
+    "NEURAL_FINAL.npz:g_adapt": 0.0,
+    "NEURAL_FINAL.npz:refractory_until_ms": 0.0,
+    "NEURAL_FINAL.npz:spike_count": 0.0,
+    "NEURAL_FINAL.npz:_ring": 0.0,
+    "NEURAL_FINAL.npz:last_spikes": 0.0,
+    "NEURAL_FINAL.npz:root_ids": 0.0,
+    "NEURAL_FINAL.npz:cache_indices": 0.0,
+    "NEURAL_FINAL.npz:allowed_sensory_local": 0.0,
+    "NEURAL_FINAL.npz:source_sensory_local": 0.0,
+    "NEURAL_FINAL.npz:excluded_ambiguous_sensory_local": 0.0,
+    "NEURAL_FINAL.npz:descending_local": 0.0,
+    "NEURAL_FINAL.npz:ascending_local": 0.0,
+    "NEURAL_FINAL.npz:mn_local": 0.0,
+    "NEURAL_FINAL.npz:strict_source_edge_rows": 0.0,
+    "NEURAL_FINAL.npz:_sensory_mask": 0.0,
+    "NEURAL_FINAL.npz:_descending_mask": 0.0,
+    "NEURAL_FINAL.npz:filtered_rates_hz": 0.0,
+    "NEURAL_FINAL.npz:_ring_i": 0.0,
+    "NEURAL_FINAL.npz:steps": 0.0,
+    "NEURAL_FINAL.npz:t_ms": 0.0
+  },
+  "array_digests": {
+    "BODY.npz": {
+      "old": "7c98331423bbe04acf980c741d2fa5fe9d98e3afe3cbf087c70ae41c0173153a",
+      "new": "7c98331423bbe04acf980c741d2fa5fe9d98e3afe3cbf087c70ae41c0173153a",
+      "exact": true
+    },
+    "NATIVE.npz": {
+      "old": "53310e017feacdf9fa0e856793c608de93173a04872314e313b96eb326bcf836",
+      "new": "53310e017feacdf9fa0e856793c608de93173a04872314e313b96eb326bcf836",
+      "exact": true
+    },
+    "COMMANDS.npz": {
+      "old": "8fccb223c5c656ce79c7f23d800d2265af59a1c39a8b9665e6eca3c27fb0ea4c",
+      "new": "8fccb223c5c656ce79c7f23d800d2265af59a1c39a8b9665e6eca3c27fb0ea4c",
+      "exact": true
+    },
+    "POLICY.npz": {
+      "old": "6c51628f62e3a0a59debe4d61289504d01846414890d8bf668ccaaed7c301dba",
+      "new": "6c51628f62e3a0a59debe4d61289504d01846414890d8bf668ccaaed7c301dba",
+      "exact": true
+    },
+    "SLIP.npz": {
+      "old": "4ebe0ef6001171635d2985b58f6bc1126fa116f8ab40ed2d4f512d33cdfb8d17",
+      "new": "4ebe0ef6001171635d2985b58f6bc1126fa116f8ab40ed2d4f512d33cdfb8d17",
+      "exact": true
+    },
+    "NEURAL_FINAL.npz": {
+      "old": "4be57fe1de16718d3aa550375d82532f4af6795073c3b72b5c9eeb9b063b6611",
+      "new": "4be57fe1de16718d3aa550375d82532f4af6795073c3b72b5c9eeb9b063b6611",
+      "exact": true
+    }
+  }
+}

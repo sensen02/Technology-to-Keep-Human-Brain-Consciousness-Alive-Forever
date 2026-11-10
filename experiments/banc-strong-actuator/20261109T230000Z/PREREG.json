@@ -1,0 +1,13 @@
+{
+  "schema": "strong-actuator/1",
+  "user_authorisation": "the user approved changing the actuator and the body, both as declared derived models with a new hash and a preregistration; this is route 1",
+  "finding_that_motivates_it": "the open-loop probe measured single-leg lift torque demand at 11.7 of a 14.9 limit and tripod lift at 12.3 of 14.9, i.e. 78-90 percent of saturation, and every configuration that lets feet lift loses the body (support .39-.46). If authority is the binding constraint, raising it should move that frontier",
+  "change": {
+    "model": "derived from MODEL_TARSUS_PAD_R02.xml (pad body, R=.02) by scaling every actuator ctrlrange by a declared factor: 1.5 and 2.0",
+    "invariants_checked": "nq, nv, nu, nbody, ngeom, nmesh, neq, joint ranges, body masses and inertias, gear, gain, bias, damping, armature, gravity, timestep and all geometry must be identical; only actuator_ctrlrange may differ",
+    "label": "derived-actuator: results are never frozen-body acceptance; absolute force values remain NOT_ESTABLISHED"
+  },
+  "training": "1 ms policy tick, C = 0.02, state curriculum (50 percent recorded transient starts, STATE_BANK_V2), three Lagrangian constraints (support, non-foot, height), 48 updates, gates unchanged",
+  "why_this_is_the_clean_test": "everything else is held identical to the run that produced support .459, so any change is attributable to the torque limit alone",
+  "accounting": "ledger file with old and new sha256, the exact scaling, the invariant check output, and the full evaluation of both variants"
+}

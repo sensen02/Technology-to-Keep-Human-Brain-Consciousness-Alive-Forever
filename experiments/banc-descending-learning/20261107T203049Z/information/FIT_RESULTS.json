@@ -1,0 +1,5687 @@
+{
+  "status": "PASS_PREREGISTERED_72_FIT_DIAGNOSTIC",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/PREREG.json": "a5a90d8723287f9a9448616da937e0bec28da5e147a33b133ac64153cff102c9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/audit_encoder.py": "9b64acade389253abfe4919f6482c84822fca04a0d83744408d2b6f8e4ea64ed",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/fit_information.py": "765fdc3c27c7a99155b4ac82c25d712d8d8dbe1f9cb4af8c6ee067cf60f6da8c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/ENCODER_AUDIT.json": "3fae7797202e97e0e2c5bea368dc71f6a895962b8c181f9b011ccc6ba656c6f2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/information/SAVED_DATA.npz": "fac05db43d6512afa93a7c1974e6fb7e0439e4ee8a40d6a5e050532a6b8c79d1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054"
+  },
+  "fit_count": 72,
+  "maximum_allowed_fits": 72,
+  "not_estimable": 0,
+  "representations": [
+    "encoded4",
+    "MNinstant",
+    "MNhistory",
+    "rawphysical"
+  ],
+  "tasks": [
+    "stance_air",
+    "knee_velocity_sign",
+    "signed_knee_velocity"
+  ],
+  "lags_bins": [
+    0,
+    1,
+    4,
+    10
+  ],
+  "lambda_ridge": 1.0,
+  "train_generations": [
+    0,
+    1
+  ],
+  "test_generations": [
+    2,
+    3
+  ],
+  "train_episodes": 24,
+  "test_episodes": 24,
+  "train_bins": 4800,
+  "test_bins": 4800,
+  "old_failed_source_bins": 1817,
+  "label_thresholds": {
+    "stance_above_native": 1.2223177377939003,
+    "air_below_native": 0.12223177377939003,
+    "knee_sign_rad_s": 0.001,
+    "body_weight_native": 24.446354755878005,
+    "intermediate_excluded": true
+  },
+  "standardization": "train-only per-feature mean/std over all 4800 train bins of this leg (no label filtering), std floor 1e-8",
+  "intercept": "unpenalized, diagnostic model only, never an actor bias",
+  "class_weight_rule": "N/(2*n_class) from train counts, N = number of labelled training rows; intermediate-threshold rows carry zero weight and are excluded from fitting as well as scoring",
+  "excluded_trials": [
+    0,
+    13,
+    26,
+    39,
+    52
+  ],
+  "trials_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "data_artifact_reads": 2,
+  "physics_steps": 0,
+  "neural_steps": 0,
+  "training_updates": 0,
+  "fits": [
+    {
+      "fit_id": "LF_encoded4_stance_air",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4748,
+      "test_labelled": 4590,
+      "train_excluded": 52,
+      "test_excluded": 210,
+      "train_class_counts": {
+        "+1": 4430,
+        "-1": 318
+      },
+      "test_class_counts": {
+        "+1": 4096,
+        "-1": 494
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1683,
+      "old_source_class_counts": {
+        "+1": 1169,
+        "-1": 514
+      },
+      "old_source_excluded": 134,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9939051918735892,
+        "balanced_accuracy_test": 0.9842529296875,
+        "balanced_accuracy_old_source_transfer": 0.9131736526946108,
+        "per_class_recall_train": {
+          "1": 0.9878103837471783,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.968505859375,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8263473053892215,
+          "-1": 1.0
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4376,
+            "-1": 54
+          },
+          "-1": {
+            "1": 0,
+            "-1": 318
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3967,
+            "-1": 129
+          },
+          "-1": {
+            "1": 0,
+            "-1": 494
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 966,
+            "-1": 203
+          },
+          "-1": {
+            "1": 0,
+            "-1": 514
+          }
+        },
+        "accuracy_train": 0.9886267902274642,
+        "accuracy_test": 0.9718954248366013,
+        "accuracy_old_source_transfer": 0.8793820558526441,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5358916478555305,
+        "-1": 7.465408805031447
+      }
+    },
+    {
+      "fit_id": "LF_encoded4_knee_velocity_sign",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4771,
+      "test_labelled": 4766,
+      "train_excluded": 29,
+      "test_excluded": 34,
+      "train_class_counts": {
+        "+1": 2282,
+        "-1": 2489
+      },
+      "test_class_counts": {
+        "+1": 2211,
+        "-1": 2555
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 902,
+        "-1": 893
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5804438741681629,
+        "balanced_accuracy_test": 0.5821380554972867,
+        "balanced_accuracy_old_source_transfer": 0.4813553556486394,
+        "per_class_recall_train": {
+          "1": 0.6108676599474145,
+          "-1": 0.5500200883889113
+        },
+        "per_class_recall_test": {
+          "1": 0.5486205336951605,
+          "-1": 0.6156555772994129
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.03325942350332594,
+          "-1": 0.9294512877939529
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1394,
+            "-1": 888
+          },
+          "-1": {
+            "1": 1120,
+            "-1": 1369
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1213,
+            "-1": 998
+          },
+          "-1": {
+            "1": 982,
+            "-1": 1573
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 30,
+            "-1": 872
+          },
+          "-1": {
+            "1": 63,
+            "-1": 830
+          }
+        },
+        "accuracy_train": 0.5791238734018026,
+        "accuracy_test": 0.5845572807385648,
+        "accuracy_old_source_transfer": 0.479108635097493,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0453549517966696,
+        "-1": 0.9584170349537967
+      }
+    },
+    {
+      "fit_id": "LF_encoded4_signed_knee_velocity",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.04314187749230166,
+        "mse_test": 0.03486486958308724,
+        "train_mean_baseline_mse_test": 0.042185829841325954,
+        "train_mean_baseline_mse_train": 0.04652667206132776,
+        "r2_train": 0.07274955244089953,
+        "r2_test": 0.1735407430830478,
+        "target_train_variance": 0.04652667206132776,
+        "target_test_variance": 0.042060240738822356,
+        "train_target_mean": -0.007685294104821067,
+        "mse_old_source_transfer": 12.777749807487615,
+        "old_source_target_mean": -0.11585257075059081,
+        "old_source_target_variance": 11.100802914572194,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LF_MNinstant_stance_air",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 43,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4748,
+      "test_labelled": 4590,
+      "train_excluded": 52,
+      "test_excluded": 210,
+      "train_class_counts": {
+        "+1": 4430,
+        "-1": 318
+      },
+      "test_class_counts": {
+        "+1": 4096,
+        "-1": 494
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1683,
+      "old_source_class_counts": {
+        "+1": 1169,
+        "-1": 514
+      },
+      "old_source_excluded": 134,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6826213495747973,
+        "balanced_accuracy_test": 0.5617888292320344,
+        "balanced_accuracy_old_source_transfer": 0.45939610495518135,
+        "per_class_recall_train": {
+          "1": 0.7300225733634311,
+          "-1": 0.6352201257861635
+        },
+        "per_class_recall_test": {
+          "1": 0.712646484375,
+          "-1": 0.4109311740890688
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.613344739093242,
+          "-1": 0.30544747081712065
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3234,
+            "-1": 1196
+          },
+          "-1": {
+            "1": 116,
+            "-1": 202
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2919,
+            "-1": 1177
+          },
+          "-1": {
+            "1": 291,
+            "-1": 203
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 717,
+            "-1": 452
+          },
+          "-1": {
+            "1": 357,
+            "-1": 157
+          }
+        },
+        "accuracy_train": 0.7236731255265375,
+        "accuracy_test": 0.6801742919389978,
+        "accuracy_old_source_transfer": 0.5193107546048723,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5358916478555305,
+        "-1": 7.465408805031447
+      }
+    },
+    {
+      "fit_id": "LF_MNinstant_knee_velocity_sign",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 43,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4771,
+      "test_labelled": 4766,
+      "train_excluded": 29,
+      "test_excluded": 34,
+      "train_class_counts": {
+        "+1": 2282,
+        "-1": 2489
+      },
+      "test_class_counts": {
+        "+1": 2211,
+        "-1": 2555
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 902,
+        "-1": 893
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6000615680070311,
+        "balanced_accuracy_test": 0.5813508511525277,
+        "balanced_accuracy_old_source_transfer": 0.47711567922968245,
+        "per_class_recall_train": {
+          "1": 0.5657318141980718,
+          "-1": 0.6343913218159903
+        },
+        "per_class_recall_test": {
+          "1": 0.5427408412483039,
+          "-1": 0.6199608610567515
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.43015521064301554,
+          "-1": 0.5240761478163494
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1291,
+            "-1": 991
+          },
+          "-1": {
+            "1": 910,
+            "-1": 1579
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1200,
+            "-1": 1011
+          },
+          "-1": {
+            "1": 971,
+            "-1": 1584
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 388,
+            "-1": 514
+          },
+          "-1": {
+            "1": 425,
+            "-1": 468
+          }
+        },
+        "accuracy_train": 0.6015510375183399,
+        "accuracy_test": 0.5841376416281997,
+        "accuracy_old_source_transfer": 0.4768802228412256,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0453549517966696,
+        "-1": 0.9584170349537967
+      }
+    },
+    {
+      "fit_id": "LF_MNinstant_signed_knee_velocity",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 43,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.0380701292713395,
+        "mse_test": 0.0367743449776397,
+        "train_mean_baseline_mse_test": 0.042185829841325954,
+        "train_mean_baseline_mse_train": 0.04652667206132776,
+        "r2_train": 0.1817568808454968,
+        "r2_test": 0.12827731216952554,
+        "target_train_variance": 0.04652667206132776,
+        "target_test_variance": 0.042060240738822356,
+        "train_target_mean": -0.007685294104821067,
+        "mse_old_source_transfer": 519157361.14419943,
+        "old_source_target_mean": -0.11585257075059081,
+        "old_source_target_variance": 11.100802914572194,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LF_MNhistory_stance_air",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 172,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4748,
+      "test_labelled": 4590,
+      "train_excluded": 52,
+      "test_excluded": 210,
+      "train_class_counts": {
+        "+1": 4430,
+        "-1": 318
+      },
+      "test_class_counts": {
+        "+1": 4096,
+        "-1": 494
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1683,
+      "old_source_class_counts": {
+        "+1": 1169,
+        "-1": 514
+      },
+      "old_source_excluded": 134,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.744619305194713,
+        "balanced_accuracy_test": 0.5431733536816802,
+        "balanced_accuracy_old_source_transfer": 0.504453572011064,
+        "per_class_recall_train": {
+          "1": 0.7313769751693002,
+          "-1": 0.7578616352201258
+        },
+        "per_class_recall_test": {
+          "1": 0.69970703125,
+          "-1": 0.3866396761133603
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.6159110350727117,
+          "-1": 0.39299610894941633
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3240,
+            "-1": 1190
+          },
+          "-1": {
+            "1": 77,
+            "-1": 241
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2866,
+            "-1": 1230
+          },
+          "-1": {
+            "1": 303,
+            "-1": 191
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 720,
+            "-1": 449
+          },
+          "-1": {
+            "1": 312,
+            "-1": 202
+          }
+        },
+        "accuracy_train": 0.733150800336984,
+        "accuracy_test": 0.6660130718954248,
+        "accuracy_old_source_transfer": 0.5478312537136066,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5358916478555305,
+        "-1": 7.465408805031447
+      }
+    },
+    {
+      "fit_id": "LF_MNhistory_knee_velocity_sign",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 172,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4771,
+      "test_labelled": 4766,
+      "train_excluded": 29,
+      "test_excluded": 34,
+      "train_class_counts": {
+        "+1": 2282,
+        "-1": 2489
+      },
+      "test_class_counts": {
+        "+1": 2211,
+        "-1": 2555
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 902,
+        "-1": 893
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6217912716038211,
+        "balanced_accuracy_test": 0.5775673314622405,
+        "balanced_accuracy_old_source_transfer": 0.46275354258174567,
+        "per_class_recall_train": {
+          "1": 0.5907099035933392,
+          "-1": 0.652872639614303
+        },
+        "per_class_recall_test": {
+          "1": 0.5359565807327001,
+          "-1": 0.6191780821917808
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.39135254988913526,
+          "-1": 0.5341545352743561
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1348,
+            "-1": 934
+          },
+          "-1": {
+            "1": 864,
+            "-1": 1625
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1185,
+            "-1": 1026
+          },
+          "-1": {
+            "1": 973,
+            "-1": 1582
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 353,
+            "-1": 549
+          },
+          "-1": {
+            "1": 416,
+            "-1": 477
+          }
+        },
+        "accuracy_train": 0.6231398029763152,
+        "accuracy_test": 0.5805707091900966,
+        "accuracy_old_source_transfer": 0.4623955431754875,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0453549517966696,
+        "-1": 0.9584170349537967
+      }
+    },
+    {
+      "fit_id": "LF_MNhistory_signed_knee_velocity",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 172,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.02848739391324081,
+        "mse_test": 0.02874134961990574,
+        "train_mean_baseline_mse_test": 0.042185829841325954,
+        "train_mean_baseline_mse_train": 0.04652667206132776,
+        "r2_train": 0.3877190727140125,
+        "r2_test": 0.31869659248115045,
+        "target_train_variance": 0.04652667206132776,
+        "target_test_variance": 0.042060240738822356,
+        "train_target_mean": -0.007685294104821067,
+        "mse_old_source_transfer": 944790205.6914771,
+        "old_source_target_mean": -0.11585257075059081,
+        "old_source_target_variance": 11.100802914572194,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LF_rawphysical_stance_air",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4748,
+      "test_labelled": 4590,
+      "train_excluded": 52,
+      "test_excluded": 210,
+      "train_class_counts": {
+        "+1": 4430,
+        "-1": 318
+      },
+      "test_class_counts": {
+        "+1": 4096,
+        "-1": 494
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1683,
+      "old_source_class_counts": {
+        "+1": 1169,
+        "-1": 514
+      },
+      "old_source_excluded": 134,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9643418941749364,
+        "balanced_accuracy_test": 0.93701171875,
+        "balanced_accuracy_old_source_transfer": 0.8300727616473557,
+        "per_class_recall_train": {
+          "1": 0.9318284424379233,
+          "-1": 0.9968553459119497
+        },
+        "per_class_recall_test": {
+          "1": 0.8740234375,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9033361847733106,
+          "-1": 0.7568093385214008
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4128,
+            "-1": 302
+          },
+          "-1": {
+            "1": 1,
+            "-1": 317
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3580,
+            "-1": 516
+          },
+          "-1": {
+            "1": 0,
+            "-1": 494
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1056,
+            "-1": 113
+          },
+          "-1": {
+            "1": 125,
+            "-1": 389
+          }
+        },
+        "accuracy_train": 0.9361836562763268,
+        "accuracy_test": 0.8875816993464052,
+        "accuracy_old_source_transfer": 0.8585858585858586,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5358916478555305,
+        "-1": 7.465408805031447
+      }
+    },
+    {
+      "fit_id": "LF_rawphysical_knee_velocity_sign",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4771,
+      "test_labelled": 4766,
+      "train_excluded": 29,
+      "test_excluded": 34,
+      "train_class_counts": {
+        "+1": 2282,
+        "-1": 2489
+      },
+      "test_class_counts": {
+        "+1": 2211,
+        "-1": 2555
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 902,
+        "-1": 893
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9112905724715479,
+        "balanced_accuracy_test": 0.8900835619093643,
+        "balanced_accuracy_old_source_transfer": 0.8943879843969976,
+        "per_class_recall_train": {
+          "1": 0.9101665205959685,
+          "-1": 0.9124146243471274
+        },
+        "per_class_recall_test": {
+          "1": 0.9050203527815468,
+          "-1": 0.875146771037182
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8470066518847007,
+          "-1": 0.9417693169092946
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2077,
+            "-1": 205
+          },
+          "-1": {
+            "1": 218,
+            "-1": 2271
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2001,
+            "-1": 210
+          },
+          "-1": {
+            "1": 319,
+            "-1": 2236
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 764,
+            "-1": 138
+          },
+          "-1": {
+            "1": 52,
+            "-1": 841
+          }
+        },
+        "accuracy_train": 0.911339341857053,
+        "accuracy_test": 0.8890054553084348,
+        "accuracy_old_source_transfer": 0.8941504178272981,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0453549517966696,
+        "-1": 0.9584170349537967
+      }
+    },
+    {
+      "fit_id": "LF_rawphysical_signed_knee_velocity",
+      "leg": "LF",
+      "leg_index": 0,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 3.619921637101099e-09,
+        "mse_test": 3.561828311210275e-09,
+        "train_mean_baseline_mse_test": 0.042185829841325954,
+        "train_mean_baseline_mse_train": 0.04652667206132776,
+        "r2_train": 0.9999999221968502,
+        "r2_test": 0.9999999155681345,
+        "target_train_variance": 0.04652667206132776,
+        "target_test_variance": 0.042060240738822356,
+        "train_target_mean": -0.007685294104821067,
+        "mse_old_source_transfer": 2.435645687187496e-06,
+        "old_source_target_mean": -0.11585257075059081,
+        "old_source_target_variance": 11.100802914572194,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LM_encoded4_stance_air",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4359,
+      "test_labelled": 4363,
+      "train_excluded": 441,
+      "test_excluded": 437,
+      "train_class_counts": {
+        "+1": 2275,
+        "-1": 2084
+      },
+      "test_class_counts": {
+        "+1": 2906,
+        "-1": 1457
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1674,
+      "old_source_class_counts": {
+        "+1": 1350,
+        "-1": 324
+      },
+      "old_source_excluded": 143,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9883516483516483,
+        "balanced_accuracy_test": 0.9929456297315898,
+        "balanced_accuracy_old_source_transfer": 0.8997530864197532,
+        "per_class_recall_train": {
+          "1": 0.9767032967032967,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9858912594631797,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.997037037037037,
+          "-1": 0.8024691358024691
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2222,
+            "-1": 53
+          },
+          "-1": {
+            "1": 0,
+            "-1": 2084
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2865,
+            "-1": 41
+          },
+          "-1": {
+            "1": 0,
+            "-1": 1457
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1346,
+            "-1": 4
+          },
+          "-1": {
+            "1": 64,
+            "-1": 260
+          }
+        },
+        "accuracy_train": 0.9878412479926588,
+        "accuracy_test": 0.9906027962411185,
+        "accuracy_old_source_transfer": 0.959378733572282,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.958021978021978,
+        "-1": 1.0458253358925145
+      }
+    },
+    {
+      "fit_id": "LM_encoded4_knee_velocity_sign",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4699,
+      "test_labelled": 4648,
+      "train_excluded": 101,
+      "test_excluded": 152,
+      "train_class_counts": {
+        "+1": 1898,
+        "-1": 2801
+      },
+      "test_class_counts": {
+        "+1": 1812,
+        "-1": 2836
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 941,
+        "-1": 858
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6195561272148401,
+        "balanced_accuracy_test": 0.55604736640544,
+        "balanced_accuracy_old_source_transfer": 0.5022083831860665,
+        "per_class_recall_train": {
+          "1": 0.6575342465753424,
+          "-1": 0.5815780078543378
+        },
+        "per_class_recall_test": {
+          "1": 0.5711920529801324,
+          "-1": 0.5409026798307476
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8459086078639745,
+          "-1": 0.1585081585081585
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1248,
+            "-1": 650
+          },
+          "-1": {
+            "1": 1172,
+            "-1": 1629
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1035,
+            "-1": 777
+          },
+          "-1": {
+            "1": 1302,
+            "-1": 1534
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 796,
+            "-1": 145
+          },
+          "-1": {
+            "1": 722,
+            "-1": 136
+          }
+        },
+        "accuracy_train": 0.6122579272185571,
+        "accuracy_test": 0.552710843373494,
+        "accuracy_old_source_transfer": 0.5180655919955531,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.237881981032666,
+        "-1": 0.8388075687254551
+      }
+    },
+    {
+      "fit_id": "LM_encoded4_signed_knee_velocity",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.03693068451786015,
+        "mse_test": 0.027379509621007648,
+        "train_mean_baseline_mse_test": 0.030764638163799145,
+        "train_mean_baseline_mse_train": 0.03801459449720537,
+        "r2_train": 0.028512995960667253,
+        "r2_test": 0.110033101145808,
+        "target_train_variance": 0.03801459449720537,
+        "target_test_variance": 0.030722254871112183,
+        "train_target_mean": -0.019732126810322864,
+        "mse_old_source_transfer": 2.716242015797774,
+        "old_source_target_mean": 0.0057595022950764525,
+        "old_source_target_variance": 2.7204506476021337,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LM_MNinstant_stance_air",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4359,
+      "test_labelled": 4363,
+      "train_excluded": 441,
+      "test_excluded": 437,
+      "train_class_counts": {
+        "+1": 2275,
+        "-1": 2084
+      },
+      "test_class_counts": {
+        "+1": 2906,
+        "-1": 1457
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1674,
+      "old_source_class_counts": {
+        "+1": 1350,
+        "-1": 324
+      },
+      "old_source_excluded": 143,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5776789141760351,
+        "balanced_accuracy_test": 0.48972046096850247,
+        "balanced_accuracy_old_source_transfer": 0.49203703703703705,
+        "per_class_recall_train": {
+          "1": 0.5771428571428572,
+          "-1": 0.5782149712092131
+        },
+        "per_class_recall_test": {
+          "1": 0.5113558155540262,
+          "-1": 0.46808510638297873
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.49333333333333335,
+          "-1": 0.49074074074074076
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1313,
+            "-1": 962
+          },
+          "-1": {
+            "1": 879,
+            "-1": 1205
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1486,
+            "-1": 1420
+          },
+          "-1": {
+            "1": 775,
+            "-1": 682
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 666,
+            "-1": 684
+          },
+          "-1": {
+            "1": 165,
+            "-1": 159
+          }
+        },
+        "accuracy_train": 0.5776554255563202,
+        "accuracy_test": 0.4969057987623195,
+        "accuracy_old_source_transfer": 0.492831541218638,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.958021978021978,
+        "-1": 1.0458253358925145
+      }
+    },
+    {
+      "fit_id": "LM_MNinstant_knee_velocity_sign",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4699,
+      "test_labelled": 4648,
+      "train_excluded": 101,
+      "test_excluded": 152,
+      "train_class_counts": {
+        "+1": 1898,
+        "-1": 2801
+      },
+      "test_class_counts": {
+        "+1": 1812,
+        "-1": 2836
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 941,
+        "-1": 858
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5546526925315323,
+        "balanced_accuracy_test": 0.519070870579151,
+        "balanced_accuracy_old_source_transfer": 0.49508966060506976,
+        "per_class_recall_train": {
+          "1": 0.5616438356164384,
+          "-1": 0.5476615494466262
+        },
+        "per_class_recall_test": {
+          "1": 0.5226269315673289,
+          "-1": 0.5155148095909732
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5111583421891605,
+          "-1": 0.479020979020979
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1066,
+            "-1": 832
+          },
+          "-1": {
+            "1": 1267,
+            "-1": 1534
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 947,
+            "-1": 865
+          },
+          "-1": {
+            "1": 1374,
+            "-1": 1462
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 481,
+            "-1": 460
+          },
+          "-1": {
+            "1": 447,
+            "-1": 411
+          }
+        },
+        "accuracy_train": 0.5533092147265376,
+        "accuracy_test": 0.5182874354561101,
+        "accuracy_old_source_transfer": 0.49583101723179546,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.237881981032666,
+        "-1": 0.8388075687254551
+      }
+    },
+    {
+      "fit_id": "LM_MNinstant_signed_knee_velocity",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.03679385690139882,
+        "mse_test": 0.031245087603775694,
+        "train_mean_baseline_mse_test": 0.030764638163799145,
+        "train_mean_baseline_mse_train": 0.03801459449720537,
+        "r2_train": 0.03211234032487942,
+        "r2_test": -0.015616937778319073,
+        "target_train_variance": 0.03801459449720537,
+        "target_test_variance": 0.030722254871112183,
+        "train_target_mean": -0.019732126810322864,
+        "mse_old_source_transfer": 2.719977755820016,
+        "old_source_target_mean": 0.0057595022950764525,
+        "old_source_target_variance": 2.7204506476021337,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LM_MNhistory_stance_air",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4359,
+      "test_labelled": 4363,
+      "train_excluded": 441,
+      "test_excluded": 437,
+      "train_class_counts": {
+        "+1": 2275,
+        "-1": 2084
+      },
+      "test_class_counts": {
+        "+1": 2906,
+        "-1": 1457
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1674,
+      "old_source_class_counts": {
+        "+1": 1350,
+        "-1": 324
+      },
+      "old_source_excluded": 143,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6199770095547447,
+        "balanced_accuracy_test": 0.47873143440712207,
+        "balanced_accuracy_old_source_transfer": 0.4782098765432099,
+        "per_class_recall_train": {
+          "1": 0.6017582417582418,
+          "-1": 0.6381957773512476
+        },
+        "per_class_recall_test": {
+          "1": 0.5058499655884378,
+          "-1": 0.45161290322580644
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.47185185185185186,
+          "-1": 0.4845679012345679
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1369,
+            "-1": 906
+          },
+          "-1": {
+            "1": 754,
+            "-1": 1330
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1470,
+            "-1": 1436
+          },
+          "-1": {
+            "1": 799,
+            "-1": 658
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 637,
+            "-1": 713
+          },
+          "-1": {
+            "1": 167,
+            "-1": 157
+          }
+        },
+        "accuracy_train": 0.6191787107134664,
+        "accuracy_test": 0.48773779509511805,
+        "accuracy_old_source_transfer": 0.4743130227001195,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.958021978021978,
+        "-1": 1.0458253358925145
+      }
+    },
+    {
+      "fit_id": "LM_MNhistory_knee_velocity_sign",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4699,
+      "test_labelled": 4648,
+      "train_excluded": 101,
+      "test_excluded": 152,
+      "train_class_counts": {
+        "+1": 1898,
+        "-1": 2801
+      },
+      "test_class_counts": {
+        "+1": 1812,
+        "-1": 2836
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 941,
+        "-1": 858
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5961552569099775,
+        "balanced_accuracy_test": 0.5251959978454248,
+        "balanced_accuracy_old_source_transfer": 0.4706141361295453,
+        "per_class_recall_train": {
+          "1": 0.5943097997892518,
+          "-1": 0.5980007140307033
+        },
+        "per_class_recall_test": {
+          "1": 0.5077262693156733,
+          "-1": 0.5426657263751763
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5111583421891605,
+          "-1": 0.43006993006993005
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1128,
+            "-1": 770
+          },
+          "-1": {
+            "1": 1126,
+            "-1": 1675
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 920,
+            "-1": 892
+          },
+          "-1": {
+            "1": 1297,
+            "-1": 1539
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 481,
+            "-1": 460
+          },
+          "-1": {
+            "1": 489,
+            "-1": 369
+          }
+        },
+        "accuracy_train": 0.5965098957224941,
+        "accuracy_test": 0.5290447504302926,
+        "accuracy_old_source_transfer": 0.4724847137298499,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.237881981032666,
+        "-1": 0.8388075687254551
+      }
+    },
+    {
+      "fit_id": "LM_MNhistory_signed_knee_velocity",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.03428517604585351,
+        "mse_test": 0.03154601305720273,
+        "train_mean_baseline_mse_test": 0.030764638163799145,
+        "train_mean_baseline_mse_train": 0.03801459449720537,
+        "r2_train": 0.09810491209175021,
+        "r2_test": -0.02539847500378012,
+        "target_train_variance": 0.03801459449720537,
+        "target_test_variance": 0.030722254871112183,
+        "train_target_mean": -0.019732126810322864,
+        "mse_old_source_transfer": 2.7220198316473923,
+        "old_source_target_mean": 0.0057595022950764525,
+        "old_source_target_variance": 2.7204506476021337,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LM_rawphysical_stance_air",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4359,
+      "test_labelled": 4363,
+      "train_excluded": 441,
+      "test_excluded": 437,
+      "train_class_counts": {
+        "+1": 2275,
+        "-1": 2084
+      },
+      "test_class_counts": {
+        "+1": 2906,
+        "-1": 1457
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1674,
+      "old_source_class_counts": {
+        "+1": 1350,
+        "-1": 324
+      },
+      "old_source_excluded": 143,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9657142857142857,
+        "balanced_accuracy_test": 0.9685134205092911,
+        "balanced_accuracy_old_source_transfer": 0.8716049382716049,
+        "per_class_recall_train": {
+          "1": 0.9314285714285714,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9370268410185822,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8296296296296296,
+          "-1": 0.9135802469135802
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2119,
+            "-1": 156
+          },
+          "-1": {
+            "1": 0,
+            "-1": 2084
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2723,
+            "-1": 183
+          },
+          "-1": {
+            "1": 0,
+            "-1": 1457
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1120,
+            "-1": 230
+          },
+          "-1": {
+            "1": 28,
+            "-1": 296
+          }
+        },
+        "accuracy_train": 0.9642119752236752,
+        "accuracy_test": 0.9580563832225533,
+        "accuracy_old_source_transfer": 0.8458781362007168,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.958021978021978,
+        "-1": 1.0458253358925145
+      }
+    },
+    {
+      "fit_id": "LM_rawphysical_knee_velocity_sign",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4699,
+      "test_labelled": 4648,
+      "train_excluded": 101,
+      "test_excluded": 152,
+      "train_class_counts": {
+        "+1": 1898,
+        "-1": 2801
+      },
+      "test_class_counts": {
+        "+1": 1812,
+        "-1": 2836
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 941,
+        "-1": 858
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.8536736465864028,
+        "balanced_accuracy_test": 0.8196387817309458,
+        "balanced_accuracy_old_source_transfer": 0.8591279425498342,
+        "per_class_recall_train": {
+          "1": 0.8308746048472075,
+          "-1": 0.876472688325598
+        },
+        "per_class_recall_test": {
+          "1": 0.8007726269315674,
+          "-1": 0.8385049365303244
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9606801275239107,
+          "-1": 0.7575757575757576
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1577,
+            "-1": 321
+          },
+          "-1": {
+            "1": 346,
+            "-1": 2455
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1451,
+            "-1": 361
+          },
+          "-1": {
+            "1": 458,
+            "-1": 2378
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 904,
+            "-1": 37
+          },
+          "-1": {
+            "1": 208,
+            "-1": 650
+          }
+        },
+        "accuracy_train": 0.8580549052989997,
+        "accuracy_test": 0.8237951807228916,
+        "accuracy_old_source_transfer": 0.8638132295719845,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.237881981032666,
+        "-1": 0.8388075687254551
+      }
+    },
+    {
+      "fit_id": "LM_rawphysical_signed_knee_velocity",
+      "leg": "LM",
+      "leg_index": 1,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 2.347223860064299e-09,
+        "mse_test": 3.256856463357107e-09,
+        "train_mean_baseline_mse_test": 0.030764638163799145,
+        "train_mean_baseline_mse_train": 0.03801459449720537,
+        "r2_train": 0.9999999382546653,
+        "r2_test": 0.9999998941363638,
+        "target_train_variance": 0.03801459449720537,
+        "target_test_variance": 0.030722254871112183,
+        "train_target_mean": -0.019732126810322864,
+        "mse_old_source_transfer": 3.357109798095964e-07,
+        "old_source_target_mean": 0.0057595022950764525,
+        "old_source_target_variance": 2.7204506476021337,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LH_encoded4_stance_air",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4726,
+      "test_labelled": 4731,
+      "train_excluded": 74,
+      "test_excluded": 69,
+      "train_class_counts": {
+        "+1": 4548,
+        "-1": 178
+      },
+      "test_class_counts": {
+        "+1": 4597,
+        "-1": 134
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1675,
+      "old_source_class_counts": {
+        "+1": 1527,
+        "-1": 148
+      },
+      "old_source_excluded": 142,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9936235708003518,
+        "balanced_accuracy_test": 0.9784642157929084,
+        "balanced_accuracy_old_source_transfer": 0.9381139489194499,
+        "per_class_recall_train": {
+          "1": 0.9872471416007036,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9569284315858169,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8762278978388998,
+          "-1": 1.0
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4490,
+            "-1": 58
+          },
+          "-1": {
+            "1": 0,
+            "-1": 178
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 4399,
+            "-1": 198
+          },
+          "-1": {
+            "1": 0,
+            "-1": 134
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1338,
+            "-1": 189
+          },
+          "-1": {
+            "1": 0,
+            "-1": 148
+          }
+        },
+        "accuracy_train": 0.9877274650867541,
+        "accuracy_test": 0.958148383005707,
+        "accuracy_old_source_transfer": 0.8871641791044776,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5195690413368513,
+        "-1": 13.275280898876405
+      }
+    },
+    {
+      "fit_id": "LH_encoded4_knee_velocity_sign",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4780,
+      "test_labelled": 4782,
+      "train_excluded": 20,
+      "test_excluded": 18,
+      "train_class_counts": {
+        "+1": 2330,
+        "-1": 2450
+      },
+      "test_class_counts": {
+        "+1": 2528,
+        "-1": 2254
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 874,
+        "-1": 925
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5020513269685557,
+        "balanced_accuracy_test": 0.4421124049509732,
+        "balanced_accuracy_old_source_transfer": 0.4955594037973901,
+        "per_class_recall_train": {
+          "1": 0.6004291845493562,
+          "-1": 0.4036734693877551
+        },
+        "per_class_recall_test": {
+          "1": 0.5545886075949367,
+          "-1": 0.32963620230700974
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.09382151029748284,
+          "-1": 0.8972972972972973
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1399,
+            "-1": 931
+          },
+          "-1": {
+            "1": 1461,
+            "-1": 989
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1402,
+            "-1": 1126
+          },
+          "-1": {
+            "1": 1511,
+            "-1": 743
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 82,
+            "-1": 792
+          },
+          "-1": {
+            "1": 95,
+            "-1": 830
+          }
+        },
+        "accuracy_train": 0.499581589958159,
+        "accuracy_test": 0.4485570890840652,
+        "accuracy_old_source_transfer": 0.5069483046136742,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0257510729613735,
+        "-1": 0.9755102040816327
+      }
+    },
+    {
+      "fit_id": "LH_encoded4_signed_knee_velocity",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.09165684620040343,
+        "mse_test": 0.07670155384605236,
+        "train_mean_baseline_mse_test": 0.11758147751641931,
+        "train_mean_baseline_mse_train": 0.12712345498897804,
+        "r2_train": 0.2789934303756114,
+        "r2_test": 0.3476731585096675,
+        "target_train_variance": 0.12712345498897804,
+        "target_test_variance": 0.1175610445866952,
+        "train_target_mean": -0.010282152984193887,
+        "mse_old_source_transfer": 18.853429342925793,
+        "old_source_target_mean": -0.069582076812495,
+        "old_source_target_variance": 14.205451747144098,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LH_MNinstant_stance_air",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4726,
+      "test_labelled": 4731,
+      "train_excluded": 74,
+      "test_excluded": 69,
+      "train_class_counts": {
+        "+1": 4548,
+        "-1": 178
+      },
+      "test_class_counts": {
+        "+1": 4597,
+        "-1": 134
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1675,
+      "old_source_class_counts": {
+        "+1": 1527,
+        "-1": 148
+      },
+      "old_source_excluded": 142,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.7178732718666311,
+        "balanced_accuracy_test": 0.45479693115886743,
+        "balanced_accuracy_old_source_transfer": 0.5436866139223704,
+        "per_class_recall_train": {
+          "1": 0.6829375549692173,
+          "-1": 0.7528089887640449
+        },
+        "per_class_recall_test": {
+          "1": 0.6558625190341527,
+          "-1": 0.2537313432835821
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.6954813359528488,
+          "-1": 0.3918918918918919
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3106,
+            "-1": 1442
+          },
+          "-1": {
+            "1": 44,
+            "-1": 134
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3015,
+            "-1": 1582
+          },
+          "-1": {
+            "1": 100,
+            "-1": 34
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1062,
+            "-1": 465
+          },
+          "-1": {
+            "1": 90,
+            "-1": 58
+          }
+        },
+        "accuracy_train": 0.6855691917054592,
+        "accuracy_test": 0.6444726273515113,
+        "accuracy_old_source_transfer": 0.6686567164179105,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5195690413368513,
+        "-1": 13.275280898876405
+      }
+    },
+    {
+      "fit_id": "LH_MNinstant_knee_velocity_sign",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4780,
+      "test_labelled": 4782,
+      "train_excluded": 20,
+      "test_excluded": 18,
+      "train_class_counts": {
+        "+1": 2330,
+        "-1": 2450
+      },
+      "test_class_counts": {
+        "+1": 2528,
+        "-1": 2254
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 874,
+        "-1": 925
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5837847070158535,
+        "balanced_accuracy_test": 0.49060881920186894,
+        "balanced_accuracy_old_source_transfer": 0.5025140701342075,
+        "per_class_recall_train": {
+          "1": 0.6128755364806867,
+          "-1": 0.5546938775510204
+        },
+        "per_class_recall_test": {
+          "1": 0.5158227848101266,
+          "-1": 0.4653948535936114
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5617848970251716,
+          "-1": 0.44324324324324327
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1428,
+            "-1": 902
+          },
+          "-1": {
+            "1": 1091,
+            "-1": 1359
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1304,
+            "-1": 1224
+          },
+          "-1": {
+            "1": 1205,
+            "-1": 1049
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 491,
+            "-1": 383
+          },
+          "-1": {
+            "1": 515,
+            "-1": 410
+          }
+        },
+        "accuracy_train": 0.5830543933054393,
+        "accuracy_test": 0.49205353408615643,
+        "accuracy_old_source_transfer": 0.5008337965536409,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0257510729613735,
+        "-1": 0.9755102040816327
+      }
+    },
+    {
+      "fit_id": "LH_MNinstant_signed_knee_velocity",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.07517768173719187,
+        "mse_test": 0.06951862687344584,
+        "train_mean_baseline_mse_test": 0.11758147751641931,
+        "train_mean_baseline_mse_train": 0.12712345498897804,
+        "r2_train": 0.4086246181421832,
+        "r2_test": 0.40876209125933016,
+        "target_train_variance": 0.12712345498897804,
+        "target_test_variance": 0.1175610445866952,
+        "train_target_mean": -0.010282152984193887,
+        "mse_old_source_transfer": 14.147227368735898,
+        "old_source_target_mean": -0.069582076812495,
+        "old_source_target_variance": 14.205451747144098,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LH_MNhistory_stance_air",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4726,
+      "test_labelled": 4731,
+      "train_excluded": 74,
+      "test_excluded": 69,
+      "train_class_counts": {
+        "+1": 4548,
+        "-1": 178
+      },
+      "test_class_counts": {
+        "+1": 4597,
+        "-1": 134
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1675,
+      "old_source_class_counts": {
+        "+1": 1527,
+        "-1": 148
+      },
+      "old_source_excluded": 142,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.828703566452225,
+        "balanced_accuracy_test": 0.43574086279500907,
+        "balanced_accuracy_old_source_transfer": 0.5188786527195172,
+        "per_class_recall_train": {
+          "1": 0.7810026385224275,
+          "-1": 0.8764044943820225
+        },
+        "per_class_recall_test": {
+          "1": 0.744616053948227,
+          "-1": 0.12686567164179105
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.7472167648984938,
+          "-1": 0.2905405405405405
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3552,
+            "-1": 996
+          },
+          "-1": {
+            "1": 22,
+            "-1": 156
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3423,
+            "-1": 1174
+          },
+          "-1": {
+            "1": 117,
+            "-1": 17
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1141,
+            "-1": 386
+          },
+          "-1": {
+            "1": 105,
+            "-1": 43
+          }
+        },
+        "accuracy_train": 0.784595852729581,
+        "accuracy_test": 0.7271190023250899,
+        "accuracy_old_source_transfer": 0.706865671641791,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5195690413368513,
+        "-1": 13.275280898876405
+      }
+    },
+    {
+      "fit_id": "LH_MNhistory_knee_velocity_sign",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4780,
+      "test_labelled": 4782,
+      "train_excluded": 20,
+      "test_excluded": 18,
+      "train_class_counts": {
+        "+1": 2330,
+        "-1": 2450
+      },
+      "test_class_counts": {
+        "+1": 2528,
+        "-1": 2254
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 874,
+        "-1": 925
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6221327844442499,
+        "balanced_accuracy_test": 0.5115513699976413,
+        "balanced_accuracy_old_source_transfer": 0.5085274290308616,
+        "per_class_recall_train": {
+          "1": 0.628755364806867,
+          "-1": 0.6155102040816327
+        },
+        "per_class_recall_test": {
+          "1": 0.5106803797468354,
+          "-1": 0.5124223602484472
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5446224256292906,
+          "-1": 0.47243243243243244
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1465,
+            "-1": 865
+          },
+          "-1": {
+            "1": 942,
+            "-1": 1508
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1291,
+            "-1": 1237
+          },
+          "-1": {
+            "1": 1099,
+            "-1": 1155
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 476,
+            "-1": 398
+          },
+          "-1": {
+            "1": 488,
+            "-1": 437
+          }
+        },
+        "accuracy_train": 0.6219665271966527,
+        "accuracy_test": 0.5115014638226684,
+        "accuracy_old_source_transfer": 0.5075041689827682,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0257510729613735,
+        "-1": 0.9755102040816327
+      }
+    },
+    {
+      "fit_id": "LH_MNhistory_signed_knee_velocity",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.05606257148358549,
+        "mse_test": 0.05625893220381576,
+        "train_mean_baseline_mse_test": 0.11758147751641931,
+        "train_mean_baseline_mse_train": 0.12712345498897804,
+        "r2_train": 0.5589911280459906,
+        "r2_test": 0.5215323587343113,
+        "target_train_variance": 0.12712345498897804,
+        "target_test_variance": 0.1175610445866952,
+        "train_target_mean": -0.010282152984193887,
+        "mse_old_source_transfer": 14.211644718769525,
+        "old_source_target_mean": -0.069582076812495,
+        "old_source_target_variance": 14.205451747144098,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "LH_rawphysical_stance_air",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4726,
+      "test_labelled": 4731,
+      "train_excluded": 74,
+      "test_excluded": 69,
+      "train_class_counts": {
+        "+1": 4548,
+        "-1": 178
+      },
+      "test_class_counts": {
+        "+1": 4597,
+        "-1": 134
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1675,
+      "old_source_class_counts": {
+        "+1": 1527,
+        "-1": 148
+      },
+      "old_source_excluded": 142,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9880167106420404,
+        "balanced_accuracy_test": 0.961496628235806,
+        "balanced_accuracy_old_source_transfer": 0.8255101860209915,
+        "per_class_recall_train": {
+          "1": 0.9760334212840809,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9229932564716119,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8402095612311722,
+          "-1": 0.8108108108108109
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4439,
+            "-1": 109
+          },
+          "-1": {
+            "1": 0,
+            "-1": 178
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 4243,
+            "-1": 354
+          },
+          "-1": {
+            "1": 0,
+            "-1": 134
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1283,
+            "-1": 244
+          },
+          "-1": {
+            "1": 28,
+            "-1": 120
+          }
+        },
+        "accuracy_train": 0.9769360981802793,
+        "accuracy_test": 0.9251743817374762,
+        "accuracy_old_source_transfer": 0.8376119402985075,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5195690413368513,
+        "-1": 13.275280898876405
+      }
+    },
+    {
+      "fit_id": "LH_rawphysical_knee_velocity_sign",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4780,
+      "test_labelled": 4782,
+      "train_excluded": 20,
+      "test_excluded": 18,
+      "train_class_counts": {
+        "+1": 2330,
+        "-1": 2450
+      },
+      "test_class_counts": {
+        "+1": 2528,
+        "-1": 2254
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 874,
+        "-1": 925
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.8541219234474906,
+        "balanced_accuracy_test": 0.8233012969910034,
+        "balanced_accuracy_old_source_transfer": 0.8921343311274661,
+        "per_class_recall_train": {
+          "1": 0.8849785407725322,
+          "-1": 0.823265306122449
+        },
+        "per_class_recall_test": {
+          "1": 0.8706487341772152,
+          "-1": 0.7759538598047915
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9107551487414187,
+          "-1": 0.8735135135135135
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2062,
+            "-1": 268
+          },
+          "-1": {
+            "1": 433,
+            "-1": 2017
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2201,
+            "-1": 327
+          },
+          "-1": {
+            "1": 505,
+            "-1": 1749
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 796,
+            "-1": 78
+          },
+          "-1": {
+            "1": 117,
+            "-1": 808
+          }
+        },
+        "accuracy_train": 0.8533472803347281,
+        "accuracy_test": 0.8260142199916353,
+        "accuracy_old_source_transfer": 0.8916064480266815,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.0257510729613735,
+        "-1": 0.9755102040816327
+      }
+    },
+    {
+      "fit_id": "LH_rawphysical_signed_knee_velocity",
+      "leg": "LH",
+      "leg_index": 2,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 5.914342684905645e-09,
+        "mse_test": 5.696521461697949e-09,
+        "train_mean_baseline_mse_test": 0.11758147751641931,
+        "train_mean_baseline_mse_train": 0.12712345498897804,
+        "r2_train": 0.9999999534755983,
+        "r2_test": 0.9999999515525609,
+        "target_train_variance": 0.12712345498897804,
+        "target_test_variance": 0.1175610445866952,
+        "train_target_mean": -0.010282152984193887,
+        "mse_old_source_transfer": 6.30438809502949e-07,
+        "old_source_target_mean": -0.069582076812495,
+        "old_source_target_variance": 14.205451747144098,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RF_encoded4_stance_air",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4624,
+      "test_labelled": 4603,
+      "train_excluded": 176,
+      "test_excluded": 197,
+      "train_class_counts": {
+        "+1": 3732,
+        "-1": 892
+      },
+      "test_class_counts": {
+        "+1": 4039,
+        "-1": 564
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1678,
+      "old_source_class_counts": {
+        "+1": 1241,
+        "-1": 437
+      },
+      "old_source_excluded": 139,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9857984994640943,
+        "balanced_accuracy_test": 0.9809358752166377,
+        "balanced_accuracy_old_source_transfer": 0.9160085337542434,
+        "per_class_recall_train": {
+          "1": 0.9715969989281886,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9618717504332756,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9967767929089444,
+          "-1": 0.8352402745995423
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3626,
+            "-1": 106
+          },
+          "-1": {
+            "1": 0,
+            "-1": 892
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3885,
+            "-1": 154
+          },
+          "-1": {
+            "1": 0,
+            "-1": 564
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1237,
+            "-1": 4
+          },
+          "-1": {
+            "1": 72,
+            "-1": 365
+          }
+        },
+        "accuracy_train": 0.9770761245674741,
+        "accuracy_test": 0.9665435585487725,
+        "accuracy_old_source_transfer": 0.9547079856972587,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.6195069667738478,
+        "-1": 2.591928251121076
+      }
+    },
+    {
+      "fit_id": "RF_encoded4_knee_velocity_sign",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4769,
+      "test_labelled": 4751,
+      "train_excluded": 31,
+      "test_excluded": 49,
+      "train_class_counts": {
+        "+1": 2532,
+        "-1": 2237
+      },
+      "test_class_counts": {
+        "+1": 2102,
+        "-1": 2649
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 1057,
+        "-1": 742
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5564326023413495,
+        "balanced_accuracy_test": 0.552820948536672,
+        "balanced_accuracy_old_source_transfer": 0.5655423858910051,
+        "per_class_recall_train": {
+          "1": 0.6153238546603476,
+          "-1": 0.49754135002235134
+        },
+        "per_class_recall_test": {
+          "1": 0.46955280685061845,
+          "-1": 0.6360890902227255
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.7928098391674551,
+          "-1": 0.33827493261455527
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1558,
+            "-1": 974
+          },
+          "-1": {
+            "1": 1124,
+            "-1": 1113
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 987,
+            "-1": 1115
+          },
+          "-1": {
+            "1": 964,
+            "-1": 1685
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 838,
+            "-1": 219
+          },
+          "-1": {
+            "1": 491,
+            "-1": 251
+          }
+        },
+        "accuracy_train": 0.5600754875235898,
+        "accuracy_test": 0.5624079141233425,
+        "accuracy_old_source_transfer": 0.6053362979433018,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.9417456556082149,
+        "-1": 1.0659365221278498
+      }
+    },
+    {
+      "fit_id": "RF_encoded4_signed_knee_velocity",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.033665172429255756,
+        "mse_test": 0.03182088629517846,
+        "train_mean_baseline_mse_test": 0.09174388593460735,
+        "train_mean_baseline_mse_train": 0.09210613533855035,
+        "r2_train": 0.634495874726323,
+        "r2_test": 0.6531552378557459,
+        "target_train_variance": 0.09210613533855035,
+        "target_test_variance": 0.09116017951694023,
+        "train_target_mean": -0.006800683100750563,
+        "mse_old_source_transfer": 16.659217548611796,
+        "old_source_target_mean": 0.03158131238729854,
+        "old_source_target_variance": 13.138908612154571,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RF_MNinstant_stance_air",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 42,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4624,
+      "test_labelled": 4603,
+      "train_excluded": 176,
+      "test_excluded": 197,
+      "train_class_counts": {
+        "+1": 3732,
+        "-1": 892
+      },
+      "test_class_counts": {
+        "+1": 4039,
+        "-1": 564
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1678,
+      "old_source_class_counts": {
+        "+1": 1241,
+        "-1": 437
+      },
+      "old_source_excluded": 139,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.7442450218447652,
+        "balanced_accuracy_test": 0.7629475644382168,
+        "balanced_accuracy_old_source_transfer": 0.7163845131168671,
+        "per_class_recall_train": {
+          "1": 0.7138263665594855,
+          "-1": 0.7746636771300448
+        },
+        "per_class_recall_test": {
+          "1": 0.7227036395147314,
+          "-1": 0.8031914893617021
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.7622884770346495,
+          "-1": 0.6704805491990846
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2664,
+            "-1": 1068
+          },
+          "-1": {
+            "1": 201,
+            "-1": 691
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2919,
+            "-1": 1120
+          },
+          "-1": {
+            "1": 111,
+            "-1": 453
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 946,
+            "-1": 295
+          },
+          "-1": {
+            "1": 144,
+            "-1": 293
+          }
+        },
+        "accuracy_train": 0.7255622837370242,
+        "accuracy_test": 0.7325657180099935,
+        "accuracy_old_source_transfer": 0.7383790226460072,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.6195069667738478,
+        "-1": 2.591928251121076
+      }
+    },
+    {
+      "fit_id": "RF_MNinstant_knee_velocity_sign",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 42,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4769,
+      "test_labelled": 4751,
+      "train_excluded": 31,
+      "test_excluded": 49,
+      "train_class_counts": {
+        "+1": 2532,
+        "-1": 2237
+      },
+      "test_class_counts": {
+        "+1": 2102,
+        "-1": 2649
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 1057,
+        "-1": 742
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5472861101636204,
+        "balanced_accuracy_test": 0.5004598435615975,
+        "balanced_accuracy_old_source_transfer": 0.3914246443298049,
+        "per_class_recall_train": {
+          "1": 0.5201421800947867,
+          "-1": 0.5744300402324541
+        },
+        "per_class_recall_test": {
+          "1": 0.450523311132255,
+          "-1": 0.5503963759909399
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.4162724692526017,
+          "-1": 0.3665768194070081
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1317,
+            "-1": 1215
+          },
+          "-1": {
+            "1": 952,
+            "-1": 1285
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 947,
+            "-1": 1155
+          },
+          "-1": {
+            "1": 1191,
+            "-1": 1458
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 440,
+            "-1": 617
+          },
+          "-1": {
+            "1": 470,
+            "-1": 272
+          }
+        },
+        "accuracy_train": 0.5456070455022017,
+        "accuracy_test": 0.506209219111766,
+        "accuracy_old_source_transfer": 0.39577543079488603,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.9417456556082149,
+        "-1": 1.0659365221278498
+      }
+    },
+    {
+      "fit_id": "RF_MNinstant_signed_knee_velocity",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 42,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.09024647787675534,
+        "mse_test": 0.09020673566277664,
+        "train_mean_baseline_mse_test": 0.09174388593460735,
+        "train_mean_baseline_mse_train": 0.09210613533855035,
+        "r2_train": 0.020190375537520344,
+        "r2_test": 0.016754797948348776,
+        "target_train_variance": 0.09210613533855035,
+        "target_test_variance": 0.09116017951694023,
+        "train_target_mean": -0.006800683100750563,
+        "mse_old_source_transfer": 13.154361957557898,
+        "old_source_target_mean": 0.03158131238729854,
+        "old_source_target_variance": 13.138908612154571,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RF_MNhistory_stance_air",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 168,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4624,
+      "test_labelled": 4603,
+      "train_excluded": 176,
+      "test_excluded": 197,
+      "train_class_counts": {
+        "+1": 3732,
+        "-1": 892
+      },
+      "test_class_counts": {
+        "+1": 4039,
+        "-1": 564
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1678,
+      "old_source_class_counts": {
+        "+1": 1241,
+        "-1": 437
+      },
+      "old_source_excluded": 139,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.8204956286437981,
+        "balanced_accuracy_test": 0.8218133394439674,
+        "balanced_accuracy_old_source_transfer": 0.7018819251471003,
+        "per_class_recall_train": {
+          "1": 0.7923365487674169,
+          "-1": 0.8486547085201793
+        },
+        "per_class_recall_test": {
+          "1": 0.7907897994553107,
+          "-1": 0.8528368794326241
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.790491539081386,
+          "-1": 0.6132723112128147
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2957,
+            "-1": 775
+          },
+          "-1": {
+            "1": 135,
+            "-1": 757
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3194,
+            "-1": 845
+          },
+          "-1": {
+            "1": 83,
+            "-1": 481
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 981,
+            "-1": 260
+          },
+          "-1": {
+            "1": 169,
+            "-1": 268
+          }
+        },
+        "accuracy_train": 0.8032006920415224,
+        "accuracy_test": 0.7983923528133826,
+        "accuracy_old_source_transfer": 0.7443384982121574,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.6195069667738478,
+        "-1": 2.591928251121076
+      }
+    },
+    {
+      "fit_id": "RF_MNhistory_knee_velocity_sign",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 168,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4769,
+      "test_labelled": 4751,
+      "train_excluded": 31,
+      "test_excluded": 49,
+      "train_class_counts": {
+        "+1": 2532,
+        "-1": 2237
+      },
+      "test_class_counts": {
+        "+1": 2102,
+        "-1": 2649
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 1057,
+        "-1": 742
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5798430955473117,
+        "balanced_accuracy_test": 0.5199138033525388,
+        "balanced_accuracy_old_source_transfer": 0.3911390371467842,
+        "per_class_recall_train": {
+          "1": 0.5450236966824644,
+          "-1": 0.6146624944121591
+        },
+        "per_class_recall_test": {
+          "1": 0.4652711703139867,
+          "-1": 0.574556436391091
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.40491958372753073,
+          "-1": 0.37735849056603776
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1380,
+            "-1": 1152
+          },
+          "-1": {
+            "1": 862,
+            "-1": 1375
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 978,
+            "-1": 1124
+          },
+          "-1": {
+            "1": 1127,
+            "-1": 1522
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 428,
+            "-1": 629
+          },
+          "-1": {
+            "1": 462,
+            "-1": 280
+          }
+        },
+        "accuracy_train": 0.5776892430278885,
+        "accuracy_test": 0.5262050094716901,
+        "accuracy_old_source_transfer": 0.3935519733185103,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.9417456556082149,
+        "-1": 1.0659365221278498
+      }
+    },
+    {
+      "fit_id": "RF_MNhistory_signed_knee_velocity",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 168,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.08301167169105168,
+        "mse_test": 0.08521659865344018,
+        "train_mean_baseline_mse_test": 0.09174388593460735,
+        "train_mean_baseline_mse_train": 0.09210613533855035,
+        "r2_train": 0.09873895603230509,
+        "r2_test": 0.07114683681286016,
+        "target_train_variance": 0.09210613533855035,
+        "target_test_variance": 0.09116017951694023,
+        "train_target_mean": -0.006800683100750563,
+        "mse_old_source_transfer": 13.237773042163443,
+        "old_source_target_mean": 0.03158131238729854,
+        "old_source_target_variance": 13.138908612154571,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RF_rawphysical_stance_air",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4624,
+      "test_labelled": 4603,
+      "train_excluded": 176,
+      "test_excluded": 197,
+      "train_class_counts": {
+        "+1": 3732,
+        "-1": 892
+      },
+      "test_class_counts": {
+        "+1": 4039,
+        "-1": 564
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1678,
+      "old_source_class_counts": {
+        "+1": 1241,
+        "-1": 437
+      },
+      "old_source_excluded": 139,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9764201500535905,
+        "balanced_accuracy_test": 0.9517207229512256,
+        "balanced_accuracy_old_source_transfer": 0.9232432322792757,
+        "per_class_recall_train": {
+          "1": 0.9528403001071811,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9034414459024511,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.967767929089444,
+          "-1": 0.8787185354691075
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3556,
+            "-1": 176
+          },
+          "-1": {
+            "1": 0,
+            "-1": 892
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3649,
+            "-1": 390
+          },
+          "-1": {
+            "1": 0,
+            "-1": 564
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1201,
+            "-1": 40
+          },
+          "-1": {
+            "1": 53,
+            "-1": 384
+          }
+        },
+        "accuracy_train": 0.9619377162629758,
+        "accuracy_test": 0.9152726482728655,
+        "accuracy_old_source_transfer": 0.9445768772348033,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.6195069667738478,
+        "-1": 2.591928251121076
+      }
+    },
+    {
+      "fit_id": "RF_rawphysical_knee_velocity_sign",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4769,
+      "test_labelled": 4751,
+      "train_excluded": 31,
+      "test_excluded": 49,
+      "train_class_counts": {
+        "+1": 2532,
+        "-1": 2237
+      },
+      "test_class_counts": {
+        "+1": 2102,
+        "-1": 2649
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1799,
+      "old_source_class_counts": {
+        "+1": 1057,
+        "-1": 742
+      },
+      "old_source_excluded": 18,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.8162417789001717,
+        "balanced_accuracy_test": 0.8223698223374959,
+        "balanced_accuracy_old_source_transfer": 0.6388497170703844,
+        "per_class_recall_train": {
+          "1": 0.8309636650868878,
+          "-1": 0.8015198927134555
+        },
+        "per_class_recall_test": {
+          "1": 0.7402473834443387,
+          "-1": 0.9044922612306531
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.7871333964049196,
+          "-1": 0.49056603773584906
+        },
+        "confusion_train": {
+          "1": {
+            "1": 2104,
+            "-1": 428
+          },
+          "-1": {
+            "1": 444,
+            "-1": 1793
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1556,
+            "-1": 546
+          },
+          "-1": {
+            "1": 253,
+            "-1": 2396
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 832,
+            "-1": 225
+          },
+          "-1": {
+            "1": 378,
+            "-1": 364
+          }
+        },
+        "accuracy_train": 0.8171524428601384,
+        "accuracy_test": 0.8318248789728478,
+        "accuracy_old_source_transfer": 0.6648137854363535,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.9417456556082149,
+        "-1": 1.0659365221278498
+      }
+    },
+    {
+      "fit_id": "RF_rawphysical_signed_knee_velocity",
+      "leg": "RF",
+      "leg_index": 3,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 5.420154159974793e-09,
+        "mse_test": 6.819759308875004e-09,
+        "train_mean_baseline_mse_test": 0.09174388593460735,
+        "train_mean_baseline_mse_train": 0.09210613533855035,
+        "r2_train": 0.9999999411531693,
+        "r2_test": 0.9999999256652448,
+        "target_train_variance": 0.09210613533855035,
+        "target_test_variance": 0.09116017951694023,
+        "train_target_mean": -0.006800683100750563,
+        "mse_old_source_transfer": 8.393157924915385e-07,
+        "old_source_target_mean": 0.03158131238729854,
+        "old_source_target_variance": 13.138908612154571,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RM_encoded4_stance_air",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4733,
+      "test_labelled": 4676,
+      "train_excluded": 67,
+      "test_excluded": 124,
+      "train_class_counts": {
+        "+1": 4585,
+        "-1": 148
+      },
+      "test_class_counts": {
+        "+1": 4370,
+        "-1": 306
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1769,
+      "old_source_class_counts": {
+        "+1": 1565,
+        "-1": 204
+      },
+      "old_source_excluded": 48,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9940021810250819,
+        "balanced_accuracy_test": 0.9923340961098398,
+        "balanced_accuracy_old_source_transfer": 0.9869009584664536,
+        "per_class_recall_train": {
+          "1": 0.9880043620501636,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9846681922196796,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9738019169329073,
+          "-1": 1.0
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4530,
+            "-1": 55
+          },
+          "-1": {
+            "1": 0,
+            "-1": 148
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 4303,
+            "-1": 67
+          },
+          "-1": {
+            "1": 0,
+            "-1": 306
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1524,
+            "-1": 41
+          },
+          "-1": {
+            "1": 0,
+            "-1": 204
+          }
+        },
+        "accuracy_train": 0.9883794633424889,
+        "accuracy_test": 0.9856715141146278,
+        "accuracy_old_source_transfer": 0.9768230638778971,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5161395856052344,
+        "-1": 15.989864864864865
+      }
+    },
+    {
+      "fit_id": "RM_encoded4_knee_velocity_sign",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4772,
+      "test_labelled": 4776,
+      "train_excluded": 28,
+      "test_excluded": 24,
+      "train_class_counts": {
+        "+1": 1944,
+        "-1": 2828
+      },
+      "test_class_counts": {
+        "+1": 2380,
+        "-1": 2396
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1800,
+      "old_source_class_counts": {
+        "+1": 838,
+        "-1": 962
+      },
+      "old_source_excluded": 17,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5884911903888801,
+        "balanced_accuracy_test": 0.5372746594464163,
+        "balanced_accuracy_old_source_transfer": 0.526829794729556,
+        "per_class_recall_train": {
+          "1": 0.6419753086419753,
+          "-1": 0.535007072135785
+        },
+        "per_class_recall_test": {
+          "1": 0.6012605042016806,
+          "-1": 0.4732888146911519
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.31145584725536996,
+          "-1": 0.7422037422037422
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1248,
+            "-1": 696
+          },
+          "-1": {
+            "1": 1315,
+            "-1": 1513
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1431,
+            "-1": 949
+          },
+          "-1": {
+            "1": 1262,
+            "-1": 1134
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 261,
+            "-1": 577
+          },
+          "-1": {
+            "1": 248,
+            "-1": 714
+          }
+        },
+        "accuracy_train": 0.5785834031852473,
+        "accuracy_test": 0.5370603015075377,
+        "accuracy_old_source_transfer": 0.5416666666666666,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.227366255144033,
+        "-1": 0.8437057991513437
+      }
+    },
+    {
+      "fit_id": "RM_encoded4_signed_knee_velocity",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.02578974722778267,
+        "mse_test": 0.026294917987935183,
+        "train_mean_baseline_mse_test": 0.024003525091818266,
+        "train_mean_baseline_mse_train": 0.029686170657205916,
+        "r2_train": 0.13125382436206678,
+        "r2_test": -0.09546068285186782,
+        "target_train_variance": 0.029686170657205916,
+        "target_test_variance": 0.02238549188956084,
+        "train_target_mean": -0.03890621761808513,
+        "mse_old_source_transfer": 3.199822308517044,
+        "old_source_target_mean": -0.0006521160547998909,
+        "old_source_target_variance": 2.481278799689645,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RM_MNinstant_stance_air",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4733,
+      "test_labelled": 4676,
+      "train_excluded": 67,
+      "test_excluded": 124,
+      "train_class_counts": {
+        "+1": 4585,
+        "-1": 148
+      },
+      "test_class_counts": {
+        "+1": 4370,
+        "-1": 306
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1769,
+      "old_source_class_counts": {
+        "+1": 1565,
+        "-1": 204
+      },
+      "old_source_excluded": 48,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.7023873382652008,
+        "balanced_accuracy_test": 0.5319124751349815,
+        "balanced_accuracy_old_source_transfer": 0.4504588736453048,
+        "per_class_recall_train": {
+          "1": 0.702071973827699,
+          "-1": 0.7027027027027027
+        },
+        "per_class_recall_test": {
+          "1": 0.7043478260869566,
+          "-1": 0.35947712418300654
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.6313099041533546,
+          "-1": 0.2696078431372549
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3219,
+            "-1": 1366
+          },
+          "-1": {
+            "1": 44,
+            "-1": 104
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3078,
+            "-1": 1292
+          },
+          "-1": {
+            "1": 196,
+            "-1": 110
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 988,
+            "-1": 577
+          },
+          "-1": {
+            "1": 149,
+            "-1": 55
+          }
+        },
+        "accuracy_train": 0.702091696598352,
+        "accuracy_test": 0.6817792985457656,
+        "accuracy_old_source_transfer": 0.5895986433013002,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5161395856052344,
+        "-1": 15.989864864864865
+      }
+    },
+    {
+      "fit_id": "RM_MNinstant_knee_velocity_sign",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4772,
+      "test_labelled": 4776,
+      "train_excluded": 28,
+      "test_excluded": 24,
+      "train_class_counts": {
+        "+1": 1944,
+        "-1": 2828
+      },
+      "test_class_counts": {
+        "+1": 2380,
+        "-1": 2396
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1800,
+      "old_source_class_counts": {
+        "+1": 838,
+        "-1": 962
+      },
+      "old_source_excluded": 17,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5611819779861584,
+        "balanced_accuracy_test": 0.552271643214882,
+        "balanced_accuracy_old_source_transfer": 0.482190791856663,
+        "per_class_recall_train": {
+          "1": 0.6244855967078189,
+          "-1": 0.49787835926449786
+        },
+        "per_class_recall_test": {
+          "1": 0.5928571428571429,
+          "-1": 0.511686143572621
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5381861575178998,
+          "-1": 0.4261954261954262
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1214,
+            "-1": 730
+          },
+          "-1": {
+            "1": 1420,
+            "-1": 1408
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1411,
+            "-1": 969
+          },
+          "-1": {
+            "1": 1170,
+            "-1": 1226
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 451,
+            "-1": 387
+          },
+          "-1": {
+            "1": 552,
+            "-1": 410
+          }
+        },
+        "accuracy_train": 0.549455155071249,
+        "accuracy_test": 0.5521356783919598,
+        "accuracy_old_source_transfer": 0.47833333333333333,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.227366255144033,
+        "-1": 0.8437057991513437
+      }
+    },
+    {
+      "fit_id": "RM_MNinstant_signed_knee_velocity",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 60,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.0284537852513808,
+        "mse_test": 0.024385088080127085,
+        "train_mean_baseline_mse_test": 0.024003525091818266,
+        "train_mean_baseline_mse_train": 0.029686170657205916,
+        "r2_train": 0.04151378835808084,
+        "r2_test": -0.015896123042314247,
+        "target_train_variance": 0.029686170657205916,
+        "target_test_variance": 0.02238549188956084,
+        "train_target_mean": -0.03890621761808513,
+        "mse_old_source_transfer": 2.488211642977107,
+        "old_source_target_mean": -0.0006521160547998909,
+        "old_source_target_variance": 2.481278799689645,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RM_MNhistory_stance_air",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4733,
+      "test_labelled": 4676,
+      "train_excluded": 67,
+      "test_excluded": 124,
+      "train_class_counts": {
+        "+1": 4585,
+        "-1": 148
+      },
+      "test_class_counts": {
+        "+1": 4370,
+        "-1": 306
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1769,
+      "old_source_class_counts": {
+        "+1": 1565,
+        "-1": 204
+      },
+      "old_source_excluded": 48,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.8387485631760441,
+        "balanced_accuracy_test": 0.5255702128296017,
+        "balanced_accuracy_old_source_transfer": 0.47430150974127666,
+        "per_class_recall_train": {
+          "1": 0.7856052344601963,
+          "-1": 0.8918918918918919
+        },
+        "per_class_recall_test": {
+          "1": 0.7897025171624714,
+          "-1": 0.26143790849673204
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.7182108626198083,
+          "-1": 0.23039215686274508
+        },
+        "confusion_train": {
+          "1": {
+            "1": 3602,
+            "-1": 983
+          },
+          "-1": {
+            "1": 16,
+            "-1": 132
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 3451,
+            "-1": 919
+          },
+          "-1": {
+            "1": 226,
+            "-1": 80
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1124,
+            "-1": 441
+          },
+          "-1": {
+            "1": 157,
+            "-1": 47
+          }
+        },
+        "accuracy_train": 0.7889287978026621,
+        "accuracy_test": 0.7551325919589392,
+        "accuracy_old_source_transfer": 0.6619559072922555,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5161395856052344,
+        "-1": 15.989864864864865
+      }
+    },
+    {
+      "fit_id": "RM_MNhistory_knee_velocity_sign",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4772,
+      "test_labelled": 4776,
+      "train_excluded": 28,
+      "test_excluded": 24,
+      "train_class_counts": {
+        "+1": 1944,
+        "-1": 2828
+      },
+      "test_class_counts": {
+        "+1": 2380,
+        "-1": 2396
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1800,
+      "old_source_class_counts": {
+        "+1": 838,
+        "-1": 962
+      },
+      "old_source_excluded": 17,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6094340254131233,
+        "balanced_accuracy_test": 0.5486216523337215,
+        "balanced_accuracy_old_source_transfer": 0.49809094021504524,
+        "per_class_recall_train": {
+          "1": 0.6368312757201646,
+          "-1": 0.582036775106082
+        },
+        "per_class_recall_test": {
+          "1": 0.5621848739495798,
+          "-1": 0.5350584307178631
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5429594272076372,
+          "-1": 0.45322245322245325
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1238,
+            "-1": 706
+          },
+          "-1": {
+            "1": 1182,
+            "-1": 1646
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1338,
+            "-1": 1042
+          },
+          "-1": {
+            "1": 1114,
+            "-1": 1282
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 455,
+            "-1": 383
+          },
+          "-1": {
+            "1": 526,
+            "-1": 436
+          }
+        },
+        "accuracy_train": 0.6043587594300084,
+        "accuracy_test": 0.5485762144053601,
+        "accuracy_old_source_transfer": 0.495,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.227366255144033,
+        "-1": 0.8437057991513437
+      }
+    },
+    {
+      "fit_id": "RM_MNhistory_signed_knee_velocity",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 240,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.026326148035860673,
+        "mse_test": 0.026059936846085586,
+        "train_mean_baseline_mse_test": 0.024003525091818266,
+        "train_mean_baseline_mse_train": 0.029686170657205916,
+        "r2_train": 0.11318477752298595,
+        "r2_test": -0.08567123980336788,
+        "target_train_variance": 0.029686170657205916,
+        "target_test_variance": 0.02238549188956084,
+        "train_target_mean": -0.03890621761808513,
+        "mse_old_source_transfer": 2.487738727801929,
+        "old_source_target_mean": -0.0006521160547998909,
+        "old_source_target_variance": 2.481278799689645,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RM_rawphysical_stance_air",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4733,
+      "test_labelled": 4676,
+      "train_excluded": 67,
+      "test_excluded": 124,
+      "train_class_counts": {
+        "+1": 4585,
+        "-1": 148
+      },
+      "test_class_counts": {
+        "+1": 4370,
+        "-1": 306
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1769,
+      "old_source_class_counts": {
+        "+1": 1565,
+        "-1": 204
+      },
+      "old_source_excluded": 48,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9850599781897491,
+        "balanced_accuracy_test": 0.97883295194508,
+        "balanced_accuracy_old_source_transfer": 0.9559105431309904,
+        "per_class_recall_train": {
+          "1": 0.9701199563794983,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9576659038901602,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9118210862619809,
+          "-1": 1.0
+        },
+        "confusion_train": {
+          "1": {
+            "1": 4448,
+            "-1": 137
+          },
+          "-1": {
+            "1": 0,
+            "-1": 148
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 4185,
+            "-1": 185
+          },
+          "-1": {
+            "1": 0,
+            "-1": 306
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 1427,
+            "-1": 138
+          },
+          "-1": {
+            "1": 0,
+            "-1": 204
+          }
+        },
+        "accuracy_train": 0.9710542995985633,
+        "accuracy_test": 0.9604362703165098,
+        "accuracy_old_source_transfer": 0.9219898247597512,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 0.5161395856052344,
+        "-1": 15.989864864864865
+      }
+    },
+    {
+      "fit_id": "RM_rawphysical_knee_velocity_sign",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4772,
+      "test_labelled": 4776,
+      "train_excluded": 28,
+      "test_excluded": 24,
+      "train_class_counts": {
+        "+1": 1944,
+        "-1": 2828
+      },
+      "test_class_counts": {
+        "+1": 2380,
+        "-1": 2396
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1800,
+      "old_source_class_counts": {
+        "+1": 838,
+        "-1": 962
+      },
+      "old_source_excluded": 17,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.966840632475946,
+        "balanced_accuracy_test": 0.9580354512422665,
+        "balanced_accuracy_old_source_transfer": 0.961116706940096,
+        "per_class_recall_train": {
+          "1": 0.9891975308641975,
+          "-1": 0.9444837340876945
+        },
+        "per_class_recall_test": {
+          "1": 0.9941176470588236,
+          "-1": 0.9219532554257095
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.977326968973747,
+          "-1": 0.9449064449064449
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1923,
+            "-1": 21
+          },
+          "-1": {
+            "1": 157,
+            "-1": 2671
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 2366,
+            "-1": 14
+          },
+          "-1": {
+            "1": 187,
+            "-1": 2209
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 819,
+            "-1": 19
+          },
+          "-1": {
+            "1": 53,
+            "-1": 909
+          }
+        },
+        "accuracy_train": 0.962699077954736,
+        "accuracy_test": 0.9579145728643216,
+        "accuracy_old_source_transfer": 0.96,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.227366255144033,
+        "-1": 0.8437057991513437
+      }
+    },
+    {
+      "fit_id": "RM_rawphysical_signed_knee_velocity",
+      "leg": "RM",
+      "leg_index": 4,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 1.6258552832303997e-09,
+        "mse_test": 1.6238830818222463e-09,
+        "train_mean_baseline_mse_test": 0.024003525091818266,
+        "train_mean_baseline_mse_train": 0.029686170657205916,
+        "r2_train": 0.999999945231896,
+        "r2_test": 0.9999999323481416,
+        "target_train_variance": 0.029686170657205916,
+        "target_test_variance": 0.02238549188956084,
+        "train_target_mean": -0.03890621761808513,
+        "mse_old_source_transfer": 1.8934904126674775e-07,
+        "old_source_target_mean": -0.0006521160547998909,
+        "old_source_target_variance": 2.481278799689645,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RH_encoded4_stance_air",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "encoded4",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4666,
+      "test_labelled": 4790,
+      "train_excluded": 134,
+      "test_excluded": 10,
+      "train_class_counts": {
+        "+1": 1481,
+        "-1": 3185
+      },
+      "test_class_counts": {
+        "+1": 1016,
+        "-1": 3774
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1709,
+      "old_source_class_counts": {
+        "+1": 1018,
+        "-1": 691
+      },
+      "old_source_excluded": 108,
+      "tautological_note": "campaniform strain contains foot load by construction, so this target is a tautological availability/compression check, not learning",
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9817690749493586,
+        "balanced_accuracy_test": 0.9872047244094488,
+        "balanced_accuracy_old_source_transfer": 0.9788801571709234,
+        "per_class_recall_train": {
+          "1": 0.9635381498987171,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.9744094488188977,
+          "-1": 1.0
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9577603143418467,
+          "-1": 1.0
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1427,
+            "-1": 54
+          },
+          "-1": {
+            "1": 0,
+            "-1": 3185
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 990,
+            "-1": 26
+          },
+          "-1": {
+            "1": 0,
+            "-1": 3774
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 975,
+            "-1": 43
+          },
+          "-1": {
+            "1": 0,
+            "-1": 691
+          }
+        },
+        "accuracy_train": 0.9884269181311616,
+        "accuracy_test": 0.9945720250521921,
+        "accuracy_old_source_transfer": 0.9748390871854886,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.575286968264686,
+        "-1": 0.7324960753532183
+      }
+    },
+    {
+      "fit_id": "RH_encoded4_knee_velocity_sign",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "encoded4",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4715,
+      "test_labelled": 4667,
+      "train_excluded": 85,
+      "test_excluded": 133,
+      "train_class_counts": {
+        "+1": 2085,
+        "-1": 2630
+      },
+      "test_class_counts": {
+        "+1": 1862,
+        "-1": 2805
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 808,
+        "-1": 987
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6815593912702538,
+        "balanced_accuracy_test": 0.6465927997993456,
+        "balanced_accuracy_old_source_transfer": 0.5103266975633733,
+        "per_class_recall_train": {
+          "1": 0.6422062350119904,
+          "-1": 0.7209125475285171
+        },
+        "per_class_recall_test": {
+          "1": 0.6154672395273899,
+          "-1": 0.6777183600713013
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9071782178217822,
+          "-1": 0.11347517730496454
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1339,
+            "-1": 746
+          },
+          "-1": {
+            "1": 734,
+            "-1": 1896
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1146,
+            "-1": 716
+          },
+          "-1": {
+            "1": 904,
+            "-1": 1901
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 733,
+            "-1": 75
+          },
+          "-1": {
+            "1": 875,
+            "-1": 112
+          }
+        },
+        "accuracy_train": 0.6861081654294804,
+        "accuracy_test": 0.6528819370044997,
+        "accuracy_old_source_transfer": 0.47075208913649025,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.130695443645084,
+        "-1": 0.8963878326996197
+      }
+    },
+    {
+      "fit_id": "RH_encoded4_signed_knee_velocity",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "encoded4",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 4,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.050265305683700905,
+        "mse_test": 0.047788246742773786,
+        "train_mean_baseline_mse_test": 0.11943346053026394,
+        "train_mean_baseline_mse_train": 0.12994860217660156,
+        "r2_train": 0.6131908705305671,
+        "r2_test": 0.5998755580672097,
+        "target_train_variance": 0.12994860217660156,
+        "target_test_variance": 0.11885491718654488,
+        "train_target_mean": 0.02674045021399958,
+        "mse_old_source_transfer": 20.89996769241694,
+        "old_source_target_mean": 0.09749176984182792,
+        "old_source_target_variance": 14.81063024516102,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RH_MNinstant_stance_air",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNinstant",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4666,
+      "test_labelled": 4790,
+      "train_excluded": 134,
+      "test_excluded": 10,
+      "train_class_counts": {
+        "+1": 1481,
+        "-1": 3185
+      },
+      "test_class_counts": {
+        "+1": 1016,
+        "-1": 3774
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1709,
+      "old_source_class_counts": {
+        "+1": 1018,
+        "-1": 691
+      },
+      "old_source_excluded": 108,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6232464169379381,
+        "balanced_accuracy_test": 0.555760977512946,
+        "balanced_accuracy_old_source_transfer": 0.4582969643380085,
+        "per_class_recall_train": {
+          "1": 0.6819716407832546,
+          "-1": 0.5645211930926216
+        },
+        "per_class_recall_test": {
+          "1": 0.593503937007874,
+          "-1": 0.5180180180180181
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5432220039292731,
+          "-1": 0.37337192474674386
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1010,
+            "-1": 471
+          },
+          "-1": {
+            "1": 1387,
+            "-1": 1798
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 603,
+            "-1": 413
+          },
+          "-1": {
+            "1": 1819,
+            "-1": 1955
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 553,
+            "-1": 465
+          },
+          "-1": {
+            "1": 433,
+            "-1": 258
+          }
+        },
+        "accuracy_train": 0.6018002571795971,
+        "accuracy_test": 0.5340292275574112,
+        "accuracy_old_source_transfer": 0.4745465184318315,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.575286968264686,
+        "-1": 0.7324960753532183
+      }
+    },
+    {
+      "fit_id": "RH_MNinstant_knee_velocity_sign",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNinstant",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4715,
+      "test_labelled": 4667,
+      "train_excluded": 85,
+      "test_excluded": 133,
+      "train_class_counts": {
+        "+1": 2085,
+        "-1": 2630
+      },
+      "test_class_counts": {
+        "+1": 1862,
+        "-1": 2805
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 808,
+        "-1": 987
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.5762854355299031,
+        "balanced_accuracy_test": 0.5540755058004063,
+        "balanced_accuracy_old_source_transfer": 0.5111097735913409,
+        "per_class_recall_train": {
+          "1": 0.6004796163069545,
+          "-1": 0.5520912547528517
+        },
+        "per_class_recall_test": {
+          "1": 0.5719656283566058,
+          "-1": 0.5361853832442067
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5247524752475248,
+          "-1": 0.49746707193515705
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1252,
+            "-1": 833
+          },
+          "-1": {
+            "1": 1178,
+            "-1": 1452
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1065,
+            "-1": 797
+          },
+          "-1": {
+            "1": 1301,
+            "-1": 1504
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 424,
+            "-1": 384
+          },
+          "-1": {
+            "1": 496,
+            "-1": 491
+          }
+        },
+        "accuracy_train": 0.5734888653234358,
+        "accuracy_test": 0.5504606813799015,
+        "accuracy_old_source_transfer": 0.5097493036211699,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.130695443645084,
+        "-1": 0.8963878326996197
+      }
+    },
+    {
+      "fit_id": "RH_MNinstant_signed_knee_velocity",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNinstant",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 59,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.11291892387843525,
+        "mse_test": 0.10492651212692974,
+        "train_mean_baseline_mse_test": 0.11943346053026394,
+        "train_mean_baseline_mse_train": 0.12994860217660156,
+        "r2_train": 0.13104933806846797,
+        "r2_test": 0.12146469120902836,
+        "target_train_variance": 0.12994860217660156,
+        "target_test_variance": 0.11885491718654488,
+        "train_target_mean": 0.02674045021399958,
+        "mse_old_source_transfer": 14.836162662335646,
+        "old_source_target_mean": 0.09749176984182792,
+        "old_source_target_variance": 14.81063024516102,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RH_MNhistory_stance_air",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNhistory",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4666,
+      "test_labelled": 4790,
+      "train_excluded": 134,
+      "test_excluded": 10,
+      "train_class_counts": {
+        "+1": 1481,
+        "-1": 3185
+      },
+      "test_class_counts": {
+        "+1": 1016,
+        "-1": 3774
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1709,
+      "old_source_class_counts": {
+        "+1": 1018,
+        "-1": 691
+      },
+      "old_source_excluded": 108,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6833943716166153,
+        "balanced_accuracy_test": 0.5669080092134746,
+        "balanced_accuracy_old_source_transfer": 0.4866704670489794,
+        "per_class_recall_train": {
+          "1": 0.7319378798109386,
+          "-1": 0.634850863422292
+        },
+        "per_class_recall_test": {
+          "1": 0.5757874015748031,
+          "-1": 0.5580286168521462
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.5333988212180747,
+          "-1": 0.4399421128798842
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1084,
+            "-1": 397
+          },
+          "-1": {
+            "1": 1163,
+            "-1": 2022
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 585,
+            "-1": 431
+          },
+          "-1": {
+            "1": 1668,
+            "-1": 2106
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 543,
+            "-1": 475
+          },
+          "-1": {
+            "1": 387,
+            "-1": 304
+          }
+        },
+        "accuracy_train": 0.6656665237891127,
+        "accuracy_test": 0.561795407098121,
+        "accuracy_old_source_transfer": 0.49561146869514333,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.575286968264686,
+        "-1": 0.7324960753532183
+      }
+    },
+    {
+      "fit_id": "RH_MNhistory_knee_velocity_sign",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNhistory",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4715,
+      "test_labelled": 4667,
+      "train_excluded": 85,
+      "test_excluded": 133,
+      "train_class_counts": {
+        "+1": 2085,
+        "-1": 2630
+      },
+      "test_class_counts": {
+        "+1": 1862,
+        "-1": 2805
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 808,
+        "-1": 987
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.6243200116712714,
+        "balanced_accuracy_test": 0.5284031315875632,
+        "balanced_accuracy_old_source_transfer": 0.49440498761122315,
+        "per_class_recall_train": {
+          "1": 0.649400479616307,
+          "-1": 0.5992395437262358
+        },
+        "per_class_recall_test": {
+          "1": 0.5284640171858217,
+          "-1": 0.5283422459893048
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.4801980198019802,
+          "-1": 0.5086119554204661
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1354,
+            "-1": 731
+          },
+          "-1": {
+            "1": 1054,
+            "-1": 1576
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 984,
+            "-1": 878
+          },
+          "-1": {
+            "1": 1323,
+            "-1": 1482
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 388,
+            "-1": 420
+          },
+          "-1": {
+            "1": 485,
+            "-1": 502
+          }
+        },
+        "accuracy_train": 0.6214209968186638,
+        "accuracy_test": 0.5283908292264838,
+        "accuracy_old_source_transfer": 0.4958217270194986,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.130695443645084,
+        "-1": 0.8963878326996197
+      }
+    },
+    {
+      "fit_id": "RH_MNhistory_signed_knee_velocity",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "MNhistory",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 236,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": true,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 0.08508643778242285,
+        "mse_test": 0.08168425351008961,
+        "train_mean_baseline_mse_test": 0.11943346053026394,
+        "train_mean_baseline_mse_train": 0.12994860217660156,
+        "r2_train": 0.3452300651392197,
+        "r2_test": 0.3160689379054611,
+        "target_train_variance": 0.12994860217660156,
+        "target_test_variance": 0.11885491718654488,
+        "train_target_mean": 0.02674045021399958,
+        "mse_old_source_transfer": 14.832976848635356,
+        "old_source_target_mean": 0.09749176984182792,
+        "old_source_target_variance": 14.81063024516102,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    },
+    {
+      "fit_id": "RH_rawphysical_stance_air",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "rawphysical",
+      "task": "stance_air",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4666,
+      "test_labelled": 4790,
+      "train_excluded": 134,
+      "test_excluded": 10,
+      "train_class_counts": {
+        "+1": 1481,
+        "-1": 3185
+      },
+      "test_class_counts": {
+        "+1": 1016,
+        "-1": 3774
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1709,
+      "old_source_class_counts": {
+        "+1": 1018,
+        "-1": 691
+      },
+      "old_source_excluded": 108,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.9736664415935179,
+        "balanced_accuracy_test": 0.934149787814679,
+        "balanced_accuracy_old_source_transfer": 0.9056228125293202,
+        "per_class_recall_train": {
+          "1": 0.9473328831870358,
+          "-1": 1.0
+        },
+        "per_class_recall_test": {
+          "1": 0.8690944881889764,
+          "-1": 0.9992050874403816
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.8300589390962672,
+          "-1": 0.9811866859623734
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1403,
+            "-1": 78
+          },
+          "-1": {
+            "1": 0,
+            "-1": 3185
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 883,
+            "-1": 133
+          },
+          "-1": {
+            "1": 3,
+            "-1": 3771
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 845,
+            "-1": 173
+          },
+          "-1": {
+            "1": 13,
+            "-1": 678
+          }
+        },
+        "accuracy_train": 0.9832833261894557,
+        "accuracy_test": 0.97160751565762,
+        "accuracy_old_source_transfer": 0.8911644236395553,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.575286968264686,
+        "-1": 0.7324960753532183
+      }
+    },
+    {
+      "fit_id": "RH_rawphysical_knee_velocity_sign",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "rawphysical",
+      "task": "knee_velocity_sign",
+      "classification": true,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4715,
+      "test_labelled": 4667,
+      "train_excluded": 85,
+      "test_excluded": 133,
+      "train_class_counts": {
+        "+1": 2085,
+        "-1": 2630
+      },
+      "test_class_counts": {
+        "+1": 1862,
+        "-1": 2805
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1795,
+      "old_source_class_counts": {
+        "+1": 808,
+        "-1": 987
+      },
+      "old_source_excluded": 22,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "balanced_accuracy_train": 0.7913664505657831,
+        "balanced_accuracy_test": 0.6930357789048633,
+        "balanced_accuracy_old_source_transfer": 0.8849630593758464,
+        "per_class_recall_train": {
+          "1": 0.7405275779376499,
+          "-1": 0.8422053231939164
+        },
+        "per_class_recall_test": {
+          "1": 0.6192266380236305,
+          "-1": 0.7668449197860963
+        },
+        "per_class_recall_old_source_transfer": {
+          "1": 0.9492574257425742,
+          "-1": 0.8206686930091185
+        },
+        "confusion_train": {
+          "1": {
+            "1": 1544,
+            "-1": 541
+          },
+          "-1": {
+            "1": 415,
+            "-1": 2215
+          }
+        },
+        "confusion_test": {
+          "1": {
+            "1": 1153,
+            "-1": 709
+          },
+          "-1": {
+            "1": 654,
+            "-1": 2151
+          }
+        },
+        "confusion_old_source_transfer": {
+          "1": {
+            "1": 767,
+            "-1": 41
+          },
+          "-1": {
+            "1": 177,
+            "-1": 810
+          }
+        },
+        "accuracy_train": 0.7972428419936374,
+        "accuracy_test": 0.7079494321834154,
+        "accuracy_old_source_transfer": 0.8785515320334262,
+        "balanced_accuracy_undefined_reason": null,
+        "source_transfer_note": "old failed slow4 physical source with the new adapted-core MN rate source; external diagnostic only, no refit, not independent data and not a success label"
+      },
+      "balance_weight_multipliers": {
+        "+1": 1.130695443645084,
+        "-1": 0.8963878326996197
+      }
+    },
+    {
+      "fit_id": "RH_rawphysical_signed_knee_velocity",
+      "leg": "RH",
+      "leg_index": 5,
+      "representation": "rawphysical",
+      "task": "signed_knee_velocity",
+      "classification": false,
+      "feature_dimension": 15,
+      "lambda_ridge": 1.0,
+      "train_episodes": 24,
+      "test_episodes": 24,
+      "train_bins": 4800,
+      "test_bins": 4800,
+      "train_labelled": 4800,
+      "test_labelled": 4800,
+      "train_excluded": 0,
+      "test_excluded": 0,
+      "train_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "test_class_counts": {
+        "+1": 0,
+        "-1": 0
+      },
+      "old_source_bins": 1817,
+      "old_source_labelled": 1817,
+      "old_source_class_counts": null,
+      "old_source_excluded": 0,
+      "tautological_note": null,
+      "deployable": false,
+      "fitting_status": "FITTED",
+      "metrics": {
+        "mse_train": 3.229417278833723e-08,
+        "mse_test": 3.123207506481369e-08,
+        "train_mean_baseline_mse_test": 0.11943346053026394,
+        "train_mean_baseline_mse_train": 0.12994860217660156,
+        "r2_train": 0.9999997514850314,
+        "r2_test": 0.999999738498115,
+        "target_train_variance": 0.12994860217660156,
+        "target_test_variance": 0.11885491718654488,
+        "train_target_mean": 0.02674045021399958,
+        "mse_old_source_transfer": 2.1758822168116686e-05,
+        "old_source_target_mean": 0.09749176984182792,
+        "old_source_target_variance": 14.81063024516102,
+        "source_transfer_note": "external diagnostic only, no refit"
+      }
+    }
+  ],
+  "limits": "Coefficient fits on raw scalar channel means are not cell tuning. The encoded representation is a deliberately coarse uncalibrated proxy; its information loss does not make source sensory biology false. rawphysical is privileged ground truth and never deployable. Train/test share one canonical checkpoint and deterministic policy variants, so all samples are correlated; results are recoverability from correlated saved data, not generalization across animals, not causal neural representation, perception, or movement success."
+}

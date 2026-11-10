@@ -1,0 +1,175 @@
+{
+  "status": "EXECUTED_NO_CALIBRATION_CHANGE",
+  "results": {
+    "encoder_exact_pulse": {
+      "runs": [
+        {
+          "dt_ms": 0.5,
+          "neural_steps": 400,
+          "MN_spikes": 1023,
+          "MN_recruited": 137,
+          "MN_mean_Hz": 15.8359133126935,
+          "MN_max_cell_mean_Hz": 115.0,
+          "voltage_min_mV": -90.45153033626407,
+          "voltage_max_mV": -50.00000968686289,
+          "per_leg": {
+            "lf": {
+              "recruited": 16,
+              "spikes": 150
+            },
+            "lh": {
+              "recruited": 28,
+              "spikes": 257
+            },
+            "lm": {
+              "recruited": 26,
+              "spikes": 102
+            },
+            "rf": {
+              "recruited": 18,
+              "spikes": 164
+            },
+            "rh": {
+              "recruited": 25,
+              "spikes": 224
+            },
+            "rm": {
+              "recruited": 24,
+              "spikes": 126
+            }
+          },
+          "all_six_legs_propagated": true
+        },
+        {
+          "dt_ms": 0.25,
+          "neural_steps": 800,
+          "MN_spikes": 1015,
+          "MN_recruited": 139,
+          "MN_mean_Hz": 15.712074303405572,
+          "MN_max_cell_mean_Hz": 110.0,
+          "voltage_min_mV": -87.70966327294104,
+          "voltage_max_mV": -50.00000346351121,
+          "per_leg": {
+            "lf": {
+              "recruited": 17,
+              "spikes": 167
+            },
+            "lh": {
+              "recruited": 28,
+              "spikes": 252
+            },
+            "lm": {
+              "recruited": 25,
+              "spikes": 103
+            },
+            "rf": {
+              "recruited": 17,
+              "spikes": 154
+            },
+            "rh": {
+              "recruited": 26,
+              "spikes": 215
+            },
+            "rm": {
+              "recruited": 26,
+              "spikes": 124
+            }
+          },
+          "all_six_legs_propagated": true
+        }
+      ],
+      "aggregate_rate_relative_difference": 0.007820136852395007
+    },
+    "encoder_constant_fixture": {
+      "runs": [
+        {
+          "dt_ms": 0.5,
+          "neural_steps": 400,
+          "MN_spikes": 1210,
+          "MN_recruited": 135,
+          "MN_mean_Hz": 18.730650154798763,
+          "MN_max_cell_mean_Hz": 155.0,
+          "voltage_min_mV": -90.57927857729747,
+          "voltage_max_mV": -50.00002069387035,
+          "per_leg": {
+            "lf": {
+              "recruited": 18,
+              "spikes": 208
+            },
+            "lh": {
+              "recruited": 27,
+              "spikes": 297
+            },
+            "lm": {
+              "recruited": 21,
+              "spikes": 114
+            },
+            "rf": {
+              "recruited": 17,
+              "spikes": 219
+            },
+            "rh": {
+              "recruited": 23,
+              "spikes": 224
+            },
+            "rm": {
+              "recruited": 29,
+              "spikes": 148
+            }
+          },
+          "all_six_legs_propagated": true
+        },
+        {
+          "dt_ms": 0.25,
+          "neural_steps": 800,
+          "MN_spikes": 1191,
+          "MN_recruited": 137,
+          "MN_mean_Hz": 18.436532507739937,
+          "MN_max_cell_mean_Hz": 145.0,
+          "voltage_min_mV": -93.0784783348611,
+          "voltage_max_mV": -50.00000108382738,
+          "per_leg": {
+            "lf": {
+              "recruited": 17,
+              "spikes": 198
+            },
+            "lh": {
+              "recruited": 27,
+              "spikes": 289
+            },
+            "lm": {
+              "recruited": 22,
+              "spikes": 114
+            },
+            "rf": {
+              "recruited": 17,
+              "spikes": 210
+            },
+            "rh": {
+              "recruited": 25,
+              "spikes": 223
+            },
+            "rm": {
+              "recruited": 29,
+              "spikes": 157
+            }
+          },
+          "all_six_legs_propagated": true
+        }
+      ],
+      "aggregate_rate_relative_difference": 0.015702479338843108
+    }
+  },
+  "actual_neural_steps": 2400,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "encoder_sha256": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+  "preregistration_sha256": "6dd9f5ffddd6a5eda181e09bf34f3495f204551327031054d2dbdcbe9c3a4136",
+  "qualified_cells": 556,
+  "current_bounds_nA": [
+    0.0,
+    0.03807970779778824
+  ],
+  "calibration_status": "Original broad calibration remains FAILED; .02uS is original predeclared fallback",
+  "fixture_status": "engineering, not physical standing or brain output"
+}

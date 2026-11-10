@@ -1,0 +1,27 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-2",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "PREREG.json (acceptance criteria unchanged)",
+  "when": "after the imitation-only run, before the demo-initialised PPO run",
+  "evidence": {
+    "imitation_only": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/TRAIN_LOG_singleleg_demo.json",
+    "reward_scale": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/REWARD_SCALE.json",
+    "observed": "with a screened lift direction as the teacher and ZERO PPO updates, five of six legs already reach unload + lift + advance (LF lift 0.0877, LM 1.4083, RF 0.1963, LH 0.7414, RH 0.0739); every leg fails only the 'place' criterion because the foot is still up at the end of the episode",
+    "diagnosis": "the declared level-based task reward pays unload+lift continuously, about 2 per tick, while placing is a single event bonus of 2. Holding the foot up for the remaining ticks therefore out-returns placing it, so the reward itself forbids the behaviour the acceptance test requires. This is a defect in my reward design, not a capability finding."
+  },
+  "reward_changes": {
+    "task_terms": {"old": "level: 0.8*unload + 1.2*lift + 1.0*advance_rate, paid every tick",
+                   "new": "potential: phi = 0.8*unload + 1.2*lift + 1.0*clip(best_advance/0.03); reward = gamma*phi' - phi",
+                   "reason": "potential-based shaping telescopes, so a held state pays nothing and only progress pays"},
+    "place_hold": {"old": 0.0, "new": 0.6,
+                   "reason": "dense credit for being loaded again at pad height <= 0.004 after a completed swing, so the terminal placement is not a single sparse event"}
+  },
+  "unchanged": {
+    "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+    "safety_penalties": "non-foot 20, support 30, COM 60, other-leg stance 0.05, action 0.02, omega 0.01, gravity 0.01",
+    "place_event_bonus": 2.0,
+    "optimizer": "unchanged cumulative-KL budget, 24 updates, rollout 1024",
+    "preregistered_outcomes": "unchanged"
+  },
+  "discipline": "PREREG.json and PREREG_AMENDMENT_1.json are left byte-identical"
+}

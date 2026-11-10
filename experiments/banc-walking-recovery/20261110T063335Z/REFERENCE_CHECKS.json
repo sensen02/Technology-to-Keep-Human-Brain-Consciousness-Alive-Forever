@@ -1,0 +1,708 @@
+{
+  "status": "PASS",
+  "scope": "S2/S5 NumPy reference target checks only; no physics simulation/training",
+  "check_count": 105,
+  "checks": [
+    {
+      "name": "rest copied",
+      "passed": true
+    },
+    {
+      "name": "reference SHA256 verified",
+      "passed": true
+    },
+    {
+      "name": "exact leg mapping",
+      "passed": true
+    },
+    {
+      "name": "source immutable and finite",
+      "passed": true
+    },
+    {
+      "name": "helper arrays readonly",
+      "passed": true
+    },
+    {
+      "name": "default duration",
+      "passed": true,
+      "duration_s": 2.9
+    },
+    {
+      "name": "symmetric five sample edge box",
+      "passed": true
+    },
+    {
+      "name": "full clip per-leg mean before smoothing",
+      "passed": true
+    },
+    {
+      "name": "blend starts at own rest and zero world height",
+      "passed": true
+    },
+    {
+      "name": "negative elapsed clamps rest",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.00073000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.00390000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.00707000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.01024000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.01341000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.01658000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.01975000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.02292000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.02609000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.02926000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.03243000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.03560000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.03877000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.04194000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.04511000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.04828000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.05145000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.05462000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.05779000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.06096000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.06413000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.06730000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.07047000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.07364000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.07681000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.07998000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.08315000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.08632000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.08949000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.09266000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.09583000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.09900000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.10217000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.10534000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.10851000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.11168000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.11485000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.11802000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.12119000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.12436000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.12753000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.13070000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.13387000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.13704000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.14021000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.14338000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.14655000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.14972000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.15289000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.15606000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.15923000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.16240000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.16557000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.16874000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.17191000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.17508000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.17825000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.18142000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.18459000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.18776000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.19093000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.19410000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.19727000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.20044000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.20361000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.20678000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.20995000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.21312000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.21629000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.21946000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.22263000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.22580000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.22897000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.23214000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.23531000",
+      "passed": true
+    },
+    {
+      "name": "independent target equation 0.23848000",
+      "passed": true
+    },
+    {
+      "name": "finite difference linear warp 2.7",
+      "passed": true,
+      "max_abs_error": 2.061437598399607e-08,
+      "samples": 124
+    },
+    {
+      "name": "finite difference linear warp 10.0",
+      "passed": true,
+      "max_abs_error": 1.529243398579183e-08,
+      "samples": 124
+    },
+    {
+      "name": "finite difference smoothstep warp 2.7",
+      "passed": true,
+      "max_abs_error": 2.061437598399607e-08,
+      "samples": 124
+    },
+    {
+      "name": "finite difference smoothstep warp 10.0",
+      "passed": true,
+      "max_abs_error": 1.529243398579183e-08,
+      "samples": 124
+    },
+    {
+      "name": "position continuity at blend end",
+      "passed": true,
+      "max_near_boundary_error": 3.1737850125779232e-09
+    },
+    {
+      "name": "phase0 held throughout blend",
+      "passed": true
+    },
+    {
+      "name": "no source phase wrap",
+      "passed": true
+    },
+    {
+      "name": "endpoint held and zero derivatives",
+      "passed": true
+    },
+    {
+      "name": "endpoint position continuity",
+      "passed": true
+    },
+    {
+      "name": "sample API shapes and finiteness",
+      "passed": true
+    },
+    {
+      "name": "sample output independent copies",
+      "passed": true
+    },
+    {
+      "name": "box kernel 1",
+      "passed": true
+    },
+    {
+      "name": "box kernel 3",
+      "passed": true
+    },
+    {
+      "name": "box kernel 5",
+      "passed": true
+    },
+    {
+      "name": "triangular kernel 3",
+      "passed": true
+    },
+    {
+      "name": "triangular kernel 5",
+      "passed": true
+    },
+    {
+      "name": "smoothing disabled and full clip available",
+      "passed": true
+    },
+    {
+      "name": "invalid configuration rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid sample time rejected",
+      "passed": true
+    }
+  ],
+  "max_position_error": 1.7763568394002505e-15,
+  "check_development_note": "Initial checker run exited 1 because .1+.24 was compared to .34 with exact float equality; changed only that assertion to absolute tolerance 1e-15 and reran.",
+  "max_finite_difference_error": 2.061437598399607e-08,
+  "metadata": {
+    "cfg": {
+      "scale": 10.0,
+      "vertical_gain": 0.25,
+      "time_warp": 10.0,
+      "stance_height_cm": 0.005,
+      "blend_s": 0.5,
+      "source_duration_s": 0.24,
+      "referencepath": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz",
+      "smoothing_samples": 5,
+      "smoothing_kernel": "box",
+      "smooth_xy": true,
+      "smooth_height": true,
+      "blend_curve": "smoothstep"
+    },
+    "duration_s": 2.9,
+    "source_sha256": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+    "source_order": [
+      "RF",
+      "RM",
+      "RH",
+      "LH",
+      "LM",
+      "LF"
+    ],
+    "target_order": [
+      "LF",
+      "LH",
+      "LM",
+      "RF",
+      "RH",
+      "RM"
+    ],
+    "source_index_for_target": [
+      5,
+      3,
+      4,
+      0,
+      2,
+      1
+    ],
+    "kinematics_path": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/KINEMATICS.json",
+    "kinematics_sha256": "75d964f14950ed50357dc40474b2ed52b49a420927e47dd0c8ca6d782e4736bd",
+    "source_provenance": {
+      "figshare_api": "https://api.figshare.com/v2/articles/25309105",
+      "official_code": "https://github.com/TuragaLab/flybody",
+      "paper": "https://www.nature.com/articles/s41586-025-09029-4",
+      "hdf5": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/walking_reference_small.hdf5",
+      "hdf5_sha256": "5b573757be3505eb609eb7a2bbdef75e3de7573ec285845fdfa94240aed2cd63",
+      "archive_md5": "de7d5367850430adbe03a3783967c712",
+      "source_metadata": "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/SOURCE.json",
+      "description": "Official full-body trajectories fitted to real measured keypoints; fitted joint states are not all directly observed joint measurements."
+    },
+    "source_selection": {
+      "trajectory_id": "054",
+      "start_index": 50,
+      "end_index_exclusive": 351,
+      "eligible": true,
+      "score": 0.7178478770731659,
+      "complete_peak_intervals_per_leg": [
+        6,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "duration_s": 0.6,
+      "sample_count": 301,
+      "net_forward_cm": 1.277296338654113,
+      "net_lateral_cm": 0.004335998279179136,
+      "lateral_to_forward_ratio": 0.0033946689957226194,
+      "yaw_range_deg": 7.657625736728858,
+      "yaw_net_deg": 1.3618030271678618,
+      "mean_signed_forward_speed_cm_s": 2.1288272310901886,
+      "horizontal_speed_cm_s": {
+        "min": 0.9097949862480164,
+        "median": 2.070589542388916,
+        "p95": 3.9522424578666686,
+        "p99": 4.694579324722287,
+        "max": 4.982871055603027
+      },
+      "backward_velocity_fraction": 0.0
+    },
+    "source_time_range_s": [
+      0.1,
+      0.7000000000000001
+    ],
+    "source_mean_xy_cm": [
+      [
+        0.09937306300449213,
+        0.07406145939448742
+      ],
+      [
+        -0.2196164202452498,
+        0.11566478912517478
+      ],
+      [
+        -0.0842735228187519,
+        0.1718394293440537
+      ],
+      [
+        0.10155411122793771,
+        -0.05622414980343608
+      ],
+      [
+        -0.21677224174686444,
+        -0.09823465745809466
+      ],
+      [
+        -0.0802806919275093,
+        -0.1597661971055788
+      ]
+    ],
+    "xy_center": "per-leg full-clip temporal mean before smoothing",
+    "smoothing": {
+      "weights": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "padding": "edge",
+      "symmetric": true,
+      "future_samples": true,
+      "stage": "before interpolation and height clipping"
+    },
+    "frames": {
+      "target_xy": "body/root-local native",
+      "target_z": "pad-bottom world height native",
+      "velocity": "native per elapsed second",
+      "source_time_s": "absolute source dataset clock"
+    },
+    "stance": "interpolated smoothed source height <= stance_height_cm; blend effective height = threshold + blend_weight*max(0,height0-threshold)",
+    "derivatives": "piecewise linear right-hand at knots; zero at clamped end; blend/source velocity may jump",
+    "geometry": {
+      "LF": {
+        "rest_body_xy": [
+          1.4,
+          0.9
+        ],
+        "nominal_source_stance_mean_xy": [
+          0.912129077556971,
+          0.7724667614376223
+        ]
+      },
+      "LH": {
+        "rest_body_xy": [
+          -1.2,
+          0.8
+        ],
+        "nominal_source_stance_mean_xy": [
+          -2.163252296007198,
+          1.1204474403158478
+        ]
+      },
+      "LM": {
+        "rest_body_xy": [
+          0.1,
+          1.1
+        ],
+        "nominal_source_stance_mean_xy": [
+          -0.8557070527292255,
+          1.6802570010934557
+        ]
+      },
+      "RF": {
+        "rest_body_xy": [
+          1.5,
+          -0.85
+        ],
+        "nominal_source_stance_mean_xy": [
+          1.0285052700388817,
+          -0.6192859428063515
+        ]
+      },
+      "RH": {
+        "rest_body_xy": [
+          -1.3,
+          -0.75
+        ],
+        "nominal_source_stance_mean_xy": [
+          -2.1175507308604815,
+          -0.9715122857596725
+        ]
+      },
+      "RM": {
+        "rest_body_xy": [
+          0.2,
+          -1.2
+        ],
+        "nominal_source_stance_mean_xy": [
+          -0.8178489648260422,
+          -1.5515032186754432
+        ]
+      }
+    },
+    "foot_excursions": {
+      "LF": {
+        "xy_peak_to_peak_native": [
+          0.9985221922397614,
+          0.2651580199599267
+        ],
+        "max_padbottom_height_native": 0.19498211070895197,
+        "padbottom_peak_to_peak_native": 0.19498211070895197
+      },
+      "LH": {
+        "xy_peak_to_peak_native": [
+          0.908213198184967,
+          0.5007631033658982
+        ],
+        "max_padbottom_height_native": 0.1062248472124338,
+        "padbottom_peak_to_peak_native": 0.1062248472124338
+      },
+      "LM": {
+        "xy_peak_to_peak_native": [
+          1.2095684558153152,
+          0.28021499514579795
+        ],
+        "max_padbottom_height_native": 0.09648590460419657,
+        "padbottom_peak_to_peak_native": 0.09648590460419657
+      },
+      "RF": {
+        "xy_peak_to_peak_native": [
+          1.1256293728947642,
+          0.2507387176156044
+        ],
+        "max_padbottom_height_native": 0.19690355211496352,
+        "padbottom_peak_to_peak_native": 0.19690355211496352
+      },
+      "RH": {
+        "xy_peak_to_peak_native": [
+          1.1276933848857884,
+          0.3452138602733613
+        ],
+        "max_padbottom_height_native": 0.1072247263044119,
+        "padbottom_peak_to_peak_native": 0.1072247263044119
+      },
+      "RM": {
+        "xy_peak_to_peak_native": [
+          1.2627946976572275,
+          0.40775805711746216
+        ],
+        "max_padbottom_height_native": 0.09829679802060129,
+        "padbottom_peak_to_peak_native": 0.09829679802060129
+      }
+    },
+    "limitations": [
+      "Offline privileged teacher only",
+      "Inferred plane is not measured contact/force",
+      "Targets are not achieved physical kinematics or demonstrated walking",
+      "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+    ]
+  },
+  "geometry_note": "Checks use explicitly synthetic asymmetric rest feet, not measured target-body geometry.",
+  "source_files_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/reference.py": "82275c00a8acb52eebc23622dfdc714bff7eaf37a4ebe3e271ca7bea48865648",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/check_reference.py": "4f4c2e759db706f123d52989f561e60ece89442f1fd16fd6df346b5774427f49"
+  },
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/env/bin/python",
+  "numpy": "2.5.3",
+  "limitations": [
+    "Offline privileged teacher only",
+    "Inferred plane is not measured contact/force",
+    "Targets are not achieved physical kinematics or demonstrated walking",
+    "Native units per cm is a nominal geometric mapping; absolute target SI NOT_ESTABLISHED"
+  ]
+}

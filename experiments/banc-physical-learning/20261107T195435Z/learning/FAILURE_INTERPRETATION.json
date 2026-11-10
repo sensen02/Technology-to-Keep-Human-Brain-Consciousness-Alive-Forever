@@ -1,0 +1,13 @@
+{
+  "method": "Read all53 saved RESULT and nonzero POLICY predicted_rate arrays only; no physical/neural execution or fit",
+  "nonzero_candidate_trials": 48,
+  "nonzero_candidates_passing_original_support_gate": 12,
+  "best_nonzero_reward": -1.0144429917827316,
+  "zero_baseline_reward": -0.11704020147647107,
+  "nonzero_rate_RMS_rad_s_range": [0.3593192754859252, 0.613590594424177],
+  "nonzero_mean_abs_joint_mean_rate_rad_s_range": [0.13616818651612114, 0.264583232489306],
+  "cycle_coverage_distribution_nonzero_trials": {"0": 15, "1": 17, "2": 12, "3": 2, "4": 2, "5": 0, "6": 0},
+  "interpretation": "The search did exercise nonzero MN-driven outputs. Some nonzero policies retained support, but every one had a worse fixedreward than zero-output PDtargethold. No nonzero candidate completed the registered stance-air-stance coverage proxy on allsixlegs; maximumfour. Coverage alone would not prove coordination even ifsix were reached. The observed nonzero mean joint rates can produce sustained target drift; this is a diagnostic possibility, not an independently established causal explanation. Parent separately computed median rateDCpowerfraction0.237922 fromsaveddata; this does not support calling all rates constant or dynamics absent. The fixed small search did not establish that no usefulpolicy exists.",
+  "selected_policy": "exactzero coefficients andzero actorweights; retained because no feasiblecandidate strictly improvedreward, not silentlyreplaced aftervalidation",
+  "limits": "No gaitclock/teacher/rootbody/actionshortcut introduced. No extra optimizerbudget, rewardchange or acceptancegate change. Support of selected/zerocontrol belongs to actuatorholding and does not prove neuralmotornecessity orwalking."
+}

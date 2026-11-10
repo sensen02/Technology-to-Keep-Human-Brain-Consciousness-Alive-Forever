@@ -1,0 +1,267 @@
+{
+  "status": "FIXED_UNCENTERED_UNLABELLED_ENGINEERING_BASIS",
+  "shape": [
+    323,
+    24
+  ],
+  "leg_order": [
+    "LF",
+    "LH",
+    "LM",
+    "RF",
+    "RH",
+    "RM"
+  ],
+  "training_rows": 1160,
+  "source_rates": "start-of-bin MNHz/100",
+  "normalization": "divide projected latent by max(trainingRMS,.05);gain<=20;no centering",
+  "labels_read": false,
+  "leg_statistics": {
+    "LF": {
+      "MN_count": 43,
+      "singular_values_top4": [
+        108.83391182438233,
+        26.629894065487477,
+        15.007864865485006,
+        10.371912109999485
+      ],
+      "training_latent_RMS": [
+        3.1954736796078853,
+        0.7818806119394429,
+        0.44064608503785563,
+        0.30452982530105527
+      ],
+      "denominator": [
+        3.1954736796078853,
+        0.7818806119394429,
+        0.44064608503785563,
+        0.30452982530105527
+      ],
+      "gain": [
+        0.31294264959262924,
+        1.278967638703197,
+        2.269394949722725,
+        3.2837506113281667
+      ],
+      "uncentered_energy_fraction_top4": 0.975577717542981,
+      "orthogonality_max_error": 1.1102230246251565e-15
+    },
+    "LH": {
+      "MN_count": 59,
+      "singular_values_top4": [
+        97.66869692234536,
+        30.13316200131559,
+        20.17877838617186,
+        16.689587352484942
+      ],
+      "training_latent_RMS": [
+        2.867651682322736,
+        0.8847401002542334,
+        0.5924693336733199,
+        0.4900231574368011
+      ],
+      "denominator": [
+        2.867651682322736,
+        0.8847401002542334,
+        0.5924693336733199,
+        0.4900231574368011
+      ],
+      "gain": [
+        0.3487173864818971,
+        1.130275433104757,
+        1.6878510720546211,
+        2.040719881955724
+      ],
+      "uncentered_energy_fraction_top4": 0.9191796978224385,
+      "orthogonality_max_error": 1.7763568394002505e-15
+    },
+    "LM": {
+      "MN_count": 60,
+      "singular_values_top4": [
+        45.52911101203335,
+        26.32422214078608,
+        12.377297124480709,
+        11.271850754070375
+      ],
+      "training_latent_RMS": [
+        1.3367807281397766,
+        0.7729057752033108,
+        0.36340995672181314,
+        0.3309529337071088
+      ],
+      "denominator": [
+        1.3367807281397766,
+        0.7729057752033108,
+        0.36340995672181314,
+        0.3309529337071088
+      ],
+      "gain": [
+        0.7480658412779256,
+        1.2938187707770106,
+        2.7517132690051485,
+        3.0215776871915976
+      ],
+      "uncentered_energy_fraction_top4": 0.8749469361737139,
+      "orthogonality_max_error": 1.9984014443252818e-15
+    },
+    "RF": {
+      "MN_count": 42,
+      "singular_values_top4": [
+        96.95990969133875,
+        17.669176900098964,
+        12.89962329211349,
+        9.326393033907687
+      ],
+      "training_latent_RMS": [
+        2.8468409726536867,
+        0.5187848968960118,
+        0.3787459810625925,
+        0.273832328232584
+      ],
+      "denominator": [
+        2.8468409726536867,
+        0.5187848968960118,
+        0.3787459810625925,
+        0.273832328232584
+      ],
+      "gain": [
+        0.3512665475893613,
+        1.927581172819774,
+        2.6402920426889955,
+        3.651869764444443
+      ],
+      "uncentered_energy_fraction_top4": 0.9731710354692268,
+      "orthogonality_max_error": 8.156277030266818e-16
+    },
+    "RH": {
+      "MN_count": 59,
+      "singular_values_top4": [
+        85.93620988329914,
+        21.557297523341518,
+        18.403528763335864,
+        13.612630781672273
+      ],
+      "training_latent_RMS": [
+        2.5231740015966246,
+        0.6329440491900182,
+        0.540346210012562,
+        0.39968060178931064
+      ],
+      "denominator": [
+        2.5231740015966246,
+        0.6329440491900182,
+        0.540346210012562,
+        0.39968060178931064
+      ],
+      "gain": [
+        0.3963262142710791,
+        1.5799184798082946,
+        1.8506653354277287,
+        2.501997834078383
+      ],
+      "uncentered_energy_fraction_top4": 0.9208992224887532,
+      "orthogonality_max_error": 8.881784197001252e-16
+    },
+    "RM": {
+      "MN_count": 60,
+      "singular_values_top4": [
+        67.25720348961465,
+        36.13913054047164,
+        15.3562768340854,
+        10.926796039131396
+      ],
+      "training_latent_RMS": [
+        1.9747394898558313,
+        1.0610814084523121,
+        0.4508758126720095,
+        0.32082177843455667
+      ],
+      "denominator": [
+        1.9747394898558313,
+        1.0610814084523121,
+        0.4508758126720095,
+        0.32082177843455667
+      ],
+      "gain": [
+        0.506395909504502,
+        0.9424347576295723,
+        2.217905622556542,
+        3.116995376309799
+      ],
+      "uncentered_energy_fraction_top4": 0.9221619753928747,
+      "orthogonality_max_error": 7.771561172376096e-16
+    }
+  },
+  "BASE_sha256": "43402ababbeace10d3cf342e5600ffd253d9a318d0e2a41d6a0485f0fe5196d1",
+  "coefficient_shape": [
+    6,
+    4,
+    7
+  ],
+  "theta_bounds": [
+    -0.25,
+    0.25
+  ],
+  "weight_projection": [
+    -1,
+    1
+  ],
+  "action": "30tanh(MNHz/100 @ W);zero bias/nohistory",
+  "joint_names": [
+    "joint_LFCoxa_yaw",
+    "joint_LFCoxa_pitch",
+    "joint_LFCoxa_roll",
+    "joint_LFTrochanter_yaw",
+    "joint_LFTrochanter_pitch",
+    "joint_LFTrochanter_roll",
+    "joint_LFTibia_pitch",
+    "joint_LHCoxa_yaw",
+    "joint_LHCoxa_pitch",
+    "joint_LHCoxa_roll",
+    "joint_LHTrochanter_yaw",
+    "joint_LHTrochanter_pitch",
+    "joint_LHTrochanter_roll",
+    "joint_LHTibia_pitch",
+    "joint_LMCoxa_yaw",
+    "joint_LMCoxa_pitch",
+    "joint_LMCoxa_roll",
+    "joint_LMTrochanter_yaw",
+    "joint_LMTrochanter_pitch",
+    "joint_LMTrochanter_roll",
+    "joint_LMTibia_pitch",
+    "joint_RFCoxa_roll",
+    "joint_RFCoxa_yaw",
+    "joint_RFCoxa_pitch",
+    "joint_RFTrochanter_yaw",
+    "joint_RFTrochanter_pitch",
+    "joint_RFTrochanter_roll",
+    "joint_RFTibia_pitch",
+    "joint_RHCoxa_yaw",
+    "joint_RHCoxa_pitch",
+    "joint_RHCoxa_roll",
+    "joint_RHTrochanter_yaw",
+    "joint_RHTrochanter_pitch",
+    "joint_RHTrochanter_roll",
+    "joint_RHTibia_pitch",
+    "joint_RMCoxa_yaw",
+    "joint_RMCoxa_pitch",
+    "joint_RMCoxa_roll",
+    "joint_RMTrochanter_yaw",
+    "joint_RMTrochanter_pitch",
+    "joint_RMTrochanter_roll",
+    "joint_RMTibia_pitch"
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/SOURCE_TRACE.npz": "8a73c8a221b0f752e7c53f9e129fcf9747c42dc3ead6209a7ce912f430e70847",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T185910Z/readout/TRAIN_TRACE.npz": "ebf1f3a40c258c9f42cd8e096347e0ab00c7eef79f016ca1aa9e21851abee20a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-teacher/20261107T180844Z/mapping/STUDENT_INTERFACE.json": "b31038f1651ceb719f055e6212a67dc4c4aad866a5bebf53028170a0a6ad7fbe",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/HANDOVER.npz": "4f66a3be43411cf8e657249217b35d5e2e0345caa849a368535bf705b34789ff",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/POLICY.npz": "a29966f16ab47d3a33bf4ae95cef84eefe907a63ef5868450aadce27153a0691",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/MODEL.mjb": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/PROTOCOL.json": "bc6f15bf16b0d7365f75d4ba6a8c65234c0208894d169d3afe900e98254c39cc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/PREREGISTRATION.json": "3970312b3b70d1e3a691371a7e4ffd73b8bbdaaac4322fbe80796ebd49496c6a"
+  }
+}

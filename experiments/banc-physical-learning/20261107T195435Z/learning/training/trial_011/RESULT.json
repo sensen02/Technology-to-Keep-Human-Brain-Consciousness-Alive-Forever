@@ -1,0 +1,543 @@
+{
+  "status": "COMPLETE_CHECKPOINT_EPISODE_NOT_WALKING",
+  "valid": true,
+  "reward": -5.456879874261628,
+  "reward_terms": {
+    "forward_displacement": 0.018069773861412692,
+    "weighted_slip_distance": 0.8848436901638723,
+    "lateral_displacement": -0.633668425489939,
+    "height_drop_excess": 0.5427361008611812,
+    "positive_nonfoot_impulse_overW": 0.14883818711051816,
+    "support_deficit_integral": 0.004077005470473073,
+    "rate_squared_time": 0.3431756789276797,
+    "completed_cycle_legs": 3
+  },
+  "cycles": {
+    "completed_by_leg": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      false
+    ],
+    "completed_legs": 3,
+    "qualified_runs": [
+      [
+        {
+          "state": "air",
+          "start_bin": 3,
+          "end_bin_exclusive": 17,
+          "duration_ms": 70
+        },
+        {
+          "state": "stance",
+          "start_bin": 17,
+          "end_bin_exclusive": 147,
+          "duration_ms": 650
+        },
+        {
+          "state": "air",
+          "start_bin": 148,
+          "end_bin_exclusive": 159,
+          "duration_ms": 55
+        },
+        {
+          "state": "stance",
+          "start_bin": 160,
+          "end_bin_exclusive": 200,
+          "duration_ms": 200
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 1,
+          "end_bin_exclusive": 14,
+          "duration_ms": 65
+        },
+        {
+          "state": "air",
+          "start_bin": 17,
+          "end_bin_exclusive": 37,
+          "duration_ms": 100
+        },
+        {
+          "state": "stance",
+          "start_bin": 37,
+          "end_bin_exclusive": 62,
+          "duration_ms": 125
+        },
+        {
+          "state": "air",
+          "start_bin": 65,
+          "end_bin_exclusive": 71,
+          "duration_ms": 30
+        },
+        {
+          "state": "stance",
+          "start_bin": 73,
+          "end_bin_exclusive": 84,
+          "duration_ms": 55
+        },
+        {
+          "state": "stance",
+          "start_bin": 85,
+          "end_bin_exclusive": 93,
+          "duration_ms": 40
+        },
+        {
+          "state": "air",
+          "start_bin": 101,
+          "end_bin_exclusive": 107,
+          "duration_ms": 30
+        },
+        {
+          "state": "stance",
+          "start_bin": 107,
+          "end_bin_exclusive": 164,
+          "duration_ms": 285
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 39,
+          "duration_ms": 195
+        },
+        {
+          "state": "stance",
+          "start_bin": 61,
+          "end_bin_exclusive": 76,
+          "duration_ms": 75
+        },
+        {
+          "state": "stance",
+          "start_bin": 79,
+          "end_bin_exclusive": 88,
+          "duration_ms": 45
+        },
+        {
+          "state": "stance",
+          "start_bin": 90,
+          "end_bin_exclusive": 110,
+          "duration_ms": 100
+        },
+        {
+          "state": "air",
+          "start_bin": 110,
+          "end_bin_exclusive": 200,
+          "duration_ms": 450
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 32,
+          "duration_ms": 160
+        },
+        {
+          "state": "air",
+          "start_bin": 33,
+          "end_bin_exclusive": 64,
+          "duration_ms": 155
+        },
+        {
+          "state": "stance",
+          "start_bin": 64,
+          "end_bin_exclusive": 74,
+          "duration_ms": 50
+        },
+        {
+          "state": "stance",
+          "start_bin": 79,
+          "end_bin_exclusive": 110,
+          "duration_ms": 155
+        },
+        {
+          "state": "stance",
+          "start_bin": 112,
+          "end_bin_exclusive": 119,
+          "duration_ms": 35
+        },
+        {
+          "state": "stance",
+          "start_bin": 120,
+          "end_bin_exclusive": 124,
+          "duration_ms": 20
+        },
+        {
+          "state": "stance",
+          "start_bin": 135,
+          "end_bin_exclusive": 163,
+          "duration_ms": 140
+        },
+        {
+          "state": "air",
+          "start_bin": 164,
+          "end_bin_exclusive": 200,
+          "duration_ms": 180
+        }
+      ],
+      [
+        {
+          "state": "stance",
+          "start_bin": 0,
+          "end_bin_exclusive": 200,
+          "duration_ms": 1000
+        }
+      ],
+      [
+        {
+          "state": "air",
+          "start_bin": 0,
+          "end_bin_exclusive": 29,
+          "duration_ms": 145
+        },
+        {
+          "state": "stance",
+          "start_bin": 29,
+          "end_bin_exclusive": 200,
+          "duration_ms": 855
+        }
+      ]
+    ]
+  },
+  "physical_gate": {
+    "passed": false,
+    "checks": {
+      "D1_no_nonfoot_ground_force": false,
+      "D2_no_free_fall": true,
+      "D3_foot_support_not_below_assist": false,
+      "D4_foot_support_never_collapses": true,
+      "D4b_nonfoot_is_not_carrying_the_body": true,
+      "D5_com_height_not_below_assist": false,
+      "D6_force_balance_consistent": true,
+      "D7_tripod_redundancy": true,
+      "D8_still_above_absolute_floor": false
+    },
+    "tolerance": {
+      "support_mean_drop": 0.1,
+      "nonfoot_share_max": 0.2,
+      "com_z_drop": 0.1,
+      "balance_residual": 0.15
+    },
+    "assist": {
+      "foot_support_mean": 1.001101361597766,
+      "com_z_mean": 1.183746232118977
+    },
+    "release": {
+      "foot_support_mean": 0.8510334731279612,
+      "foot_support_p10": 0.5862796334968264,
+      "foot_support_min": 0.4383184928470461,
+      "nonfoot_share_mean": 0.14865676599465277,
+      "ground_support_mean": 0.9998716602384793,
+      "com_z_min": 0.663237656770835,
+      "com_z_mean": 0.910229290903029,
+      "free_fall_fraction": 0.0,
+      "force_balance_residual_p95": 0.010116249007745878,
+      "force_balance_residual_p50": 0.0006135682325432083,
+      "bearing_legs_median": 5.0,
+      "bearing_legs_min": 3,
+      "per_leg_mean_load": [
+        0.2246243623318036,
+        0.08534191355191284,
+        0.07937725319276355,
+        0.07841954087983112,
+        0.18671192898463573,
+        0.19655847418701436
+      ],
+      "per_leg_duty": [
+        0.8765375,
+        0.8212,
+        0.5501875,
+        0.647425,
+        1.0,
+        0.8502625
+      ],
+      "samples": 80000
+    },
+    "criteria_note": "Computed from the 12.5 us native release records; support means FOOT support only and non-foot contact is never counted as support."
+  },
+  "duration_s": 1.0,
+  "slip_sampling_s": 0.005,
+  "slip_status": "5ms_training_approximation",
+  "feasible": false,
+  "episode_id": "trial_011",
+  "condition": "trial_011",
+  "theta": [
+    [
+      [
+        -0.005527889187675065,
+        -0.003700605075419902,
+        0.006639855916137811,
+        0.013060055908199007,
+        -0.0010804533638946255,
+        -0.009732471449899057,
+        -0.0031710253303922427
+      ],
+      [
+        -0.004368892523587356,
+        -0.00517720945341427,
+        -0.005741573548951501,
+        0.004772437653608184,
+        0.008984963602723635,
+        0.004291203796182347,
+        0.005170348215589023
+      ],
+      [
+        0.0004174542930392445,
+        0.00724525226201304,
+        -0.012968284981211784,
+        -0.010105781107164247,
+        0.003798492739790989,
+        -0.0032273572298540188,
+        -0.0018306616325362178
+      ],
+      [
+        -0.008975263396534048,
+        0.007813806479767786,
+        -0.01552851955331844,
+        0.0026054129513840367,
+        0.009976914990341599,
+        0.02621658284550993,
+        0.008228459598617385
+      ]
+    ],
+    [
+      [
+        0.002059325992482929,
+        0.010638032140328647,
+        -2.093502466222975e-05,
+        0.01117970728557389,
+        -0.003603213849312445,
+        0.003859409223079265,
+        0.011673931365978473
+      ],
+      [
+        0.014106471178863529,
+        0.005015425913644682,
+        -0.0015924366046145635,
+        -0.0014743034833096212,
+        0.00536902158837102,
+        -0.0025244291962035386,
+        -0.005534239877195914
+      ],
+      [
+        -0.008719198675287363,
+        -0.010926779582133672,
+        0.006841363090939887,
+        -0.011098654321204776,
+        -0.00890057337621952,
+        0.001589603043924848,
+        -0.0009257656859138231
+      ],
+      [
+        -0.006118915601060455,
+        -0.007716037783371042,
+        0.012994849334620076,
+        0.006476235418764808,
+        0.007750282161628131,
+        0.013888191931192888,
+        0.011853787237790465
+      ]
+    ],
+    [
+      [
+        -0.00503068138107421,
+        0.01601502758671164,
+        -0.0019664242078153904,
+        0.011145908457633436,
+        0.022669892393173234,
+        0.0012590894223678559,
+        -0.00142996638133968
+      ],
+      [
+        -0.013913754437180695,
+        0.010291955143017712,
+        -0.0066101084016433045,
+        -0.019198247319782678,
+        0.0165641078892727,
+        0.012153091181055042,
+        -0.00996132364571388
+      ],
+      [
+        -0.010319256251084114,
+        0.00915860205258482,
+        0.01762946962434951,
+        -0.007140165021642657,
+        0.0021237085941680106,
+        0.006901317503134325,
+        -0.010410802959976602
+      ],
+      [
+        -0.0076556055888606376,
+        -0.007255219214110648,
+        -0.007571550181991726,
+        0.007868504887806937,
+        0.009302771929073387,
+        -0.004361860157941384,
+        0.020610626890828754
+      ]
+    ],
+    [
+      [
+        0.013080718072783873,
+        -0.034565739540283275,
+        -0.017614658399295074,
+        -0.012248486812963283,
+        -0.001415161842679994,
+        -0.005783885841603328,
+        -0.006042593942397451
+      ],
+      [
+        0.0025127244359735407,
+        0.0009503109479054726,
+        -0.008009578249220614,
+        -0.012415288037260799,
+        0.00937869990838646,
+        -0.011560417196400954,
+        -0.01224114550351378
+      ],
+      [
+        -0.017186254673026,
+        -0.018161041505189733,
+        0.0065839550057433666,
+        0.0021132701749351436,
+        0.006648389489222156,
+        -0.003094825028115193,
+        -0.0021253433615117095
+      ],
+      [
+        0.009012380921734415,
+        0.007990023620960471,
+        0.01866619508169908,
+        -0.01161060704941315,
+        -0.006471131038789836,
+        0.00682851555220746,
+        -0.00010195291126927731
+      ]
+    ],
+    [
+      [
+        -0.0017075827027833266,
+        -0.005644767111351704,
+        0.007833920086223965,
+        -0.012077877745739412,
+        0.0019857563579682986,
+        -0.013053961975119719,
+        0.019595079594256295
+      ],
+      [
+        -0.012048722356211097,
+        -0.012191279362132067,
+        0.008128799834935935,
+        -0.009178150348560345,
+        0.00989600424769019,
+        -0.0013685931915969614,
+        0.003169741882116824
+      ],
+      [
+        -0.0016255622825001267,
+        -0.018982727001569246,
+        -0.008471396822187956,
+        -0.015998967422466724,
+        -0.011175697136503404,
+        0.013506825565663018,
+        0.008347576473101822
+      ],
+      [
+        0.009365326890084664,
+        -0.006533736596318863,
+        -0.0025967123355517745,
+        -0.02531516595767001,
+        -0.003933494063702478,
+        -0.005353104214639691,
+        0.01311844616851582
+      ]
+    ],
+    [
+      [
+        -0.0030312753710245366,
+        0.0006691930654674097,
+        0.0031295673118543043,
+        -0.010757980284498168,
+        0.005854419117255857,
+        -0.0043625405136141025,
+        -0.0013229239133620435
+      ],
+      [
+        0.010881028145057295,
+        0.008072897279256969,
+        -0.006442012889283927,
+        0.007511660946276492,
+        0.0018062622727738754,
+        -0.00029667958397559905,
+        -0.002761492801597629
+      ],
+      [
+        -0.010981001766737084,
+        -0.006109097388751748,
+        0.01566226162925196,
+        -0.011596834862266014,
+        -0.004073716096747818,
+        -0.004897232543009598,
+        -0.009926274250849451
+      ],
+      [
+        -0.006355364974210753,
+        0.005331256410177236,
+        -0.004934950629202061,
+        0.006245803092032934,
+        0.0015244616350881032,
+        -0.012975794809775648,
+        -0.00504774083865618
+      ]
+    ]
+  ],
+  "evaluation_seed": 20261118,
+  "native_steps": 80000,
+  "live_forward_calls": 80001,
+  "neural_steps": 2000,
+  "neural_end_steps": 4000,
+  "neural_end_time_ms": 2000.0,
+  "sim_s": 1.9999999999970062,
+  "release_s": 1.0,
+  "finite": true,
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "failure": null,
+  "software_exception": false,
+  "contact_rows_saved": 80000,
+  "neural_voltage_range_mV": [
+    -76.60366455308493,
+    -50.000040990746726
+  ],
+  "MN_spikes_since_checkpoint": 5403,
+  "torque_saturated_entries": 491837,
+  "torque_total_entries": 3360000,
+  "wall_s": 15.68215394904837,
+  "folder": "/home/sensen/Desktop/engine修复验收/banc-physical-learning/20261107T195435Z/learning/training/trial_011",
+  "files": {
+    "NEURAL_INITIAL.npz": "e5e882ec4b5d213e62cc4cd068efb39d3a1733dcbc4a094a044702bd48f13463",
+    "SCORE_INPUTS.npz": "ecc7baacb988104265f0c9d1020a03136dff196fcd1cc2fc5d55d67ed6c4e621",
+    "ACTOR.npz": "b5010c8b5561e2b32eb025412d173ec6a4d50da7798dead8c54a88ae9af8e6ff",
+    "INITIAL.npz": "137a54403ef11af19c19da63833e69d16ef7b1a56e6d40391a3b9ff5c8fd1b92",
+    "COMMANDS.npz": "64e244482b693bb95ecd2c1d0b0bbe48bec9331a146b0231b17d1c3aed86f018",
+    "NEURAL_FINAL.npz": "9d93f23e45060e8f9ee9b4524a9a963084baeb00661f4f3c0c47138fdc3ea803",
+    "SLIP.npz": "f391cf60d4c2e2a46de50fc00d76f10ad78a3f42415e14f2c20f0ba1580a3888",
+    "NATIVE.npz": "7b433bb6cb54e448a4bd1afdb694ab4038cd97f8b26e7e37db4ff0e3373dafd5",
+    "BODY.npz": "755a2731328f0dbd0cc02f431ee50bf383b3eace220de9c16378ce0d0267417f",
+    "PROTOCOL.json": "4c4d4d672b1e8b6eb0e8127fa13aded925b87c88593f859b5182a36de0f1fafd",
+    "POLICY.npz": "17edfbdfee5b85ce3a2600da17b3f3077e51f121dabe99e9ec264f56125f35cb"
+  }
+}

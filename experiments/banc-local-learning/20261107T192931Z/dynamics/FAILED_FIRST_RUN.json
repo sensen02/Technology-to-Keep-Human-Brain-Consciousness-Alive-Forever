@@ -1,0 +1,13 @@
+{
+  "job":"bash-206",
+  "exit_code":1,
+  "phase":"Python parse before imports/execution",
+  "actual_neural_steps":0,
+  "physical_steps":0,
+  "error":"SyntaxError: assignment expression cannot be used in a comprehension iterable expression",
+  "file":"run_probes.py",
+  "line":35,
+  "failed_fragment":"old_engine:=Path('/run/media/sensen/Data2/cell_wound_prototype/engine/neural_cond.py')",
+  "repair":"Remove unused walrus assignment, leaving the identical Path object in source hash input list. No model/preregistration/parameters altered.",
+  "initial_smoke_steps_separate":10
+}

@@ -1,0 +1,1142 @@
+{
+  "prereg": {
+    "schema": "banc-repair-pipeline/1",
+    "created_runtime_utc": "20261109T055352Z",
+    "motivation": "The audit at experiments/banc-control-audit/20261109T053534Z found that (a) the actuator's own 2 rad/s rate limit masked most policy output in the legacy interface, (b) training, evaluation and the renderer each ran a different base-network/observation schedule, (c) the 294 history features were the frozen base network's own predictions rather than the agent's commands, (d) the six foot loads reached the sensory encoder in a different leg order than the encoder declares, (e) PPO used no bootstrap at time-limit truncation and a cumulative rather than windowed slip cost, and (f) the pad-clearance lookup still used a single-pad exact name on a three-sphere body.",
+    "what_changes": [
+      "one control path: repair_core.Core is used by the probe, the trainer and (later) the renderer; nothing else implements a schedule",
+      "the policy owns the full actuator authority: rate = action * 2.0 rad/s, the actuator's own limit, so no saturated tracking term can mask it; the frozen base network is demoted to warm-start data only and never acts at evaluation",
+      "the 294 history features are the last 7 own commanded targets over a 40-tick ring buffer",
+      "foot loads are handed to the sensory encoder in its declared order LF LM LH RF RM RH",
+      "pad geometry is found by prefix over all three triad spheres per leg",
+      "PPO: bootstrap at time-limit truncation, discount and GAE declared as a time horizon, per-step slip cost with a fixed window, signed forward velocity"
+    ],
+    "what_does_not_change": [
+      "the four frozen walking gates (support min >= 0.90, non-foot <= 4.889 W, COM >= 1.20, per-leg slip ratio <= 0.50) are not touched and are not the target of this round",
+      "the derived triad body, doubled actuator range, mu = 1.5 and the releasable adhesion law stay as declared derived models with their existing hashes",
+      "no connectome topology, neuron identity or synapse is modified in this round",
+      "no injury experiment"
+    ],
+    "round_1_target": "single-leg unload-lift-place on the repaired pipeline, measured on all six legs. This is the capability the audit identified as missing; it is a prerequisite for stepping and is not walking.",
+    "task_definition": {
+      "episode_ticks": 300,
+      "episode_ms": 300,
+      "prompt": "one-hot over 6 legs, supplied as a declared task instruction input (6 dims), re-drawn per episode; no clock, no phase, no external gait generator",
+      "start_state": "cold start from the solved triad stand pose (COM 1.3008 static), identical for every episode",
+      "success_criteria_all_required": {
+        "unload": "min load on the prompted leg <= 0.10 * body weight",
+        "lift": "max pad bottom height on the prompted leg >= 0.015 native",
+        "advance": "max forward (thorax +x) displacement of the prompted foot during the swing >= 0.03 native",
+        "place": "at episode end the prompted leg carries >= 0.10 * body weight with pad bottom height <= 0.004",
+        "safe": "support min >= 0.90, non-foot peak <= 4.889 W, COM min >= 1.00 (stage threshold, declared weaker than the 1.20 walking gate)"
+      },
+      "reported_not_gated": "other-leg stance slip, signed forward velocity, per-leg lift and advance figures"
+    },
+    "reward_declared_weights": {
+      "unload": 0.8,
+      "lift": 1.2,
+      "advance_rate": 1.0,
+      "place_event": 2.0,
+      "nonfoot": 20.0,
+      "support_shortfall": 30.0,
+      "com_shortfall": 60.0,
+      "other_leg_stance_excess": 2.0,
+      "action_magnitude": 0.02,
+      "omega": 0.05,
+      "gravity_tilt": 0.01
+    },
+    "optimizer": {
+      "algorithm": "PPO, numpy, hand-written gradients plus Adam",
+      "updates": 48,
+      "rollout_ticks": 1024,
+      "epochs": 4,
+      "minibatch": 64,
+      "lr": 0.0003,
+      "clip": 0.2,
+      "value_coef": 0.5,
+      "grad_norm": 0.5,
+      "target_kl": 0.03,
+      "logstd_bounds": [
+        -5.0,
+        -1.5
+      ],
+      "initial_logstd": -3.0,
+      "discount_halflife_s": 1.0,
+      "gae_lambda": 0.99,
+      "warm_start": "supervised regression of the actor mean onto the frozen base network's rate command (clip(base_rate/2, -1, 1)) over teacher rollouts; the base network is our own frozen artifact, used as initialisation only"
+    },
+    "preregistered_outcomes": {
+      "if_all_six_legs_pass": "the repaired interface can produce a single supervised-instructed step; next round may train autonomous leg selection and continuous slow walking, still without any clock or external gait generator",
+      "if_unload_and_lift_pass_but_advance_or_place_fail": "the body can release and raise a foot but cannot transport or replant it; next diagnosis is the swing trajectory and the actuator's usable workspace, not the reward scale",
+      "if_lift_never_appears": "check whether the requested joint-rate authority still exceeds what the leg needs, then whether the adhesion releases; do not raise the actuator limit before that check",
+      "if_safety_fails_only": "the single-leg action is achievable but destabilising; next step is a balance/support constraint, not more reward hacking",
+      "no_result_may_be_reported_as_walking": true
+    },
+    "labelling": "derived body, derived actuator range, derived adhesion, replacement ANN with a task instruction input. Never frozen-body acceptance and never a connectome capability."
+  },
+  "prereg_amendment": {
+    "schema": "banc-repair-pipeline/1-amendment-1",
+    "created_runtime_utc": "20261109T055352Z",
+    "amends": "PREREG.json",
+    "when": "before the main 48-update run, after a measured reward-scale probe",
+    "evidence": {
+      "script": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/reward_scale.py",
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/REWARD_SCALE.json",
+      "measured_on": "warm-start policy, 6 prompts x 300 ticks, zero PPO updates",
+      "mean_term_values": {
+        "unload": 0.229,
+        "lift": 0.0069,
+        "nonfoot": -0.00016,
+        "support": 0.0,
+        "com": 0.0,
+        "other_stance": -6.53,
+        "act": -0.0101,
+        "omega": -0.447,
+        "grav": -2.5e-05
+      },
+      "mean_total_reward": -6.756,
+      "interpretation": "the summed stance-slip penalty was 6.53 per tick against 0.236 of combined task reward, i.e. about 28 times larger. Raw summed stance excess averaged 3.27 native/s across the other five legs, which is the same slipping that the earlier line of work found the policy cannot reduce on planted feet. Running with the original weight would have re-created the stand-still degeneracy instead of testing whether a single leg can be lifted."
+    },
+    "weight_changes": {
+      "other_leg_stance_excess": {
+        "old": 2.0,
+        "new": 0.05,
+        "reason": "demoted from a driver to a reported quantity; slip remains measured and reported but must not dominate a task that is not about slip yet"
+      },
+      "omega": {
+        "old": 0.05,
+        "new": 0.01,
+        "reason": "body angular-rate penalty was 0.447 per tick, twice the task terms"
+      }
+    },
+    "unchanged": {
+      "task_terms": "unload 0.8, lift 1.2, advance_rate 1.0, place_event 2.0",
+      "safety_terms": "nonfoot 20, support 30, com 60",
+      "success_criteria": "the five pre-registered criteria are untouched",
+      "optimizer": "48 updates, rollout 1024, epochs 4, lr 3e-4, gamma half-life 1.0 s, GAE 0.99",
+      "preregistered_outcomes": "unchanged, including that no result may be reported as walking"
+    },
+    "discipline": "the original PREREG.json is left byte-identical; this amendment records what changed, why, and the measurement that justified it before the run started"
+  },
+  "prereg_amendment_2": {
+    "schema": "banc-repair-pipeline/1-amendment-2",
+    "created_runtime_utc": "20261109T055352Z",
+    "amends": "PREREG.json (acceptance criteria unchanged)",
+    "when": "after the imitation-only run, before the demo-initialised PPO run",
+    "evidence": {
+      "imitation_only": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/TRAIN_LOG_singleleg_demo.json",
+      "reward_scale": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/REWARD_SCALE.json",
+      "observed": "with a screened lift direction as the teacher and ZERO PPO updates, five of six legs already reach unload + lift + advance (LF lift 0.0877, LM 1.4083, RF 0.1963, LH 0.7414, RH 0.0739); every leg fails only the 'place' criterion because the foot is still up at the end of the episode",
+      "diagnosis": "the declared level-based task reward pays unload+lift continuously, about 2 per tick, while placing is a single event bonus of 2. Holding the foot up for the remaining ticks therefore out-returns placing it, so the reward itself forbids the behaviour the acceptance test requires. This is a defect in my reward design, not a capability finding."
+    },
+    "reward_changes": {
+      "task_terms": {
+        "old": "level: 0.8*unload + 1.2*lift + 1.0*advance_rate, paid every tick",
+        "new": "potential: phi = 0.8*unload + 1.2*lift + 1.0*clip(best_advance/0.03); reward = gamma*phi' - phi",
+        "reason": "potential-based shaping telescopes, so a held state pays nothing and only progress pays"
+      },
+      "place_hold": {
+        "old": 0.0,
+        "new": 0.6,
+        "reason": "dense credit for being loaded again at pad height <= 0.004 after a completed swing, so the terminal placement is not a single sparse event"
+      }
+    },
+    "unchanged": {
+      "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+      "safety_penalties": "non-foot 20, support 30, COM 60, other-leg stance 0.05, action 0.02, omega 0.01, gravity 0.01",
+      "place_event_bonus": 2.0,
+      "optimizer": "unchanged cumulative-KL budget, 24 updates, rollout 1024",
+      "preregistered_outcomes": "unchanged"
+    },
+    "discipline": "PREREG.json and PREREG_AMENDMENT_1.json are left byte-identical"
+  },
+  "prereg_amendment_3": {
+    "schema": "banc-repair-pipeline/1-amendment-3",
+    "created_runtime_utc": "20261109T055352Z",
+    "amends": "PREREG.json (acceptance criteria unchanged)",
+    "supersedes_reward_form": "PREREG_AMENDMENT_2.json (potential-based shaping is kept, its potential is fixed)",
+    "when": "after the first potential-based run reached update 13 without placing, before the next run",
+    "evidence": {
+      "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-repair-pipeline/20261109T055352Z/train_singleleg_demo_levels.log",
+      "evaluation_at_update_8": "LF lift 0.0830 advance 0.3067 but final load 0.000; LM lift 1.4237 advance 0.5825 final load 0.000; RF lift 0.2054 advance 0.0849 final load 0.000",
+      "diagnosis": "the potential was built from instantaneous levels, so the state 'foot held in the air' has phi about 3.0 while the state 'step completed and foot back down' has phi about 1.0. Telescoped shaping therefore still prefers ending the episode with the foot up, which is exactly what every evaluation shows."
+    },
+    "reward_changes": {
+      "potential": {
+        "old": "0.8*unload_level + 1.2*lift_level + 1.0*clip(best_advance/0.03)",
+        "new": "0.8*did_unload + 1.2*did_lift + 1.0*clip(best_advance/0.03) + 2.0*placed",
+        "reason": "achievement flags stay set once reached, so completing and placing the foot strictly dominates holding it up; best_advance was already monotone"
+      }
+    },
+    "unchanged": {
+      "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+      "safety_penalties": "unchanged",
+      "place_hold": 0.6,
+      "place_event_bonus": 2.0,
+      "optimizer_and_budget": "unchanged",
+      "warm_start": "unchanged: screened lift direction of the prompted leg while it carries load"
+    },
+    "discipline": "amendments 1 and 2 are left byte-identical; this file records the third change, its measurement and its reason. Reward design has now been changed three times inside this round, each time from a measured degeneracy, which the final report states explicitly"
+  },
+  "prereg_amendment_4": {
+    "schema": "banc-repair-pipeline/1-amendment-4",
+    "created_runtime_utc": "20261109T055352Z",
+    "amends": "PREREG.json (acceptance criteria unchanged)",
+    "when": "after the 64-update run, before the next run; found by comparing the training gates with the evaluator",
+    "evidence": {
+      "training_placement_rate": "placed_fraction reached a maximum of 0.814 and averaged 0.247 over the last eight updates of the 64-update run",
+      "evaluation_end_load": "the same checkpoint ends the deterministic episode with 0.000 to 0.041 body weight on the prompted leg",
+      "codes": "train_single_leg.py before this amendment used HIGH = 0.30 * body weight to close a swing and to set the 'placed' flag, while evaluate() calls a leg placed at THRESH['place_load'] = 0.10 * body weight",
+      "diagnosis": "the training signal for landing required three times the load that the acceptance test requires, so the dense 'placed' credit was gated behind a state almost never reached (a leg at rest carries about 0.17 body weight). This is a mismatch between my reward code and my own declared criteria, not a capability limit."
+    },
+    "changes": {
+      "swing_start": {
+        "old": "load <= 0.10 * body weight",
+        "new": "load <= 0.05 * body weight",
+        "reason": "hysteresis: the swing must start below the acceptance unload bar so that closing at 0.10 cannot chatter at the boundary"
+      },
+      "swing_end": {
+        "old": "load >= 0.30 * body weight",
+        "new": "load >= 0.10 * body weight AND pad bottom height <= 0.004",
+        "reason": "this is exactly the acceptance definition of a placement"
+      },
+      "placed_flag": {
+        "old": "max lift >= 0.008 and load >= 0.30 * body weight",
+        "new": "max lift >= 0.008 and advanced >= 0.03 and closed at load >= 0.10 with pad <= 0.004",
+        "reason": "the advance requirement moves from a multiplier on the bonus into a gate, so the bonus is no longer paid for a swing that barely moved"
+      },
+      "evaluator": {
+        "old": "closed a swing at 0.30 * body weight",
+        "new": "closed at 0.10 * body weight with pad <= 0.004",
+        "reason": "training and evaluation must share one definition of a swing, otherwise the numbers are not comparable"
+      }
+    },
+    "unchanged": {
+      "acceptance_criteria": "unload 0.10 W, lift 0.015, advance 0.03, place 0.10 W and padz 0.004, safety support 0.90 / non-foot 4.889 W / COM 1.00",
+      "reward_weights": "0.8 / 1.2 / 1.0 / place 2.0 / place_hold 0.6 and all safety penalties",
+      "potential_form": "achievement flags (PREREG_AMENDMENT_3.json)",
+      "warm_start_and_optimizer": "unchanged, 24 updates, 300-tick window"
+    },
+    "discipline": "amendments 1, 2 and 3 and the original PREREG are left byte-identical; this is the fourth documented reward change in the round and the report lists all four with their measurements"
+  },
+  "prereg_amendment_5": {
+    "schema": "banc-repair-pipeline/1-amendment-5",
+    "created_runtime_utc": "20261109T055352Z",
+    "amends": "the warm-start teacher only; PREREG.json and all acceptance criteria unchanged",
+    "when": "after the acceptance-aligned gate run, before the next run",
+    "evidence": {
+      "four_arms_compared": {
+        "300ms_24u": "LF lift 0.0214-0.0448, end load 0.036-0.041 (never lifts and lands together)",
+        "300ms_64u": "LF lift 0.0035, end load 0.041; RM end load 0.123 but lift 0.0019",
+        "500ms_24u": "LF end load 0.054 but COM fell to 0.858",
+        "300ms_24u_aligned_gates": "LF lift 0.1475, end load 0.000; RM end load 0.103 but lift 0.000"
+      },
+      "pattern": "in every arm each leg does one half of the step and never both: the deterministic policy emits what is effectively a constant action for the whole 300 ms episode, so it either holds the foot up or presses it down",
+      "diagnosis": "the previous teacher was itself constant (the screened lift direction for the whole swing), so supervised initialisation could only ever teach a constant action. A sequence cannot come out of a teacher that has no second phase."
+    },
+    "teacher_changes": {
+      "form": {
+        "old": "command the screened lift direction while the leg carries load, else zero",
+        "new": "two phases selected by measured state: lift while the leg carries load, keep lifting while the leg has travelled less than half the commanded travel, then command the mirrored (press) direction"
+      },
+      "switch_signal": {
+        "old": "foot load only",
+        "new": "foot load, then the fraction of commanded joint travel already achieved",
+        "reason": "the 183-feature sensory vector contains joint angles, tracking error, velocities, targets, foot loads, gravity and body velocities but NOT the pad height, so a pad-height switch would be unobservable to the network being taught. The joint excursion is observable."
+      },
+      "declared_limits": "this teacher is a rule-based demonstration generator. The deployed artefact remains the network, which is fine-tuned by PPO with the teacher absent. Nothing in this amendment may be reported as connectome capability, and any result must be labelled 'network initialised from a declared two-phase demonstration'."
+    },
+    "unchanged": {
+      "acceptance_criteria": "identical",
+      "reward": "achievement flags, aligned swing gates (PREREG_AMENDMENT_4.json), unchanged weights",
+      "optimizer_and_window": "unchanged, 24 updates, 300 ticks",
+      "preregistered_outcomes": "identical"
+    },
+    "discipline": "amendments 1-4 and the original PREREG are left byte-identical. This is the fifth documented change of the round: four reward or gate changes and one teacher change, each with its measurement. The report states all five explicitly."
+  },
+  "config": {
+    "updates": 24,
+    "rollout": 1024,
+    "epochs": 4,
+    "minibatch": 64,
+    "lr": 1e-05,
+    "lr_min": 1e-07,
+    "lr_max": 0.0003,
+    "lr_grow": 1.02,
+    "clip": 0.2,
+    "gamma": 0.9993070929904525,
+    "gae": 0.99,
+    "value_coef": 0.5,
+    "grad_norm": 0.5,
+    "target_kl": 0.03,
+    "kl_backtracks": 6,
+    "initial_logstd": -3.0,
+    "logstd_bounds": [
+      -5.0,
+      -1.5
+    ],
+    "eval_every": 8
+  },
+  "gamma": 0.9993070929904525,
+  "gae": 0.99,
+  "gae_horizon_s": 0.09307968345364111,
+  "reward_weights": {
+    "unload": 0.8,
+    "lift": 1.2,
+    "advance_rate": 1.0,
+    "place": 2.0,
+    "nonfoot": 20.0,
+    "support": 30.0,
+    "com": 60.0,
+    "other_stance": 0.05,
+    "act": 0.02,
+    "omega": 0.01,
+    "grav": 0.01,
+    "place_hold": 0.6
+  },
+  "thresholds": {
+    "unload": 0.1,
+    "lift": 0.015,
+    "advance": 0.03,
+    "place_load": 0.1,
+    "place_padz": 0.004,
+    "support": 0.9,
+    "nonfoot": 4.889270951175601,
+    "com": 1.0
+  },
+  "action_interface": "rate = tanh(mean+std*noise) * 2.0 rad/s, full actuator authority",
+  "observation": {
+    "dim": 495,
+    "proprioception": 183,
+    "own_command_history": 294,
+    "prompt": 6
+  },
+  "warm_start": {
+    "samples": 1800,
+    "steps": 600,
+    "curve": [
+      {
+        "step": 0,
+        "mse": 0.08773864033558103
+      },
+      {
+        "step": 100,
+        "mse": 0.032111737870856874
+      },
+      {
+        "step": 200,
+        "mse": 0.003042921936021132
+      },
+      {
+        "step": 300,
+        "mse": 0.003501157540372674
+      },
+      {
+        "step": 400,
+        "mse": 0.0009222996993650773
+      },
+      {
+        "step": 500,
+        "mse": 0.0010407079347407278
+      }
+    ],
+    "teacher": "frozen measured-motion base network, initialisation only"
+  },
+  "updates": [
+    {
+      "update": 0,
+      "decisions": 1024,
+      "reward_mean": -0.18895624908835343,
+      "reward_sum": -193.4911990664739,
+      "terminated_fraction": 0.0,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.02734090955836621,
+      "kl_step_max": 0.037798460924748256,
+      "drift_vs_rollout": 0.04156157341681607,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.08035710267310636
+      },
+      "support_mean": 1.6059530024748445,
+      "support_min": 0.9553181901028494,
+      "com_min": 1.027450519125294,
+      "nonfoot_max": 0.8365486253685146,
+      "unload_frac": 0.8662282428391739,
+      "lift_mean": 0.7826003880875403,
+      "advance_max": 0.6066648576874367,
+      "placed_fraction": 0.0,
+      "logstd": -3.000002987877558
+    },
+    {
+      "update": 1,
+      "decisions": 1024,
+      "reward_mean": -0.18837707227836994,
+      "reward_sum": -192.89812201305082,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.01965699444485619,
+      "kl_step_max": 0.046265533183023844,
+      "drift_vs_rollout": 0.06473563432174606,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.052958027350670456
+      },
+      "support_mean": 1.6169638521630143,
+      "support_min": 0.9481859836819979,
+      "com_min": 1.0590316972454434,
+      "nonfoot_max": 1.2991909799879835,
+      "unload_frac": 0.8597552696106031,
+      "lift_mean": 0.7823483199011386,
+      "advance_max": 0.60485643207425,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000075756570372
+    },
+    {
+      "update": 2,
+      "decisions": 1024,
+      "reward_mean": -0.16532357224597444,
+      "reward_sum": -169.29133797987782,
+      "terminated_fraction": 0.0,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": -0.0019564744267352996,
+      "kl_step_max": 0.009476593520339693,
+      "drift_vs_rollout": 0.0720165693098596,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.1313052509887288
+      },
+      "support_mean": 1.6207840848757318,
+      "support_min": 0.9545317529486375,
+      "com_min": 1.1406814445701234,
+      "nonfoot_max": 0.05594983454081468,
+      "unload_frac": 0.9403249853237593,
+      "lift_mean": 0.9205458288874504,
+      "advance_max": 0.5992380554139465,
+      "placed_fraction": 0.0,
+      "logstd": -3.000009926101742
+    },
+    {
+      "update": 3,
+      "decisions": 1024,
+      "reward_mean": -0.3262257577284585,
+      "reward_sum": -334.0551759139415,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.024313193986897186,
+      "kl_step_max": 0.034117716335164916,
+      "drift_vs_rollout": 0.030105491741063778,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.050794236526043646
+      },
+      "support_mean": 1.5574650304700626,
+      "support_min": 0.9504683214769801,
+      "com_min": 1.0196855989660494,
+      "nonfoot_max": 1.5821510572273902,
+      "unload_frac": 0.727192878590132,
+      "lift_mean": 0.5006560932816991,
+      "advance_max": 0.5240067491349891,
+      "placed_fraction": 0.0,
+      "logstd": -3.000006879251513
+    },
+    {
+      "update": 4,
+      "decisions": 1024,
+      "reward_mean": -0.18311262238186277,
+      "reward_sum": -187.50732531902747,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": -0.0015060883834400185,
+      "kl_step_max": 0.009660681218240263,
+      "drift_vs_rollout": 0.02959956675649987,
+      "minibatch_updates": 3,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 3,
+        "kl": 0.046265147706348264
+      },
+      "support_mean": 1.6028814494069459,
+      "support_min": 0.9425888470826994,
+      "com_min": 1.023458178484455,
+      "nonfoot_max": 1.359493053713962,
+      "unload_frac": 0.9172405796977157,
+      "lift_mean": 0.8479765697747036,
+      "advance_max": 0.5246825538964957,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000068565084224
+    },
+    {
+      "update": 5,
+      "decisions": 1024,
+      "reward_mean": -0.26493545649510686,
+      "reward_sum": -271.2939074509894,
+      "terminated_fraction": 0.0029296875,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.011509962794476164,
+      "kl_step_max": 0.053888507296753874,
+      "drift_vs_rollout": 0.1106749941451953,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.15752980088701474
+      },
+      "support_mean": 1.5641261922610386,
+      "support_min": 0.949124831251942,
+      "com_min": 1.0190950078105372,
+      "nonfoot_max": 1.3646925828752783,
+      "unload_frac": 0.6878584162914168,
+      "lift_mean": 0.40296755564160697,
+      "advance_max": 0.6041600675134255,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000097578346847
+    },
+    {
+      "update": 6,
+      "decisions": 1024,
+      "reward_mean": -0.2466366692681694,
+      "reward_sum": -252.55594933060547,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.030958586220132145,
+      "kl_step_max": 0.057943317497128555,
+      "drift_vs_rollout": 0.04440984377756511,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.0833886525129115
+      },
+      "support_mean": 1.5843632543016182,
+      "support_min": 0.9547121433270453,
+      "com_min": 1.034894658743362,
+      "nonfoot_max": 1.438597742826282,
+      "unload_frac": 0.8152530418231326,
+      "lift_mean": 0.6809077489798465,
+      "advance_max": 0.6018085533874153,
+      "placed_fraction": 0.0,
+      "logstd": -3.000012697650603
+    },
+    {
+      "update": 7,
+      "decisions": 1024,
+      "reward_mean": -0.2629325833065176,
+      "reward_sum": -269.242965305874,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.02307797855693683,
+      "kl_step_max": 0.04107008546782209,
+      "drift_vs_rollout": 0.04508394439821563,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.046484166556092
+      },
+      "support_mean": 1.5493057465322821,
+      "support_min": 0.9675353732858365,
+      "com_min": 1.031467052765962,
+      "nonfoot_max": 1.516404812967204,
+      "unload_frac": 0.7601662006081079,
+      "lift_mean": 0.5475220010626127,
+      "advance_max": 0.5260375358118462,
+      "placed_fraction": 0.0,
+      "logstd": -3.000011382455393
+    },
+    {
+      "update": 8,
+      "decisions": 1024,
+      "reward_mean": -0.2292551191510746,
+      "reward_sum": -234.7572420107004,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.010640038565626342,
+      "kl_step_max": 0.028906150015936882,
+      "drift_vs_rollout": 0.032710014327514386,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.09367451460208132
+      },
+      "support_mean": 1.5832099658527445,
+      "support_min": 0.9388686529188031,
+      "com_min": 1.0216940391682179,
+      "nonfoot_max": 1.3637304782179298,
+      "unload_frac": 0.742192417021083,
+      "lift_mean": 0.5315066112201898,
+      "advance_max": 0.6052234183513379,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000094736943126
+    },
+    {
+      "update": 9,
+      "decisions": 1024,
+      "reward_mean": -0.3200484882158201,
+      "reward_sum": -327.7296519329998,
+      "terminated_fraction": 0.00390625,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": -0.025882592727682285,
+      "kl_step_max": -0.02046005068925627,
+      "drift_vs_rollout": 0.033061838118483476,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.033301164313210396
+      },
+      "support_mean": 1.5630872793029633,
+      "support_min": 0.94149819339914,
+      "com_min": 1.0347586252032537,
+      "nonfoot_max": 1.5124489926804787,
+      "unload_frac": 0.7338951407415651,
+      "lift_mean": 0.5177808361886929,
+      "advance_max": 0.5246524841281607,
+      "placed_fraction": 0.0,
+      "logstd": -3.000008349022803
+    },
+    {
+      "update": 10,
+      "decisions": 1024,
+      "reward_mean": -0.1652653143810813,
+      "reward_sum": -169.23168192622725,
+      "terminated_fraction": 0.0,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.04295261635331893,
+      "kl_step_max": 0.04897850754906097,
+      "drift_vs_rollout": 0.06388094515993337,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.04423207355012937
+      },
+      "support_mean": 1.623408010724778,
+      "support_min": 0.9548795736212806,
+      "com_min": 1.1417233714813795,
+      "nonfoot_max": 0.0,
+      "unload_frac": 0.8609411364672562,
+      "lift_mean": 0.811022403519355,
+      "advance_max": 0.6053995634801234,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000093017749827
+    },
+    {
+      "update": 11,
+      "decisions": 1024,
+      "reward_mean": -0.20552620550862488,
+      "reward_sum": -210.45883444083188,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.018667522679366295,
+      "kl_step_max": 0.02997362788482949,
+      "drift_vs_rollout": 0.05040319661836603,
+      "minibatch_updates": 3,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 3,
+        "kl": 0.035536451448691886
+      },
+      "support_mean": 1.5864449492189117,
+      "support_min": 0.9375288241244314,
+      "com_min": 1.0402576299378152,
+      "nonfoot_max": 1.307934544920045,
+      "unload_frac": 0.7648088204779541,
+      "lift_mean": 0.606871302571631,
+      "advance_max": 0.6115803300775606,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000098277772986
+    },
+    {
+      "update": 12,
+      "decisions": 1024,
+      "reward_mean": -0.2105637890387907,
+      "reward_sum": -215.61731997572167,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": -0.00807197617993649,
+      "kl_step_max": 0.019185095673867947,
+      "drift_vs_rollout": 0.028833077594617285,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.09682671939179055
+      },
+      "support_mean": 1.559312878453554,
+      "support_min": 0.9413293241193408,
+      "com_min": 1.0355865501769306,
+      "nonfoot_max": 1.3510917567872451,
+      "unload_frac": 0.7181524639742849,
+      "lift_mean": 0.4998273569434074,
+      "advance_max": 0.5251718285090847,
+      "placed_fraction": 0.0,
+      "logstd": -3.00000938059593
+    },
+    {
+      "update": 13,
+      "decisions": 1024,
+      "reward_mean": -0.2059312766336409,
+      "reward_sum": -210.87362727284827,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.015038308967106747,
+      "kl_step_max": 0.03449130532781253,
+      "drift_vs_rollout": 0.02330182046020137,
+      "minibatch_updates": 3,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 3,
+        "kl": 0.05085655566656044
+      },
+      "support_mean": 1.6149276677806683,
+      "support_min": 0.9371107379501465,
+      "com_min": 1.0401098730793448,
+      "nonfoot_max": 1.5164850075196916,
+      "unload_frac": 0.836063721415062,
+      "lift_mean": 0.7445021919645123,
+      "advance_max": 0.5249945457299319,
+      "placed_fraction": 0.0,
+      "logstd": -3.000009395484425
+    },
+    {
+      "update": 14,
+      "decisions": 1024,
+      "reward_mean": -0.17120854594970228,
+      "reward_sum": -175.31755105249513,
+      "terminated_fraction": 0.0,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.015185480402844342,
+      "kl_step_max": 0.019070411698856038,
+      "drift_vs_rollout": 0.02467348545492254,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.04188185228778607
+      },
+      "support_mean": 1.6282369721762346,
+      "support_min": 0.9543865371741912,
+      "com_min": 1.140897478066689,
+      "nonfoot_max": 0.0,
+      "unload_frac": 0.8614667819235873,
+      "lift_mean": 0.8113689495924117,
+      "advance_max": 0.6068064251598808,
+      "placed_fraction": 0.0,
+      "logstd": -3.000008797076149
+    },
+    {
+      "update": 15,
+      "decisions": 1024,
+      "reward_mean": -0.2644491909261196,
+      "reward_sum": -270.7959715083465,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.019817902200654214,
+      "kl_step_max": 0.02454190207328444,
+      "drift_vs_rollout": 0.03524012325568691,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.05277241276028277
+      },
+      "support_mean": 1.6044452770130422,
+      "support_min": 0.9409446605800018,
+      "com_min": 1.0327753186846051,
+      "nonfoot_max": 1.5012246266321527,
+      "unload_frac": 0.8444604744751919,
+      "lift_mean": 0.7571008630062285,
+      "advance_max": 0.6044236208881504,
+      "placed_fraction": 0.0,
+      "logstd": -3.0000073741920223
+    },
+    {
+      "update": 16,
+      "decisions": 1024,
+      "reward_mean": -0.3229391983200958,
+      "reward_sum": -330.6897390797781,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.02162674476895381,
+      "kl_step_max": 0.056158835156650655,
+      "drift_vs_rollout": 0.055594015740868516,
+      "minibatch_updates": 5,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 5,
+        "kl": 0.09285218402303619
+      },
+      "support_mean": 1.563374025624758,
+      "support_min": 0.953986750375808,
+      "com_min": 1.032731849412893,
+      "nonfoot_max": 1.5307537188059566,
+      "unload_frac": 0.7887141188057524,
+      "lift_mean": 0.6214709814902983,
+      "advance_max": 0.606405344990634,
+      "placed_fraction": 0.0,
+      "logstd": -3.000003025163726
+    },
+    {
+      "update": 17,
+      "decisions": 1024,
+      "reward_mean": -0.22660365838497445,
+      "reward_sum": -232.04214618621384,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.008534384277741114,
+      "kl_step_max": 0.0303457170226048,
+      "drift_vs_rollout": 0.044800278178634086,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.11872922432338873
+      },
+      "support_mean": 1.5802411237425238,
+      "support_min": 0.9394616583820199,
+      "com_min": 1.0348359638130944,
+      "nonfoot_max": 1.4478652408270425,
+      "unload_frac": 0.740133496724642,
+      "lift_mean": 0.5608096318300785,
+      "advance_max": 0.525378951061812,
+      "placed_fraction": 0.0,
+      "logstd": -2.999999265760528
+    },
+    {
+      "update": 18,
+      "decisions": 1024,
+      "reward_mean": -0.17681528317515333,
+      "reward_sum": -181.058849971357,
+      "terminated_fraction": 0.0,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": 0.02458097229989567,
+      "kl_step_max": 0.08641116192285991,
+      "drift_vs_rollout": 0.06540426216276166,
+      "minibatch_updates": 4,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 4,
+        "kl": 0.09510827406923894
+      },
+      "support_mean": 1.5940079820842028,
+      "support_min": 0.9537553994603915,
+      "com_min": 1.0948158430081936,
+      "nonfoot_max": 0.7411987608023226,
+      "unload_frac": 0.84860753564424,
+      "lift_mean": 0.7372922486007172,
+      "advance_max": 0.5318061593167202,
+      "placed_fraction": 0.0,
+      "logstd": -2.999992854375525
+    },
+    {
+      "update": 19,
+      "decisions": 1024,
+      "reward_mean": -0.23331151604614553,
+      "reward_sum": -238.91099243125302,
+      "terminated_fraction": 0.001953125,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.00489387999398061,
+      "kl_step_max": 0.035737261987187185,
+      "drift_vs_rollout": 0.05796807147300889,
+      "minibatch_updates": 3,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 3,
+        "kl": 0.07952662701220525
+      },
+      "support_mean": 1.5632714510574177,
+      "support_min": 0.9356227643264807,
+      "com_min": 1.037140771376115,
+      "nonfoot_max": 1.4849875452069177,
+      "unload_frac": 0.6768313177751688,
+      "lift_mean": 0.4245461767379297,
+      "advance_max": 0.6082933510518644,
+      "placed_fraction": 0.0,
+      "logstd": -2.9999887996195436
+    },
+    {
+      "update": 20,
+      "decisions": 1024,
+      "reward_mean": -0.19625110624292547,
+      "reward_sum": -200.96113279275568,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": -0.0010475887492593279,
+      "kl_step_max": 0.026411197788326457,
+      "drift_vs_rollout": 0.04469601402405647,
+      "minibatch_updates": 3,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 3,
+        "kl": 0.06303836767431259
+      },
+      "support_mean": 1.6220412301543274,
+      "support_min": 0.9627938461801043,
+      "com_min": 1.1170215127439673,
+      "nonfoot_max": 1.4503006697091028,
+      "unload_frac": 0.9296571074376179,
+      "lift_mean": 0.8828007000684402,
+      "advance_max": 0.5277970042429465,
+      "placed_fraction": 0.0,
+      "logstd": -2.9999859364448946
+    },
+    {
+      "update": 21,
+      "decisions": 1024,
+      "reward_mean": -0.30104787595858085,
+      "reward_sum": -308.2730249815868,
+      "terminated_fraction": 0.0048828125,
+      "truncated_fraction": 0.001953125,
+      "kl_step_mean": -0.007006221519244293,
+      "kl_step_max": 0.00532619251031019,
+      "drift_vs_rollout": 0.034863050633839765,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.031011678124872932
+      },
+      "support_mean": 1.5753677966431736,
+      "support_min": 0.9285652170079612,
+      "com_min": 1.0356460308363833,
+      "nonfoot_max": 1.4661639936780173,
+      "unload_frac": 0.614273812211186,
+      "lift_mean": 0.3401651126977887,
+      "advance_max": 0.6141817374484211,
+      "placed_fraction": 0.0,
+      "logstd": -2.9999844693069697
+    },
+    {
+      "update": 22,
+      "decisions": 1024,
+      "reward_mean": -0.2413414143102843,
+      "reward_sum": -247.13360825373113,
+      "terminated_fraction": 0.0029296875,
+      "truncated_fraction": 0.0029296875,
+      "kl_step_mean": 0.009022989820876959,
+      "kl_step_max": 0.028636670330505765,
+      "drift_vs_rollout": 0.02707887734327607,
+      "minibatch_updates": 2,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 2,
+        "kl": 0.0674463272855913
+      },
+      "support_mean": 1.608269582064772,
+      "support_min": 0.9390543880670346,
+      "com_min": 1.0363942924278984,
+      "nonfoot_max": 1.4282753062075986,
+      "unload_frac": 0.7485163739915651,
+      "lift_mean": 0.6085955382324642,
+      "advance_max": 0.459344824204969,
+      "placed_fraction": 0.0,
+      "logstd": -2.9999837296587293
+    },
+    {
+      "update": 23,
+      "decisions": 1024,
+      "reward_mean": -0.19785155816593045,
+      "reward_sum": -202.59999556191278,
+      "terminated_fraction": 0.0009765625,
+      "truncated_fraction": 0.00390625,
+      "kl_step_mean": -0.04388204140595331,
+      "kl_step_max": -0.04388204140595331,
+      "drift_vs_rollout": 0.007416166533201832,
+      "minibatch_updates": 1,
+      "nominal_minibatch_updates": 64,
+      "lr": 1e-05,
+      "stopped_at": {
+        "epoch": 0,
+        "minibatch": 1,
+        "kl": 0.042016300856276945
+      },
+      "support_mean": 1.5911941876971158,
+      "support_min": 0.9420043944137572,
+      "com_min": 1.035319015101343,
+      "nonfoot_max": 1.2868008524787478,
+      "unload_frac": 0.8117215341298597,
+      "lift_mean": 0.6791202736000944,
+      "advance_max": 0.5269766666823662,
+      "placed_fraction": 0.0,
+      "logstd": -2.9999830331083026
+    }
+  ],
+  "final_eval": {
+    "LF": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 2.201113746353889,
+      "best_advance": 0.45750758099007593,
+      "final_load_over_body_weight": 0.0,
+      "final_padz": 2.201113746353889,
+      "support_min": 0.9669919942093629,
+      "com_min": 1.1888555942076398,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 12.720851946712347,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": false,
+        "safe": true
+      },
+      "passed": false
+    },
+    "LH": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.003570911315315041,
+      "best_advance": 0.0,
+      "final_load_over_body_weight": 0.05053531749653289,
+      "final_padz": -0.00895390081685108,
+      "support_min": 0.16289589907013072,
+      "com_min": 0.6919318926247103,
+      "nonfoot_max": 24.19357682482859,
+      "other_stance_excess_max": 15.334157975419922,
+      "criteria": {
+        "unload": true,
+        "lift": false,
+        "advance": false,
+        "place": false,
+        "safe": false
+      },
+      "passed": false
+    },
+    "LM": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 2.1055124199651876,
+      "best_advance": 0.6070591743636602,
+      "final_load_over_body_weight": 0.0,
+      "final_padz": 2.1055124199651876,
+      "support_min": 0.9549827764277173,
+      "com_min": 1.1492485770497067,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 10.480289632897122,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": false,
+        "safe": true
+      },
+      "passed": false
+    },
+    "RF": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 1.8165216156011117,
+      "best_advance": 0.5268524749028602,
+      "final_load_over_body_weight": 0.0,
+      "final_padz": 1.7835299819994852,
+      "support_min": 0.999835725274802,
+      "com_min": 1.1551719771702904,
+      "nonfoot_max": 0.0,
+      "other_stance_excess_max": 15.547240964105002,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": false,
+        "safe": true
+      },
+      "passed": false
+    },
+    "RH": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.03253931648392804,
+      "best_advance": 0.2707520619680732,
+      "final_load_over_body_weight": 0.0,
+      "final_padz": 0.0020008181867751523,
+      "support_min": 0.0,
+      "com_min": 0.6613616848457654,
+      "nonfoot_max": 39.63571340384516,
+      "other_stance_excess_max": 14.196889583551757,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": true,
+        "place": false,
+        "safe": false
+      },
+      "passed": false
+    },
+    "RM": {
+      "min_load_over_body_weight": 0.0,
+      "max_lift": 0.14610530653139386,
+      "best_advance": 0.004068171686558597,
+      "final_load_over_body_weight": 0.0,
+      "final_padz": 0.12921505434342184,
+      "support_min": 0.9695696117803244,
+      "com_min": 1.1055513518519478,
+      "nonfoot_max": 0.6391649717054901,
+      "other_stance_excess_max": 10.013434085673158,
+      "criteria": {
+        "unload": true,
+        "lift": true,
+        "advance": false,
+        "place": false,
+        "safe": true
+      },
+      "passed": false
+    },
+    "_summary": {
+      "passed_legs": [],
+      "n_passed": 0,
+      "all_six": false
+    }
+  },
+  "wall_s": 358.9895622730255,
+  "physics_ticks": 24576
+}

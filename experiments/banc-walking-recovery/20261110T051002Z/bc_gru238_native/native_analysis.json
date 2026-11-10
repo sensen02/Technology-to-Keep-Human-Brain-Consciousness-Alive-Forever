@@ -1,0 +1,81 @@
+{
+  "scope": "S2/S5 read-only mechanical investigation; no training, mj_step, source changes or running-job changes",
+  "recording_directory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/native",
+  "evaluation_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/bc_gru238_native/EVALUATION.json",
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/env/bin/python",
+  "method": "79 NPZ chunks processed separately; only selected arrays in current 2048-row chunk plus 2000 downsampled rows retained. Native statistics cover 160000 rows at 12.5us. Sparse foot geometry uses mj_forward only at 400 saved states spaced 5ms. No stepping.",
+  "units": "native distance/force; time seconds and joint angles radians; absolute SI NOT_ESTABLISHED; W is body weight, not watts",
+  "body_weight_native": 24.446354755878005,
+  "leg_order": ["LF", "LH", "LM", "RF", "RH", "RM"],
+  "npz_inventory": {
+    "qpos_before_after": [2048, 49], "qvel_before_after": [2048, 48],
+    "action_requested_rate_target_torque": [2048, 42], "loads_speed_contact_count": [2048, 6],
+    "com_position_velocity_acceleration_force_residual": [2048, 3],
+    "body_com": [2048, 73, 3], "external_adhesion_body_wrenches": [2048, 73, 6],
+    "contacts": "ragged offsets, geometry/leg/ground labels, position, frame, local/world force and world velocity",
+    "foot_height_directly_saved": false,
+    "actuator_qpos_indices": "7 through 48 inclusive, verified from model actuator_trnid and jnt_qposadr"
+  },
+  "all_native": {
+    "samples": 160000, "com_net_xy_speed": 0.1943559548063882,
+    "foot_load_weighted_tangential_speed": [0.5892794198964351,0.5963998855711102,0.2883976098429308,0.5115909995539059,0.4242717870518229,0.6606568075100101],
+    "slip_ratios": [3.0319596869746452,3.0685958974873015,1.48386299833326,2.6322373300243775,2.1829626340724686,3.3992105267272996],
+    "mean_load_W": [0.2118993620,0.3155264238,0.3311896007,0.3060676896,0.3865561936,0.0839107504],
+    "duty_load_ge_point1W": [0.6361375,0.99989375,1,0.93051875,0.99935,0.24423125],
+    "fraction_load_le_point05W": [0.04095625,0,0,0.003675,0.00025,0.6308125],
+    "fraction_zero_load": [0,0,0,0.00044375,0.00025,0.49930625],
+    "com_delta": [0.38523127789562905,0.05190193836179773,-0.12476160275706483]
+  },
+  "initial_0_to_point5s": {
+    "samples": 40000,"com_net_xy_speed": 0.037270067435118334,"com_z_delta": -0.09948275093678882,
+    "foot_load_weighted_tangential_speed": [0.6344362418,0.7873603389,0.4691175740,0.5189943296,0.7261709721,0.7325463590],
+    "slip_raw_mean": 20.846676310450928,"slip_cap_fraction": 0.8858,"slip_capped_integral": 1.9475193734289133
+  },
+  "steady_point5_to_2s": {
+    "samples": 120000,"com_net_xy_speed": 0.24710393665235278,"com_z_delta": -0.025254601511651487,
+    "foot_load_weighted_tangential_speed": [0.5774267686165838,0.5251045139908571,0.232614442294162,0.5099547283026462,0.32837158583957876,0.3971898608028108],
+    "slip_ratios": [2.3367768901,2.125035,0.9413627538,2.0637256339,1.328880431,1.6073797374],
+    "mean_load_W": [0.2237920874,0.3063322817,0.3374307553,0.3342212482,0.3911552870,0.0239836562],
+    "duty_load_ge_point1W": [0.6981083333,1,1,1,1,0.04175],
+    "fraction_load_le_point05W": [0.013,0,0,0,0,0.8404333333],
+    "fraction_zero_load": [0,0,0,0,0,0.6650916667],
+    "requested_rate_abs_mean_rad_s": 0.2221242086086803,"requested_rate_rms_rad_s": 0.2889244961182007,"requested_rate_abs_max_rad_s": 1.36404923473692,"fraction_joint_samples_abs_rate_ge_1point98": 0,
+    "target_actual_tracking_rms_rad": 0.04352762096393233,"tracking_abs_max_rad": 0.2349841184211013,
+    "target_total_variation_mean_perjoint_rad": 0.30716878639466727,"actual_total_variation_mean_perjoint_rad": 0.9578245050902904,
+    "target_range_mean_perjoint_rad": 0.09537236677353973,"target_net_displacement_L2_rad": 0.7398692031378032,"actual_net_displacement_L2_rad": 0.821405311029449,
+    "action_total_variation_mean_perjoint": 25.535014165561908,
+    "slip_raw_mean": 6.533029377862979,"slip_raw_max": 35.85700337311685,"slip_capped_mean": 3.5189153656026617,"slip_cap_fraction": 0.6233833333333333,"slip_capped_integral": 5.278373048403992
+  },
+  "action_all_1ms": {"L2_norm_mean":0.9371249477476629,"L2_norm_max":1.727482963242413,"delta20ms_perjoint_rms":0.2641151761843849,"delta20ms_L2_mean":1.5876228124026832},
+  "curriculum": {
+    "config_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T051002Z/curriculum.py",
+    "formula": "raw=mean(where(load/W>=0.1, load/W*(contact_speed/0.1)^2,0)); cost=min(4,raw); slip weight=0.5",
+    "all_native_raw_mean":10.111441111009967,"all_native_raw_max":388.5973534231491,"all_native_capped_mean":3.612946210916453,"all_native_time_at_cap_fraction":0.6889875,"all_native_capped_integral":7.225892421832906,"integral_upper_bound":8,
+    "implication": "Substantial flat region discards distinctions among high-slip states; this is evidence of reward signal loss, not causal proof of training failure. A monotonic smooth bounded cost such as 4*x/(x+c) avoids an exactly flat tail but requires calibrated scale; log1p alone is unbounded. Compare reward variants in a new experiment rather than modifying active sources."
+  },
+  "native_vs_1ms": {
+    "same_saved_before_state_phase_1ms_max_ratio":3.3995211953175573,"evaluation_after_refresh_max_ratio":3.3986744503174147,"native_max_ratio":3.3992105267272996,
+    "same_saved_phase_1ms_foot_speeds":[0.5922147948,0.5936619902,0.2887258415,0.5114436920,0.4222693973,0.6610838878],
+    "same_saved_phase_1ms_cap_fraction":0.6905,"same_saved_phase_1ms_cap_integral":7.21492141523856,
+    "note":"1ms rows here are before states of native indices 79,159,...; EVALUATION uses refreshed after-tick measurements. Small phase differences expected; high slip persists."
+  },
+  "velocity_windows_steady": {
+    "method":"raw is saved COM velocity at 1ms sampling; 20/60ms are trailing COM position finite differences; window endpoints >=0.5s, earliest windows include a short pre-0.5s tail",
+    "raw":{"xy_speed_mean":2.722388912576958,"p95":4.352981695276696,"hold_cost_cap_fraction":0.996},
+    "20ms":{"xy_speed_mean":1.589501693957033,"p95":2.6083271873702127,"hold_cost_cap_fraction":0.9946666666666667},
+    "60ms":{"xy_speed_mean":0.48161489481130304,"p95":0.8996417380741669,"hold_cost_cap_fraction":0.8593333333333333},
+    "all_raw_hold_cost_integral":7.986363304370476,
+    "hold_formula":"min(4,(norm(COM_velocity_xy)/0.1)^2)",
+    "implication":"20ms filtering remains strongly saturated; 60ms greatly reduces oscillation but still saturates most steady samples. Window and scale need validation; net drift remains nonzero."
+  },
+  "sparse_geometry": {
+    "model_path":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml",
+    "samples":400,"stride_s":0.005,"method":"mj_forward on recorded qpos only; min(pad sphere center z-radius), same pad proxy as snapshot measure; thorax-frame mean pad position for forward excursion",
+    "steady_max_pad_bottom_height":[-0.0031954543,-0.0143476880,-0.0159947162,-0.0106019274,-0.0214503039,0.1268464670],
+    "steady_fraction_clearance_ge_point015":[0,0,0,0,0,0.62],
+    "steady_body_frame_forward_range":[0.1124093760,0.1309521416,0.2809226816,0.5845334986,0.2168304887,0.2786357107],
+    "RM_last_long_clear_unloaded_run":{"start_s":1.0799999999991503,"last_sample_s":1.9949999999970178,"max_forward_from_start":0.09097419194524889,"subsequent_load_ge_point1W":false},
+    "interpretation":"Evidence supports loaded dragging/body-contact oscillation plus RM lift without return within this window. Four continuously loaded legs and absence of sampled clearance on five legs do not establish coordinated stepping. Sparse samples cannot exclude very brief motions; do not infer physical impossibility. Negative pad-bottom values are this model contact-proxy penetration, not calibrated biological tissue deformation."
+  },
+  "limitations":"No SI calibration, no counterfactual force/friction/adhesion intervention; existing model friction and adhesion may influence mechanics but are not isolated causes here. No claim that all possible walking is impossible. One initial direct XML load failed due to relative mesh assets; corrected by existing load_full_model reader; subsequent streaming and sparse forward jobs exited 0. No tracker/source edits under user's output-only restriction."
+}

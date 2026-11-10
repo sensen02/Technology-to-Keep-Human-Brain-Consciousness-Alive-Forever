@@ -1,0 +1,19 @@
+{
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T094846Z/BC_FF_RECOVERY/final.pt",
+  "checkpoint_sha256": "489e6cef6e099d4134a1fe80ba6013da21214555da12d4f0a3a93c90b88ac84a",
+  "final": {
+    "step": 1000,
+    "base_train_MSE": 5.4315101554627085e-05,
+    "base_validation_MSE": 5.550979922767413e-05,
+    "recovery_train_MSE": 8.686643569550306e-05,
+    "recovery_validation_MSE": 8.984355532457684e-05
+  },
+  "checkpoint_reload_exact": true,
+  "ppo_optimizer_entries": 0,
+  "parent_checkpoint_sha256": "1c8383e3cae4d313c5e56e8c7ad69df4ee46f6159f60ed52763b095d503d548c",
+  "identity_sha256": "db040d7abc74342e0a6bbdd131d4bb930b9444ab7c788b352e7b22328eeb2ec7",
+  "base_metadata_sha256": "9dae9a0b21b8e67bb70585dcf8541b35f16b551a25fffd80ebbd5516d9b0407d",
+  "recovery_metadata_sha256": "faf6f55f7cb0c036bfd98e9a267846ad99b3005160d60a64b654a2285296afb2",
+  "closed_loop": "NOT_EVALUATED",
+  "interpretation": "virtual algorithm teacher prefix and teacher/student mixed physical commands; NOT neural autonomy; corrective labels are current-state teacher targets, not evidence of a perfect recovery controller; native units, absolute SI NOT_ESTABLISHED"
+}

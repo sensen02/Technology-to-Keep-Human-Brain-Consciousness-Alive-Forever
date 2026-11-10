@@ -1,0 +1,14 @@
+{
+  "schema": "rh-leg-diagnosis/1",
+  "why": "every learned controller in this project has its worst per-leg slip ratio on RH (right hind): 1.41 in the best scheme-A runs, 11.08 in the frozen steady window, 1.139 in the frozen ANN verifier. If the cause is structural (geometry, ranges, contact), no amount of reward or training will fix it.",
+  "scope": "static and kinematic diagnosis only: no control training, no gate change, no body modification",
+  "checks": [
+    "per-leg joint ranges and key-frame angles, RH against its left counterpart LH",
+    "lowest material point height and the contacting geom per leg in the frozen key-frame pose",
+    "tarsus mesh frame orientation per leg (normal flip / mirrored assembly)",
+    "per-leg foot load share in a 1 s static hold with the frozen actuator holding the key frame",
+    "per-leg slip ratio and stance share from the best existing evaluation traces"
+  ],
+  "success_definition": "a concrete, checkable statement of whether RH differs structurally from the other legs, with numbers; no claim beyond what is measured",
+  "accounting": "physics steps counted; a static hold is the only stepping done"
+}

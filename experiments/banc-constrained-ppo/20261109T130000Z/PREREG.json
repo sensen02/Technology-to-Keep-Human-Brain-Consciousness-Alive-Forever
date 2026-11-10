@@ -1,0 +1,13 @@
+{
+  "schema": "constrained-ppo/1",
+  "origin": "route 2 of the two the user approved. Support has always been a soft reward term (5*(sum loads/W - 1)^2), and every policy that permits a swing phase ends up with support 0.38-0.58. This run makes the support requirement a constraint enforced by a Lagrange multiplier instead of another reward shape.",
+  "change": {
+    "constraint": "per tick, support_t = sum of the six foot loads / body weight; violation v_t = max(0, 0.90 - support_t)",
+    "lagrangian": "reward -= lambda * v_t, and after every rollout lambda <- clip(lambda + eta * (0.90 - mean support over the rollout), 0, lambda_max), a standard dual ascent, declared with eta = 0.05 and lambda_max = 50",
+    "kept": "the existing soft support term stays as before so the comparison isolates the added constraint",
+    "world": "pad body R=.02, mu=1.5, releasable adhesion A=0.25 body weight, 5 ms policy tick, reward v4, 42-joint PPO, 64 updates, gates unchanged"
+  },
+  "why_it_is_not_an_external_controller": "the multiplier is a scalar learned to satisfy a constraint, not a controller, not a phase generator, and it is applied inside the same reward that the network optimises; the network still produces every action",
+  "labelling": "derived channel plus replacement ANN; not frozen-body acceptance",
+  "accounting": "lambda and the support statistic are logged at every update, so the constraint handling is auditable rather than assumed"
+}

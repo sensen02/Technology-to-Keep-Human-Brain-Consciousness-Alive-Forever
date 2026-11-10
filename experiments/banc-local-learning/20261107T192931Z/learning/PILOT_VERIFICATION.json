@@ -1,0 +1,889 @@
+{
+  "status": "PASS_NEW_NEURAL_HISTORY_REPLAY_NOT_WALKING",
+  "checks_passed": 184,
+  "checks": [
+    {
+      "name": "hash_MODEL.mjb",
+      "passed": true
+    },
+    {
+      "name": "hash_INITIAL.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_COMMANDS.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_HANDOVER.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_READOUT_FINAL.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_NEURAL_FINAL.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_SLIP.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_NATIVE.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_BODY.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_PROTOCOL.json",
+      "passed": true
+    },
+    {
+      "name": "hash_POLICY.npz",
+      "passed": true
+    },
+    {
+      "name": "protocol_hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/run_closed_loop.py",
+      "passed": true
+    },
+    {
+      "name": "protocol_hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/runtime.py",
+      "passed": true
+    },
+    {
+      "name": "protocol_hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py",
+      "passed": true
+    },
+    {
+      "name": "protocol_hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py",
+      "passed": true
+    },
+    {
+      "name": "protocol_hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/INDEPENDENT_VERIFICATION.json",
+      "passed": true
+    },
+    {
+      "name": "model_hash",
+      "passed": true
+    },
+    {
+      "name": "primary_newhistory",
+      "passed": true
+    },
+    {
+      "name": "root_identity_encoder_circuit_shape",
+      "passed": true
+    },
+    {
+      "name": "root_identity_encoder_circuit_finite",
+      "passed": true
+    },
+    {
+      "name": "root_identity_encoder_circuit",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "MN_root_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_root_identity_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_root_identity",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "MN_local_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_local_identity_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_local_identity",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "MN_leg_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_leg_identity",
+      "passed": true
+    },
+    {
+      "name": "600_samples",
+      "passed": true
+    },
+    {
+      "name": "source_local_input_shape",
+      "passed": true
+    },
+    {
+      "name": "source_local_input_finite",
+      "passed": true
+    },
+    {
+      "name": "source_local_input",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "source_time_shape",
+      "passed": true
+    },
+    {
+      "name": "source_time_finite",
+      "passed": true
+    },
+    {
+      "name": "source_time",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "independent_history_features_shape",
+      "passed": true
+    },
+    {
+      "name": "independent_history_features_finite",
+      "passed": true
+    },
+    {
+      "name": "independent_history_features",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "independent_history_prediction_shape",
+      "passed": true
+    },
+    {
+      "name": "independent_history_prediction_finite",
+      "passed": true
+    },
+    {
+      "name": "independent_history_prediction",
+      "passed": true,
+      "max_abs_error": 1.2434497875801753e-14,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "history_observation_count_shape",
+      "passed": true
+    },
+    {
+      "name": "history_observation_count_finite",
+      "passed": true
+    },
+    {
+      "name": "history_observation_count",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "teacherphase_shape",
+      "passed": true
+    },
+    {
+      "name": "teacherphase_finite",
+      "passed": true
+    },
+    {
+      "name": "teacherphase",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "warmup_applied_source_shape",
+      "passed": true
+    },
+    {
+      "name": "warmup_applied_source_finite",
+      "passed": true
+    },
+    {
+      "name": "warmup_applied_source",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "learned_held_commands_shape",
+      "passed": true
+    },
+    {
+      "name": "learned_held_commands_finite",
+      "passed": true
+    },
+    {
+      "name": "learned_held_commands",
+      "passed": true,
+      "max_abs_error": 1.2434497875801753e-14,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "warmup_source_qpos_error_shape",
+      "passed": true
+    },
+    {
+      "name": "warmup_source_qpos_error_finite",
+      "passed": true
+    },
+    {
+      "name": "warmup_source_qpos_error",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_state_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_state_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_state",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_target_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_target_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_target",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_kp_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_kp_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_kp",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_kd_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_kd_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_kd",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_limits_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_limits_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_limits",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_qa_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_qa_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_qa",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_va_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_va_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_va",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_initial_joint_bounds_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_joint_bounds_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_initial_joint_bounds",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_protocol_body_source_sha256",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_protocol_physics_dt",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_protocol_command_dt",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_protocol_policy_dt",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_protocol_hold_s",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_protocol_total_s",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_same_warmup_rates_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_same_warmup_rates_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_same_warmup_rates",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "historical_hold_postwarm_exactzero_shape",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_postwarm_exactzero_finite",
+      "passed": true
+    },
+    {
+      "name": "historical_hold_postwarm_exactzero",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_v_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_v_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_v",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_ge_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_ge_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_ge",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_gi_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_gi_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_gi",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_g_adapt_uS_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_g_adapt_uS_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_g_adapt_uS",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_delay_ring_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_delay_ring_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_delay_ring",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_neural_ring_i_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_ring_i_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_neural_ring_i",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_mn_rates_hz_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_mn_rates_hz_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_mn_rates_hz",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_predictor_history_rates_hz_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_history_rates_hz_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_history_rates_hz",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_predictor_observations_seen_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_observations_seen_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_observations_seen",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_predictor_lags_bins_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_lags_bins_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_lags_bins",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "handover_predictor_bin_ms_shape",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_bin_ms_finite",
+      "passed": true
+    },
+    {
+      "name": "handover_predictor_bin_ms",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "trace_encoder_current",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "trace_MN_start_rate",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "trace_MN_start_voltage",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "trace_runtime_feature",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "trace_runtime_action",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "neural_final_v_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_v_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_v",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_ge_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_ge_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_ge",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_gi_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_gi_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_gi",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_g_adapt_uS_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_g_adapt_uS_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_g_adapt_uS",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_refractory_until_ms_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_refractory_until_ms_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_refractory_until_ms",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_spike_count_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_spike_count_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_spike_count",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_delay_ring_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_delay_ring_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_delay_ring",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_ring_i_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_ring_i_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_ring_i",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_filtered_rates_hz_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_filtered_rates_hz_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_filtered_rates_hz",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "neural_final_steps_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_final_steps_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_final_steps",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "predictor_final_history_rates_hz_shape",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_history_rates_hz_finite",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_history_rates_hz",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "predictor_final_observations_seen_shape",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_observations_seen_finite",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_observations_seen",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "predictor_final_lags_bins_shape",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_lags_bins_finite",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_lags_bins",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "predictor_final_bin_ms_shape",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_bin_ms_finite",
+      "passed": true
+    },
+    {
+      "name": "predictor_final_bin_ms",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "voltage_range_shape",
+      "passed": true
+    },
+    {
+      "name": "voltage_range_finite",
+      "passed": true
+    },
+    {
+      "name": "voltage_range",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "6000_steps",
+      "passed": true
+    },
+    {
+      "name": "MN_spikes_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_spikes_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_spikes",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "active_MN_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0
+    },
+    {
+      "name": "no_physics_fit_runner_imports",
+      "passed": true
+    }
+  ],
+  "trace_max_abs_errors": {
+    "encoder_current": 0.0,
+    "MN_start_rate": 0.0,
+    "MN_start_voltage": 0.0,
+    "runtime_feature": 0.0,
+    "runtime_action": 0.0
+  },
+  "actual_neural_replay_steps": 6000,
+  "new_physical_steps": 0,
+  "new_fit_solves": 0,
+  "voltage_range_mV": [
+    -76.59657683973461,
+    -50.00000827503166
+  ],
+  "voltage_minus90_sanity_pass": true,
+  "biological_calibration": "NOT_ESTABLISHED",
+  "historical_hold_body_contract_matches": true,
+  "historical_hold_neural_comparison": false,
+  "warmup_qpos_max_error": 0.0,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/verify_pilot.py": "5ec400609ed92b4d4f663a11abb90c55aacd75f65ec0ff15b8fbe2febb03783c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/verify_cases.py": "127086fe6297705e0793971d2b2b340f52e7a6521993ad7626bc31238b61951e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/runtime.py": "95a228a905ba8488cdf314ca72aa810b16f3fb337018abcfd357b682e5a9fc62",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/PILOT_REPLAY_PREREG.json": "9b2bf41f286117ec1e6496e03e066c57bfe6928c2980d45ee41acc96bbdf1be5",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/MODEL.mjb": "650739ec8a1f6af919f1b3fa6904acfd2dbf046e35ca10e49adf28841f6c58ea",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/COMMANDS.npz": "89959830c2bac609283b6d087ccbc7a87519a4b4ec9f390ef2434f8c24345c28",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/HANDOVER.npz": "4f66a3be43411cf8e657249217b35d5e2e0345caa849a368535bf705b34789ff",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/READOUT_FINAL.npz": "011c123b505eab33e2aab9fdfecad83e5bc9d8b7d96b59c9a9756d37c0eff837",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/NEURAL_FINAL.npz": "ca50d9a7550e677e1b969c634277c3ce35ab129770516446bdcea73d8d893651",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/SLIP.npz": "d3f2c0edbc868875d2a8947bd1f6e5d7181292747d65214eda8efc76e49bafac",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/NATIVE.npz": "81d7245fd4b5e3b52863a2bfefd970a7af499f6f6dd2554e548ede2f6cb790f7",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/BODY.npz": "1802b118b34b676311666c5b04993398c7e9d2efb0eea44e283525266fe5ad66",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/PROTOCOL.json": "bc6f15bf16b0d7365f75d4ba6a8c65234c0208894d169d3afe900e98254c39cc",
+    "/home/sensen/Desktop/engine\u4fee\u590d\u9a8c\u6536/banc-local-learning/20261107T192931Z/closed_loop/POLICY.npz": "a29966f16ab47d3a33bf4ae95cef84eefe907a63ef5868450aadce27153a0691",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/run_closed_loop.py": "88c324c7a7b4a1c8ab016ed93f352ce5146fbbfaae0e44ad1c5a52ba3182e126",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/INDEPENDENT_VERIFICATION.json": "d292bc621773b62e07465102ce07ac19e17c32e18839273dced0fb6d1744ab1c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/learning/cases/newhistory/MODEL.npz": "0474b070a8576229a2878f890225f4b081684ca85cef9e6dca9beb8c240118c6"
+  },
+  "wall_s": 4.078778191993479
+}

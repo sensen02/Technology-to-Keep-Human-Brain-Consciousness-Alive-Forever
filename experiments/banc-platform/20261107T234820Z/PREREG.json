@@ -1,0 +1,36 @@
+{
+  "schema": "round13-platform-skeleton/1",
+  "scope": "First-version platform skeleton around the frozen body and the frozen connectome module: internal energy state, a declared virtual food patch, a mouth-contact feeding gate, and a two-choice behaviour selector. No body/XML change, no new collision geometry, no neural change, no injury, no acceptance change.",
+  "what_is_engineering_and_what_is_not": {
+    "connectome_module": "frozen 20k strict module (192931Z core) - unchanged; currently produces no usable walking drive (rounds 10-13)",
+    "body": "frozen 42-joint incremental-actuator full body, unmodified XML",
+    "energy_state": "ENGINEERING rule, declared parameters, not a measured fly metabolic model",
+    "food_patch": "ENGINEERING virtual volume (position + radius + mass). There is NO food geometry in the frozen body and no collision with food; feeding is gated on mouth-part proximity computed from model kinematics",
+    "feeding_gate": "ENGINEERING rule: intake requires mouth-part proximity to the food patch; no chewing or proboscis mechanics exist in this body",
+    "behaviour_selector": "ENGINEERING threshold rule on the declared energy state, explicitly NOT a neural circuit and NOT presented as one"
+  },
+  "why": "The approved plan puts foraging, feeding, internal state and behavioural choice in the first platform version, with injury experiments only after the platform exists and the pre-injury model is frozen. Rounds 10-13 showed the connectome module cannot walk in this reconstruction, so the platform is built around that honest limitation rather than around a manufactured gait.",
+  "frozen_sources": {
+    "body_model": "/home/sensen/Desktop/engine修复验收/s5-joint-torque-plant/20261105T060730Z/MODEL_JOINT_TORQUE.xml",
+    "actuator": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/incremental_actuator.py",
+    "plant": "/run/media/sensen/Data2/cell_wound_prototype/experiments/s5-ann-incremental/20261107T010000Z/plant_probe.py",
+    "neural_foundation": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-physical-learning/20261107T195435Z/foundation/runtime.py",
+    "neural_core": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py"
+  },
+  "units_and_thresholds": {
+    "energy": "declared units 0..1, initial 0.6, metabolic drain 0.02 per simulated second, intake 0.25 per simulated second while the feeding gate is open, clamped to [0,1]",
+    "hunger_drive": "1 - energy",
+    "food_patch": "radius 0.004 native length units around a declared point; total mass 1.0, consumed at the intake rate",
+    "forage_threshold": "energy < 0.5 selects foraging; feeding requires energy < 0.95 and mouth proximity",
+    "explicit_note": "These numbers are declared engineering constants for testing platform logic; they are not calibrated to fly metabolism, food detection distance, or feeding rate."
+  },
+  "checks_fixed_in_advance": {
+    "state": "energy stays inside [0,1] under drain, intake, and simultaneous drain+intake; accumulation is not double-counted",
+    "food": "food mass never goes negative; intake stops at zero mass; energy cannot rise without food present",
+    "gate": "feeding requires mouth proximity; without proximity energy only decreases",
+    "selector": "forage/feed/rest decisions are a deterministic function of the declared state, with the exact table recorded",
+    "labels": "every recorded episode states which layer produced the movement command (connectome module) and which layer produced the behaviour decision (engineering selector)"
+  },
+  "limits": "This is a platform skeleton for testing state/food/behaviour wiring, not a fly. Virtual food means there is no contact mechanics with food; the connectome module does not walk; no neural claim is made for the selector, the energy model or the intake rule. No injury or surgery. Physics uses the frozen body and the frozen actuator conventions only.",
+  "not_done_here": "No injury experiment, no ANN locomotion controller, no change to the connectome module, no claim that feeding is biophysically modelled."
+}

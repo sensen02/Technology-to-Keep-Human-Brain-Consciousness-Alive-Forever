@@ -1,0 +1,30 @@
+{
+  "source_model": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-state-curriculum/20261109T190000Z/MODEL_sc.npz",
+  "source_model_sha256": "0bc0b5e04b0685e3335d984783762bb59554a8d80b187a3cb49ff969842fdea9",
+  "pad_xml": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml",
+  "pad_xml_sha256": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+  "states": 600,
+  "sampled_every_ticks": 10,
+  "assist_ticks": 1000,
+  "release_ticks": 3000,
+  "com_range": [
+    0.9564091246665043,
+    1.0436267563257908
+  ],
+  "support_range": [
+    0.9916620131492865,
+    2.00634375090076
+  ],
+  "nonfoot_max": 1.9551580554695163,
+  "rollouts": 2,
+  "bank_support_range": [
+    0.9916620131492865,
+    2.00634375090076
+  ],
+  "bank_com_range": [
+    0.9564091246665043,
+    1.0436267563257908
+  ],
+  "fraction_support_below_090": 0.0,
+  "note": "states recorded from our own simulation during the release phase; no external generator, no replay of commands"
+}

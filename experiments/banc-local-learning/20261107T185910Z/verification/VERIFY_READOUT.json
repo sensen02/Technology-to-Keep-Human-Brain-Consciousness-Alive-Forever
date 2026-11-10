@@ -1,0 +1,1756 @@
+{
+  "status": "PASS_ENGINEERING_REPLAY_NOT_CALIBRATION",
+  "mode": "readout",
+  "checks_passed": 278,
+  "checks": [
+    {
+      "name": "hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/LEARNING_PREREGISTRATION.json",
+      "passed": true
+    },
+    {
+      "name": "hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py",
+      "passed": true
+    },
+    {
+      "name": "hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/CHOSEN_CONFIG.json",
+      "passed": true
+    },
+    {
+      "name": "hash_/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py",
+      "passed": true
+    },
+    {
+      "name": "hash_/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/BODY.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/NATIVE.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/COMMANDS.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout/MODEL.npz",
+      "passed": true
+    },
+    {
+      "name": "hash_/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout/TRAIN_TRACE.npz",
+      "passed": true
+    },
+    {
+      "name": "local_root_order_shape",
+      "passed": true
+    },
+    {
+      "name": "local_root_order_finite",
+      "passed": true
+    },
+    {
+      "name": "local_root_order",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "qualified_ports_subset",
+      "passed": true
+    },
+    {
+      "name": "frozen_fallback_not_calibration",
+      "passed": true
+    },
+    {
+      "name": "no_physics_or_trainer_import",
+      "passed": true
+    },
+    {
+      "name": "readout_weight_shape",
+      "passed": true
+    },
+    {
+      "name": "readout_finite_bounded",
+      "passed": true
+    },
+    {
+      "name": "MN_local_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_local_identity_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_local_identity",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "MN_root_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_root_identity_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_root_identity",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "MN_leg_identity_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_leg_identity",
+      "passed": true
+    },
+    {
+      "name": "actual42_joint_order_shape",
+      "passed": true
+    },
+    {
+      "name": "actual42_joint_order",
+      "passed": true
+    },
+    {
+      "name": "engineering_scales",
+      "passed": true
+    },
+    {
+      "name": "zero_bias_shape",
+      "passed": true
+    },
+    {
+      "name": "zero_bias_finite",
+      "passed": true
+    },
+    {
+      "name": "zero_bias",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "same_leg_only_mask",
+      "passed": true,
+      "allowed_parameter_count": 2261
+    },
+    {
+      "name": "silent_MN_zero_action_shape",
+      "passed": true
+    },
+    {
+      "name": "silent_MN_zero_action_finite",
+      "passed": true
+    },
+    {
+      "name": "silent_MN_zero_action",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "sample_count_1817",
+      "passed": true
+    },
+    {
+      "name": "exact_source_q_velocity_foot_rows_shape",
+      "passed": true
+    },
+    {
+      "name": "exact_source_q_velocity_foot_rows_finite",
+      "passed": true
+    },
+    {
+      "name": "exact_source_q_velocity_foot_rows",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "source_start_time_shape",
+      "passed": true
+    },
+    {
+      "name": "source_start_time_finite",
+      "passed": true
+    },
+    {
+      "name": "source_start_time",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "independent_five_ms_mean_applied_labels_shape",
+      "passed": true
+    },
+    {
+      "name": "independent_five_ms_mean_applied_labels_finite",
+      "passed": true
+    },
+    {
+      "name": "independent_five_ms_mean_applied_labels",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "qualified_current_local_indices_shape",
+      "passed": true
+    },
+    {
+      "name": "qualified_current_local_indices_finite",
+      "passed": true
+    },
+    {
+      "name": "qualified_current_local_indices",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "current_shape",
+      "passed": true
+    },
+    {
+      "name": "current_bounds",
+      "passed": true
+    },
+    {
+      "name": "train_rows_shape",
+      "passed": true
+    },
+    {
+      "name": "train_rows_finite",
+      "passed": true
+    },
+    {
+      "name": "train_rows",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "temporal_rows_shape",
+      "passed": true
+    },
+    {
+      "name": "temporal_rows_finite",
+      "passed": true
+    },
+    {
+      "name": "temporal_rows",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "temporal_split_counts",
+      "passed": true
+    },
+    {
+      "name": "discarded_tail_three_ms",
+      "passed": true
+    },
+    {
+      "name": "independent_readout_predictions_shape",
+      "passed": true
+    },
+    {
+      "name": "independent_readout_predictions_finite",
+      "passed": true
+    },
+    {
+      "name": "independent_readout_predictions",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "metric_train_RMS_rad_s_shape",
+      "passed": true
+    },
+    {
+      "name": "metric_train_RMS_rad_s_finite",
+      "passed": true
+    },
+    {
+      "name": "metric_train_RMS_rad_s",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "metric_temporal_RMS_rad_s_shape",
+      "passed": true
+    },
+    {
+      "name": "metric_temporal_RMS_rad_s_finite",
+      "passed": true
+    },
+    {
+      "name": "metric_temporal_RMS_rad_s",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "metric_zero_baseline_temporal_RMS_rad_s_shape",
+      "passed": true
+    },
+    {
+      "name": "metric_zero_baseline_temporal_RMS_rad_s_finite",
+      "passed": true
+    },
+    {
+      "name": "metric_zero_baseline_temporal_RMS_rad_s",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "per_joint_temporal_RMS_shape",
+      "passed": true
+    },
+    {
+      "name": "per_joint_temporal_RMS_finite",
+      "passed": true
+    },
+    {
+      "name": "per_joint_temporal_RMS",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFCoxa_yaw",
+      "passed": true,
+      "residual": 1.1065107163865662e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFCoxa_pitch",
+      "passed": true,
+      "residual": 1.1002483646382899e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFCoxa_roll",
+      "passed": true,
+      "residual": 1.4712710216802094e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFCoxa_roll",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFTrochanter_yaw",
+      "passed": true,
+      "residual": 1.1479706074624119e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFTrochanter_pitch",
+      "passed": true,
+      "residual": 5.43017020238068e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFTrochanter_roll",
+      "passed": true,
+      "residual": 8.18858869600092e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LFTibia_pitch",
+      "passed": true,
+      "residual": 7.469302953921897e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LFTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LFTibia_pitch",
+      "passed": true,
+      "max_abs_error": 7.105427357601002e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHCoxa_yaw",
+      "passed": true,
+      "residual": 3.167049955621337e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHCoxa_pitch",
+      "passed": true,
+      "residual": 1.3412413540914159e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHCoxa_roll",
+      "passed": true,
+      "residual": 1.5309585196798814e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHCoxa_roll",
+      "passed": true,
+      "max_abs_error": 1.1102230246251565e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHTrochanter_yaw",
+      "passed": true,
+      "residual": 2.1228921398552814e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHTrochanter_pitch",
+      "passed": true,
+      "residual": 2.4751728444627474e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 7.105427357601002e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHTrochanter_roll",
+      "passed": true,
+      "residual": 9.910752774011655e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LHTibia_pitch",
+      "passed": true,
+      "residual": 3.2970917662744625e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LHTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LHTibia_pitch",
+      "passed": true,
+      "max_abs_error": 3.552713678800501e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMCoxa_yaw",
+      "passed": true,
+      "residual": 1.4384327062799684e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMCoxa_pitch",
+      "passed": true,
+      "residual": 1.401517790711182e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 3.552713678800501e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMCoxa_roll",
+      "passed": true,
+      "residual": 3.3439830765535916e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMCoxa_roll",
+      "passed": true,
+      "max_abs_error": 5.551115123125783e-17,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMTrochanter_yaw",
+      "passed": true,
+      "residual": 4.3306504216023e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMTrochanter_pitch",
+      "passed": true,
+      "residual": 5.937611513573415e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 3.552713678800501e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMTrochanter_roll",
+      "passed": true,
+      "residual": 1.8001225510211327e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_LMTibia_pitch",
+      "passed": true,
+      "residual": 5.327509267072372e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_LMTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_LMTibia_pitch",
+      "passed": true,
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFCoxa_roll",
+      "passed": true,
+      "residual": 8.088061470568064e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_roll",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFCoxa_yaw",
+      "passed": true,
+      "residual": 2.2562975793283258e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFCoxa_pitch",
+      "passed": true,
+      "residual": 5.556683585483668e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFTrochanter_yaw",
+      "passed": true,
+      "residual": 2.5970232908623103e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFTrochanter_pitch",
+      "passed": true,
+      "residual": 8.16017392546442e-12,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFTrochanter_roll",
+      "passed": true,
+      "residual": 8.031353360138382e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RFTibia_pitch",
+      "passed": true,
+      "residual": 1.1478755446159283e-11,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RFTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RFTibia_pitch",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHCoxa_yaw",
+      "passed": true,
+      "residual": 1.0846358533544986e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHCoxa_pitch",
+      "passed": true,
+      "residual": 5.060188379424346e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHCoxa_roll",
+      "passed": true,
+      "residual": 3.2278346662195645e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHCoxa_roll",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHTrochanter_yaw",
+      "passed": true,
+      "residual": 2.8123336992535997e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHTrochanter_pitch",
+      "passed": true,
+      "residual": 2.438188539954922e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHTrochanter_roll",
+      "passed": true,
+      "residual": 4.2750525341972434e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RHTibia_pitch",
+      "passed": true,
+      "residual": 7.875783358812782e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RHTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RHTibia_pitch",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMCoxa_yaw",
+      "passed": true,
+      "residual": 6.08970366961539e-21,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_yaw",
+      "passed": true,
+      "max_abs_error": 5.048709793414476e-29,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMCoxa_pitch",
+      "passed": true,
+      "residual": 2.508999952244295e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_pitch",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMCoxa_roll",
+      "passed": true,
+      "residual": 1.4525707026091794e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMCoxa_roll",
+      "passed": true,
+      "max_abs_error": 1.3322676295501878e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMTrochanter_yaw",
+      "passed": true,
+      "residual": 2.650830943640159e-14,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_yaw_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_yaw_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_yaw",
+      "passed": true,
+      "max_abs_error": 1.1102230246251565e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMTrochanter_pitch",
+      "passed": true,
+      "residual": 1.9984014443252818e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_pitch",
+      "passed": true,
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMTrochanter_roll",
+      "passed": true,
+      "residual": 1.7570667143473884e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_roll_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_roll_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTrochanter_roll",
+      "passed": true,
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "KKT_projected_gradient_joint_RMTibia_pitch",
+      "passed": true,
+      "residual": 1.0474260347947961e-13,
+      "tolerance": 1e-06
+    },
+    {
+      "name": "ridge_objective_joint_RMTibia_pitch_shape",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTibia_pitch_finite",
+      "passed": true
+    },
+    {
+      "name": "ridge_objective_joint_RMTibia_pitch",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10
+    },
+    {
+      "name": "encoder_current_nA_entire_trace_exact",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "MN_start_rates_hz_entire_trace_exact",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "MN_start_voltage_mV_entire_trace_exact",
+      "passed": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "exact_replay_neural_step_count",
+      "passed": true
+    },
+    {
+      "name": "neural_time_ms_shape",
+      "passed": true
+    },
+    {
+      "name": "neural_time_ms_finite",
+      "passed": true
+    },
+    {
+      "name": "neural_time_ms",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "full_interval_end_voltage_range_shape",
+      "passed": true
+    },
+    {
+      "name": "full_interval_end_voltage_range_finite",
+      "passed": true
+    },
+    {
+      "name": "full_interval_end_voltage_range",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "MN_spikes_shape",
+      "passed": true
+    },
+    {
+      "name": "MN_spikes_finite",
+      "passed": true
+    },
+    {
+      "name": "MN_spikes",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "all_spikes_shape",
+      "passed": true
+    },
+    {
+      "name": "all_spikes_finite",
+      "passed": true
+    },
+    {
+      "name": "all_spikes",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_count_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_count_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_count",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_lf_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lf_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lf",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_lh_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lh_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lh",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_lm_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lm_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_lm",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_rf_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rf_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rf",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_rh_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rh_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rh",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    },
+    {
+      "name": "active_MN_rm_shape",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rm_finite",
+      "passed": true
+    },
+    {
+      "name": "active_MN_rm",
+      "passed": true,
+      "max_abs_error": 0.0,
+      "tolerance": 0.0
+    }
+  ],
+  "max_abs_errors": {
+    "local_root_order": 0.0,
+    "MN_local_identity": 0.0,
+    "MN_root_identity": 0.0,
+    "zero_bias": 0.0,
+    "silent_MN_zero_action": 0.0,
+    "exact_source_q_velocity_foot_rows": 0.0,
+    "source_start_time": 0.0,
+    "independent_five_ms_mean_applied_labels": 0.0,
+    "qualified_current_local_indices": 0.0,
+    "train_rows": 0.0,
+    "temporal_rows": 0.0,
+    "independent_readout_predictions": 0.0,
+    "metric_train_RMS_rad_s": 0.0,
+    "metric_temporal_RMS_rad_s": 0.0,
+    "metric_zero_baseline_temporal_RMS_rad_s": 0.0,
+    "per_joint_temporal_RMS": 0.0,
+    "ridge_objective_joint_LFCoxa_yaw": 0.0,
+    "ridge_objective_joint_LFCoxa_pitch": 8.881784197001252e-16,
+    "ridge_objective_joint_LFCoxa_roll": 8.881784197001252e-16,
+    "ridge_objective_joint_LFTrochanter_yaw": 0.0,
+    "ridge_objective_joint_LFTrochanter_pitch": 1.7763568394002505e-15,
+    "ridge_objective_joint_LFTrochanter_roll": 0.0,
+    "ridge_objective_joint_LFTibia_pitch": 7.105427357601002e-15,
+    "ridge_objective_joint_LHCoxa_yaw": 8.881784197001252e-16,
+    "ridge_objective_joint_LHCoxa_pitch": 8.881784197001252e-16,
+    "ridge_objective_joint_LHCoxa_roll": 1.1102230246251565e-16,
+    "ridge_objective_joint_LHTrochanter_yaw": 1.7763568394002505e-15,
+    "ridge_objective_joint_LHTrochanter_pitch": 7.105427357601002e-15,
+    "ridge_objective_joint_LHTrochanter_roll": 0.0,
+    "ridge_objective_joint_LHTibia_pitch": 3.552713678800501e-15,
+    "ridge_objective_joint_LMCoxa_yaw": 8.881784197001252e-16,
+    "ridge_objective_joint_LMCoxa_pitch": 3.552713678800501e-15,
+    "ridge_objective_joint_LMCoxa_roll": 5.551115123125783e-17,
+    "ridge_objective_joint_LMTrochanter_yaw": 0.0,
+    "ridge_objective_joint_LMTrochanter_pitch": 3.552713678800501e-15,
+    "ridge_objective_joint_LMTrochanter_roll": 8.881784197001252e-16,
+    "ridge_objective_joint_LMTibia_pitch": 4.440892098500626e-16,
+    "ridge_objective_joint_RFCoxa_roll": 0.0,
+    "ridge_objective_joint_RFCoxa_yaw": 4.440892098500626e-16,
+    "ridge_objective_joint_RFCoxa_pitch": 1.7763568394002505e-15,
+    "ridge_objective_joint_RFTrochanter_yaw": 0.0,
+    "ridge_objective_joint_RFTrochanter_pitch": 0.0,
+    "ridge_objective_joint_RFTrochanter_roll": 0.0,
+    "ridge_objective_joint_RFTibia_pitch": 1.7763568394002505e-15,
+    "ridge_objective_joint_RHCoxa_yaw": 0.0,
+    "ridge_objective_joint_RHCoxa_pitch": 4.440892098500626e-16,
+    "ridge_objective_joint_RHCoxa_roll": 0.0,
+    "ridge_objective_joint_RHTrochanter_yaw": 4.440892098500626e-16,
+    "ridge_objective_joint_RHTrochanter_pitch": 1.7763568394002505e-15,
+    "ridge_objective_joint_RHTrochanter_roll": 1.7763568394002505e-15,
+    "ridge_objective_joint_RHTibia_pitch": 0.0,
+    "ridge_objective_joint_RMCoxa_yaw": 5.048709793414476e-29,
+    "ridge_objective_joint_RMCoxa_pitch": 1.7763568394002505e-15,
+    "ridge_objective_joint_RMCoxa_roll": 1.3322676295501878e-15,
+    "ridge_objective_joint_RMTrochanter_yaw": 1.1102230246251565e-16,
+    "ridge_objective_joint_RMTrochanter_pitch": 8.881784197001252e-16,
+    "ridge_objective_joint_RMTrochanter_roll": 1.7763568394002505e-15,
+    "ridge_objective_joint_RMTibia_pitch": 0.0,
+    "encoder_current_nA": 0.0,
+    "MN_start_rates_hz": 0.0,
+    "MN_start_voltage_mV": 0.0,
+    "neural_time_ms": 0.0,
+    "full_interval_end_voltage_range": 0.0,
+    "MN_spikes": 0.0,
+    "all_spikes": 0.0,
+    "active_MN_count": 0.0,
+    "active_MN_lf": 0.0,
+    "active_MN_lh": 0.0,
+    "active_MN_lm": 0.0,
+    "active_MN_rf": 0.0,
+    "active_MN_rh": 0.0,
+    "active_MN_rm": 0.0
+  },
+  "actual_neural_replay_steps": 18170,
+  "new_learning_updates": 0,
+  "new_physical_steps": 0,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/LEARNING_PREREGISTRATION.json": "b8c3e67abd981f6a25900e724cedbd1ec7b41f98ec498598bb9fbe88c106ad87",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/module.py": "3443853d8ebe725f8fedcb2e022b53ca4ed470d87f06a8d3ed71fa049f150676",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/dynamics/CHOSEN_CONFIG.json": "74148fe62655d827dbbfba2fa176ffd1db24eecfac9a9291382f1cb8de1dca76",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/encoder/encoder.py": "67757faab55bfc961b30bf2601a91a474c27fb4979fa73993a650c05aee17054",
+    "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/BODY.npz": "0983c68cfbcdb48a0c8ce2b77a07d064e976640af6c2344b1095dc989cc3c181",
+    "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/NATIVE.npz": "6a2a6a73390a2ef0170d638e0b7a97dcbcfa77609933faebb63a26e26f4b7a6c",
+    "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/COMMANDS.npz": "b65fb015dbe2a0621f5c51ca4befa6b33693193de5e19aa2ee2630d4fb024c13",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout/MODEL.npz": "5113fe7aa7a9bb9df83fb0d4152e102d9dca6c11cac233baebdfcc39814b7c54",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout/TRAIN_TRACE.npz": "ebf1f3a40c258c9f42cd8e096347e0ab00c7eef79f016ca1aa9e21851abee20a",
+    "/home/sensen/Desktop/engine修复验收/banc-local-learning/20261107T185910Z/readout/RESULT.json": "72ff8ecf7c6527d249ef812aebf0fdfe487a491d68b993005978efb5c734f088",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/verification/PREREG.json": "ed4be95a95eb50ecbcc22b193ae1c79aa1452b6a49582f2cb8064dcbf42fafc8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T185910Z/verification/verify_saved.py": "b52e8bc74a3b586d82a282cc9d35d2c1fe0f54fce465596210f2632c9cb14d60",
+    "/home/sensen/Desktop/engine修复验收/flybody-retarget/20261107T182940Z/teacherderived_slow4_physics/INITIAL.npz": "1cbd78e14cbfb57c42206ef7ade4c4091e1b6c4615fa16341ec45cb984b5c940"
+  },
+  "wall_s": 12.1398538419744,
+  "runtime": {
+    "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+    "executable": "/run/media/sensen/Data2/cell_wound_prototype/venv_body/bin/python",
+    "numpy": "2.5.3"
+  },
+  "biological_calibration": "CALIBRATION_FAILED; fixed .02 fallback only",
+  "walking_claim": false,
+  "samples": 1817,
+  "metrics": {
+    "train_RMS_rad_s": 3.1983161147166013,
+    "temporal_RMS_rad_s": 3.6848873470228107,
+    "zero_baseline_temporal_RMS_rad_s": 3.6618457263912414
+  },
+  "kkt": [
+    {
+      "joint": "joint_LFCoxa_yaw",
+      "projected_gradient_residual": 1.1065107163865662e-13,
+      "raw_active_set_KKT_residual": 1.1065107163865662e-13,
+      "bound_active_cells": 0,
+      "objective": 4.259166749415812
+    },
+    {
+      "joint": "joint_LFCoxa_pitch",
+      "projected_gradient_residual": 1.1002483646382899e-14,
+      "raw_active_set_KKT_residual": 1.1002483646382899e-14,
+      "bound_active_cells": 0,
+      "objective": 5.304780887445289
+    },
+    {
+      "joint": "joint_LFCoxa_roll",
+      "projected_gradient_residual": 1.4712710216802094e-13,
+      "raw_active_set_KKT_residual": 1.4712710216802094e-13,
+      "bound_active_cells": 0,
+      "objective": 3.0809489806353247
+    },
+    {
+      "joint": "joint_LFTrochanter_yaw",
+      "projected_gradient_residual": 1.1479706074624119e-13,
+      "raw_active_set_KKT_residual": 1.1479706074624119e-13,
+      "bound_active_cells": 0,
+      "objective": 3.469514040196862
+    },
+    {
+      "joint": "joint_LFTrochanter_pitch",
+      "projected_gradient_residual": 5.43017020238068e-13,
+      "raw_active_set_KKT_residual": 5.43017020238068e-13,
+      "bound_active_cells": 0,
+      "objective": 13.605309837717813
+    },
+    {
+      "joint": "joint_LFTrochanter_roll",
+      "projected_gradient_residual": 8.18858869600092e-14,
+      "raw_active_set_KKT_residual": 8.18858869600092e-14,
+      "bound_active_cells": 0,
+      "objective": 3.4049166900561367
+    },
+    {
+      "joint": "joint_LFTibia_pitch",
+      "projected_gradient_residual": 7.469302953921897e-13,
+      "raw_active_set_KKT_residual": 7.469302953921897e-13,
+      "bound_active_cells": 0,
+      "objective": 20.68772614388937
+    },
+    {
+      "joint": "joint_LHCoxa_yaw",
+      "projected_gradient_residual": 3.167049955621337e-13,
+      "raw_active_set_KKT_residual": 3.167049955621337e-13,
+      "bound_active_cells": 0,
+      "objective": 6.859930694160684
+    },
+    {
+      "joint": "joint_LHCoxa_pitch",
+      "projected_gradient_residual": 1.3412413540914159e-12,
+      "raw_active_set_KKT_residual": 1.3412413540914159e-12,
+      "bound_active_cells": 0,
+      "objective": 6.257262785276754
+    },
+    {
+      "joint": "joint_LHCoxa_roll",
+      "projected_gradient_residual": 1.5309585196798814e-13,
+      "raw_active_set_KKT_residual": 1.5309585196798814e-13,
+      "bound_active_cells": 0,
+      "objective": 0.7148912534550144
+    },
+    {
+      "joint": "joint_LHTrochanter_yaw",
+      "projected_gradient_residual": 2.1228921398552814e-12,
+      "raw_active_set_KKT_residual": 2.1228921398552814e-12,
+      "bound_active_cells": 0,
+      "objective": 11.808362394885997
+    },
+    {
+      "joint": "joint_LHTrochanter_pitch",
+      "projected_gradient_residual": 2.4751728444627474e-12,
+      "raw_active_set_KKT_residual": 2.4751728444627474e-12,
+      "bound_active_cells": 0,
+      "objective": 19.184185010984695
+    },
+    {
+      "joint": "joint_LHTrochanter_roll",
+      "projected_gradient_residual": 9.910752774011655e-13,
+      "raw_active_set_KKT_residual": 9.910752774011655e-13,
+      "bound_active_cells": 0,
+      "objective": 9.834343926573627
+    },
+    {
+      "joint": "joint_LHTibia_pitch",
+      "projected_gradient_residual": 3.2970917662744625e-12,
+      "raw_active_set_KKT_residual": 3.2970917662744625e-12,
+      "bound_active_cells": 0,
+      "objective": 19.296743762732753
+    },
+    {
+      "joint": "joint_LMCoxa_yaw",
+      "projected_gradient_residual": 1.4384327062799684e-14,
+      "raw_active_set_KKT_residual": 1.4384327062799684e-14,
+      "bound_active_cells": 0,
+      "objective": 7.1148835894866
+    },
+    {
+      "joint": "joint_LMCoxa_pitch",
+      "projected_gradient_residual": 1.401517790711182e-13,
+      "raw_active_set_KKT_residual": 1.401517790711182e-13,
+      "bound_active_cells": 0,
+      "objective": 10.064672010292194
+    },
+    {
+      "joint": "joint_LMCoxa_roll",
+      "projected_gradient_residual": 3.3439830765535916e-14,
+      "raw_active_set_KKT_residual": 3.3439830765535916e-14,
+      "bound_active_cells": 0,
+      "objective": 0.47710500702878056
+    },
+    {
+      "joint": "joint_LMTrochanter_yaw",
+      "projected_gradient_residual": 4.3306504216023e-14,
+      "raw_active_set_KKT_residual": 4.3306504216023e-14,
+      "bound_active_cells": 0,
+      "objective": 5.368805298638584
+    },
+    {
+      "joint": "joint_LMTrochanter_pitch",
+      "projected_gradient_residual": 5.937611513573415e-14,
+      "raw_active_set_KKT_residual": 5.937611513573415e-14,
+      "bound_active_cells": 0,
+      "objective": 10.594959097381565
+    },
+    {
+      "joint": "joint_LMTrochanter_roll",
+      "projected_gradient_residual": 1.8001225510211327e-14,
+      "raw_active_set_KKT_residual": 1.8001225510211327e-14,
+      "bound_active_cells": 0,
+      "objective": 2.92751123576173
+    },
+    {
+      "joint": "joint_LMTibia_pitch",
+      "projected_gradient_residual": 5.327509267072372e-14,
+      "raw_active_set_KKT_residual": 5.327509267072372e-14,
+      "bound_active_cells": 0,
+      "objective": 3.197126728001968
+    },
+    {
+      "joint": "joint_RFCoxa_roll",
+      "projected_gradient_residual": 8.088061470568064e-13,
+      "raw_active_set_KKT_residual": 8.088061470568064e-13,
+      "bound_active_cells": 0,
+      "objective": 4.611739149387621
+    },
+    {
+      "joint": "joint_RFCoxa_yaw",
+      "projected_gradient_residual": 2.2562975793283258e-12,
+      "raw_active_set_KKT_residual": 2.2562975793283258e-12,
+      "bound_active_cells": 0,
+      "objective": 2.4916147400793416
+    },
+    {
+      "joint": "joint_RFCoxa_pitch",
+      "projected_gradient_residual": 5.556683585483668e-13,
+      "raw_active_set_KKT_residual": 5.556683585483668e-13,
+      "bound_active_cells": 0,
+      "objective": 6.199070338213892
+    },
+    {
+      "joint": "joint_RFTrochanter_yaw",
+      "projected_gradient_residual": 2.5970232908623103e-12,
+      "raw_active_set_KKT_residual": 2.5970232908623103e-12,
+      "bound_active_cells": 0,
+      "objective": 3.3346118418904065
+    },
+    {
+      "joint": "joint_RFTrochanter_pitch",
+      "projected_gradient_residual": 8.16017392546442e-12,
+      "raw_active_set_KKT_residual": 8.16017392546442e-12,
+      "bound_active_cells": 0,
+      "objective": 7.107177706548493
+    },
+    {
+      "joint": "joint_RFTrochanter_roll",
+      "projected_gradient_residual": 8.031353360138382e-13,
+      "raw_active_set_KKT_residual": 8.031353360138382e-13,
+      "bound_active_cells": 0,
+      "objective": 4.081266664680439
+    },
+    {
+      "joint": "joint_RFTibia_pitch",
+      "projected_gradient_residual": 1.1478755446159283e-11,
+      "raw_active_set_KKT_residual": 1.1478755446159283e-11,
+      "bound_active_cells": 0,
+      "objective": 7.205791568157679
+    },
+    {
+      "joint": "joint_RHCoxa_yaw",
+      "projected_gradient_residual": 1.0846358533544986e-14,
+      "raw_active_set_KKT_residual": 1.0846358533544986e-14,
+      "bound_active_cells": 0,
+      "objective": 0.8234723821084852
+    },
+    {
+      "joint": "joint_RHCoxa_pitch",
+      "projected_gradient_residual": 5.060188379424346e-14,
+      "raw_active_set_KKT_residual": 5.060188379424346e-14,
+      "bound_active_cells": 0,
+      "objective": 3.9135926171121143
+    },
+    {
+      "joint": "joint_RHCoxa_roll",
+      "projected_gradient_residual": 3.2278346662195645e-13,
+      "raw_active_set_KKT_residual": 3.2278346662195645e-13,
+      "bound_active_cells": 0,
+      "objective": 6.645876596181206
+    },
+    {
+      "joint": "joint_RHTrochanter_yaw",
+      "projected_gradient_residual": 2.8123336992535997e-14,
+      "raw_active_set_KKT_residual": 2.8123336992535997e-14,
+      "bound_active_cells": 0,
+      "objective": 1.1628896222251204
+    },
+    {
+      "joint": "joint_RHTrochanter_pitch",
+      "projected_gradient_residual": 2.438188539954922e-13,
+      "raw_active_set_KKT_residual": 2.438188539954922e-13,
+      "bound_active_cells": 0,
+      "objective": 5.592836979421136
+    },
+    {
+      "joint": "joint_RHTrochanter_roll",
+      "projected_gradient_residual": 4.2750525341972434e-14,
+      "raw_active_set_KKT_residual": 4.2750525341972434e-14,
+      "bound_active_cells": 0,
+      "objective": 11.175891366438435
+    },
+    {
+      "joint": "joint_RHTibia_pitch",
+      "projected_gradient_residual": 7.875783358812782e-13,
+      "raw_active_set_KKT_residual": 7.875783358812782e-13,
+      "bound_active_cells": 0,
+      "objective": 16.90380860702805
+    },
+    {
+      "joint": "joint_RMCoxa_yaw",
+      "projected_gradient_residual": 6.08970366961539e-21,
+      "raw_active_set_KKT_residual": 6.08970366961539e-21,
+      "bound_active_cells": 0,
+      "objective": 3.1342369125864256e-13
+    },
+    {
+      "joint": "joint_RMCoxa_pitch",
+      "projected_gradient_residual": 2.508999952244295e-13,
+      "raw_active_set_KKT_residual": 2.508999952244295e-13,
+      "bound_active_cells": 0,
+      "objective": 9.849543331767627
+    },
+    {
+      "joint": "joint_RMCoxa_roll",
+      "projected_gradient_residual": 1.4525707026091794e-14,
+      "raw_active_set_KKT_residual": 1.4525707026091794e-14,
+      "bound_active_cells": 0,
+      "objective": 2.5297241900326237
+    },
+    {
+      "joint": "joint_RMTrochanter_yaw",
+      "projected_gradient_residual": 2.650830943640159e-14,
+      "raw_active_set_KKT_residual": 2.650830943640159e-14,
+      "bound_active_cells": 0,
+      "objective": 0.9636069651817791
+    },
+    {
+      "joint": "joint_RMTrochanter_pitch",
+      "projected_gradient_residual": 1.9984014443252818e-13,
+      "raw_active_set_KKT_residual": 1.9984014443252818e-13,
+      "bound_active_cells": 0,
+      "objective": 3.8924666924790654
+    },
+    {
+      "joint": "joint_RMTrochanter_roll",
+      "projected_gradient_residual": 1.7570667143473884e-13,
+      "raw_active_set_KKT_residual": 1.7570667143473884e-13,
+      "bound_active_cells": 0,
+      "objective": 14.638034876026179
+    },
+    {
+      "joint": "joint_RMTibia_pitch",
+      "projected_gradient_residual": 1.0474260347947961e-13,
+      "raw_active_set_KKT_residual": 1.0474260347947961e-13,
+      "bound_active_cells": 0,
+      "objective": 6.646192616616015
+    }
+  ],
+  "max_projected_gradient_residual": 1.1478755446159283e-11,
+  "voltage_range_mV": [
+    -108.57438486637766,
+    -50.00000495007871
+  ],
+  "voltage_minus90_sanity_pass": false,
+  "temporal_better_than_zero": false,
+  "reference_status": "failed slow4; temporal sameepisode only",
+  "replay_final_state_note": "Readout did not archive full neural final state; replay-derived snapshot is saved independently, not claimed as original final-state equality."
+}

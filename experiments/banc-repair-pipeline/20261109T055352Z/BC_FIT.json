@@ -1,0 +1,43 @@
+{
+  "label": "imitation error of the saved network by leg and by phase; offline",
+  "note": "the network was saved after PPO, the warm start is not re-run",
+  "per_leg": {
+    "LF": {
+      "mse": 0.153047203951138,
+      "raise_mse": 0.14296038713520956,
+      "swing_mse": 0.2292839179804127,
+      "place_mse": 0.11133990225994457
+    },
+    "LH": {
+      "mse": 0.17843620074494396,
+      "raise_mse": 0.19471940140778887,
+      "swing_mse": 0.15748494193699766,
+      "place_mse": 0.18449367576457373
+    },
+    "LM": {
+      "mse": 0.22383741506000793,
+      "raise_mse": 0.2505817619994884,
+      "swing_mse": 0.3189269400322972,
+      "place_mse": 0.15608596130084218
+    },
+    "RF": {
+      "mse": 0.1861196851832076,
+      "raise_mse": 0.1889071030482206,
+      "swing_mse": 0.36383631722285215,
+      "place_mse": 0.07837473881341564
+    },
+    "RH": {
+      "mse": 0.17852326323641712,
+      "raise_mse": 0.134005540960195,
+      "swing_mse": 0.25683298863118315,
+      "place_mse": 0.1493445169100463
+    },
+    "RM": {
+      "mse": 0.2059546452958646,
+      "raise_mse": 0.15565737635604263,
+      "swing_mse": 0.24847038596675136,
+      "place_mse": 0.20056410846926143
+    }
+  },
+  "mean_mse": 0.18765306891192987
+}

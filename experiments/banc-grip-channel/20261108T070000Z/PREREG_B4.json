@@ -1,0 +1,19 @@
+{
+  "schema": "declarative-adhesion-normal-B4/1",
+  "relation_to_B3": "B3 used a tangential velocity damper and made slip worse (slip max 11.05 -> 82.9 cold, 6.94 -> 36.2 assist). That law was WRONG as an adhesion model: adhesion is a normal attachment force that raises friction, not a tangential damper. B3 numbers stand as recorded; nothing is re-tuned.",
+  "channel": {
+    "name": "adhesion_normal",
+    "force_law": "F = -A * z_hat applied at the contact point of every tarsus that is already in contact with the floor, i.e. a declared attachment that presses the foot into the substrate",
+    "magnitude": "A = 0.5 W per loaded foot, W = the model's own weight",
+    "active_when": "that leg has at least one tarsus-floor contact",
+    "update_rate": "every 0.5 ms",
+    "why_this_shape": "this is the functional form of the official adhesion actuator: it does not push the body sideways, it only holds the foot against the substrate so that the existing Coulomb friction can carry the tangential load",
+    "declared_bound_rationale": "0.5 W per foot is a declared engineering bound, not a calibrated adhesion value; absolute SI remains NOT_ESTABLISHED"
+  },
+  "unchanged": ["frozen body XML and hashes", "gravity, timestep, solver, contacts, joint ranges, actuator gains, torque limits", "controllers, targets and acceptance thresholds"],
+  "acceptance_for_this_probe": {
+    "question": "same as B3: does grip bring per-leg material slip under 0.5 with support above 0.9 and COM above 1.2?",
+    "decision_rule": "report grip OFF and ON side by side; no post-hoc tuning of A or the activation rule",
+    "labelling": "ON = derived-channel, OFF = frozen-body; never mixed"
+  }
+}

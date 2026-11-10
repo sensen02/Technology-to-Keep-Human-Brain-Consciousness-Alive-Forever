@@ -1,0 +1,203 @@
+{
+  "status": "completed",
+  "config": {
+    "name": "B_reference_XY_frozen_at_settled_rest",
+    "teacher": {
+      "scale": 10.0,
+      "vertical_gain": 0.25,
+      "time_warp": 10.0,
+      "source_duration_s": 0.24,
+      "blend_s": 0.5,
+      "tau_xy_s": 0.08,
+      "tau_z_s": 0.08,
+      "height_gain": 2.0,
+      "height_damping": 0.2,
+      "orientation_gain": 1.0,
+      "orientation_damping": 0.1,
+      "vertical_velocity_limit": 2.0,
+      "body_velocity_limit": 0.5,
+      "ridge": 0.01,
+      "posture_gain": 0.05,
+      "command_dt_s": 0.005
+    },
+    "settle_ms": 1000,
+    "diagnostic_ms": 800,
+    "adhesion": false,
+    "sole_intervention": "private reference.sample target_xy=controller.rest[:,:2] and velocity_xy=zeros(6,2)",
+    "preserved": "source stance/swing mask and source Z; common body height/orientation feedback, bounded solver, original physical integration/PD/limits",
+    "early_stop": "COM<1.0 or nonfoot>.2W or numerical/physics exception",
+    "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T063335Z/teacher_diag/B_w10_z025_h2.npz",
+    "comparison": "same common prefix from physical settled start; full new window separately",
+    "scope": "algorithm teacher controller counterfactual; not walking acceptance"
+  },
+  "actual_ticks": 594,
+  "early_stop": "COM<1.0 or nonfoot>.2W",
+  "baseline_actual_ticks": 587,
+  "common_prefix_ticks": 587,
+  "baseline_common_prefix": {
+    "samples": 587,
+    "duration_s": 0.587,
+    "com_min": 0.9983277688282569,
+    "com_end": 0.9983277688282569,
+    "nonfoot_peak_native": 0.0,
+    "support_mean_body_weights": 1.0005639878800336,
+    "support_min_body_weights": 0.9928613129409879,
+    "mean_load_per_leg_body_weights": [
+      0.05751014842157528,
+      0.21018901794651823,
+      0.13545008742474912,
+      0.09787625861451713,
+      0.24505234908304482,
+      0.2544861263896289
+    ],
+    "max_clearance_per_leg_native": [
+      0.0007085578932907247,
+      -0.011820481247101618,
+      -0.008004360771147488,
+      -0.00457941096176797,
+      -0.020484040282227868,
+      -0.021842283004113484
+    ],
+    "clearance_above_015_fraction_per_leg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tracking_error_rms_rad": 0.03607513643597351,
+    "tracking_error_abs_p95_rad": 0.06818905602509283,
+    "tracking_preload_change_rms_rad": 0.019808950415065613,
+    "tracking_error_rms_per_leg": [
+      0.025493163643323612,
+      0.035335627342794926,
+      0.02960507586379987,
+      0.024759066840247732,
+      0.05120256501088013,
+      0.042412383682078746
+    ],
+    "target_drift_norm_rad": 1.5404272746858563,
+    "physical_joint_drift_norm_rad": 1.5834811013491406,
+    "actual_joint_velocity_rms_rad_s": 0.8948947763634191,
+    "target_rate_bound_fraction": 0.14626429788269651,
+    "actual_ctrl_saturation_fraction": 0.0,
+    "reconstructed_raw_PD_saturation_fraction": 0.0,
+    "raw_PD_fraction_abs_p95": 0.34005845726319434,
+    "torque_timing_note": "ctrl fraction is last native substep; reconstructed raw PD uses the 1ms endpoint state"
+  },
+  "XY_frozen_common_prefix": {
+    "samples": 587,
+    "duration_s": 0.587,
+    "com_min": 1.0038021057270068,
+    "com_end": 1.0038021057270068,
+    "nonfoot_peak_native": 0.0,
+    "support_mean_body_weights": 1.0018353403858367,
+    "support_min_body_weights": 0.9998328331706949,
+    "mean_load_per_leg_body_weights": [
+      0.04678871792531909,
+      0.20869383847140557,
+      0.26189822102059807,
+      0.11919802391629178,
+      0.13964682777746054,
+      0.2256097112747614
+    ],
+    "max_clearance_per_leg_native": [
+      0.12364467164019366,
+      -0.01754759959322188,
+      -0.018599617880219348,
+      -0.007029077197608848,
+      -0.010234929637037309,
+      -0.021443620516704835
+    ],
+    "clearance_above_015_fraction_per_leg": [
+      0.08517887563884156,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tracking_error_rms_rad": 0.0353591247024593,
+    "tracking_error_abs_p95_rad": 0.061711011069581635,
+    "tracking_preload_change_rms_rad": 0.018780955772150876,
+    "tracking_error_rms_per_leg": [
+      0.013867601958355702,
+      0.03435114702307411,
+      0.04488144251005065,
+      0.0384113941600989,
+      0.03376533979350889,
+      0.03872230956427553
+    ],
+    "target_drift_norm_rad": 1.4962878587304598,
+    "physical_joint_drift_norm_rad": 1.4775016862433705,
+    "actual_joint_velocity_rms_rad_s": 0.5929517381179719,
+    "target_rate_bound_fraction": 0.07978421351504827,
+    "actual_ctrl_saturation_fraction": 0.0,
+    "reconstructed_raw_PD_saturation_fraction": 0.0,
+    "raw_PD_fraction_abs_p95": 0.3086271854502872,
+    "torque_timing_note": "ctrl fraction is last native substep; reconstructed raw PD uses the 1ms endpoint state"
+  },
+  "XY_frozen_full": {
+    "samples": 594,
+    "duration_s": 0.594,
+    "com_min": 0.9996068804344186,
+    "com_end": 0.9996068804344186,
+    "nonfoot_peak_native": 0.0,
+    "support_mean_body_weights": 1.0018232732660244,
+    "support_min_body_weights": 0.9998328331706949,
+    "mean_load_per_leg_body_weights": [
+      0.04623733572754598,
+      0.20887966821979173,
+      0.26306541743349604,
+      0.11921688996101097,
+      0.13904177648626728,
+      0.22538218543791214
+    ],
+    "max_clearance_per_leg_native": [
+      0.13187410402815714,
+      -0.01754759959322188,
+      -0.018599617880219348,
+      -0.007029077197608848,
+      -0.010234929637037309,
+      -0.021443620516704835
+    ],
+    "clearance_above_015_fraction_per_leg": [
+      0.09595959595959595,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tracking_error_rms_rad": 0.035469550719726545,
+    "tracking_error_abs_p95_rad": 0.06199430898473336,
+    "tracking_preload_change_rms_rad": 0.018963581083201272,
+    "tracking_error_rms_per_leg": [
+      0.013787671628271858,
+      0.034371987324931456,
+      0.045182850381615625,
+      0.0387018514126025,
+      0.03367482371743529,
+      0.03877736123294431
+    ],
+    "target_drift_norm_rad": 1.4786663279585863,
+    "physical_joint_drift_norm_rad": 1.458234448075912,
+    "actual_joint_velocity_rms_rad_s": 0.6078259229880955,
+    "target_rate_bound_fraction": 0.08209074875741543,
+    "actual_ctrl_saturation_fraction": 0.0,
+    "reconstructed_raw_PD_saturation_fraction": 0.0,
+    "raw_PD_fraction_abs_p95": 0.30995019889818665,
+    "torque_timing_note": "ctrl fraction is last native substep; reconstructed raw PD uses the 1ms endpoint state"
+  },
+  "initial_com": [
+    -0.060406983342386006,
+    -0.0003624331068197998,
+    1.4349762858146058
+  ],
+  "npz_sha256": "7d332ddc4e3c5aa9dba19269926e352fa6b3063d20ac51ad64c29b9fbf249c2c",
+  "source_identity_sha256": "d167a315ea9051fa7ac24fa1a5439019ad086065c4201d7d069f02b1ced7c2e2",
+  "wall_s": 17.719925196026452,
+  "scope": "one reference-only intervention; no root/pose writes after reset, no altered physical forces; 1ms endpoint metrics",
+  "independent_artifact_readback": true
+}

@@ -1,0 +1,119 @@
+{
+  "status": "SINGLE_LEG_GAIN_CONTROL",
+  "results": {
+    "LM_gain1": {
+      "driven_leg": "LM",
+      "gain": 1.0,
+      "max_drive_nA": 0.030730015351286277,
+      "driven_leg_hz": 0.0,
+      "per_leg_mean_hz": {
+        "LF": 0.0,
+        "LH": 0.0,
+        "LM": 0.0,
+        "RF": 0.0,
+        "RH": 0.0,
+        "RM": 0.0
+      },
+      "MN_spikes": 0,
+      "voltage_min_mV": -68.87729903755901,
+      "rates_sha256": "52edc0ecac37eb54c7dbe9441a981af27c63c0039574205fa00213cff04b6139"
+    },
+    "LM_gain4": {
+      "driven_leg": "LM",
+      "gain": 4.0,
+      "max_drive_nA": 0.12292006140514511,
+      "driven_leg_hz": 0.245052094224251,
+      "per_leg_mean_hz": {
+        "LF": 0.0,
+        "LH": 0.0,
+        "LM": 0.245052094224251,
+        "RF": 0.0,
+        "RH": 0.0,
+        "RM": 0.0
+      },
+      "MN_spikes": 37,
+      "voltage_min_mV": -70.24543180799562,
+      "rates_sha256": "06b397cb3b8c9f172648a4944080f287c73dc56c79d2f77feb71e719fc865959"
+    },
+    "LM_gain16": {
+      "driven_leg": "LM",
+      "gain": 16.0,
+      "max_drive_nA": 0.49168024562058044,
+      "driven_leg_hz": 0.9009848451123729,
+      "per_leg_mean_hz": {
+        "LF": 0.0,
+        "LH": 0.0,
+        "LM": 0.9009848451123729,
+        "RF": 0.0,
+        "RH": 0.0,
+        "RM": 0.0
+      },
+      "MN_spikes": 136,
+      "voltage_min_mV": -69.87635262203104,
+      "rates_sha256": "2e4f7b583baba929f847e5330c1028beec0cd6f11ae7d8a69f8cb6c651d6edc6"
+    },
+    "LF_gain1": {
+      "driven_leg": "LF",
+      "gain": 1.0,
+      "max_drive_nA": 0.048728415089883015,
+      "driven_leg_hz": 21.411198100081915,
+      "per_leg_mean_hz": {
+        "LF": 21.411198100081915,
+        "LH": 20.928634056578233,
+        "LM": 8.881048780234831,
+        "RF": 20.604410169732997,
+        "RH": 16.993853337179875,
+        "RM": 12.99958106272426
+      },
+      "MN_spikes": 13190,
+      "voltage_min_mV": -74.52189244777561,
+      "rates_sha256": "fe5d61755e5b0c7c3f674a110ad0c45f0a1fed64117cc85a172100ad50cc5017"
+    },
+    "LF_gain4": {
+      "driven_leg": "LF",
+      "gain": 4.0,
+      "max_drive_nA": 0.19491366035953206,
+      "driven_leg_hz": 19.25546859005836,
+      "per_leg_mean_hz": {
+        "LF": 19.25546859005836,
+        "LH": 21.916365282526048,
+        "LM": 9.213280003993622,
+        "RF": 20.355259375679744,
+        "RH": 17.358112111037716,
+        "RM": 13.324708904693592
+      },
+      "MN_spikes": 13297,
+      "voltage_min_mV": -75.34103005800579,
+      "rates_sha256": "1b446ec2182f73f5afbd690da8ea5ae52927e41204a5a2444cd576ac0cfd05fa"
+    },
+    "LF_gain16": {
+      "driven_leg": "LF",
+      "gain": 16.0,
+      "max_drive_nA": 0.7796546414381282,
+      "driven_leg_hz": 14.842108073192422,
+      "per_leg_mean_hz": {
+        "LF": 14.842108073192422,
+        "LH": 21.392427101288316,
+        "LM": 8.410967846322336,
+        "RF": 20.759174940099502,
+        "RH": 17.576180580252178,
+        "RM": 13.23872869105527
+      },
+      "MN_spikes": 12649,
+      "voltage_min_mV": -75.84067770399447,
+      "rates_sha256": "9f11f739301fd9f9d485df153ea40db962fdbd1db5cd4ee864429953af4b8845"
+    }
+  },
+  "total_neural_steps": 30000,
+  "physical_steps": 0,
+  "training_updates": 0,
+  "note": "Encoder gains are arbitrary. If a silent leg responds only at high gain, the silence is a gain/threshold property of this uncalibrated interface, not evidence about the animal.",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/data/flywire/banc_connectome.npz": "170dbe3b68c68941abc4bcc150b7fb26f927782f97ad95b7c90dbcbb37d86c36",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-local-learning/20261107T192931Z/dynamics/module.py": "c5106d46a62bedd31faccdbe981764106c23c4dc491890e6e4d21ef531718250",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/flybody-retarget/20261107T182940Z/neural-interface/LOCAL_MODULE_CANDIDATE.npz": "7a7ce0d7d2166f81d0f9c8c1acd73342b854c7f33915d6d6cbf68ef89738395e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/descending/INPUTS.npz": "3892bc6d7f8890a51383e6744b9a935bc56cfe3174148f5b098fc9b10a8f46c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-descending-learning/20261107T203049Z/leg-pools/POOLS_AND_REACH.npz": "abd2a0c10501458f927c6ccbe53bbf2e1c982bd139f7388cbd26fb08218aa39a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-wide-module/20261107T233459Z/module_wide.py": "5102c1ea69a4881d650d7511af8e2c92470fca00f4f931715d9feadf17f79344"
+  }
+}

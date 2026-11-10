@@ -1,0 +1,31 @@
+{
+  "schema": "banc-repair-pipeline/1-amendment-6",
+  "created_runtime_utc": "20261109T055352Z",
+  "amends": "the warm-start teacher again (supersedes amendment 5's press phase); acceptance criteria unchanged",
+  "when": "after the observation-v2 run, before the next training run",
+  "evidence": {
+    "obs_v2_run": "with the pad clearance channels added, LF/LM/RF still end with the foot in the air (final pad height 1.78-2.20) and the training placement rate is exactly 0.000, so observability was not the binding difficulty",
+    "demo_cycle": "DEMO_CYCLE.json: the demonstration itself never places a foot. It lifts to pad height 1.33 and oscillates between 1.17 and 1.33; its mirrored press direction only undoes about 0.15 of the rise",
+    "demo_sweep": "DEMO_SWEEP.json: no combination of command magnitude and switch point fixes this, because the press is the negation of the lift",
+    "teacher_self_check": "with the press direction recomputed from the vertical Jacobian at the current pose, and a 90-tick lift, the demonstration itself satisfies all five criteria on LF, LM, RF and RH (final loads 0.26-0.69, pad bottoms on or under the ground). See DEMO_PRESS.json and the verification printed by the trainer's own teacher",
+    "clock_free_attempt": "DEMO_STATE_TEACHER.json and DEMO_STATE_SWEEP.json: replacing the 90-tick timer with state thresholds passes only LM at every height threshold tried, so the sequence appears to need timing information that a pure state switch does not supply"
+  },
+  "teacher_changes": {
+    "lift_command": "unchanged: the screened lift direction from LIFT_DEMO.json",
+    "press_command": {"old": "the mirrored lift direction", "new": "joint rates that lower the pads along the vertical Jacobian recomputed at the current pose every tick"},
+    "phase_switch": {"old": "measured joint excursion >= 0.5", "new": "a declared 90-tick lift window, then press"},
+    "declared_clock": "the teacher uses a fixed 90-tick lift window. A teacher may use a schedule; the deployed network may not, and it receives no clock or phase input. Whether a clock-free network can reproduce a timed demonstration is the point of the following run."
+  },
+  "unchanged": {
+    "acceptance_criteria": "identical",
+    "observation": "495 dimensions including the declared pad clearance channels (PREREG_OBS_V2.json)",
+    "reward": "achievement-flag potential with aligned swing gates, unchanged weights",
+    "optimizer_and_window": "unchanged, 24 updates, 300 ticks"
+  },
+  "preregistered_outcomes": [
+    "the teacher itself passes five criteria on four of six legs, so a run that still fails is a statement about imitation and not about feasibility",
+    "if the network reproduces the demonstration without any clock input, the sequence did not need timing in the policy",
+    "if the network lifts but cannot stop lifting, the sequence needs an internal timing variable that the current observation cannot provide, and the honest next step is to declare that limit rather than to keep tuning rewards"
+  ],
+  "discipline": "PREREG.json, amendments 1-5, PREREG_TASK_V2.json and PREREG_OBS_V2.json are left byte-identical. Every teacher is now validated against the task before it is used to teach."
+}

@@ -1,0 +1,56 @@
+{
+  "method": "Independent NumPy serial-tree rigid transforms and Rodrigues rotations reconstructed from exported compiled body/joint arrays; no MuJoCo imported",
+  "models": {
+    "official": [
+      {
+        "pose": "qpos0",
+        "body_position_max_error": 1.3877787807814457e-16,
+        "body_rotation_max_error": 1.3322676295501878e-15,
+        "hinge_axis_max_error": 1.887379141862766e-15,
+        "hinge_anchor_max_error": 1.3877787807814457e-16
+      },
+      {
+        "pose": "key0",
+        "body_position_max_error": 1.3877787807814457e-16,
+        "body_rotation_max_error": 1.3322676295501878e-15,
+        "hinge_axis_max_error": 1.887379141862766e-15,
+        "hinge_anchor_max_error": 1.3877787807814457e-16
+      }
+    ],
+    "current": [
+      {
+        "pose": "qpos0",
+        "body_position_max_error": 1.3322676295501878e-15,
+        "body_rotation_max_error": 4.440892098500626e-16,
+        "hinge_axis_max_error": 2.220446049250313e-16,
+        "hinge_anchor_max_error": 6.661338147750939e-16
+      },
+      {
+        "pose": "key0",
+        "body_position_max_error": 6.661338147750939e-16,
+        "body_rotation_max_error": 5.551115123125783e-16,
+        "hinge_axis_max_error": 7.91033905045424e-16,
+        "hinge_anchor_max_error": 3.3306690738754696e-16
+      }
+    ]
+  },
+  "new_forward_calls": 0,
+  "new_step_calls": 0,
+  "archived_model_identity_checks": {
+    "counts_match": true,
+    "all_59_action_names_and_bounds_match": true
+  },
+  "csv_checks": {
+    "official_action_rows": 59,
+    "current_joint_rows": 42,
+    "permutation_bijective": true,
+    "tendon_targets_and_coefficients_match": true,
+    "candidate_only_labels_preserved": true
+  },
+  "source_recheck": {
+    "fixed_sources_unchanged": true,
+    "mutable_parent_project_docs_changed_after_snapshot": [],
+    "sources_checked": 877
+  },
+  "passed": true
+}

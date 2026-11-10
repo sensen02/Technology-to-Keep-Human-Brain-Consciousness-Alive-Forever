@@ -1,0 +1,37 @@
+{
+  "status": "RETARGET_STAND_COMPLETE",
+  "snippets": 232,
+  "frames": 146934,
+  "ik_solves": 881604,
+  "wall_s": 1423.4335961341858,
+  "solver": {
+    "max_nfev_first": 80,
+    "max_nfev_subsequent": 16,
+    "ftol": 1e-07,
+    "xtol": 1e-07,
+    "gtol": 1e-07,
+    "w_land": 1.0,
+    "w_dir": 0.05,
+    "w_cont": 0.02,
+    "w_key0": 0.002,
+    "step_limit": 0.06
+  },
+  "physics_steps": 0,
+  "start_pose": {
+    "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-stand-pose/20261108T170000Z/STAND_POSE_2.json",
+    "root_z": 1.472274404018044,
+    "com_z_at_pose": 1.3501139994447333
+  },
+  "error": {
+    "max": 0.3777694211332923,
+    "p50": 0.053165537205349805,
+    "p95": 0.15024816705065183,
+    "rms": 0.07532019301529937
+  },
+  "in_limit_fraction": 1.0,
+  "frozen_reference": {
+    "p50": 0.05324859662417217,
+    "max": 0.38525889686846876,
+    "rms": 0.0761
+  }
+}
