@@ -4,7 +4,7 @@
 
 - 提交链：`037f6bc`（忽略可再生载荷）→ `3667bec`（协议/计划/状态）→ `7e41fa6`（全部实验代码与可读证据）→ `c9f1599`（本存档的README与校验和）
 - 标签：`walking-verified-20261110`（annotated，指向已验证证据提交`7e41fa6`，已推送）
-- 远端：`github-brain:sensen02/Technology-to-Keep-Human-Brain-Consciousness-Alive-Forever.git`；`main` = `c9f1599288b6d385f61227829198d57636daa44f`（`c9f1599`仅新增本目录说明，未改动任何实验证据）
+- 锚点：**以标签为准**。`walking-verified-20261110` = `7e41fa6`（已验证证据状态）。`main` 之后还会有纯文档提交（当前`35380cc`），不影响证据内容。
 
 ## 结论与范围
 
