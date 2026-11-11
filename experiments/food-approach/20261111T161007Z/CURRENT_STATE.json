@@ -1,0 +1,30 @@
+{
+  "mutable_excluded_from_scientific_seals": true,
+  "goal_id": "goal-cda3a89f-506f-40e7-a46f-b7c3c13d4feb",
+  "goal_phase": "complete_user_visual_acceptance",
+  "status": "USER_ACCEPTED_BOUNDED_LARGE_TURN_IMPLEMENTATION_NUMERIC_ENGINEERING_FAILURES_RETAINED",
+  "user_visual_acceptance": true,
+  "user_decision_record": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/USER_VISUAL_ACCEPTANCE.json",
+  "next_scope": "User asks whether sensory stimulation is next. Next planned stage is odor stimulus -> sensory/behavior ANN -> actual body response, then source approach and sensory controls; current message asks confirmation of sequence, no new training or physics started by this bookkeeping turn.",
+  "root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/COMBINED.pt",
+  "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+  "network": "One shared original walking GRU128 plus separately trained RIGHT64 and LEFT64 branches,256state,42finitePD outputs. Neural ReLU command gates, no teacherclock/phase/foodcoords/newclearanceinput/actualposewrites in ANN. No natural joint-training claim. Original walking checkpoint/archive preserved.",
+  "actual": {
+    "neutral": {"yaw_deg":-0.38259875415876626,"slip":0.49278883265360646,"engineering_pass":true,"audit_checks":193,"baseline_shared_arrays_exact":true},
+    "left": {"yaw_deg":29.65128828979569,"slip":0.5780968089711384,"engineering_pass":false,"failures":["angle<30deg","slip>0.5"],"audit_checks":169},
+    "right": {"yaw_deg":-30.63293211627222,"slip":0.5032961137641687,"engineering_pass":false,"failures":["slip>0.5"],"audit_checks":169},
+    "all_conditions": "SameSHA/full1ssettle+4.8steacher+9.6sANN/noreset/all6cycles/strictnativeNF0/extras0/other4gatesPASS; allactualcheckpointmeans/actions/256chain/source/compiledruntime audited. Research demonstration and user visual decision are separate from strictengineeringqualification FALSE."
+  },
+  "desktop_left_video": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度左转-同一神经模型-待你判定.mp4",
+  "desktop_right_video": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-同一神经模型-待你判定.mp4",
+  "desktop_readme": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度转向-同一神经模型-最终说明.zh-CN.md",
+  "summary": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/FINAL_SUMMARY.json",
+  "report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/FINAL_REPORT.zh-CN.md",
+  "video_verified": "Parentbash50LEFT/bas51RIGHT completedexit0collected.770/770decoded each,960x640/50fps/15.4srealtime/all71opaque/fullframebody/0renderintegration/no trajectory or angle exaggeration; posesCOMyaw/source/runtimebeforeafter verified. Parentactuallyopened bothsixphasemontages; independentffprobe/source+desktopSHA/conjunctionexit0. SameSHA visible in both actualevidence.",
+  "cleanup": "Three superseded f25b largeRIGHT desktop-only copies/readme removed AFTER verifying newbothdelivery; oldscientific sources/videos/weights/failures retained. Small-angle comparison examples retained. Ledger absolute path /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/DESKTOP_CLEANUP.json. No useless currenttasktemporaryfiles pending.",
+  "resource_state": "NO active jobs/processes/children. Parent6/12/13/19/24/27/30/50/51allcollected; child physics/train/modelaudits up to49allcollected beforeworkerfailed duringfinalreportonly. Parentindependentlyverified all3case checkpoints andaudits andcompletedfinalconjunction; no physicalrerun. Allagentregistry ready. Max1CPU1heavy maintained; memoryavailable7.6GiB atlastcheck.",
+  "next": "User selected接受当前效果; separate USER_VISUAL_ACCEPTANCE.json preserves numeric engineeringFALSE/history. This bounded turning implementation accepted, goalcomplete. Next user asks stimulus-stage sequence: first controlled left/right odor stimulus actual responses, then embodied odor-source approach, no-food/receptor-cut/swap controls. Confirm route plainly; do not silently claim continuous steering or food approach already qualified. No active simulation/training.",
+  "scope_limits": "One nominal9.6s ANN trial each fixedneutral/left/right after teacher warmup. LEFT coupled forward=turn/3, nominalv.1; RIGHTforward0nominalv.075. Not arbitraryduration/initialstates/continuouscommandchanges/food/originalconnectome/biology/fullD1-D8 qualified.",
+  "important_history": "RIGHTparentb4ed chosen posthoc for visual review in AMEND04 before assembly,notqualifiedpass: alloldrulefailures andscientificflags retained. LEFT47e2 strict angle+slipFAIL. Whole research families ended bounded: oldf25b,headrefit,LHweight4,4biasselectednull,Daggeractualworse,finalfeature2000; no unboundedsampling. TeacherLEFTactualguard passed30.113deg/.455118/all6NF0, notdeployed teacherfeedback. See tracker for full SHA/path lineage. Audit identity overwrite incident restored original exactVERIFY bytes; supplementsseparate. NEVER run oldattempt02 verification writer inplace again."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PREPARED_NOT_EXECUTED_PARENT_SELECTION_REQUIRED",
+  "scope": "Fixed neural command-response engineering profiles; no odor, ingestion or full-native certification.",
+  "profiles": ["neutral", "halfleft", "halfright", "left_to_right", "right_to_left"],
+  "command_order": ["forward_modulation", "signed_turn_modulation"],
+  "forward": 0.0,
+  "turns_first_second_4p8s": {
+    "neutral": [0.0, 0.0],
+    "halfleft": [0.5, 0.5],
+    "halfright": [-0.5, -0.5],
+    "left_to_right": [0.5, -0.5],
+    "right_to_left": [-0.5, 0.5]
+  },
+  "clock": {"settle_s": 1.0, "original_teacher_prime_s": 4.8, "autonomous_s": 9.6, "decision_dt_s": 0.005, "trace_dt_s": 0.001, "native_dt_s": 0.0000125, "switch_decision": 960},
+  "handover": "Zero command during 960 actual teacher decisions, continuous motor hidden/body/actuator/previous-action state. No teacher queries in1920 autonomous decisions. No resets at command switch.",
+  "gates": "Original all5 endpoint engineering gates and all6 sensed cycles over entire9.6s autonomous window unchanged. Original world-X forward metric retained. No per-half cycle requirement or relaxed physical threshold.",
+  "yaw": {"frame": "Actual thorax world yaw, positive counterclockwise, continuously unwrapped over full trace.", "neutral": "No directional yaw criterion; physical gates/cycles still required.", "intermediate": "Whole9.6s signed yaw in requested direction >=.005rad.", "switching": "Each actual4.8s signed yaw in its requested direction >=.002rad; include transition transient, no grace interval removed."},
+  "sampling_geometry": "Actual Head xpos/xmat with fixed engineering offsets from existing HEAD_GEOMETRY_AUDIT. Save head and bilateral sensor midpoint each1ms. Distance/path geometry diagnostic only; does not change motor gates or imply food success.",
+  "checkpoint": "Must be explicitly selected by parent and supplied as absolute --checkpoint plus exact --sha256; checked_motor.load_checked_motor validates training identities. Original baseline physical/runtime identity checked independently through sw.load_student.",
+  "selection": "Fixed5profiles only. Overall profile suite eligible iff all5 pass. No best-profile substitution. Candidate qualification and launch belong to parent; preparation launches no physics.",
+  "sources": "Capture profile evaluator, this prereg, strict wrapper, conditional module, original runtime/asset identities, checkpoint and geometry audit; verify immutable inputs after evaluation.",
+  "output": "Fresh --out directory only; actual1ms fulltrace, actual5ms observations/commands/hidden/mean/policy/applied/source, dense1ms geometry, exact phase counts/handover/switch snapshots, original gates/cycles and signed yaw report. All physical steps are real native integration by unchanged Core."
+}

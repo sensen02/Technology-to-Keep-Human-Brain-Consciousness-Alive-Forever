@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "scope": "S4 engineering numerical regression only; no behavior or biological validation",
+  "command": ["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python", "-B", "-m", "unittest", "-v", "test_food_field.py"],
+  "working_directory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor",
+  "exit_code": 0,
+  "tests_run": 16,
+  "failures": 0,
+  "errors": 0,
+  "reported_runtime_s": 0.037,
+  "runs": 1,
+  "preregistration_written_before_test_execution": true,
+  "files_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/food_field.py": "d8bbee489d76cfc9ebaaf1bab8843f826025a09cd7d211dd6332ecc1c1205fe8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/test_food_field.py": "b76b8791ddaa2ce43dea1f4a216906ff55aa1fae70d2f9167a14bd9fa954e357",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/PREREG.json": "0961bd279ffc41d795bb62748246380ebb483ab516c9f00af85a19e9377f5d08",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/README.md": "d1b6824135dd13a8104e0cf30656ec6d2f8fe27ee804ec02b812af6017644616"
+  },
+  "test_names": [
+    "test_finite_extreme_concentrations",
+    "test_gaussian_and_patch_metadata",
+    "test_immutable_and_defensive_center",
+    "test_mirror_swaps",
+    "test_pose_transform_and_projection",
+    "test_smooth_onset_and_causality",
+    "test_symmetry",
+    "test_decay_is_causal_memory",
+    "test_exact_analytic_constant_stimulus",
+    "test_exact_timestep_composition",
+    "test_output_does_not_alias_latent_state",
+    "test_reject_does_not_advance_state_or_rng",
+    "test_seeded_noise_range_and_reproducibility",
+    "test_pose_rejections",
+    "test_receptor_rejections",
+    "test_source_rejections"
+  ],
+  "preservation": "All writes restricted to authorized odor directory. No walking evidence, parent tracker, environment packages or behavior network changed.",
+  "not_executed": ["behavior training", "physical food approach integration", "anatomical calibration", "biological validation"]
+}

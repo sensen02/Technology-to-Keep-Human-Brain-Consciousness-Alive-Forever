@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/evaluate_candidate.py", line 75, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--checkpoint',required=True);p.add_argument('--expected-sha256',required=True);p.add_argument('--out',required=True);p.add_argument('--condition',choices=['neutral','left','right'],required=True);evaluate(p.parse_args())
+                                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/evaluate_candidate.py", line 72, in evaluate
+    atomic_json(out/'RESULT.json',result);print(json.dumps(dict(out=str(out),gates=auto['gates'],slip=auto['slip_ratio_max'],yaw_change_rad=delta)),flush=True)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/identity.py", line 32, in atomic_json
+    json.dump(value, f, ensure_ascii=False, indent=2, allow_nan=False)
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

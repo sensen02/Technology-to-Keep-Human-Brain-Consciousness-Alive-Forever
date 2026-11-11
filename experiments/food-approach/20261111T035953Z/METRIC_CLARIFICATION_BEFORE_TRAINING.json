@@ -1,0 +1,6 @@
+{
+ "timing":"Before balanced continuation updates and fresh-test outcomes",
+ "reason":"New fresh test includes additional center controls. To avoid easier aggregate MSE from added zero-target episodes masking worse directional-food performance, report both all-episode and nonzero-bearing food-only MSE.",
+ "strict_additional_check":"Require BOTH total fresh-testMSE<=.02 and food-only(nonzero angle,nonzero amplitude) MSE<=.02, alongside sign>=.90 and no-foodRMS<=.02. No change to original targets, no weakened criteria. CenterRMS/bias reported separately even if not separate registeredpass threshold.",
+ "scope":"Offline sensor-response evidence only, never physical navigation qualification or motor-admission change. Old original1000testFAIL remains immutable."
+}

@@ -1,0 +1,10 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"right":[0.0,-1.0]},
+ "checkpoint_step":2000,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"forward0; new yaw/.06 RIGHT_ONLY; turn negative1s smoothstep from decision960; neutral zero all2880; oldyaw/.008 NOT this domain",
+ "acceptance":"original worldX five gates unchanged + native nonfoot0 + all6cycles + actual signed RIGHT yaw>=30deg in same9.6s ANN window",
+ "selection":"only fixed final2000; neutral then RIGHT sequential CPU1; no repeated physics for analysis errors; preserve full completed arrays",
+ "audit":"new loader identity; actual source paths present preCore; full actual192hidden/actions/geometry/handover; neutral exact full arrays baseline; every native step lightweight NF/extra/COM summary; independent freshprocess replay",
+ "excluded_claims":"no fullnative D1-D8, biological/connectome/food success or arbitrary robustness; video deferred"
+}

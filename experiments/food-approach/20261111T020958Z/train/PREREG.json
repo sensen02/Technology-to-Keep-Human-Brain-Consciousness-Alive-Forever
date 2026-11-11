@@ -1,0 +1,11 @@
+{
+ "kind":"fixed nonlinear positive-turn residual5000",
+ "root_plan":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T020958Z/PREREG.json",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt",
+ "parent_sha256":"eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+ "architecture":"freeze197608 parent parameters anddual128+64 memory;306actualphysical112+base128+res64+command2->64tanh->42zero-init output;extra latent relu(turn)*.10*tanh(output)",
+ "fixed_updates":5000,"lr":0.001,"seed":20261111,"save_steps":[2500,5000],"physical_eval_only_step":5000,
+ "data":"only originalqualifiedleft_full2880actualrows, causalparentmean/dualhidden, first960priming excludedloss,1920post uniformboundedactionMSE",
+ "verification":"initialleft/neutral/rightbitexact; two temporaryunitupdates because zerooutput initiallyblocksencodergradient; aftersecondbackwardallnewtensorsfinite/nonzero; allparentfrozen/no grads; negativezero invariance; cachedproductiongradient1e-12; targetnegativeJacobian preserved; livepresavefullstateexact andfreshsavedAdam4states/RNG/curve/inference checks",
+ "boundary":"no future/phase/time/source/foodcoords actorinput; forward0. NewAdamfresh onlyMLP, no inheritedmomentclaim. Onlyfinal5000physical, no budget/range/inputchanges afteroutcomes; no physics run by this delegation."
+}

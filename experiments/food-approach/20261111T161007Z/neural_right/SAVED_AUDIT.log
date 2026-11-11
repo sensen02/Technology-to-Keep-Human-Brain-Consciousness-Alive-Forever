@@ -1,0 +1,28 @@
+{"all_passed": true, "checks": {"Adam_exact_reload": true, "RNG_exact_reload": true, "curve_exact": true, "all_steps": true, "production_means_exact": true, "production_basehistory_exact": true, "production_residualhistory_exact": true, "scan_production_tolerance": true, "neutral_means_exact": true, "neutral_base_hidden_exact": true, "base_no_grad": true}, "max_errors": {"scan_means": 1.3322676295501878e-15, "scan_states": 1.7763568394002505e-15}, "step": 1000, "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_001000.pt", "sha256": "46d1fea46d2aa557a85a2c90782e4de8605ed5e5da2cc4b3d1cdcff24caa7cf9", "postprime_action_MSE": 0.00045381939120704224, "physics_steps": 0, "optimizer_updates": 0}
+{"all_passed": true, "checks": {"Adam_exact_reload": true, "RNG_exact_reload": true, "curve_exact": true, "all_steps": true, "production_means_exact": true, "production_basehistory_exact": true, "production_residualhistory_exact": true, "scan_production_tolerance": true, "neutral_means_exact": true, "neutral_base_hidden_exact": true, "base_no_grad": true}, "max_errors": {"scan_means": 1.7763568394002505e-15, "scan_states": 2.3314683517128287e-15}, "step": 2000, "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_002000.pt", "sha256": "f25b920b1d9bc74a2ff3092dd926908d728b1b0ee49d211d4295e59f630aee15", "postprime_action_MSE": 0.00021590727210239838, "physics_steps": 0, "optimizer_updates": 0}
+{"all_passed": true, "checks": {"saved1000_rng_to_final2000_exact_after_actual_loader": true, "numpy_unmodified": true, "actual2000_updates": true, "final_curve_exact": true, "no_dropout": true}, "loader_consumed_torch_rng": true, "maximum_actual_gradient_norm": 0.5704306331006205, "clip_active_updates": 0, "limitation": "save-time model construction consumes RNG and live RNG was not restored; actual deterministic training has no stochastic operations; saved RNG itself reloads exactly, but this is not a claim of arbitrary stochastic exact continuation", "physics_steps": 0, "optimizer_updates": 0, "checkpoint_hashes": {"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_001000.pt": "46d1fea46d2aa557a85a2c90782e4de8605ed5e5da2cc4b3d1cdcff24caa7cf9", "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_002000.pt": "f25b920b1d9bc74a2ff3092dd926908d728b1b0ee49d211d4295e59f630aee15"}}
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/prepare_eval.py", line 31, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/prepare_eval.py", line 29, in main
+    (HERE/'READINESS.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(dict(all_passed=result['all_passed'],checks=checks)),flush=True)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

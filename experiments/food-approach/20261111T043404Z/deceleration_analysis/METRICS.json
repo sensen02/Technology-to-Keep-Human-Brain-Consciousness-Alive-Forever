@@ -1,0 +1,307 @@
+{
+  "kind": "READONLY_DECELERATION_ANALYSIS_NOT_QUALIFICATION",
+  "cases": {
+    "straight_control_100": {
+      "forward": 0.0716961345121117,
+      "forward_gate_margin": 0.021696134512111692,
+      "slip": 0.4621386876600891,
+      "support": 1.0000506837087617,
+      "COM_min": 1.2560206771940812,
+      "strict_nonfoot_zero": true,
+      "all5": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "cycle_duration_s": {
+        "LF": [
+          2.401000000079705
+        ],
+        "LH": [
+          0.5220000000173286,
+          0.5220000000173286
+        ],
+        "LM": [
+          0.5840000000193868,
+          0.5840000000193868
+        ],
+        "RF": [
+          3.1960000001060953,
+          3.196000000106096
+        ],
+        "RH": [
+          0.5380000000178597,
+          0.5380000000178597
+        ],
+        "RM": [
+          0.5630000000186897,
+          0.5630000000186897
+        ]
+      },
+      "max_cycle_duration_s": 3.196000000106096,
+      "phase_span_post": 9.594999999999999,
+      "steady_command": [
+        0.0,
+        0.0
+      ],
+      "post_target_speed_observation_unique": [
+        0.075
+      ],
+      "full_original_native_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "frozen_parent_teacher_distribution_fit": {
+        "bounded_action_MSE": 0.0006144532979601983,
+        "absolute_required_latent_percentiles": {
+          "p50": 0.007269037349561101,
+          "p90": 0.04723194296721771,
+          "p95": 0.06194789336050187,
+          "p99": 0.07960694674069047,
+          "max": 5.831262183308212
+        },
+        "teacher_action_fraction_abs_ge_point999": 7.440476190476191e-05,
+        "scope": "Descriptive teacher-distribution additive latent residual, not fitted speed branch or physical recovery proof"
+      }
+    },
+    "straight_085": {
+      "forward": 0.06011603057255102,
+      "forward_gate_margin": 0.010116030572551019,
+      "slip": 0.4659650131340061,
+      "support": 1.0000454244180215,
+      "COM_min": 1.2570905571675681,
+      "strict_nonfoot_zero": true,
+      "all5": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 1,
+        "RH": 1,
+        "RM": 2
+      },
+      "cycle_duration_s": {
+        "LF": [
+          2.8260000000938135
+        ],
+        "LH": [
+          0.6190000000205487,
+          0.6190000000205487
+        ],
+        "LM": [
+          0.6850000000227396,
+          0.6850000000227396
+        ],
+        "RF": [
+          3.760000000124818
+        ],
+        "RH": [
+          0.6380000000211794
+        ],
+        "RM": [
+          0.6000000000199179,
+          0.6630000000220093
+        ]
+      },
+      "max_cycle_duration_s": 3.760000000124818,
+      "phase_span_post": 8.23075,
+      "steady_command": [
+        -0.15000000000000002,
+        0.0
+      ],
+      "post_target_speed_observation_unique": [
+        0.075
+      ],
+      "full_original_native_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "descriptive_error_vs_control": {
+        "same_time_obs_joint0_42_RMS": 0.056193169766555744,
+        "phase_aligned_obs_joint0_42_RMS": 0.00035143326072347564,
+        "same_time_normalized_target126_168_RMS": 0.06706861892714551,
+        "phase_aligned_normalized_target126_168_RMS": 0.0009706498725055372,
+        "same_time_action_RMS": 0.10561272192001876,
+        "phase_aligned_action_RMS": 0.01167182790216038,
+        "action_RMS": 0.07108446993465627,
+        "scope": "phase alignment uses privileged teacher metadata ONLY for offline diagnosis, never actor inputs; not causal isolation"
+      },
+      "fraction_of_teacher_matched_control": 0.8384835665358719,
+      "frozen_parent_teacher_distribution_fit": {
+        "bounded_action_MSE": 0.010069425473684362,
+        "absolute_required_latent_percentiles": {
+          "p50": 0.025884728684087106,
+          "p90": 0.14422900722827428,
+          "p95": 0.24992698304339436,
+          "p99": 0.5085133462868785,
+          "max": 1.614317976524854
+        },
+        "teacher_action_fraction_abs_ge_point999": 0.0,
+        "scope": "Descriptive teacher-distribution additive latent residual, not fitted speed branch or physical recovery proof"
+      }
+    },
+    "straight_090": {
+      "forward": 0.06442140627393178,
+      "forward_gate_margin": 0.014421406273931778,
+      "slip": 0.46466051587299934,
+      "support": 1.0000483970230676,
+      "COM_min": 1.256706295147664,
+      "strict_nonfoot_zero": true,
+      "all5": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 1,
+        "RH": 1,
+        "RM": 2
+      },
+      "cycle_duration_s": {
+        "LF": [
+          2.6690000000886016
+        ],
+        "LH": [
+          0.5830000000193536,
+          0.5830000000193536
+        ],
+        "LM": [
+          0.6480000000215114,
+          0.6480000000215114
+        ],
+        "RF": [
+          3.55100000011788
+        ],
+        "RH": [
+          0.6010000000199511
+        ],
+        "RM": [
+          0.5870000000194864,
+          0.626000000020781
+        ]
+      },
+      "max_cycle_duration_s": 3.55100000011788,
+      "phase_span_post": 8.685500000000001,
+      "steady_command": [
+        -0.09999999999999998,
+        0.0
+      ],
+      "post_target_speed_observation_unique": [
+        0.075
+      ],
+      "full_original_native_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+      "descriptive_error_vs_control": {
+        "same_time_obs_joint0_42_RMS": 0.046164038172135,
+        "phase_aligned_obs_joint0_42_RMS": 0.00025527308663943,
+        "same_time_normalized_target126_168_RMS": 0.057894645335622205,
+        "phase_aligned_normalized_target126_168_RMS": 0.0006277142025114228,
+        "same_time_action_RMS": 0.10676346595718335,
+        "phase_aligned_action_RMS": 0.007773311156678752,
+        "action_RMS": 0.07424340701761517,
+        "scope": "phase alignment uses privileged teacher metadata ONLY for offline diagnosis, never actor inputs; not causal isolation"
+      },
+      "fraction_of_teacher_matched_control": 0.8985338848783962,
+      "frozen_parent_teacher_distribution_fit": {
+        "bounded_action_MSE": 0.005423745791769829,
+        "absolute_required_latent_percentiles": {
+          "p50": 0.01924641044874477,
+          "p90": 0.1001342779860298,
+          "p95": 0.17378011204082217,
+          "p99": 0.36687707152112775,
+          "max": 1.1875016599234853
+        },
+        "teacher_action_fraction_abs_ge_point999": 0.0,
+        "scope": "Descriptive teacher-distribution additive latent residual, not fitted speed branch or physical recovery proof"
+      }
+    }
+  },
+  "shared_prefix": {
+    "straight_085": {
+      "all_trace_fields_first5800_exact": true,
+      "all_sample_fields_first960_exact": true
+    },
+    "straight_090": {
+      "all_trace_fields_first5800_exact": true,
+      "all_sample_fields_first960_exact": true
+    }
+  },
+  "forward_zero_parent_neural_replay": {
+    "straight_control_100": {
+      "all2880_parent_means_exact": true,
+      "all2880_192_memories_exact": true,
+      "maximum_mean_error": 0.0,
+      "scope": "existing teacher observations replayed with parent command[0,0]; no physical trajectory or new speed policy"
+    },
+    "straight_085": {
+      "all2880_parent_means_exact": true,
+      "all2880_192_memories_exact": true,
+      "maximum_mean_error": 0.0,
+      "scope": "existing teacher observations replayed with parent command[0,0]; no physical trajectory or new speed policy"
+    },
+    "straight_090": {
+      "all2880_parent_means_exact": true,
+      "all2880_192_memories_exact": true,
+      "maximum_mean_error": 0.0,
+      "scope": "existing teacher observations replayed with parent command[0,0]; no physical trajectory or new speed policy"
+    }
+  },
+  "neural_time_constants": {
+    "base_alpha": 0.048770575499285984,
+    "base_tau_s": 0.1,
+    "turn_residual_alpha": 0.048770575499285984,
+    "policy_dt_s": 0.005
+  },
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt",
+  "parent_sha256": "eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+  "actor_target_feedback": {
+    "physical_mask_channels": 112,
+    "masked_ranges": [
+      [
+        42,
+        84
+      ],
+      [
+        126,
+        168
+      ],
+      [
+        195,
+        237
+      ]
+    ],
+    "target_position_direct_inhibitory": true,
+    "minimum_gain": 3.2785864829966442,
+    "maximum_gain": 12.655462328257926
+  },
+  "inputs_unchanged": true,
+  "input_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_control_100/RESULT.json": "d386a74845a630b555582fb0f41837c81334f85fa2761c628a3545134e11b314",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_control_100/SAMPLES_5MS.npz": "003a32d7bd841873a2061d31c13c577f3117dfdf1d5b77911d68e6b43818cc2c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_control_100/TRACE_1MS.npz": "f36f4227c43037fa3773f36ce3f9cb7da4fb003e502d3d83cf8689cb8d0f63e8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_control_100/IDENTITY.json": "27e75eae46720b63d06c4326b166fc0b94aa8284abcf1139e26398817c072caf",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/RESULT.json": "dd1b3044273566114225c733f8611c934bfcfc2c27de77e2108e5d57b2327940",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/SAMPLES_5MS.npz": "a27cca57085250fbe4160f68e09db6beaa59ac30f9eb3fb8ac07f84ba94c4047",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/TRACE_1MS.npz": "993f81fe7cb551862cb16d5e0ccb671c30927268ccd4adb93075f0bb0460db94",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/IDENTITY.json": "7e06988e9b4f2f1a5f77586fc3b4e307d78a879d4c5ea81ac8316131c5ddf088",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/RESULT.json": "705910d2760f5fadd206eea7e6a65c0a95dee7a92f0c2e3b0f77a5f5fa14d784",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/SAMPLES_5MS.npz": "be71b8dab0e5324cec45eb2a365dee0816276b4e35c419d4b4ccf6f653052220",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/TRACE_1MS.npz": "a8c947709a347359a8339c336284b9a84585ba86cc0057e1693dc15f590c0c72",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/IDENTITY.json": "53f3737a1e1b7d0482bb84e93f15c097d1405395cebe222d527b5d1e38cf908c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/model_io.py": "78cc416f642b8f996c01745afbde9b38efef3ed9274b4cd60167c6f11890c82e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/model_io.py": "83a6a3275382e03432a5b5a5b134c5d07be858b8d0eb24fcfe30627fd65c588c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/fast_motor.py": "7ae5718cf9124748ec29c7fd19f2a6a8edee4fb18a86db56eff7ee427fa323a9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/FINAL_REPORT.md": "ec67ac6d02aa4fb6eaa838a1c6ff234432b350bdf2b19a2902f61cf138de61ed",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py": "2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py": "1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/REPORT.md": "1ed7cac00b6dfdfd59e24ef6b5ae4d203db133ac24ff171b80ab5aa5bf431994",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/api.py": "7f8a916c7a5f74562b7ad665021bd9e7556a1651da9e7c8d8d1dae9c307c4386",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/VERIFICATION.json": "ad402db504b8479a85d6d611e804a175176a4196b16cfb53457abd479d418a87",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/CURRICULUM_ADMISSION.json": "3db9cdd4f22c7a044afd09ed763e763a0567bb5e1852b4ef3f56e35287fa5300",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt": "eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df"
+  },
+  "Core_constructions": 0,
+  "physics_integration_steps": 0,
+  "optimizer_updates": 0,
+  "new_training_datasets_created": 0,
+  "scope": "Teacher algorithm data and existing-model inference analysis only. No speed branch, modified weights, new qualification or motor deployment."
+}

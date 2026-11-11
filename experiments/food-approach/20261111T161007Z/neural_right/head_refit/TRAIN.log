@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/head_refit/train.py", line 60, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/head_refit/train.py", line 34, in main
+    m=initialize();c=prepare(m);preflight(m,c)
+      ^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/head_refit/model_io.py", line 20, in initialize
+    parent,p=old.load_checked(PARENT,PARENT_SHA);m=HeadRefit(old.legacy.load_baseline_actor());m.load_state_dict(parent.state_dict(),strict=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/model.py", line 72, in load_checked
+    verify_hashes(p['config']['source_hashes']);verify_hashes(p['config']['data_hashes'])
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/model.py", line 27, in verify_hashes
+    if not Path(p).is_absolute() or sha256(p)!=d:raise ValueError('identity drift '+p)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: identity drift /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/VERIFY.json

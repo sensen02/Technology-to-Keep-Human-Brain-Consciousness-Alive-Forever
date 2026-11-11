@@ -1,0 +1,38 @@
+{
+  "all_passed": true,
+  "checks": {
+    "parent_model_exact": true,
+    "all_actual_Adam_exact": true,
+    "all_counters1000": true,
+    "sole_hyperparameter_change_lr": true,
+    "actual_RNG_resume_exact": true,
+    "balanced20_exact10food10nofood": true,
+    "production_script_full240_output_tol": true,
+    "production_script_full240_state_tol": true,
+    "all_gradient_tol": true,
+    "all_gradients_finite_nonzero": true,
+    "actual_optimizer_update_changes_weights": true,
+    "forward_structuralzero": true,
+    "fresh_dataset_frozen": true,
+    "parent_complete_curve0_1000": true
+  },
+  "gradient_max_error": 2.7755575615628914e-16,
+  "physical_steps": 0,
+  "Core_constructions": 0,
+  "temporary_optimizer_unit_steps": 1,
+  "parent_sha256": "76a4cbb48c7857aaa3a09e568c1a7b50877e0fa266028562a33d451e3c48aeb6",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/common.py": "dc1b97c572eab6c287ccfa8f0efb312f92ac1cc7e3b86e2c908e859e3b21dd09",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/generate_test.py": "b516864fc25141955324b35962bcd0a05229f1989ff180c66a4915cbf78cdfc3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/check_resume.py": "695d05ccf098f182d5437d2a8f131e0ad965f01afcbb00b2305ad827692471b7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/PREREG.json": "cabd39fbe10676daf50e992aeb8824f0b8bb9d91dde5897bc8b9875cabccef83",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/METRIC_CLARIFICATION_BEFORE_TRAINING.json": "f7d8bf983a0ff02ea44217eb494a6ce032eb188904af03e52fd573db98063c9b"
+  },
+  "data_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T034309Z/TRAIN/checkpoint_001000.pt": "76a4cbb48c7857aaa3a09e568c1a7b50877e0fa266028562a33d451e3c48aeb6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T034309Z/train.npz": "63b277daad40599c522a7c7afdae00cd571bcb758e2c61af20ec6b2b6219a8cc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T034309Z/DATASET.json": "f1993ba0eae03984959e5e7a382d060bc718b6cc139b16788d2a4183207d963d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/fresh_test.npz": "723b1c6602b6e71cd3008618f08a1687b78c18c33e6408b9945bb4ae277950c7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/FRESH_TEST.json": "0b6e13b69db33db3a901a2be92c030cd0344ff03c34b7e8943c07d36e01f7eb3"
+  }
+}

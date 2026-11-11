@@ -1,0 +1,16 @@
+{
+  "incident": "Parent supplementary cycle audit overwrote original teacher VERIFY.json files already captured in trained checkpoint data identity",
+  "detection": "head_refit bash-14 strict parent loader rejected original right verification SHA mismatch before training or physics; TRAIN output did not exist",
+  "reason": "Only checks.all_cycle_counts_recomputed=true was added by deterministic audit writer; original JSON data otherwise equal",
+  "repair": "Preserved each extended complete result as VERIFY_CYCLES_SUPPLEMENT.json, then removed only that added field from original VERIFY.json; exact original SHA matched captured training identity, no checkpoint or recorded hash changed",
+  "right_original_sha256": "76485c36e7c686029be6380afdf3a48465790d99509473dc30d4316416108f00",
+  "left_original_sha256": "3a65d6b026a9a334ba978aeba4ccc6b5b19386fbd4cfd3fe533eb104ebc6c4ba",
+  "supplement_paths": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/VERIFY_CYCLES_SUPPLEMENT.json",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/left_yaw_p060/VERIFY_CYCLES_SUPPLEMENT.json"
+  ],
+  "verification": "Both restored byte hashes exact; parsing supplement and removing only new check yields original object exactly; parent verification exit0",
+  "source_policy": "attempt02/verify_saved.py itself remains frozen with its new cycle check; DO NOT run it in place again because it writes original VERIFY paths; future supplementary checks require a new scoped writer and names",
+  "scientific_inputs": "No weight, trajectory, physical condition, criterion or historical hash modified; supplementary proof and incident retained",
+  "next": "Continue same head_refit preflight/experiment after strict parent load succeeds; no prior training or physics needs rerun"
+}

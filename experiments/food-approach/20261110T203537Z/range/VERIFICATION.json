@@ -1,0 +1,254 @@
+{
+  "integrity_all_pass": true,
+  "checks": {
+    "halfleft:trace15400": true,
+    "halfleft:all_finite": true,
+    "halfleft:all_times": true,
+    "halfleft:sources": true,
+    "halfleft:zero_extra": true,
+    "halfleft:all5800_prefix_exact": true,
+    "halfleft:actions_held": true,
+    "halfleft:previous_action": true,
+    "halfleft:actor_actual_after_withdrawal": true,
+    "halfleft:command_schedule": true,
+    "halfleft:all2880_mean_exact": true,
+    "halfleft:all2880_hidden_before192_exact": true,
+    "halfleft:all2880_hidden_after192_exact": true,
+    "halfleft:all2880_policy_exact": true,
+    "halfleft:hidden_chain": true,
+    "halfleft:original5_exact": true,
+    "halfleft:cycles_events_exact": true,
+    "halfleft:yaw_exact": true,
+    "halfleft:handover_and_switch_snapshots": true,
+    "halfleft:trace_hash": true,
+    "halfleft:neural_hash": true,
+    "halfleft:geometry_hash": true,
+    "halfleft:new_prereg_captured": true,
+    "halfleft:compiled_identity": true,
+    "halfright:trace15400": true,
+    "halfright:all_finite": true,
+    "halfright:all_times": true,
+    "halfright:sources": true,
+    "halfright:zero_extra": true,
+    "halfright:all5800_prefix_exact": true,
+    "halfright:actions_held": true,
+    "halfright:previous_action": true,
+    "halfright:actor_actual_after_withdrawal": true,
+    "halfright:command_schedule": true,
+    "halfright:all2880_mean_exact": true,
+    "halfright:all2880_hidden_before192_exact": true,
+    "halfright:all2880_hidden_after192_exact": true,
+    "halfright:all2880_policy_exact": true,
+    "halfright:hidden_chain": true,
+    "halfright:original5_exact": true,
+    "halfright:cycles_events_exact": true,
+    "halfright:yaw_exact": true,
+    "halfright:handover_and_switch_snapshots": true,
+    "halfright:trace_hash": true,
+    "halfright:neural_hash": true,
+    "halfright:geometry_hash": true,
+    "halfright:new_prereg_captured": true,
+    "halfright:compiled_identity": true,
+    "left_to_right:trace15400": true,
+    "left_to_right:all_finite": true,
+    "left_to_right:all_times": true,
+    "left_to_right:sources": true,
+    "left_to_right:zero_extra": true,
+    "left_to_right:all5800_prefix_exact": true,
+    "left_to_right:actions_held": true,
+    "left_to_right:previous_action": true,
+    "left_to_right:actor_actual_after_withdrawal": true,
+    "left_to_right:command_schedule": true,
+    "left_to_right:all2880_mean_exact": true,
+    "left_to_right:all2880_hidden_before192_exact": true,
+    "left_to_right:all2880_hidden_after192_exact": true,
+    "left_to_right:all2880_policy_exact": true,
+    "left_to_right:hidden_chain": true,
+    "left_to_right:original5_exact": true,
+    "left_to_right:cycles_events_exact": true,
+    "left_to_right:yaw_exact": true,
+    "left_to_right:handover_and_switch_snapshots": true,
+    "left_to_right:trace_hash": true,
+    "left_to_right:neural_hash": true,
+    "left_to_right:geometry_hash": true,
+    "left_to_right:new_prereg_captured": true,
+    "left_to_right:compiled_identity": true,
+    "right_to_left:trace15400": true,
+    "right_to_left:all_finite": true,
+    "right_to_left:all_times": true,
+    "right_to_left:sources": true,
+    "right_to_left:zero_extra": true,
+    "right_to_left:all5800_prefix_exact": true,
+    "right_to_left:actions_held": true,
+    "right_to_left:previous_action": true,
+    "right_to_left:actor_actual_after_withdrawal": true,
+    "right_to_left:command_schedule": true,
+    "right_to_left:all2880_mean_exact": true,
+    "right_to_left:all2880_hidden_before192_exact": true,
+    "right_to_left:all2880_hidden_after192_exact": true,
+    "right_to_left:all2880_policy_exact": true,
+    "right_to_left:hidden_chain": true,
+    "right_to_left:original5_exact": true,
+    "right_to_left:cycles_events_exact": true,
+    "right_to_left:yaw_exact": true,
+    "right_to_left:handover_and_switch_snapshots": true,
+    "right_to_left:trace_hash": true,
+    "right_to_left:neural_hash": true,
+    "right_to_left:geometry_hash": true,
+    "right_to_left:new_prereg_captured": true,
+    "right_to_left:compiled_identity": true
+  },
+  "profiles": [
+    {
+      "profile": "halfleft",
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "slip": 0.5227798735301911,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": {
+        "whole_rad": 0.01040103719272037,
+        "first4p8_rad": 0.005348450305468964,
+        "second4p8_rad": 0.0050525868872514056,
+        "requested_turns": [
+          0.5,
+          0.5
+        ],
+        "criterion": "whole signed >=.005rad",
+        "passed": true,
+        "boundary_trace_indices": [
+          5799,
+          10599,
+          15399
+        ]
+      },
+      "diagnostic_only": true,
+      "eligible": false
+    },
+    {
+      "profile": "halfright",
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "slip": 0.5227988150589508,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": {
+        "whole_rad": -0.028579070980544463,
+        "first4p8_rad": -0.014066064893379953,
+        "second4p8_rad": -0.01451300608716451,
+        "requested_turns": [
+          -0.5,
+          -0.5
+        ],
+        "criterion": "whole signed >=.005rad",
+        "passed": true,
+        "boundary_trace_indices": [
+          5799,
+          10599,
+          15399
+        ]
+      },
+      "diagnostic_only": true,
+      "eligible": false
+    },
+    {
+      "profile": "left_to_right",
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "slip": 0.5220005470783844,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": {
+        "whole_rad": -0.00887005955288634,
+        "first4p8_rad": 0.005348450305468964,
+        "second4p8_rad": -0.014218509858355304,
+        "requested_turns": [
+          0.5,
+          -0.5
+        ],
+        "criterion": "each4.8s signed >=.002rad including switching transient",
+        "passed": true,
+        "boundary_trace_indices": [
+          5799,
+          10599,
+          15399
+        ]
+      },
+      "diagnostic_only": true,
+      "eligible": false
+    },
+    {
+      "profile": "right_to_left",
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "slip": 0.5192207238614788,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": {
+        "whole_rad": -0.008524014867040134,
+        "first4p8_rad": -0.014066064893379953,
+        "second4p8_rad": 0.00554205002633982,
+        "requested_turns": [
+          -0.5,
+          0.5
+        ],
+        "criterion": "each4.8s signed >=.002rad including switching transient",
+        "passed": true,
+        "boundary_trace_indices": [
+          5799,
+          10599,
+          15399
+        ]
+      },
+      "diagnostic_only": true,
+      "eligible": false
+    }
+  ],
+  "physics_steps": 0,
+  "food_qualification": false,
+  "source_sha256": "af86c9c7237d3a1a5a05e5d770f75de7d69fd9b43c97c5e1e1e9309458e6acfc"
+}

@@ -1,0 +1,19 @@
+{
+ "fixed_before_execution":true,
+ "scope":"S4/S5 functional moderate deceleration teacher only; exactly2newconfigs; no training/food/neuralautonomy/fullnativeD1D8",
+ "conditions":[{"name":"straight_085","speed_scale":0.85,"yaw_rate":0.0},{"name":"straight_090","speed_scale":0.90,"yaw_rate":0.0}],
+ "baseline":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+ "teacher":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/turning_teacher.py",
+ "deceleration_reference":{"report":"/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T093347Z/early_unload/RESULT.json","signed_worldX_forward":0.06881632432222345,"ratio_max":0.95,"maximum_allowed_forward":0.06537550810611228,"window_disclosure":"Historical matching unmodified straight teacher lineage .36stride/.8step/.12lift/.01transition; report covers10000endpoints/9.999s(two cycles+.4tail) aftersettle, different from new9.6postprimewindow. This is fixed report-reference deceleration, not a samewindow matchedcontrol. Historical report/all5/traces unchanged; exactreport metric used conservatively."},
+ "mechanics":"Unmodified ConditionalTwistReference(make_teacher speedscale.85/.90 yaw0 prime4.8 ramp1), baseline WaveReference fullstride.36/.12lift/.8step/.01transition; wholephase integral slowdown includesx/y/z, no stride-only scaling; privateFK only",
+ "timing":"1sactualzero+4.8straightphysicalteacherprime+9.6continuousmodified;15400ticks/2880decision960neutral+1920post. smooth1sramp afterprime; noreset/statewrites",
+ "gates":"ALL original5 physics.summarise unchanged supportmean/W>=.90; nonfootpeak<=.20W;COMmin>=1.20;signedworldXforward>=.05;originalloadweightedfootvt/netXYspeed slip<=.5. PLUS strictnonfoot0, validloadedslipdenominators/progress, all6>=1completecycle, actualwholepostforward<=.06537550810611228 (<=.95*frozenstraightreport). No relaxedforward, slipdenominator, cycletimeout or thresholds",
+ "cycles":"Original152714 CycleTracker(CycleConfig(timeout4s)) begins5.8s first5.801 through15.4 every1ms, finalizeunchanged; originalload/height/advance/dwell thresholds",
+ "observations":"OriginalX238targetspeed.075,actualY42,command2=[smoothscale-1,0], nominalspeedyaw=[.075*smoothscale,0],phaseprovenanceandactualtime,all2880records. Asymptoticcommand[-.15,0]/[-.10,0]. Phase/time teacheronly",
+ "physical":"UnchangedfinitePD42/fullbody49qpos48qvel/gravity/friction/torquelimits/12.5usnative;adhesionFalse, zeroactualbody/generalizedforcesbeforeaftereach1ms; no extra forces/rootwrites",
+ "verification":"Freshsavedreplay independentformulas/commands/phase/all6events, fullshapes/timing/source/actualactions/previousactions/forceszero;5800physicalprefix+960samplebitexact originalteacher; exactfrozenstraightreportdecelscore; sourceassets/compiled/artifacts hashes. No thirdphysicaltrajectory",
+ "seed":20261110,
+ "budget":"Exactly2configsonetrajectoryeach. No additionalsearch/retries. Exceptionsfinallysavepartial;100msconsecutiveCOM<.8ornonfoot>.5W earlystop. Allfailuresretained",
+ "resources":"Provided20261110T125712Z/env/bin/python-B, oneallowedCPUaffinity/threads1, managedbackgroundjobcollected",
+ "immutability":"WriteONLYnewdeceleration_moderate; prior teacher/deceleration/deceleration_stride/baselinesources/evidencehashbeforeafter; noeditingcurrentlyrunningsources. Priorfailedreload/slipmechanisms notinfeasibility. Functional modestdeceleration separatelydeclared." 
+}

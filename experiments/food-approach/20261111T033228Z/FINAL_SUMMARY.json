@@ -1,0 +1,125 @@
+{
+  "status": "COMPLETE",
+  "left_results": {
+    "rh_tibia_minus": {
+      "candidate": "rh_tibia_minus",
+      "condition": "left",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_minus/candidate.pt",
+      "checkpoint_sha256": "b84ad579e6b412c95a38a3643082d4ad0c9ad42966a16c4038488fc43290c2ac",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "slip": 0.5184743239053445,
+      "forward": 0.07115721971854014,
+      "yaw": 0.06139746199753331,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_minus/EVAL_left/RESULT.json",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_minus/VERIFY_left.json",
+      "audit_checks": 92
+    },
+    "rh_tibia_plus": {
+      "candidate": "rh_tibia_plus",
+      "condition": "left",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_plus/candidate.pt",
+      "checkpoint_sha256": "ac545b66f41cadae8f6c895e0e5a7fa5ba37e9bf9191b10e53187b01e0384467",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "slip": 0.5135699022944087,
+      "forward": 0.07128899171646293,
+      "yaw": 0.062115819881903685,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_plus/EVAL_left/RESULT.json",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_tibia_plus/VERIFY_left.json",
+      "audit_checks": 92
+    },
+    "rh_trochanter_plus": {
+      "candidate": "rh_trochanter_plus",
+      "condition": "left",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_plus/candidate.pt",
+      "checkpoint_sha256": "04384b2122c5ceb83655222488209c2480a8531c754df68c2b6fb3fd5797959b",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "slip": 0.5094544386920862,
+      "forward": 0.07142287847813633,
+      "yaw": 0.06266490548701936,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_plus/EVAL_left/RESULT.json",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_plus/VERIFY_left.json",
+      "audit_checks": 92
+    },
+    "rh_trochanter_minus": {
+      "candidate": "rh_trochanter_minus",
+      "condition": "left",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/candidate.pt",
+      "checkpoint_sha256": "98960544091cf1785bb26f6d81f6ba4769d3d4b738f6a81a7d06d33ec650d101",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "slip": 0.5249652247799116,
+      "forward": 0.07100667691598193,
+      "yaw": 0.060835917230827465,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_left/RESULT.json",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/VERIFY_left.json",
+      "audit_checks": 92
+    }
+  },
+  "selected": null,
+  "confirmations": [],
+  "selected_all_three_pass": false,
+  "scope": "finite ANN weight calibration fixed-condition engineering only, no food/native qualification"
+}

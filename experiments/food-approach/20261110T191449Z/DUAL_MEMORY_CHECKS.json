@@ -1,0 +1,19 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all1920_neutral_actions_bitexact": true,
+    "both_memories_recorded_192_dims": true,
+    "base_memory_exact": true,
+    "residual_memory_exact": true,
+    "residual_memory_not_reset_at_withdrawal": true
+  },
+  "physics_steps": 0,
+  "optimizer_updates": 0,
+  "sources": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/check_dual_memory.py": "1a9cf11138486d1f0f3af810488eefdb712ed34af82f8b4d7aebbadbb14a9bae",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor_loop.py": "2a2f2293d0dfb7c6b6c1fcfc26ed72d4b701d2165f955f8a53c4ffc1a873eba0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/steering_behavior.py": "ab69488c792335bb1f14b8dc13df4b731521929b3110d07f96c50f07c044ac37",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c"
+  },
+  "interpretation": "offline original saved-observation neutral command memory check; no food approach training or physical success"
+}

@@ -1,0 +1,13 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"left":[0.3333333333333333,1.0],"right":[0.0,-1.0]},
+ "composition_format":"COMBINED_TURN_V1",
+ "state_layout":[128,64,64],
+ "state_total":256,
+ "training_performed":false,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"signedturn t, forwardrelu(t)/3;1s smoothstep afterdecision960; neuralinternalR[0,-relu(-t)]/L[relu(t)/3,relu(t)], bothbranchesalwaysupdate, no reset",
+ "strict_acceptance":"originalALL5 engineering inclslip<=.5/worldX>=.05, all6cycles, strictnativeNF0, signedangle>=30deg in same9.6s (neutral angleexempt); never relaxed for demonstration",
+ "demonstration":"separate stablemotion/direction/nativeNF0/all6/other4gates flag; strictengineering angle/slipFAIL retained perAMENDMENT03, notfood/notcontinuousrange/notgoalcomplete",
+ "future_actual_order":"oneCOMBINED.pt SHA, complete neutral thenRIGHT thenLEFT sequentialCPU1. Finish all3 despite individual engineeringFAIL; stop on integrity/source/runtime errors and preserve completed arrays without rerun.",
+ "video":"must render new sameSHA actualsaved states for both directions; never stitch old independentmodelvideos or hidefailedstrictcriteria"
+}

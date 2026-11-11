@@ -1,0 +1,14 @@
+{
+ "kind":"Round3 limited nonlinear positive-turn neural residual candidate",
+ "goal_id":"goal-d3ce9a34-ed60-4720-9769-da757b6e602e",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt",
+ "parent_sha256":"eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+ "parent_named_before_trial":"Usealreadyactualhead2000 leftslip.514841585FAIL/right.495011048PASS/neutralPASS. Head10000actualleft.515626812FAIL immutable. This is newarchitecturetrial notretroactiveselectionoftheold10000experiment.",
+ "architecture":"FreezeALLparent197608parameters andexplicit128+64memories. NewMLP306->64tanh->42tanh withzeroinitialoutputweight/bias;306features=112permittedactualphysical+currentbasehidden128+currentresidualhidden64+command2. Addedlatent=relu(actualturn)*.10*tanh(newMLP(features)), finalactiontanh42. Neutral/negativebranch0, noaddedrecurrence. No externalgait/phase/time/foodcoordinates/source/teacher inactor.",
+ "hypothesis":"Additionalstate-conditionednonlinearreadoutmayreduceleftstanceerrors beyondlinearfixed64readout. Changesinputcoverage/capacity andpositive range simultaneously, cannotisolatetheseeffects; actualevidence required.",
+ "training":{"seed":20261111,"updates":5000,"lr":0.001,"optimizer":"freshAdamONLYnewMLP no inheritedmomentclaim","dataset":"ONLYoriginalqualifiedleft_fullactual2880teacher;causalfrozenparentmean/dualhidden cache,960primeexcludedloss","loss":"post1920boundedactionMSEuniformjoints","save_steps":[2500,5000],"physical_eval_only_step":5000},
+ "preflight":"Fullactual2880left/right/neutral oldfunctionexactatinit. AftertemporaryunitupdateparentALLweights/no grads exact; neutral/right2880means/actions/bothmemoriesbitexact. Cachedproductionoutputs/ALLnewgradients<=1e-12, no futurestate. Target-positionnegativeJacobian unchanged. Savednewoptimizerstate/RNG/fullcurve/weightsinferencechecks andparentmetadataexternalcorrectionhashbinding. Actualallpaths existence beforeCore.",
+ "physical":"ONLYfinal5000 neutral,left,right1ssmoothcommand,full1szerosettle+4.8actualteacherprime+9.6ANN noreset. Originalall5/all6/strictNF0/yawsigned>=.01 unchanged. All71opaque/42finitePD/native12.5us1msactuator5msANN/noadhesion/extra/rootwrites;15400trace/2880actualcheckpointand192hiddenchains/force/source/identity/fullwindowcycleaudits. Actualneutral/rightfullarraysbitexactqualifiedc6bfrozenrightparent required.",
+ "resource":"CPUfloat64threads1fixed5000updates, max2actualphysicsprocesses. No extraheadrange/dataset/stepbudgetsearch; intermediate2500neverphysicallyselected. Diagnosticread-onlyleftslipanalysis separate, no posthocgatechange.",
+ "not_claimed":"No qualifiedleft beforeactual, no foodapproach/speedmodulation/ingestion/satiety/originalconnectome/biology/fullnativeD1-D8. Ifall3pass stillrequirescommandrange/switch/newinitialstatequalification andformalnativeconfirmation. Oldfailures/metadata/sourcehashes unchanged."
+}

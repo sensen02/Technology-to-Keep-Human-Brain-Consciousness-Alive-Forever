@@ -1,0 +1,14 @@
+{
+  "task": "Saved same-run conditional motor engineering render only; no food behavior claim",
+  "first_run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/EVAL_MOTOR_100_left",
+  "first_out": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/visual/ADAPTER_100_LEFT_FAIL",
+  "expected_failure": {"slip": 0.5737202404154554, "slip_limit": 0.5, "yaw_change_rad": -0.012702398986873316, "requested_turn": 1.0},
+  "immutable_inputs": "Full identity source hashes, package versions, compiled arrays, actuator settings, result and trace/decision checksums must verify before and after rendering",
+  "allowed_operations": ["construct exact Core with adhesion disabled", "restore saved qpos and qvel and time", "mj_forward", "render", "encode and decode video"],
+  "forbidden_operations": ["mj_step", "mj_step1", "mj_step2", "training", "root or joint motion correction", "rewriting captured sources or old evidence"],
+  "timeline_ms": {"settle": 1000, "algorithm_teacher": 4800, "pure_ANN": 9600, "total": 15400},
+  "render": {"meshes": 71, "all_opaque": true, "frame_count": 770, "fps": 30, "saved_state_stride_ms": 20, "slow_factor": 1.6666666666666667, "fixed_world_camera": true},
+  "checks": ["exact trace control source counts", "full neural hidden continuity", "applied neural actions repeated over physical trace", "commands and yaw from recorded data", "all sampled qpos/qvel unchanged after mj_forward", "COM and yaw match trace", "decode every frame", "six phase montage actually opened", "artifact SHA256 hashes"],
+  "claims": "Engineering gates only; full native acceptance UNKNOWN; no food model or food behavior in this motor run",
+  "reuse": "Generic --run ABS --out ABSNEW accepts later conditional motor evaluation under visual only; existing output never overwritten"
+}

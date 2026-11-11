@@ -1,0 +1,11 @@
+{
+  "scope":"Implementation of frozen parent positive-turn neural readout trial, governed by immutable ../PREREG.json",
+  "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+  "parent_sha256":"c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+  "architecture":"Freeze all194878parentparameters/bothmemories. AddzeroLinear64to42weight+bias2730. correction=relu(neuralturn)*.25*tanh(readout(currentresidualhidden64)); finalaction=tanh(parentmean+correction). Forward0 enforced. Noextrastate/time/phase/source/food input.",
+  "dataset":"ONLY authenticated original qualified left_full actual2880 X238/command2/Y42, frozenparentsequentialcausalmean+128/64after-observationcache, post960..2879 boundedactionMSE. No unsafe or corrective dataset.",
+  "budget":{"seed":20261111,"updates":2000,"optimizer":"fresh Adam for ONLY2readout tensors","lr":0.003,"save_steps":[1000,2000],"physical_eval_only_step":2000},
+  "preflight":"All3 actualparentoutcomes/audits/identity/checkpointhashes; initialactualneutral/left/right2880means/actions/bothstatesexact. Temporarysingleoptimizerupdate tests frozenparent/no gradients/newtensorsfinite nonzero. Afterupdate negative/zeroactualneutral/right2880exact. Fullproductionvs cachedoutputs/allreadoutgradients<=1e-12; targetnegativeJacobianunchanged. Temporaryserialization/RNG/optimizer exact, no newphysicalsteps.",
+  "storage":"New ownformat version1 identity/state_dict/optimizer/config/curve/rng; configkindfixed_positive_neural_readout2000/source_hashes/data_hashes; strictload onlyfinal2000 foractualevaluation. Parentoptimizer retainedlineageonly, notclaimedcontinued. ModelconstructorreloadmustrestoreliveRNG beforecontinuing.",
+  "limits":"Do not modify rootPREREG or oldsources/model/data. No actualphysics in this delegatedtask. Intermediate1000 neverphysicallyselected. Allactualfunctionalclaims awaitparentphysicalverification. Gate preserves functions only for sameobservations andnegative/zero command, notarbitraryswitchedphysicalhistory."
+}

@@ -1,0 +1,25 @@
+# Fixed500 alternate frozen-base residual: neutral retained, turning slip FAIL
+
+All new implementation and evidence remain under `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/`. Original conditional motor, original base actor/checkpoint, frozen candidate residual_motor.py/check_residual.py and prior checks were not edited during trainer preparation/execution. No behavior training, checkpoint shopping, threshold relaxation or budget extension occurred.
+
+Fixed CPU1 float64 Adam.001 adapter-only500 completed, training wall706.01s, with independent fresh-process weights/Adam/RNG/fullcurve checks at100/200/300/400/500 and exact2880neutral retention each. Baseline151636 parameters frozen; residual43242 trainable. Full2880 residual recurrence/BPTT per episode, first960 warmup excluded from loss, equal admitted fullleft/right episodes; frozen baseline hidden/means cached once. Cached implementation11/11 exact production means/bothstates and gradients checks passed before training.
+
+Saved500 checkpoint `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt`, SHA256 `040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3`. Saved post-update teacher-action MSE left.0001319259135/right.0001232326482. These are trajectory fit, not actual turning evidence.
+
+| Actual fixed500 condition | Max slip (threshold<=.5) | World yaw change rad | Other4 gates | All6cycles | Result |
+|---|---:|---:|---|---|---|
+| neutral | .492788832654 | -.006677607974 (diagnostic) | PASS | PASS | PASS |
+| left | .539664440387 | +.069252410566 | PASS | PASS | FAIL |
+| right | .515162863370 | -.080551966702 | PASS | PASS | FAIL |
+
+Both turn yaw signs/magnitudes meet abs>=.01. All three have LF1 and otherlegs2 completed cycles. Left RH.53966444 and RM.51682926 exceed slip threshold; otherlegs<=.5. No claim of body impossibility: simultaneous learned turn/low-slip remains unestablished. Neutral actual full shared physical arrays including qpos/qvel and all2880 mean/actions/basehidden are bitexact verified original baseline. Returning to neutral after changed physical history is not asserted to undo that history.
+
+`/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/ACTUAL_VERIFICATION.json`: integrity_all_pass=true; engineering_all3_pass=false. For each condition all2880 saved checkpoint means/actions/192hidden states, hidden chain, actual postwithdrawal applied policy, one control handover, matched960row neural prime/full5800physical prefix,15400trace endpoints and zero extra body/generalized forces verified. Actual physics perrun1232000steps; independent verification0physicalsteps. No full native D1-D8 certification performed for these candidates.
+
+Left completed all physics and saved arrays, then strict JSON save rejected numpybool yaw_sign flag. Original EVAL_left.log preserved. New serialization_recovery.py recovered left RESULT.json via exact frozen summary/cycletracker replay from actual arrays,0integration; original identity verified. Original handover assertion ran and passed before save error, but original before/after snapshot hashes were lost; report explicitly states recovered evidence scope and does not fabricate hashes. Right used the same frozen evaluator/actor with a new source-captured wrapper converting NumPy JSON scalars only. Initial recovery command timed out60s due repeated NPZ decompression; canceled duplicate recovery, cached arrays once, recovery then exit0. No repeated left physics. No temporary JSON files retained by failed atomic writer.
+
+Managed jobs:194/195cachechecks exit0 (195 after final evaluator completed);196training+neutral+left orchestration exit1 only at left JSON serialization;202redundant slowrecovery killed;204cachedrecovery exit0;205actualright exit0;206independentactualaudit exit0. All collected; no jobs left running in this scope.
+
+Read-only `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/RESIDUAL_RANGE_DIAGNOSIS.json`: .5 latent bound with gate caps correction at.380797078 for commandturn±1. Left1713/80640 targets outside envelope, unavoidable MSEfloor6.6116268e-6; right1672/80640, floor4.3629423e-6. Equalepisode floor5.4872846e-6. Teacher exact+1/-1 counts left10/4 right1/0. This floor is far below final fit error and does not by itself explain actual slipping. No bounds changed.
+
+API: `evaluate_candidate.load_checked(checkpoint,expected_sha256)` -> model,payload (strict fixed500/source/data). `model.initial_state(B)` -> tuple(baseB128,residualB64); `model.step(obsB238,commandB2,state)` -> meanB42,state; deterministicaction=tanh(mean). Bothstates must persist through handover. Parent decides next diagnosis; this completed fixed500 candidate is not selected as food motor, and behavior learning remains blocked by measured turn slip.

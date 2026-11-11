@@ -1,0 +1,71 @@
+{
+  "stage": "adapter",
+  "seed": 20261110,
+  "design": {
+    "status": "PREREGISTERED_CONDITIONAL_ON_PHYSICAL_TEACHER_ELIGIBILITY",
+    "seed": 20261110,
+    "candidate_teacher_conditions": [
+      "left_full",
+      "right_full",
+      "left_half",
+      "right_half"
+    ],
+    "training_eligibility": "Require complete2880 decisions, no early stop, zero nonfoot contact, support>=.90, COMmin>=1.20, original slip<=.5, sensed six-leg cycle completion and correct sign actual yaw abs>=.001. Full speed also requires original forward>=.05; half speed reports original forward failure separately and requires achieved forward>=.025. No claim that original all5 passed if speed gate fails.",
+    "if_ineligible": "Do not train on rejected teacher data as successful demonstration. Diagnose/refine teacher in new preregistered amendment; preserve all initial failures.",
+    "commands": "[speed_scale-1,yaw_rate/.008], actual smooth-ramped teacher commands; zero during original actual960decision prefix",
+    "targets": "Actual teacher42 normalized incremental rates; no phase/time/role to actor. Original baseline actual2880 observation/output trajectory used as neutral-command retention target.",
+    "learning": "Stage1 100 full-contiguous sequence Adam updates only new command_encoder, lr.003. Stage2 fixed400 updates base actor lr.0001 and adapter lr.001. Clip total gradient norm1.0. Each update sees admitted teacher episodes and neutral retention episode, each episode weighted equally; teacher warmup receives retention target from exact parent hidden sequence instead of forcing parent to refit teacher prime.",
+    "training_budget": {
+      "adapter_updates": 100,
+      "finetune_updates": 400,
+      "max_total_updates": 500
+    },
+    "physical_evaluation_checkpoints": [
+      100,
+      500
+    ],
+    "checkpoint_policy": "save100/200/300/400/500 with model+optimizer+RNG+complete curve and sources; actual physical evaluate only100/500; earliest preregistered eligible candidate selected, not minimum scalar loss",
+    "selection": "Straight neutral new actual physical rollout must preserve original all5 gates and all6 sensed cycles; actual mirrored full-speed turn must preserve same gates/all6cycles with correct yaw signs and abs(yaw)>=.01rad. Half-speed requires predeclared support/nonfoot/COM/slip plus signedforward>=.025 and all6cycles; original forward gate still reported unchanged. First diagnostics use1ms endpoint engineering checks, full native audit required before final acceptance.",
+    "validation": "Separate physical motor pulse initial conditions collected only after fixed teacher eligibility; no fabricated independent validation by slicing training episode. Initial fit/retention loss are training diagnostics, not heldout validation. Source/identity/checkpoint exactness verified before deployment. Every candidate's physical safety and command response must be tested independently.",
+    "limits": "This does not preregister odor behavior PPO settings; those require measured motor range and new fixed layout plan before training. No genuine ingestion, satiety or original connectome claim. No change to baseline XML/PD/force/gates. Refine plans only through new declared amendments, never retroactive pass labels."
+  },
+  "eligibility": [
+    {
+      "name": "left_full",
+      "eligible": true,
+      "original_all5_gates": true
+    },
+    {
+      "name": "right_full",
+      "eligible": true,
+      "original_all5_gates": true
+    },
+    {
+      "name": "left_half",
+      "eligible": false,
+      "original_all5_gates": false
+    },
+    {
+      "name": "right_half",
+      "eligible": false,
+      "original_all5_gates": false
+    }
+  ],
+  "data_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/SAMPLES_5MS.npz": "c055dea05a698840837e6f6be7177b25eb85b931901221d5ece94aadd9e73efb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/RESULT.json": "6f3ede0da4ebabd63cebed5090e899b4b5abadf352fb68be08781603a4351a6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/SAMPLES_5MS.npz": "120a7836c58821a543f97fd1647e81ba0fcc6f7049aa51aade0f55195a64f526",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json": "18158276aca6daf62c97724f887c77e5668d64dbe7d1dc3a9a13575c7d60d143",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz": "cab83bebf1778769118a25cc244badc140252f0f3cfbecc47038daa3b12b6029"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/train_motor.py": "6c981ff17747d4ee68275ca22728c6fd52fa8576aa742933edbf6ac32c70ac9f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/conditional_motor.py": "006dd430f00a11b0bbf31485fb0aca6ad84f281a49a8159a5910f7a3065e9b10",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/MOTOR_TRAINING_DESIGN.json": "0eb47863bd7be4ac77f20912cdde9151a24906a946112f6151154aee1dff18e1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/PREREG.json": "4a81e91f86a61a5f42be18e48f77a4673a4ab488556d3c874cd92d011cd9fb93",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/CONDITIONAL_CHECKS.json": "c4fb997013b155c0ec5c837464f606d8acc4184a071825c98b3d46d17d30dbdf"
+  },
+  "loss": "equal episode bounded action BC, exact full contiguous2880 BPTT; priming rows distill parent; neutral retained",
+  "resume": null,
+  "resume_sha256": null
+}

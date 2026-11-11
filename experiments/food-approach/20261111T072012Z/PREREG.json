@@ -1,0 +1,11 @@
+{
+ "task":"S2/S5 user visual review only; no training or optimization",
+ "implements":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T063353Z/PREREG.json",
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g04_c00/candidate.pt",
+ "sha256":"6a6c23feb9a4b36fcf761f62f9d63309b5c81763f950afe520f42c09a5855e2f",
+ "left":"reuse exact saved EVAL_left; slip .50573596241638 remains original threshold FAIL",
+ "right":"one full actual right rollout with identical checkpoint, unchanged frozen evaluator, source audit and exact ancestor-right preservation",
+ "protocol":"1s settle + 4.8s teacher + 9.6s ANN, no reset, no new training, one CPU thread; original gates preserved",
+ "render":"same-run qpos/qvel and mj_forward only, prohibit mj_step; 770 saved 20ms states at 50fps real time; all71 opaque meshes, full frame silhouette containment; streaming ffmpeg threads1; complete decode, ffprobe, source hashes, per-frame identity and actual montage opening",
+ "amendment":"new timestamp replaces unused render staging only; real-time50fps follows old left_visual PREREG; no sealed evidence modified"
+}

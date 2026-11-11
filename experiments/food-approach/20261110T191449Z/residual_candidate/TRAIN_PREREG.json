@@ -1,0 +1,14 @@
+{
+ "status":"CODE_ONLY_NOT_AUTHORIZED_TO_START_OPTIMIZATION_OR_PHYSICS",
+ "candidate":"Alternate frozen-base residual architecture; not a baseline update",
+ "steps":500,"optimizer":"Adam","lr":0.001,"seed":20261110,"cpu_threads":1,
+ "wall_budget_seconds":14400,"budget_action":"abort with exception; no best checkpoint selection, no automatic continuation",
+ "data":["left_full","right_full"],"decision_rows_each":2880,"prime_rows":960,"turn_rows":1920,
+ "cache":"Compute exact frozen baseline means and hidden once per actual teacher sequence under no_grad; select112 permitted physical obs plus hidden128 and actual command2. Share actual residual encoder/gru/head. Full2880 recurrence/BPTT, loss only rows960:2880. Separate teacher episodes backward with equal weights; no truncation/detach residual memory.",
+ "neutral_retention":"Independent2880 original saved neutral rows every100; exact saved means/actions/basehidden required; baseline and zero gate make neutral a check rather than gradient-bearing retention loss",
+ "checks_before_training":"CACHE_CHECKS.json all passed and source/data hashes current. Cached-vs-production all2880 outputs and both states exact; adapter gradients exact; no optimizer step in new cache check",
+ "checkpoints":[100,200,300,400,500],"physical_evaluate_only_step":500,"selection":"no checkpoint shopping; fit/MSE does not establish physical turning",
+ "save":"Fresh paths only; weights/Adam/RNG/full curve/config/source and data hashes. Independent fresh-process reload every100 validates weights/moments/RNG/curve. Step0 fit metrics and walltime logged.",
+ "runtime":"Both recurrent states continuous across handover; actor only actualobs238/command2; teacher provides training labels only",
+ "physics":"No physical execution authorized by this code preparation. Future eval fixed500 only, 1ssettle+4.8steacher+9.6sANN; neutral,left,right at command[0,0],[0,1],[0,-1]. Preserve original physics/strict checks; yaw and slip reported independently."
+}

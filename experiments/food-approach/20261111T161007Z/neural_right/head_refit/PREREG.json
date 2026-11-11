@@ -1,0 +1,16 @@
+{
+ "status_at_creation":"CODE_ONLY; do not execute model preflight/training/physics until parent explicitly releases shared heavy resource",
+ "scope":"S4/S5 bounded head-only uniform fit candidate; prior RIGHT30.1385deg/slip.52244 FAIL preserved; no claimed root cause or guaranteed improvement",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_002000.pt",
+ "parent_sha256":"f25b920b1d9bc74a2ff3092dd926908d728b1b0ee49d211d4295e59f630aee15",
+ "architecture":"unchanged RIGHT_ONLY relu(-turn)*3*tanh(head) + validated base latent, final tanh; physical112+base128+command2 encoder64/tanh slowGRU64; newyaw/.06, NOT oldyaw/.008",
+ "change":"freeze base AND encoder AND GRU; fit only existing head64to42 (2730 parameters), initialized from final2000; cache full actual teacher-history base means/residualhidden; exact same uniform post960 actionMSE; no stance weighting",
+ "data":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/SAMPLES_5MS.npz",
+ "training":{"seed":20261111,"dtype":"float64","threads":1,"optimizer":"fresh Adam head only, no inherited Adam","learning_rate":0.001,"updates":4000,"save_steps":[2000,4000],"physical_eval_only_step":4000,"objective":"uniform post960 actionMSE; full2880 cached actual continuous hidden; no BPTT for frozen modules","gradient_clip":null},
+ "preflight":"actual production sequence vs cached head outputs/fullhidden <=1e-12; all head gradients/unit Adam model and state <=1e-12; all frozen weights unchanged/no gradients; neutral2880 exact original; initial model exact parent on actual teacher history; freshAdam0states",
+ "save_audit":"atomic newformat head-only model/2Adamstates/RNG/curve/fullproductionmeans/state; live saved exact; restore live RNG after temporary strictload; newprocess audits both saves; final4000 only physics",
+ "physics":"unchanged complete71opaque49qpos48qvel42finitePD/native12.5us/noextra/noadhesion/rootwrites0; neutral thenRIGHT each1ssettle+4.8steacherprime+9.6sANN noreset; RIGHT1ssmoothstep toturn-1; complete1ms/neural192/geometry/handover/nativeNF peaks",
+ "acceptance":"samewindow originalfive worldX gates inclslip<=.5 andsignedworldX>=.05, strictnativeNF0, all6cycles, actual signedRIGHTyaw>=30deg; no gate relaxation",
+ "selection":"only fixed final4000,2000 is integrity archive; preserve failures; no additional model/physics search in this candidate",
+ "resources":"at most one single-thread training or physical process; codeonly while parent renderer/left physics active; no subagents; tracker parent-owned"
+}

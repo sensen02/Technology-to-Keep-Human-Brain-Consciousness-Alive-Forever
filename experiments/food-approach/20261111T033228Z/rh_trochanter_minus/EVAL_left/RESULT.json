@@ -1,0 +1,425 @@
+{
+  "status": "ENGINEERING_ONLY_NOT_FULL_NATIVE_OR_FOOD_CERTIFICATION",
+  "engineering_pass": false,
+  "criteria": {
+    "original_five": false,
+    "all_six": true,
+    "strict_nonfoot_zero": true,
+    "turn_sign_magnitude": true,
+    "eligible": false
+  },
+  "condition": "left",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/candidate.pt",
+  "checkpoint_sha256": "98960544091cf1785bb26f6d81f6ba4769d3d4b738f6a81a7d06d33ec650d101",
+  "autonomous": {
+    "native_steps": 768000,
+    "sample_count": 9600,
+    "duration_s": 9.599000000318654,
+    "forward_speed_native_per_s": 0.07100686008436043,
+    "forward_signed_native_per_s": 0.07100667691598193,
+    "lateral_speed_native_per_s": 0.00016128356796044245,
+    "foot_support_mean": 1.0000470278283005,
+    "foot_support_min": 0.9954694569629106,
+    "nonfoot_force_max_W": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "com_height_min": 1.2553238846239774,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.3067682580008098,
+      "LH": 0.43522597598469465,
+      "LM": 0.41786403266873867,
+      "RF": 0.3407519664426137,
+      "RH": 0.5249652247799116,
+      "RM": 0.48333412477818105
+    },
+    "slip_ratio_max": 0.5249652247799116,
+    "slip_ratio_mean": 0.4181515971091582,
+    "com_start": 1.2758698497611711,
+    "com_end": 1.2757185565125326,
+    "com_xy_travel": 0.6815948499724023,
+    "slip_load_denominator_native": [
+      22045.211461518546,
+      57345.319190466995,
+      36943.497495043164,
+      20079.582940988537,
+      57406.05724555949,
+      40876.37404900204
+    ],
+    "slip_valid_per_leg": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slip_has_progress": true,
+    "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+    "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+    "sample_dt_s": 0.0010000000000331966,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": true,
+      "forward": true,
+      "slip": false
+    },
+    "all_gates": false,
+    "initial_heading_diagnostics": {
+      "status": "MEASURED",
+      "forward_signed_native_per_s": 0.07100667691598193,
+      "lateral_signed_native_per_s": -0.00016128356796044245,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ],
+      "gate_applied": false
+    },
+    "native_peak_summary": null,
+    "roadmap_D1_D8": {
+      "D1": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D2": {
+        "status": "UNKNOWN",
+        "reason": "native low-pass acceleration and autonomous window not supplied"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D4": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D4b": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D6": {
+        "status": "UNKNOWN",
+        "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "reason": "native window and loading-leg threshold absent"
+      },
+      "D8": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      }
+    },
+    "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+    "window": {
+      "first_sample_s": 5.801000000052132,
+      "last_sample_s": 15.400000000370785,
+      "sample_count": 9600
+    }
+  },
+  "autonomous_cycles": {
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "all_legs_completed": true,
+    "events": [
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 6.54500000007683,
+        "start_time": 5.98200000005814,
+        "lift": 0.07794897985403484,
+        "advance": 0.34814289220104555,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5150000000170962,
+        "duration": 0.5630000000186897,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 7.3310000001029225,
+        "start_time": 6.813000000085727,
+        "lift": 0.05917087068242006,
+        "advance": 0.2464524258573928,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.48400000001606713,
+        "duration": 0.5180000000171958,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 8.963000000157098,
+        "start_time": 8.378000000137678,
+        "lift": 0.09208752357932246,
+        "advance": 0.27416420241140627,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5380000000178597,
+        "duration": 0.58500000001942,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 9.735000000182726,
+        "start_time": 9.196000000164833,
+        "lift": 0.06204328974540114,
+        "advance": 0.21509628383344714,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5100000000169302,
+        "duration": 0.5390000000178929,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 9.963000000190295,
+        "start_time": 6.7640000000841,
+        "lift": 0.12006086694919518,
+        "advance": 0.29123446197057146,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.144000000037976,
+        "duration": 3.199000000106195,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 11.348000000236272,
+        "start_time": 10.786000000217616,
+        "lift": 0.07918557059321224,
+        "advance": 0.3674617324510943,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.514000000017063,
+        "duration": 0.5620000000186565,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LF",
+        "time": 11.549000000242945,
+        "start_time": 9.147000000163207,
+        "lift": 0.11038589238084973,
+        "advance": 0.2523910632223524,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1640000000386408,
+        "duration": 2.402000000079738,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 12.129000000262199,
+        "start_time": 11.61300000024507,
+        "lift": 0.058391894717471464,
+        "advance": 0.24770330281573938,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.48300000001603394,
+        "duration": 0.5160000000171294,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 13.765000000316508,
+        "start_time": 13.179000000297055,
+        "lift": 0.09008825151973676,
+        "advance": 0.27172337076102593,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5380000000178597,
+        "duration": 0.5860000000194532,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 14.528000000341837,
+        "start_time": 13.99400000032411,
+        "lift": 0.05798426246843547,
+        "advance": 0.201702285892698,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5040000000167311,
+        "duration": 0.534000000017727,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 14.756000000349406,
+        "start_time": 11.562000000243376,
+        "lift": 0.11771409835910568,
+        "advance": 0.2924539316117212,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1480000000381096,
+        "duration": 3.19400000010603,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "reason": "terminal",
+        "leg": "LF",
+        "time": 15.400000000370785,
+        "start_time": 13.946000000322517,
+        "lift": 0.11173385577983813,
+        "advance": 0.2533334970451435,
+        "unloaded_duration": 1.1570000000384084
+      }
+    ],
+    "config": {
+      "weight": 24.446354755878005,
+      "dt": 0.001,
+      "gamma": 0.999000499833375,
+      "loaded": 0.1,
+      "unloaded": 0.05,
+      "ground": 0.004,
+      "clearance": 0.015,
+      "advance": 0.03,
+      "loaded_dwell": 0.01,
+      "unload_dwell": 0.005,
+      "timeout": 4.0,
+      "phi_cap": 0.05,
+      "completion_bonus": 0.1
+    },
+    "interpretation": "strict sensed cycle diagnostic; no actions generated"
+  },
+  "yaw_change_rad": 0.060835917230827465,
+  "transition": {
+    "time_s": 5.800000000052099,
+    "all_exact": true,
+    "exact": {
+      "qpos": true,
+      "qvel": true,
+      "ctrl": true,
+      "target": true,
+      "history": true,
+      "padz_previous": true,
+      "pad_rate": true,
+      "requested_rate": true,
+      "previous_actual_action": true,
+      "time": true,
+      "external_body": true,
+      "external_generalized": true,
+      "hidden": true
+    },
+    "before_sha256": {
+      "qpos": "981549b33535aefc12980af2d0fe9f5668b844c4ee701408f56e961b5d8ec68d",
+      "qvel": "a91edb77d2cb1f2e94a11948e80da2b569e21bf8fb9b27af7f18db61944775ca",
+      "ctrl": "d701d7ecec4a31c82858f6ccac52d24623158328d46898a6771bda03fb5afb5d",
+      "target": "26fe60681430e1f914ffbf195f4f22df23c946304020fcf8bbe50a59b0d97cad",
+      "history": "7ab8be3847c6d111bd3cb7ef4b9169bf3a50967ddc8942a9064c7217d074ed86",
+      "padz_previous": "71b5e5d89e35ae49d43d49fecff255fcc229ad317170883c65e826d1e2b73fc3",
+      "pad_rate": "d6750ab0767f4a02ba045a427ce61811be3bdbf8f055ad705553bd6cc1c6b81b",
+      "requested_rate": "6590e10c4a4f1acb29116f1c82bb03bf9e8671d205459998014c1188fe7d0c76",
+      "previous_actual_action": "655b6ec1ae24ad96d62ad2b73a2c9535c594b88c2ec795793dcd9740c9bfc0f0",
+      "time": "49f746bc5a396e7d6886c4891161a1c50107903acc4c2567f11228b8bfece67b",
+      "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+      "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "hidden": "4fcce1c05ba6efc865c998503635332b030bcfb755905c0f58248ebea00ee615"
+    },
+    "after_sha256": {
+      "qpos": "981549b33535aefc12980af2d0fe9f5668b844c4ee701408f56e961b5d8ec68d",
+      "qvel": "a91edb77d2cb1f2e94a11948e80da2b569e21bf8fb9b27af7f18db61944775ca",
+      "ctrl": "d701d7ecec4a31c82858f6ccac52d24623158328d46898a6771bda03fb5afb5d",
+      "target": "26fe60681430e1f914ffbf195f4f22df23c946304020fcf8bbe50a59b0d97cad",
+      "history": "7ab8be3847c6d111bd3cb7ef4b9169bf3a50967ddc8942a9064c7217d074ed86",
+      "padz_previous": "71b5e5d89e35ae49d43d49fecff255fcc229ad317170883c65e826d1e2b73fc3",
+      "pad_rate": "d6750ab0767f4a02ba045a427ce61811be3bdbf8f055ad705553bd6cc1c6b81b",
+      "requested_rate": "6590e10c4a4f1acb29116f1c82bb03bf9e8671d205459998014c1188fe7d0c76",
+      "previous_actual_action": "655b6ec1ae24ad96d62ad2b73a2c9535c594b88c2ec795793dcd9740c9bfc0f0",
+      "time": "49f746bc5a396e7d6886c4891161a1c50107903acc4c2567f11228b8bfece67b",
+      "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+      "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "hidden": "4fcce1c05ba6efc865c998503635332b030bcfb755905c0f58248ebea00ee615"
+    },
+    "no_reset": true,
+    "state_dims": [
+      128,
+      64
+    ]
+  },
+  "state_layout": [
+    128,
+    64
+  ],
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/PREREG.json": "97088c6fd9825a8ccf1028da224d4472b9a9bfe8190e58a57422c27c602d6272",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/model_io.py": "35658c4e4699d3b591cb9cc7388e687f62ad06a08b7d297405073eadf85fe859",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/evaluate_motor.py": "69f0c824e06f6a8df78c96aaab3786b22f8e6b771cd43410c9f481b8db3dab73",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/verify_actual.py": "0cddcdf665e630a777580e50f8e77bbffbe22cfb29baaf4b15b688b1669b1bd5",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/prepare.py": "90b94c9d4a9333548dd8d724e9283c32f6ce7b940f5f57dfa95b140398bd1a0b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/pipeline.py": "764bed2120f59bf6041c86d69647ac73705eaa9a86d112f2bbf4bb18b35cf6f2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/PREPARATION.json": "4761180bc6eb1481290a2391d06e01c91cc4006b143a66714ad6149ae9fe6bc6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/check_prepared.py": "8b767aa82bf6073cbbf76d4030ae9acf288be958dec81c532712d9a11f944ba4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/verify_actual.py": "ff5ca02d2285b79a3bbf2bc5a9b7c91987830af51163bb2734e96a8a1cf9e644",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/pipeline.py": "9231625880f903e0fd5229289f56fee85474897e1ad5081190b904befc310cf9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/evaluate_motor.py": "254c25cc8123ff1e8238f39931293296cb6d5e068557ef9a2fa20b1a8eb1a0d3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/EVAL_PREREG.json": "a04481f3e2fa71f11af7131d8b6484f105b2fd855a2ee4aa1cf64f2996c17ff8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/READINESS.json": "8fe77109cc55a97a4dedc66cfe2511bec6783725cc7fcf768020c84c0ac2af4d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt": "eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/HEAD_GEOMETRY_AUDIT.json": "2f4b21c5dd26f0b9e445295b3f0b40c82bd9a963dd2efc1315957f9a0541678d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_PREREG.json": "5e5b32b7849680d82bf51478ce3c2813720f9c66b04206c2182b40d198433f05",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/READINESS.json": "536aef844fcb0fb444d3fffd716f115a192e14da8a92ff31d5d83b87333fdbf9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/candidate.pt": "98960544091cf1785bb26f6d81f6ba4769d3d4b738f6a81a7d06d33ec650d101"
+  },
+  "identity_sha256": "6692aec32b725d807af2695ea21194d0c047d060e38bbcb39140f1d09c8b9023",
+  "physical_steps": 1232000,
+  "teacher_calls": 960,
+  "teacher_calls_after_handover": 0,
+  "extra_forces": false,
+  "mesh_count": 71,
+  "all_mesh_opaque": true,
+  "native_audit": "NOT_PERFORMED",
+  "food_success": false,
+  "geometry_diagnostic_only": true,
+  "trace": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_left/trace_1ms.npz",
+    "sha256": "47c29bb30b5da787c70dc2b21e4a669616c7dffe565e38b16852b525fda0d5f9",
+    "samples": 15400
+  },
+  "neural_decisions": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_left/neural_decisions.npz",
+    "sha256": "93d0d88b6fea71a32dcaee03b7be9c57081a55dee4091ac685d03944f7b1aaf4",
+    "rows": 2880
+  },
+  "geometry": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_left/geometry_1ms.npz",
+    "sha256": "fb29caa5f7df8dbf38c6a9af06ab5155177413d69d3d584548ef502ab4281958",
+    "rows": 15400
+  },
+  "runtime_geometry": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/rh_trochanter_minus/EVAL_left/runtime_geometry.npz",
+    "sha256": "61230737ef6d0e0781945ebfc9877c4b37e4b3d0562e7e9741f2a7253bb30da9"
+  }
+}

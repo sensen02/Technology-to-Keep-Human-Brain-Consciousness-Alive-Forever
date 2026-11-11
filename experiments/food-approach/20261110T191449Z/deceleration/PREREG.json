@@ -1,0 +1,30 @@
+{
+  "fixed_before_execution": true,
+  "scope": "S4/S5 authorized food-approach precursor: bounded algorithm teacher diagnostic only; no training, food field, neural autonomy, SI or D1-D8 certification",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "teacher_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/turning_teacher.py",
+  "conditions": [
+    {"name": "halfspeed_straight", "speed_scale": 0.5, "yaw_rate": 0.0},
+    {"name": "halfspeed_smallleft", "speed_scale": 0.5, "yaw_rate": 0.004}
+  ],
+  "seed": 20261110,
+  "budget": "Exactly two configurations, one physical trajectory each; no sweeps, retries, training or food behavior",
+  "settle_s": 1.0,
+  "baseline_teacher_prime_s": 4.8,
+  "modified_window_s": 19.2,
+  "total_s": 25.0,
+  "decisions": 4800,
+  "neutral_warmup_decisions": 960,
+  "conditional_decisions": 3840,
+  "schedule": "Actual zero-action settle [0,1); unchanged physical baseline teacher [1,5.8); continuous halfspeed teacher [5.8,25), including unchanged one-second smoothstep transition; no resets, physical state/root writes or extra forces",
+  "teacher": "Unmodified explicit-path make_teacher and ConditionalTwistReference; baseline StaticTeacher teacher_config(100), rest calibrated only from actual post-settle state; unchanged finite PD, body, gravity, friction, torque/rate limits and 12.5us native physics",
+  "original_five": "Unchanged physics.summarise on all19200 modified-window 1ms endpoints: support mean sum(loads)/W >=.90; peak nonfoot native <=.20W; minimum COMz>=1.20; signed world-X displacement/(last-first time)>=.05; max per-leg sum(load*foot_tangent_speed)/sum(load) divided by net XY displacement/(last-first time)<=.5. All original five gates and all5 result reported; original forward expected FAIL, not relabeled",
+  "halfspeed_gates": "Same full19200 endpoints and formulas; explicit signed world-X forward>=.025, original slip<=.5 with nondegenerate per-leg load denominators and net progress, support>=.90, COM>=1.20, strict nonfoot peak==0 and every leg>=1 complete cycle",
+  "cycles": "Unchanged baseline CycleTracker(CycleConfig(timeout=4.0)), observer begins5.8s, every subsequent actual1ms sample through25.0, baseline loaded/unloaded/clearance/advance/dwell semantics and finalize unchanged; no threshold edits",
+  "sampling": "Entire25000 1ms trace, including actual1000 zero-settle+4800 prefix+19200 modified milliseconds;4800 per5ms X238,Y42,command2,physical speed/yaw commands,phase provenance,actual_time,post_prime; actor target_speed stays.075; command2=[physical_speed/.075-1,physical_yaw/.008];960 neutral warmup+3840 conditional decisions; all timestamps actual continuous simulator time",
+  "yaw_diagnostic": "Actual thorax yaw atan2(R10,R00), unwrap continuous prefix+window; window delta includes5.8s boundary; smallleft direction agreement requestedyaw*actualdelta>0 and abs(delta)>.001, diagnostic only; straight yaw measured with no invented acceptance threshold",
+  "stopping": "Exception/nonfinite stops; retain failure evidence.100 successive1ms ticks COM<.8 or nonfoot>.5W early-stop; no candidate substitution or retry",
+  "verification": "Independent fresh-process saved-evidence replay recomputes all original and halfspeed gates, all six cycle counts/events, slip denominators, force-zero endpoints, complete shape/time/action/command alignment, prefix identity and input/artifact hashes; not a third physics trajectory",
+  "resources": "Provided20261110T125712Z/env/bin/python -B, CPU1 thread limits and single allowed CPU affinity, managed background job collected by agent",
+  "immutability": "Write only new deceleration directory; previous teacher source/evidence and baseline dependencies hash before and after; source/code reads bounded; all failures retained; report APIs for later parent curriculum without training"
+}

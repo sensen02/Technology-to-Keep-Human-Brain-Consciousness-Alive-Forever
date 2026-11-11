@@ -1,0 +1,31 @@
+{
+  "status": "SOURCES_READY_NO_PHYSICS",
+  "all_pass": true,
+  "checks": {
+    "original_jsonable_ast_unchanged": true,
+    "original_condition_score_ast_unchanged": true,
+    "original_neutral_reference_ast_unchanged": true,
+    "original_parser_ast_unchanged": true,
+    "whole2880_neural_physics_loop_ast_unchanged": true,
+    "originals_not_aliased": true,
+    "motor_import_exact_original": true,
+    "baseline_import_exact_original": true,
+    "source_paths_unique": true,
+    "robust_numpy_json": true,
+    "reject_checkpoint001000": true,
+    "reject_checkpoint002500": true,
+    "all_seven_frozen_sources_syntax_json_valid": true
+  },
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+  "interpreter": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/eval3000.py": "1af5152e9abbb9fb21d6e6c1882f4031941e59736d387ee5027e16df1f22753f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/verify_actual3000.py": "6ae0765f60be0f46e6fcbe7cc5a7f731408265cb8bea57e8c6f5f71092ecd5c6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/pipeline3000.py": "c0832ed9ee2096f2269e4044b8969b2c8fbb005b2a01cefa40d72946d97c81de",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/EVAL_PREREG.json": "447dd1ff2e7434e6e90ce813662553afc9c8daab3812ffd157259a9d51b43141"
+  },
+  "physics_integration_steps": 0,
+  "commands_exit_codes": [0,0],
+  "execution_gate": "Explicit final checkpoint SHA and training complete message required before physical launch.",
+  "scope": "S4/S5 conditional motor engineering evaluation preparation; no behavior optimization. Only continuation3000 files created."
+}

@@ -1,0 +1,11 @@
+# Read-only assessment of a moderate phase-speed candidate
+
+No moderate-speed physics was executed and no new configuration is preregistered here. This note responds to parent reasoning after the two completed stride cases; fixed4s timeout and all metric definitions remain unchanged.
+
+Measured existing full-speed teacher event ages provide a concrete timing basis: left_full LF complete2.406s and RF3.197s (both RF cycles); right_full LF2.394s and RF3.195s. At phase speed.5, saved straight/left records show first actual10ms loaded-grounded reloading at LF4.805/4.815s and RF6.389/6.390s, close to doubled full-speed front event ages. These are actual reloading times after the detector already aborted at4s; they are not relabeled successful cycles.
+
+Simple inverse-speed projection from the slower full-speed extrema gives at.85: LF2.406/.85=2.8306s and RF3.197/.85=3.7612s, below4s; at.75: LF3.208s and RF4.2627s, with RF beyond4s. Projection from measured halfspeed reloading gives similar RF6.390*.5/.85=3.7588s andLF4.815*.5/.85=2.8324s. This supports.85 as a bounded, falsifiable moderate-deceleration hypothesis; it does not declare any candidate physically passing. The projected RF margin is only~.239s, and actual loads can change nonlinearly with speed and ramp.
+
+A whole-wave phase slowdown also slows all measured x/y/z motions together, whereas the completed stride-shortening cases kept absolute loaded foot velocity near full-speed despite roughly half body progress. This distinction supplies a mechanical reason to test moderate phase slowdown separately. Neither slip nor support/COM/strictNF0 is guaranteed; thresholds must be independently recomputed over the entire preregistered window. Existing full-speed signedX~.0716native/s scaled by.85 is~.0609, above original.05 only as a projection. Achieved deceleration must be measured against a declared baseline; arbitrary halfspeed is not itself a functional requirement.
+
+Parent may separately preregister a bounded moderate phase-speed experiment if desired. No third configuration, altered timeout, new denominator, training or food behavior was run in /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_stride/.

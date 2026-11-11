@@ -1,0 +1,25 @@
+{
+  "fixed_before_execution": true,
+  "scope": "S4/S5 authorized fixed-cadence stride-shortening teacher experiment only; no training/food/neural autonomy; new directory only",
+  "parent_diagnosis": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration/FRONT_PREDICATE_DIAGNOSIS.json",
+  "question": "Does shortening sagittal stride while retaining original .8s leg cadence avoid previous phase-slowed LF/RF reload after4s timeout? This is a mechanical candidate, not a lowered-cycle criterion.",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "previous_teacher": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/turning_teacher.py",
+  "conditions": [
+    {"name":"stride_018", "stride_scale":0.5,"stride_native":0.18,"forward_threshold":0.025},
+    {"name":"stride_027", "stride_scale":0.75,"stride_native":0.27,"forward_threshold":0.04}
+  ],
+  "seed": 20261110,
+  "budget": "Exactly2configs one trajectory each; no further configurations or retries; exceptions/early stop preserved, no candidate substitution",
+  "timing": "Actual1s zero settle+4.8s original physical teacher prefix+9.6s continuous post window; total15.4s,15400ticks,2880decisions960neutral+1920post; no reset/state writes",
+  "reference": "Construct original StaticTeacher once after actual settle using original teacher_config100(.8cadence,.36stride,.12lift,.01contacttransition). Wrap its actual baselineWaveReference(rest,.36), retain phase t unchanged; x=restx+scale(t)*(basex-restx), y/z/stance/lateral profiles unchanged;1s smoothstep after4.8 transitions scale1 to.5 or.75; vx=scale*basevx+scale_dot*(basex-restx), other velocities unchanged; no phase slowing",
+  "commands": "Separate normalized command2=[scale-1,0], physicalnominal speed .075scale yaw0; original X238 target_speed remains.075; time/phase provenance not neural inputs",
+  "physical": "Unchanged finitePD/body/gravity/friction/native12.5us/42actuators, teacher privateFK only; adhesion=False, body/generalized forces checked0 each1ms before/after; no root/state writes or extra forces",
+  "original_gates": "Unchanged full9600 post1ms physics.summarise original all5: footsupportmean/W>=.90; nonfootpeak<=.20W; COMmin>=1.20; signedworldXforward>=.05; loadweighted perlegtangentfootvelocity divided by netXYdisplacement/time <=.5; original results retained even ifFAIL",
+  "stride_gates": "Exact same metrics/window/formulas, with explicit forward>=.025 forstride.18 or>=.04 forstride.27; strictnonfoot0; originalslip<=.5 and allvalidload denominators/netprogress; support>=.90;COM>=1.20;all6>=1complete cycle",
+  "cycles": "Unmodified152714 CycleTracker(CycleConfig(timeout4s)), begins5.8s at firstposttick5.801 through15.4, every1ms; original loaded/unloaded/height/advance/dwell unchanged and finalize unchanged; no relaxation",
+  "stopping": "Exception/nonfinite stop and finallysave partial arrays/failure report;100consecutive1ms COM<.8 ornonfoot>.5W early stop; no retries/substitution",
+  "verification": "Fresh process independent saved-evidence formulas/schedule/replaycycles; all15400ticks/2880samples/timing/alignment/zeroexternal; sourceassets/artifacts SHA256;960neutralprefix and actual5800physics ticks bitexact against original teacher; no third physics trajectory",
+  "resources": "Provided20261110T125712Z/env/bin/python -B CPU1 affinity and numericalthreads1; managed background job collected",
+  "immutability": "Write ONLY new deceleration_stride directory; completed deceleration and previous teacher/baseline source evidence hash before/after. All failures preserved. Return APIs without training. 1msendpoint engineering only, no fullnativeD1-D8 or neuralautonomy claim."
+}

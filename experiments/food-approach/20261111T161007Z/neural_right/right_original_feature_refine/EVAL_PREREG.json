@@ -1,0 +1,9 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"right":[0.0,-1.0]},
+ "checkpoint_step":2000,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"sameRIGHT_ONLY newyaw/.06,forward0,turn1ssmoothstep to-1 afterdecision960; oldyaw/.008 distinct",
+ "physical_order":"only fixedfinal2000 completeRIGHT thennewprocessindependentaudit; strictPASS only sameSHA completeNEUTRAL; FAIL no additionalneutral ortraining",
+ "acceptance":"originalall5 engineering inclslip<=.5/worldX>=.05, all6cycles, strictnativeNF0, actualsignedRIGHTyaw>=30deg SAME9.6s; no gate relaxation",
+ "scope":"qualified-original-data-only fulladapter featurecandidate; no Dagger/CORRECTIVE, no body changes, no fullnativeD1-D8/connectome/SI/biology/food qualification"
+}

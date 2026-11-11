@@ -1,0 +1,14 @@
+{
+  "status": "REGISTERED_BEFORE_PHYSICAL_CONTROL_EXECUTION_AND_BEFORE_FINAL1500_RESULTS",
+  "reason": "Old parent500 physical turns used abruptcommands, whereas new final1500 evaluation uses teacher-matched1s smoothcommands. A matched parent control is needed before attributing any improvement to continuation; it may also reveal an already usable fixed parent model. This is one predeclared parent checkpoint/control, not a sweep of intermediate training checkpoints.",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "conditions": ["left", "right"],
+  "command": "forward0; signedturn+1/-1 multipliedbyfixed1ssmoothstep afterwithdrawal, sameasnew1500condition. Entire1ssettle+4.8sactualteacherprime+9.6sANN unchanged, bothmemoriescontinuous.",
+  "neutral_control": "Reuse SAMEparent500 actualneutral previouslypassed/integrityverified: /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/RESULT.json plus ACTUAL_VERIFICATION.json bindingcheckpoint. No duplicate neutralphysicalrun, sourceidentity differences explicitlyassociated notmisrepresented.",
+  "gates": "Originalall5/all6/strictNF0/properwholewindowyawabs>=.01 unchanged, full9.6s includingramp, no trim/threshold/denominatorchanges. Native12.5us/full71opaque/42finitePD/noextra/adhesion/rootwrites.",
+  "identity": "Newparent_control/ wrapperspreregistercaptureonlyloadcheckpoint500+newcontrolmetadata vs new1500path, fixedphysical/scoringunchanged. Independentall2880checkpoint/192hidden/actions/full15400phase/prefix/forces/gates/cycles/compiledidentityaudit. Alloldsource/checkpoints/failuresimmutable.",
+  "resource": "Exactly2additional matchedcontrolruns CPU1max2 concurrent, canoverlapindependenttraining236, alljobscollect. No optimizationincontrol, no commandmagnitude/rampdurationsearch.",
+  "selection_policy": "Final1500 trainingcandidate remainsfixedandmustbephysicallyevaluated asregistered. Bothparent500 andfinal1500 are namedbeforeoutcomes; any fullypassingmodel isonlyfixed-conditionengineering evidence. Ifbothpass prefer frozenparent500minimalchange, subjecttonewcommand-switch/initialstateholdouts; ifonlyonepasses thatcandidateiseligibleforfurtherqualification. Nofoodsuccessclaimedfromthesetestsalone. Savedintermediate1000 isneverphysicallyselected.",
+  "not_claimed": "No causaltrainingbenefit withoutmatchedcomparison; noriginalconnectome/biological/nativeD1-D8/food/feedingcertification."
+}

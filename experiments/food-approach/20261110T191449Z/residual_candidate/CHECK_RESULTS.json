@@ -1,0 +1,211 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all2880_neutral_means_bitexact_initial": true,
+    "all2880_neutral_actions_bitexact_initial": true,
+    "all2880_neutral_base_hidden_bitexact_initial": true,
+    "base_frozen_at_construction": true,
+    "every_adapter_tensor_finite_nonzero_gradient": true,
+    "every_adapter_scalar_connection_nonzero_gradient": true,
+    "base_has_no_gradients": true,
+    "every_adapter_tensor_updated": true,
+    "base_weights_and_buffers_exact_after_update": true,
+    "all2880_neutral_means_bitexact_after_update": true,
+    "all2880_neutral_actions_bitexact_after_update": true,
+    "all2880_neutral_base_hidden_bitexact_after_update": true,
+    "neutral_after_nonzero_memory_bitexact": true,
+    "nonzero_command_changes_output": true,
+    "base_hidden_independent_of_command_bitexact": true,
+    "residual_state_not_reset_when_command_zero": true,
+    "split_continuation_means_bitexact": true,
+    "split_continuation_both_states_bitexact": true,
+    "latent_correction_bounded": true,
+    "excluded_channels_do_not_drive_either_hidden": true,
+    "direct_target_jacobian_exact_retained_inhibitory_diagonal": true,
+    "saved_all_weights_reload_exact": true,
+    "saved_both_runtime_states_reload_exact": true,
+    "saved_optimizer_reload_exact": true,
+    "reloaded_output_and_both_next_states_exact": true,
+    "loaded_base_stays_frozen": true,
+    "reject_extra_observation": true,
+    "reject_extra_command": true,
+    "reject_command_out_of_range": true,
+    "inputs_unchanged": true
+  },
+  "gradients": {
+    "encoder.weight": {
+      "finite": true,
+      "maxabs": 9.028808895276258e-07,
+      "nonzero_entries": 15488,
+      "entries": 15488
+    },
+    "encoder.bias": {
+      "finite": true,
+      "maxabs": 6.303714807757465e-07,
+      "nonzero_entries": 64,
+      "entries": 64
+    },
+    "gru.weight_ih": {
+      "finite": true,
+      "maxabs": 9.112720937988344e-07,
+      "nonzero_entries": 12288,
+      "entries": 12288
+    },
+    "gru.weight_hh": {
+      "finite": true,
+      "maxabs": 3.5466206299204545e-07,
+      "nonzero_entries": 12288,
+      "entries": 12288
+    },
+    "gru.bias_ih": {
+      "finite": true,
+      "maxabs": 1.2927141964903537e-06,
+      "nonzero_entries": 192,
+      "entries": 192
+    },
+    "gru.bias_hh": {
+      "finite": true,
+      "maxabs": 7.177248382573027e-07,
+      "nonzero_entries": 192,
+      "entries": 192
+    },
+    "head.weight": {
+      "finite": true,
+      "maxabs": 0.00034541794451204,
+      "nonzero_entries": 2688,
+      "entries": 2688
+    },
+    "head.bias": {
+      "finite": true,
+      "maxabs": 0.0006911022817168658,
+      "nonzero_entries": 42,
+      "entries": 42
+    }
+  },
+  "adapter_parameter_count": 43242,
+  "frozen_base_parameter_count": 151636,
+  "identity": {
+    "version": "frozen_gru128_masked_residual_gru64_command_norm_gate_v1",
+    "baseline_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+    "baseline_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "baseline_model_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py",
+    "baseline_model_source_sha256": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "inputs": 238,
+    "command_dim": 2,
+    "command_order": [
+      "forward_modulation",
+      "signed_turn_modulation"
+    ],
+    "state_dims": [
+      128,
+      64
+    ],
+    "residual_bound": 0.5,
+    "alpha": 0.048770575499285984,
+    "neutral": [
+      0.0,
+      0.0
+    ],
+    "gate": "tanh(sum(command**2))",
+    "base_frozen": true,
+    "base_identity": {
+      "actor_input_transform": "physical_gru_slow_plus_trainable_inhibitory_target_v1",
+      "actor_mask_ranges": [
+        [
+          42,
+          84
+        ],
+        [
+          126,
+          168
+        ],
+        [
+          195,
+          237
+        ]
+      ],
+      "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+      "gain_init_version": "native_actuator_halfspan_x10_v1",
+      "gain_init_H": [
+        0.43574999999999997,
+        0.6579,
+        0.3384583060121321,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2190555268149066,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.7458035036806745,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43263502486291344,
+        0.4745269371779961,
+        0.7379067053719459,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2793495780011144,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.9848645841986645,
+        0.73525,
+        1.0125,
+        0.8497330240243897,
+        1.01155
+      ],
+      "gain_init_tau_s": 0.05,
+      "gain_init_rate_rad_s": 2.0,
+      "initialization_prior": "trainable inhibitory -Tposition/H target-position prior; not anatomical",
+      "inhibitory_input_range": [
+        126,
+        168
+      ],
+      "inhibitory_input": "normalized target POSITION Tposition/H; excludes target error",
+      "residual_prior": "-softplus(raw_gain)*Tposition/H; fixed-hidden T derivative negative diagonal; no explicit +gain q path",
+      "residual": "238->128 tanh encoder; slow GRUCell128->128; 128 tanh->42 decoder; masked channels have zero drive",
+      "all_actor_weights_trainable": true,
+      "neural_integration_tau_s": 0.1,
+      "policy_dt_s": 0.005,
+      "neural_integration_alpha": 0.048770575499285984,
+      "neural_integration": "h_new=(1-alpha)*h+alpha*GRUCell(tanh(encoder(maskedobs)),h)",
+      "recurrent_state": "explicit zero initial_state; reset before step only at physical episode reset; valid padding freezes state; no hidden cache"
+    }
+  },
+  "input_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz": "cab83bebf1778769118a25cc244badc140252f0f3cfbecc47038daa3b12b6029",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/SAMPLES_5MS.npz": "c055dea05a698840837e6f6be7177b25eb85b931901221d5ece94aadd9e73efb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_half/SAMPLES_5MS.npz": "cf837dc08093ec05684dc079129a4f933a030e7d273a4685378002f3058f9284"
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/check_residual.py": "d39c0643026db9bf704598701b60444221106a1bd9e2e43b390ef02f31a4e9db",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/PREREG.json": "9869c4440e8c32f2e8d81f03f7e8a4a3759c23f7839060e34ff402c990487dbf"
+  },
+  "optimizer_unit_steps": 1,
+  "physical_integration_steps": 0,
+  "teacher_calls": 0,
+  "unit_losses": [
+    0.001225451911066489,
+    0.005947609406075003
+  ],
+  "interpretation": "Offline interface/learning-path candidate only. No trained candidate checkpoint retained. No turning/slip/food-approach improvement established."
+}

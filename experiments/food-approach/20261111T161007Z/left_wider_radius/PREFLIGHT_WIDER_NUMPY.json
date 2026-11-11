@@ -1,0 +1,157 @@
+{
+  "status": "NUMPY_PREFLIGHT_PASS",
+  "all_pass": true,
+  "checks": {
+    "entire_original_prefix_exact": true,
+    "all_nonhorizontal_fields_exact": true,
+    "no_phase_warp": true,
+    "physical_nominal_speed": true,
+    "physical_nominal_yaw": true,
+    "curvature_quotient": true,
+    "normalized_forward": true,
+    "final_forward_domain_nonzero": true,
+    "final_k_v_yaw": true,
+    "base_still_original_cfg": true,
+    "steady_stride48_equivalence": true,
+    "analytic_qdot_kdot_velocity_fd": true,
+    "quotient_kdot_fd": true,
+    "no_horizontal_position_jump_seams": true,
+    "no_horizontal_velocity_jump_seams": true,
+    "ramp_5ms_displacement_velocity_bound": true,
+    "five_stance_legs": true,
+    "steady_stance_spacing": true,
+    "LM_reference_original_X_margin": true,
+    "zero_nonfoot_empty_attribution": true,
+    "nonfoot_attribution_bound64": true,
+    "nonfoot_attribution_counts_peak_times": true,
+    "no_heavy_imports": true
+  },
+  "max_abs_errors": {
+    "no_phase_warp": 0.0,
+    "physical_nominal_speed": 1.3877787807814457e-17,
+    "physical_nominal_yaw": 1.3877787807814457e-17,
+    "curvature_quotient": 0.0,
+    "normalized_forward": 2.220446049250313e-16,
+    "steady_stride48_position": 1.1102230246251565e-15,
+    "steady_stride48_velocity": 1.3322676295501878e-15,
+    "analytic_qdot_kdot_velocity_fd": 3.6682736848092645e-09,
+    "quotient_kdot_fd": 1.6457779583589627e-10,
+    "steady_stance_spacing": 4.440892098500626e-16
+  },
+  "details": {
+    "velocity_fd": {
+      "h_s": 1e-06,
+      "atol": 3e-06,
+      "baseline_knot_screen_atol": 2e-07,
+      "tested": 360,
+      "excluded": 0
+    },
+    "seams": [
+      {
+        "t": 4.8,
+        "position_linear_residual": 1.1102230246251565e-16,
+        "velocity_side_difference": 3.325225135624706e-12
+      },
+      {
+        "t": 5.6,
+        "position_linear_residual": 8.129052986305396e-13,
+        "velocity_side_difference": 3.2512202184087347e-06
+      },
+      {
+        "t": 5.8,
+        "position_linear_residual": 1.135924687645229e-12,
+        "velocity_side_difference": 2.2732015740878353e-06
+      },
+      {
+        "t": 6.4,
+        "position_linear_residual": 5.329070518200751e-15,
+        "velocity_side_difference": 2.0932143796059677e-08
+      },
+      {
+        "t": 7.2,
+        "position_linear_residual": 5.10702591327572e-15,
+        "velocity_side_difference": 2.0964386782118538e-08
+      },
+      {
+        "t": 8.0,
+        "position_linear_residual": 5.329070518200751e-15,
+        "velocity_side_difference": 2.0948337051129862e-08
+      },
+      {
+        "t": 8.8,
+        "position_linear_residual": 5.329070518200751e-15,
+        "velocity_side_difference": 2.0884031637705136e-08
+      },
+      {
+        "t": 9.6,
+        "position_linear_residual": 5.329070518200751e-15,
+        "velocity_side_difference": 2.0765702383324092e-08
+      },
+      {
+        "t": 14.4,
+        "position_linear_residual": 5.329070518200751e-15,
+        "velocity_side_difference": 2.076570237291575e-08
+      }
+    ],
+    "ramp_5ms": {
+      "max_target_displacement": 0.011829182803570098,
+      "max_velocity_bound": 0.011919058939323181,
+      "allowance": 1e-05
+    },
+    "LM_reference_only": {
+      "window_teacher_elapsed": [
+        7.2,
+        8.0
+      ],
+      "max_positive_X": 0.11618332634496126,
+      "clear_max_positive_X": 0.11618332634496126,
+      "old_gate": 0.03,
+      "physical_feasibility": "NOT_RUN"
+    },
+    "nonfoot_aggregation_test": "Synthetic records only: no Core/contact construction/MuJoCo import; zero/bound64/overflow/count/first-last/peak checked. Real accessor names are read only in future solved() runtime."
+  },
+  "sourcehash_sha256": "665360c769dcde42a43968b24252ea4eb7858cdb05ed17f2ff71f784e99b28a9",
+  "rest_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/left_yaw_p060/REFERENCE.json",
+  "rest_source_sha256": "9005f32ff4e2e8ff91e2429d7db89fb778d6df5b461034f1fa8f68ac187d1963",
+  "rest_body_feet": [
+    [
+      0.8591203774350334,
+      0.8956487464882875,
+      -1.4759824126577699
+    ],
+    [
+      -1.8442631898325312,
+      0.9526947062509473,
+      -1.3716034642594248
+    ],
+    [
+      -0.28921890557226104,
+      1.1912635416833393,
+      -1.43752920866623
+    ],
+    [
+      0.8575545864468298,
+      -0.9019814773943823,
+      -1.4679125075236366
+    ],
+    [
+      -1.886720054192656,
+      -0.8868136249007669,
+      -1.3538545071436912
+    ],
+    [
+      -0.3946460040484364,
+      -1.2182803714873323,
+      -1.4254964117728457
+    ]
+  ],
+  "cpu_affinity": [
+    1
+  ],
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+  "physical_execution": false,
+  "training": false,
+  "rendering": false,
+  "new_trajectory_audited": false,
+  "note": "Reference targets/derivatives only. Exact mathematical prefix does not claim physical prefix replay before actual execution; future saved audit requires bitexact physical prefix."
+}

@@ -1,0 +1,24 @@
+{
+ "status":"CODE_ONLY_NO_PHYSICAL_LAUNCH_AUTHORIZED",
+ "checkpoint_step":10000,
+ "conditions":{"neutral":[0,0],"left":[0,1],"right":[0,-1]},
+ "command":"forward0; signedturn times fixed1ssmoothstep afterwithdrawal; inherited exact qualified-parent formula",
+ "timing":{"settle_ms":1000,"teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+ "criteria":"Originalall5/all6/strictnonfoot0/wholewindow signedyaw>=.01rad unchanged; full9.6sincludingramp, no metric/denominator/body/solver/PDchanges",
+ "model":"Final10000 ReadoutMotor; newstrict train/model_io load_checked(path,sha,require_final=True); explicitcurve[-1]10000/configphysical_eval_only_step10000; frozen194878parameterparent andpositive-command2730readout architecture unchanged",
+ "physical":"1szerosettle+4.8actualteacherprime+9.6ANN; continuous explicit128+64 memory/immediateHANDOVER;71opaque meshes/42finitePD/native12.5us,1mstarget,5mspolicy,noadhesion/extraforce/rootwrites",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+ "parent_sha256":"c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+ "right_reference":"Actual frozen1500 c6b... right run andindependentaudit, NOT config.parent_checkpoint ofnew2000->10000 continuation. All15400physical/geometry and2880neuralmean/action/full192hidden arrays comparebitexact; distinctsourceidentities preserved.",
+ "neutral_reference":"Actualneutral sharedphysical/neuralbasehidden arrays compareoriginalwalkingbaselinebitexact; residual64 independentlyreplayed",
+ "frozen_primary_sources":{
+ "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py":"2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+ "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py":"1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245",
+ "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/evaluate_motor.py":"254c25cc8123ff1e8238f39931293296cb6d5e068557ef9a2fa20b1a8eb1a0d3",
+ "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/verify_actual.py":"ff5ca02d2285b79a3bbf2bc5a9b7c91987830af51163bb2734e96a8a1cf9e644",
+ "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/evaluation/pipeline.py":"9231625880f903e0fd5229289f56fee85474897e1ad5081190b904befc310cf9"},
+ "source_identity":"Actualcapture ownnewentry/auditor/pipeline/prereg/check/readiness plusnewROOT PREREG,newtrainPY/JSON(strictmodel_io) andallfrozenancestralprimary/head sources. Oldfilesnotmodified.",
+ "execution":"Onlyparent explicit --training-complete --sha256 EXACT_FINAL maylaunch. Neutralactual+audit first, thenL/Rmax2CPU1. Noactualexecutionduringpreparation.",
+ "audit":"Once-load complete15400/2880 arrays, actualcheckpoint192hiddenchain/means/actions/heldactions/source/clock/force/prefix/compiled71mesh, wholewindowgates/cycles/yaw andderivedHANDOVERhashes. NoCoreconstruction/integrationinaudit.",
+ "scope":"Engineeringfixedconditionsonly, notspeed/switching/food/fullnativeD1-D8/connectome/biologycertification. Previousleftfailuresretained."
+}

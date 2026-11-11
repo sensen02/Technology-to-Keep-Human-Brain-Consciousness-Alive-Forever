@@ -1,0 +1,14 @@
+{
+  "scope": "S4 engineering food field and bilateral receptor transduction only; S5 integration delegated to parent; no walking evidence or parent tracker changes",
+  "status": "preregistered before test execution",
+  "model": "C=A*smoothstep(clip((t-onset)/rise,0,1))*exp(-||xy-center||^2/(2*sigma^2)); patch_radius is food contact geometry metadata and does not flatten Gaussian",
+  "receptor": "u=C/(K+C); r_next=r+(u-r)*(-expm1(-dt/tau)); zero initial state; tau default 0.05 seconds; dt default 0.005 seconds",
+  "causality": "time_s is interval START; current position and concentration held over [time_s,time_s+dt_s); returned pair is endpoint response. Subsequent intervals must be contiguous; no future sampling. Smooth onset default rise_s=0.2 seconds.",
+  "pose": "head local +x forward, +y left; local engineering offsets transformed by head rotation; no anatomical calibration claimed",
+  "actor_boundary": "sample returns only float64 array shape (2,) ordered left,right; source configuration/time/position remain environment-side; no steering",
+  "noise": "optional independent additive Gaussian receptor-output noise, explicitly seeded, clipped to [0,1], does not contaminate latent exact receptor state",
+  "acceptance": ["symmetric equality", "mirror source swaps receptor outputs", "Gaussian center/width and onset values", "no anticipatory response before onset", "analytic exact exponential response and constant-stimulus timestep composition within 1e-14", "seeded reproducibility and output range", "finite extremes or explicit rejection", "immutable source and malformed inputs rejected", "pose translation/rotation and left/right convention", "rejected sample leaves state and RNG untouched"],
+  "test_command": ["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python", "-B", "-m", "unittest", "-v", "test_food_field.py"],
+  "working_directory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor",
+  "limits": "NumPy and Python standard library only; no installs, training, anatomy claims, behavior acceptance or SI calibration"
+}

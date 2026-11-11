@@ -1,0 +1,2137 @@
+{
+  "status": "PASS",
+  "scope": "S4 read-only actual baseline geometry; engineering sensor proxies only",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "imported_physics": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/physics.py",
+  "command": [
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+    "-B",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/head_geometry_audit.py"
+  ],
+  "native_timestep_s": 1.25e-05,
+  "adhesion_enabled": false,
+  "head_candidates": [
+    {
+      "id": 8,
+      "name": "Head"
+    }
+  ],
+  "head": {
+    "body_id": 8,
+    "name": "Head",
+    "xpos": [
+      0.02132,
+      0.0007789,
+      1.5853553606038642
+    ],
+    "xmat": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "local_mesh_aabb": {
+      "min": [
+        -0.007988977324814649,
+        -0.3826086155195165,
+        -0.3368102082514539
+      ],
+      "max": [
+        0.518653416637344,
+        0.3826330129246571,
+        0.33787246787173597
+      ],
+      "extent": [
+        0.5266423939621586,
+        0.7652416284441736,
+        0.6746826761231899
+      ]
+    },
+    "world_mesh_aabb": {
+      "min": [
+        0.01333102267518535,
+        -0.3818297155195165,
+        1.2485451523524103
+      ],
+      "max": [
+        0.539973416637344,
+        0.38341191292465715,
+        1.9232278284756001
+      ],
+      "extent": [
+        0.5266423939621586,
+        0.7652416284441736,
+        0.6746826761231899
+      ]
+    }
+  },
+  "thorax": {
+    "body_id": 2,
+    "name": "Thorax",
+    "xpos": [
+      0.0,
+      0.0,
+      1.5761193606038642
+    ],
+    "xmat": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "thorax_horizontal_heading_xy": [
+    1.0,
+    0.0
+  ],
+  "frame": {
+    "local_x_forward_heading_dot": 1.0,
+    "local_y_thorax_left_dot": 1.0,
+    "local_z_world_up_dot": 1.0,
+    "head_to_thorax_rotation": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "conclusion": "Actual initial Head local +x aligns thorax horizontal forward; +y is left; +z up. Always transform live head xmat before XY projection."
+  },
+  "sensor_offsets": {
+    "forward_offset": 0.5713176560335599,
+    "lateral_offset": 0.4591571757690745,
+    "selection": "head local max x + 0.10*x extent; max(abs(local y bounds)) +0.10*y extent; local z=0",
+    "anatomical_calibration": "NOT_ESTABLISHED",
+    "local_xyz": [
+      [
+        0.5713176560335599,
+        0.4591571757690745,
+        0.0
+      ],
+      [
+        0.5713176560335599,
+        -0.4591571757690745,
+        0.0
+      ]
+    ],
+    "world_xyz": [
+      [
+        0.5926376560335599,
+        0.4599360757690745,
+        1.5853553606038642
+      ],
+      [
+        0.5926376560335599,
+        -0.4583782757690745,
+        1.5853553606038642
+      ]
+    ],
+    "world_xy": [
+      [
+        0.5926376560335599,
+        0.4599360757690745
+      ],
+      [
+        0.5926376560335599,
+        -0.4583782757690745
+      ]
+    ]
+  },
+  "gaps": {
+    "forward_clearance_from_head_local_aabb": 0.052664239396215895,
+    "lateral_clearance_from_head_local_aabb": [
+      0.07652416284441738,
+      0.07654856024955797
+    ],
+    "sensor_separation_world": 0.918314351538149,
+    "sensor_to_nearest_head_mesh_vertex": [
+      0.27776457422244766,
+      0.29174972333127724
+    ],
+    "nearest_vertex_caveat": "Vertex distance is an upper bound on nearest surface distance, not exact mesh-surface clearance; positive AABB-axis margins prove external engineering points."
+  },
+  "mesh_count": 71,
+  "visible_mesh_geometry_count": 71,
+  "model_size": {
+    "nq": 49,
+    "nv": 48,
+    "nu": 42,
+    "mesh_world_xy_aabb": {
+      "min": [
+        -2.762411877422263,
+        -1.0914008822554429
+      ],
+      "max": [
+        0.8627947798055983,
+        1.0920578192475074
+      ],
+      "extent": [
+        3.6252066572278614,
+        2.1834587015029503
+      ]
+    }
+  },
+  "body_model_length_excluding_appendages": 1.5688840259972063,
+  "model_length_definition": "Projection extent along initial thorax horizontal forward of Head, Thorax and named Abdomen mesh vertices; legs/wings excluded",
+  "mesh_geometry": [
+    {
+      "geom_id": 1,
+      "geom_name": "Thorax_geom",
+      "body_id": 2,
+      "body_name": "Thorax",
+      "mesh_id": 0,
+      "mesh_name": "Thorax_geom_Thorax",
+      "vertex_count": 2723,
+      "world_aabb": {
+        "min": [
+          -1.0289106093598623,
+          -0.4694950091191958,
+          0.9412705786619028
+        ],
+        "max": [
+          0.04026739498224213,
+          0.4821432013261071,
+          2.0263024633602917
+        ],
+        "extent": [
+          1.0691780043421044,
+          0.951638210445303,
+          1.085031884698389
+        ]
+      }
+    },
+    {
+      "geom_id": 2,
+      "geom_name": "A1A2_geom",
+      "body_id": 3,
+      "body_name": "A1A2",
+      "mesh_id": 1,
+      "mesh_name": "A1A2_geom_A1A2",
+      "vertex_count": 1257,
+      "world_aabb": {
+        "min": [
+          -1.3105911503920493,
+          -0.4679896429031187,
+          1.0612096263419377
+        ],
+        "max": [
+          -0.838169075786388,
+          0.4815950755650241,
+          1.785518778038343
+        ],
+        "extent": [
+          0.4724220746056613,
+          0.9495847184681427,
+          0.7243091516964053
+        ]
+      }
+    },
+    {
+      "geom_id": 3,
+      "geom_name": "A3_geom",
+      "body_id": 4,
+      "body_name": "A3",
+      "mesh_id": 2,
+      "mesh_name": "A3_geom_A3",
+      "vertex_count": 1296,
+      "world_aabb": {
+        "min": [
+          -1.4495627512715048,
+          -0.4759372444181141,
+          0.9692208904808655
+        ],
+        "max": [
+          -1.0728030388619632,
+          0.49025382005651325,
+          1.7486622671696375
+        ],
+        "extent": [
+          0.37675971240954165,
+          0.9661910644746273,
+          0.779441376688772
+        ]
+      }
+    },
+    {
+      "geom_id": 4,
+      "geom_name": "A4_geom",
+      "body_id": 5,
+      "body_name": "A4",
+      "mesh_id": 3,
+      "mesh_name": "A4_geom_A4",
+      "vertex_count": 1431,
+      "world_aabb": {
+        "min": [
+          -1.6905294454735986,
+          -0.47893787181303643,
+          0.9843044300049993
+        ],
+        "max": [
+          -1.34557518778379,
+          0.49323251009861874,
+          1.7099029159993526
+        ],
+        "extent": [
+          0.3449542576898086,
+          0.9721703819116552,
+          0.7255984859943533
+        ]
+      }
+    },
+    {
+      "geom_id": 5,
+      "geom_name": "A5_geom",
+      "body_id": 6,
+      "body_name": "A5",
+      "mesh_id": 4,
+      "mesh_name": "A5_geom_A5",
+      "vertex_count": 1499,
+      "world_aabb": {
+        "min": [
+          -1.9535498974184053,
+          -0.43381679236452575,
+          0.981963119214749
+        ],
+        "max": [
+          -1.5405116946780966,
+          0.4484378193955388,
+          1.702706971310957
+        ],
+        "extent": [
+          0.4130382027403088,
+          0.8822546117600645,
+          0.7207438520962081
+        ]
+      }
+    },
+    {
+      "geom_id": 6,
+      "geom_name": "A6_geom",
+      "body_id": 7,
+      "body_name": "A6",
+      "mesh_id": 5,
+      "mesh_name": "A6_geom_A6",
+      "vertex_count": 2071,
+      "world_aabb": {
+        "min": [
+          -2.362432075165312,
+          -0.35678054000316417,
+          1.054073735286217
+        ],
+        "max": [
+          -1.7797254349748637,
+          0.37094044110846774,
+          1.6832918643024215
+        ],
+        "extent": [
+          0.5827066401904482,
+          0.7277209811116319,
+          0.6292181290162044
+        ]
+      }
+    },
+    {
+      "geom_id": 7,
+      "geom_name": "Head_geom",
+      "body_id": 8,
+      "body_name": "Head",
+      "mesh_id": 6,
+      "mesh_name": "Head_geom_Head",
+      "vertex_count": 8615,
+      "world_aabb": {
+        "min": [
+          0.01333102267518535,
+          -0.3818297155195165,
+          1.2485451523524103
+        ],
+        "max": [
+          0.539973416637344,
+          0.38341191292465715,
+          1.9232278284756001
+        ],
+        "extent": [
+          0.5266423939621586,
+          0.7652416284441736,
+          0.6746826761231899
+        ]
+      }
+    },
+    {
+      "geom_id": 8,
+      "geom_name": "LEye_geom",
+      "body_id": 9,
+      "body_name": "LEye",
+      "mesh_id": 7,
+      "mesh_name": "LEye_geom_LEye",
+      "vertex_count": 2321,
+      "world_aabb": {
+        "min": [
+          0.04787730000289367,
+          0.20094353674949494,
+          1.3313033566454298
+        ],
+        "max": [
+          0.449447439413467,
+          0.41700853700808815,
+          1.8319024829782273
+        ],
+        "extent": [
+          0.4015701394105733,
+          0.2160650002585932,
+          0.5005991263327976
+        ]
+      }
+    },
+    {
+      "geom_id": 9,
+      "geom_name": "LPedicel_geom",
+      "body_id": 10,
+      "body_name": "LPedicel",
+      "mesh_id": 8,
+      "mesh_name": "LPedicel_geom_LPedicel",
+      "vertex_count": 8589,
+      "world_aabb": {
+        "min": [
+          0.42703602662327744,
+          0.002510729159291958,
+          1.5900686904230232
+        ],
+        "max": [
+          0.6221116682546326,
+          0.1861558704175324,
+          1.7163419634719248
+        ],
+        "extent": [
+          0.19507564163135516,
+          0.18364514125824044,
+          0.12627327304890157
+        ]
+      }
+    },
+    {
+      "geom_id": 10,
+      "geom_name": "LFuniculus_geom",
+      "body_id": 11,
+      "body_name": "LFuniculus",
+      "mesh_id": 9,
+      "mesh_name": "LFuniculus_geom_LFuniculus",
+      "vertex_count": 8683,
+      "world_aabb": {
+        "min": [
+          0.45267330271642037,
+          0.01889229183532265,
+          1.4302964294986709
+        ],
+        "max": [
+          0.5717184698974495,
+          0.14140242106300785,
+          1.621902215234004
+        ],
+        "extent": [
+          0.11904516718102909,
+          0.1225101292276852,
+          0.19160578573533305
+        ]
+      }
+    },
+    {
+      "geom_id": 11,
+      "geom_name": "LArista_geom",
+      "body_id": 12,
+      "body_name": "LArista",
+      "mesh_id": 10,
+      "mesh_name": "LArista_geom_LArista",
+      "vertex_count": 5635,
+      "world_aabb": {
+        "min": [
+          0.5009304778803088,
+          0.12087356152873058,
+          1.5041294566519798
+        ],
+        "max": [
+          0.5627900917458603,
+          0.38318723064494575,
+          1.6414918915969772
+        ],
+        "extent": [
+          0.0618596138655515,
+          0.2623136691162152,
+          0.13736243494499734
+        ]
+      }
+    },
+    {
+      "geom_id": 12,
+      "geom_name": "REye_geom",
+      "body_id": 13,
+      "body_name": "REye",
+      "mesh_id": 11,
+      "mesh_name": "REye_geom_REye",
+      "vertex_count": 1551,
+      "world_aabb": {
+        "min": [
+          0.03280768858325084,
+          -0.4161849729346203,
+          1.3214387000999845
+        ],
+        "max": [
+          0.44492812250231506,
+          -0.18209938264680803,
+          1.8211948863043088
+        ],
+        "extent": [
+          0.4121204339190642,
+          0.23408559028781228,
+          0.49975618620432427
+        ]
+      }
+    },
+    {
+      "geom_id": 13,
+      "geom_name": "RPedicel_geom",
+      "body_id": 14,
+      "body_name": "RPedicel",
+      "mesh_id": 12,
+      "mesh_name": "RPedicel_geom_RPedicel",
+      "vertex_count": 8368,
+      "world_aabb": {
+        "min": [
+          0.423075097814475,
+          -0.19648977346548183,
+          1.5867386164189212
+        ],
+        "max": [
+          0.6212471431460654,
+          -0.0055157645090836704,
+          1.7144180472878499
+        ],
+        "extent": [
+          0.19817204533159044,
+          0.19097400895639816,
+          0.12767943086892863
+        ]
+      }
+    },
+    {
+      "geom_id": 14,
+      "geom_name": "RFuniculus_geom",
+      "body_id": 15,
+      "body_name": "RFuniculus",
+      "mesh_id": 13,
+      "mesh_name": "RFuniculus_geom_RFuniculus",
+      "vertex_count": 8549,
+      "world_aabb": {
+        "min": [
+          0.45200183240083747,
+          -0.1441191533169372,
+          1.431846313105422
+        ],
+        "max": [
+          0.5694782905832395,
+          -0.016034329117569926,
+          1.6233234707727568
+        ],
+        "extent": [
+          0.11747645818240204,
+          0.1280848241993673,
+          0.19147715766733486
+        ]
+      }
+    },
+    {
+      "geom_id": 15,
+      "geom_name": "RArista_geom",
+      "body_id": 16,
+      "body_name": "RArista",
+      "mesh_id": 14,
+      "mesh_name": "RArista_geom_RArista",
+      "vertex_count": 5760,
+      "world_aabb": {
+        "min": [
+          0.5001272531410766,
+          -0.3822923941516848,
+          1.5029132747989722
+        ],
+        "max": [
+          0.5668620917136378,
+          -0.12169795110681009,
+          1.6438325109792922
+        ],
+        "extent": [
+          0.06673483857256113,
+          0.2605944430448747,
+          0.14091923618031998
+        ]
+      }
+    },
+    {
+      "geom_id": 16,
+      "geom_name": "Rostrum_geom",
+      "body_id": 17,
+      "body_name": "Rostrum",
+      "mesh_id": 15,
+      "mesh_name": "Rostrum_geom_Rostrum",
+      "vertex_count": 1792,
+      "world_aabb": {
+        "min": [
+          0.24637690091644715,
+          -0.19684768329696092,
+          0.9458241194638396
+        ],
+        "max": [
+          0.7413924549136144,
+          0.209184912789815,
+          1.361733705027303
+        ],
+        "extent": [
+          0.49501555399716723,
+          0.4060325960867759,
+          0.41590958556346347
+        ]
+      }
+    },
+    {
+      "geom_id": 17,
+      "geom_name": "Haustellum_geom",
+      "body_id": 18,
+      "body_name": "Haustellum",
+      "mesh_id": 16,
+      "mesh_name": "Haustellum_geom_Haustellum",
+      "vertex_count": 2174,
+      "world_aabb": {
+        "min": [
+          0.48875603772306875,
+          -0.15962843772488639,
+          0.8400868618121617
+        ],
+        "max": [
+          0.8627947798055983,
+          0.18037493887925987,
+          1.065085344613675
+        ],
+        "extent": [
+          0.3740387420825295,
+          0.34000337660414626,
+          0.22499848280151324
+        ]
+      }
+    },
+    {
+      "geom_id": 18,
+      "geom_name": "LFCoxa_geom",
+      "body_id": 19,
+      "body_name": "LFCoxa",
+      "mesh_id": 17,
+      "mesh_name": "LFCoxa_geom_LFCoxa",
+      "vertex_count": 1032,
+      "world_aabb": {
+        "min": [
+          -0.3057629972916568,
+          0.08172048482489748,
+          0.9254063673727354
+        ],
+        "max": [
+          -0.11173548834510034,
+          0.2471129092479083,
+          1.3542905750994194
+        ],
+        "extent": [
+          0.19402750894655646,
+          0.16539242442301083,
+          0.428884207726684
+        ]
+      }
+    },
+    {
+      "geom_id": 19,
+      "geom_name": "LFTrochanter_geom",
+      "body_id": 20,
+      "body_name": "LFTrochanter",
+      "mesh_id": 18,
+      "mesh_name": "LFTrochanter_geom_LFTrochanter",
+      "vertex_count": 313,
+      "world_aabb": {
+        "min": [
+          -0.3014483419582803,
+          0.11920254483183139,
+          0.8508074859093746
+        ],
+        "max": [
+          -0.2289343247382748,
+          0.27097354075279906,
+          0.9677260715698074
+        ],
+        "extent": [
+          0.0725140172200055,
+          0.15177099592096766,
+          0.11691858566043278
+        ]
+      }
+    },
+    {
+      "geom_id": 20,
+      "geom_name": "LFFemur_geom",
+      "body_id": 21,
+      "body_name": "LFFemur",
+      "mesh_id": 19,
+      "mesh_name": "LFFemur_geom_LFFemur",
+      "vertex_count": 8423,
+      "world_aabb": {
+        "min": [
+          -0.277100432725154,
+          0.23633402512969426,
+          0.8536805592998953
+        ],
+        "max": [
+          0.161879974995722,
+          0.707570798501753,
+          1.0013816217700655
+        ],
+        "extent": [
+          0.438980407720876,
+          0.4712367733720587,
+          0.14770106247017023
+        ]
+      }
+    },
+    {
+      "geom_id": 21,
+      "geom_name": "LFTibia_geom",
+      "body_id": 22,
+      "body_name": "LFTibia",
+      "mesh_id": 20,
+      "mesh_name": "LFTibia_geom_LFTibia",
+      "vertex_count": 505,
+      "world_aabb": {
+        "min": [
+          0.1112861730132689,
+          0.6495847496787117,
+          0.5292809011340067
+        ],
+        "max": [
+          0.4545872396784838,
+          0.8197468493440179,
+          0.9921119365812976
+        ],
+        "extent": [
+          0.34330106666521487,
+          0.17016209966530615,
+          0.4628310354472909
+        ]
+      }
+    },
+    {
+      "geom_id": 22,
+      "geom_name": "LFTarsus1_geom",
+      "body_id": 23,
+      "body_name": "LFTarsus1",
+      "mesh_id": 21,
+      "mesh_name": "LFTarsus1_geom_LFTarsus1",
+      "vertex_count": 236,
+      "world_aabb": {
+        "min": [
+          0.40433244698407383,
+          0.7477226392994732,
+          0.34730796384793716
+        ],
+        "max": [
+          0.5777817577776208,
+          0.8210309259344004,
+          0.5559097322662059
+        ],
+        "extent": [
+          0.17344931079354692,
+          0.07330828663492717,
+          0.20860176841826872
+        ]
+      }
+    },
+    {
+      "geom_id": 23,
+      "geom_name": "LFTarsus2_geom",
+      "body_id": 24,
+      "body_name": "LFTarsus2",
+      "mesh_id": 22,
+      "mesh_name": "LFTarsus2_geom_LFTarsus2",
+      "vertex_count": 182,
+      "world_aabb": {
+        "min": [
+          0.5452339394834483,
+          0.7826249420556154,
+          0.22646634484681444
+        ],
+        "max": [
+          0.6573435082037075,
+          0.8304268474167571,
+          0.37302649792019876
+        ],
+        "extent": [
+          0.11210956872025912,
+          0.047801905361141706,
+          0.14656015307338432
+        ]
+      }
+    },
+    {
+      "geom_id": 24,
+      "geom_name": "LFTarsus3_geom",
+      "body_id": 25,
+      "body_name": "LFTarsus3",
+      "mesh_id": 23,
+      "mesh_name": "LFTarsus3_geom_LFTarsus3",
+      "vertex_count": 167,
+      "world_aabb": {
+        "min": [
+          0.6334811502487161,
+          0.7954332245672658,
+          0.1420744374694885
+        ],
+        "max": [
+          0.7126453530429764,
+          0.8392987963911817,
+          0.25048501518225724
+        ],
+        "extent": [
+          0.07916420279426029,
+          0.04386557182391582,
+          0.10841057771276874
+        ]
+      }
+    },
+    {
+      "geom_id": 25,
+      "geom_name": "LFTarsus4_geom",
+      "body_id": 26,
+      "body_name": "LFTarsus4",
+      "mesh_id": 24,
+      "mesh_name": "LFTarsus4_geom_LFTarsus4",
+      "vertex_count": 144,
+      "world_aabb": {
+        "min": [
+          0.6918954768520186,
+          0.8051734356264826,
+          0.0777327973490192
+        ],
+        "max": [
+          0.7601215735703293,
+          0.8499947981686814,
+          0.17190520802242365
+        ],
+        "extent": [
+          0.0682260967183107,
+          0.04482136254219882,
+          0.09417241067340446
+        ]
+      }
+    },
+    {
+      "geom_id": 26,
+      "geom_name": "LFTarsus5_geom",
+      "body_id": 27,
+      "body_name": "LFTarsus5",
+      "mesh_id": 25,
+      "mesh_name": "LFTarsus5_geom_LFTarsus5",
+      "vertex_count": 173,
+      "world_aabb": {
+        "min": [
+          0.7394060009640371,
+          0.8054768147147753,
+          6.648537281458283e-05
+        ],
+        "max": [
+          0.8134121555691487,
+          0.8584462167430704,
+          0.10535301718044524
+        ],
+        "extent": [
+          0.07400615460511162,
+          0.05296940202829514,
+          0.10528653180763065
+        ]
+      }
+    },
+    {
+      "geom_id": 30,
+      "geom_name": "LHCoxa_geom",
+      "body_id": 28,
+      "body_name": "LHCoxa",
+      "mesh_id": 26,
+      "mesh_name": "LHCoxa_geom_LHCoxa",
+      "vertex_count": 1974,
+      "world_aabb": {
+        "min": [
+          -0.8635700075264741,
+          -0.02701720256135169,
+          0.8488817583915175
+        ],
+        "max": [
+          -0.700823064910056,
+          0.1528379141380471,
+          1.1287377474102946
+        ],
+        "extent": [
+          0.1627469426164181,
+          0.1798551166993988,
+          0.2798559890187772
+        ]
+      }
+    },
+    {
+      "geom_id": 31,
+      "geom_name": "LHFemur_geom",
+      "body_id": 29,
+      "body_name": "LHFemur",
+      "mesh_id": 27,
+      "mesh_name": "LHFemur_geom_LHFemur",
+      "vertex_count": 1630,
+      "world_aabb": {
+        "min": [
+          -1.3172127186381688,
+          0.057113462268935766,
+          0.8612688061204615
+        ],
+        "max": [
+          -0.7997915175363517,
+          0.6063731403811594,
+          1.4282699830760948
+        ],
+        "extent": [
+          0.5174212011018171,
+          0.5492596781122236,
+          0.5670011769556332
+        ]
+      }
+    },
+    {
+      "geom_id": 32,
+      "geom_name": "LHTibia_geom",
+      "body_id": 30,
+      "body_name": "LHTibia",
+      "mesh_id": 28,
+      "mesh_name": "LHTibia_geom_LHTibia",
+      "vertex_count": 363,
+      "world_aabb": {
+        "min": [
+          -1.5156442989792676,
+          0.537144725552845,
+          0.7095336107534541
+        ],
+        "max": [
+          -1.2338439411337148,
+          0.7383121689572478,
+          1.4153778337789549
+        ],
+        "extent": [
+          0.2818003578455528,
+          0.20116744340440285,
+          0.7058442230255008
+        ]
+      }
+    },
+    {
+      "geom_id": 33,
+      "geom_name": "LHTarsus1_geom",
+      "body_id": 31,
+      "body_name": "LHTarsus1",
+      "mesh_id": 29,
+      "mesh_name": "LHTarsus1_geom_LHTarsus1",
+      "vertex_count": 371,
+      "world_aabb": {
+        "min": [
+          -1.6164797148185113,
+          0.6434146592407215,
+          0.4010346565471067
+        ],
+        "max": [
+          -1.4447636800536723,
+          0.784227302208516,
+          0.7598811058514551
+        ],
+        "extent": [
+          0.171716034764839,
+          0.1408126429677945,
+          0.3588464493043484
+        ]
+      }
+    },
+    {
+      "geom_id": 34,
+      "geom_name": "LHTarsus2_geom",
+      "body_id": 32,
+      "body_name": "LHTarsus2",
+      "mesh_id": 30,
+      "mesh_name": "LHTarsus2_geom_LHTarsus2",
+      "vertex_count": 982,
+      "world_aabb": {
+        "min": [
+          -1.6620692834988737,
+          0.7352467195243719,
+          0.23380837149118797
+        ],
+        "max": [
+          -1.5623701074050733,
+          0.8138942685926013,
+          0.4239638575526128
+        ],
+        "extent": [
+          0.09969917609380041,
+          0.07864754906822935,
+          0.19015548606142482
+        ]
+      }
+    },
+    {
+      "geom_id": 35,
+      "geom_name": "LHTarsus3_geom",
+      "body_id": 33,
+      "body_name": "LHTarsus3",
+      "mesh_id": 31,
+      "mesh_name": "LHTarsus3_geom_LHTarsus3",
+      "vertex_count": 1284,
+      "world_aabb": {
+        "min": [
+          -1.6844952122429757,
+          0.7691956897389212,
+          0.1489901558379623
+        ],
+        "max": [
+          -1.611847807092182,
+          0.8317434764105617,
+          0.262425713232356
+        ],
+        "extent": [
+          0.07264740515079371,
+          0.06254778667164052,
+          0.11343555739439368
+        ]
+      }
+    },
+    {
+      "geom_id": 36,
+      "geom_name": "LHTarsus4_geom",
+      "body_id": 34,
+      "body_name": "LHTarsus4",
+      "mesh_id": 32,
+      "mesh_name": "LHTarsus4_geom_LHTarsus4",
+      "vertex_count": 1283,
+      "world_aabb": {
+        "min": [
+          -1.7039690687831661,
+          0.7922566227062053,
+          0.08168358613790572
+        ],
+        "max": [
+          -1.6483903855359354,
+          0.8473183256052861,
+          0.17540813848389963
+        ],
+        "extent": [
+          0.0555786832472307,
+          0.055061702899080744,
+          0.09372455234599392
+        ]
+      }
+    },
+    {
+      "geom_id": 37,
+      "geom_name": "LHTarsus5_geom",
+      "body_id": 35,
+      "body_name": "LHTarsus5",
+      "mesh_id": 33,
+      "mesh_name": "LHTarsus5_geom_LHTarsus5",
+      "vertex_count": 1440,
+      "world_aabb": {
+        "min": [
+          -1.7393998149714638,
+          0.8048229869359167,
+          -4.7685550469432625e-05
+        ],
+        "max": [
+          -1.6675687381364752,
+          0.8688019414048703,
+          0.10359001717304026
+        ],
+        "extent": [
+          0.07183107683498857,
+          0.06397895446895363,
+          0.1036377027235097
+        ]
+      }
+    },
+    {
+      "geom_id": 41,
+      "geom_name": "LHaltere_geom",
+      "body_id": 36,
+      "body_name": "LHaltere",
+      "mesh_id": 34,
+      "mesh_name": "LHaltere_geom_LHaltere",
+      "vertex_count": 372,
+      "world_aabb": {
+        "min": [
+          -0.8563204194243607,
+          0.19805982589893714,
+          1.3609965922256344
+        ],
+        "max": [
+          -0.7398600735121973,
+          0.5678502575283679,
+          1.50543394141161
+        ],
+        "extent": [
+          0.11646034591216337,
+          0.3697904316294308,
+          0.14443734918597562
+        ]
+      }
+    },
+    {
+      "geom_id": 42,
+      "geom_name": "LMCoxa_geom",
+      "body_id": 37,
+      "body_name": "LMCoxa",
+      "mesh_id": 35,
+      "mesh_name": "LMCoxa_geom_LMCoxa",
+      "vertex_count": 1269,
+      "world_aabb": {
+        "min": [
+          -0.6558177641321518,
+          0.05495393240509605,
+          0.874240502580793
+        ],
+        "max": [
+          -0.45384275200501284,
+          0.23638153246988125,
+          1.1608895546777802
+        ],
+        "extent": [
+          0.20197501212713892,
+          0.1814276000647852,
+          0.2866490520969872
+        ]
+      }
+    },
+    {
+      "geom_id": 43,
+      "geom_name": "LMFemur_geom",
+      "body_id": 38,
+      "body_name": "LMFemur",
+      "mesh_id": 36,
+      "mesh_name": "LMFemur_geom_LMFemur",
+      "vertex_count": 379,
+      "world_aabb": {
+        "min": [
+          -0.6213357455810659,
+          0.14029794665789996,
+          0.868183569023518
+        ],
+        "max": [
+          -0.4774266949292249,
+          0.8543300909950902,
+          1.4029729883969249
+        ],
+        "extent": [
+          0.14390905065184095,
+          0.7140321443371902,
+          0.5347894193734068
+        ]
+      }
+    },
+    {
+      "geom_id": 44,
+      "geom_name": "LMTibia_geom",
+      "body_id": 39,
+      "body_name": "LMTibia",
+      "mesh_id": 37,
+      "mesh_name": "LMTibia_geom_LMTibia",
+      "vertex_count": 329,
+      "world_aabb": {
+        "min": [
+          -0.5735402901276789,
+          0.8033543030549949,
+          0.6449303251547001
+        ],
+        "max": [
+          -0.4309473058928128,
+          0.9784116179277573,
+          1.3698377626896237
+        ],
+        "extent": [
+          0.1425929842348661,
+          0.17505731487276244,
+          0.7249074375349236
+        ]
+      }
+    },
+    {
+      "geom_id": 45,
+      "geom_name": "LMTarsus1_geom",
+      "body_id": 40,
+      "body_name": "LMTarsus1",
+      "mesh_id": 38,
+      "mesh_name": "LMTarsus1_geom_LMTarsus1",
+      "vertex_count": 453,
+      "world_aabb": {
+        "min": [
+          -0.5032961841542939,
+          0.8945845295762389,
+          0.3880254804949811
+        ],
+        "max": [
+          -0.4169920248017153,
+          1.0164420277068977,
+          0.6789057880542462
+        ],
+        "extent": [
+          0.08630415935257857,
+          0.12185749813065883,
+          0.2908803075592651
+        ]
+      }
+    },
+    {
+      "geom_id": 46,
+      "geom_name": "LMTarsus2_geom",
+      "body_id": 41,
+      "body_name": "LMTarsus2",
+      "mesh_id": 39,
+      "mesh_name": "LMTarsus2_geom_LMTarsus2",
+      "vertex_count": 767,
+      "world_aabb": {
+        "min": [
+          -0.4664343308783561,
+          0.966952712856236,
+          0.24185290564943795
+        ],
+        "max": [
+          -0.40776221533065243,
+          1.04046516227451,
+          0.3987675468796411
+        ],
+        "extent": [
+          0.058672115547703685,
+          0.07351244941827406,
+          0.15691464123020316
+        ]
+      }
+    },
+    {
+      "geom_id": 47,
+      "geom_name": "LMTarsus3_geom",
+      "body_id": 42,
+      "body_name": "LMTarsus3",
+      "mesh_id": 40,
+      "mesh_name": "LMTarsus3_geom_LMTarsus3",
+      "vertex_count": 924,
+      "world_aabb": {
+        "min": [
+          -0.4489940893822839,
+          1.0009266601629128,
+          0.14105510788611897
+        ],
+        "max": [
+          -0.39912521775612875,
+          1.0611416332248145,
+          0.2535795649767761
+        ],
+        "extent": [
+          0.049868871626155165,
+          0.06021497306190171,
+          0.11252445709065712
+        ]
+      }
+    },
+    {
+      "geom_id": 48,
+      "geom_name": "LMTarsus4_geom",
+      "body_id": 43,
+      "body_name": "LMTarsus4",
+      "mesh_id": 41,
+      "mesh_name": "LMTarsus4_geom_LMTarsus4",
+      "vertex_count": 1573,
+      "world_aabb": {
+        "min": [
+          -0.4391081065788695,
+          1.0212305108953963,
+          0.08806682097915569
+        ],
+        "max": [
+          -0.39576940851694464,
+          1.0713313114021932,
+          0.16271408088203648
+        ],
+        "extent": [
+          0.04333869806192486,
+          0.05010080050679688,
+          0.07464725990288079
+        ]
+      }
+    },
+    {
+      "geom_id": 49,
+      "geom_name": "LMTarsus5_geom",
+      "body_id": 44,
+      "body_name": "LMTarsus5",
+      "mesh_id": 42,
+      "mesh_name": "LMTarsus5_geom_LMTarsus5",
+      "vertex_count": 469,
+      "world_aabb": {
+        "min": [
+          -0.4393529754886751,
+          1.031403650903035,
+          3.3175920554316674e-05
+        ],
+        "max": [
+          -0.3782878281293982,
+          1.0920578192475074,
+          0.107789639454543
+        ],
+        "extent": [
+          0.06106514735927687,
+          0.06065416834447235,
+          0.10775646353398868
+        ]
+      }
+    },
+    {
+      "geom_id": 53,
+      "geom_name": "LWing_geom",
+      "body_id": 45,
+      "body_name": "LWing",
+      "mesh_id": 43,
+      "mesh_name": "LWing_geom_LWing",
+      "vertex_count": 9334,
+      "world_aabb": {
+        "min": [
+          -2.762411877422263,
+          -0.47388507546627345,
+          1.8364013986840753
+        ],
+        "max": [
+          -0.4075290331101964,
+          0.541767869650911,
+          2.4605813667875323
+        ],
+        "extent": [
+          2.3548828443120664,
+          1.0156529451171843,
+          0.624179968103457
+        ]
+      }
+    },
+    {
+      "geom_id": 54,
+      "geom_name": "RFCoxa_geom",
+      "body_id": 46,
+      "body_name": "RFCoxa",
+      "mesh_id": 44,
+      "mesh_name": "RFCoxa_geom_RFCoxa",
+      "vertex_count": 427,
+      "world_aabb": {
+        "min": [
+          -0.35422844781739066,
+          -0.2349582960598996,
+          0.9408560831237343
+        ],
+        "max": [
+          -0.11531770188106845,
+          -0.08121041512122056,
+          1.3506676069723127
+        ],
+        "extent": [
+          0.23891074593632222,
+          0.15374788093867903,
+          0.40981152384857844
+        ]
+      }
+    },
+    {
+      "geom_id": 55,
+      "geom_name": "RFTrochanter_geom",
+      "body_id": 47,
+      "body_name": "RFTrochanter",
+      "mesh_id": 45,
+      "mesh_name": "RFTrochanter_geom_RFTrochanter",
+      "vertex_count": 184,
+      "world_aabb": {
+        "min": [
+          -0.3528831682638953,
+          -0.30060487689225374,
+          0.8906614625142907
+        ],
+        "max": [
+          -0.2598666545002086,
+          -0.14333088745370476,
+          0.9820177509669191
+        ],
+        "extent": [
+          0.09301651376368669,
+          0.15727398943854898,
+          0.09135628845262844
+        ]
+      }
+    },
+    {
+      "geom_id": 56,
+      "geom_name": "RFFemur_geom",
+      "body_id": 48,
+      "body_name": "RFFemur",
+      "mesh_id": 46,
+      "mesh_name": "RFFemur_geom_RFFemur",
+      "vertex_count": 605,
+      "world_aabb": {
+        "min": [
+          -0.2941206364171608,
+          -0.5340451259247975,
+          0.9012489537920964
+        ],
+        "max": [
+          0.27285382448398077,
+          -0.24376549754019305,
+          1.0394051340852482
+        ],
+        "extent": [
+          0.5669744609011416,
+          0.2902796283846044,
+          0.1381561802931518
+        ]
+      }
+    },
+    {
+      "geom_id": 57,
+      "geom_name": "RFTibia_geom",
+      "body_id": 49,
+      "body_name": "RFTibia",
+      "mesh_id": 47,
+      "mesh_name": "RFTibia_geom_RFTibia",
+      "vertex_count": 581,
+      "world_aabb": {
+        "min": [
+          0.229712639459779,
+          -0.7056526836851292,
+          0.5540457366431076
+        ],
+        "max": [
+          0.529457362146823,
+          -0.4683038407053781,
+          1.0149198822108803
+        ],
+        "extent": [
+          0.29974472268704405,
+          0.23734884297975112,
+          0.4608741455677726
+        ]
+      }
+    },
+    {
+      "geom_id": 58,
+      "geom_name": "RFTarsus1_geom",
+      "body_id": 50,
+      "body_name": "RFTarsus1",
+      "mesh_id": 48,
+      "mesh_name": "RFTarsus1_geom_RFTarsus1",
+      "vertex_count": 236,
+      "world_aabb": {
+        "min": [
+          0.4771634463212122,
+          -0.7466856266235293,
+          0.35942150771730663
+        ],
+        "max": [
+          0.6277795804367775,
+          -0.6470513176806686,
+          0.582958016241276
+        ],
+        "extent": [
+          0.1506161341155653,
+          0.09963430894286074,
+          0.22353650852396934
+        ]
+      }
+    },
+    {
+      "geom_id": 59,
+      "geom_name": "RFTarsus2_geom",
+      "body_id": 51,
+      "body_name": "RFTarsus2",
+      "mesh_id": 49,
+      "mesh_name": "RFTarsus2_geom_RFTarsus2",
+      "vertex_count": 182,
+      "world_aabb": {
+        "min": [
+          0.5924651094091908,
+          -0.7792575031199267,
+          0.2350894467085818
+        ],
+        "max": [
+          0.6887678549877789,
+          -0.7116374388805966,
+          0.3865440066605139
+        ],
+        "extent": [
+          0.09630274557858809,
+          0.06762006423933009,
+          0.1514545599519321
+        ]
+      }
+    },
+    {
+      "geom_id": 60,
+      "geom_name": "RFTarsus3_geom",
+      "body_id": 52,
+      "body_name": "RFTarsus3",
+      "mesh_id": 50,
+      "mesh_name": "RFTarsus3_geom_RFTarsus3",
+      "vertex_count": 167,
+      "world_aabb": {
+        "min": [
+          0.6633655799580723,
+          -0.8035669395151114,
+          0.14809518480871542
+        ],
+        "max": [
+          0.7326485451634386,
+          -0.7461223077193894,
+          0.2560436622333842
+        ],
+        "extent": [
+          0.06928296520536625,
+          0.05744463179572201,
+          0.10794847742466879
+        ]
+      }
+    },
+    {
+      "geom_id": 61,
+      "geom_name": "RFTarsus4_geom",
+      "body_id": 53,
+      "body_name": "RFTarsus4",
+      "mesh_id": 51,
+      "mesh_name": "RFTarsus4_geom_RFTarsus4",
+      "vertex_count": 144,
+      "world_aabb": {
+        "min": [
+          0.7116842569767262,
+          -0.8210424992653029,
+          0.08051250410772375
+        ],
+        "max": [
+          0.7717582532447504,
+          -0.7697309624358869,
+          0.17377551622682555
+        ],
+        "extent": [
+          0.06007399626802423,
+          0.05131153682941603,
+          0.0932630121191018
+        ]
+      }
+    },
+    {
+      "geom_id": 62,
+      "geom_name": "RFTarsus5_geom",
+      "body_id": 54,
+      "body_name": "RFTarsus5",
+      "mesh_id": 52,
+      "mesh_name": "RFTarsus5_geom_RFTarsus5",
+      "vertex_count": 173,
+      "world_aabb": {
+        "min": [
+          0.7464053693200186,
+          -0.8531755929572051,
+          6.490398651478463e-05
+        ],
+        "max": [
+          0.8178257085906138,
+          -0.7901390968246411,
+          0.10518017569719249
+        ],
+        "extent": [
+          0.07142033927059521,
+          0.06303649613256401,
+          0.1051152717106777
+        ]
+      }
+    },
+    {
+      "geom_id": 66,
+      "geom_name": "RHCoxa_geom",
+      "body_id": 55,
+      "body_name": "RHCoxa",
+      "mesh_id": 53,
+      "mesh_name": "RHCoxa_geom_RHCoxa",
+      "vertex_count": 1974,
+      "world_aabb": {
+        "min": [
+          -0.871795329931316,
+          -0.17366425874472263,
+          0.8423557117979814
+        ],
+        "max": [
+          -0.7135704659593396,
+          0.018304614845398734,
+          1.1221339162788364
+        ],
+        "extent": [
+          0.15822486397197644,
+          0.19196887359012138,
+          0.279778204480855
+        ]
+      }
+    },
+    {
+      "geom_id": 67,
+      "geom_name": "RHFemur_geom",
+      "body_id": 56,
+      "body_name": "RHFemur",
+      "mesh_id": 54,
+      "mesh_name": "RHFemur_geom_RHFemur",
+      "vertex_count": 1630,
+      "world_aabb": {
+        "min": [
+          -1.0275120707609198,
+          -0.8437028167901679,
+          0.8544827565029665
+        ],
+        "max": [
+          -0.7652931231026621,
+          -0.10746362743435406,
+          1.3353052441148725
+        ],
+        "extent": [
+          0.2622189476582577,
+          0.7362391893558138,
+          0.48082248761190605
+        ]
+      }
+    },
+    {
+      "geom_id": 68,
+      "geom_name": "RHTibia_geom",
+      "body_id": 57,
+      "body_name": "RHTibia",
+      "mesh_id": 55,
+      "mesh_name": "RHTibia_geom_RHTibia",
+      "vertex_count": 363,
+      "world_aabb": {
+        "min": [
+          -1.3649621005060826,
+          -0.900048350798283,
+          0.6621453725095496
+        ],
+        "max": [
+          -0.9421319932313239,
+          -0.7681660842191654,
+          1.3242324267830416
+        ],
+        "extent": [
+          0.42283010727475867,
+          0.1318822665791176,
+          0.662087054273492
+        ]
+      }
+    },
+    {
+      "geom_id": 69,
+      "geom_name": "RHTarsus1_geom",
+      "body_id": 58,
+      "body_name": "RHTarsus1",
+      "mesh_id": 56,
+      "mesh_name": "RHTarsus1_geom_RHTarsus1",
+      "vertex_count": 371,
+      "world_aabb": {
+        "min": [
+          -1.5239927806520308,
+          -0.8621970744548529,
+          0.3783199559606374
+        ],
+        "max": [
+          -1.2922761370577296,
+          -0.7618231322335095,
+          0.7164970774657893
+        ],
+        "extent": [
+          0.23171664359430122,
+          0.10037394222134344,
+          0.3381771215051519
+        ]
+      }
+    },
+    {
+      "geom_id": 70,
+      "geom_name": "RHTarsus2_geom",
+      "body_id": 59,
+      "body_name": "RHTarsus2",
+      "mesh_id": 57,
+      "mesh_name": "RHTarsus2_geom_RHTarsus2",
+      "vertex_count": 982,
+      "world_aabb": {
+        "min": [
+          -1.6032909831144966,
+          -0.8633093629479697,
+          0.21785992604677817
+        ],
+        "max": [
+          -1.4746521048445969,
+          -0.7980483864377558,
+          0.4036533902187325
+        ],
+        "extent": [
+          0.12863887826989973,
+          0.0652609765102139,
+          0.1857934641719543
+        ]
+      }
+    },
+    {
+      "geom_id": 71,
+      "geom_name": "RHTarsus3_geom",
+      "body_id": 60,
+      "body_name": "RHTarsus3",
+      "mesh_id": 58,
+      "mesh_name": "RHTarsus3_geom_RHTarsus3",
+      "vertex_count": 1284,
+      "world_aabb": {
+        "min": [
+          -1.6434832966982709,
+          -0.858104714604645,
+          0.14065209292778447
+        ],
+        "max": [
+          -1.5582073199765683,
+          -0.8105985037442598,
+          0.2535118480060578
+        ],
+        "extent": [
+          0.08527597672170262,
+          0.0475062108603852,
+          0.11285975507827334
+        ]
+      }
+    },
+    {
+      "geom_id": 72,
+      "geom_name": "RHTarsus4_geom",
+      "body_id": 61,
+      "body_name": "RHTarsus4",
+      "mesh_id": 59,
+      "mesh_name": "RHTarsus4_geom_RHTarsus4",
+      "vertex_count": 1283,
+      "world_aabb": {
+        "min": [
+          -1.677436514609325,
+          -0.8631813800956516,
+          0.07825368156417696
+        ],
+        "max": [
+          -1.6116019211729893,
+          -0.8157190015453976,
+          0.1703572480312313
+        ],
+        "extent": [
+          0.0658345934363358,
+          0.047462378550254036,
+          0.09210356646705435
+        ]
+      }
+    },
+    {
+      "geom_id": 73,
+      "geom_name": "RHTarsus5_geom",
+      "body_id": 62,
+      "body_name": "RHTarsus5",
+      "mesh_id": 60,
+      "mesh_name": "RHTarsus5_geom_RHTarsus5",
+      "vertex_count": 1440,
+      "world_aabb": {
+        "min": [
+          -1.7303329002937213,
+          -0.8742283046405596,
+          3.184786084169805e-05
+        ],
+        "max": [
+          -1.6461635970088013,
+          -0.8120345769769145,
+          0.1037302495207432
+        ],
+        "extent": [
+          0.08416930328492,
+          0.06219372766364506,
+          0.10369840165990149
+        ]
+      }
+    },
+    {
+      "geom_id": 77,
+      "geom_name": "RHaltere_geom",
+      "body_id": 63,
+      "body_name": "RHaltere",
+      "mesh_id": 61,
+      "mesh_name": "RHaltere_geom_RHaltere",
+      "vertex_count": 372,
+      "world_aabb": {
+        "min": [
+          -0.8556870613233954,
+          -0.5549403674778665,
+          1.3556016329523206
+        ],
+        "max": [
+          -0.7420261782736046,
+          -0.18514194385901317,
+          1.5030526795545007
+        ],
+        "extent": [
+          0.11366088304979083,
+          0.3697984236188533,
+          0.1474510466021801
+        ]
+      }
+    },
+    {
+      "geom_id": 78,
+      "geom_name": "RMCoxa_geom",
+      "body_id": 64,
+      "body_name": "RMCoxa",
+      "mesh_id": 62,
+      "mesh_name": "RMCoxa_geom_RMCoxa",
+      "vertex_count": 1269,
+      "world_aabb": {
+        "min": [
+          -0.6421464390420077,
+          -0.2026870201662668,
+          0.8748812808089421
+        ],
+        "max": [
+          -0.4490814413984323,
+          -0.03017989232286554,
+          1.1647308284796474
+        ],
+        "extent": [
+          0.19306499764357543,
+          0.17250712784340128,
+          0.28984954767070525
+        ]
+      }
+    },
+    {
+      "geom_id": 79,
+      "geom_name": "RMFemur_geom",
+      "body_id": 65,
+      "body_name": "RMFemur",
+      "mesh_id": 63,
+      "mesh_name": "RMFemur_geom_RMFemur",
+      "vertex_count": 379,
+      "world_aabb": {
+        "min": [
+          -0.5966601882107856,
+          -0.7679500617656412,
+          0.8645897192094197
+        ],
+        "max": [
+          -0.24829662710433764,
+          -0.10777290612161211,
+          1.4075794180438945
+        ],
+        "extent": [
+          0.34836356110644795,
+          0.660177155644029,
+          0.5429896988344748
+        ]
+      }
+    },
+    {
+      "geom_id": 80,
+      "geom_name": "RMTibia_geom",
+      "body_id": 66,
+      "body_name": "RMTibia",
+      "mesh_id": 64,
+      "mesh_name": "RMTibia_geom_RMTibia",
+      "vertex_count": 329,
+      "world_aabb": {
+        "min": [
+          -0.3913386832680629,
+          -0.9308180843356467,
+          0.6375360397313876
+        ],
+        "max": [
+          -0.2614851341601764,
+          -0.7117135361228564,
+          1.350365351026187
+        ],
+        "extent": [
+          0.12985354910788655,
+          0.21910454821279035,
+          0.7128293112947994
+        ]
+      }
+    },
+    {
+      "geom_id": 81,
+      "geom_name": "RMTarsus1_geom",
+      "body_id": 67,
+      "body_name": "RMTarsus1",
+      "mesh_id": 65,
+      "mesh_name": "RMTarsus1_geom_RMTarsus1",
+      "vertex_count": 453,
+      "world_aabb": {
+        "min": [
+          -0.40654427128711784,
+          -0.9926821734210656,
+          0.38654735172401733
+        ],
+        "max": [
+          -0.33778823066179026,
+          -0.854790796002301,
+          0.678132631766803
+        ],
+        "extent": [
+          0.06875604062532759,
+          0.13789137741876456,
+          0.2915852800427857
+        ]
+      }
+    },
+    {
+      "geom_id": 82,
+      "geom_name": "RMTarsus2_geom",
+      "body_id": 68,
+      "body_name": "RMTarsus2",
+      "mesh_id": 66,
+      "mesh_name": "RMTarsus2_geom_RMTarsus2",
+      "vertex_count": 767,
+      "world_aabb": {
+        "min": [
+          -0.4143151857834516,
+          -1.027828692367177,
+          0.23965794783953007
+        ],
+        "max": [
+          -0.3563311042568839,
+          -0.9456562665786922,
+          0.40134877319311946
+        ],
+        "extent": [
+          0.0579840815265677,
+          0.08217242578848494,
+          0.1616908253535894
+        ]
+      }
+    },
+    {
+      "geom_id": 83,
+      "geom_name": "RMTarsus3_geom",
+      "body_id": 69,
+      "body_name": "RMTarsus3",
+      "mesh_id": 67,
+      "mesh_name": "RMTarsus3_geom_RMTarsus3",
+      "vertex_count": 924,
+      "world_aabb": {
+        "min": [
+          -0.4285095439185218,
+          -1.0533550929613358,
+          0.13976578967678727
+        ],
+        "max": [
+          -0.3701172031498129,
+          -0.9896162965414759,
+          0.2542227347158747
+        ],
+        "extent": [
+          0.05839234076870892,
+          0.06373879641985991,
+          0.11445694503908743
+        ]
+      }
+    },
+    {
+      "geom_id": 84,
+      "geom_name": "RMTarsus4_geom",
+      "body_id": 70,
+      "body_name": "RMTarsus4",
+      "mesh_id": 68,
+      "mesh_name": "RMTarsus4_geom_RMTarsus4",
+      "vertex_count": 1584,
+      "world_aabb": {
+        "min": [
+          -0.42100140457274093,
+          -1.0663092387087556,
+          0.08862986815564536
+        ],
+        "max": [
+          -0.3794594701333092,
+          -1.0150935835892931,
+          0.16689804793951976
+        ],
+        "extent": [
+          0.041541934439431716,
+          0.051215655119462467,
+          0.0782681797838744
+        ]
+      }
+    },
+    {
+      "geom_id": 85,
+      "geom_name": "RMTarsus5_geom",
+      "body_id": 71,
+      "body_name": "RMTarsus5",
+      "mesh_id": 69,
+      "mesh_name": "RMTarsus5_geom_RMTarsus5",
+      "vertex_count": 469,
+      "world_aabb": {
+        "min": [
+          -0.4432259739535274,
+          -1.0914008822554429,
+          3.7270613395527785e-05
+        ],
+        "max": [
+          -0.3808304050795822,
+          -1.0272250494611639,
+          0.11197048862443357
+        ],
+        "extent": [
+          0.062395568873945206,
+          0.06417583279427896,
+          0.11193321801103803
+        ]
+      }
+    },
+    {
+      "geom_id": 89,
+      "geom_name": "RWing_geom",
+      "body_id": 72,
+      "body_name": "RWing",
+      "mesh_id": 70,
+      "mesh_name": "RWing_geom_RWing",
+      "vertex_count": 9334,
+      "world_aabb": {
+        "min": [
+          -2.7571383527679845,
+          -0.5374145723933493,
+          1.8355187780383426
+        ],
+        "max": [
+          -0.40215195541351734,
+          0.4757309637058238,
+          2.4669184290629933
+        ],
+        "extent": [
+          2.354986397354467,
+          1.0131455360991732,
+          0.6313996510246507
+        ]
+      }
+    }
+  ],
+  "time_before_s": 0.0,
+  "core_tick_before": 0,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/head_geometry_audit.py": "d523ceaa481e29bceb2dc253a4ef12a9cdaf9dcb0ebea0c8be32b9c4f25a1682",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/food_field.py": "d8bbee489d76cfc9ebaaf1bab8843f826025a09cd7d211dd6332ecc1c1205fe8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/sources/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-stand-pose/20261110T030000Z/STAND_POSE_TRIAD_1.45.json": "574152bb05155c808b4c6fcafb453554f0904a860770e137aa64fd97bffb04fe"
+  },
+  "limitations": [
+    "No physical integration steps after Core construction; constructor performs its standard initial reset/mj_forward.",
+    "No evidence for physical food approach, anatomical receptor position, original connectome or independent SI calibration."
+  ],
+  "illustration_source": {
+    "center_xy": [
+      0.9626504155983238,
+      0.15766730259972064
+    ],
+    "patch_radius": 0.18826608311966475,
+    "amplitude": 1.0,
+    "sigma": 0.6275536103988826,
+    "onset_s": 1.0,
+    "rise_s": 0.2,
+    "relation": "head origin +0.6 trunk model lengths forward +0.10 lengths left",
+    "diagnostic_only": true
+  },
+  "illustration": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/FIELD_RECEPTOR_ILLUSTRATION.png",
+    "sha256": "564d4ab48c8509ff9929a59e47526e7cc60f39c4123ebf53b6c136d327a83eb4",
+    "explanation": "static audited initial pose; model sensory-time trace only; no simulation steps or behavior claim"
+  },
+  "no_state_or_time_change": true,
+  "time_after_s": 0.0,
+  "core_tick_after": 0,
+  "physics_steps_executed_by_audit": 0,
+  "state_arrays_exact_unchanged": {
+    "qpos": true,
+    "qvel": true,
+    "qacc": true,
+    "act": true,
+    "ctrl": true,
+    "xpos": true,
+    "xmat": true,
+    "geom_xpos": true,
+    "geom_xmat": true,
+    "xfrc_applied": true,
+    "qfrc_applied": true,
+    "actuator_target_rad": true,
+    "command_history": true
+  },
+  "state_before_sha256": {
+    "qpos": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+    "qvel": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+    "qacc": "1503f42852bf13cecaa3c56b4be7a7f6a52147516bb264a7b5cfd15f64eda3fd",
+    "act": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ctrl": "52a3e0804d93dc525ec3c67ef8ac5b01756ecf0513e36f3c19435e4c82cb5d29",
+    "xpos": "a8924a27bdc937d55fbd22991bf9bc24298b68e4b848d1011bdb3ce9d0b401e8",
+    "xmat": "fee959340ec4e98305a35438d73323c390a572ae1b1209606dee578570776267",
+    "geom_xpos": "d0ec2f8177dfe0e07af6edd4b9f3b76f2c8ba0353c4cf28bf1419ed7692b6e5a",
+    "geom_xmat": "6c0097d532778ff92931ad98deb9df1c976ec6ab985bf5db2445706d3d4b8bf9",
+    "xfrc_applied": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+    "qfrc_applied": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+    "actuator_target_rad": "48ba5f259888e19f1a914649fbf781ff10f34ae10d31181b77a781c0f8ee8975",
+    "command_history": "e020cde9646deda4199f52f219072af90a0035657a999b222c89d64560530ef1"
+  },
+  "state_after_sha256": {
+    "qpos": "6ce5314c00a4e470bb693c282fdf28a67ad2b73727bcc22f3852793a6e591608",
+    "qvel": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+    "qacc": "1503f42852bf13cecaa3c56b4be7a7f6a52147516bb264a7b5cfd15f64eda3fd",
+    "act": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ctrl": "52a3e0804d93dc525ec3c67ef8ac5b01756ecf0513e36f3c19435e4c82cb5d29",
+    "xpos": "a8924a27bdc937d55fbd22991bf9bc24298b68e4b848d1011bdb3ce9d0b401e8",
+    "xmat": "fee959340ec4e98305a35438d73323c390a572ae1b1209606dee578570776267",
+    "geom_xpos": "d0ec2f8177dfe0e07af6edd4b9f3b76f2c8ba0353c4cf28bf1419ed7692b6e5a",
+    "geom_xmat": "6c0097d532778ff92931ad98deb9df1c976ec6ab985bf5db2445706d3d4b8bf9",
+    "xfrc_applied": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+    "qfrc_applied": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+    "actuator_target_rad": "48ba5f259888e19f1a914649fbf781ff10f34ae10d31181b77a781c0f8ee8975",
+    "command_history": "e020cde9646deda4199f52f219072af90a0035657a999b222c89d64560530ef1"
+  }
+}

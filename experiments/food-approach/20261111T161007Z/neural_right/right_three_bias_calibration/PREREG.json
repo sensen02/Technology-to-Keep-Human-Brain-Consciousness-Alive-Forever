@@ -1,0 +1,16 @@
+{
+ "status_at_creation":"CODE_ONLY; no Core/model preflight/candidate generation or physics until parent resource release",
+ "scope":"new large-angle RIGHT_ONLY actual-slip neural constant-bias calibration, NOT old smallLEFT CEM; no retraining or optimizer continuation; no per-step external controller",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/TRAIN/checkpoint_004000.pt",
+ "parent_sha256":"ef768c788c94aeecbb49f0bd1ccb5c424333af36ec514941b72e49ab0d4917ff",
+ "variables":{"tensor":"head.lh_bias","local_indices":[1,4,6],"global_head_rows":[8,11,13],"joint_names":["joint_LHCoxa_pitch","joint_LHTrochanter_pitch","joint_LHTibia_pitch"],"mapping":"verify actual frozen XML actuator and rc leg map; all other tensor values exactly parent"},
+ "proposal":{"generator":"numpy PCG64 seed20261111","mean":[0,0,0],"sigma":[0.005,0.005,0.005],"component_bounds":[-0.02,0.02],"normal_draw_shape":[2,3],"order":["+direction0","-direction0","+direction1","-direction1"],"candidates":4,"generations":1,"updates":0,"all_candidate_hashes_frozen_before_any_actual":true},
+ "candidate_format":"separate RIGHT_THREE_BIAS_ACTUAL_V1; parent fixedSHA+exact declared delta+proposal RNG/source identity, no Adam, no invented training updates; inherited parent4000 is lineage only",
+ "preflight":"RNG before/after/reconstruction/order/bounds; verify exact actual joint mapping; strict parent delta only3 biases/all other tensors unchanged; neutral all2880 means/192hidden exact; actual parentRIGHT input stream all2880 hidden exact and non-target outputs exact; zero-delta wholefunction exact; all4 immutable checkpoint hashes frozen before any physics; preCore source paths exist",
+ "physics_budget":"4 complete RIGHT rounds sequential singleCPU1; each1ssettle+4.8sstraightteacherprime+9.6sANN/newyaw/.06/1ssmoothstep to-1/noreset; source/compiled body/finitePD unchanged; fulltrace/neural192/geometry/handover/nativeNF recorder and newprocess independent audit for every candidate",
+ "gates":"original5engineering inclslip<=.5/worldXsigned>=.05 AND all6cycles AND strictnativeNF0 AND actualsignedRIGHTyaw>=30deg in same9.6s window",
+ "selection":"only after all4 actualcomplete+independent audits; select minimum(slip,index) among candidates satisfying every gate; none -> selectednull. No adaptive secondgeneration/expanded budget. If selected, exactly1 complete neutral confirmation with SAME checkpoint; no RIGHT rerun. Neutral failure retained; no replacement selection.",
+ "recovery":"completed result/audit SHA verified and reused; incomplete/analysis-failed actual round retained and recovered from saved arrays without rerunning physics; execution error not treated as valid optimization score",
+ "resources":"at most one single-thread train/physics/render process; no subagents; parent handles tracker/resource release; all existing sources/weights/results/user video decisions unchanged",
+ "limits":"bounded nominal physical calibration only, no fullnative D1-D8/biological/connectome/food claim or guaranteed repair; no claim isolated slip rootcause"
+}

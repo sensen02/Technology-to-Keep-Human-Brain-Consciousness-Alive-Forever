@@ -1,0 +1,50 @@
+{
+  "all_passed": true,
+  "checks": {
+    "syntax_and_exists:contract.py": true,
+    "syntax_and_exists:execute_native.py": true,
+    "syntax_and_exists:pipeline.py": true,
+    "syntax_and_exists:verify_native.py": true,
+    "syntax_and_exists:render_selected.py": true,
+    "syntax_and_exists:check_prepared.py": true,
+    "syntax_and_exists:METHODS_DRAFT.json": true,
+    "draft_syntax:RUN_PLAN.template.json": true,
+    "frozen_native_recorder_and_methods_hashes": true,
+    "full_native_count_and_phases": true,
+    "exact_native_and_logical_counts": true,
+    "bounded_chunk2048_602_last1152": true,
+    "all_native_source_handover_boundary_indexes": true,
+    "logical_state128_plus64": true,
+    "current_record_only_D7_sufficient_proof": true,
+    "D6_signed_absolute_extra_sensitivity_separate": true,
+    "native_signed_and_legacyXY_not_interchanged": true,
+    "video_complete_bins_end15400": true,
+    "independent_native_audit_has_no_Core_constructor_or_step_calls": true,
+    "actual_entry_calls_admission_before_parent_import": true,
+    "requires_explicit_selected_three_case_proof": true,
+    "missing_selected_candidate_fails_closed_before_model_import": true,
+    "no_model_or_physics_backend_imported": true
+  },
+  "code_only": true,
+  "actual_native_ready": false,
+  "selected_candidate": "NOT_ESTABLISHED_BY_PREPARATION",
+  "Core_constructions": 0,
+  "physics_steps": 0,
+  "optimizer_updates": 0,
+  "preparation_source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/contract.py": "a33bbc2941f0c96e0a68421eeb28b8da480ca27bab1fcf53295cfaa8b5b838a7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/execute_native.py": "49a50fc45b78e2edd61b77189bac0da1e989af907a2d4bfde1321e73f8ea6ddb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/pipeline.py": "507db27413f3f607191b65ac2232969f291e0155ed8311bace38cf056a15ee73",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/verify_native.py": "ff6a71ffb287d48d39e7777f85e13fdfa393254bd337dfa7dc84d3620c4ed384",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/render_selected.py": "147a308fa99f73666fbc1a4428c30b79a26e0cd383ff976f2fe59aa03ce83ee9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/check_prepared.py": "f1859aa2c8cdce230a42e0cabdd003b3e5227726f84ac4f0bae8a26f8f987f54",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/native_preparation/METHODS_DRAFT.json": "b448019ef2183849d3fec92e7ec800691971918436055f1afbb6a9bcb26c72c2"
+  },
+  "frozen_method_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T054510Z/native_acceptance.py": "379707f72a231e5e2ff6c5c827971cb29572a65cf3cccc5c7cd63df707b83f8c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152725Z/final_native_audit.py": "363e37eea682d3d0ead64fa7edc8d1d3066d0243e4d8b2cac47355800123141c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/physics.py": "a5effcae6c5e369852b1bb08ec3556f87a2d3c62e468e931a57350a6f3479530",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py": "1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245"
+  },
+  "limitation": "AST/schedule/fail-closed and exact frozen-source checks only. No current selected model, compiled runtime, native data, D1-D8 result or video was executed/validated by CODEONLY preparation."
+}

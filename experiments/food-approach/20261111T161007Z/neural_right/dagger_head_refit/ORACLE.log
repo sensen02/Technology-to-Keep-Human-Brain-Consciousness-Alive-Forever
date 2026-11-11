@@ -1,0 +1,4 @@
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/oracle.py", line 48
+    errors=[np.max(np.abs(value['foot']-t['relativefoot'][i])),np.max(np.abs(value['padz']-t['padz'][i])),np.max(np.abs(value['com']-t['com'][i])),np.max(np.abs(value['head_xyz']-g['head_xyz'][i])),np.max(np.abs(value['head_rotation']-g['head_rotation'][i])),abs(float(np.angle(np.exp(1j*(yaw-g['thorax_yaw'][i]))))]
+                                                                                                                                                                                                                                                                                                                           ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('

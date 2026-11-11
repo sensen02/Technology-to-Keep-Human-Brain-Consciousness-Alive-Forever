@@ -1,0 +1,173 @@
+{
+  "status": "DELIVERED_FOR_USER_VISUAL_JUDGMENT",
+  "scope": "S2/S5 actual saved physical video; no training/optimization; original left FAIL retained",
+  "rows": [
+    {
+      "condition": "left",
+      "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g04_c00/EVAL_left",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g04_c00/candidate.pt",
+      "checkpoint_sha256": "6a6c23feb9a4b36fcf761f62f9d63309b5c81763f950afe520f42c09a5855e2f",
+      "slip": 0.50573596241638,
+      "yaw_rad": 0.0631163657289116,
+      "yaw_deg": 3.6163013744707846,
+      "forward_per_s": 0.0716083635662815,
+      "nonfoot": 0.0,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "engineering_pass": false,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "video_manifest": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_left/VIDEO.json",
+      "manifest_sha256": "b03e19a0b972034af24b540ae95848d0b62c1e737635da5336f64d1df1f26a1e",
+      "montage_actually_opened": true
+    },
+    {
+      "condition": "right",
+      "run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right",
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/candidate.pt",
+      "checkpoint_sha256": "6a6c23feb9a4b36fcf761f62f9d63309b5c81763f950afe520f42c09a5855e2f",
+      "slip": 0.49501104818453806,
+      "yaw_rad": -0.07642541452275556,
+      "yaw_deg": -4.378853699691722,
+      "forward_per_s": 0.07226220732834311,
+      "nonfoot": 0.0,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "engineering_pass": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "video_manifest": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_right/VIDEO.json",
+      "manifest_sha256": "d1b6c0e910951861c28e007cc962b3cc3c459dd927489d72641816688246387e",
+      "montage_actually_opened": true
+    }
+  ],
+  "copies": [
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_left/ACTUAL_MOTOR_HANDOVER.mp4",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-左转-实际最佳神经轨迹.mp4",
+      "sha256": "7f89606115303410edabab23f4c739aaff42fad98760d269c0e4437cb960aaed",
+      "bytes": 1127937
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_left/DECODED_MONTAGE.png",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-左转-实际最佳神经轨迹-蒙太奇.png",
+      "sha256": "4d5fa00b20ea84b68f623c4218a5f9fb39e1cc78f891b52b1ba5654fd8b7feda",
+      "bytes": 934251
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_right/ACTUAL_MOTOR_HANDOVER.mp4",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-右转-同一神经模型实际轨迹.mp4",
+      "sha256": "1fcadf6e2dcc07463960c834d68880f4b5f6a6a042a7de63af966456544a7db7",
+      "bytes": 1124784
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VIDEO_right/DECODED_MONTAGE.png",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-右转-同一神经模型实际轨迹-蒙太奇.png",
+      "sha256": "0bc147aaa85561b377a87d34b0e013a5fd086b27a3a5da1155929bac149455a9",
+      "bytes": 937911
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/说明.zh-CN.md",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-左右实际视频说明.zh-CN.md",
+      "sha256": "37e2bb8ad9bc48ebd6548d2c9c123bc427acf3502e655ebc734dcdc83a372d6c",
+      "bytes": 2358
+    }
+  ],
+  "video": {
+    "width": 960,
+    "height": 640,
+    "fps": 50,
+    "frames_each": 770,
+    "decoded_frames_each": 770,
+    "physical_seconds": 15.4,
+    "playback_seconds": 15.4,
+    "settle_seconds": 1.0,
+    "teacher_seconds": 4.8,
+    "ANN_seconds": 9.6,
+    "mesh_count": 71,
+    "mesh_alpha": 1,
+    "all_frames_fullbody": true,
+    "all_qpos_qvel_COM_yaw_verified": true,
+    "source_hashes_unchanged": true,
+    "render_physics_steps": 0,
+    "trajectory_corrections": 0
+  },
+  "jobs": [
+    {
+      "id": "bash-1",
+      "task": "one full same-model right physical plus independent audit",
+      "exit": 0
+    },
+    {
+      "id": "bash-2",
+      "task": "first render failed before frame0 due framebuffer",
+      "exit": 1,
+      "record": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/RENDER_ATTEMPT1_FAILURE.json"
+    },
+    {
+      "id": "bash-3",
+      "task": "left render+ffprobe+full decode",
+      "exit": 0
+    },
+    {
+      "id": "bash-4",
+      "task": "right render+ffprobe+full decode",
+      "exit": 0
+    }
+  ],
+  "right": {
+    "actual_physical_steps": 1232000,
+    "audit_checks": 93,
+    "all_audit_checks_pass": true,
+    "ancestor_right_all_saved_arrays_exact": true,
+    "new_actual_same_checkpoint_not_ancestor_video": true
+  },
+  "resources": {
+    "max_physics_or_renderer": 1,
+    "physical_worker_threads": 1,
+    "observed_physical_RSS_kB": 761812,
+    "ffmpeg_encoder_threads": 1,
+    "streaming": true
+  },
+  "cleanup": "Only empty failed staging removed; no useless temporary products; failures recorded; historical evidence untouched",
+  "tracker": "parent responsibility; not edited by worker",
+  "limitations": [
+    "left original slip threshold FAIL remains",
+    "substitute ANN / derived full body / finite PD",
+    "full native high-frequency D1-D8 not performed in this delivery",
+    "not food success, connectome or biology certification",
+    "visual acceptance belongs to user"
+  ],
+  "record_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/PREREG.json": "022d2291cd5d24ec9b073a809b64c8c856f62b8f7da7fa19aeec9b0933a1da38",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/right_actual.py": "9c0b1b75a8885e6c55653ac407cd2c9f94bad6eae0b3f4757cef2a85dcf8a30b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/render.py": "c77d786a19607da070e17f68f1603f4625aac020b8a0fb69a88df74e0eec543a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/finalize.py": "bbbeba1752621ee3ffd2e0622a9227ad5dfc2269176807e792f4033fd514649c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/VERIFY_right.json": "9a2a02cbf6856302b57ccbe14c35560b3d66a3ee60c4663959571b6880727444",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/CHECKLIST.zh-CN.md": "e1f6e73717982e0f9a5afe8ee005acb3eac713d249aa45810dde354dbd6a52a6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/说明.zh-CN.md": "37e2bb8ad9bc48ebd6548d2c9c123bc427acf3502e655ebc734dcdc83a372d6c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/RENDER_ATTEMPT1_FAILURE.json": "9ddeb2f5926e09f3eb3031c662718ee7e84c1f610fe9242b0aa6867b6af4209a"
+  }
+}

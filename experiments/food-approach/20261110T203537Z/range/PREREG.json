@@ -1,0 +1,14 @@
+{
+ "status":"FROZEN_BEFORE_PHYSICS_DIAGNOSTIC_ONLY",
+ "profiles":["halfleft","halfright","left_to_right","right_to_left"],
+ "turns_first_second_4p8s":{"halfleft":[0.5,0.5],"halfright":[-0.5,-0.5],"left_to_right":[0.5,-0.5],"right_to_left":[-0.5,0.5]},
+ "forward":0,
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+ "checkpoint_sha256":"040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+ "control":"Reuse same-checkpoint actual EVAL_RESIDUAL500_neutral, original all5/all6 PASS slip.49278883265, no redundant neutral integration",
+ "amendment":"Prior residual_profiles README full-range-pass prerequisite waived ONLY for controlled diagnostic mapping because actual full+1/-1 failed slip.53966444/.51516286. No deployment/food qualification inferred even if restricted profiles pass.",
+ "gates":"Unchanged original all5 and wholewindow all6 cycles. Halfwhole signed yaw>=.005rad; switching EACH4.8s signed yaw>=.002rad including transient. No threshold/denominator changes.",
+ "physics":"1s zero settle+4.8s actual original teacher neutralprime+9.6s pureANN; native12.5us,1ms target integration,5ms neural; unchanged finitePD/full71mesh/zeroextra/no rootwrites/no reset",
+ "identity":"Explicit new wrapper adds this prereg, wrapper and pipeline source to captured run identity. Reuse frozen old residual_profiles prepared evaluator unchanged; JSON numpy scalar conversion only in new wrapper.",
+ "scope":"Four fixed profiles only; no training, no food behavior, no full native certification; retain all failures. Independently recompute saved trace gates/cycles/yaw, all2880 checkpoint mean/action/192hidden chain, prefix/source/count/zeroextra/compiled runtime identity/full15400 endpoints."
+}

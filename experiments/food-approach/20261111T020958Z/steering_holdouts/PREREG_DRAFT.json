@@ -1,0 +1,10 @@
+{
+ "status":"DRAFT_CODE_ONLY_NOT_REGISTERED_FOR_PHYSICAL_EXECUTION",
+ "cases":["halfleft","halfright","left_to_right","right_to_left","pulse_left","pulse_right"],
+ "commands":"forward0; initialturn smoothstep over1s; halfturn±.5; switching starts4.8s with1s smoothstep to oppositehalfcommand, causalteststimulus only",
+ "pulse":"pulse_left seed20261112, pulse_right seed20261113;42normalstd.02 normalizedmotorcommands clipped[-1,1], held20ms BEFORE1szero-settle; thenactualteacherrestcalibration4.8s and9.6sANN. No rootstate writes orforces. Hidden initializedonce beforeactualpriming, nohandover/switchreset.",
+ "criteria":"originalall5/all6/strictnonfoot0 overFULL9.6s; halfsignedwholeyaw>=.005rad; switches each4.8s properyaw>=.002rad includingtransients; pulsefullturnsignedwhole>=.01rad. Originalworldforward>=.05 andslip<=.5 unchanged.",
+ "qualification":"Sameexactfinal5000checkpointpath/SHA mustalreadyhave actualneutral,left,right engineeringpass ANDindependentauditintegritypass withallchecks true. Validate everyRESULT/audit/source/artifacthash andmodelancestry. No neutralphysicsrepeat; bindqualifiedneutral. Futureseparate RUN_PLAN.json statusREGISTERED_FOR_ACTUAL_QUALIFICATION required before launch; no suchplancreatedhere.",
+ "timing":"15400 physical1ms endpoints normally;15420pulse. All2880 decisionsactualX238/command2/mean/action/beforeafter192hidden, rawsourcepulse=1/settle=0/teacher=2/ANN=3. ImmediateHANDOVERandSWITCHsnapshots; wholecompletecounts andteacherquery960onlybeforewithdrawal.",
+ "scope":"replacementANN fixedengineeringqualification only; nofoodqualification/fullnativecert/biologyclaim. No actualphysicaloroptimizationrun inthispreparation. Max2CPU1futureprocesses, exactlysixcasesnofanoutgrowth."
+}

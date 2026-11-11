@@ -1,0 +1,29 @@
+{
+ "status":"FROZEN_READY_TRAINING_COMPLETE_NO_PHYSICAL_EXECUTION",
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+ "checkpoint_sha256":"c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+ "steps":1500,"additional_updates":1000,"training_job":"bash-4","training_exit_code":0,"job_collected":true,"active_jobs":0,
+ "training_update_wall_s":793.6524849979905,"training_overall_wall_s":796.6460741349729,
+ "final_metrics":{"left_full":0.00012945259263666005,"right_full":0.00011302826734144716},
+ "late_fit_rebound_retained":true,
+ "loss_episode_count":2,"corrective_loss_episodes":0,"corrective_files_loaded":false,
+ "source_data_hashes_rechecked":27,"all_match":true,
+ "preflight_checks":22,"full_history_checks":7,"saved_checks_each":20,
+ "result_sha256":"dfdd74c62a8f7acc97cd23251509586549fef64c158edb5287b70a7ab995ba76",
+ "verify_final_sha256":"11fc645dddf294e1910fe60f6dae62d8d38804d1278cea64bb1b7da362dd2cb7",
+ "files":{
+  "FINAL_REPORT.md":"80b30f7e4e84cbd8756417aece72aa13cc5b9f2442309952e9e1c7491797ab58",
+  "FULL_HISTORY_CHECKS.json":"9bca96cc0d18816fe9c1edd4b3e17a53b2cdde1a539a6f6a2c2205a0bfd3aaa5",
+  "PREFLIGHT.json":"309171e47a543d3ab09eddb1a4a9fc25bf3f5894a49935fef13829458b783fec",
+  "PREREG.json":"85c5b98df54bbf6245359e263248ccf1a9cdcb328a2747dd2362cb2ff6743e03",
+  "check_train.py":"285be488a9e3dea58b0a10d5f8bb61d50b9175a94f1d3a76daf1916001e1996d",
+  "continue_train.py":"d8a7e21cf50199cdc43b4fbc73202b889dcd682b2110b8b136d4a61312d7bc7c",
+  "data.py":"15936afc3bf1d03db3873e5671414c54ef5edf3b680b94a1c15baf8698172be1",
+  "engine.py":"131bdd90db0c88e661e284eff707b678fd3b6b5b9fabe2db64ddb11f78dbda49",
+  "model_io.py":"83a6a3275382e03432a5b5a5b134c5d07be858b8d0eb24fcfe30627fd65c588c",
+  "verify_full_history.py":"e5306a19ca7a3dd7fd2fb8dffce3202cbc5750cdd1ebda7f366e80dd8d95c713",
+  "verify_saved.py":"fe3428a7b9035e4e71e45bbdcc838085d3286b9d183e2fa3ab261a4405c21a0e"
+ },
+ "freeze":"All current own top-level Python/JSON files including thisFINAL_STATUS are final and will not be edited/added during parent physical runs; parent may capture its independent SHA. No duplicate wrappers remain. New physical wrappers are parent-owned two_only_evaluation, no actualrun by this subagent.",
+ "scope":"Matchedtrainingcontrol only, not physical turning/walking/food certification. Final1500 solecandidate; intermediate1000 neverphysicallyselected."
+}

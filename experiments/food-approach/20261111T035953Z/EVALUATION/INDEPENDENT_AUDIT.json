@@ -1,0 +1,38 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all_source_data_hashes_unchanged": true,
+    "prediction_hash": true,
+    "full44x240x2_inputs_and_hidden32": true,
+    "all_values_finite_bounded": true,
+    "initial_receptors_zero": true,
+    "teacher_label_provenance_exact": true,
+    "qualified_mask_exact": true,
+    "all_metrics_recomputed_exact": true,
+    "strict_registered_criteria_recomputed": true,
+    "sensor_only_flags": true,
+    "old_sealed_failed_experiment_unchanged": true
+  },
+  "recomputed_metrics": {
+    "fresh_all_MSE": 0.00560797931475093,
+    "fresh_food_only_MSE": 0.007623249971625842,
+    "qualified_sign_fraction": 0.9990403071017274,
+    "no_food_RMS": 0.015146258656113874,
+    "no_food_bias": 0.011003425435163408,
+    "center_RMS": 0.01536820643366669,
+    "center_bias": 0.002673591229148986,
+    "zero_output_baseline_MSE": 0.10230858484379853,
+    "swapped_input_MSE": 0.4069788024306302
+  },
+  "no_food_max_absolute_turn": 0.03839921923395212,
+  "no_food_each_episode_RMS": [
+    0.019171338560892974,
+    0.009553956266355159,
+    0.019171338560892974,
+    0.009553956266355159
+  ],
+  "physical_steps": 0,
+  "optimizer_updates": 0,
+  "source_sha256": "c42855a1d01be676e10b67129ba1dd2624b56168f271b2acfe20aa43a0b5118d",
+  "checkpoint_sha256": "bfd65a3896d259496114695d7f7f3550272cf4c369895a4ddb34f3ddc3352c06"
+}

@@ -1,0 +1,10 @@
+{
+ "status":"RECORDED_BEFORE_PERSISTENT_TRAINING",
+ "initial_check":"Nominal arange timestamp<=onset was used to require concentration exact0, while actual field and receptor calls use contiguous repeatedaddition clock.",
+ "measured_max_clock_roundoff_s":3.552713678800501e-15,
+ "measured_max_concentration_at_nominal_onset_boundary":4.287137311873865e-30,
+ "unchanged":"All original field equations, synthetic data, positions, angles, strengths, noise seeds, response timing and model remain unchanged. No future stimulus sample or physical execution occurred.",
+ "corrected_numerical_check":"At times strictly before onset by>1e-12 concentration must be exactly0. At nominal onset boundary within1e-12 concentration must be<=1e-24. This is floating-point instrumentation tolerance, not a changed behavior training/evaluation gate.",
+ "preserved_failure":"PREFLIGHT_INITIAL_CLOCK_DIAGNOSTIC.json",
+ "behavior_gates_unchanged":"sign>=.90, zerofoodRMS<=.02, heldoutMSE<=.02 at final1000 only."
+}

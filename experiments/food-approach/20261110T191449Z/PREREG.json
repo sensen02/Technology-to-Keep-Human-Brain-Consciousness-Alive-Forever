@@ -1,0 +1,22 @@
+{
+  "kind": "S4/S5 first food-odor approach implementation, replacement ANN engineering branch",
+  "status": "PREREGISTERED_NOT_VERIFIED",
+  "goal_id": "goal-d3ce9a34-ed60-4720-9769-da757b6e602e",
+  "branch": "food-approach-20261110",
+  "baseline_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+  "baseline_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+  "baseline_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+  "physical": "unchanged complete 71-mesh 42-motor body, native 12.5us, 1ms actuator target integration, 5ms policy, finite PD torque limits, no adhesion/external forces/root writes",
+  "handover": "1s zero settle + 4.8s physical teacher/actual sensory priming + 9.6s neural or separately labelled teacher diagnostic, no handover resets",
+  "first_dependency": "validated conditional neural turning and deceleration; no odor learning claimed before motor interface works",
+  "motor": "copy selected slow GRU128, add zero-initialized bias-free 2->128 command encoder before encoder tanh; neutral [0,0] exact baseline initially; warmup receives neutral commands; train new adapter first then bounded low-lr finetuning with straight regression",
+  "actor_input_contract": "actual baseline238 physical observations + two neural command inputs; behavior sees only actual bilateral receptor outputs and explicit recurrent memory; excludes food coordinates, target bearing/distance, phase, future and elapsed episode time",
+  "teacher": "independent scoped preregistered turning diagnostics; reject unsafe teacher episodes as training success; teacher only in training/warmup",
+  "odor": "single finite radius ground patch and engineering Gaussian concentration field, .2s smooth onset, two head-fixed engineering sampling sites, saturating receptor with .05s exact exponential lag; validated independently",
+  "validation": "source/model/checkpoint hashes; zero-adapter exact output+hidden identity and nonzero learning gradients; saved/reloaded model and optimizer checks; old straight gates unchanged; new turn gates fixed before physical trials; full failures retained",
+  "downstream_design": "train recurrent behavior only after usable motor demonstrated; separate training/selection/final layouts and seeds; normal vs absent/mirrored/shuffled odor and matched replay controls; source onset after neural handover; no feeding or biological validity claim",
+  "resource_policy": "CPU float64 one thread; bounded arrays, no giant tracker reads; log all jobs and collect; timestamped amendments before changed experiments; no automatic unlimited training",
+  "budgets": "teacher initial configs <=4 in teacher/PREREG.json; exact motor dataset and fixed optimizer/eval budget registered after physical teacher diagnostic and before training; final food layouts fixed before behavior training",
+  "not_claimed": ["connectome control", "biological olfaction calibration", "ingestion", "satiety", "arbitrary-duration robustness", "successful food approach before actual physical evidence"]
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "S4/S5 independent RIGHT_ONLY replacement ANN large-angle experiment; no original connectome or full D1-D8 claim",
+  "command": {"order":["forward","turn"],"forward":0,"turn_range":[-1,0],"normalization":"new requested teacher yaw/.06; NOT old yaw/.008","physical_ramp":"1s smoothstep after 960 prime decisions"},
+  "architecture": "frozen validated walking GRU128; physical112+basehidden128+command2 -> encoder64 tanh -> GRU64 relax alpha1-exp(-.005/.1) -> head42; base latent + relu(-turn)*3*tanh(head); final action tanh",
+  "initialization": "transfer encoder and GRU only from /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt; zero head; fresh Adam; exact validated frozen base SHA256 246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+  "data": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/SAMPLES_5MS.npz",
+  "objective": "single full real right trajectory action MSE after first960 decisions; all2880 contiguous hidden with no detach; exact cached frozen base and shared-parameter scripted scan",
+  "training": {"seed":20261111,"dtype":"float64","threads":1,"learning_rate":0.001,"updates":2000,"save_steps":[1000,2000],"physical_evaluation_step":2000,"optimizer":"fresh Adam default; gradient norm clip1 declared implementation safeguard","wall_cap_s":14400},
+  "preflight": "production step/sequence vs cached scan output/hidden/all adapter gradients tolerance1e-12; temporary unit update model/Adam parity; frozen base no gradient and exact weights; neutral2880 exact; rightzerohead exact base",
+  "save_audit": "live vs saved model/Adam/RNG/curve exact; fresh process strictload and production replay actual means/states every save; final independent audit",
+  "physics": "unchanged original derived complete71opaque/49qpos/48qvel/42finitePD, native12.5us, no extra force or adhesion or root writes; full1s settle+4.8s straightteacher prime+9.6s ANN continuous noreset; final2000 only neutral then RIGHT sequential; trace1ms geometry and neural192/action/handover; lightweight every-native-step NF peaks",
+  "acceptance": "same9.6s ANN window original five engineering gates incl worldX speed>=.05, strict native nonfoot peak==0, all6 complete cycles, RIGHT signed yaw>=30degrees; body-heading diagnostic supplements only",
+  "failure_policy": "preserve failures; no unbounded retraining; recover completed saved rollouts if analysis fails without physics rerun",
+  "resources": "at most one single-thread training or physical process, no subagents, low memory; audit processes only after active training exits",
+  "limitations": "new command domain, residual bound and training task combined; no isolated single-cause inference; one trajectory and nominal initial condition; video deferred by authorization; tracker parent-owned"
+}

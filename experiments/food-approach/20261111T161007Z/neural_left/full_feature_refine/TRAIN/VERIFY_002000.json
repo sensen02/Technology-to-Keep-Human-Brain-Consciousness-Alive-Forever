@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "checks": {
+    "Adam_exact": true,
+    "Adam8states": true,
+    "base_no_grad": true,
+    "RNG_exact_after_constructor": true,
+    "curve_exact": true,
+    "new_steps1toN": true,
+    "actualproduction_means_exact": true,
+    "actualproduction_base_states_exact": true,
+    "actualproduction_residual_states_exact": true,
+    "scan_production_tolerance": true,
+    "frozen_base_cache_hash": true,
+    "neutral_mean_exact": true,
+    "neutral_action_exact": true,
+    "neutral_base_hidden_exact": true,
+    "43242_unfrozen_8tensors": true
+  },
+  "step": 2000,
+  "sha256": "47e2ec012c016d4c912518ad1d7a326c080d0c65ecf8778a2016c937e58cf838",
+  "postprime_action_MSE": 0.001003827564677095,
+  "production_scan_maxerror": 2.6645352591003757e-15,
+  "production_scan_hidden_maxerror": 2.3314683517128287e-15,
+  "physics_steps": 0,
+  "optimizer_updates": 0
+}

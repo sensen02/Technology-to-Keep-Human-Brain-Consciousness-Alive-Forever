@@ -1,5 +1,371 @@
 # 目标进度与证据追踪
 
+## 用户要求规划气味刺激：计划已保存并桌面核验，本轮无训练/仿真（S4/S5）
+
+- 用户原话“规划下”，本次只读接口/证据与写计划，没有启动模型forward/Core/物理/训练/渲染/自动goal。git status exit0确认原ROADMAP/TRACKER修改与food-approach研究产物，全部保留；没有新无用临时文件。
+- 已核组合motor789f...接口要求forward=relu(turn)/3、256运动记忆，旧SteeringBehavior输出[0,turn]/32记忆；新策略需神经ReLU投影和总288神经状态记录，不能直接调用旧192state/forward0的evaluate_food。旧strict qualification保持，用户接受基线进入明确experimental模式，旧FAIL不改PASS。
+- 已核035953感觉3000 checkpoint bfd65...的独立RESULT四目标通过、scope仅SENSOR_PRETRAIN_ONLY，不能把静态测试当身体趋近成功；原已接受同模型转向与source/hash/用户裁定保留。
+- 计划权威源 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T204925Z/STIMULUS_IMPLEMENTATION_PLAN.zh-CN.md`；桌面 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/气味刺激与身体闭环-实施计划-20261111T204925Z.zh-CN.md`。两份完整复制sha核验exit0，SHA4d6c84f922591cc9cf34c9d09c877d9d6d6433e99b267abad12a2bc1775c12b9。
+- 首批建议3项高层命令探针+6项受控左右/等强/无气味/撤除/反转共最多9完整回合，模型先冻结；之后6个固定空间源开发回合，策略冻结后8布局+matched对照/重放最多34回合。几何到达proxy与停驻/摄入分开，不能到点停仿真伪造驻留；先不用整个身体大训练，失败先定位最小问题。全部预算/阈值均为计划提案，实施前新预登记冻结，不背填实验身份。
+- 当前无新刺激成功声称、无活动作业；下一最小动作在用户要求实施时按计划先新接口与首批A/B验证，不要重新扫已接受的转向，也不要自动恢复旧会话goal或重复旧感觉训练。
+
+## 用户接受当前同模型大角度效果，本轮限定实施视觉验收完成；下一步气味刺激响应（S4/S5）
+
+- 用户对问题large_turn_visual_judgment明确选择“接受当前效果”，该选项同时明确保留严格工程失败项并结束本轮。裁定原文与完整scope存 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/USER_VISUAL_ACCEPTANCE.json`，绑定COMBINED SHA789f...d0dd和两片已验证桌面视频。只新增用户视觉验收，不改写原LEFT29.651288/slip.578097与RIGHT30.632932/slip.503296的严格FAIL、旧source/hash/验收历史。
+- 本轮大角度实现/同模型实际指标与视频交付由用户裁定接受；原直行验收保持。严格数值工程qualified仍false，不据此宣称连续命令、减速、食物趋近、完整D1—D8或生物资格通过。当前所有作业已结束收集，无后台训练/物理/渲染。
+- 用户随后问“接下来做刺激吗？是吗”。下一路线确认为先气味刺激的感觉→行为ANN→身体响应，再真实气味源闭环趋近与无气味/受体切断/左右交换因果对照；静态气味神经旧预训练通过是已有感觉里程碑，不等于身体循气味成功。当前仅确认先后及归档，没有启动新物理或训练。
+
+## 同一神经模型左右大角度实际视频已交付核验；严格工程失败保留，待用户视觉裁定（S4/S5）
+
+- 固定组合 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/COMBINED.pt` SHA789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd，sharedbase128+RIGHT64+LEFT64/256state，不是不同权重视频拼接，不声称自然jointtraining。AMEND04事后可视选择b4ed R与47e2 L、原工程FALSE保留，非原测试资格PASS。
+- 同SHA完整actualneutral/right/left全齐：neutral193checks/slip.492788833、原直行共享物理与base神经数组精确；RIGHT169checks/yaw-30.6329321163°/slip.503296113764仅slipFAIL；LEFT169checks/yaw+29.6512882898°/slip.578096808971角度与slipFAIL。全窗口1+4.8+9.6/noreset、六腿周期、nativeNF0/extra0、其余4工程门通过。原门未放宽、未round为PASS。子45..49全部收集后仅最终整理turn中断，父确认无残余进程，独立同SHA/全部audit/source/arrayhash合取exit0，无物理重跑。
+- 父bash50LEFT/bas51RIGHT串行render exit0均收集；每片960×640/50fps/15.4秒/770帧全解码，71opaque全帧全身、同次保存qpos/qvel/COM/yaw、0渲染积分/轨迹修正、source与compiledruntime前后不变。父实际打开两片六阶段montage，完整头胸腹六腿翅可见、地面参照清楚，另独立ffprobe及源/桌面hash核验exit0。
+- 桌面左视频 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度左转-同一神经模型-待你判定.mp4` SHAd1e64ef9f00469bd7a2a803fd614d90550c1ce4399497e12a632051eee5c26e9；右视频 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-同一神经模型-待你判定.mp4` SHAe953f815642efbb167eefde8d80721a71328243de257f0a7befff56162f21fb0；对应`-蒙太奇.png`同目录。说明 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度转向-同一神经模型-最终说明.zh-CN.md`。
+- 最终源记录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/FINAL_SUMMARY.json`（programmaticfinalconjunction）、同目录`FINAL_REPORT.zh-CN.md`。严格工程qualified=false，user_visual_acceptance=PENDING；只标记已交付/已核验，不把完整性通过替代行为资格。待按用户原话“我来决定合格”由其判断视频效果，原自主直行验收未撤回。
+- 已在新两视频验证后实际清理3项被替代f25b桌面视频/蒙太奇/旧说明，SHA确认原项目科学副本保持，smallangle对照保留；清理台账 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/DESKTOP_CLEANUP.json`，没有无用临时片段。当前所有job收集、agentready、ps无本实验进程，无后台训练/渲染，资源已收尾。
+
+## RIGHT最后特征微调实际30.63°/slip.50330仍FAIL；AMEND04仅可视复核选用新组件，组合实际待执行（S4/S5）
+
+- RIGHT原qualifiedteacherONLY/full43242/freshAdam.0003/fixed2000训练完成，final `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/TRAIN/checkpoint_002000.pt` SHAb4ed3e0ce3b6309a7e69c2379a1959c873c072fb0ba7c4124cb7db9a39b275e2，MSE.0001025490091。bash42训练/43两保存审核prepare/44完整RIGHT全部exit0收集。实际RIGHT30.632932116272°、slip.503296113764严格FAIL（差.003296仍不是PASS），其它4门/all6/nativeNF0通过，147独立完整性checks全真；按原候选规则无独立neutral、不追加训练或扫描。
+- 原组合计划仅新RIGHT全PASS才替换ef，历史完整保留。父依据用户“看实际视频自己决定合格”的既有授权，在任何assembly执行前新增AMEND04 *posthoc名义研究可视选择*：固定新b4ed（比ef.509829更低slip，仍FALSE），LEFT固定47e2（29.651288/.578097 angle+slipFALSE），不假称预登记性能资格/自然jointtraining/全门PASS。新visual_original_feature_refine选项与qualified-only入口分开，原strict门和flags不改，component来源/actual/audit/source/SHA及AMEND04纳入bindings与capturedhash。所有失败权重/轨迹保留。
+- 子5dac已获唯一heavy继续组合actual准备/全三流逐位等价/保存重放/neutral+right+left同SHA全真实物理+256state审核，工程FALSE也收齐另方向，完整性失败则停留证据不造结果。没有更多research/trainfamily。父等待组合实际后，使用已完成CODEONLYrenderer串行双向视频、实际打开蒙太奇、全770解码/ffprobe/hash桌面交付。
+- Renderer `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/visual/START.zh-CN.md` 契约无组件硬编码，只新COMBINED.pt/同SHA/全部实际audit/三个256chainkey/3stateHANDOVER；False如实展示。子740停止待命、无heavy。目标仍active，不提前宣称整体工程通过。
+
+## 最后一项RIGHT原示范特征微调进行中；组合256state与同模型双向renderer CODEONLY就绪（S4/S5）
+
+- 子5dac已按父释放唯一heavy启动 `neural_right/right_original_feature_refine/`：精确ef768规范全head组装，原qualifiedteacherONLY进loss、actualef流只作初始exact预检，无Dagger数据；base冻结/原encoderGRUhead43242解冻、samebound3/RIGHTdomain/alpha/freshALL8Adam.0003/fixed2000/save1000/2000仅finalRIGHT通过才neutral。当前训练400step MSE.00016194914 vs初始.00019324920、约.57s/update，无行为结论。其后不再追加RIGHT优化，按实测收口。
+- 组合模型代码共享base128+左右各64神经branch/总256state，内部ReLU拆signedcommand，RIGHTbound3/LEFTbound6，只有一次base step、分支每步更新不reset，非关节动作状态机。左组件固定47e2final2000实际29.6513/slip.5781formalFAIL；右组件待这项fullrefine结果，严格全PASS才换新SHA，否则ef76830.631/slip.5098formalFAIL展示对照。新AMENDMENT将研究展示与工程资格分开，原门不改，不能假称qualified或jointtraining。
+- 子740只CODEONLY完成 `combined_turning/visual/render.py` 与 `START.zh-CN.md`：严格COMBINED.pt/COMBINED_TURN_V1/load_checked三参数、128+64+64总256、左右两实际audit完整true+同组合SHA、hidden2880x256chain，工程FAIL可诚实展示。16负mock/AST/exactadaptations exit0，未importtorch/numpy/MuJoCo/Core/model、未加载eval/权重/运行render。仍待真正组合assembly/neutralLEFT/RIGHT同SHA物理与独立审核齐全后，父单线程串行渲染、打开montage、ffprobe/full770decode/hash桌面交付。不能拼旧组件视频冒充同模型。
+- 父当前无job，974LEFT阶段全部38..41收集，5dac唯一activeheavy；source/sha/cycle失败记录/旧f25b视频均保持。
+
+## LEFT特征2000微调实际29.65°/slip.5781仍FAIL，停止该family，进入同模型双向交付准备（S4/S5）
+
+- 新43242参数特征微调fixed2000实际训练完成，final `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_left/full_feature_refine/TRAIN/checkpoint_002000.pt` SHA47e2ec012c016d4c912518ad1d7a326c080d0c65ecf8778a2016c937e58cf838，postMSE.001003827564677095（parent.0017393），76真实preflight、两save各15checks全通过。final完整LEFT actual+29.651288289796°<30、slip.578096808971>.5严格FAIL；LF1其余各2周期、1ms/nativeNF0/extra0、其余4门通过。逐腿LF.2975511 LH.5189071 LM.3502449 RF.3857419 RH.5780968 RM.5599231。比parenthead28.64885/.763168改善不能当门通过。
+- 子97438/39/40/41全部exit0收集，独立actual140checks全真，无neutral/无追加训练/重跑。源码/权重不改，仅补独立报告。该LEFT候选固定为后续实际能力展示组件，formal angle+slipFAIL保持，不能称合格部署或改变已注册门。
+- 子5dac获明确唯一heavy资源放行，完成已登记原RIGHT教师full_feature_refine候选：fromef768/initcanonicalheadexact/basefrozen/原teacherONLY无Dagger/freshALL8Adam.0003/fixed2000，仅finalRIGHT audit，严格PASS才neutral，结束后不再追加RIGHT优化。当前代码准备状态需owner回报，父不并行模型/物理。
+- 组合`combined_turning/`只CODEONLY：旧9c58条件计划保留，后续明确LEFT47e2且formalFAIL；若新的RIGHT全门PASS用其SHA，否则fixedef76830.631°/.509829formalFAIL展示。必须新amendment标明research demonstration与engineeringqualification分开，单checkpoint256state实际neutral/left/right并独立审核、同次视频，不用不同模型视频伪装组合成功。目标仍active，尚不能完整通过；不无止境追加候选或把接近30四舍五入改PASS。
+
+## LEFT神经head-only实际28.65°/滑移FAIL；新43242特征微调进行中，RIGHT纠正模型失败收齐（S4/S5）
+
+- LEFT固定head4000 actual `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_left/IMPLEMENTATION_RESULT.json`：+28.6488468699°未达30，slip.763168004452失败；LF1其余各2周期、1ms/nativeNF0/extra0与其它4工程门通过。独立132checks全真，34..37全exit0收集，无neutral、未扩该head预算；模型SHA9c58e2a8772c7ef034f2fc0e18d01d5e4e59ace8d7cfb89b31e6f8569b6ae799。不能凭失败宣称冻结特征容量为已证实根因。
+- 新独立 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_left/full_feature_refine/PREREG.json` 先登记：精确parent9c58权重、只原baseGRU128冻结，既有encoder/GRU64/head43242/8tensors解冻、samebound6/coupled-domain/teacher/alpha，freshALL8Adam.0003固定额外2000、save1000/2000仅final2000物理，新curve与parent4000lineage分开。Torchscript sharedparam全2880BPTT不detach；真实76preflight checks PASS、max1.17e-13、初始parentmeans/128+64history exact。唯一heavy子974 managed bash38，约.568s/update/RSS512MiB/NLWP1；1000已保存SHAc235faff481870b0fcf86b4f781fde7a8acc5b0bcad99f768ada61e5a96c5334、MSE.00125892375624、15新进程审核全真。继续固定2000，不评估1000，不因训练loss称行为成功。
+- RIGHT Dagger固定4000 final e92b实际30.1341222667°，slip.737494518129(LH；LM/RH/RM也>.5)明显变差，其它4门/all6/nativeNF0通过，163独立checks全真；31/32/33全部exit0收集，无neutral/无该family追加。oracle可精确重放前缀不等于纠正loss能改善控制，qualifiedteacher拟合变差/corrective拟合变好tradeoff与失败均记录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/REPORT.zh-CN.md`。
+- 子5dac目前仅CODEONLY：`combined_turning` 共享原base128和左右各64神经分支/256state，神经ReLU分命令、同单checkpoint全实际评估与视频，不拼接不同模型；9c58初始组件计划保留原文，AMENDMENT01等待LEFT新final2000 SHA/实际结果。原RIGHT固定ef768为30.631/.509829严格slipFAIL展示对照，不冒充calibration选中PASS。
+- 另外CODEONLY一项RIGHT原qualified数据特征微调候选，精确ef768重组head、只base冻结、43242原adapter解冻、同原teacher数据ONLY（不含Dagger纠正）、freshAdam.0003/fixed2000/save1000/2000，仅finalRIGHT通过才neutral；须等974全部重任务结束且父放行才执行。不是继续旧bias/纠正family。若该新RIGHT全门PASS才通过显式组件amendment换组合右组件，否则ef展示仍formalFAIL。左右各此一次特征候选后按实测交付，不无止境扫参。
+- 父所有重任务已收集、没有活动job；子38为唯一activeheavy。完整精简交接 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/CURRENT_STATE.json` 已结构化更新，跨子session job_output不允许，必须由owner收集并回报，父不重试或重复启动。
+
+## LEFT 30.11°教师严格NF0与原全部门通过；RIGHT纠正oracle零误差前缀通过，训练接续（S4/S5）
+
+- 父bash30新`left_tarsal_actual_guard`完整physics exit0已收集，actualLEFT30.113063224888°、slip.455118440746、原5门全部通过、LF1其余各2完整周期、nativeNFpeak0/extra0；74真实间隙反馈触发/74接受，q_des maxdelta.005/paderr2.496e-6，actualunsafe-shadowSafe0。没有改参考/stride/yaw/PD/碰撞分类/门，实际姿态和root无强制写入。此为算法教师通过，不是ANN自主LEFT完成。
+- 独立新名audit exit0/60checks全部真且teacher_eligible=true： `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_tarsal_actual_guard/AUDIT_ACTUAL_GUARD_20261111T183323Z_377784_1794422003628573149.json`。父另核结果all5/all6/NF0及SAMPLES哈希exit0。数据 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_tarsal_actual_guard/left_yaw_p060/SAMPLES_5MS.npz`：2880full/960prime，forward0..1/3与turn0..1耦合；postY absmax1，245/80640关节样本≥.99。新NN必须声明该域与单LEFT模式速度.1，不能冒用旧rightforward0域。
+- 右Dagger oracle bash28仅SyntaxError在Python执行前失败（0Core/0prefix/0label，无ORACLE），修正并AST后bash29exit0收集：1privateCore、0step，5800prefix foot/padz/COM/head/yaw几何最大误差0，全960warm动作最大误差0；未保存过原privateq_des故不伪称原链bitexact。完整连续oracle仅私有snapshotrestore，不把label积分进target，生成1920未执行CORRECTIVE标签；unsupported/unbacked/hypothetical各252/1920=.13125，rateclip97/1920=.05052，不称新teacher物理PASS。独立saved审核9214checks全部通过，source/runtime/inputs前后不变。证据 `neural_right/dagger_head_refit/ORACLE/PREFIX_AUDIT.json`、`RESULT.json`、`VERIFY.json`。
+- 子5dac在父bash30期间只code；父30+audit完成后已明确释放，当前唯一heavy Dagger dense2730/生产cache梯度预检→4000freshAdam.0003双轨迹均衡head训练→保存独立审核→finalRIGHT(同SHA通过才neutral)，oracle不重复。原ef768parent固定，不后验选biasbest，不扩旧bias/Adam预算。
+- 新子974仅CODEONLY准备 `neural_left/`：原base128+c6b旧encoder/GRU64全冻结，新zerohead2730，relu(turn)*6*tanh(head)，新LEFT coupled f=turn/3域、基线原targetspeed输入常量.075，actualclearance教师反馈不增加ANN输入；fixed4000freshAdam.0003/save2000/4000，只finalLEFT、通过才neutral。所有production/cache/grad/unitAdam/frozen/neutral/saves/actualphys审计必需，当前未运行Torch/训练/物理，等待5dac资源释放。原直行通过与全部失败证据保持，目标仍active。
+
+## 大角度RIGHT三bias固定4项全滑移FAIL；LEFT q_des次任务动态仍有接触，转实际间隙反馈候选（S4/S5）
+
+- `neural_right/right_three_bias_calibration/` 新域/新parentef768仅LH三神经偏置，4项在任何actual前全部proposal+checkpointSHA冻结，zeroCore36checks PASS、父独立hash+反向配对核验通过。完整4RIGHT actual+各147独立checks通过；slip依次.509493364157/.531089211516/.511319027691/.522627274694，yawRIGHT30.63115/30.56014/30.80318/30.44369°，其它原4门/all6/nativeNF0通过。按预登记selectednull，无neutral/第二代/扩预算/重训练；bash25/26 exit0全部收集，最终purePythonconjunction PASS。新结果/报告均在同目录，旧小幅LEFT CEM未重开。
+- 父bash27 `left_tarsal_clearance_teacher` 完整physics exit0已收集，原wider参考全保持、只RH privateq_des secondary一次/decision .005信赖域。实际LEFT30.0340309118°/slip.428125821576/all5/all6通过，但nativeNF.138113735303仍FAIL（比wider.224266降低不等于零）。2880完整q_des诊断触发9/接受9、maxdelta.005/paderr2.02e-6；实际low而q_des shadow safe达86个decision，说明目标几何safe不能替代动态追踪验证。未中途改feedback、未写实际姿态。
+- 独立新名审核exit0/61checks全真： `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_tarsal_clearance_teacher/AUDIT_CLEARANCE_TEACHER_20261111T181356Z_377585_1794420836847629777.json`。结果同目录`left_yaw_p060/RESULT.json`与`CANDIDATE_CLEARANCE_TEACHER.json`，失败源/权重不改。
+- 下一LEFT子2f仅CODEONLY新`left_tarsal_actual_guard/`：沿用wider参考/原门/物理，primaryIK后当真实末端h<.012时令q_des目标h=当前shadowh+(.012-actualh)，原.005信赖域/pad误差1e-5/边界/othergeom/qdot/rate2全保持，prime严格inactive，不改yaw/stride/PD、只一个guard值不扫参。这是教师感觉反馈，未来ANN不增加该隐藏输入；当前尚未执行。
+- RIGHT子5dac获放行准备并顺序执行新`dagger_head_refit/`，不是扩三bias：固定ef768parent、0积分私有模型按已有真实NN状态重建teacher oracle，必须全960warm动作/足几何前缀≤1e-10才标postCORRECTIVE_EXAMPLES（不算teacher物理资格）；actual motor-target逐步恢复、privateq_des链连续，拟议label不积分进target。原qualifiedteacher与实际NNstate两条完整序列等权postloss，仅head2730/freshAdam.0003/fixed4000，frozen encoder/GRU/base、新格式/same-state初始精确；最终RIGHT通过才neutral。当前准备中，无新标注/训练成功声称，单heavy资源已释放给该子，父不另开物理。
+
+## LH455实际仍滑移FAIL；末端足节private静态姿态可行性通过，准备动态教师候选（S4/S5）
+
+- RIGHT LH承重455权重候选固定4000 final ef768...完整neutral173checks通过且原共享轨迹精确，RIGHT actual30.6311514969°、slip.509828786591(LH)仍FAIL（仅比parent.51066597降.00083718），其它4工程门/all6/nativeNF0均通过，149完整性checks全真。bash20/21/22/23全exit0收集；teacherstate weightedLH MSE最终.0001006479略高于初始.00010028945，按固定final物理保留未换lr/加预算。不再追加同Adam/BPTT或以loss改善作成功。
+- 父bash24只private MjData静态FK/Jac/几何，exit0已收集，0积分/0力预测/原Core live data与model及source输入前后不变。固定8保存时点×真实qpos/RHmotor-target替代两种=16姿态全部保留。结果 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_tarsal_clearance_probe/RESULT_STATIC_PROBE_20261111T174831Z_377047_1794419311801068289.json`，独立新名审核同目录`AUDIT_STATIC_PROBE_20261111T174902Z_377065_1794419342194613810.json` exit0/integrity+numericalgeometry全PASS。
+- 实际8姿态全部初始safe或≤20private运动学小步到safe；有效pair margin=.002实测、safe=.004，最严重11.973s真实h-.000657603→+.004185082，12步/累计max.05750485rad、pad误差1.07e-10，Jrank3/null4/gZ.05053/JacFD验证。motor-target8姿态仍未到safe，含PD前馈故不能当q_des。静态结果不是实际动态tracking、教师或行为资格；说明同目录`STATIC_FINDINGS.zh-CN.md`。
+- 子2f只CODEONLY准备新`left_tarsal_clearance_teacher/`，原wider参考/物理/门保持，仅原primaryIK之后在RH privateq_des做.005rad/decision secondary，actualroot只复制到独立private geometry计算，实际body/root不写；安全h=.004/pad误差保持、prime前inactive、返回qdot按整体差重算，记录actual h与q_des-shadow h的区别。需再完整物理，当前未实施动态。
+- 子5dac获资源放行准备并运行新大角度RIGHT三bias物理目标候选：fromef768，LH实际global8/11/13(local1/4/6)，PCG64seed20261111/两反向对共4/sigma.005/bounds±.02，只1代4RIGHT，全部candidatehash先冻结、整4审核后仅原全部门且yaw≥30的最低slip/index选中，选中才neutral；若全fail selectednull，不扩同family。此不同于旧小幅LEFT CEM，非逐步控制器、无新Adam训练。目标仍active，父无活动job，不并行heavy。
+
+## 更大半径LEFT实际30.08°/slip.40691/六腿完成，仅RH末端节段擦地；RIGHT LH承重候选接续（S4/S5）
+
+- 父唯一CPU1 bash19完整新LEFT exit0已收集， `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_wider_radius/left_yaw_p060/RESULT.json`：actual30.0824827132°、slip.406908550764、原5门全通过、LF1 LH2 LM2 RF2 RH2 RM2全部完成；支撑.9996956283/COMmin1.2534167683/worldXforward.10113232865。更大半径确实解除了旧LM正X行程不足，但严格非足仍FAIL，未准入ANN训练。
+- 新原生bounded接触归因定位仅floor与`RHTarsus4_geom`(72)/body61`RHTarsus4`，11.6313—12.098575s，nativepeak.2242661322000606/endpoint.2229062947，无额外力；不是腹部下沉，仍按原判据保留FAIL，不重新分类几何绕门。事件摘要native非全量D1—D8。
+- 独立新名审核exit0、全部检查PASS，文件 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_wider_radius/AUDIT_WIDER_RADIUS_20261111T173022Z_376648_1794418222454890093.json`：全窗source/hash/prefix5800逐位同原、命令v/omega/ramp/参考/姿态yaw/分子分母/原X周期/native计数与归因/资格全部重算，无覆盖旧VERIFY。
+- 下一LEFT子2f仅源码研究RH远端足节clearance的teacher影子IK次任务，保持pad目标/更大半径参考/身体与原门；需资源释放后先用保存状态静态FK/Jacobian检验可行性，不会写实际qpos/移root/取消碰撞。当前不运行Core/物理。
+- RIGHT子5dac获资源放行，已先登记`neural_right/left_hind_stance_refit/`（LEFT_HIND为LH腿、命令仍RIGHT_ONLY）：仅LH455有效权重，其他head行/encoder/GRU/base冻结，teacher动作前载荷999+5k≥.1W时LH lossweight4，否则1，freshAdam.001/fixed4000，仅最终4000物理。实际preflight/训练/审计/neutral+right按单线程顺序推进，尚无结果，不宣称单一根因。
+
+## RIGHT head-refit实际30.69°/slip.51067仅LH仍FAIL；更大半径LEFT候选启动（S4/S5）
+
+- 新head-only6407...final4000实际neutral全共享数组与原基线精确、168checks全真，bash17 exit0已收集。RIGHT actual30.6899178407°、slip.510665971172(LH)仍严格FAIL，LM.4752110321已PASS，其余LF.418984671/RF.327284481/RH.460823606/RM.454679711全部≤.5，六腿LF1 LH2 LM2 RF2 RH2 RM1、nativeNF0/extra0、support/COM/forward通过，144完整性checks全真，bash18 exit0已收集。低成本拟合改善未冒充通过。
+- 子5dac仅准备下一独立LH承重输出候选，需先核冻结腿映射与teacher动作前载荷、有限非零梯度/实际误差依据后登记：parent6407...，仅LH head rows7:14有效455权重、其它行及循环/基线冻结，post960 LH载荷≥.1W时loss权重4/否则1，freshAdam.001固定4000，仅最终物理。当前未训练/未物理，父未放行heavy。
+- 更大半径LEFT `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_wider_radius/` 先PREREG，23纯numpychecks PASS/sourcefreeze1511项；原整4.8s前缀exact，1s smoothstride .36→.48、v=.075+.025b/omega=.06b/k=omega/v，step.8/rest/PD/lift/order/原门保持；新增bounded每geom-pair非足峰记录，无巨量native数组。父唯一CPU1 bash19已启动完整单LEFT真实物理，尚无结果。子2f不自启物理，输出路径与独立审计全部新名，不覆盖旧VERIFY。
+
+## RIGHT输出层低成本候选训练完成；父补审覆盖身份已按原哈希恢复（S4/S5）
+
+- **可避免的记账错误与修复**：父运行补周期审核时覆盖了已被f25b训练data_hashes捕获的attempt02/right与left的VERIFY.json（仅多`all_cycle_counts_recomputed`字段），子head_refit bash14在模型初始化前严格拒绝exit1，0训练/0物理/无TRAIN目录。父将两个21项扩展证明原样另存`VERIFY_CYCLES_SUPPLEMENT.json`，只移除旧VERIFY新增字段，字节SHA与原捕获值精确一致：RIGHT76485c36e7c686029be6380afdf3a48465790d99509473dc30d4316416108f00，LEFT3a65d6b026a9a334ba978aeba4ccc6b5b19386fbd4cfd3fe533eb104ebc6c4ba。未改权重、hash清单或绕过loader。修复记录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/AUDIT_IDENTITY_RESTORATION.json`。attempt02旧writer源码已冻结，今后不得就地运行覆盖原VERIFY，补充审核只用新目录/新名。
+- 修复后子bash15 exit0已收集，head_refit同uniformpost960MSE/bound3/gate/.06域/数据不变，只冻结base+encoder+GRU、2730head/freshAdam2状态.001/fixed4000；production/cache/梯度/unitAdam/frozenweights/neutral预检全部通过。4000训练11.09s，teacher动作MSE .0002159072721→.0001921895446，未把离线改善算物理成功。
+- final `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/head_refit/TRAIN/checkpoint_004000.pt` SHA6407d6dbb85e1a7f40bf915e959433aa8c0896752924f06fab302e407b8f59b5。bash16两保存独立审核+prepare exit0已收集，保存后liveRNG恢复，旧parent模型未改。唯一heavy bash17正在完整neutral，之后独立审计与RIGHT顺序运行。
+- LEFT纯现存数组诊断：finite LM每次抬高约.0896、卸载.540s、重新承重连续31ms，通过真实抬落但原正Xadvance仅.0108，参考自身maxX.0131<.03；切向额外诊断约.0383不等于旧门PASS。下一CODEONLY候选`left_wider_radius/`声明联动stride.36→.48、v.075→.1、omega仍+.06、k.8→.6；保留相同step/身体/姿态/PD/rest/原门，前4.8s完全原直预热、1s同步smoothramp，物理尚未执行，子2f只准备代码，不并行heavy。
+
+## LEFT有限twist真实物理收齐：30.16°，滑移显著改善但NF/LM周期仍FAIL（S4/S5）
+
+- 父bash13单LEFT完整1+4.8+9.6回合exit0已收集，结果 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/left_yaw_p060/RESULT.json`：actual30.1623244858°，slip.502671652435（RH；比原线性.566544降低），nativeNFpeak.003555877741仍非零，LM0、其余腿周期LF1 LH2 RF2 RH2 RM2；支撑/COM/推进/旧非足宽门通过，严格新准入仍FAIL，不用于训练ANN。
+- 新进程独立audit exit0，全部44checks为真：源码冻结、actualrest、参考配置、完整窗、原5门/slipden/实际yaw quaternion、逐腿周期/NF摘要/eligibility复核。证据同目录`VERIFY.json`。原attempt02两项另重跑包含逐腿周期counts补充后的审核exit0，各21checks通过，未改任何已冻结源/hash。
+- 子5dac获放行在新`neural_right/head_refit/`准备并顺序运行固定uniform headonly4000低成本候选，原新30°模型失败与视频完整保留。子2f仅只读诊断LEFT内侧LM参考与切向/正X行程、下一可辨识几何方案，不运行物理。父无活动job；不得并行启动新heavy。目标active，尚未完成。
+
+## 大角度神经RIGHT实际30.14°与同次视频已交付；仅滑移FAIL，左修复物理接续（S4/S5）
+
+- 最终f25b...2000权重实际neutral完整1232000steps通过，156独立checks全真，所有原基线共享15400物理/2880神经数组严格一致；slip.49278883265360646、LF1其余各2周期、native非足0。子bash9 exit0收集。
+- 同权重实际RIGHT完整回合神经9.6s转 `-30.138533047435367°`，已满足新30°目标；六腿LF1 LH2 LM2 RF2 RH2 RM1、support1.0000662863、COMmin1.2554756289、worldXforward.0808345241、native ANN NFpeak0/extra0均通过。仅slipFAIL `.5224375036217276`（LH；LM.5031381783也超.5），132独立完整性checks全真；bash10及audit全部exit0收集。没有把强转角替代全部工程通过。
+- 已有数组诊断 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/SLIP_DIAGNOSTICS.json` 和同目录`STANCE_FIT_DIAGNOSTICS.json`：actual/teacher推进分母.991181，LH/LM承重足速增8.56%/11.64%，不是主要因分母下降；>=.1W样本占70.616%关节样本但动作误差41.454%，LH/LM承重动作误差并非最大，不能宣称已定位单一根因或凭此提高stance权重。完整报告同目录`REPORT.zh-CN.md`。
+- 父bash12 renderer exit0已收集；770/770全解码、960×640/50fps/15.4秒实时、1s稳定+4.8教师+9.6ANN、同次qpos/qvel/COM/yaw与源/runtime不变、71opaque全帧入镜、0渲染积分/轨迹修正；父实际打开新montage，全身连续地面参照清楚。父独立ffprobe/hash/桌面镜像exit0。
+- 桌面视频 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-待你判定-同次神经物理轨迹.mp4` SHA2284a7c5fabdba2cdf1ff430b5de83c496147eede574a92537211c53e38eac81；同basename`-蒙太奇.png` SHAc88a480...及 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-当前说明.zh-CN.md`。项目交付 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/visual_right/DELIVERY.json`。视频保留滑移FAIL，用户未裁定。
+- 父bash13当前唯一CPU1物理：`left_finite_twist/diagnose.py --run-physics` 新单LEFT，代码/几何预检已冻结27checks，不并行训练。子5dac仅准备新`neural_right/head_refit/`：冻结base/encoder/GRU，只head2730、同uniformpost960MSE/freshAdam.001/fixed4000、保持原bound3/门/域/数据，不采用诊断未支持的weight4；当前仅CODEONLY，不作已修复声明，父放行后才执行。goal仍active，未完成或blocked。
+
+## 大角度RIGHT神经固定2000训练完成，独立保存审核与物理评估接续中（S4/S5）
+
+- `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/PREREG.json` 固定RIGHT_ONLY新yaw/.06、relu(-turn)*3残差、冻结原GRU128、迁移旧encoder/GRU64且zerohead，freshAdam.001/2000更新，完整2880连续BPTT/只post960动作MSE。初始化前固定TRANSFER SHA c6b395...并核其原source/data，未用当前hash冒充祖先真实性。
+- PREFLIGHT全pass：实际production/scan均值、base/residual hidden与8参数梯度tol1e-12，临时Adam更新/状态一致、base无grad且权重不变、中性2880严格匹配、初始zerohead右等于base。父独立读代码和结果，无扩张重复测试。
+- 子5dac的bash7已收集exit0，CPU1/NLWP1/RSS约500MiB，固定2000 wall1159.68s。最终 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN/checkpoint_002000.pt` SHA f25b920b1d9bc74a2ff3092dd926908d728b1b0ee49d211d4295e59f630aee15，最终动作MSE .00021590727210239838；1000 SHA46d1fea...，两保存live model/Adam/RNG/curve exact、中性2880 exact。保存reload构造消耗后续RNG，实际优化无随机操作；将以真实RNG重构审核说明，不声称随机精确续训。
+- 子bash8已在训练退出后顺序执行1000/2000新进程保存审核、RNG说明和preCore准备，随后仅最终2000的完整neutral/right物理与独立审核。尚无神经大角度PASS，不把loss下降当成功。父不重复训练、不并行启动物理；原直行通过不变。
+- 大角度RIGHT条件renderer仅CODEONLY， `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/visual_right/START.zh-CN.md`：绑定新final2000/RIGHT_ONLY_V1/.06域和完整同run审核；全770帧/50fps/15.4s/完整71mesh/固定相机/0积分，实际失败亦如实标注。语法与8负mock exit0，模型/Core/物理/render调用0；等待实际结果后才运行和交付。
+
+## LEFT有限SE2单变量候选CODEONLY准备完成，未运行物理（S4/S5）
+
+- 新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/` 先写PREREG，仅LEFT+.06/speed_scale1。新FiniteTwistReference只更换sample水平有限共同SE2映射与含kdot的解析速度，k=0整个sample精确返回；原teacher及step/stride/lift/顺序/落点时间/z/stance/phase/IK/物理/所有门不变，不称已证实旧失败根因。
+- 只读旧 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/left_yaw_p060/TRACE_1MS.npz` 的relativefoot[999]实际settle rest，无Core/FK。CPU1 NumPy数学预检27/27 PASS：零映射/非水平字段exact、镜像、s=0、解析链式速度中心差分、共同stance及实际五stance脚距。240参考时点速度最大误差3.5083e-9/tol3e-6，stance脚距4.4409e-16。证据 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/PREFLIGHT_NUMPY.json`。
+- `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/SOURCEHASH.json` 跑前冻结1501源码/依赖/资产/参考/旧rest输入，SHA256 1b22a02f29cb319ccc313411ace0a95c19857ae7ae0dcf3756e2a189150f7290。新diagnose显式ROOT单LEFT适配父one/轻量PeakRecorder，默认CODEONLY、需--run-physics；新verify纯数组重算原五门/逐腿周期计数/all6/yaw/准入及hash，不把native摘要冒称完整原生重建。
+- 实际执行freeze/preflight/7脚本AST与安全默认入口/旧数组格式核对均exit0；OPENBLAS/OMP/MKL1、affinity[1]，无physics/mujoco/torch/Core导入，无后台作业/子agent/训练/渲染/物理。新轨迹不存在，audit入口明确NOT_RUN，不宣称新教师通过；父正在唯一neural_right heavy训练，未抢占物理。
+- 完整交付与未来顺序命令 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist/CHECKLIST.zh-CN.md`。下一最小动作由父在唯一heavy任务结束后顺序运行单LEFT及新进程audit；原worldX≥.05/slip≤.5/nativeNF0/all6/yaw≥30°不变，若失败据实保留。本子任务到CODEONLY交付即停止。
+
+## 用户确认实施大角度转向：30°右教师通过，右神经训练准备；左教师失败保留（S4/S5）
+
+- 用户在右转幅度诊断后明确“对要大角度的”，授权继续修复；当前goal `goal-cda3a89f-506f-40e7-a46f-b7c3c13d4feb` revision1已active/armed，目标不是旧0.573°方向检测，而是明显大角度神经转向。首档研究目标9.6s约30°，左右均验证，原直行验收基线/旧视频/旧失败保持。
+- 新实验入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/`，专职子任务 `2d52141f-0dfc-4cca-930a-a0dc93af24a5` 在预登记后先验证±.06rad/s真实教师（1s稳定+4.8预热+9.6s转向），全身71mesh/42有限PD/noextra/noadhesion/rootwrites，原5工程门/严格非足0/六腿周期与实际累计yaw均记录；worldX原推进指标保留并补充朝向投影，不静默改门。
+- 最多一个CPU1物理/训练/渲染任务，初始可用内存约8.5GiB。首子任务进程/托管句柄中断，原left仅118784 native步/1.4848s，无RESULT/SAMPLES、右未启动，exit未知，原证据与ATTEMPT_INTERRUPTED保留，不算行为FAIL。子多次turn中断后父接管新`attempt02`、改用轻量每原生步NF峰值+COM/零外力计数，完整1ms/5ms保存；父bash6顺序两项exit0，独立verify_saved.py exit0每项20checks PASS，输入/source/runtime不变。
+- 实际新RIGHT -.06教师9.6s转-30.585297534°、slip.47698275754443525、原5门/六腿LF1 LH2 LM2 RF2 RH2 RM1/严格native NF0全部通过。LEFT +.06实际29.566791546°，slip.5665441551(RH)/RM.5203254失败、LM0周期、native非足峰.05467845497非零，虽旧nonfoot≤.2W门PASS但严格NF0失败；不是可用训练数据。两项只是算法教师，不是神经自主或完整D1—D8。
+- 新right容量只读量化 `attempt02/RIGHT_CAPACITY.json`：教师actionmax.910987，所需相对冻结base pre-tanh修正最大2.367254；旧cap.380797有21.7212%样本超出且动作MSE floor.0253427。父analyze_right_capacity.py exit0，未物理/训练。
+- 优先修复用户指出的RIGHT：专职子`5dacbfd3-6efa-4623-a67e-25d097ed896e`在新`neural_right/`先预登记，新yaw/.06归一化，冻结原walkingGRU128，迁移旧residual encoder/GRU64、zerohead、RIGHT_ONLY relu(-turn)*3*tanh(head)新界，freshAdam.001/fixed2000，只最终2000物理neutral+right，全部实际神经/梯度/保存/中性保持预检后启动。当前准备中，未提前声称训练通过；old正门左readout不改。左侧几何有限SE2映射已只读论证，待独立单变量试验，未物理实施。
+
+## 用户目视指出右转幅度过小：只读诊断确认原教师/目标仅小幅转弯（S4/S5）
+
+- 新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T073420Z/`，先PREREG，只读既有right数组/权重与源码，不运行物理、训练、优化或改旧证据。用户没有判定视频合格，而是明确指出右转幅度不足。
+- 同次实际9.6s只转4.378854°（平均0.456131°/s），教师本来请求-.008rad/s、实测4.498°；当前与教师仅差约.120°。command交接1秒后达到-1并保持8.6秒；-1是归一化调制、对应该小幅教师，不是-1rad/s。原残差训练仅教师动作MSE，无更大yaw目标。旧yaw准入仅.01rad=.572958°，因此旧固定右工程PASS不证明明显/实用的转弯幅度。
+- 后续正向readout乘relu(turn)，负命令时贡献0，父残差冻结；左读出与三biasCEM都没有增强右转途径。独立子974a仅源码/JSON复核一致，已结束。
+- ANN窗403200关节×1ms端点：abs(action)最大.906571，无>=.99；target边界命中0（tol1e-10）、最小余量.000368747rad；端点命令力矩/上限最大.686466，无>=.99。策略动作与实际动作ANN窗逐位一致；残差pre-tanh最大.346406/理论界.380797，未显示硬饱和。仅端点，不能排除原生子步饱和或证明身体大转角可行。
+- 分析第一次exit1是脚本误将教师阶段策略/教师动作也要求相等，改为ANN窗后第二次exit0；未涉及仿真重跑。OPENBLAS/OMP/MKL各1，输入hash前后不变，图已实际打开、桌面hash核验。报告 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T073420Z/诊断说明.zh-CN.md`，数据同目录`DIAGNOSIS.json`；桌面 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/右转幅度诊断-实际转角与命令.png` 与 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/右转幅度诊断-说明.zh-CN.md`。
+- 下一研究方向：另立更大角度/角速度任务和准入，先验证相应真实物理示范，再训练能改变负命令的分支，不继续旧左偏置CEM、不盲目放大输出或关节限制。本轮未执行该修复；原直行通过和旧小幅右工程PASS历史保留。无后台任务或无用临时文件。
+
+## 新会话：用户要求的同模型左右转实际视频已交付，待用户目视裁定（S4/S5）
+
+- 本轮仅执行用户最新“给我看右转左转的视频，我来决定合格”及“实施吧”：交付桌面实际物理轨迹视频，不启动新训练或扩大CEM；原自主直行已通过的结论不变。
+- 更正前文数值排序错误：16项实际最小滑移为 GEN4 c00 `0.50573596241638`，不是GEN1 c01 `0.5063484049184483`；原数值和失败证据保留，CEM selected=null不改写。
+- 已核对旧视频预登记 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T063353Z/PREREG.json` 及完整最佳左转 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g04_c00/EVAL_left/RESULT.json`。单个专职子任务 `740c911f-cbd7-4713-b688-28aa099e5531` 制作与核验，最多一个单线程物理或渲染进程，流式编码；父不重复执行。
+- 开始前git status exit0：已有ROADMAP/TRACKER修改及food-approach未跟踪产物，均保留。初始可用内存约8.6GiB，无本项目既存物理/渲染进程；其他项目进程未动。
+- 最终新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/`，预登记后仅补1个同权重实际RIGHT完整回合（1232000积分步），子bash1 exit0、独立93项完整性全真；slip `0.49501104818453806`、yaw `-0.07642541452275556` rad，原五工程门和六腿周期通过，与祖先右转全保存数组精确保持。LEFT复用原完整轨迹，slip `0.50573596241638`、yaw `+0.0631163657289116` rad，原滑移FAIL保留，两侧非足0、LF1其余各2周期；无训练、优化或新CEM。
+- 两片各960×640、50fps实时、770帧/15.4秒，完整1s稳定+4.8s教师+9.6s ANN；渲染仅保存qpos/qvel与mj_forward，0积分/0动作修正，71mesh全不透明，全帧轮廓入镜/姿态/COM/yaw/源hash/compiled runtime均核验。首次渲染bash2在首帧前画布不足exit1，保留失败记录并删除空staging；仅可视framebuffer改960×640，后续bash3/4渲染+ffprobe+770全解码均exit0，无重跑物理。所有job已收齐，无活动子任务；物理RSS约744MiB、NLWP1，流式编码CPU1。
+- 桌面视频 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-左转-实际最佳神经轨迹.mp4` 与 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-右转-同一神经模型实际轨迹.mp4`；相同basename的`-蒙太奇.png`及 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/待你判定-左右实际视频说明.zh-CN.md` 同目录。父独立确认五份桌面文件与项目源hash一致、两个manifest hash一致、两片ffprobe元数据符合；父子均实际打开新左右六阶段montage目视，全身和地面参照清楚，无裁边。父独立验证命令exit0。
+- 交付入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/DELIVERY.json`，检查表 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/CHECKLIST.zh-CN.md`。本次视频交付完成，用户视觉裁定尚未给出；未宣称食物趋近、高频D1—D8或生物资格完成。下一步听取用户看视频后的裁定，不自动继续优化。
+
+## 续轮5三维神经偏置CEM真实物理搜索收齐：16项左转全FAIL，未选择、未原生确认（2026-11-11，S4/S5）
+
+- 新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/`，ROOTPREREG和启动检查表先于提议固定；三维只改原eeced head2000 `readout.bias[29,32,34]`，其余197608参数/ANN结构/128+64记忆/身体/物理门不变。CEM为PCG64 seed20261111，4代×4反向候选、最多16个完整LEFT回合、max2 CPU1，提议/elite更新/边界/早停/选择规则不变；非神经控制器、逐步外置修正、额外力和root写入均无。
+- 子863 preflight bash24 exit0收集24 checks PASS，GEN1四checkpoint/proposal hash在第一代物理前冻结、每代候选均在本代前冻结；全部source paths preCore存在、proposal RNG/antithetic/update/tie/penalty/3关节映射/neutral-right2880 means+192state replay通过。第一次bash25因父UI输出BrokenPipe中断，未产生物理/完整性失败；GEN3 c2/c3完整RESULT/VERIFY已存在并核验，恢复bash1改文件输出、只读JSON/hash、验证12已完成结果后继续4个剩余回合，未重复任何物理、未把全部NPZ载入父进程。原编排错误、未知旧退出状态及恢复记录均保留。
+- `FINAL_SUMMARY.json` COMPLETE、16 LEFT actual rollouts及独立审计全部 exit0/each92 checks PASS。所有候选其他4工程门、all6 sensed cycles、strict NF0、yaw方向/幅度通过，但16项全部max slip FAIL：GEN1 `.5155999796/.5063484049/.5119092233/.5091957099`；GEN2 `.5070298609/.5078949677/.5080286463/.5141522580`；GEN3 `.5087780225/.5063177892/.5070850219/.5079886075`；GEN4 `.5057359624/.5082252993/.5072885010/.5064372551`。全局最佳 GEN1 c1 `.5063484049184483`，仍严格大于.5。选择null，`SELECTED.json`不存在；按预登记未跑同候选N/R确认、未跑native1232000、无连续域/半幅/food结论。
+- 所有16回合均完整1s稳定+4.8 actual teacher+9.6 ANN、原5门/全窗/分母/命令窗口未删，trace/forces/geometry/neural192/previous-action/source/runtime/cycles/yaw独立审计；失败只在滑移。保留所有proposal/checkpoint/result/audit/失败，未按未运行均值选模型。内存策略max2 CPU1，恢复后父标准输出写文件，完成时无活动作业。
+- 原生准备仍仅CODEONLY：现有NativeRecorder可一次selected模型1232000 native steps/602 chunks，new192状态与实际ANN命令绑定、D7从新native重算，旧128/Core审计不可直接冒用；因无selected候选，本轮不执行native。神经减速只读分析确认`.85/.90`教师的时间拉伸/phase对齐，不能据此宣称神经alpha调制已通过。
+- 035953感觉神经预训练是独立里程碑而非身体资格：global3000新静态感觉测试四目标PASS，模型/交换输出重放bitexact；deployment false/no body physics。它未接入失败运动模型，实际食物趋近、减速、切断/布局因果与同次视频仍待。
+- 本轮目标仍active/armed rev4/round5、未complete/blocked。下一步不是再扩同一16项CEM，而是新问题：读CEM16项的耦合趋势/滑移状态误差覆盖后，登记新的神经表示或物理目标候选；若有明确左转资格再运行同checkpoint N/R和native，最后才进入真实气味行为闭环。
+
+## 续轮5真实物理目标优化运行：CEM第1代全滑移FAIL，第2代按固定算法继续（2026-11-11，S4/S5）
+
+- 新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/`，CURRENT_STATE明确可变且排除所有执行身份/封存，ROOTPREREG和CHECKLIST_BEFORE_RUN在物理前固定。goalactive/armed revision4/round5。旧三个状态指针更正和原科学source/hash保持，不再写旧封存目录。
+- 新finite diagonal CEM只改eecedhead2000的readout.bias29/32/34（RHCoxa_pitch/Trochanter_pitch/Tibia_pitch），其他197608NN权重和128+64状态/actor输入/positiveReLU*.25/身体/PD物理范围不变。优化器只在完整回合之间修改神经参数，不是每步非神经控制。PCG64seed20261111/初始mean[0,.05,0]/sigma[.05]*3/bounds±.25/2antithetic方向4候选/elite2固定更新，最多4代16LEFTmax2CPU1，整代审计后首次有全PASS代最低slip/index入选早停；未跑mean不作结果。每代4checkpoint/proposal/hash在任何该代物理前全冻结。
+- 子863preflightbash24exit0收集24checksPASS：sealed真实关节映射、PCG64/antithetic/RNGroundtrip/更新/tie/objective约束惩罚、gen1全部4neutral/right2880均值/192state精确、审计namespace和全部sourcepath存在在Core前检查。actualbash25由子OWN正在运行并负责收集，parent不重复。每候选full1+4.8+9.6/原all5/all6/strictNF0/yaw.01/native12.5us71opaque42有限PD/noextra/adhesion/rootwrites，独立15400端点/2880actualcheckpoint+192链/previousaction/source/runtime/force/prefix/HANDOVER/fullmetrics周期审计后才score。
+- 第1代4实际+独立审计均完成/各92checksPASS，均onlyslipFAIL：c00 .515599979566898,c01 .5063484049184483,c02 .511909223303433,c03 .5091957098602482，其他4/all6/NF0/yawPASS。按真score elite[1,3]，nextmean[-.03231129782736049,.027065309674818364,.02288145055210108]、sigma[.016675156505867674,.021114484424982583,.05359937711410041]及RNG保存；GEN02_PROPOSAL/FROZEN已在gen2物理前全写入，现2代运行，无选中候选。
+- FINAL_SUMMARY预先定义selectedid/topselected_checkpoint_sha/selected_left/confirmations/selected_all_three_pass，SELECTED.json仅第一次全4实际审计有passing代后一次性写入完整checkpoint/proposal/frozen/实际Lresult+auditsha和排名证明，之后同NN真实N/R确认/完整c6bright数组精确保持。当前无SELECTED、无N/R/native新执行，不能提前声称双向或foodPASS。
+- 子0950b仅在native_preparation/准备条件性native代码：旧NativeRecorder支持1232000steps/602chunk×2048（压缩历史约5.8GiB/预留12GiB），新记录currentcommand/controlsource/actualthoraxrotation每native步不改actor/物理，选后LEFT逻辑trace/neural192/geometry/HANDOVER/compiledcontract必须与engineering逐位一致。纯数组D1—D8方法沿用已接受实现，新的D7充分证明要从本次native重算；signed-forward native滑移分母比endpointXY更严格，若失败/UNKNOWN须保留不可改成XY强行过。原128/Core构造式旧整体验收器不能直接冒用到新192状态，已只复用pinned纯数据方法。暂无实际native记录。
+- 并行子7fd只读deceleration_analysis/核验合格.85/.90教师和接口，比较学得慢GRU速度支路与神经时间常数调制的依据/风险，0Core/优化/物理，不增加当前actual范围。感觉035953纯感觉新测试PASS仍deploystatusFALSE，真实命令范围/新初态/神经减速/native/食品闭环与切断重放尚未完成。
+
+## 续轮4收齐：感觉神经新测试PASS；身体半幅仍FAIL；状态指针封存误纳更正已验证（2026-11-11，S4/S5）
+
+- 新跨轮入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T042544Z/CURRENT_STATE.json`（明确可变/不得封存），下一最小动作同目录`NEXT_ROUND_NOTES.zh-CN.md`（备忘非新预登记）。goal实查active/armed revision4/round4，未complete/blocked；本轮训练/物理/审计/重放/图像全部作业已完成收集，无后台作业。
+- 新独立SENSOR_PRETRAIN_ONLY：原034309固定1000模型direction.976507通过但MSE.02004425和nofoodRMS.081637失败，29文件原封未改。其heldout因促成新方案，正确作为开发历史非新盲测。035953在新ROOTPREREG+额外food-only指标说明后固定1000→3000追加2000、Adam.001→.0003、batch20严格10food+10nofood，原train44不变、部署只有2受体/32记忆/forward0；不输入presenceflag/bearing/clock。新44statichead感觉测试角度/浓度/出现时刻/噪声种子在优化前冻结。
+- 子bash19exit0收集101.315s，最终SHAbfd65a3896d259496114695d7f7f3550272cf4c369895a4ddb34f3ddc3352c06，2000/3000各18实际保存检查PASS、livefullstate匹配/ctor后RNG恢复。只有3000一次性新测试4目标全PASS：总MSE.0056079793、food-onlyMSE.0076232500、qualifying signfraction.9990403071、nofoodRMS.0151462587；centerRMS.0153682/bias.002674，无foodpeak.038399非RMS门。4无food配置只有2独立噪声流，4168时点相关不作独立置信统计。zerooutputMSE.102309，左右交换MSE.406979（food.559525/原正确方向fraction.0002399），支持局部输入依赖而非仅时钟。
+- 新035953独立arrayaudit11checksPASS；子bash23实际最终权重生产重放17checksPASS/exit0收集：44×240正常10560输出和337920hidden32值/SWAP10560输出全部bitexact最大误差0。旧保存未包含latentmean，明确从savedhidden+head重建10560latent核对一致、不伪造旧means。所有source/data/hash不变，0Core/物理；仍deployment_qualifiedFALSE/SENSOR_PRETRAIN_ONLY，不称实际趋近/摄食/生物能力。新28文件manifestbc493152...保持，额外replay补充seal191e534b...不重写旧清单。父与子均实际打开6panel图，桌面`/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/续轮4-平衡气味神经反应-纯感觉新测试.png`SHA4db03846353b615f90b95d92529789a48d9c73790f75aa20455a80f31bcb5d16。
+- 运动041122新restricted HALF+ .5/- .5测试并未降低原yaw.01/slip.5/完整9.6s标准。同eeced权重不变/原neutral实际证据复用、预检21通过14checks，初始20仅平滑公式代数浮点2.22e-16差导致preCore guard失败保存，更正准备tol1e-14后production公式不变。子bash22两实际+审计全部exit0收集、各88/88完整性PASS。HALFLEFT+.5 slip.5142855863和yaw+.0092595511<.01双FAIL；HALFRIGHT-.5 slip.5276619023FAIL/yaw-.02696264PASS，其他4/all6LF1others2/NF0通过。故无半幅/连续域/切换/native/food资格，不能把fullright-1PASS泛化半幅。031057加权8000left.517207940和033228四bias最好.509454439仍FAIL也保持。
+- **封存更正（可避免的父记账错误）**：024558/033228/041122子封存时误纳入可变CURRENT_STATE，父随后更新摘要，导致仅3状态指针hash漂移。原ARTIFACT清单本身未改，实际NN/轨迹/结果/源码/审计均不变。新042544/STATUS_POINTER_SEAL_CORRECTION.json公开每项原/现hash，verify_status_correction.py实际exit0验证其他181文件及10executionIDENTITY全不变，指针未被运行source捕获；不再声称这3旧全文件清单一直bitexact。不重写旧清单掩盖历史，从现在3旧指针也冻结，不在旧目录再写。未来可变指针显式exclude（035953已正确exclude，原28+补充seal完整未改）。
+- 下一轮建议NEW预登记有限3维耦合RH输出bias物理目标优化（owner原授权可参数搜索，不是每步非神经控制），预算/seed/实际完整滑移与其他门强约束/候选保存/选择/早停规则先定，非继续旧单bias/统一gain网格或teacherMSE。若fullleft过仍需真实命令切换/初态/native和神经减速，当前感觉静态PASS不足以food部署。完整物理趋近/布局留出/感觉切断重放/同次视频仍未完成，goal保持active。
+
+## 续轮4偏置四项收齐仍无左PASS；独立感觉反应神经预训练开始准备，不部署失败运动模型（2026-11-11，S4/S5）
+
+- `033228Z`固定四偏置实际bash16和预检15exit0收集，四actual/独立审计均rc0各92/92PASS。RHTibia_pitch index34 delta-.05/+ .05 slip.5184743239053445/.5135699022944087；RHTrochanter_pitch index32 delta-.05/+.05 slip.5249652247799116/.5094544386920862。全部其他4门/all6LF1others2/strictNF0/yawPASS但slip>.5仍FAIL，selected=null、按条件规则不跑N/R确认，无额外joint/delta/扫描。65文件sealedmanifestSHA4b6f87a3157eded58d062aaa105dd69b72214a196af37b3ad4a10099b0cd9468，全源/hash一致，无活动该子任务作业。
+- 本轮031057承重加权head8000实际left.517207940FAIL/N&R PASS，033228单bias最好.509454仍未过门，原均匀增益4点同样无通过。没有放宽滑移门或四舍五入失败。神经左/速度接口仍不合格，所有失败记录和原直行/固定rightPASS保持。
+- 为不让身体单缺口阻塞全部刺激侧工作，父新`034309Z/PREREG.json`在数据/训练前明确scopeamendment：允许ONLY独立SENSOR_PRETRAIN_ONLY左右局部受体→SteeringBehavior神经响应预训练，0Core/物理/身体部署；不改变运动准入、不把离线感觉反应当趋近/到达。用户原授权完整刺激/行为实施，未新增外部副作用。真实physicalfood测试仍需新运动资格/布局/因果对照，goal不能因此complete。
+- 固定实际审计头几何上的工程Gaussian源、前方固定角度/浓度/出现时刻train/heldout，50ms受体/5ms因果pendingresponse；actor仅2受体，不输入bearing/foodcoords/time。训练工程目标可用环境bearing和当前receptor幅度只作监督。SteeringBehavior原source冻结2→32slowGRU→turn1、forward0；fixed1000Adam.001/240步完整BPTT/batch20，save500/1000只完整性、仅1000heldout，预定义sign/MSE/noodor/swap/mirror指标完整报告。当前child0b4a实现中，无jobid前不称训练。
+- 方案文字先误指203537源码，实际glob发现同一已意定SteeringBehavior和food_evaluation在191449Z；子将写PATH_RESOLUTION_AMENDMENT/sourcehash在生成数据/优化前记录，非换模型或额外审批。ROOT034309PREREG保持原样并外部纠正，准确旧模型身份保持。全部新感觉预训练文件在034309，旧物理/训练/评估source不改。
+- 当前goalactivearmedrev4/round4，继续独立感觉实施及神经运动修复，不宣称物理食品行为完成。
+
+## 续轮4承重加权8000实测仍左FAIL；新固定四点RH屈伸输出偏置物理校准运行中（2026-11-11，S4/S5）
+
+- `031057Z`条件可行性支持后固定6000追加，trainbash13exit0收集更新20.305s/总27.866s，最终SHA65e3635ec966323f22ce30b18f74cef0ccb6445499dbed0e6d1264dce75d15ba。weightedMSE7.71630e-5→7.29530e-5、uniform8.72098e-5→8.35907e-5，5000/8000各23保存核验PASS/neutralright精确。实际parentbash14三回合+独立审计exit0收集，FINAL_SUMMARY COMPLETE/integrityTRUE/all_conditionsFALSE：neutralPASS.49278883265(128checks)、rightPASS.49501104818/c6b父身体神经保持(147checks)，left仅slip.5172079401750383FAIL/yaw+.06092919，其他4/all6LF1others2/NF0/方向PASS(104checks)。最终物理未支持达标，未按中途5000挑选，未扩大lossweight/预算。
+- 新`/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T033228Z/PREREG.json`在任何结果前固定不同问题：旧eecedhead2000只改一个readout.bias scalar，RHTibia_pitch index34±.05、RHTrochanter_pitch index32±.05共4候选，其他全部tensor/ANN架构/正向门/范围/身体/gates不变。它检验神经输出工作点偏移，不是重复已结束四RH统一gain扫描，也不引入每步非神经控制。四模型hash在物理前全部冻结，原delta0left实测失败对照直接引用，无重跑。
+- Child863的preflightbash15exit0收集18checksPASS，sealed024558jointmappinghash验证两个实际关节索引，strictloader精确单bias变化及所有其他tensor相同，四候选全部neutral/right2880mean+192state精确，审计namespace和每个source path在Core前存在检查通过。actualbash16现运行4LEFTmax2CPU1，完整1+4.8+9.6原5门/all6/NF0/yaw.01/native12.5us71mesh42有限PD/noextra/noadhesion/rootwrites不改，独立全2880checkpoint/192hidden链/15400source/force/runtime/cycle审计。尚无结果，不claimpass。
+- 候选按事前顺序tibiaminus/plus、trochanterminus/plus首个全PASS选择，并报告所有4；若无通过不追加其他bias/joint/幅度，若有则同候选实际N/R确认及fullright父轨迹保持，之后仍需命令/初态/native/食品资格。当前goalactivearmedrev4/round4，原N/R固定工程通过保留，神经左/减速/食品行为尚未完成。
+
+## 续轮4承重加权loss候选：预声明可行性支持，生产梯度预检通过，正式训练待启动（2026-11-11，S4/S5）
+
+- 新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T031057Z/`，CURRENT_STATE短入口、ROOTPREREG在只读检查/优化前固定，goalactive/armed rev4/round4。父为eeced...positivehead2000，旧实际neutral/rightPASS、leftonlyRHslip.514841585FAIL。新非线性/统一RH连接增益均已真实FAIL并保留，不扩展旧扫描/无界BC。
+- 先只读可行性：原合格teacherleft_full全2880样本的动作前载荷索引999+5*k与实际sampletime逐条核对<=1e-8，实际W/LEG列顺序RH4及RH7行28:35从冻结identity核验；没有后验/未来载荷。RH承重误差占post平方误差能量.09186122344>=预声明.01，weightedheadgrad5.2538243e-5有限>=1e-10，原/weighted梯度cos.37072018。fixedweight4（RH>=.1W时RH7，否则1）精确SUM(weight*error²)/SUMweight与手工逐行及numpy差0。子bash11只读exit0收集，无更新/物理，FEASIBILITY.json证据支持试验而非证明实际slip会改善。
+- 新预登记工程候选保持2730head/冻结194878motor/128+64memory/positiveReLU*.25/原leftdata/物理范围不变，仅loss承重加权和声明lr.003→.001；精确actual2Adam2000/RNG/curve1..2000续到固定8000追加6000，save5000/8000完整性、只有8000物理。loadmask只训练评分不入actor/时钟/phase，旧metadata外部更正及准确immediate2000/frozenmotor1500身份保持。
+- 生产预检15checksPASS：全部oldparent因果history精确、cache与逐步fullweightedloss/newheadgrad一致（最大梯度差5.25e-20）、frozenmotor无grad、neutral/right2880state/action/mean精确、target负Jacobian不变。正式runner正在准备，未jobid时不称已训练。train/model_io.py strictfinal8000API同ReadoutMotor，新checkpointtrain/TRAIN/checkpoint_008000.pt。
+- evaluation/只准备严格同全1+4.8+9.6/71opaque/42有限PD/native12.5us/noextra/rootwrites/原all5/all6/NF0/yaw.01，强制actualsource_paths存在/hash在Core前、实际final8000right与c6b父全轨迹核验，然后parent才实际3条件。神经左转/减速/food学习/holdouts/native正式证据仍待完成，未提前goalcomplete。
+
+## 续轮3末批收齐：四固定RH神经权重校准均滑移FAIL，无候选选择，goal继续（2026-11-11，S4/S5）
+
+- 当前最新短入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/CURRENT_STATE.json`，下一最小动作同目录`NEXT_ROUND_NOTES.zh-CN.md`（备忘非新预登记）。goal实查active/armed revision4/round3，未complete/blocked。全部本轮训练/物理/审计/只读/准备任务已结束收集，无活动作业。
+- 四候选严格按事前alpha0/.5/1.5/2改变原linearhead2000的RH7readout.weight/bias行，其他tensor完全相同，实际RH七个jointnames/rows28..34在零积分Core检查中核验。候选及源hash在任何物理前全部冻结；ANN连接恒定参数调节，非时钟/gait/姿态/物理支持算法，完整身体/原PD/率限/力矩/重力摩擦/native12.5us不变。旧alpha1实际left.514841585作为失败对照不重跑。
+- 子bash10四实际LEFT和四独立审计全部exit0已收集，alpha0 slip.5243074851683935/fwd.0712073457/yaw+.06189826；.5 .5169789923969749/fwd.0712155669/yaw+.06184915；1.5 .5206314506483894/fwd.0712354971/yaw+.06178078；2 .5312039097792911/fwd.0712458008/yaw+.06179799。全部其他4门/strictNF0/六腿LF1其余2/yaw.01通过，但slip>.5全FAIL；各92/92实际checkpoint/192hiddenchain/全15400来源时钟/原前缀/力/runtime71opaque/整窗汇总周期审计通过，不能把完整性当能力。selected=null，按条件预登记未运行N/R确认，也没有第五alpha/额外优化/配置。
+- `FINAL_REPORT.md`、`FINAL_SUMMARY.json`、`PAD_SPEED_DIAGNOSIS.json`和81文件`ARTIFACT_SHA256.json`全hash一致0bad，manifestSHAa9c8977ba4736967e82bbf678d2ae128fede63cbf58113c59a5f2b9557fc112d。所有最终captured源码未变，旧timestamp原证据未改。新审计入口namespace guard在物理前发生exit1，旧prephysics文件保留REV0，仅新绑定修复、同四候选在任何actual之前重建，零物理重跑。
+- 同轮020958新非线性MLP5000实际中性/右PASS、left.568578724FAIL（仅滑移，其余原门/all6通过），比原linearhead更差，不继续该候选。此前lowerMSE不等于更好运动。已准备的steering_holdouts67纯离线checksPASS/0physics但严格入口拒绝当前leftFAIL模型，未启动任何qualification/food；若将来换模型需新loader/资格amendment，不能自动沿用。
+- 下一轮建议先只读检验RH承重时teacher action误差/梯度，再新时间目录固定正向linearhead的承重加权loss候选（若依据支持），同架构/范围/data/身体/gates保持，loss负载mask仅训练不入actor。它尚未预登记/训练，更未证明成功。禁止在当前四点扫描后追加值、无限加步数或把旧FAIL改PASS。原已验收直行和right.495011固定工程PASS保留；神经左/减速/命令切换/留出/native/食品行为和切断重放仍待完成。
+
+## 续轮3非线性候选实际收齐仍左FAIL；另立仅四点RH神经连接物理校准（2026-11-11，S4/S5）
+
+- `020958Z`新非线性5000固定训练bash3exit0/总70.50s，finalSHA8e341270d82d923dcf19ec5b7286fc5797806688b3f27567f75ea3336f7216bd，leftteacherMSE8.72e-5→3.81e-5，2500/5000各19独立保存checksPASS。197608父参数/双状态冻结、新22378参数only。评估43实际finalmodelchecks+hashpathsPASS（首次np.bool_准备报告错误在无Core/优化阶段修正并重跑all43，不只改hash）。
+- parentOWN新runtimebash7完整3实际+审计exit0收集，FINAL_SUMMARY COMPLETE/integrityTRUE/all_conditionsFALSE：neutralPASS slip.49278883265(126checks)；left只有slip.5685787239716572FAIL，比原线性head2000.514841585更差，其他4/all6/NF0/yaw+.06067299PASS(102checks)；right全部PASS.49501104818/yaw-.07642541，完整身体/神经/192state/geometry与合格c6bparent精确(145checks)。拒绝该候选左转部署，拟合更低不算运动成功。
+- RH诊断0物理/优化且2419绑定输入hash不变：teacher vt.03400358/model2000.03666904/model10000.03674079，模型推进分母仅约teacher.995，slip主要真实承重足速略高，>=.1W贡献~.961分子，非启动单段；旧线性head无饱和。现有拟合/非线性试验不足，不能作身体不可能结论。
+- 新`/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/PREREG.json`在任何新物理结果前固定有限ANN权重校准：以原linearhead2000eeced为父，只将readout.weight/bias的RH7输出行（先真实jointname顺序核验）分别乘alpha0/.5/1.5/2，全部其他tensor/ANN架构/神经门/physicalbody与原验收不变。每个候选恒定神经连接强度，不是每步算法/脚本gait/外置纠偏；owner原授权允许ANN参数搜索。四checkpoint/hash在物理前全冻结，四LEFT完整9.6s原门/all6/NF0/yaw.01，复用已实际父alpha1对照，无新增alpha/时长扫描。只按预声明0/.5/1.5/2顺序首个全PASS选择，报告所有失败；若有pass再同NNcheckpoint实际N/R确认和完整父rightarray保持，然后才后续holdouts/native/food。子863正在实现，尚未jobid则不声称运行。
+- `020958Z/steering_holdouts/`只准备未来四命令变化+两有限motorpulse初态检验，缺all3sameSHA资格会拒绝；已知非线性模型左FAIL不执行，未来若换024558候选必须明确新loader/资格关联，不自动拿错模型。
+- goalactivearmedrev4/round3，神经左转尚未过门、神经减速/food行为/切断重放与正式native证据仍未完成；保留所有失败和原门槛。
+
+## 续轮3直接继续：非线性正向ANN支路预检通过并训练，RH真实承重滑移诊断完成（2026-11-11，S4/S5）
+
+- 最新入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T020958Z/CURRENT_STATE.json`。用户直接继续后实际工具resume为revision4/armed，round3；此前此新试验未有正式优化/物理，现恢复独立任务，不重复执行。
+- ROOTPREREG在结果前固定：eeced...head2000父left.514841585FAIL、中性/右PASS，冻结197608参数/128+64记忆，只加306→64tanh→42zerooutput正向神经MLP（112允许物理+128basehidden+64reshidden+command2），relu(actualturn)*.10*tanh新增latent，forward0。新22378参数/freshAdam.001/原合格left_full2880排除960prime，固定5000只测最终5000，save2500/5000仅完整性。无时钟/phase/food坐标/gait脚本/外力，输入/容量/范围同时变化不作单因果。
+- 子bash-2预检28/28PASS，初始left/neutral/right2880精确、第二步全部4新tensor梯度有效、197608父冻结不变、unit后neutral/right精确、缓存生产输出1.11e-16/梯度4.66e-21、原target负Jacobian、保存Adam4/RNG/curve一致。子bash-3现固定5000训练CPU1运行，curve0..5000、livepresave和fresh实际状态/neutral-right2880检查、构造后liveRNG恢复；train/model_io strictfinal5000路径train/TRAIN/checkpoint_005000.pt，尚未物理通过。
+- 独立只读诊断：RHteacher vt.03400358/slip.474773；head2000 vt.03666904/slip.514842，head10000 vt.03674079/slip.515627。净XY分母为教师.99446/.99489倍，主要是真实承重足速略高非分母塌陷，>=.1W贡献约.961分子，三个3.2s段均有非仅启动；RM vt也高但slip.477/.480未超。旧head输出无饱和，max新增latent.03252远低.25；离线动作误差下降实际滑移仍略升。该诊断0优化/物理，不证明唯一因果或身体不可行。
+- evaluation/代码已准备并syntax/contract检查，READINESS仍明确false等待final5000SHA实际模型强核验（右2880/192hidden精确、全数组comparator拒篡改、所有source_paths存在在Core前、原AST/评分/命令/路径），之后parent才启动中性/L/R原全物理门/全窗口审计。原baseline和所有失败保持，食品行为与神经减速未完成。
+
+## 续轮2末批全部收集：固定10000读出中性/右PASS、左RHslip.515626812仍FAIL；goal继续（2026-11-11，S4/S5）
+
+- 最新短入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/CURRENT_STATE.json`，下一最小动作同目录`NEXT_ROUND_NOTES.zh-CN.md`。goal实查active/armed/revision3/round2，未complete/blocked。全部训练/物理/审计/绘图/视频/恢复作业已结束并收集，无活动后台作业；下一目标轮继续不需另问授权。
+- head2000→固定10000实际8000追加sameleftdata/架构/范围/父194878冻结，仅lr.003→.001；原2Adam2000/RNG/curve1..2000精确接续，actualRESUME_STATE已保存；新config准确区分immediate2000和frozenmotor1500，旧祖先路径metadata错误外部说明保留。bash15exit0收集，总33.920s，模型SHA`3bac5af7aa5058a617383eb9deef4a848778d04ae47f66600ddd53788703344e`；4000/7000/10000各16独立保存核验PASS、中性右保存流均精确，livepresavefullstate匹配/构造后RNG恢复正确。未physical挑中间点。
+- actualbash18在Core前因ROOT缺PREREG入口路径退出1，日志/failedsummary保留，不能当模型运动失败；父新增ROOT计划指针说明，旧captured源码未改。新`evaluation_recovery/`额外10preCorechecks+原37，实际31sourcepaths存在/hash、物理/评分同codeobject已核对。childbash19真实同3回合与审计全部exit0收集，无重复物理、无新科学配置；`FINAL_SUMMARY.json`COMPLETE/all_conditionsFALSE，SHAa21453ccf34d471f1644572851722cea532b6f6fb525fa8eb35251b216f43f18。
+- neutral原五门/all6/NF0PASS slip.49278883265/forward.07131859637，129checks；left只有RHslip.5156268124722415>.5FAIL，其他4门/6周期/NF0/yaw+.0613480088656PASS、fwd.0712533753377/COMmin1.2555446121，105checks；right原全部门PASS slip.49501104818453806/yaw-.0764254145228/forward.0722622073283，148checks且实际身体/神经/192hidden/geometry全数组与已通过c6b1500parentright逐位相同。30冻结hash不变。完整性通过不改变leftFAIL，未放宽门/删窗/改分母。
+- leftslip从head2000.514841585到head10000.515626812未改善，同配置加步数暂不继续。下一轮先只读leftRH/RM承重足滑移/误差覆盖/读出容量诊断，再新时间目录受控正向神经非线性readout候选（若证据支持），保住已通过right/neutral，不能直接用现left失败模型食品部署。备忘仅条件性建议，未新注册或启动。
+- 纯数组matchedcomparison子bash16exit0收集，12实际回合/4固定模型、全部同5800前缀/960prime精确、wholegates/cycles/slip/yaw/COM/force/source/compiled核对。父实际打开`010218Z/comparison/ACTUAL_MATCHED_COMPARISON.png`，桌面`续轮2-匹配转向与神经读出物理对照-左转未达标.png`SHAc35fdde0076b68968bbaf7e6d52843980324639e23af18e87f74f68c9f3a7c16；图不隐藏零轴/门槛，明确leftFAIL/RIGHTPASS/NOFOOD。右转通过同次视频全71mesh入镜/770decode/0渲染积分、父实际打开，未计fullnativecert或完整平台。
+- 原直行验收、所有科研失败、metadata问题和哈希均保留，食品行为网络未训练，神经减速/命令变化/留出初态/正式原生确认/食品到达和感觉依赖性对照仍未完成。
+
+## 正向读出固定10000续训完成；实际入口缺文件在Core前退出，保留失败并恢复同三条件（2026-11-11，S4/S5）
+
+- 新短入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/CURRENT_STATE.json`。精确head2000→固定10000，8000追加/solelr.003→.001，同leftteacher、frozen194878/2730head/positiveReLU*.25/bothmemories/gate/bound不变。子bash15exit0收集，更新28.511s/总33.920s；finalSHA3bac5af7aa5058a617383eb9deef4a848778d04ae47f66600ddd53788703344e，leftMSE8.720976e-5→8.239426e-5。RESUME_STATE actualmodel/Adam2counter2000/RNG/curve1..2000精确、仅lr变化，4000/7000/10000各16freshchecksPASS，livepresaveweights/optimizer/RNG/config/curve匹配与constructor后RNG恢复已记录，未inventstep0。新configimmediate2000/frozenmotor1500分开正确，旧metadata外部更正保留hash。
+- CODEONLY新10000评估37checksPASS，包括实际10000加载all2880rightmeans/actions/192hidden与c6b1500精确、旧评分/命令/审计AST、错误路径拒绝、无Core。交付后检查脚本改了元数据导致READINESS一处hash失配，父真实预启动校验exit1在物理前拦截；子实际重跑all37并冻结，父独立hashdrift[]后才启动bash18。
+- bash18立刻exit1已收集，原因actualsource_paths需要ROOT/PREREG.json但子仅创建train/PREREG与evaluation/EVAL_PREREG，缺ROOT文件；发生在Core构造和任何物理积分前，无实际病例结果。原failedsummary中的neutral=false是执行失败、L/R未运行，不能当模型运动失败。原日志/空输出/摘要全部保留。
+- 父新增ROOT/PREREG.json只说明并引用已有提前冻结计划、模型与缺路径修复（不改旧captured源码/模型/门槛）。子a0cf获授权仅在新evaluation_recovery/建立新显式身份绑定入口/新输出，preflight必须列出实际source_paths逐个存在/hash+实际模型参数验证，之后继续同10000neutral/L/R三实际+审计，资源max2CPU1。不改变科学配置、不补造原通过/退出码，不重新训练，尚未实际出结果。
+- goal工具仍active/armedrev3/round2，神经左转/减速/食品行为与留出因果验证未完成，继续当前已授权主线。
+
+## 续轮2正向神经读出2000实际收齐：中性/右转保持PASS，左转slip.514841585仍FAIL；固定10000续训准备中（2026-11-11，S4/S5）
+
+- 新head2000最终SHAeeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df，parentOWNbash14完整neutral/L/R实际+审计全部exit0收集。`010218Z/evaluation/FINAL_SUMMARY.json`COMPLETE，saved_trajectory_verificationTRUE、all_conditions_eligibleFALSE。neutral原五门/all6/NF0PASS slip.49278883265，126checks；left只有slip.5148415850460619>.5FAIL、yaw+.061792138875233306方向/前进/足载/COM/NF0/全部6腿周期PASS，102checks；right所有5门/all6/NF0/yawPASS slip.49501104818453806/yaw-.07642541452275556，145checks且FULL身体/神经/geometry数组与已通过parentright逐位一致。原left.538039未改通过，不能计完整运动接口。
+- 这项预登记仅新增2730ANN读出、冻结194878父参数/128+64记忆；中性/负命令不变已由实际全轨迹验证，而非只靠架构说明。所有部署输入仍实际感觉+神经命令，无食品坐标/phase/clock/教师后续调用，原native12.5us/完整71mesh/42有限PD/力矩率限/无外力根写入保持。容量/正向残差范围同时变化，未宣称单因果。
+- 观察预登记最终head2000的loss曲线仍下降，正向读出有明确接近门槛改善，另授权ONLY新timestamp`20261111T013852Z/`提前登记固定2000→10000追加8000头参数更新、solelr.003→.001、同leftteacher/架构/gate/bound/父194878冻结；实际2Adam/RNG/curve1..2000精确接续/RESUME_STATE，旧metadata祖先路径错误外部清单继续保留，新的immediateparenthead2000与frozenparent1500字段区分。只物理最终10000，不挑中间检查点，不增加训练数据/幅度/门槛。子a0cf准备并获授权核验通过即启动，尚未有实际jobid时不虚称运行。
+- actualright通过同次视频父已实际打开，770decode/71opaque/所有轮廓在画面内/0积分、源/compiled/状态不变，标题RIGHT ENGINEERING PASS / LEFT NOT QUALIFIED / NO FOOD。桌面路径见`235830Z/visual_right_pass/ACTUAL_RIGHT_PASS/DELIVERY.json`，旧科研失败均保留。新的纯数组matchedcomparison子dd99在`010218Z/comparison/`整理所有组left/right物理对照，无新仿真/优化。
+- 当前goalactivearmedrev3，神经减速/命令切换/留出扰动/实际食物行为与因果对照仍待完成，不把右转工程PASS当完整目标结束。
+
+## 续轮2慢残差对照收齐：右转首次固定条件PASS，冻结父模型新左读出训练完并进入实际验收（2026-11-11，S4/S5）
+
+- 当前最新入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/CURRENT_STATE.json`，goalactivearmedrev3。235830三组事前命名matched候选全部完成：旧5001srampL/R仅slipFAIL.552491916/.514034062，原2＋纠正2slow1500（恢复bash-2exit0）actual中性PASS而L/RslipFAIL.544957066/.563289073、其他门/NF0/全部六腿/方向PASS；原2-onlyslow1500训练bash-4exit0、父SHA`c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb`，parentOWNbash-7三实际+独立审计exit0收集，中性PASS、右转全5门/all6/NF0/方向PASS slip.49501104818453806/yaw-.07642541452275556，左只有slip.5380394078384092FAIL。bash-6纠正组3actual也exit0收集。保留末端拟合反弹，不挑中间1000/1400。
+- 根据已通过右转而左仍失败，010218新rootPREREG提前固定：冻结父194878参数（base151636+slow残差43242）及128+64记忆，仅新增zero-init Linear64→42共2730神经参数。pre-tanh额外读出为relu(actualneuralturn)*.25*tanh(readout(currentresidualhidden64))，forward0，ANN内激活不是gait/time/pose脚本，无source/phase/food坐标输入。新head仅用原left_full合格actual2880teacher、排除960prime损失，freshAdam.003固定2000，save1000/2000但只物理2000；同时扩展正向readout容量/界限，不能单因果归因。
+- childbash9预检33checksPASS，actual前后unitstep中性/右转2880mean/action/双状态逐位保留、全部父权重不变/无梯度、新2tensor梯度、target负Jacobian、缓存生产梯度核验。bash10固定2000训练exit0/7.15s，finalSHA`eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df`，左teacherMSE8.720976e-5；初始verify_readout仅finite/config检查，已补新verify_final和audit_saved_full（bash11/12exit0）25实际保存状态检查PASS：真实2Adamcounter2000/moments/RNGroundtrip/父194878权重和实际中性/右2880exact、curve1..2000、全部source/datahash。未补造缺失step0或livepre-savefullAdam/RNGproof。bash13用final-only审计1000正确拒绝exit1，无输出/物理/优化。
+- 明确缺陷：config.parent_checkpoint路径错误指向旧500祖先，但configSHA/authoritativemodelidentity/实际全部冻结权重精确对应c6b...1500。`train/PARENT_METADATA_CORRECTION.json`外部更正绑定finalSHA，不重写原checkpoint/hash。训练1000载入构造消耗RNG，但更新无随机操作；只声明savedRNGroundtrip，非随机精确续训。`train/FINAL_REPORT.md`全部限制保留。
+- 新`evaluation/`最终36checks离线实际finalmodel核验PASS，父right保存流2880mean/action/192states精确、全数组comparator及故意改memory拒绝、原physical/score AST/strictfinal2000路径检查通过、Core0。parentOWN新runtimebash-14现托管运行neutralfirst+L/Rmax2CPU1，完整1+4.8+9.6/full原5门/all6/NF0/yaw.01不变，额外新右转实际全部身体/神经数组必须与已通过parentright逐位一致。尚未形成结果，不claim左转或食物通过。
+- childbash8右转passed父同次视频已770全解码+71opaque+全部分割轮廓入镜/0积分/源码和compiled不变，父实际打开6阶段图。桌面`/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/食物趋近实施-20261110-续轮2-右转通过工程门-同次神经物理轨迹.mp4`SHA2e5eaaca6870d2b2cd0535762e0d416379dc080d3d023e32055876a6f25c313c，图SHAde867a29084ac0a02ddcf3bbfcadf431faf0012235462b2d0fbe40e7137e6fe8。标题RIGHTPASS/LEFTNOTQUALIFIED/NOFOOD明确，非fullnativecert。
+- 临时误放项目root`20261111T010218Z/NEXT_STATE.json`已读后由正确experiments入口替代并实际删除空目录，未删除科学证据。父误重复create_goal被工具拒已存在，随即get确认原goalrev3activearmed不变，无新goal/未谎称complete。
+
+## 续轮2直接继续：goal恢复rev3，慢残差1000有效检查点恢复中，旧500匹配对照仍滑移失败（2026-11-11，S4/S5）
+
+- 最新短入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/CURRENT_STATE.json`。用户直接“继续”后工具get发现active/disarmedrev2，已成功resume为revision3/armed。原baseline身体/权重/验收与Git标签保持不变。
+- 新续轮2方案预登记`ROUND2_PLAN.json`及`train/PREREG.json`：旧slowResidualGRU500 SHA040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3精确500→1500追加1000updates，lr.001→.0003，冻结原151636base/保留43242慢GRU64及bound.5/gate，原2turn2880＋2已审计失败状态纠正标签1920、4轨迹post平均等权。额外速度通道未训练/不开放，只有最终1500物理，不挑1000。235离线19checksPASS含生产输出/双状态/全部8参数梯度，编译批量scan误差2.71e-16/2.44e-15/5.96e-19，validpadding冻结短序列、共享原paramobjects，中性前后精确。
+- 236曾运行到validated1000保存，SHA47a84f5058654f76624f897fa1d90580b2733739df64e99c234a25468260cd59、VERIFY_001000独立19checksPASS，actual8Adam1000/weights/RNG/fullcurve/parentprefix/neutral2880正确。此次继续时ps无该进程、旧jobhandle未知，1500/RESULT不存在，部分1001+日志未有对应权重不能冒称恢复。子b387在ONLY新`train/recovery1000/`预登记恢复已验证1000→固定1500剩余500updates，同data/lr/模型，原toptrain源码/日志保留不改；增加durability快照若登记则仅恢复使用、不物理选择，最终仍1500。尚未完成，不虚称训练结果。
+- 针对旧500原测试是突变而新1500用1s渐变，已在任何新结果前另立`MATCHED_PARENT_CONTROL_AMENDMENT.json`，固定旧500匹配ramp左右2实际对照（neutral引用同SHA已验证旧回合），无扫描时长/命令幅度。现完整RESULT/VERIFY均已落盘：left slip.5524919161/forward.0709642957/yaw+.0624247263，right slip.5140340623/forward.0722796657/yaw-.0782577616，均其他4门/strictNF0/全部6腿周期通过但slip>.5失败，各92/92实际checkpoint/192hiddenchain/15400source/prefix/force/compiled审计PASS。无物理重跑；239句柄在继续后未知，子ffe3从已完成证据恢复汇总，不能补称旧进程exit0。
+- 另在新`TWO_TRAJECTORY_CONTROL_AMENDMENT.json`事前登记等预算原2条教师-only训练：同parent500/8Adam/RNG/curve/lr.0003/1000追加，区别仅不用纠正标签。三个候选parent500/原2-only1500/纠正4轨迹1500均在结果前命名，若多个通过优先最小变更，仍须后续切换/留出资格。原2-only目录此前未创建且ps无进程，子1f1090已恢复准备，未有jobid前不宣称运行。
+- 新`evaluation/`冻结中性/左右3条件实现37checksPASS，旧真实左右2880tuple128+64无损扁平192、中性原输出/命令公式/JSON/评分/启动保护已核对，237/238exit0收集；尚未用新1500实际执行。原native12.5us/42有限PD/71opaque/全1+4.8+9.6/连续交接/all5/all6/NF0/yaw.01保持，立即保存HANDOVER、异常保留可用记录。
+- 当前继续恢复并完成已登记实验，不因中断重置模型/优化器，不降低任何最终验收门；食物行为未训练，未完成趋近/摄入/饱腹。
+
+## 续轮1全部收集：固定纠正学习5000后仍仅中性PASS，goal继续（2026-11-10，S4/S5）
+
+- 先读 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/CURRENT_STATE.json`。本轮所有真实仿真/训练/审计/渲染及子任务均结束收集，当前无运行作业；goal仍active/armed revision2，不complete、不blocked，下一目标轮按`NEXT_ROUND_NOTES.zh-CN.md`接续，不需要人类重新授权。
+- 新范围`correction_fit5000/`在明确保留两条轨迹旧dataset_safety_admitted=FALSE后，仅以独立精确重放教师响应作为CORRECTIVEEXAMPLES，新16preflightchecksPASS；精确3000→5000同model/Adam6/RNG/完整curve/lr.0001/bound/network不变，原4＋纠正2各轨迹postprime平均等权。233训练exit0收集2000追加228.1s/总231.02s，4000/5000各24独立保存检查PASS、中性2880mean/action/hidden保持。最终SHA`ddc8d87fa346400ce23b837f3ecc32aa195293fb61f42a69dd3928061f9f5304`，从未物理挑4000。
+- 234最终5回合实际评估及5独立审计全部exit0收集，518.356s；`FINAL5000_SUMMARY.json`COMPLETE，saved_trajectory_verificationTRUE，all_conditions_eligibleFALSE，摘要SHA`ad20195aabae1526d4e61fa4b1f052de06594de64258147e17e90f7795e6689b`。neutral原五门/6周期/NF0PASS，slip.492788833/forward.0713185964，96checks；left forward.0287116796/slip2.0370698653/yaw+.0123640571、all6各1通过但forward/slipFAIL，73checks；right forward.0335465806/slip5.1495489422/yaw-.0390621871、缺LH周期，forward/slip/all6FAIL，73checks。L/R其他3门与strictNF0通过。speed085 forward-.0275832058/slip4.7704725669/NF56.16878064/COMmin.707104008，speed090 forward-.0156097844/slip.7751491064/NF66.27928477/COMmin.699669081，两者全部五门/strictNF0/全周期失败，各76checks。倒退/塌陷不能计减速成功。所有实际2880输出/隐藏链/动作/15400端点/前缀/force/runtime71mesh/neutral关联精确，20源码+checkpoint不变；完整性通过不是能力通过。
+- `correction_fit5000/FINAL_REPORT.md`、hash清单和独立学习审查已落盘。没有等预算旧4数据对照，不能把拟合/某指标改善单独归因新增数据。旧混合轨迹安全FALSE/所有失败/源码哈希不改，未用算法支持/根轨迹/删窗/改门。
+- 标准化/有符号线性命令头仅完成只读代数诊断，未实施/优化：前者尺度异质但非普遍饱和，Adam坐标变换需处理；后者减小代数下界同时扩张残差范围，非纯conditioning因果。没有用多因素同时更改掩盖失败。
+- 下一最小动作建议回到实际接近门槛的旧slowResidualGRU500（fullturnslip.539/.515）在新时间目录做固定预算验证；旧与新数据/预算/bound不同不能据此证明慢GRU因果优越。先真实审计旧payload/model/Adam/RNG/curve，再明确新预登记是否加入已审计纠正标签、唯一物理检查点/优化器处理，原门/完整身体/连续交接不变；未新注册/启动此试验，不可声称后台训练。
+- 桌面新增完整同次塌陷失败视频宽相机修正版、阶跃/渐变对照图、拟合稳定性图已全部实际打开和哈希交付，旧桌面裁边重复替换、原项目科学失败保留。食物行为网络仍未训练，未完成趋近/到达/摄入/饱腹；原已验收直行成果和Git标签不受影响。
+
+## 渐变诊断全失败，混合采集轨迹仍失败但教师纠正标签经精确审计；另立纠正学习实验（2026-11-10，S4/S5）
+
+- parent221四个匹配1s渐变实际回合及独立审计全部exit0收集；L/R slip3.17127666/7.74086671均forwardFAIL，右yaw幅度不足；85全五门塌陷slip4.56874124，90forward/slipFAIL9.71214019。full9.6窗口/原五门/六周期未改，不能归因命令起始单一问题。`ramp3000/FINAL_REPORT.zh-CN.md`落盘，`ramp_comparison/`纯数组9回合matched前5800/960prime精确、命令公式/wholemetrics/hash核对，父实际打开桌面同名对照图，SHA b6054eaa385bf5bc84439e87b80c2ffcf950b831a4a8d260d623cfa3251e5a8f。无新物理的comparison子226exit0收集。
+- 提前登记`recovery_data/RUN_PLAN.json`后224/225实际混合采集完成exit0；27/27独立actualchecks每回合通过，1920actor输出/128hidden连续链/10600source/动作/前缀/时钟/force/cycles/wholemetrics精确，dataset_safety_admitted均FALSE，slip.54952887/.55190802、其余4门NF0/support/COM/forwardPASS，未改为安全示范。匹配teacher原first4.8s slip.47901173/.44702089PASS，非窗口伪差异。原先safe-demo recovery_fit5000准备已停止，目录/文件/优化均未创建。
+- 独立新增orderedprivateIK教师标签重放228/229exit0，所有1920 teacher_action及rootbalance逐位一致（新增积分0、所有mj_step屏蔽）；maxrootresidual7.4258e-5/.000103217均低于既有.02诊断值。227actualaudit/230matchedwindowdiag均exit0收集，29文件manifestSHA46e44c767cf9a3ad8d00a340072921307efe815940063dfcce9893776e95f1a2。23完整burst相对teacher的obs偏差student25ms后上升、teacher175ms后回落仅描述性，不声称恢复因果/最优oracle。
+- 基于上述新标签有效性证据，父明确另立`correction_fit5000/`实验：把失败观察＋经验证教师响应当CORRECTIVEEXAMPLES，而不是把失败轨迹改成通过；旧safetyFALSE/滑移失败/所有旧准入结果保持。新预登记先核实身份/全部教师标签精确/finite/NF0/support/COM/rootresidual，然后精确3000→固定5000同weights/Adam/RNG/curve/lr.0001/network/bound，只增加2纠正轨迹与原4条合格教师，6轨迹postprime各等权；最终模型仍须全原物理门/六腿/yaw/减速验收，不能因训练有纠正例而放宽。子e6正在准备并获授权核验通过后固定训练/只评5000，尚未完成。此项新科学范围已commentary说明，绝非偷偷降低最终验收或冒称安全数据。
+- feature_conditioning纯诊断231exit0/6checksPASS，0优化/物理：不是广泛tanh饱和、hidden幅度也不小；feature方差异质性大。函数保持归一化代数已核对输出/梯度，但没有拟合/物理改善证据；不与当前数据实验同时改。Adam坐标变换不能直接拷贝moment冒称精确续训，后续若做需匹配freshoptimizer对照或严谨变换。原源码/数据未改。
+- 同次3000减速失败视频222取景裁脚已单独prereg宽视角修正223exit0；770/770解码且每帧segmentation轮廓不出画面/不被字板挡，71opaque、compiled/source/轨迹不变，积分0。父实际打开修正蒙太奇，桌面视频SHA3a36ed0e43a197dc15c244e702fdd80ea7f4ca5ee7b29c21f1fde02b133ae42a、图SHA333e774c262837ee28fc88e0d02281ac44a7a2b86815de768f16bc9ab2011e19；原项目坏取景保留、桌面旧重复已验证后替换。goal仍active/armed，未训练食物行为、未完成到达/摄入/饱腹。
+
+## 恢复后的3000五项完成：中性PASS其余FAIL；单独预登记1s渐变命令诊断运行中（2026-11-10，S4/S5）
+
+- child220五个实际评估及五个独立审计全部exit0收集，无重复活进程；`continuation3000/RECOVERY_FINAL3000_SUMMARY.json`COMPLETE、saved_trajectory_verificationTRUE、all_conditions_eligibleFALSE，SHA420d9ab093daa30f8e02fa34f5ed515e776f8ab4677489e4ed5eeb68c7185e15。原219中断记录仍保留，不能伪称原219exit0。`FINAL_REPORT.md`和hash清单最终落盘。
+- 同17fd...3000检查点：neutral原五门/6周期/strictNF0PASS，原神经/身体全部逐位一致96checksPASS；left slip5.91396130/fwd.02263085/yaw-.00937618，right slip8.70404693/fwd.03546713/yaw-.04317865，均前进/滑移/周期失败，各72integritychecksPASS。speed085 slip3.35517916/fwd-.06022907/yaw-.53038145、全五门/NF/周期失败；speed090 slip10.11400599/fwd.04312873/yaw+.05221242、forward/slip/all6FAIL，support/COM/strictNF0PASS，各75integritychecksPASS。虽数值速度变慢，不能当减速成功。仅拟合稳定性改善，不计运动资格。
+- onset_diagnosis封存25inputhash/源码复核及6checksPASS，无新物理/优化；有明确1s训练命令ramp vs实测满幅step差异，但未证明物理因果。父已读完实际五项COMPLETE后，新`ramp3000/LAUNCH_PLAN.json`提前登记四实际1s渐变L/R/85/90，不扫ramp时长，原9.6全窗口/五门/六腿/strictNF0/yaw.01/speed<=.95同checkpoint已通过neutral不改；INVOCATION绑定planSHAf274a7/readiness0378fc/stepfinalsummary420d9a及exactCLI。
+- parentroot221现托管运行四渐变诊断max2CPU1，原step失败保留，明确新旧评估source身份不同，以neutral零命令乘ramp恒0的数学等价单列引用旧实际已核验对照，未重复neutral物理。准备36offlinechecks与实际neutral关联检查通过。尚无结果，不能声称解决。
+- `recovery_data/`28checksPASS的25ms学生/175ms教师恢复数据采集器仅准备，未执行/训练，未来若需要须新固定计划并真实验证数据安全；不把混合控制或tinyburst当自主成功。原baseline/所有科学失败保持，goalactivearmedrev2，当前继续。
+
+## 用户继续后恢复：goal已重新armed，3000检查点评估中断保留并用新目录接续（2026-11-10，S4/S5）
+
+- 用户直接“继续”后工具get显示goal active/revision1/disarmed，已成功resume为revision2/armed；不是仅文件声称续跑。当前检查点仍`17fd103492007dc4de4ae9832fa39e4098cef980c4bebb03425c99f7c2f093a8`，固定1000→3000原权重/Adam/RNG/curve完整接续、仅lr降.0001，2000追加约204s，四保存点各22项检查PASS。
+- 前一组协作代理异常终止。原child219状态已不能从runtime取回，实际ps确认无food物理进程；`continuation3000/FINAL3000_SUMMARY.json`空conditions/RUNNING为失效状态。原`EVAL_neutral/`只有IDENTITY/runtime_geometry/HANDOVER，无全轨迹/神经数组/RESULT，不能重构未落盘自治运动，更不报通过/失败。原目录和日志保留。
+- 新`continuation3000/recover_pipeline3000.py`显式登记中断恢复、原部分产物哈希和相同冻结源码/检查点，child220新托管执行原缺失neutral+剩余四条件至`RECOVERY_EVAL_*`，汇总`RECOVERY_FINAL3000_SUMMARY.json`；无重复活进程、无旧源码修改、未放宽门。所有新命令/runner身份另记，当前运行中。
+- onset_diagnosis只读重启：4组teacher和actual前5800物理状态/动作/target/ctrl、960神经X/实际teacheraction完全一致；训练firstANN命令0而实测直接满幅。生产单行actorfirstoutput核对精确；首1s rampvsstep在同teacherinput上的targetactionRMS：L.01806/.03037，R.01787/.03785，speed85.01642/.05768，speed90.01641/.02942，提示可控分布差异，未证明物理因果。无额外物理/优化；等待冻结五测试完整结果后才另立渐变诊断。
+- 原行走基线和全部必要失败保留，食物行为未训练。继续完成当前路线，不把代理中断当身体/网络不可能。
+
+## 食物目标续轮1进行中：半幅/切换4项全滑移失败，即时残差1000后受控降学习率续训（2026-11-10，S4/S5）
+
+- goal实查active/armed/revision1/roundsStarted1，原baseline/旧源码不改。新目录 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/`，短入口`CURRENT_STATE.json`。
+- 子207固定4项半幅/切换诊断完成exit0并收集，完整15400端点/2880实际checkpoint输出/192hidden连续链/前缀/力/周期/yaw/compiled身份独立96/96checksPASS。半左/半右/左后右/右后左均方向+all6+other4gatesPASS，slip.5227798735/.5227988151/.5220005471/.5192207239全部FAIL，无合格限制范围。新`range/`预登记修订只允许诊断，不把已知full±1失败改作通过；原门/分母/转角阈值未改。父实际打开结果图，36文件manifestSHA58d7fe7f0c5b24acc16e6eb52288146eb5d7148bf96224173ee17caffd1356bd。
+- 新`fast_motor.py`冻结原151636参数SlowGRU128/连续记忆，只训练53034参数instantaneousMLP，实际112物理+basehidden128+command2→242→128→128→42，gate命令归一后tanh平方范数，中性0。新18preflightchecksPASS含全2880neutralmean/action/hidden逐位一致、实际学习梯度、原目标位置负Jacobian、缓存vs生产输出1.39e-17/梯度4.07e-19、保存Adam/RNG/权重/推理一致；root208exit0收集。
+- 已验证左右turn和两档moderate减速4实际teacher全2880行用于固定1000训练root209exit0/113.4s，10保存点独立实际状态检查均PASS，只实际测预登记1000，不挑旧900低误差；末端loss反弹保留。SHA3dd80394239504ec8b88f4cfe07c79569cf08329a9320c749c3c7b25035fda28。root210纯范围下界检查exit0：turnfloor1.3–1.5e-6，speedfloor.000160/.000168，仍远低于当前误差，不能全归因bound。
+- root211五条件物理pipeline：中性原5/all6+strictNF0PASS，neural和全部物理数组与原基线逐位相同，独立actualverifyPASS；左/右方向正确但forward/slipFAIL（slip23.6960043/3.47356662），其余support/nonfoot/COMPASS，独立actual输出/128hiddenchain/动作/交接哈希/force/wholecycle审计PASS。两档speed尚运行，未claim神经减速/食物。
+- 独立`diagnostics/`发现4任务梯度同向而1000保存Adam动量与当前梯度相反；下一步混入梯度后方向又下降，不能说optimizer实现bug。基于actual1000L/RFAIL和拟合振荡，授权新`continuation3000/`提前预登记精确1000→固定3000，只降lr.001→.0001，原network/bound/4data/model+Adam/RNG/curve完整保留，保存1500/2000/2500/3000但仅3000物理5条件。子e6b5负责实现与托管，尚未完成，旧capturedsource冻结。
+- 当前路线仍明确，继续真实评估/受控学习，不进入未合格运动接口的气味训练；食物场已实现并不代表趋近/摄入成功。无审批/停工请求。
+
+## 食物轮1本批收口：原基线完整保留，神经转向仍滑移失败，温和减速教师通过；goal继续（2026-11-10，S4/S5）
+
+- 本批短报告 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/ROUND1_PROGRESS.zh-CN.md` 和权威`FOOD_CURRENT_STATE.json`已更新最终结果，所有root/child任务结束并收集，当前无正在运行的训练/物理任务。goal工具实查revision1/active/armed/roundsStarted0，未complete、未blocked；后续目标轮继续，不需人类重新授权。
+- residual固定500真实703秒训练及保存检查通过，SHA`040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3`。实际中性原5门/6周期通过且完整身体轨迹、输入、mean、动作、basehidden均与原正式基线逐位相同；左右yaw+.0692524106/-.0805519667正确，但slip.5396644404/.5151628634超出.5，仍不合格。独立`residual_candidate/ACTUAL_VERIFICATION.json`三回合2880checkpoint输出/192hidden连续链/实际动作/前缀/全15400时间端点/额外力0均通过；左失效腿RH.53966444/RM.51682926，其余4物理门和全部6腿周期通过。`FIXED500_RESULTS.json`保留失败，不计入食物能力。
+- child196在左完整数组保存后发生NumPybool JSON错误exit1，204从同次数组/冻结summary+cycle恢复report，0新物理；原交接snapshot哈希未落盘则明确缺失，不补造。早期重复NPZ解压恢复超时及202冗余恢复取消保留，205新纯JSON标量转换包装右实际评估exit0，206独立实际推理审计exit0，全部收集。原模型/训练/评估源码冻结不改。
+- `deceleration_moderate/`匹配control1.0+.85/.90两候选全完成，201物理/203重放exit0，63/63replay+9referencePASS，37文件manifestSHA`14cb71b8d0a0740c2bb7f3b1aa17b7ad5a88b1277a005681a17ab37aff60c9b2`。controlforward.0716961345/slip.46213869；.85forward.0601160306/slip.46596501、.90forward.0644214063/slip.46466052，两者原5门/6周期/strictNF0和相对匹配control至少5%减速全PASS。属于可用算法教师数据，非神经减速。父实际打开结果图，桌面`温和减速教师-匹配对照与物理结果.png`SHA`b66571dc8a469bf3896ddf2de591943823d18429104f15015e8cb5896ed4b422`与项目一致。
+- 新`food_evaluation/`正常/noodor/swap/匹配动作重放物理评估器草案33离线checksPASS，严格motor/behavior SHA和资格绑定、实际source-onset/patch-dwell/5800前缀校验、异常落盘；未运行食物训练/物理。`residual_profiles/`同5固定测试的flat192包装15实际保存流离线checksPASS，所有输出/状态逐位相同，未物理执行。行为头只开放转向，前进结构性0，未用未经训练的速度通道。
+- 下一最小动作写入短报告：先新预登记修订明确已知full±1不合格、半幅/切换仅诊断可用范围且原物理/周期/既定转角门不改（中性引用同SHA已验证实际对照）；若无合格范围，再受控新学习实验，考虑保留base记忆而去掉第二层慢GRU的即时神经残差假设或精确续训，均需事先固定预算，不凭假设宣称成功。尚未进入行为优化/到达/摄入/饱腹。原失败/哈希完整保留，`.tmp`清理检查无遗漏。
+
+## 食物轮1续进：全网微调500三条件滑移失败，冻结原基线残差训练进行中（2026-11-10，S4/S5）
+
+- 原分支 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/` 内固定100/500路线已结束，root186完整收集exit0。500训练追加400步1287.5s，检查点SHA`171e7fb0bf5770b36c1c3830b737002387e3cd7e5d51b97dd75b308493325463`，独立`VERIFY_FINETUNE_500.json`104项PASS、strict训练source/data/parent加载PASS；实际中性slip.54195384、左slip.59382492/yaw+.05975475、右yaw-.06992953且slipFAIL，三回合其他原门和全部六腿周期通过，但整体均不合格。`MOTOR_STAGE_500_RESULT.json`保留全部失败。不能凭方向学会宣称运动接口通过。
+- 已授权冻结原151636参数基线＋独立43242参数神经残差的替代路线；`residual_candidate/`30离线checks、11全序列缓存/全部梯度一致性checksPASS，child196固定500adapter-only Adam.001 CPU1训练运行中，仅500做中性/左右三真实物理测试，不物理挑100/200/300/400。当前保存点中性2880mean/action/basehidden逐位保留、真实weights/Adam/RNG/curve独立重载均PASS。范围诊断约2.1%目标超出残差门*.5范围，均值理论MSE下限5.487e-6，尚不能归因实际失败。
+- 双记忆接入修复后 `odor_loop.py`明确记录base128+residual64全部192维，无撤辅reset；root199感觉接入10项PASS、root200双记忆5项PASS，物理积分0、原中性动作精确；旧`ODOR_INTEGRATION_SINGLE_MEMORY_CHECKS.json`历史保留。新`steering_behavior.py`只输出转向，结构性forward0，4项命令域检查PASS；尚未开始行为优化。
+- `deceleration/`两19.2s慢步频诊断及replay188/192exit0，46完整性+12对齐checksPASS但前腿4s内缺loaded-grounded dwell，全部六腿周期FAIL；后续`deceleration_stride/`固定原步频/缩步幅两case193/197/198exit0，原5800前缀和960行精确，49独立checks+12reference+10contractPASS但stride.18 slip.94604494、stride.27 slip.62046791均FAIL。足端绝对滑速未随前进速度降低，97.13%RH分子来自>=.1W载荷段，x/y都持续，不能只归因横向。全部失败未改timeout/门槛/分母。
+- 新`deceleration_moderate/`基于实际LF2.4s/RF3.197s重新承重年龄，预登记原整波相位缩放.85/.90温和减速；另加1个完全匹配窗口的straight1.0对照（共3case、非扩大参数搜索），相对该对照要求至少5%实际减速且原5门+6腿周期+strictNF0全满足，尚未完成。旧早期原teacher包含.4tail的速率只作谱系，不偷换为同窗对照。
+- `visual/ADAPTER_100_LEFT_FAIL/VIDEO.json` child191exit0，770帧全解码，原轨迹qpos/qvel/compiled/source不变、71opaque、mj_forwardonly/积分0；父实际打开六阶段图，滑移FAIL/方向错/NOFOOD标签清楚。桌面视频 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/100步左转失败-同次真实神经物理轨迹.mp4`，与项目SHA一致；原失败证据保留，无无用.tmp待清理。Goal仍active/armed，不称趋食完成。
+
+## 食物轮1进展：气味接口与中性物理回归通过，适配器100转向失败，固定500微调运行中（2026-11-10，S4/S5）
+
+- 权威新入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/FOOD_CURRENT_STATE.json`。原行走模型/证据未改。新增模型在实际1232000原生积分步/1ms端点检查中，中性2880个神经输入/hidden/mean/policy/实际动作/控制来源与旧正式回合逐位相同，原5门+6腿周期PASS，slip.49278883265；新接口未重新做全原生D1-D8。
+- teacher四个条件child178exit0并独立重算40项完整性检查PASS；fullleft/right实际yaw+.061283799/-.078512302、slip.474773381/.448280492、原5门PASS；半速原forwardFAIL、六腿未全周期，按预登记训练资格拒绝。实际头前感觉器中点左/右dy+.08141167/-.04244536，不能用质心侧移符号代替前端趋近。算法教师不等于神经自主。
+- 固定adapter100 CPU1训练exit0 root182/213s，保存SHAa98cb11b42589238897a0daae047bb8ad9ca1f10044e8038c1f2271ea57a43d7；独立`VERIFY_ADAPTER_100.json`34项实际Adam/model/RNG/完整曲线检查PASS。root185三实际物理评估exit0：neutral全PASS；left slip.57372024>.5且yaw-.0127024方向错；right滑移门PASS但yaw-.000991不足；100不合格，不能接行为训练。证据`MOTOR_STAGE_100_RESULT.json`。root186正在固定追加400步（global500）低lr全网络微调并随后三物理评估，尚未通过。
+- 双侧受体16项单测parent复跑exit0；Head8/71mesh工程几何审计完成，示意图父实际打开并桌面交付。时序审查发现原接入把受体t+5ms端点提前用于t动作，新增`ODOR_TIMING_AMENDMENT.json`后pending_response延到下一真实决策；parent187重验实际1920保存姿态10项PASS、无物理积分、中性动作逐位相同，旧初验和旧时序报告分别保留。行为GRU只有骨架，未训练。
+- 只新增`checked_motor.py`核验checkpoint内训练源码/数据/父checkpoint全部哈希，独立100调用exit0；未改正在运行的捕获源码。review在`REVIEW.md`，尚未验证的前进调节/动态切换不能开放给行为网络。新deceleration子任务预登记两个半速教师19.2s窗验证足够六腿周期；新residual_candidate仅准备冻结原基线/中性严格保留的神经残差候选，尚未训练/部署，不能宣称优于500。
+- 启动失败记录：root180路径拼写错误exit2于加载前；root181缺末个教师结果的保护性退出1于输出/训练前；四条件完成后182才训练。root183初验错误用numpy tanh对比torch结果逐位，修正为原保存policy_action后184PASS，之后真实时序修复187PASS。shell目录探查缺right_half退出2后确认该任务仍运行，未当物理失败。无隐藏成功或阈值调整。
+- 当前goal工具active/armed，未完成食物趋近。后续：收集186完整500及独立状态/物理验证，若失败继续受控诊断；先取得可用运动接口，再预登记固定食物布局/行为预算和对照，最后同次物理视频。桌面 `/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/当前说明.zh-CN.md`。
+
+## 食物气味趋近第一轮实施启动（2026-11-10，S4/S5，进行中）
+
+- 用户明确授权独立分支新增行为网络＋复制运动网络微调，当前goal `goal-d3ce9a34-ed60-4720-9769-da757b6e602e` 已工具创建/armed；新分支`food-approach-20261110`，原行走checkpoint和证据不改。主入口 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/PREREG.json`。
+- 新条件化运动模块 `/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/conditional_motor.py`：零初始化biasfree2→128命令encoder＋原slowGRU128；中性输入保留原网络；新增仅双侧受体输入的行为GRU32骨架。`check_conditional.py` 使用原正式2880行实际神经轨迹验证全部mean/hidden逐位相同，适配连接有限非零梯度、更新保留原base、保存重载与Adam矩一致；13项全部PASS，命令提供的既有解释器python-B/CPU1，exit0，无物理步。证据 `CONDITIONAL_CHECKS.json`，不代表转向/趋食成功。
+- 双侧工程Gaussian气味场/饱和受体/50ms精确指数低通在独立`odor/`实现，16项数值与因果/镜像测试exit0；受体输出仅2维，坐标/距离不输入行为网络。转向教师独立四配置物理诊断child job bash-178进行中；新增接口真实中性回归root job bash-179进行中，结果待收集。尚未正式训练或验证趋食。
+- 数值口头说明更正：旧正式快评估`forward_signed_native_per_s=.071318596`为速度，9.599s窗口`com_xy_travel=.685228229`才是位移；此前规划将.0713说成整段位移错误，后续食物布局按实际可达路程固定。原始RESULT不改。
+- 下一动作：收集教师真实转向/安全数据与新接口中性回归，固定训练数据分割/预算后训练条件化运动网络；通过后接嗅觉行为训练、留出布局与感觉依赖性对照及同次视频。未验证项保持未验证，不降低原门槛或以教师结果冒称神经自主。
+
 ## 已推送与本地存档（2026-11-10）
 
 - 行走验收通过后按用户要求提交并推送：`037f6bc`（.gitignore排除可再生载荷）→`3667bec`（协议/计划/状态文档）→`7e41fa6`（3137个实验代码与可读证据文件）→`c9f1599`（存档说明与校验和）。远端`main`=`c9f1599288b6d385f61227829198d57636daa44f`，annotated标签`walking-verified-20261110`指向已验证证据提交`7e41fa6`，均已推送并用`git ls-remote`复核。

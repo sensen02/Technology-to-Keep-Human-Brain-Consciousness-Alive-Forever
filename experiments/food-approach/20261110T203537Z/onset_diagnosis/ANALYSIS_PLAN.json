@@ -1,0 +1,12 @@
+{
+  "kind": "read-only saved-evidence command-onset train/test mismatch diagnosis",
+  "scope": "all writes only in new onset_diagnosis directory; no changes to captured source, optimization, physics construction or integration",
+  "conditions": ["left", "right", "speed085", "speed090"],
+  "checkpoint": "fixed actual1000 checkpoint identity bound by each EVAL_FAST RESULT",
+  "offline_intervention": "Use each actual2880-row teacher observation sequence, zero initial frozenbase128 memory and causal sequential base.step; replay960 realpriming rows. For first200 autonomous decisions compare actor on same actualteacher observations and same causalbasehidden with actualteacher ramp vs abruptconstant command. Commands do not affect frozen base state directly. No teacher lookup drives a simulated body.",
+  "shared_prefix": "bitexact actualphysical first5800rows qpos/qvel/com/action/target/actualctrl; first960teacher and actual X/Y/action rows; firstautonomous X/hidden compares exactly with actual production saved output",
+  "divergence": "actualvs matchedteacher relativeRMS difference peractual1ms endpoint, denominator RMS teacher atsame time with1e-12floor; report fullqpos/qvel and joints/root/COM separately; quaternion orientation sign-invariant angular difference; threshold crossing diagnostic only never acceptance",
+  "windows": "firstautonomous1s rows5800:6800 and remaining8.6s6800:15400; segment COM speed uses exact precedingboundary row5799/6799 and finalendpoint; loadweighted tangentialspeed numerator, perleg denominator and ratio reported alongside contact/support/nonfoot",
+  "memory": "each NPZ materialized once into cache; no repeated decompression inside loops; release percondition after diagnostics",
+  "conclusion_limit": "mismatch/temporal association does not establish causality; any matched actual smoothcommand ramp diagnostic must be separately preregistered on selected3000 after fixed5reports complete, retaining abruptfailures and unchanged gates; no fooddeploy qualification"
+}

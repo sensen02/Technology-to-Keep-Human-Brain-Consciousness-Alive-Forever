@@ -1,0 +1,60 @@
+{
+  "all_passed": true,
+  "checks": {
+    "source_hashes_nonempty": true,
+    "source_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/train_motor.py": true,
+    "source_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/conditional_motor.py": true,
+    "source_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/MOTOR_TRAINING_DESIGN.json": true,
+    "source_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/PREREG.json": true,
+    "source_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/CONDITIONAL_CHECKS.json": true,
+    "data_hashes_nonempty": true,
+    "data_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/SAMPLES_5MS.npz": true,
+    "data_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/RESULT.json": true,
+    "data_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/SAMPLES_5MS.npz": true,
+    "data_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json": true,
+    "data_hashes:/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz": true,
+    "model_reload_all_tensors_bitexact": true,
+    "optimizer_reload_all_state_bitexact": true,
+    "optimizer_group_count": true,
+    "group_order_0": true,
+    "group_hyperparameters_0": true,
+    "moment_keys:command_encoder.weight": true,
+    "counter:command_encoder.weight": true,
+    "exp_avg:command_encoder.weight": true,
+    "exp_avg_sq:command_encoder.weight": true,
+    "nonnegative_second_moment:command_encoder.weight": true,
+    "optimizer_covers_trainable_once": true,
+    "no_orphan_optimizer_state": true,
+    "complete_global_curve": true,
+    "finite_metrics_curve": true,
+    "recorded_loss_full_sequence": true,
+    "rng_restore_roundtrip": true,
+    "rng_draws_reproducible": true,
+    "adapter_stage_all_base_tensors_unchanged": true,
+    "neutral_reference_in_data_identity": true,
+    "adapter100_neutral_saved2880_means_bitexact": true,
+    "adapter100_neutral_saved2880_hidden_bitexact": true,
+    "checkpoint_unchanged_during_verification": true
+  },
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/TRAIN_ADAPTER_100/checkpoint_000100.pt",
+  "checkpoint_sha256": "a98cb11b42589238897a0daae047bb8ad9ca1f10044e8038c1f2271ea57a43d7",
+  "stage": "adapter",
+  "global_step": 100,
+  "parameter_groups": [
+    [
+      "command_encoder.weight"
+    ]
+  ],
+  "optimizer_counters": {
+    "command_encoder.weight": 100.0
+  },
+  "parent": null,
+  "physical_steps": 0,
+  "optimizer_updates": 0,
+  "verifier_sha256": "e42ba399da6c76e79aa11ce9550796cde8fe2f2f023ea097011cecc959550eda",
+  "limitations": [
+    "Does not establish physical command response or behavior success.",
+    "RNG restore is a saved-state roundtrip, not independent replay of full training.",
+    "For finetune, exact optimizer moments at stage handover are not observable from final checkpoint; source/ancestor/counters/curve consistency only."
+  ]
+}

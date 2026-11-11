@@ -1,0 +1,17 @@
+{
+ "kind":"Matched parent500 fixed1s ramp physical controls, replacement ANN engineering",
+ "registered_before_execution":true,
+ "amendment":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/MATCHED_PARENT_CONTROL_AMENDMENT.json",
+ "checkpoint_step":500,
+ "conditions":{"left":[0.0,1.0],"right":[0.0,-1.0]},
+ "command":"original neutral4.8s prime, then signedturn multiplied by smoothstep(clamp(autonomouselapsed/1s,0,1)); same command_at implementation as new1500 evaluator",
+ "timing":{"zero_settle_ms":1000,"original_teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+ "checkpoint_sha256":"040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+ "gates":"Unchanged originalall5/all6/strictNF0/properwholewindowyawabs>=.01; full9.6s includingramp; no trim/denominator/threshold changes",
+ "neutral":"Reuse exact parent500 EVAL_RESIDUAL500_neutral RESULT and ACTUAL_VERIFICATION with hashes/compiledruntime binding. Newcontrolsources and oldneutralsources remain explicitly separate. No neutralphysical repeat.",
+ "physical":"Unchanged complete71opaque mesh/42finitePD/native12.5us/1mstarget/5msdecision/noadhesion/extraexternalforce/rootwrites; both192hiddencontinuous andimmediateHANDOVER saved",
+ "outputs":"Full15400trace/2880actualneuralbeforeafter192/action/source/command/yaw/geometry; independent savedcheckpoint/state/phase/force/gates/cycle audit; no optimization",
+ "resources":"Exactlytwo controls CPU1max2concurrent; collectalljobs. Oldabruptfailures immutable. No otherweights or intermediate1000 selection.",
+ "scope":"Fixed-condition matched engineering control only, not fooddeployment/nativeD1-D8/connectome/biological certification. Parentamendment selects500/1500namedbeforeoutcomes, subjectswitch/holdouts."
+}

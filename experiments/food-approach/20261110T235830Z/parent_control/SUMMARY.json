@@ -1,0 +1,382 @@
+{
+  "status": "RUNNING",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "conditions": {
+    "left": {
+      "condition": "left",
+      "execution": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/evaluate_parent.py",
+          "--checkpoint",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+          "--sha256",
+          "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+          "--condition",
+          "left",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/EVAL_left",
+          "--training-complete"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/EVAL_left.log"
+      },
+      "eligible": false,
+      "integrity": true,
+      "verification": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/verify_actual.py",
+          "--run",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/EVAL_left",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/VERIFY_left.json"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/VERIFY_left.log"
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/EVAL_left/RESULT.json",
+      "result_sha256": "7fe7eaa02907d6ee083b3b1cf796cc49abd8614c7e112de20f680d1e1678850c",
+      "autonomous": {
+        "native_steps": 768000,
+        "sample_count": 9600,
+        "duration_s": 9.599000000318654,
+        "forward_speed_native_per_s": 0.070964875718015,
+        "forward_signed_native_per_s": 0.07096429569147715,
+        "lateral_speed_native_per_s": 0.0002869193020961854,
+        "foot_support_mean": 1.0000487855610414,
+        "foot_support_min": 0.9956136352122578,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.255534979933067,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.32438160143478134,
+          "LH": 0.4640014935451459,
+          "LM": 0.4616224139344169,
+          "RF": 0.39272476015414276,
+          "RH": 0.5524919160793763,
+          "RM": 0.5148911620225092
+        },
+        "slip_ratio_max": 0.5524919160793763,
+        "slip_ratio_mean": 0.45168555786172876,
+        "com_start": 1.2758698497611711,
+        "com_end": 1.2756192132575221,
+        "com_xy_travel": 0.6811918420398393,
+        "slip_load_denominator_native": [
+          22109.423985301684,
+          57235.57162911387,
+          36996.52417139376,
+          20158.804486333607,
+          57413.40367662788,
+          40782.72694732719
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07096429569147715,
+          "lateral_signed_native_per_s": -0.0002869193020961854,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 15.400000000370785,
+          "sample_count": 9600
+        }
+      },
+      "cycles": {
+        "complete_per_leg": {
+          "LF": 1,
+          "LH": 2,
+          "LM": 2,
+          "RF": 2,
+          "RH": 2,
+          "RM": 2
+        },
+        "all_legs_completed": true,
+        "events": [
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 6.543000000076764,
+            "start_time": 5.98200000005814,
+            "lift": 0.078179800176329,
+            "advance": 0.3344913738673124,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5150000000170962,
+            "duration": 0.5610000000186233,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LH",
+            "time": 7.340000000103221,
+            "start_time": 6.8170000000858595,
+            "lift": 0.057992025560093245,
+            "advance": 0.24825101048513254,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4890000000162331,
+            "duration": 0.5230000000173618,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LM",
+            "time": 8.974000000157464,
+            "start_time": 8.38800000013801,
+            "lift": 0.08941297198131878,
+            "advance": 0.27374556120306126,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5380000000178597,
+            "duration": 0.5860000000194532,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RH",
+            "time": 9.737000000182793,
+            "start_time": 9.203000000165066,
+            "lift": 0.061228444875265235,
+            "advance": 0.20110368915161358,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5040000000167311,
+            "duration": 0.534000000017727,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RF",
+            "time": 9.964000000190328,
+            "start_time": 6.7670000000842,
+            "lift": 0.11690205182150873,
+            "advance": 0.2933216805784974,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1460000000380424,
+            "duration": 3.1970000001061285,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RM",
+            "time": 11.349000000236305,
+            "start_time": 10.786000000217616,
+            "lift": 0.07771361134186178,
+            "advance": 0.3727538685139758,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5160000000171294,
+            "duration": 0.5630000000186897,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LF",
+            "time": 11.556000000243177,
+            "start_time": 9.153000000163406,
+            "lift": 0.11078371868970868,
+            "advance": 0.25597303243714553,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.1570000000384084,
+            "duration": 2.4030000000797713,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LH",
+            "time": 12.149000000262863,
+            "start_time": 11.620000000245302,
+            "lift": 0.05494214488392767,
+            "advance": 0.238083657228906,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.4940000000163991,
+            "duration": 0.529000000017561,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "LM",
+            "time": 13.792000000317405,
+            "start_time": 13.206000000297951,
+            "lift": 0.08775696244934925,
+            "advance": 0.2693531120944116,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.5380000000178597,
+            "duration": 0.5860000000194532,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RH",
+            "time": 14.569000000343198,
+            "start_time": 14.020000000324973,
+            "lift": 0.06881378912308728,
+            "advance": 0.2380686174522706,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 0.519000000017229,
+            "duration": 0.5490000000182249,
+            "bonus": 0.1
+          },
+          {
+            "type": "complete",
+            "leg": "RF",
+            "time": 14.797000000350767,
+            "start_time": 11.571000000243675,
+            "lift": 0.11639736499280898,
+            "advance": 0.29614674633153504,
+            "reload_dwell": 0.010000000000331966,
+            "initial_loaded_dwell": 0.01,
+            "unload_dwell": 0.005000000000165983,
+            "unloaded_duration": 1.150000000038176,
+            "duration": 3.226000000107092,
+            "bonus": 0.1
+          },
+          {
+            "type": "abort",
+            "reason": "terminal",
+            "leg": "LF",
+            "time": 15.400000000370785,
+            "start_time": 13.96900000032328,
+            "lift": 0.11256647290551214,
+            "advance": 0.2582884874455502,
+            "unloaded_duration": 1.175000000039006
+          }
+        ],
+        "config": {
+          "weight": 24.446354755878005,
+          "dt": 0.001,
+          "gamma": 0.999000499833375,
+          "loaded": 0.1,
+          "unloaded": 0.05,
+          "ground": 0.004,
+          "clearance": 0.015,
+          "advance": 0.03,
+          "loaded_dwell": 0.01,
+          "unload_dwell": 0.005,
+          "timeout": 4.0,
+          "phi_cap": 0.05,
+          "completion_bonus": 0.1
+        },
+        "interpretation": "strict sensed cycle diagnostic; no actions generated"
+      },
+      "yaw_change_rad": 0.0624247262577429,
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": false
+      },
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/VERIFY_left.json",
+      "audit_sha256": "8fa61bde711e0390d7d16c832ec82e4dfdca9d368f6484a78dde9b012a1c2c15",
+      "audit_checks": 92
+    }
+  },
+  "all_conditions_eligible": false,
+  "saved_trajectory_verification": false,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/evaluate_parent.py": "a2985d08bff54a26b1e03ecbab578c3cf7fa811d3115b9ff6355588a77b11031",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/verify_actual.py": "991ff9c04df8219e8f1c57c4cc3d358d25c93a0baf2925dccf504753f8fe4563",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/pipeline.py": "a2527fe1789746181d9ab617e8118ea786e79deef9ed10ac9ece3f9f94ea58a7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/check_prepared.py": "c83d7125413381f8175479e48996941b7b084e133e41cd1df5df82c86f1e7cc2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/READINESS.json": "5e0ebfdc8df8b5013f4129b3084b8e54477415d361a25c0e324fed79a8f65216",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/PREREG.json": "ac3b1abfbdc7ded04170a578aa14564f2f32c8af8241a14de665e6bedcfaaf53",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/MATCHED_PARENT_CONTROL_AMENDMENT.json": "c79765c1908bc4ac182373e354801204b47228ae47da5e0e41963bd264f98261",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/HEAD_GEOMETRY_AUDIT.json": "2f4b21c5dd26f0b9e445295b3f0b40c82bd9a963dd2efc1315957f9a0541678d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/RESULT.json": "23ae98b93d77f42d72e537095b15bb83b1ef079eece7798e5ba9442d0ae39dba",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/IDENTITY.json": "3e6d3545d0207c7781dc98551029409566faea08b00c96632863576140251acc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/ACTUAL_VERIFICATION.json": "735c851ddcee650d96b76156e8fcced668251ae787581d721af0d7bcac2396c4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py": "2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py": "1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/evaluate_candidate.py": "5d926003c9e44d1e66d34ea801e6cfedc2ab41bbedb8ed7be8b2dcf103bfa7bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/PREREG.json": "9869c4440e8c32f2e8d81f03f7e8a4a3759c23f7839060e34ff402c990487dbf"
+  },
+  "elapsed_s": 177.2138667999534,
+  "scope": "Matched parent500 ramp control, no optimization or food qualification"
+}

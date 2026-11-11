@@ -1,0 +1,16 @@
+{
+  "kind": "S4/S5 controlled fast neural residual experiment",
+  "goal_id": "goal-d3ce9a34-ed60-4720-9769-da757b6e602e",
+  "hypothesis": "The frozen verified base already supplies recurrent memory; remove the additional100ms residual GRU and learn an instantaneous neural correction from actual masked physical112 + basehidden128 + normalizedcommand2. This is a hypothesis, not an established failure cause.",
+  "base": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+  "base_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+  "network": "frozen SlowGRU128 base; residual242->128tanh->128tanh->42tanh, boundedlatent1.0; correction multiplied tanh(sum(normalizedcommand squared)); neutral exactzero. Base target inhibitory Jacobian unchanged.",
+  "command": "raw[forward_scale_minus1,signedturn]; fixed neural input normalization[1/.15,1]. Validate forward in[-.15,0], turn[-1,1]. Training covers axes separately; no claim for combined speed+turn or arbitraryduration.",
+  "data": "Authenticated teacher fullleft/fullright plus moderate straight.85/.90, all actual2880decisions with960actualneutralprime then1920post; originalall5/all6/strictNF0required. No clock/phase/foodposition/distance in deployment. Baseline hidden cache computed sequentially on actual fullteacherobservations; no future features.",
+  "training": {"seed":20261110,"steps":1000,"lr":0.001,"optimizer":"Adam defaults float64 CPU1","loss":"equal fourepisode postprime boundedactionMSE","clip_grad_norm":1.0,"batch":"allpostprime features with frozen base cache; no additional trainable recurrence","save_every":100,"physical_eval_only_step":1000},
+  "checks": "All2880neutral mean/action/basehidden bitexact before/after unit optimizerstep. Actual nonzero finite gradients and frozenbase unchanged. Cached batched vs sequential production outputs/gradients within1e-12 (GEMMbatch rounding explicitly permitted for offline algebra check). Savedweights/Adam/RNG/curve exact roundtrip and independent verification. Negative direct target branch unchanged by masking target channels in residual.",
+  "physical": "unchanged71mesh/42finitePD/12.5usnative/1mstarget/5mspolicy; noadhesion/externalforces/rootwrites;1ssettle+4.8originalteacher+9.6ANN, nohandoverreset. Actualoriginalruntimeverified.",
+  "selection": "Fixed1000 only. Neutral/L/R originalall5+all6+strictNF0, fullturn proper signabs>=.01. Speed.85/.90 originalall5+all6+strictNF0 and forward<=.95 actualmatchedneutral speed. Allfive actualprofilesreported; no partialgateaveraging, no unsafe model for food.",
+  "next": "Only if physical conditions pass then command switching/heldout initialstates and food behavior. Failed source/checkpoints/results remain immutable. If no candidate passes continue controlled diagnosis, do not lowergates or claim bodyimpossibility.",
+  "scope": "Authorized replacement neural engineering, derived fullbody, NOT connectome/biological calibration/ingestion/satiety. FitMSE and algorithms are not neural physical acceptance."
+}

@@ -1,0 +1,15 @@
+{
+  "status": "DRAFT_CODE_CONTRACT_NOT_FINAL_LAYOUT_REGISTRATION_NOT_EXECUTED",
+  "execution": "Parent must select qualified motor, train and freeze behavior, and freeze actual layout suite before physical execution. No candidate is asserted qualified by this draft.",
+  "controls": ["normal", "noodor", "swap", "replay"],
+  "qualification": "Required absolute qualification JSON binds checkpoint absolute path and checkpoint_sha256 and all_conditions_eligible=true. --diagnostic permits unqualified diagnostic ONLY; acceptance remains forbidden even if measured metrics pass.",
+  "windows": {"settle_s":1.0,"teacher_prime_s":4.8,"autonomous_s":9.6,"decision_dt_s":0.005,"trace_dt_s":0.001,"native_dt_s":0.0000125},
+  "environment": "Actual head sampling midpoint at handover anchors frozen forward/lateral offsets in horizontal head-forward frame. One Gaussian nondepleting engineering odor source with finite amplitude, explicit patch/sigma/noise/onset/rise/dwell; ingestionfalse. No model/ground/friction changes. This is a stimulus source, not a finite food-consumption reservoir.",
+  "policy": "Only actualphysical238 enters motor and localreceptors2 enters turn-only behavior; sourcecoordinates/distance/time/reward remain environment/score only. Forward neural command structurallyzero. Both motor recurrent states continuous, behavior state initialized at physicalreset and heldduringprime. FoodObservation constructed atwithdrawal with causal pending receptor update.",
+  "arrival": "Actual1ms sensor midpoint within patch continuously for explicit dwell after sourceonset; report arrival separately from unchanged whole-window originalall5/all6cycles. No claim of ingestion or satiety.",
+  "acceptance": "Only qualified nondiagnostic NORMAL may report acceptance=true, requiring arrival AND originalall5 engineeringgates AND all6cycles AND full source/output/hidden checks. Othercontrols may report measured outcomes but acceptance=false; replay never neuralautonomy. Full native audit remains separate.",
+  "replay": "Explicit frozen original2880decision actionfile with SHA. Must contain same960prime observations, motor hidden before/after and appliedactions bitexact, same2880count. Autonomous action source declared food_replay; policy may still be evaluated diagnostically but its outputs are not applied. No sensory shuffle or future lookup in actor.",
+  "visual": "All71 flymesh geoms alpha>0 checked before execution; save fulltrace for same-run later rendering. No video-success claim from code preparation.",
+  "failure": "Freshout only, capture identity and verify sources/runtime in finally; save partialtrace/decisions/geometry and FAILURE.json on exception where available. Any invariant failure prevents acceptance.",
+  "registration": "This draft defines evaluator contracts only. It does not register24layouts, PPO settings, checkpoint selection, reachable distance or a successful food behavior. No physical jobs run during preparation."
+}

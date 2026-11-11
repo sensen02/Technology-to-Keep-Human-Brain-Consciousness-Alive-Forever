@@ -1,0 +1,85 @@
+{
+  "actual_native_steps": 1232000,
+  "post_native_steps": 768000,
+  "nonfoot_peak_native": 0.13811373530343424,
+  "post_nonfoot_peak_native": 0.13811373530343424,
+  "post_COM_min": 1.253620592241108,
+  "extra_force_max": 0.0,
+  "full_arrays_retained": false,
+  "scope": "native peak summary, not full D1-D8",
+  "nonfoot_contact_pairs": {
+    "max_geom_pairs": 64,
+    "pairs": {
+      "0:72": {
+        "contact_observations": 10892,
+        "post_contact_observations": 10892,
+        "first_time_before_s": 11.631300000245677,
+        "last_time_before_s": 11.983325000257363,
+        "peak": {
+          "geom_ids": [
+            0,
+            72
+          ],
+          "geom_names": [
+            "floor",
+            "RHTarsus4_geom"
+          ],
+          "nonfoot_geom_id": 72,
+          "nonfoot_geom_name": "RHTarsus4_geom",
+          "nonfoot_body_id": 61,
+          "nonfoot_body_name": "RHTarsus4",
+          "time_before_s": 11.670000000246961,
+          "time_after_s": 11.670012500246962,
+          "positive_world_z_native": 0.13811373530343424,
+          "contact_normal_force_native": 0.13811373530343424,
+          "force_world_on_nonfoot_native": [
+            0.022788238850118617,
+            0.03278423832642117,
+            0.13811373530343424
+          ],
+          "contact_position_world": [
+            -0.7268994711166359,
+            -1.2368418288219996,
+            0.00023852401488548558
+          ]
+        },
+        "post_peak": {
+          "geom_ids": [
+            0,
+            72
+          ],
+          "geom_names": [
+            "floor",
+            "RHTarsus4_geom"
+          ],
+          "nonfoot_geom_id": 72,
+          "nonfoot_geom_name": "RHTarsus4_geom",
+          "nonfoot_body_id": 61,
+          "nonfoot_body_name": "RHTarsus4",
+          "time_before_s": 11.670000000246961,
+          "time_after_s": 11.670012500246962,
+          "positive_world_z_native": 0.13811373530343424,
+          "contact_normal_force_native": 0.13811373530343424,
+          "force_world_on_nonfoot_native": [
+            0.022788238850118617,
+            0.03278423832642117,
+            0.13811373530343424
+          ],
+          "contact_position_world": [
+            -0.7268994711166359,
+            -1.2368418288219996,
+            0.00023852401488548558
+          ]
+        }
+      }
+    },
+    "overflow_contact_observations": 0,
+    "overflow_peak": null,
+    "positive_native_steps": 10892,
+    "post_positive_native_steps": 10892,
+    "time_convention": "Contact force/pos are beginning-of-step integration solve; time_before_s is parent before(), time_after_s is d.time before mj_forward",
+    "force_convention": "positive world Z on nonfoot geom, same signed convention as parent PeakRecorder",
+    "counts": "per-pair contact_observations may exceed native-step count if multiple points for a pair",
+    "full_native_arrays": false
+  }
+}

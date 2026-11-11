@@ -1,0 +1,168 @@
+{
+  "rule": "all4 independently audited, minimum(slip,index) among ALL originalgates+all6+strictnativeNF0+signedRIGHTyaw>=30",
+  "all4_results": [
+    {
+      "id": "c00",
+      "index": 0,
+      "delta": [
+        0.004547481115914875,
+        0.002184460935026707,
+        -0.008565056804199252
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c00/candidate.pt",
+      "sha256": "04202be484ee6cf528b65ea3e8860f247bcbeba970975c9ee5018a8646902a8d",
+      "condition": "right",
+      "integrity_all_pass": true,
+      "engineering_pass": false,
+      "slip": 0.5094933641573051,
+      "yaw_rad": -0.5346144021322942,
+      "yaw_deg": -30.631148909090253,
+      "forward": 0.08120266958663774,
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 1
+      },
+      "native_nonfoot_peak": 0.0,
+      "audit_checks": 147,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c00/EVAL_right/RESULT.json",
+      "result_sha256": "976792ed8df7a68ebc79545aff330cf5c75ba8b67f842df0496004cf8ad2813a",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c00/VERIFY_right.json",
+      "audit_sha256": "f5cb7d9693d1f5798684abb63ca2437bdafba83a761fb8f852fecb1c737a8c03"
+    },
+    {
+      "id": "c01",
+      "index": 1,
+      "delta": [
+        -0.004547481115914875,
+        -0.002184460935026707,
+        0.008565056804199252
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c01/candidate.pt",
+      "sha256": "42e09d8da00ad2ed0f311ef700d3748d6c1c8c9e438329c201ff96a4ef4d9eb2",
+      "condition": "right",
+      "integrity_all_pass": true,
+      "engineering_pass": false,
+      "slip": 0.5310892115162743,
+      "yaw_rad": -0.5333750635232499,
+      "yaw_deg": -30.560140037404405,
+      "forward": 0.08175589991541207,
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 1
+      },
+      "native_nonfoot_peak": 0.0,
+      "audit_checks": 147,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c01/EVAL_right/RESULT.json",
+      "result_sha256": "0d89a70487a3a669d4905afe9c63d9a500323875e73ae0037ab70cb700cd43cc",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c01/VERIFY_right.json",
+      "audit_sha256": "b566b7abcbb642b11c519236a01b7e72461b97e365f1c61bca537d1f79693169"
+    },
+    {
+      "id": "c02",
+      "index": 2,
+      "delta": [
+        0.004068864971381254,
+        0.003931456485021731,
+        0.002463336656972296
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c02/candidate.pt",
+      "sha256": "3b03df8f538f6c65334162c73d003fcd42eea49cde5063cc74ee1a124ad7f6ca",
+      "condition": "right",
+      "integrity_all_pass": true,
+      "engineering_pass": false,
+      "slip": 0.5113190276910771,
+      "yaw_rad": -0.537616978279762,
+      "yaw_deg": -30.80318385000681,
+      "forward": 0.08224349767370916,
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 1
+      },
+      "native_nonfoot_peak": 0.0,
+      "audit_checks": 147,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c02/EVAL_right/RESULT.json",
+      "result_sha256": "b551e16204acb54ba8da851c1939d89cfc8bd74cf2b2ec33091a0dead2711e68",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c02/VERIFY_right.json",
+      "audit_sha256": "e1170ef886dd96c86eb72ce0e40b76e2b9e2ec14acae33350a9e538903e7c1e4"
+    },
+    {
+      "id": "c03",
+      "index": 3,
+      "delta": [
+        -0.004068864971381254,
+        -0.003931456485021731,
+        -0.002463336656972296
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c03/candidate.pt",
+      "sha256": "59d572a83e09057f39979587fdd91be4ce28f996e85b49f102dc75b042e03bca",
+      "condition": "right",
+      "integrity_all_pass": true,
+      "engineering_pass": false,
+      "slip": 0.5226272746939062,
+      "yaw_rad": -0.531342584937851,
+      "yaw_deg": -30.44368759251033,
+      "forward": 0.08122641124348842,
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 1
+      },
+      "native_nonfoot_peak": 0.0,
+      "audit_checks": 147,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c03/EVAL_right/RESULT.json",
+      "result_sha256": "6c159f11389991e5b4c2a0fad805c8a40b4505988a4d87ed23c2682dc11aaba1",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/c03/VERIFY_right.json",
+      "audit_sha256": "9d43c5ee44b6b438ab12d407d3e3356ddd26e7982ad9d42cd79e7e5a2b31ea1d"
+    }
+  ],
+  "selected": null,
+  "frozen_sha256": "77fe87cfd297bc39cfbc0a5ab84458c77c5b3020e018bceeeddbbfdd12765b57",
+  "proposal_sha256": "58019b6ec00d0da201aa0b25158cfd084f631dedce8381fba90e6fcb36e80e13"
+}

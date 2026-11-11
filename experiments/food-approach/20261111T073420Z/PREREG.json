@@ -1,0 +1,8 @@
+{
+  "purpose": "Diagnose user-observed weak right turn from existing saved evidence, S4/S5",
+  "right_run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right",
+  "scope": "No physics construction/integration, no training, no parameter changes; selected NPZ arrays and checkpoint tensor arithmetic only",
+  "questions": ["Does neural command reach -1?", "Does actual yaw match the video metric?", "Is saturation evident in recorded endpoint action/target/torque?", "What turning magnitude did teacher and admission criterion request?"],
+  "resource": "One CPU thread, one sequential analysis process; no frame arrays or native recording reload",
+  "limits": "Endpoint saturation cannot rule out substep events or prove physical capability; offline residual removal is same-state arithmetic, not a causal physical control"
+}

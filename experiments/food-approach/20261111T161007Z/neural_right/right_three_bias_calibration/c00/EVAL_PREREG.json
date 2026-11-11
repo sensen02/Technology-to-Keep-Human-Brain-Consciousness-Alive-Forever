@@ -1,0 +1,27 @@
+{
+  "conditions": {
+    "neutral": [
+      0.0,
+      0.0
+    ],
+    "right": [
+      0.0,
+      -1.0
+    ]
+  },
+  "candidate_kind": "RIGHT_THREE_BIAS_ACTUAL_V1",
+  "training_updates": 0,
+  "timing": {
+    "settle_s": 1.0,
+    "teacher_prime_s": 4.8,
+    "ANN_s": 9.6,
+    "decision_s": 0.005,
+    "trace_s": 0.001,
+    "native_s": 1.25e-05,
+    "handover_reset": false
+  },
+  "command": "newRIGHT_ONLY yaw/.06, forward0, turn1ssmoothstep to-1 afterdecision960; oldsmallLEFT/yaw.008 is separate",
+  "acceptance": "originalfive inclslip<=.5/worldX>=.05,all6cycles,strictnativeNF0,actualsignedRIGHTyaw>=30degrees in same9.6s",
+  "budget": "4 sequential completeRIGHT actualrounds, all4 audited beforeselection; eligibleminimum(slip,index),none selectednull; ifselected only1samecheckpoint completeNEUTRALconfirmation; noextra generation orRIGHT rerun",
+  "scope": "static3neuralbias parameter calibration only; no newAdam/training, no perstep externalcontroller, no fullD1-D8/connectome/SI/biology/food certification"
+}

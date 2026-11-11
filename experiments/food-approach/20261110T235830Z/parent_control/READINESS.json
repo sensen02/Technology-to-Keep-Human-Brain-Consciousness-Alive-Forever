@@ -1,0 +1,73 @@
+{
+  "all_passed": true,
+  "checks": {
+    "unchanged_AST_jsonable": true,
+    "unchanged_AST_command_at": true,
+    "unchanged_AST_score": true,
+    "unchanged_AST_flatten": true,
+    "unchanged_AST_parser": true,
+    "evaluate_only_declared_five_bindings": true,
+    "explicit_output_and_checkpoint_binding": true,
+    "actual500_curve": true,
+    "wrong_sha_rejected": true,
+    "matched_neutral500_passed_identity": true,
+    "parent500_all2880_neutral_means_exact": true,
+    "parent500_all2880_neutral_dual192_exact": true,
+    "parent500_all2880_neutral_actions_exact": true,
+    "left_neutral_prime_zero": true,
+    "left_settled_after1s": true,
+    "left_same_new1500_command": true,
+    "right_neutral_prime_zero": true,
+    "right_settled_after1s": true,
+    "right_same_new1500_command": true,
+    "original_gates_and_turn_score": true,
+    "verifier_derived_compiles": true
+  },
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "neutral_association": {
+    "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+    "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/RESULT.json",
+    "result_sha256": "23ae98b93d77f42d72e537095b15bb83b1ef079eece7798e5ba9442d0ae39dba",
+    "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/ACTUAL_VERIFICATION.json",
+    "audit_sha256": "735c851ddcee650d96b76156e8fcced668251ae787581d721af0d7bcac2396c4",
+    "identity": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/IDENTITY.json",
+    "identity_sha256": "3e6d3545d0207c7781dc98551029409566faea08b00c96632863576140251acc",
+    "trace_sha256": "9112d2c8041b52d033c5c674d2633f163e4f0e1201086eca05cf881fbb8dd968",
+    "neural_sha256": "e6a444ed7a35cd43b57694b5490a5b995c1d4a4dedbf644d878b5aad551e9025",
+    "association": "same parent500 checkpoint and original compiled runtime, neutral command remains zero, sources explicitly different; no repeated neutral physics",
+    "original_source_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/evaluate_candidate.py": "5d926003c9e44d1e66d34ea801e6cfedc2ab41bbedb8ed7be8b2dcf103bfa7bb",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/PREREG.json": "9869c4440e8c32f2e8d81f03f7e8a4a3759c23f7839060e34ff402c990487dbf"
+    }
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/evaluate_parent.py": "a2985d08bff54a26b1e03ecbab578c3cf7fa811d3115b9ff6355588a77b11031",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/verify_actual.py": "991ff9c04df8219e8f1c57c4cc3d358d25c93a0baf2925dccf504753f8fe4563",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/pipeline.py": "a2527fe1789746181d9ab617e8118ea786e79deef9ed10ac9ece3f9f94ea58a7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/check_prepared.py": "c83d7125413381f8175479e48996941b7b084e133e41cd1df5df82c86f1e7cc2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/parent_control/PREREG.json": "ac3b1abfbdc7ded04170a578aa14564f2f32c8af8241a14de665e6bedcfaaf53",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/MATCHED_PARENT_CONTROL_AMENDMENT.json": "c79765c1908bc4ac182373e354801204b47228ae47da5e0e41963bd264f98261",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/HEAD_GEOMETRY_AUDIT.json": "2f4b21c5dd26f0b9e445295b3f0b40c82bd9a963dd2efc1315957f9a0541678d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/RESULT.json": "23ae98b93d77f42d72e537095b15bb83b1ef079eece7798e5ba9442d0ae39dba",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_neutral/IDENTITY.json": "3e6d3545d0207c7781dc98551029409566faea08b00c96632863576140251acc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/ACTUAL_VERIFICATION.json": "735c851ddcee650d96b76156e8fcced668251ae787581d721af0d7bcac2396c4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py": "2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py": "1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/residual_motor.py": "10a60b8673309035f510559222e1b49cfcca055ec7afe462c18eefe7cffe5c9c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/evaluate_candidate.py": "5d926003c9e44d1e66d34ea801e6cfedc2ab41bbedb8ed7be8b2dcf103bfa7bb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/PREREG.json": "9869c4440e8c32f2e8d81f03f7e8a4a3759c23f7839060e34ff402c990487dbf"
+  },
+  "physics_integration_steps": 0,
+  "Core_constructions": 0,
+  "optimizer_updates": 0,
+  "explicit_bindings": [
+    "parent500 strict legacy loader/ancestry and fixed paths",
+    "new prereg500 metadata",
+    "same physics and scoring",
+    "old neutral hash/runtime association, separate old/new source identity",
+    "new owned output paths and audit source names"
+  ]
+}

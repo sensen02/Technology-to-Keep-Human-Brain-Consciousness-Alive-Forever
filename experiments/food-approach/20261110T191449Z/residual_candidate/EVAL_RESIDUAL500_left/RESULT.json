@@ -1,0 +1,343 @@
+{
+  "candidate_engineering_pass": false,
+  "yaw_sign_and_magnitude_pass": true,
+  "neutral_parity": null,
+  "status": "RECOVERED_COMPLETED_RUN_AFTER_JSON_NUMPY_BOOL_FAILURE",
+  "autonomous": {
+    "native_steps": 768000,
+    "sample_count": 9600,
+    "duration_s": 9.599000000318654,
+    "forward_speed_native_per_s": 0.0721412691069319,
+    "forward_signed_native_per_s": 0.072141252364763,
+    "lateral_speed_native_per_s": 4.914877764231761e-05,
+    "foot_support_mean": 1.0000492151225993,
+    "foot_support_min": 0.995276564185541,
+    "nonfoot_force_max_W": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "com_height_min": 1.2553370673965851,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.32968690452349647,
+      "LH": 0.4704361938128257,
+      "LM": 0.4633025170121877,
+      "RF": 0.4086952794134735,
+      "RH": 0.5396644403870411,
+      "RM": 0.5168292608039226
+    },
+    "slip_ratio_max": 0.5396644403870411,
+    "slip_ratio_mean": 0.45476909932549114,
+    "com_start": 1.2758704019605518,
+    "com_end": 1.2754897425406202,
+    "com_xy_travel": 0.6924840421804274,
+    "slip_load_denominator_native": [
+      22123.99322374198,
+      57253.80827376077,
+      36975.2405192371,
+      20158.612020442175,
+      57385.56553920156,
+      40799.33613137032
+    ],
+    "slip_valid_per_leg": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slip_has_progress": true,
+    "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+    "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+    "sample_dt_s": 0.0010000000000331966,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": true,
+      "forward": true,
+      "slip": false
+    },
+    "all_gates": false,
+    "initial_heading_diagnostics": {
+      "status": "MEASURED",
+      "forward_signed_native_per_s": 0.072141252364763,
+      "lateral_signed_native_per_s": -4.914877764231761e-05,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ],
+      "gate_applied": false
+    },
+    "native_peak_summary": null,
+    "roadmap_D1_D8": {
+      "D1": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D2": {
+        "status": "UNKNOWN",
+        "reason": "native low-pass acceleration and autonomous window not supplied"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D4": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D4b": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D6": {
+        "status": "UNKNOWN",
+        "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "reason": "native window and loading-leg threshold absent"
+      },
+      "D8": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      }
+    },
+    "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+    "window": {
+      "first_sample_s": 5.801000000052132,
+      "last_sample_s": 15.400000000370785,
+      "sample_count": 9600
+    }
+  },
+  "autonomous_cycles": {
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "all_legs_completed": true,
+    "events": [
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 6.547000000076896,
+        "start_time": 5.98500000005824,
+        "lift": 0.07552357074761512,
+        "advance": 0.3738741582809294,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5150000000170962,
+        "duration": 0.5620000000186565,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 7.334000000103022,
+        "start_time": 6.813000000085727,
+        "lift": 0.058372480512099374,
+        "advance": 0.25132892085040526,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4870000000161667,
+        "duration": 0.5210000000172954,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 8.966000000157198,
+        "start_time": 8.380000000137745,
+        "lift": 0.0898399111523869,
+        "advance": 0.26976203547577166,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5380000000178597,
+        "duration": 0.5860000000194532,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 9.748000000183158,
+        "start_time": 9.196000000164833,
+        "lift": 0.06913986402872205,
+        "advance": 0.24156441376058901,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5230000000173618,
+        "duration": 0.5520000000183245,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 9.976000000190727,
+        "start_time": 6.763000000084067,
+        "lift": 0.1172619271369989,
+        "advance": 0.2977262446070117,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1470000000380756,
+        "duration": 3.2130000001066596,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 11.368000000236936,
+        "start_time": 10.80300000021818,
+        "lift": 0.07608309806166297,
+        "advance": 0.37164102122273385,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.519000000017229,
+        "duration": 0.565000000018756,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LF",
+        "time": 11.575000000243808,
+        "start_time": 9.146000000163173,
+        "lift": 0.11191025289101603,
+        "advance": 0.25801722576321007,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.175000000039006,
+        "duration": 2.4290000000806344,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 12.169000000263527,
+        "start_time": 11.641000000245999,
+        "lift": 0.0539631499907312,
+        "advance": 0.23637776003614164,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4940000000163991,
+        "duration": 0.5280000000175278,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 13.813000000318102,
+        "start_time": 13.227000000298649,
+        "lift": 0.08767917828056604,
+        "advance": 0.26965249134347,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5380000000178597,
+        "duration": 0.5860000000194532,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 14.589000000343862,
+        "start_time": 14.04100000032567,
+        "lift": 0.0683725465808522,
+        "advance": 0.2349956257066399,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5180000000171958,
+        "duration": 0.5480000000181917,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 14.817000000351431,
+        "start_time": 11.591000000244339,
+        "lift": 0.11632302305205633,
+        "advance": 0.2956723847319357,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1510000000382092,
+        "duration": 3.226000000107092,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "reason": "terminal",
+        "leg": "LF",
+        "time": 15.400000000370785,
+        "start_time": 13.990000000323978,
+        "lift": 0.1127596844707418,
+        "advance": 0.25848124937276606,
+        "unloaded_duration": 1.175000000039006
+      }
+    ],
+    "config": {
+      "weight": 24.446354755878005,
+      "dt": 0.001,
+      "gamma": 0.999000499833375,
+      "loaded": 0.1,
+      "unloaded": 0.05,
+      "ground": 0.004,
+      "clearance": 0.015,
+      "advance": 0.03,
+      "loaded_dwell": 0.01,
+      "unload_dwell": 0.005,
+      "timeout": 4.0,
+      "phi_cap": 0.05,
+      "completion_bonus": 0.1
+    },
+    "interpretation": "strict sensed cycle diagnostic; no actions generated"
+  },
+  "transition": {
+    "time_s": 5.800000000052099,
+    "no_reset": true,
+    "exact": {
+      "completed_original_evaluator_continuity_check_before_save": true
+    },
+    "both_hidden_states_included": true,
+    "note": "original evaluator checked all snapshots before completion; original snapshot hashes lost on JSON serialization exception; actual saved hidden chain and matched physical prefix rechecked"
+  },
+  "yaw_change_rad": 0.06925241056558817,
+  "command": [
+    0.0,
+    1.0
+  ],
+  "trace": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_left/trace_1ms.npz",
+    "sha256": "fa10e7985b4291ada183aacf18c8dc6d4a548add93c8892f4366fb7a3d85eabc",
+    "samples": 15400
+  },
+  "identity_sha256": "5fbeea21efdb0dbf1760bd7f6a16d9e5b5b90e5c4563bee68b3c303b60de75d9",
+  "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "physical_steps": 1232000,
+  "teacher_calls_after_handover": 0,
+  "extra_forces": false,
+  "odor_or_food_success": false,
+  "state_layout": "base128,residual64",
+  "source_frame": "yaw world positiveCCW originalworldX gates unchanged",
+  "recovery": {
+    "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/serialization_recovery.py",
+    "source_sha256": "45719daf4a499795c237f22b23803bbf6dce21283d5b5a0a44e0d7047fbc8165",
+    "physical_steps": 0,
+    "method": "same frozen summary and cycle tracker replay from saved actual arrays; initial heading verified identical prefix to baseline",
+    "failure_log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_left.log"
+  }
+}

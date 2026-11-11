@@ -1,0 +1,18 @@
+{
+  "goal_id": "goal-d3ce9a34-ed60-4720-9769-da757b6e602e",
+  "goal_revision": 2,
+  "goal_round": 2,
+  "status": "IMPLEMENTATION_ACTIVE_NOT_MOTOR_OR_FOOD_PASS",
+  "scope": "Return to previously nearer-threshold frozenbase+SlowResidualGRU64 candidate. This is a limited engineering continuation, not evidence slowmemoryalonecausedstability.",
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "parent_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "fixed_experiment": "Exact500->1500 additional1000updates, lr.001->.0003 declared, originaltwofullturnteacher2880 plus2auditedfailedstatecorrectivelabel1920, equal4trajectorypostprimeaverage. Model/gate/bound.5/frozenbase/twoexplicitstates unchanged. Save1000/1500 integrity, only1500physicalevaluation.",
+  "data_honesty": "Corrective trajectories remain dataset_safety_admittedFALSE and originalslipFAIL. Teacherlabels individuallyverifiedall1920orderedprivateIKreplayexact withzero newphysics/maxresidual<existing.02, actorhidden/source/prefix/forcesauditPASS. Using correctiveexamples doesnotgranttrajectory/behaviorpass orproveoptimalteacher/causalrecovery.",
+  "deployment_inputs": "Actualbaseline238physicalobservations+neuralcommand2; no teacherphase/time/controlsource/foodcoordinates/distance. Forwardcommand0only inthistrial; speedchannelnottrainedorqualified.",
+  "verification": "Authenticateactualoldpayloadweights/Adam/moments/counters/RNG/fullcurve; recordRESUME_STATE andonlylrchange; cachedbatch4validpadding vs originalsequentialalloutputs/states/ALLparametergradients<=1e-12 beforetraining; preservefullcausalhistory. Independentcheckactualsaved1000/1500states andneutral2880exact.",
+  "physical": "Final1500only: neutral+left/right1ssmoothramp, same1szerosettle+4.8actualteacherpriming+full9.6ANN,nohandoverreset. Originalall5/all6/strictNF0 andproperyawabs>=.01. Complete71opaque42finitePD/native12.5us/noadhesion/extraforce/rootwrites. Saveactual15400trace/2880commands+means/actions/both192hiddenchain+immediateHANDOVER andindependentreplay beforeanyqualification.",
+  "resource": "CPUfloat64one thread perprocess, max2physicalprocesses. Training fixed1000extra, no automaticextension orphysicalcheckpointshopping. Parenttraining/evaluationseparatelydelegated, alljobscollect.",
+  "next_after_pass_only": "Registerintermediate/switching andnewphysicalinitialconditions, thenneuralfoodsteeringbehavior onqualifiedmotor. Neuraldeceleration remains separateunresolveditem; do notlabelgoalcomplete ifonlyturnpasses.",
+  "immutable_history": "Allold500/1000/3000/5000failures andhashes retained; no scientificsource edits in prior timestampdirs. Newcandidate andactualresults liveonlythisnewroot.",
+  "not_claimed": ["qualifiedconditionalmotor", "foodapproach", "ingestion", "satiety", "connectome", "biologicalvalidation", "arbitrarydurationrobustness"]
+}

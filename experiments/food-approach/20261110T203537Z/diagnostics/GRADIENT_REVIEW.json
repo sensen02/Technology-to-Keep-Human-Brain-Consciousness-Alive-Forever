@@ -1,0 +1,254 @@
+{
+  "next_Adam_algebra": {
+    "next_step": 1001,
+    "cosine_with_current_gradient": 0.6036244863550033,
+    "parameter_delta_norm_at_lr_p001": 0.055714792809088885,
+    "parameter_delta_norm_at_lr_p0001": 0.005571479280908889,
+    "linear_loss_change_at_lr_p001": -0.0019057083980549571,
+    "linear_loss_change_at_lr_p0001": -0.00019057083980549572,
+    "weights_or_optimizer_mutated": false,
+    "interpretation": "Exact next Adam moment/direction algebra using current fullbatch gradient; loss change is first-order only, no candidate weights evaluated."
+  },
+  "cases": {
+    "left_full": {
+      "loss": 0.0007415099961903609,
+      "gradient_norm": 0.0576116809905815,
+      "encoder_saturated_abs_ge_p99": 0.00087890625,
+      "hidden_saturated_abs_ge_p99": 0.016800944010416666,
+      "residual_output_saturated_abs_ge_p99": 0.0,
+      "floor_first1s": 1.235376546301189e-05,
+      "floor_after1s": 1.9617607529101093e-07,
+      "worst_floor_times": [
+        {
+          "post_elapsed": 0.135,
+          "MSE": 0.0003208089109064258
+        },
+        {
+          "post_elapsed": 0.14,
+          "MSE": 0.00030273871151240557
+        },
+        {
+          "post_elapsed": 0.13,
+          "MSE": 0.00020609604689152098
+        },
+        {
+          "post_elapsed": 0.145,
+          "MSE": 0.00013587743717204708
+        },
+        {
+          "post_elapsed": 0.125,
+          "MSE": 9.12051440195922e-05
+        },
+        {
+          "post_elapsed": 0.095,
+          "MSE": 7.740911429722845e-05
+        },
+        {
+          "post_elapsed": 0.1,
+          "MSE": 7.557654837644843e-05
+        },
+        {
+          "post_elapsed": 0.09,
+          "MSE": 7.346235399010774e-05
+        },
+        {
+          "post_elapsed": 0.085,
+          "MSE": 7.173366588341718e-05
+        },
+        {
+          "post_elapsed": 0.105,
+          "MSE": 6.57334554057186e-05
+        }
+      ]
+    },
+    "right_full": {
+      "loss": 0.0007653717184890044,
+      "gradient_norm": 0.05893160230798613,
+      "encoder_saturated_abs_ge_p99": 0.00064697265625,
+      "hidden_saturated_abs_ge_p99": 0.01270751953125,
+      "residual_output_saturated_abs_ge_p99": 0.0,
+      "floor_first1s": 1.2208268618379883e-05,
+      "floor_after1s": 1.4578944335188286e-08,
+      "worst_floor_times": [
+        {
+          "post_elapsed": 0.135,
+          "MSE": 0.0003109318086247111
+        },
+        {
+          "post_elapsed": 0.14,
+          "MSE": 0.0002942154706932356
+        },
+        {
+          "post_elapsed": 0.13,
+          "MSE": 0.00019818141762659573
+        },
+        {
+          "post_elapsed": 0.145,
+          "MSE": 0.00013190427368358536
+        },
+        {
+          "post_elapsed": 0.125,
+          "MSE": 8.708524715752982e-05
+        },
+        {
+          "post_elapsed": 0.095,
+          "MSE": 8.020842521611324e-05
+        },
+        {
+          "post_elapsed": 0.1,
+          "MSE": 7.946670399621163e-05
+        },
+        {
+          "post_elapsed": 0.09,
+          "MSE": 7.524410336573418e-05
+        },
+        {
+          "post_elapsed": 0.085,
+          "MSE": 7.287651698195652e-05
+        },
+        {
+          "post_elapsed": 0.105,
+          "MSE": 7.032837404218e-05
+        }
+      ]
+    },
+    "straight_085": {
+      "loss": 0.0017570668907721098,
+      "gradient_norm": 0.09364023491782406,
+      "encoder_saturated_abs_ge_p99": 0.0006144205729166667,
+      "hidden_saturated_abs_ge_p99": 0.00517578125,
+      "residual_output_saturated_abs_ge_p99": 0.0,
+      "floor_first1s": 1.136853171507591e-05,
+      "floor_after1s": 0.00017733817762790078,
+      "worst_floor_times": [
+        {
+          "post_elapsed": 5.0200000000000005,
+          "MSE": 0.013492348267227497
+        },
+        {
+          "post_elapsed": 5.015,
+          "MSE": 0.013301721350778032
+        },
+        {
+          "post_elapsed": 5.01,
+          "MSE": 0.012610831151989363
+        },
+        {
+          "post_elapsed": 5.005,
+          "MSE": 0.011718059824604499
+        },
+        {
+          "post_elapsed": 5.0,
+          "MSE": 0.01056729580507797
+        },
+        {
+          "post_elapsed": 5.025,
+          "MSE": 0.010542243943753056
+        },
+        {
+          "post_elapsed": 5.035,
+          "MSE": 0.010352800436924325
+        },
+        {
+          "post_elapsed": 5.04,
+          "MSE": 0.010345046098857176
+        },
+        {
+          "post_elapsed": 5.03,
+          "MSE": 0.010306568649092964
+        },
+        {
+          "post_elapsed": 4.995,
+          "MSE": 0.00910304212020284
+        }
+      ]
+    },
+    "straight_090": {
+      "loss": 0.0014606538558728337,
+      "gradient_norm": 0.02605627013669322,
+      "encoder_saturated_abs_ge_p99": 0.00076904296875,
+      "hidden_saturated_abs_ge_p99": 0.005472819010416667,
+      "residual_output_saturated_abs_ge_p99": 0.0,
+      "floor_first1s": 1.4586839542390288e-05,
+      "floor_after1s": 0.00018616564532648037,
+      "worst_floor_times": [
+        {
+          "post_elapsed": 4.79,
+          "MSE": 0.009513748677272952
+        },
+        {
+          "post_elapsed": 4.7700000000000005,
+          "MSE": 0.009066906212822147
+        },
+        {
+          "post_elapsed": 4.785,
+          "MSE": 0.00905683853299774
+        },
+        {
+          "post_elapsed": 4.78,
+          "MSE": 0.008421111432283968
+        },
+        {
+          "post_elapsed": 4.765,
+          "MSE": 0.008399658645549448
+        },
+        {
+          "post_elapsed": 4.775,
+          "MSE": 0.007735863204405437
+        },
+        {
+          "post_elapsed": 4.76,
+          "MSE": 0.0067038303207948196
+        },
+        {
+          "post_elapsed": 4.795,
+          "MSE": 0.006310871004470248
+        },
+        {
+          "post_elapsed": 7.37,
+          "MSE": 0.00600385391031465
+        },
+        {
+          "post_elapsed": 4.8,
+          "MSE": 0.005426701022684552
+        }
+      ]
+    }
+  },
+  "gradient_cosines": {
+    "left_full": [
+      1.0000000000000069,
+      0.8617455311388384,
+      0.8825761247753923,
+      0.8836853442866422
+    ],
+    "right_full": [
+      0.8617455311388384,
+      0.9999999999999973,
+      0.8860574877546683,
+      0.8907329376922949
+    ],
+    "straight_085": [
+      0.8825761247753923,
+      0.8860574877546683,
+      0.9999999999999934,
+      0.9415100120939467
+    ],
+    "straight_090": [
+      0.8836853442866422,
+      0.8907329376922949,
+      0.9415100120939467,
+      1.0000000000000124
+    ]
+  },
+  "current_mean_gradient_norm": 0.05666554618196935,
+  "stored_momentum_cos_current_gradient": -0.9963550960806566,
+  "stored_Adam_direction_cos_current_gradient": -0.6066182523603506,
+  "optimizer_updates": 0,
+  "physical_steps": 0,
+  "sources": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/diagnostics/gradient_review.py": "d061f6ef23b68e0f0b691e77a418740c6910c3d80a00563a678e5368c23cb329",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/TRAIN_FAST_1000/checkpoint_001000.pt": "3dd80394239504ec8b88f4cfe07c79569cf08329a9320c749c3c7b25035fda28"
+  },
+  "interpretation": "Current saved gradients and stored moments only, not causal proof of oscillation or future update outcome."
+}

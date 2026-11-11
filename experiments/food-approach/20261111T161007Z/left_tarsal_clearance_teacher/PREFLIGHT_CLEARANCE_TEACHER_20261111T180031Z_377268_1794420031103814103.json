@@ -1,0 +1,33 @@
+{
+  "status": "NUMPY_AST_PREFLIGHT_PASS",
+  "all_pass": true,
+  "checks": {
+    "partial_gain_accepted_without_reaching_safeheight": true,
+    "over_decision_trust_rejected": true,
+    "pad_error_rejected": true,
+    "pad_within_tolerance_accepted": true,
+    "joint_limit_rejected_not_clipped": true,
+    "nonfinite_rejected": true,
+    "no_gain_rejected": true,
+    "raw_qdot_includes_primary_and_secondary": true,
+    "original_clip2_exact": true,
+    "synthetic_nullspace_direction_preserves_linear_primary": true,
+    "reference_class_is_frozen_original": true,
+    "full2880_reference_commands_exact": true,
+    "only_ik_control_override": true,
+    "one_secondary_callsite_per_decision": true,
+    "primary_before_secondary_source_order": true,
+    "no_actual_qpos_qvel_assignments": true,
+    "helper_limits_exact": true,
+    "prime_activation_source": true,
+    "all_python_sources_parse": true,
+    "no_heavy_model_imports": true
+  },
+  "sourcehash_sha256": "ec72b56d10e07dfb922ee619f51581618a8889f3fcd0b5750171974fb345d608",
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+  "cpu_affinity": [
+    1
+  ],
+  "actual_Core_FK_physics": false,
+  "limitations": "Synthetic algebra/contracts and unchanged reference only. Actual class/helper/model geometry and dynamic tracking are not executed or qualified here."
+}

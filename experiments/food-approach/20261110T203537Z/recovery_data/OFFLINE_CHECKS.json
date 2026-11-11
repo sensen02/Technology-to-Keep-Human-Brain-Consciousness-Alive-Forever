@@ -1,0 +1,43 @@
+{
+  "all_passed": true,
+  "checks": {
+    "prime960_teacher": true,
+    "student120_decisions": true,
+    "recovery840_decisions": true,
+    "exact24_bursts": true,
+    "actual10600_endpoints": true,
+    "source_endpoint_counts": true,
+    "phase_excluded": true,
+    "48_exact_boundaries": true,
+    "time_clock": true,
+    "schedule_rejects_invalid": true,
+    "safe_full_admission": true,
+    "partial_never_admitted": true,
+    "stop_never_admitted": true,
+    "exception_never_admitted": true,
+    "slip_failure_rejected": true,
+    "nonfoot_failure_rejected": true,
+    "mock_state_continues_all_sources": true,
+    "mock_priming_state_preserved": true,
+    "teacher_query_every_decision": true,
+    "actual1920_decision_loop_present": true,
+    "actual_teacher_action_one_query_site": true,
+    "actual_neural_step_one_site": true,
+    "no_reset_in_decision_loop": true,
+    "no_physics_imports_during_checks": true,
+    "execution_guard_before_backend": true,
+    "future_exact_plan_binding": true,
+    "unregistered_seed_rejected": true,
+    "numpy_safe_json_scalar_contract": true
+  },
+  "physical_steps": 0,
+  "optimizer_updates": 0,
+  "backend_loaded": false,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/collect.py": "fca5e2dd4ba8f7b2ef60846ef8067c950ab861724c5fe6ebda1f784291701908",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/contract.py": "bff678d346f4fd0a036c8278cde52f3455ea5e66d88aba4443ac2ef85f9ce842",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/PREREG_DRAFT.json": "61f3ba87dd266fb1cc6e01cbbaba048ae37007f84b195e8f7ee3b605af8cfba8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/check_prepared.py": "1705bc4923f52011a519356930e64e2bdc9e00cc0ef4325327423e6df74ac546"
+  },
+  "limitation": "Preparation only. Mock continuity is not an actual physical/controller integration verification. No dataset has been collected or admitted."
+}

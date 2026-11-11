@@ -1,0 +1,63 @@
+{
+  "status": "COMPLETE",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/train/TRAIN/checkpoint_010000.pt",
+  "checkpoint_sha256": "3bac5af7aa5058a617383eb9deef4a848778d04ae47f66600ddd53788703344e",
+  "conditions": {
+    "neutral": {
+      "engineering_pass": false,
+      "integrity_all_pass": false,
+      "execution": {
+        "returncode": 1,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/evaluate_motor.py",
+          "--checkpoint",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/train/TRAIN/checkpoint_010000.pt",
+          "--sha256",
+          "3bac5af7aa5058a617383eb9deef4a848778d04ae47f66600ddd53788703344e",
+          "--condition",
+          "neutral",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/EVAL_neutral",
+          "--training-complete"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/EVAL_neutral.log"
+      }
+    },
+    "left": {
+      "engineering_pass": false,
+      "integrity_all_pass": false,
+      "status": "NOT_RUN_NEUTRAL_FAILED"
+    },
+    "right": {
+      "engineering_pass": false,
+      "integrity_all_pass": false,
+      "status": "NOT_RUN_NEUTRAL_FAILED"
+    }
+  },
+  "all_conditions_eligible": false,
+  "saved_trajectory_verification": false,
+  "readiness": {
+    "status": "CODE_READY_NO_PHYSICAL_EXECUTION",
+    "source_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/pipeline.py": "8949592dd3915d99e216d4037bc7ba9edafaba838a367999874d3edc167b8658",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/evaluate_motor.py": "70c2c6732828070dbe93df5cd8e848bfc7fda799d59ba78bd1642d841294de7d",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/verify_actual.py": "ebf4e795693cab608728424d5fe1287dc3ec6ce27ec25e458ca4846a72f5092e",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/EVAL_PREREG.json": "ee571de490c95a480efab704215a3400f718f2c69769a6446a306cb9671dd59c",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/check_prepared.py": "22860c94f198b0f2d08caa125a3239168cf2e58b11bc61b9bdd8b551fa12e8b3"
+    },
+    "checkpoint_step": 10000,
+    "conditions": [
+      "neutral",
+      "left",
+      "right"
+    ],
+    "max_concurrent_processes": 2,
+    "cpu_threads_per_process": 1,
+    "physics_integration_steps": 0,
+    "offline_readiness_sha256": "2ee1ce808f2c6b05a512f5c966e09bb8b3395c4afce7044ff01d68d86aa38fba"
+  },
+  "elapsed_s": 1.638465611031279,
+  "scope": "fixed10000 positive neural readout, measured neutral/right preservation; no switch/speed/food/native certification"
+}

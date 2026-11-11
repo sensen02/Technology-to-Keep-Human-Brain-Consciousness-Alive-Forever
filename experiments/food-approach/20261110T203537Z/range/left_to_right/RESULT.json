@@ -1,0 +1,493 @@
+{
+  "status": "MEASURED_NOT_FULL_NATIVE_CERTIFICATION",
+  "profile": "left_to_right",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "eligible": false,
+  "autonomous": {
+    "native_steps": 768000,
+    "sample_count": 9600,
+    "duration_s": 9.599000000318654,
+    "forward_speed_native_per_s": 0.07093227103699887,
+    "forward_signed_native_per_s": 0.07085130138968739,
+    "lateral_speed_native_per_s": 0.0033882393442539486,
+    "foot_support_mean": 1.0000510160562806,
+    "foot_support_min": 0.9959487817893918,
+    "nonfoot_force_max_W": 0.0,
+    "nonfoot_force_max_native": 0.0,
+    "com_height_min": 1.2556979146500176,
+    "free_fall_fraction": 0.0,
+    "per_leg_slip_ratio": {
+      "LF": 0.298705716063917,
+      "LH": 0.43325385565754043,
+      "LM": 0.42337120921850313,
+      "RF": 0.3480677971110925,
+      "RH": 0.5220005470783844,
+      "RM": 0.4758345199596387
+    },
+    "slip_ratio_max": 0.5220005470783844,
+    "slip_ratio_mean": 0.41687227418151274,
+    "com_start": 1.2758700233086573,
+    "com_end": 1.2760599506223758,
+    "com_xy_travel": 0.6808788697067549,
+    "slip_load_denominator_native": [
+      22116.349582777926,
+      56980.66801372125,
+      36991.26004913033,
+      20007.428171036543,
+      57473.4334115609,
+      41127.83913165888
+    ],
+    "slip_valid_per_leg": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slip_has_progress": true,
+    "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+    "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+    "sample_dt_s": 0.0010000000000331966,
+    "gates": {
+      "support": true,
+      "nonfoot": true,
+      "com": true,
+      "forward": true,
+      "slip": false
+    },
+    "all_gates": false,
+    "initial_heading_diagnostics": {
+      "status": "MEASURED",
+      "forward_signed_native_per_s": 0.07085130138968739,
+      "lateral_signed_native_per_s": 0.0033882393442539486,
+      "heading_world_xy": [
+        1.0,
+        0.0
+      ],
+      "gate_applied": false
+    },
+    "native_peak_summary": null,
+    "roadmap_D1_D8": {
+      "D1": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D2": {
+        "status": "UNKNOWN",
+        "reason": "native low-pass acceleration and autonomous window not supplied"
+      },
+      "D3": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D4": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D4b": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      },
+      "D5": {
+        "status": "UNKNOWN",
+        "reason": "same-run auxiliary window absent"
+      },
+      "D6": {
+        "status": "UNKNOWN",
+        "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+      },
+      "D7": {
+        "status": "UNKNOWN",
+        "reason": "native window and loading-leg threshold absent"
+      },
+      "D8": {
+        "status": "UNKNOWN",
+        "reason": "autonomous native window not supplied"
+      }
+    },
+    "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+    "window": {
+      "first_sample_s": 5.801000000052132,
+      "last_sample_s": 15.400000000370785,
+      "sample_count": 9600
+    }
+  },
+  "autonomous_cycles": {
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "all_legs_completed": true,
+    "events": [
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 6.546000000076863,
+        "start_time": 5.983000000058174,
+        "lift": 0.07740603431965934,
+        "advance": 0.33819329268012965,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5170000000171626,
+        "duration": 0.5630000000186897,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 7.335000000103055,
+        "start_time": 6.810000000085627,
+        "lift": 0.06027257892122572,
+        "advance": 0.267343584952233,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4910000000162995,
+        "duration": 0.5250000000174282,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 8.966000000157198,
+        "start_time": 8.380000000137745,
+        "lift": 0.08952898643500509,
+        "advance": 0.30433444790913367,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5380000000178597,
+        "duration": 0.5860000000194532,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 9.73000000018256,
+        "start_time": 9.199000000164933,
+        "lift": 0.05770119988922364,
+        "advance": 0.1887546861990672,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5020000000166647,
+        "duration": 0.5310000000176274,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 9.956000000190063,
+        "start_time": 6.762000000084034,
+        "lift": 0.1171932606773732,
+        "advance": 0.2759816841347966,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.149000000038142,
+        "duration": 3.194000000106029,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 11.339000000235973,
+        "start_time": 10.779000000217383,
+        "lift": 0.07725290537228846,
+        "advance": 0.3157756375666252,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5150000000170962,
+        "duration": 0.5600000000185901,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LF",
+        "time": 11.539000000242613,
+        "start_time": 9.149000000163273,
+        "lift": 0.1096202372336407,
+        "advance": 0.2717533174628406,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1560000000383752,
+        "duration": 2.3900000000793398,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 12.127000000262132,
+        "start_time": 11.599000000244605,
+        "lift": 0.06429953858389534,
+        "advance": 0.2824091448355337,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4940000000163991,
+        "duration": 0.5280000000175278,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 13.768000000316608,
+        "start_time": 13.185000000297254,
+        "lift": 0.0861499007294051,
+        "advance": 0.3221418225880074,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5350000000177602,
+        "duration": 0.5830000000193536,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 14.530000000341904,
+        "start_time": 14.003000000324409,
+        "lift": 0.05282082883062652,
+        "advance": 0.16106105644933066,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4970000000164987,
+        "duration": 0.5270000000174946,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 14.755000000349373,
+        "start_time": 11.553000000243077,
+        "lift": 0.11574340876462966,
+        "advance": 0.2609330356568432,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1520000000382424,
+        "duration": 3.2020000001062954,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "reason": "terminal",
+        "leg": "LF",
+        "time": 15.400000000370785,
+        "start_time": 13.95300000032275,
+        "lift": 0.10979277841082108,
+        "advance": 0.2827415598792591,
+        "unloaded_duration": 1.155000000038342
+      }
+    ],
+    "config": {
+      "weight": 24.446354755878005,
+      "dt": 0.001,
+      "gamma": 0.999000499833375,
+      "loaded": 0.1,
+      "unloaded": 0.05,
+      "ground": 0.004,
+      "clearance": 0.015,
+      "advance": 0.03,
+      "loaded_dwell": 0.01,
+      "unload_dwell": 0.005,
+      "timeout": 4.0,
+      "phi_cap": 0.05,
+      "completion_bonus": 0.1
+    },
+    "interpretation": "strict sensed cycle diagnostic; no actions generated"
+  },
+  "yaw": {
+    "whole_rad": -0.00887005955288634,
+    "first4p8_rad": 0.005348450305468964,
+    "second4p8_rad": -0.014218509858355304,
+    "requested_turns": [
+      0.5,
+      -0.5
+    ],
+    "criterion": "each4.8s signed >=.002rad including switching transient",
+    "passed": true,
+    "boundary_trace_indices": [
+      5799,
+      10599,
+      15399
+    ]
+  },
+  "boundaries": {
+    "handover": {
+      "time_s": 5.800000000052099,
+      "all_exact": true,
+      "exact": {
+        "qpos": true,
+        "qvel": true,
+        "ctrl": true,
+        "target": true,
+        "history": true,
+        "padz_previous": true,
+        "pad_rate": true,
+        "requested_rate": true,
+        "previous_actual_action": true,
+        "time": true,
+        "external_body": true,
+        "external_generalized": true,
+        "hidden": true
+      },
+      "before_sha256": {
+        "qpos": "981549b33535aefc12980af2d0fe9f5668b844c4ee701408f56e961b5d8ec68d",
+        "qvel": "a91edb77d2cb1f2e94a11948e80da2b569e21bf8fb9b27af7f18db61944775ca",
+        "ctrl": "d701d7ecec4a31c82858f6ccac52d24623158328d46898a6771bda03fb5afb5d",
+        "target": "26fe60681430e1f914ffbf195f4f22df23c946304020fcf8bbe50a59b0d97cad",
+        "history": "7ab8be3847c6d111bd3cb7ef4b9169bf3a50967ddc8942a9064c7217d074ed86",
+        "padz_previous": "71b5e5d89e35ae49d43d49fecff255fcc229ad317170883c65e826d1e2b73fc3",
+        "pad_rate": "d6750ab0767f4a02ba045a427ce61811be3bdbf8f055ad705553bd6cc1c6b81b",
+        "requested_rate": "6590e10c4a4f1acb29116f1c82bb03bf9e8671d205459998014c1188fe7d0c76",
+        "previous_actual_action": "655b6ec1ae24ad96d62ad2b73a2c9535c594b88c2ec795793dcd9740c9bfc0f0",
+        "time": "49f746bc5a396e7d6886c4891161a1c50107903acc4c2567f11228b8bfece67b",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "33900fb69f57db64c199b6653dd8607e9e996d14cd42a612f01f6a04579d9503"
+      },
+      "after_sha256": {
+        "qpos": "981549b33535aefc12980af2d0fe9f5668b844c4ee701408f56e961b5d8ec68d",
+        "qvel": "a91edb77d2cb1f2e94a11948e80da2b569e21bf8fb9b27af7f18db61944775ca",
+        "ctrl": "d701d7ecec4a31c82858f6ccac52d24623158328d46898a6771bda03fb5afb5d",
+        "target": "26fe60681430e1f914ffbf195f4f22df23c946304020fcf8bbe50a59b0d97cad",
+        "history": "7ab8be3847c6d111bd3cb7ef4b9169bf3a50967ddc8942a9064c7217d074ed86",
+        "padz_previous": "71b5e5d89e35ae49d43d49fecff255fcc229ad317170883c65e826d1e2b73fc3",
+        "pad_rate": "d6750ab0767f4a02ba045a427ce61811be3bdbf8f055ad705553bd6cc1c6b81b",
+        "requested_rate": "6590e10c4a4f1acb29116f1c82bb03bf9e8671d205459998014c1188fe7d0c76",
+        "previous_actual_action": "655b6ec1ae24ad96d62ad2b73a2c9535c594b88c2ec795793dcd9740c9bfc0f0",
+        "time": "49f746bc5a396e7d6886c4891161a1c50107903acc4c2567f11228b8bfece67b",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "33900fb69f57db64c199b6653dd8607e9e996d14cd42a612f01f6a04579d9503"
+      },
+      "no_reset": true
+    },
+    "halfway": {
+      "time_s": 10.600000000211441,
+      "all_exact": true,
+      "exact": {
+        "qpos": true,
+        "qvel": true,
+        "ctrl": true,
+        "target": true,
+        "history": true,
+        "padz_previous": true,
+        "pad_rate": true,
+        "requested_rate": true,
+        "previous_actual_action": true,
+        "time": true,
+        "external_body": true,
+        "external_generalized": true,
+        "hidden": true
+      },
+      "before_sha256": {
+        "qpos": "aafe3effe427c71e06bae483bcc1e872eb0a54441d18e91f2dabf44e77f440f1",
+        "qvel": "6efb8d40df075a1c74999dd749fba10e6c14f26f5c2541705f835991d6146687",
+        "ctrl": "d5f0e0962a17b933efce98fc0d5b15bc0758fa4931b02ddb7ede2edc23deabfe",
+        "target": "e13a379ee08600c554b4b75284317e579da91a6f7b689c8fdf2e6f89cd616bb8",
+        "history": "379a2863f62226ae61739b03a9364884a6ca916964ac396d9ec325f68982d970",
+        "padz_previous": "523cc8eef35ae2ea027b57be584a1e8f02b40c346063b8004fe2cc5e7871342d",
+        "pad_rate": "a8bc170fb5fd2baeafaa64d7543e66808d8f8cbe8f791e0aad2c92f1ab6c637c",
+        "requested_rate": "e3ed34b7b308aa79f8df4e335b138d4ae9d792d4d3c0fe21d510aba9f3a6b4b4",
+        "previous_actual_action": "c2e65c87edb68f2f3c31203d557e18b37051ba6929ca691af36427cf728c5af1",
+        "time": "65dda50546728eb29c3633002e6d86334e48c45b3d55fdf5f5be879984d99d80",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "26c02fea96c33470ae8d29e580174224b83dd36a8ba857b81c03f4d5014ff71d"
+      },
+      "after_sha256": {
+        "qpos": "aafe3effe427c71e06bae483bcc1e872eb0a54441d18e91f2dabf44e77f440f1",
+        "qvel": "6efb8d40df075a1c74999dd749fba10e6c14f26f5c2541705f835991d6146687",
+        "ctrl": "d5f0e0962a17b933efce98fc0d5b15bc0758fa4931b02ddb7ede2edc23deabfe",
+        "target": "e13a379ee08600c554b4b75284317e579da91a6f7b689c8fdf2e6f89cd616bb8",
+        "history": "379a2863f62226ae61739b03a9364884a6ca916964ac396d9ec325f68982d970",
+        "padz_previous": "523cc8eef35ae2ea027b57be584a1e8f02b40c346063b8004fe2cc5e7871342d",
+        "pad_rate": "a8bc170fb5fd2baeafaa64d7543e66808d8f8cbe8f791e0aad2c92f1ab6c637c",
+        "requested_rate": "e3ed34b7b308aa79f8df4e335b138d4ae9d792d4d3c0fe21d510aba9f3a6b4b4",
+        "previous_actual_action": "c2e65c87edb68f2f3c31203d557e18b37051ba6929ca691af36427cf728c5af1",
+        "time": "65dda50546728eb29c3633002e6d86334e48c45b3d55fdf5f5be879984d99d80",
+        "external_body": "e10c8cb376b41e426480944fa8de7a0e6796b32fbfb77e6c016529cb3a20e1f6",
+        "external_generalized": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+        "hidden": "26c02fea96c33470ae8d29e580174224b83dd36a8ba857b81c03f4d5014ff71d"
+      },
+      "no_reset": true
+    }
+  },
+  "source_counts_1ms": {
+    "0": 1000,
+    "2": 4800,
+    "3": 9600
+  },
+  "decisions": {
+    "total": 2880,
+    "teacher_prime": 960,
+    "autonomous": 1920
+  },
+  "teacher_calls": 960,
+  "teacher_calls_after_handover": 0,
+  "physical_steps": 1232000,
+  "extra_forces": false,
+  "trace": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/range/left_to_right/trace_1ms.npz",
+    "sha256": "c6da96ba8f94402eb9e5b18dc2735a0e49fadd97619639392c001c7c7603af17",
+    "samples": 15400
+  },
+  "neural_decisions_sha256": "7d42adb0aed628170019ddf898bc3fbb61157d1ebf2803049a19f08e84641054",
+  "geometry_sha256": "32d7b63597c17b7f2617eb00b9821b351ff8e297c058c57b960b802dc23c8597",
+  "identity_sha256": "cf0ba4b018d7a8a92f186b2e5020d6f74aa3ae7ec0a4178f3133cc92ef53aed8",
+  "geometry_diagnostic_only": {
+    "head_xyz": {
+      "whole_delta": [
+        0.679943938792584,
+        0.02520806626114996,
+        0.00029796463495079806
+      ],
+      "first4p8_delta": [
+        0.34265967227559524,
+        0.014106996259893728,
+        0.00025752164860715077
+      ],
+      "second4p8_delta": [
+        0.33728426651698873,
+        0.011101070001256232,
+        4.044298634364729e-05
+      ],
+      "autonomous_path_length_xy": 0.8894278369622455
+    },
+    "sensor_midpoint_xyz": {
+      "whole_delta": [
+        0.6800128102032139,
+        0.02014651890456573,
+        0.0003259952314287329
+      ],
+      "first4p8_delta": [
+        0.3425930779771009,
+        0.017158557643068867,
+        0.0003123033101621875
+      ],
+      "second4p8_delta": [
+        0.337419732226113,
+        0.002987961261496863,
+        1.3691921266545393e-05
+      ],
+      "autonomous_path_length_xy": 0.9385594072388541
+    }
+  },
+  "geometry_offsets": {
+    "forward": 0.5713176560335599,
+    "lateral": 0.4591571757690745
+  },
+  "scope": "Original1ms endpoint all5 gates+whole-window6cycles; fixed forward0; no native certification or food-success claim. Supplied command schedule is a neural input only; no scripted gait or physical support."
+}

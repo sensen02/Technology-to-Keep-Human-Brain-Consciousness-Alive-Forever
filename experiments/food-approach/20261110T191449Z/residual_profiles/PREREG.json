@@ -1,0 +1,12 @@
+{
+  "status": "PREPARED_NOT_EXECUTED_PARENT_SELECTION_REQUIRED",
+  "profiles": ["neutral", "halfleft", "halfright", "left_to_right", "right_to_left"],
+  "forward": 0.0,
+  "turns_first_second_4p8s": {"neutral":[0.0,0.0],"halfleft":[0.5,0.5],"halfright":[-0.5,-0.5],"left_to_right":[0.5,-0.5],"right_to_left":[-0.5,0.5]},
+  "windows": {"settle_s":1.0,"teacher_prime_s":4.8,"autonomous_s":9.6},
+  "gates": "Unmodified command_profiles evaluator: original whole-window all5 engineering gates and all6 sensed cycles. Neutral no directional criterion. Intermediate whole signed yaw>=.005rad. Switching each4.8s signed yaw>=.002rad including transient. All5 fixed profiles required, no best-profile selection.",
+  "state_adapter": "FlatResidualMotor: tensor(B,192) is cat(base128,residual64). Split slices[:128],[128:] and concatenate results, no reset/reordering/math changes.",
+  "loader": "Explicit residual_candidate.evaluate_candidate.load_checked(checkpoint,sha256), fixed500 source/data/identity/base checks preserved. checkpoint and digest mandatory CLI.",
+  "reuse": "Explicit in-memory pin_imports hook override in newly loaded original evaluator module. Only checked_motor.load_checked_motor return value and identity.capture proxy differ. No original file edits, no scoring/physics changes. Capture adds this script/flatwrapper/newprereg/originalprofileprereg/rootREVIEW.md and adapter declaration to runtime identity.",
+  "scope": "Profiles test highlevel neural commands only. No food/ingestion/native certification claims. Parent must qualify selected candidate before physical launch. Preparation performs offline neural forward checks only."
+}

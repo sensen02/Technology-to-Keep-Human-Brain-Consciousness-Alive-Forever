@@ -1,0 +1,41 @@
+{
+  "all_passed": true,
+  "checks": {
+    "entire_frozen_parent_exact": true,
+    "parent_parameters_frozen": true,
+    "only2730_new_parameters": true,
+    "complete_fresh_curve": true,
+    "optimizer_roundtrip_exact": true,
+    "exactly_two_new_Adam_states": true,
+    "fresh_counters_match_updates": true,
+    "moments_finite_nonnegative": true,
+    "fixed_optimizer_hyperparameters": true,
+    "RNG_exact_roundtrip": true,
+    "neutral_mean": true,
+    "neutral_action": true,
+    "neutral_dual_state": true,
+    "right_mean": true,
+    "right_action": true,
+    "right_dual_state": true,
+    "full_left_cached_vs_production_tol1e12": true,
+    "parent_both_left_states_exact": true,
+    "checkpoint_unchanged": true
+  },
+  "step": 2000,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt",
+  "sha256": "eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+  "left_postprime_action_MSE": 8.720976209497367e-05,
+  "output_max_error": 2.220446049250313e-16,
+  "physical_steps": 0,
+  "optimizer_updates": 0,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/verify_final.py": "de25d911419f00690bd18fb3d1414d83dcd6b1df9ea45f4387432c81b63bb6c5",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/model_io.py": "78cc416f642b8f996c01745afbde9b38efef3ed9274b4cd60167c6f11890c82e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/data.py": "bdcf1768be4e30359d1e9a31ce9756010d5b6a4a1123bd3b2594e9f56d36ce30"
+  },
+  "limitations": [
+    "curve starts1 notstep0; freshoptimizer scope explicit",
+    "constructorreload mayconsume RNG but no stochastic training operation inreadout loop; fulltraining replay not established",
+    "no actual physical qualification"
+  ]
+}

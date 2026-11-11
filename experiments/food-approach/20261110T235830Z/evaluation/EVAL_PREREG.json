@@ -1,0 +1,16 @@
+{
+  "status":"CODE_ONLY_NO_PHYSICAL_EXECUTION_AUTHORIZED",
+  "checkpoint_step":1500,
+  "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train/TRAIN/checkpoint_001500.pt",
+  "conditions":{"neutral":[0,0],"left":[0,1],"right":[0,-1]},
+  "command":"neutral0; postprime turn target multiplied smoothstep(clamp(elapsed/1s,0,1)); forward structural0; first postprime decision0, 1s target reached",
+  "timing":{"settle_ms":1000,"teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+  "physical":"original complete71opaque mesh/42finite PD/native12.5us/1ms target integration/5ms neural; no root writes, external body/generalized forces or adhesion",
+  "state":"Explicit tuple(base128,residual64), both preserved continuously; logging flatten192 only, no reset at withdrawal/command onset; HANDOVER hashes persist before first autonomous step",
+  "criteria":"Original all5 engineering gates and all6 sensed cycles and strict nonfoot force0 over FULL9.6s including ramp; left yaw>=.01rad, right yaw<=-.01rad; neutral no directional criterion",
+  "neutral":"All shared actual15400 physical arrays and actual2880 X/mean/policy/applied/source/basehidden128 bitexact to verified original2500; residual64 has no old counterpart and is independently replayed/chain checked",
+  "loader":"Lazy exact new train/model_io.py load_checked(checkpoint,sha) responsible for immutable training/data/architecture/fixed1500 identity; evaluator also binds exact absolute final checkpoint path and captures all train top-level Python/JSON sources",
+  "audit":"One load per NPZ; no Core construction or integration. Actual2880 checkpoint outputs/bothhiddenchain/actions, complete15400 sources/clock/forces/prefix, whole9600 summary+cycleevents, root yaw, derived eight observable HANDOVER fields including flattened192 hidden, geometry identity",
+  "execution":"Only explicit parent --training-complete plus exact final SHA may run; neutral then mirrored turns maximum2 processes CPU1. No additional profiles/speeds/food behavior. Optionalnative recorder only on explicit flag; separate fullnative audit remains required.",
+  "scope":"replacementANN/declared derived fullbody/finitePD ENGINEERING ONLY; not fullnativeD1-D8, food qualification, connectome or biological validity"
+}

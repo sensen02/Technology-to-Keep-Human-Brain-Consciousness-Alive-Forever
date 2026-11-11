@@ -1,0 +1,10 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"left":[0.3333333333333333,1.0]},
+ "checkpoint_step":4000,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"LEFT b=smoothstep(clip((decision-960)*.005,0,1)); [b/3,b]; neutral zeros; historical X238 targetspeed .075 remains constant; new nominalv=.075+.025b/yaw=.06b",
+ "acceptance":"Original worldX five gates unchanged + strict1ms/nativeNF0 + original all6 positiveX cycles + actual signed LEFT yaw>=30deg, unrounded, same9.6s ANN window",
+ "selection":"only fixed final4000; first LEFT then independent audit; neutral only on independently audited LEFTPASS; no physics at2000 or automatic retrial/budget expansion",
+ "audit":"full actual192hidden/means/actions/source/geometry/handover; all source paths exist and hashed before Core; neutral baseline all shared arrays exact; every native step lightweight NF/extra/COM summary; independent fresh process replay",
+ "excluded_claims":"not full native D1-D8, original connectome, biological or food success; no deployment teacher feedback; no rendering in this task"
+}

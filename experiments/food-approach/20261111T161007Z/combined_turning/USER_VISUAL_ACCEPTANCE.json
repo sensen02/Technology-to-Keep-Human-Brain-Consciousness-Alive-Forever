@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-11-11T20:42:28Z",
+  "authority": "Direct human answer to large_turn_visual_judgment question in this session",
+  "user_selected_exact": "接受当前效果",
+  "question_scope": "同一组合神经模型左右大角度实际视频的视觉裁定；选项明确保留严格工程失败项并结束本轮实施",
+  "visual_acceptance": true,
+  "bounded_implementation_accepted": true,
+  "engineering_qualified": false,
+  "historical_metrics_and_failures_unchanged": true,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/COMBINED.pt",
+  "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+  "left": {"yaw_deg": 29.65128828979569, "slip": 0.5780968089711384, "strict_engineering_pass": false},
+  "right": {"yaw_deg": -30.63293211627222, "slip": 0.5032961137641687, "strict_engineering_pass": false},
+  "source_summary": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/FINAL_SUMMARY.json",
+  "left_video": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度左转-同一神经模型-待你判定.mp4",
+  "right_video": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-同一神经模型-待你判定.mp4",
+  "next_human_message": "接下来做刺激吗？是吗",
+  "scope_boundary": "Acceptance concerns this bounded visual turning implementation. It does not retroactively pass numeric engineering thresholds, qualify continuous command changes/deceleration, prove food approach or establish biological/connectome validity. Next work is sensory stimulus response and subsequent embodied odor closed-loop testing under new scope."
+}

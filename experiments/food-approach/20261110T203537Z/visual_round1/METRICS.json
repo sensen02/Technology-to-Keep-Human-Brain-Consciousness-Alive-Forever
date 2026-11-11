@@ -1,0 +1,449 @@
+{
+  "status": "SAVED_ARRAY_COMPARISON_VERIFIED_NOT_FOOD_SUCCESS",
+  "physics_steps": 0,
+  "imports_physics_backend": false,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/RESULT.json": "6f3ede0da4ebabd63cebed5090e899b4b5abadf352fb68be08781603a4351a6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/TRACE_1MS.npz": "d9bf2cbae5e52a5177ff78afb857638d25701bf720d123881c057135dab7de01",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json": "18158276aca6daf62c97724f887c77e5668d64dbe7d1dc3a9a13575c7d60d143",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/TRACE_1MS.npz": "fbc24fc986d8ee8384852595cc7ca746be85b7ca914995eb0e586754c65e4ee3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_left/RESULT.json": "730158eba30a3c6b82c288e7475fa91fcaa1fe38248d97f8c9dbec5a1e9ba2ad",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_left/trace_1ms.npz": "fa10e7985b4291ada183aacf18c8dc6d4a548add93c8892f4366fb7a3d85eabc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_right/RESULT.json": "0aa907a756953568061c6ecbdc27970c52c67076d0ba132d16061173f305fefd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/EVAL_RESIDUAL500_right/trace_1ms.npz": "49ba9d34d470b8d66d7590df852054616f43e7998d992ba3bdd88678b96275f3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_neutral/RESULT.json": "5401045bb7058f2f3b68428153273d764acb20920e68e93781ac8cdaef3991c9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_neutral/trace_1ms.npz": "9112d2c8041b52d033c5c674d2633f163e4f0e1201086eca05cf881fbb8dd968",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_left/RESULT.json": "60d99ddb855c24cc81b8b22d72d2dd329abacbdaa4a0ef8adcb3ffa2a5281434",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_left/trace_1ms.npz": "30a86e23442a4551cce42e2b2940c85dfd63411b613200154c71ed3fa97db363",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_right/RESULT.json": "5fd9b03e858013205d179ec8080656084c44e27374143e7322a0cfc2c61c2390",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_FAST_right/trace_1ms.npz": "aee8ca3d028b797c16aeb290ab41436b27bbbb443129a99b0b8b000e71da812d"
+  },
+  "script_sha256": "0b86384b54d5ac17a86bbfcdb96a003b589211226ff8f3c1bd9ef6821fc573f4",
+  "all_traces_hashes_and_saved_summary_recomputed": true,
+  "cases": {
+    "Teacher left [algorithm PASS]": {
+      "kind": "algorithm teacher",
+      "reported_status": "TEACHER_ENGINEERING_ONLY",
+      "all_five": true,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "all_six": true,
+      "signed_forward": 0.071619735506764,
+      "slip_denominator_net_xy_speed": 0.07162064860670896,
+      "net_com_xy_delta": [
+        0.6874778411522495,
+        -0.0034715057462378815
+      ],
+      "integrated_com_path_length": 0.8488323602075776,
+      "yaw_change_rad": 0.06128379927762624,
+      "foot_load_mean_W": 1.000048583907432,
+      "foot_load_min_W": 0.9954520824447,
+      "COM_min": 1.25596011923719,
+      "max_slip": 0.47477338138513653,
+      "max_slip_leg": "RH",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.018985327550539857,
+        "LH": 0.027079556935726133,
+        "LM": 0.027813664253588794,
+        "RF": 0.023130474442777032,
+        "RH": 0.03400357751600388,
+        "RM": 0.03050670631141936
+      },
+      "per_leg_slip": {
+        "LF": 0.26508175951874074,
+        "LH": 0.37809706366146334,
+        "LM": 0.3883470031990661,
+        "RF": 0.32295818165224377,
+        "RH": 0.47477338138513653,
+        "RM": 0.4259484786146113
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.7161666319337507,
+        "LH": 0.9589778057491801,
+        "LM": 0.9101322030908048,
+        "RF": 0.6091209455987172,
+        "RH": 0.9598771014897098,
+        "RM": 0.95824791411376
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "d9bf2cbae5e52a5177ff78afb857638d25701bf720d123881c057135dab7de01",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Teacher right [algorithm PASS]": {
+      "kind": "algorithm teacher",
+      "reported_status": "TEACHER_ENGINEERING_ONLY",
+      "all_five": true,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "all_six": true,
+      "signed_forward": 0.07213916046742523,
+      "slip_denominator_net_xy_speed": 0.0724714264918917,
+      "net_com_xy_delta": [
+        0.6924638013498022,
+        0.0665378867822087
+      ],
+      "integrated_com_path_length": 0.8574952223400802,
+      "yaw_change_rad": -0.07851230150692697,
+      "foot_load_mean_W": 1.0000535453536896,
+      "foot_load_min_W": 0.9963925914938662,
+      "COM_min": 1.2560357587625153,
+      "max_slip": 0.4482804923849356,
+      "max_slip_leg": "RH",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.019619538612419066,
+        "LH": 0.029004920285931133,
+        "LM": 0.02960830189134225,
+        "RF": 0.02243120853132661,
+        "RH": 0.03248752675162388,
+        "RM": 0.02946419180961917
+      },
+      "per_leg_slip": {
+        "LF": 0.270721021541009,
+        "LH": 0.40022560186774137,
+        "LM": 0.4085513881067997,
+        "RF": 0.30951796614402605,
+        "RH": 0.4482804923849356,
+        "RM": 0.4065628791357612
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.7160470006179622,
+        "LH": 0.9612901210857757,
+        "LM": 0.9169942695042776,
+        "RF": 0.6358239785277914,
+        "RH": 0.9580803808073588,
+        "RM": 0.95842139929211
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "fbc24fc986d8ee8384852595cc7ca746be85b7ca914995eb0e586754c65e4ee3",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Residual500 left [neural FAIL]": {
+      "kind": "neural",
+      "reported_status": "RECOVERED_COMPLETED_RUN_AFTER_JSON_NUMPY_BOOL_FAILURE",
+      "all_five": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "all_six": true,
+      "signed_forward": 0.072141252364763,
+      "slip_denominator_net_xy_speed": 0.0721412691069319,
+      "net_com_xy_delta": [
+        0.6924838814723481,
+        -0.0004717791166042682
+      ],
+      "integrated_com_path_length": 0.8499850678071287,
+      "yaw_change_rad": 0.06925241056558815,
+      "foot_load_mean_W": 1.0000492151225993,
+      "foot_load_min_W": 0.995276564185541,
+      "COM_min": 1.2553370673965851,
+      "max_slip": 0.5396644403870411,
+      "max_slip_leg": "RH",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.023784031700260923,
+        "LH": 0.03393786405549183,
+        "LM": 0.03342323155769513,
+        "RF": 0.02948379613490012,
+        "RH": 0.03893207762140334,
+        "RM": 0.03728471878599247
+      },
+      "per_leg_slip": {
+        "LF": 0.32968690452349647,
+        "LH": 0.4704361938128257,
+        "LM": 0.4633025170121877,
+        "RF": 0.4086952794134735,
+        "RH": 0.5396644403870411,
+        "RM": 0.5168292608039226
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.7075651484173802,
+        "LH": 0.9658550749076732,
+        "LM": 0.9225932247395127,
+        "RF": 0.627751173402592,
+        "RH": 0.9706251580592568,
+        "RM": 0.9668776758637045
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "fa10e7985b4291ada183aacf18c8dc6d4a548add93c8892f4366fb7a3d85eabc",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Residual500 right [neural FAIL]": {
+      "kind": "neural",
+      "reported_status": "MEASURED_NOT_FULL_NATIVE_CERTIFICATION",
+      "all_five": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "all_six": true,
+      "signed_forward": 0.07230641957676262,
+      "slip_denominator_net_xy_speed": 0.07260733973928087,
+      "net_com_xy_delta": [
+        0.6940693215403851,
+        0.06338791209960788
+      ],
+      "integrated_com_path_length": 0.8602231196112313,
+      "yaw_change_rad": -0.08055196670151976,
+      "foot_load_mean_W": 1.000052593994749,
+      "foot_load_min_W": 0.9956484097514415,
+      "COM_min": 1.2556114227329698,
+      "max_slip": 0.5151628633704957,
+      "max_slip_leg": "RH",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.02432241101291411,
+        "LH": 0.03388063453405518,
+        "LM": 0.034364369143918,
+        "RF": 0.024086749395464718,
+        "RH": 0.03740460504180231,
+        "RM": 0.031962968232397644
+      },
+      "per_leg_slip": {
+        "LF": 0.3349855689555802,
+        "LH": 0.466628231466875,
+        "LM": 0.4732905690707566,
+        "RF": 0.3317398693018591,
+        "RH": 0.5151628633704957,
+        "RM": 0.44021676523572656
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.689339768886427,
+        "LH": 0.9667234526860555,
+        "LM": 0.9314965472489892,
+        "RF": 0.6576855566021256,
+        "RH": 0.9644817150875427,
+        "RM": 0.9692056594795387
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "49ba9d34d470b8d66d7590df852054616f43e7998d992ba3bdd88678b96275f3",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Fast1000 neutral [neural PASS]": {
+      "kind": "neural",
+      "reported_status": "ENGINEERING_ONLY_NOT_FULL_NATIVE_CERTIFICATION",
+      "all_five": true,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "all_six": true,
+      "signed_forward": 0.0713185963743811,
+      "slip_denominator_net_xy_speed": 0.07138537650385153,
+      "net_com_xy_delta": [
+        0.6845872066204101,
+        0.02963245626314475
+      ],
+      "integrated_com_path_length": 0.8382347577954731,
+      "yaw_change_rad": -0.006677607974098788,
+      "foot_load_mean_W": 1.0000510230455129,
+      "foot_load_min_W": 0.9963244532333562,
+      "COM_min": 1.2561645312905225,
+      "max_slip": 0.49278883265360646,
+      "max_slip_leg": "RH",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.02131271796152741,
+        "LH": 0.030688074488794074,
+        "LM": 0.029579119269477403,
+        "RF": 0.023514478092421583,
+        "RH": 0.03517791635587118,
+        "RM": 0.032070828068539094
+      },
+      "per_leg_slip": {
+        "LF": 0.2985585984879901,
+        "LH": 0.42989301159094295,
+        "LM": 0.41435824419699585,
+        "RF": 0.3294018921529801,
+        "RH": 0.49278883265360646,
+        "RM": 0.4492632754666321
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.7058161232439315,
+        "LH": 0.9653441645767117,
+        "LM": 0.9177714344180612,
+        "RF": 0.6271136983201975,
+        "RH": 0.9628605990132848,
+        "RM": 0.964115802533048
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "9112d2c8041b52d033c5c674d2633f163e4f0e1201086eca05cf881fbb8dd968",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Fast1000 left [neural FAIL]": {
+      "kind": "neural",
+      "reported_status": "ENGINEERING_ONLY_NOT_FULL_NATIVE_CERTIFICATION",
+      "all_five": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": false,
+        "slip": false
+      },
+      "all_six": false,
+      "signed_forward": -0.012405772297203478,
+      "slip_denominator_net_xy_speed": 0.04645358640325568,
+      "net_com_xy_delta": [
+        -0.11908300828480933,
+        0.4297128810133184
+      ],
+      "integrated_com_path_length": 5.4109331470121695,
+      "yaw_change_rad": 0.07455061475242405,
+      "foot_load_mean_W": 0.9999782487382838,
+      "foot_load_min_W": 0.9385775971441346,
+      "COM_min": 1.2088808998627942,
+      "max_slip": 23.696004272842355,
+      "max_slip_leg": "RM",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.22474296381385322,
+        "LH": 0.547298796601654,
+        "LM": 0.2806397755320499,
+        "RF": 0.19457904717300423,
+        "RH": 0.37266501739226654,
+        "RM": 1.100764381900398
+      },
+      "per_leg_slip": {
+        "LF": 4.838011038865714,
+        "LH": 11.781626328065315,
+        "LM": 6.041294058457915,
+        "RF": 4.188676531536158,
+        "RH": 8.02230885161858,
+        "RM": 23.696004272842355
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.4075961192754144,
+        "LH": 1.0,
+        "LM": 0.9169796800103136,
+        "RF": 0.6280399641774823,
+        "RH": 0.9687216977127582,
+        "RM": 0.9872216984708717
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "30a86e23442a4551cce42e2b2940c85dfd63411b613200154c71ed3fa97db363",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    },
+    "Fast1000 right [neural FAIL]": {
+      "kind": "neural",
+      "reported_status": "ENGINEERING_ONLY_NOT_FULL_NATIVE_CERTIFICATION",
+      "all_five": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": false,
+        "slip": false
+      },
+      "all_six": false,
+      "signed_forward": 0.03210604688778235,
+      "slip_denominator_net_xy_speed": 0.032303579206591826,
+      "net_com_xy_delta": [
+        0.30818594408605343,
+        -0.034238951882574385
+      ],
+      "integrated_com_path_length": 0.7615205299029625,
+      "yaw_change_rad": -0.030732234293533143,
+      "foot_load_mean_W": 1.0000521442795725,
+      "foot_load_min_W": 0.9880005929837828,
+      "COM_min": 1.2479952107110173,
+      "max_slip": 3.473566622754513,
+      "max_slip_leg": "LF",
+      "per_leg_load_weighted_tangent_speed": {
+        "LF": 0.11220863452752407,
+        "LH": 0.07853054067711257,
+        "LM": 0.041730799479841506,
+        "RF": 0.05354740065872975,
+        "RH": 0.09966664271020659,
+        "RM": 0.04480436668970244
+      },
+      "per_leg_slip": {
+        "LF": 3.473566622754513,
+        "LH": 2.431016704832749,
+        "LM": 1.2918320664394358,
+        "RF": 1.6576305775987492,
+        "RH": 3.0853126854088275,
+        "RM": 1.3869784027077632
+      },
+      "per_leg_loaded_numerator_share": {
+        "LF": 0.8687408439791112,
+        "LH": 0.9830085945809868,
+        "LM": 0.9271116129894899,
+        "RF": 0.6287536341574457,
+        "RH": 0.9610200995719153,
+        "RM": 0.9575977356520075
+      },
+      "nonfoot_peak": 0.0,
+      "trace_sha256": "aee8ca3d028b797c16aeb290ab41436b27bbbb443129a99b0b8b000e71da812d",
+      "window": "all9600 posthandover endpoints; ratio duration9.599s",
+      "extra_forces_zero": true
+    }
+  },
+  "comparisons": {
+    "left": {
+      "fast_signed_forward_negative": true,
+      "denominator_ratio_fast_to_teacher": 0.6486060557528127,
+      "per_leg_numerator_ratio_fast_to_teacher": {
+        "LF": 11.837718533724352,
+        "LH": 20.21077368070233,
+        "LM": 10.089996520175832,
+        "RF": 8.412237615548156,
+        "RH": 10.959582626765396,
+        "RM": 36.082701641519286
+      },
+      "per_leg_numerator_ratio_fast_to_prior": {
+        "LF": 9.4493215719767,
+        "LH": 16.126495047147497,
+        "LM": 8.396548222681878,
+        "RF": 6.599524914726976,
+        "RH": 9.572184177178096,
+        "RM": 29.52320461952754
+      }
+    },
+    "right": {
+      "fast_signed_forward_negative": false,
+      "denominator_ratio_fast_to_teacher": 0.4457422845154847,
+      "per_leg_numerator_ratio_fast_to_teacher": {
+        "LF": 5.719229016756621,
+        "LH": 2.70749031209039,
+        "LM": 1.4094290051819551,
+        "RF": 2.3871830438358863,
+        "RH": 3.0678433440681903,
+        "RM": 1.5206378976624488
+      },
+      "per_leg_numerator_ratio_fast_to_prior": {
+        "LF": 4.613384522938384,
+        "LH": 2.317859206508587,
+        "LM": 1.2143624492296916,
+        "RF": 2.223106147681852,
+        "RH": 2.664555409656699,
+        "RM": 1.4017586340522894
+      }
+    }
+  },
+  "explanation": "Original slip denominator is nonnegative norm(net XY displacement)/duration, not signed world-X progress. Negative forward causes forward gate failure, not a negative slip denominator. Numerator and denominator are quantified independently.",
+  "plot": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/visual_round1/ACTUAL_NEURAL_TURN_COMPARISON.png",
+  "plot_sha256": "bcb43abf21cd8d563dd0a9860e68d0e92d61ac4758e97cb3aae0b0aa600f5e02",
+  "scope": "1ms endpoint engineering evidence, not full native D1-D8 or physiological validity"
+}

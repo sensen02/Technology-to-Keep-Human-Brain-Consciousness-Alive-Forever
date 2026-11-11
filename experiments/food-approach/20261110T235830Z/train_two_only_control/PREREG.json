@@ -1,0 +1,19 @@
+{
+ "status":"REGISTERED_BEFORE_CONTROL_OPTIMIZATION_AND_FINAL1500_PHYSICS",
+ "kind":"Budget-matched original-two-only slow residual continuation control",
+ "root_amendment":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/TWO_TRAJECTORY_CONTROL_AMENDMENT.json",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+ "parent_sha256":"040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+ "fixed_start_step":500,"fixed_end_step":1500,"additional_updates":1000,
+ "sole_comparison_difference":"Original2 qualified actual fullturn teacher episodes used inloss, no corrective data loaded orused. Equal2 postprime means. Primary uses4 trajectories. Sameparent/lr/budget/architecture and validatedsharedparameter TorchScript scan.",
+ "data":"Original left_full/right_full SAMPLES_5MS.npz only,2880actualX238/Y42/command2each,960neutralprime+1920post. Originalall5/all6/strictNF0 andsamplehashchecks required. No speed examples. No phase/time/source features.",
+ "architecture":"Originalclass identity unchanged: frozenbase151636 plus43242slowGRU64 adapter, alpha/bound.5/gatenorm unchanged, explicitbase128+residual64state. No std/range/architecture change.",
+ "optimizer":"Actual8 Adamstate tensors,counter500,moments/model/RNG/full0..500curve preserved. Soledeclaredlrchange .001->.0003 exactly sameasprimary. RecordRESUME_STATE beforetraining andexactresume checks; noresetmoments.",
+ "preflight":"Actualfull2880productionmeans/bothstatehistories vssequentialcached/batch2/script; all8adapter gradients<=1e-12. Sameoriginalparameterobjects, validalltrue. One temporaryoptimizerunitstep only, no persistenttrainedartifact. Neutral2880means/actions/basehidden bitexact before/afterunitupdate.",
+ "saves":[1000,1500],"physical_eval_only_step":1500,
+ "independent_verification":"Newprocess savedweights/all8Adamstates/counters/RNG/fullcurve/parentprefix/resumestate/frozenbase/neutral/nonzeroinference exact everycheckpoint. Intermediate1000 onlyintegrity, neverphysicallyselected.",
+ "execution":"CPUfloat64 threads1,fixed1000extra updates,wallcap4h,allmanagedjobscollected. Actualphysics forbidden inthis task untilparentcoordinates max2processes andexplicitauthorization.",
+ "future_physics":"Final1500 neutral+left/right1ssmoothramp, same1ssettle+4.8teacherprime+9.6ANN, continuousbothmemories, originalall5/all6/strictNF0/yawabs.01 unchanged;71opaque42finitePD/native12.5us/noadhesion/extraforce/rootwrites. Parentauthorizes separately.",
+ "causality":"Both1500candidates andparent500 namedbeforeresults. Samebudget/lr andphysics comparedataeffect, batch2vs4rounding documented. Doesnotproveallfailuremechanisms.",
+ "not_claimed":["foodapproach","safecorrectivetrajectories","bodyinfeasibility","originalconnectome","fullnativecertification"]
+}

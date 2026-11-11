@@ -1,0 +1,11 @@
+{
+ "status":"REGISTERED_RECOVERY_OF_SAME_FIXED_CEM_BUDGET",
+ "original_job":"bash-25 handle unavailable after interrupted tool/session",
+ "observed_processes":"No surviving043404pipeline/evaluator process",
+ "cause":"GEN03_EXECUTION_ERRORS.json records BrokenPipeError32 while printing final candidate2/3 records after complete actualeval+independentaudit, all their RESULT/VERIFY files exist and all92checks pass. The stdout stream interruption is not a physical failure or invalid optimizer measurement.",
+ "saved_complete_actual_cases":12,
+ "remaining_registered_actual_cases":4,
+ "recovery":"Run unchanged originalpipeline.py with stdout/stderr redirected to new regular RECOVERY_PIPELINE.log. Its existing saved-result branch rechecks checksum/checkpoint/integrity and reuses all12 completed cases without new integration; CEMseed/proposals/updates rederive same exact state and continue original generation4 only. No newgen/candidate/range/criteria added.",
+ "preserved":"Alloldcode/proposals/frozencheckpoints/RESULT/audits/GEN03_EXECUTION_ERRORS andoldprogress remain historical; existinggeneration-result records may be deterministicallyrewritten byteidentically onreuse. MutableLIVE_PROGRESS not captured.",
+ "scope":"Same <=16 actualLEFTbudget withsource/score unchanged, no claimed oldterminal exitcode. New managedrecoveryjob terminal code collected independently."
+}

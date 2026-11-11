@@ -1,0 +1,17 @@
+{
+  "status": "REGISTERED_FOR_ACTUAL_DIAGNOSTIC_AFTER_FIVE_STEP_CONDITIONS_COMPLETE",
+  "human_authority": "Userauthorizedfirstfoodapproach implementation anddirect继续; currentgoal revision2activearmed",
+  "objective": "Isolate training/deploymentcommand-onset mismatch with actual matched1s ramp, without any modeltraining/physical/gate change",
+  "prerequisite": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/RECOVERY_FINAL3000_SUMMARY.json COMPLETE all5 savedtrajectoryverified,neutraleligible,other4ineligible; parentactuallyread finalstatusbeforelaunch",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+  "checkpoint_sha256": "17fd103492007dc4de4ae9832fa39e4098cef980c4bebb03425c99f7c2f093a8",
+  "neutral_reference": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/RECOVERY_EVAL_neutral/RESULT.json",
+  "neutral_reference_sha256": "103e80ebe789592b1b231e1f3a9d30b441477d505d08369401c50e971f3fc9e1",
+  "neutral_audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/RECOVERY_VERIFY_ACTUAL_neutral.json",
+  "conditions": ["left", "right", "speed085", "speed090"],
+  "command_only_change": "Forpostprime elapsed t, multiplyfixedcommand bysmoothstep(clamp(t/1s,0,1)); exactlyteachertrainingramp; no newphase/gait/forces/rootwrites. Allfour registeredbeforeexecution, no additionalrampdurations",
+  "unchanged": "1ssettle+4.8teacherprime+full9.6ANN, originalall5/all6/strictNF0/turnsignabs.01/speed<=.95qualifiedneutral; same checkpoint/model/physics/PD/native12.5us/71opaque, continuoushandover and no teacherduringANN",
+  "identity": "ExistingcodeonlyEVAL_PREREG.json preservedashistoricalpreparation. Newparent invocationmanifest binds thisLAUNCH_PLAN SHA+READINESS SHA+exactCLI+oldfinalsummarySHA. Eval capturesallfrozenold/newsource separately; neutral equivalence explicitlyzero-commandmath notsame-sourcepretence.",
+  "resources": "Exactly4actualruns CPU1max2concurrent, savedactualoutput/hiddenchain/fulltrace/gates/cyclesauditfor each; all managedjobscollected",
+  "scope": "Diagnosticonly. Even if fixedramp conditionspass, nofooddeployment/holdoutbehavior/nativeD1D8claim; abruptfailuresremainFAIL. Ifbothonsetvariantsfail, do not conclude bodyimpossible; nextcontrolledactualstudent-state collection may beappropriate."
+}

@@ -1,0 +1,17 @@
+{
+ "status":"DRAFT_DO_NOT_EXECUTE",
+ "note":"Copy to scoped RUN_PLAN.json and register ONLY after parent explicitly authorizes actual selected native recording and all three matched engineering cases pass. This template is never readiness or proof.",
+ "engineering_summary":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/FINAL_SUMMARY.json",
+ "engineering_summary_sha256":null,
+ "checkpoint":null,
+ "checkpoint_sha256":null,
+ "engineering_checkpoint_sha256":null,
+ "selection_sha256":null,
+ "condition":"left",
+ "native_runs":1,
+ "native_samples":1232000,
+ "methods_sha256":null,
+ "preparation_source_hashes":{},
+ "registration_rule":"Actual status must be REGISTERED_SELECTED_LEFT_NATIVE with complete current seven code/method hashes from CODE_PREPARATION.json. Checkpoint must equal FINAL_SUMMARY selected_checkpoint and selected_checkpoint_sha256; selected_all_three_pass true, SELECTED.json immutable proof and raw neutral/left/right result/audit hashes must all pass. No selected candidate exists at CODEONLY preparation time.",
+ "resource_rule":"Check >=12GiB free; exactly one native LEFT recording only, never all CEM candidates. Rendering is a separate explicit --render-authorized action after native audit PASS and does not establish whole goal."
+}

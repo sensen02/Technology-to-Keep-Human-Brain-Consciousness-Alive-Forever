@@ -1,0 +1,14 @@
+{
+ "model_global_start":500,
+ "model_global_end":1500,
+ "model_lineage_additional_updates":1000,
+ "old_completed_updates_documented_in_flushed_log":599,
+ "old_validated_checkpoint_updates_after_parent500":500,
+ "old_logged_but_unsaved_updates":99,
+ "new_recovery_updates_registered":500,
+ "documented_production_update_count_after_completion":1099,
+ "possible_old_unlogged_tail_updates":"UNKNOWN; no surviving process or state can establish whether an optimizer step occurred between lastlogflush and interruption",
+ "discarded_preflight_optimizer_unit_updates":1,
+ "precision_note":"Frozen recovery runner's actual_production_optimizer_updates=1099 field counts originalflushedlogged599 + newregistered500 only. Treat it as documented compute, not a proof of an unobservable interrupted tail. This clarification does not edit captured code, checkpoint state, data or budget.",
+ "selection":"Onlyglobal1500 physicallyselected; durabilitysnapshots and99replayedupdates never expand the model-step budget."
+}

@@ -1,0 +1,21 @@
+{
+  "status":"CODE_ONLY_BUDGET_MATCHED_TWO_TRAJECTORY_CONTROL",
+  "checkpoint_step":1500,
+  "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+  "conditions":{"neutral":[0,0],"left":[0,1],"right":[0,-1]},
+  "command":"forward structural0; turn fixed1s smoothstep after withdrawal; no additionalprofiles",
+  "timing":{"settle_ms":1000,"teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+  "criteria":"Unchanged originalall5/all6/strictnonfoot0/full9.6window and signed wholeturn yaw>=.01. Neutralactual+auditedfirst beforeleft/right.",
+  "data_identity":"Different training data identity from corrective primary. SameoriginalResidualMotor equations/parent500/lr.0003/1000extra fixedupdates, ONLYoriginal2qualifiedteachertrajectories, no corrective loss. Strict actualcontrolmodel_io must enforce kind/episode_names/count.",
+  "source_binding":"Frozenprimary evaluator/auditor/pipeline derived read-only with only kind metadata and scoped HERE/TRAIN/CHECKPOINT/source_paths bindings. Samephysics loop/scoring/audit code. NewTWO_TRAJECTORY_CONTROL_AMENDMENT andown training PY/JSON captured; not primary training sources. No assertion of identical training or execution identity.",
+  "frozen_primary_sources":{
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py":"2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py":"1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/pipeline.py":"1fc04fe8db4fbffb15c5dc4a74c434b6db8681080b5733ca568d8dd2d1918ae5",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/check_prepared.py":"e77e5f92b60e28e5beeb7f651c99ede4e3dd84620545ec85850b7a3fcfbe2c0f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/EVAL_PREREG.json":"8eb400260016c9440f7f3361ea412e6275b8159d5c6f21c5c3c9fa7d436fe451",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/READINESS.json":"cde826be870bce52f77ba123b41144c776629571fc6d045d797edd859daf50f0"
+  },
+  "execution":"No actualrun until parent training-complete/finalcontrolSHA/resourcecoordination; ownfreshEVAL_neutral/left/right only, maximum2CPU1 processes. Same complete15400 endpoints/2880 decisions/192memory/noextra/adhesion/rootwrites. Optional individualnative recording remains separatefromfullnativecertification.",
+  "scope":"Engineering budgetmatched control only, notfood qualification or causal proof of everyfailure mechanism; frozenprimary sources unchanged."
+}

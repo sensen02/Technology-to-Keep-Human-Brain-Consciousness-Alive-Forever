@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "managed_job": "bash-231",
+  "exit_code": 0,
+  "collected": true,
+  "command": ["/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python", "-B", "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/feature_conditioning/analyze.py"],
+  "environment": {"OPENBLAS_NUM_THREADS":"1", "OMP_NUM_THREADS":"1"},
+  "physical_steps": 0,
+  "optimizer_steps": 0,
+  "saved_candidate_checkpoints": 0,
+  "source_data_checkpoint_before_after_hashes": "DIAGNOSIS.json source_and_data_hashes, verified unchanged",
+  "equivalence_checks_passed": 6,
+  "rows_checked": 11520,
+  "training_statistics_rows": 7680,
+  "recommendation": "Controlled same-function normalization training comparison is justified by scale heterogeneity, not saturation; no improved fitting or actual control established. Optimizer-coordinate policy must be declared, not silently copy Adam moments."
+}

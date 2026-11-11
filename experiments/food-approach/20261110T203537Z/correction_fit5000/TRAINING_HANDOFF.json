@@ -1,0 +1,19 @@
+{
+ "status":"FIXED5000_TRAINING_AND_ALL5_ACTUAL_COMPLETE_ONLY_NEUTRAL_ELIGIBLE",
+ "new_scope":"explicitly authorized failed-state valid-label corrective supervision; not retroactive safety admission",
+ "source_dataset_safety_admitted":[false,false],
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+ "parent_sha256":"17fd103492007dc4de4ae9832fa39e4098cef980c4bebb03425c99f7c2f093a8",
+ "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/TRAIN/checkpoint_005000.pt",
+ "checkpoint_sha256":"ddc8d87fa346400ce23b837f3ecc32aa195293fb61f42a69dd3928061f9f5304",
+ "training_job":{"id":"bash-233","exit_code":0,"collected":true,"additional_updates":2000,"global_step":5000,"wall_s":231.02219972305465},
+ "preflight":{"path":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/PREFLIGHT.json","checks_passed":16,"actual_cached_hidden_exact":true,"max_mean_error":1.1934897514720433e-15,"max_gradient_error":2.710505431213761e-19,"physical_steps":0,"optimizer_updates":0},
+ "saved_verification":{"4000":{"checks_passed":24,"path":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/TRAIN/VERIFY_004000.json"},"5000":{"checks_passed":24,"path":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/TRAIN/VERIFY_005000.json"}},
+ "resume":"RESUME_STATE.pt+RESUME_CHECKS.json preserveexactallparentweights/Adam6moments+counters3000/RNG/full0..3000curve; lr.0001 unchanged; noarchitecture/gate/bound/feature/scalingchange",
+ "objective":"six equal trajectory means (4original1920postrows and2corrective960postrows), correctivetotalweight1/3; validteacherlabelsALLcorrectivepostrows; original safetyFALSE immutable",
+ "eval_offline_readiness":{"all_passed":true,"checks":33,"physics_steps":0,"source_freeze":"fouractualwrapper/prereg files separately captured peractualrun; old16sources frozen"},
+ "independent_review":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/INDEPENDENT_LEARNING_REVIEW.md: no substantive actualimplementationbug,48source/datahashesmatch; datasetcausalitynotprovenwithoutbudgetmatchedold4control",
+ "actual_pipeline":{"id":"bash-234","owner":"9311af13-452e-425a-a77b-5d030297adef","conditions":["neutral","left","right","speed085","speed090"],"summary":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/FINAL5000_SUMMARY.json","command":"exact1ssmoothramp for4nonneutral; neutralnew5000passedfirst","final_gates":"originalall5/all6/strictNF0/turn.01/speed<=.95matchedpassedneutral unchanged","current_known":"ALL5COMPLETE234exit0collected, all5eval+all5audit0, onlyneutraleligible, savedverificationTRUE. L/Rforward+slipFAIL, Ralsoall6FAIL; bothspeedsALL5+all6+strictNF0FAIL/backward+fallen. FINAL_REPORT.md and FINAL5000_SUMMARY.json are final. Source20+checkpoint unchanged; noactivejobs.","final_summary_sha256":"ad20195aabae1526d4e61fa4b1f052de06594de64258147e17e90f7795e6689b"},
+ "not_claimed":["unsafe trajectories became passing","causal recovery","optimal teacher","datasetaddition causal proof","food behavior","fullnativeD1-D8"],
+ "next":"Boundedtaskcomplete, parentnotifiedfullresults. No additionaltraining/configs oroldslowtrial thisphase; parentownsnextactivegoalroundscope. Unsafeobservation safetyflagsFALSE retained and nofoodclaim."
+}

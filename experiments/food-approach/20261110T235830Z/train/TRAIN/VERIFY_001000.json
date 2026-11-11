@@ -1,0 +1,29 @@
+{
+  "all_passed": true,
+  "checks": {
+    "model_reload_exact": true,
+    "optimizer_reload_exact": true,
+    "eight_states": true,
+    "global_counters": true,
+    "lr_unchanged_after_declared_resume": true,
+    "finite_moments": true,
+    "fullcurve": true,
+    "parent_prefix_exact": true,
+    "frozen_base_exact": true,
+    "resume_model_exact": true,
+    "resume_optimizer_only_lr": true,
+    "resume_rng_exact": true,
+    "resume_curve_exact": true,
+    "rng_exact": true,
+    "neutral_mean": true,
+    "neutral_action": true,
+    "neutral_base_hidden": true,
+    "actual_reload_nonzero_inference_exact": true,
+    "checkpoint_unchanged": true
+  },
+  "step": 1000,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train/TRAIN/checkpoint_001000.pt",
+  "sha256": "47a84f5058654f76624f897fa1d90580b2733739df64e99c234a25468260cd59",
+  "physical_steps": 0,
+  "optimizer_updates": 0
+}

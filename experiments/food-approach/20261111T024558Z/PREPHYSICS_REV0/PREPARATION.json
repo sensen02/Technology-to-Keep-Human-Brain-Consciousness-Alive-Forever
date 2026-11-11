@@ -1,0 +1,121 @@
+{
+  "all_passed": true,
+  "checks": {
+    "joint_mapping_RH7": true,
+    "mapping_zero_integration": true,
+    "rh_gain000_neutral_all2880_means_exact": true,
+    "rh_gain000_neutral_all192states_exact": true,
+    "rh_gain000_right_all2880_means_exact": true,
+    "rh_gain000_right_all192states_exact": true,
+    "rh_gain050_neutral_all2880_means_exact": true,
+    "rh_gain050_neutral_all192states_exact": true,
+    "rh_gain050_right_all2880_means_exact": true,
+    "rh_gain050_right_all192states_exact": true,
+    "rh_gain150_neutral_all2880_means_exact": true,
+    "rh_gain150_neutral_all192states_exact": true,
+    "rh_gain150_right_all2880_means_exact": true,
+    "rh_gain150_right_all192states_exact": true,
+    "rh_gain200_neutral_all2880_means_exact": true,
+    "rh_gain200_neutral_all192states_exact": true,
+    "rh_gain200_right_all2880_means_exact": true,
+    "rh_gain200_right_all192states_exact": true
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/PREREG.json": "c2687f6c243b65f9407a9d36cce94daa0003feb2b0e50adcec9f6516409f83aa",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/model_io.py": "3f0ad85ea8e53e0258df0495f7fe26143d10a12150f7cadb258151bf4c2ffbd8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/evaluate_motor.py": "3c70f6273731fef0e31363e30e260187671910aa83feb4a4ee0221c558f027e3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/verify_actual.py": "2fb3f16dd4f058e0a722422c025daee2f76a3977e7904a5ce60ec5dea8a20a42",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/prepare.py": "b98ed5d28df1587d745a242a1db6be7072894bd574fb3e9879be0ae96335be0a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/pipeline.py": "4d6cad6f3dd81d34874ba4fcd3cd720bee1d3b3138fdecad293e6efc8dc3f175",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/JOINT_MAPPING.json": "94823e61426176d12fa1f470f48788119c3cda2e742170a8378eed4067c6fb5e"
+  },
+  "candidates": {
+    "rh_gain000": {
+      "alpha": 0.0,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/rh_gain000/candidate.pt",
+      "sha256": "1fdcb9745964b68451c97469395570a8e3f99e243ef85a1830fc060fd17c23d4"
+    },
+    "rh_gain050": {
+      "alpha": 0.5,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/rh_gain050/candidate.pt",
+      "sha256": "cfa297c8cddadd91f46ae36e05150ca09eaa66013e2f057cf707554da74700bb"
+    },
+    "rh_gain150": {
+      "alpha": 1.5,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/rh_gain150/candidate.pt",
+      "sha256": "3e13ac6bd7a49607391b508772b4d323efda073aa0cd440ce4b1d1e8d1e3c783"
+    },
+    "rh_gain200": {
+      "alpha": 2.0,
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T024558Z/rh_gain200/candidate.pt",
+      "sha256": "380f63a29ee0d537aba98d9247e88f2e83754ff18a9ec413fce5a78e61b9d377"
+    }
+  },
+  "joint_mapping": {
+    "joint_names": [
+      "joint_LFCoxa_yaw",
+      "joint_LFCoxa_pitch",
+      "joint_LFCoxa_roll",
+      "joint_LFTrochanter_yaw",
+      "joint_LFTrochanter_pitch",
+      "joint_LFTrochanter_roll",
+      "joint_LFTibia_pitch",
+      "joint_LHCoxa_yaw",
+      "joint_LHCoxa_pitch",
+      "joint_LHCoxa_roll",
+      "joint_LHTrochanter_yaw",
+      "joint_LHTrochanter_pitch",
+      "joint_LHTrochanter_roll",
+      "joint_LHTibia_pitch",
+      "joint_LMCoxa_yaw",
+      "joint_LMCoxa_pitch",
+      "joint_LMCoxa_roll",
+      "joint_LMTrochanter_yaw",
+      "joint_LMTrochanter_pitch",
+      "joint_LMTrochanter_roll",
+      "joint_LMTibia_pitch",
+      "joint_RFCoxa_roll",
+      "joint_RFCoxa_yaw",
+      "joint_RFCoxa_pitch",
+      "joint_RFTrochanter_yaw",
+      "joint_RFTrochanter_pitch",
+      "joint_RFTrochanter_roll",
+      "joint_RFTibia_pitch",
+      "joint_RHCoxa_yaw",
+      "joint_RHCoxa_pitch",
+      "joint_RHCoxa_roll",
+      "joint_RHTrochanter_yaw",
+      "joint_RHTrochanter_pitch",
+      "joint_RHTrochanter_roll",
+      "joint_RHTibia_pitch",
+      "joint_RMCoxa_yaw",
+      "joint_RMCoxa_pitch",
+      "joint_RMCoxa_roll",
+      "joint_RMTrochanter_yaw",
+      "joint_RMTrochanter_pitch",
+      "joint_RMTrochanter_roll",
+      "joint_RMTibia_pitch"
+    ],
+    "RH_rows": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "RH_names": [
+      "joint_RHCoxa_yaw",
+      "joint_RHCoxa_pitch",
+      "joint_RHCoxa_roll",
+      "joint_RHTrochanter_yaw",
+      "joint_RHTrochanter_pitch",
+      "joint_RHTrochanter_roll",
+      "joint_RHTibia_pitch"
+    ],
+    "physics_steps": 0,
+    "time_unchanged": true
+  },
+  "scope": "no integration; only Core construction for runtime joint identity"
+}

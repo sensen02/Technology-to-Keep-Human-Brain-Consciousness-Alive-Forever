@@ -1,0 +1,100 @@
+{
+  "errors": {
+    "2": "BrokenPipeError(32, 'Broken pipe')",
+    "3": "BrokenPipeError(32, 'Broken pipe')"
+  },
+  "completed_results": {
+    "0": {
+      "candidate": "g03_c00",
+      "generation": 3,
+      "index": 0,
+      "delta": [
+        -0.021870653051454192,
+        0.025254997009781312,
+        0.021477061023965124
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c00/candidate.pt",
+      "sha256": "8ce7f43809ecbb5ecaf5abffe8908192864c807a360521e0d48d91099d8e3d45",
+      "condition": "left",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "objective": 0.5087780224535647,
+      "slip": 0.5087780224535647,
+      "forward": 0.0714698909906962,
+      "yaw": 0.06268849427533346,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "audit_checks": 92,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c00/EVAL_left/RESULT.json",
+      "result_sha256": "a0e59f92be21fac0cd5580e69df023a4b48364c1f63ce9767252e5034322f7ab",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c00/VERIFY_left.json",
+      "audit_sha256": "e2c9677026651512538c33bb4a956f0a754238b8caf5e8340c593c8760d592f2"
+    },
+    "1": {
+      "candidate": "g03_c01",
+      "generation": 3,
+      "index": 1,
+      "delta": [
+        -0.042751942603266785,
+        0.028875622339855415,
+        0.02428584008023704
+      ],
+      "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c01/candidate.pt",
+      "sha256": "bc557adfa8106d5a068bfdd1b77acabcd7908f7d3b40b93cb3c51e43366595d7",
+      "condition": "left",
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "objective": 0.5063177891528167,
+      "slip": 0.5063177891528167,
+      "forward": 0.0715997101373055,
+      "yaw": 0.06310477212647636,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "audit_checks": 92,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c01/EVAL_left/RESULT.json",
+      "result_sha256": "5cc2f9624b90496d16caac181b995dad9caa48ccfefcefe058a0488c5847d0b4",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T043404Z/g03_c01/VERIFY_left.json",
+      "audit_sha256": "3a7dbc5ae12a28b0119f7c68e4589aac1987b161405d95742a1c79c3976bf8f3"
+    }
+  }
+}

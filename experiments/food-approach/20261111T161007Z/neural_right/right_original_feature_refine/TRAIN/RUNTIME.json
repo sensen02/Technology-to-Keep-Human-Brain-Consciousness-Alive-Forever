@@ -1,0 +1,164 @@
+{
+  "config": {
+    "kind": "RIGHT_ORIGINAL_FEATURE_REFINE_V1",
+    "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/TRAIN/checkpoint_004000.pt",
+    "parent_sha256": "ef768c788c94aeecbb49f0bd1ccb5c424333af36ec514941b72e49ab0d4917ff",
+    "parent_source_training_step": 4000,
+    "additional_updates": 2000,
+    "physical_eval_only_step": 2000,
+    "source_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/model_io.py": "769c849916203fe5f7160ce2003eb08951c0c858d1cdf8d2e99d5499272be96c",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/train.py": "b9778c37e8f07936c6eec4f3eefaf337b146a79241e89aa4a16e95f8a0699d0e",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/verify_saved.py": "86bde78792672581d29529663f96d95c6282795f7550f4bc52f5e2c851fa728b",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/PREREG.json": "d1ed98587fc06076105868105665a79451a0bd86a9d1e96363654c0ed4ce908c",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/model_io.py": "e79e04956d596d6fb1291576413c5c74ef446db83cd935d125bcf13914f34418",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/model.py": "7df293f8ccb46ff7fe936e254f9903db614cc0f4ad195baf6ec1422400c1bdc3",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/engine.py": "131bdd90db0c88e661e284eff707b678fd3b6b5b9fabe2db64ddb11f78dbda49",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e"
+    },
+    "data_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/TRAIN/checkpoint_004000.pt": "ef768c788c94aeecbb49f0bd1ccb5c424333af36ec514941b72e49ab0d4917ff",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/SAMPLES_5MS.npz": "2d108209868c926a3c8147729c1b59ddbfa44d6da12307ad7faf1c78792333a4",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/RESULT.json": "89e623b29944ec174cf78032b2b365e5a1d6a04a1b50e0d17d55e10df230d546",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/IDENTITY.json": "67cb65a093bf2a8d979701b5d583c6c61edd4ae05b9170a2a6ddbc3ee01dad44",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz": "cab83bebf1778769118a25cc244badc140252f0f3cfbecc47038daa3b12b6029"
+    },
+    "preflight_only_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/neural_decisions.npz": "7c19bc79ad1ec6140140e59d6c8e812f6fbc6971364b98ec927d955f72636684"
+    },
+    "training_episode_count": 1,
+    "training_dataset": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/right_yaw_m060/SAMPLES_5MS.npz",
+    "training_dataset_kind": "ORIGINAL_QUALIFIED_RIGHT_ONLY",
+    "actual_stream_not_in_loss": true,
+    "lr": 0.0003,
+    "seed": 20261111,
+    "fresh_AdamALL8": true,
+    "trainable_parameters": 43242,
+    "gradient_clip_norm": 1.0,
+    "loss": "uniformpost960actionMSE_full2880BPTT",
+    "base_cache_sha256": "a0f3bb3e885e5a1c919b68a0699fd1f8b9122bd60444eb46de4412f939ca890e"
+  },
+  "identity": {
+    "version": "RIGHT_ORIGINAL_FEATURE_REFINE_V1_denseparentef_all8_basefrozen",
+    "baseline_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+    "baseline_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "baseline_model_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py",
+    "baseline_model_source_sha256": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "inputs": 238,
+    "command_dim": 2,
+    "command_order": [
+      "forward_modulation",
+      "signed_turn_modulation"
+    ],
+    "state_dims": [
+      128,
+      64
+    ],
+    "residual_bound": 3.0,
+    "alpha": 0.048770575499285984,
+    "neutral": [
+      0.0,
+      0.0
+    ],
+    "gate": "relu(-command[:,1:2])",
+    "base_frozen": true,
+    "base_identity": {
+      "actor_input_transform": "physical_gru_slow_plus_trainable_inhibitory_target_v1",
+      "actor_mask_ranges": [
+        [
+          42,
+          84
+        ],
+        [
+          126,
+          168
+        ],
+        [
+          195,
+          237
+        ]
+      ],
+      "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+      "gain_init_version": "native_actuator_halfspan_x10_v1",
+      "gain_init_H": [
+        0.43574999999999997,
+        0.6579,
+        0.3384583060121321,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2190555268149066,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.7458035036806745,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43263502486291344,
+        0.4745269371779961,
+        0.7379067053719459,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2793495780011144,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.9848645841986645,
+        0.73525,
+        1.0125,
+        0.8497330240243897,
+        1.01155
+      ],
+      "gain_init_tau_s": 0.05,
+      "gain_init_rate_rad_s": 2.0,
+      "initialization_prior": "trainable inhibitory -Tposition/H target-position prior; not anatomical",
+      "inhibitory_input_range": [
+        126,
+        168
+      ],
+      "inhibitory_input": "normalized target POSITION Tposition/H; excludes target error",
+      "residual_prior": "-softplus(raw_gain)*Tposition/H; fixed-hidden T derivative negative diagonal; no explicit +gain q path",
+      "residual": "238->128 tanh encoder; slow GRUCell128->128; 128 tanh->42 decoder; masked channels have zero drive",
+      "all_actor_weights_trainable": true,
+      "neural_integration_tau_s": 0.1,
+      "policy_dt_s": 0.005,
+      "neural_integration_alpha": 0.048770575499285984,
+      "neural_integration": "h_new=(1-alpha)*h+alpha*GRUCell(tanh(encoder(maskedobs)),h)",
+      "recurrent_state": "explicit zero initial_state; reset before step only at physical episode reset; valid padding freezes state; no hidden cache"
+    },
+    "command_domain": "forward0; turn[-1,0]; new yaw/.06, NOT yaw/.008",
+    "transfer": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+    "transfer_sha256": "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+    "head_initialization": "exact parentef768 assembleddense42matrix",
+    "kind": "RIGHT_ORIGINAL_FEATURE_REFINE_V1",
+    "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/TRAIN/checkpoint_004000.pt",
+    "parent_sha256": "ef768c788c94aeecbb49f0bd1ccb5c424333af36ec514941b72e49ab0d4917ff",
+    "encoder_frozen": false,
+    "gru_frozen": false,
+    "trainable_parameters": 43242,
+    "trainable_tensors": 8,
+    "optimizer": "fresh Adam ALL8 lr.0003; parent4000 optimizer not resumed",
+    "training_episode": "ONLY originalqualifiedright"
+  },
+  "pid": 378678,
+  "python": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+  "affinity": [
+    0
+  ],
+  "threads": 1
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/evaluate_motor.py", line 27, in <module>
+    if __name__=='__main__':evaluate(parser().parse_args())
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/evaluate_motor.py::frozen-derived", line 100, in evaluate
+  File "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/evaluation/evaluate_motor.py::frozen-derived", line 22, in sha256
+  File "/run/media/sensen/_dde_data/home/sensen/rt/pythons/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/PREREG.json'

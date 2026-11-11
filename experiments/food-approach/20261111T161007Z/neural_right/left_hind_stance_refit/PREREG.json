@@ -1,0 +1,17 @@
+{
+ "status_at_creation":"CODE_ONLY pending parent heavy-resource release; no model preflight/diagnostic execution, training or physics while parent left-wider physics runs",
+ "scope":"RIGHT_ONLY command task; left_hind means anatomical LH leg, NOT LEFT turning. Limited stance-target fit candidate, not proven root cause or guaranteed fix.",
+ "parent_checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/head_refit/TRAIN/checkpoint_004000.pt",
+ "parent_sha256":"6407d6dbb85e1a7f40bf915e959433aa8c0896752924f06fab302e407b8f59b5",
+ "change":"freeze validated base, encoder, GRU and all non-LH head rows. Train only LH rows7:14 of affine head:7x64+7=455 trainable parameters. Parameter split buffers+LH parameters assembles original42x64 head for one unchanged linear forward; deployment function/architecture/domain/bound otherwise unchanged.",
+ "mapping":"derive frozen rc LEG_ORDER and XML actuator joint map, assert LH contact-index1 and exact output rows7..13. No unverified leg-order assumption.",
+ "data":"same complete2880 actualRIGHT teacher SAMPLES_5MS; full continuous frozen teacher-history hidden/base cache; prime960 retained but no loss",
+ "stance_mask":"teacher actual PRE-ACTION loads; trace index999+5*k, first post960 index5799, match SAMPLES.actual_time=1+k*.005 to<1e-8. LH>=.1W gives loss weight4, otherwise1. Mask used only in training loss, never deployment input/gate.",
+ "objective":"weighted LH7 post960 action MSE normalized by7*sum(weights); all non-LH output rows exactly preserved for same input/state. No loss on non-LH rows, no change to deployed physical inputs or memory.",
+ "training":{"seed":20261111,"dtype":"float64","threads":1,"optimizer":"fresh Adam only455 effective LH params,2states; no inherited Adam","learning_rate":0.001,"updates":4000,"save_steps":[2000,4000],"physical_eval_only_step":4000,"gradient_clip":null},
+ "preflight":"teacher-state LH error/weighted actual gradients finite/nonzero; production/cache outputs/fullhidden/headLH gradients/unitAdam <=1e-12; parent initial complete model function exact; no gradient/frozenweight changes outsideLH; after unitupdate non-LH means strictly parent on same full2880 inputs; neutral2880 strict original; preaction mask/mapping independently checked",
+ "save_audit":"new separate format with2 LH-shapedAdam states,model/RNG/curve/source/data/cache identities and production replay; live saved exact; restore liveRNG after strictload; freshprocess both saves; strictload preserves all frozen weights/non-LH head rows exactly parent",
+ "physics":"only after parent resource release and complete preflight: fixed final4000 neutral thenRIGHT each1ssettle+4.8sstraightteacherprime+9.6sANN/noreset/newyaw/.06/1ssmoothstep to-1; same71opaque49qpos48qvel42finitePD/native12.5us/noextra/noadhesion/no rootwrites; fulltrace/neural192/geometry/handover/lightnativeNF",
+ "acceptance":"samewindow unchanged original5engineering gates inclslip<=.5/worldX>=.05, strictnativeNF0, all6cycles, actualRIGHTsignedyaw>=30degrees; no fullD1-D8 claim",
+ "budget":"only fixed4000 model selected;2000 archive only; no wholeGRU extraBPTT; preserve all failed models and results; no extra training/physics without parent steering"
+}

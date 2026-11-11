@@ -1,0 +1,171 @@
+{
+  "status": "VERIFIED_SAME_MODEL_LARGE_TURN_SAMPLES_DELIVERED_USER_REVIEW_PENDING",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/COMBINED.pt",
+  "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+  "state_dims": [
+    128,
+    64,
+    64
+  ],
+  "state_total": 256,
+  "shared_original_walking_base_preserved": true,
+  "all_three_actual_integrity_pass": true,
+  "all_three_engineering_qualified": false,
+  "formal_qualification": false,
+  "user_visual_acceptance": "PENDING",
+  "rows": [
+    {
+      "condition": "neutral",
+      "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+      "actual_yaw_deg": -0.38259875415876626,
+      "slip": 0.49278883265360646,
+      "original_five": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "criteria": {
+        "original_five": true,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": true
+      },
+      "engineering_pass": true,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "native_nonfoot_peak": 0.0,
+      "extra_force_max": 0.0,
+      "audit_checks": 193,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/EVAL_neutral/RESULT.json",
+      "result_sha256": "135ecf5591fac72f3312147664225c831f72000a796357d099c833259f456586",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/VERIFY_neutral.json",
+      "audit_sha256": "2b2cd1492300603aafda14a26e2253276378c9a322d433705d358f250da183b3"
+    },
+    {
+      "condition": "left",
+      "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+      "actual_yaw_deg": 29.65128828979569,
+      "slip": 0.5780968089711384,
+      "original_five": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": false,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "engineering_pass": false,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "native_nonfoot_peak": 0.0,
+      "extra_force_max": 0.0,
+      "audit_checks": 169,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/EVAL_left/RESULT.json",
+      "result_sha256": "1d516e2c3b2e091a146e098b12029e375d3c8a5db7f6f865e4887bd6b1ff06a2",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/VERIFY_left.json",
+      "audit_sha256": "42bac1fb7c0dabaf7e9ad1a6468e519ef1fc87f9eec8fac8a3651ca620454c09"
+    },
+    {
+      "condition": "right",
+      "checkpoint_sha256": "789f1a31f81fe4415845b076f9351eea6519b6fdfd4b0712ddb80b6c4a20d0dd",
+      "actual_yaw_deg": -30.63293211627222,
+      "slip": 0.5032961137641687,
+      "original_five": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "strict_native_nonfoot_zero": true,
+        "eligible": false
+      },
+      "engineering_pass": false,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 1
+      },
+      "native_nonfoot_peak": 0.0,
+      "extra_force_max": 0.0,
+      "audit_checks": 169,
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/EVAL_right/RESULT.json",
+      "result_sha256": "a86d2077430a440d83066cd0d4e829503fee5d186769dd6d4bdb38c11297a31b",
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/VERIFY_right.json",
+      "audit_sha256": "25cf0c45ac1f2b32b5419c13f9575fb877b4fb50dc336ac8d2a51e0f6791f7c0"
+    }
+  ],
+  "copies": [
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/visual/VIDEO_left/ACTUAL_MOTOR_HANDOVER.mp4",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度左转-同一神经模型-待你判定.mp4",
+      "sha256": "d1e64ef9f00469bd7a2a803fd614d90550c1ce4399497e12a632051eee5c26e9",
+      "bytes": 1082873
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/visual/VIDEO_left/DECODED_MONTAGE.png",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度左转-同一神经模型-待你判定-蒙太奇.png",
+      "sha256": "227449cba97816626eceeba81546c1dd42cce1439c923e665c02fb113b64fbbe",
+      "bytes": 917952
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/visual/VIDEO_right/ACTUAL_MOTOR_HANDOVER.mp4",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-同一神经模型-待你判定.mp4",
+      "sha256": "e953f815642efbb167eefde8d80721a71328243de257f0a7befff56162f21fb0",
+      "bytes": 1068362
+    },
+    {
+      "source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/visual/VIDEO_right/DECODED_MONTAGE.png",
+      "desktop": "/home/sensen/Desktop/engine修复验收/食物趋近实施-20261110/大角度右转-同一神经模型-待你判定-蒙太奇.png",
+      "sha256": "930fda33c42f70b3038ce0fabe9c7239a8fe09625c26b5ba2b30b276d9c46045",
+      "bytes": 917811
+    }
+  ],
+  "video_verification": {
+    "frames_each": 770,
+    "decoded_each": 770,
+    "fps": 50,
+    "physical_play_seconds": 15.4,
+    "settle_seconds": 1.0,
+    "teacher_seconds": 4.8,
+    "ANN_seconds": 9.6,
+    "mesh_count": 71,
+    "all_frames_fullbody": true,
+    "render_integration": 0,
+    "parent_opened_both_montages": true,
+    "source_pose_COM_yaw_runtime_unchanged": true
+  },
+  "scope": "One nominal complete actual run per neutral/left/right. Replacement ANN, declared complete derived body and bounded PD. Both neural branches trained separately and composed, not naturally jointly trained. RIGHT posthoc visual component choice disclosed in AMENDMENT04. Strict engineering angle/slip FAIL retained. No food, biological, original connectome, continuous command range or full native D1-D8 qualification.",
+  "interruption": "Worker turn failed after all physics/audits collected; parent independently verified final conjunction and delivered artifacts; no physical rerun."
+}

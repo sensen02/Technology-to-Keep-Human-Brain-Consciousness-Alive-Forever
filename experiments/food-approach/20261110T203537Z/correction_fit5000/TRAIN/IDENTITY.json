@@ -1,0 +1,299 @@
+{
+  "kind": "fast_residual_exact3000_to5000_failedstate_corrective_supervision",
+  "steps": 5000,
+  "physical_eval_only_step": 5000,
+  "seed": 20261110,
+  "lr": 0.0001,
+  "sources": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/PREREG.json": "c6db3093f6e6a70140baabd1a1db7fff208301801e6bd68592f475b9dd1d928e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/train3000.py": "b733504ca22453621d24e9663b5ec061e19b80c59b6c6db2da50b106a5605520",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/verify3000.py": "8a57ad7b6b510d1d395679a45eaaf1da2fbc775d48559c08c1583f94366ea4ee",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/check_resume.py": "cf9c33f01a816c1891cba94c6259608937d2bf04369e071077cff0072a48ca53",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/PREFLIGHT.json": "6201d37afdc463c347452183420c96c5fcd195eaf5cb0f5a2691b7518805d5ab",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/PREREG.json": "266aa13214499cf23f5af593b264578e0707ed8e013256674c65a0671a520b7a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/fast_motor.py": "7ae5718cf9124748ec29c7fd19f2a6a8edee4fb18a86db56eff7ee427fa323a9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/fast_data.py": "d0eae4a9c017251473f36e269b72470a6cae37a9f51d03faeaa6e615841624a4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/check_fast.py": "267886ce6fe27b9cb2c0533e38aaddf4f1a38b98bc023fca6d5539fdebb3a5ef",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/FAST_CHECKS.json": "c5b8687e8c69ffdb0774f890fb395c7481c54154c93971fae4a7111cfbba3ca0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/train_fast.py": "c926ae5d8e6eaf87bf2cb9539ee102216255db5f8cc91fe56bccc9451dff49b0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/verify_fast_saved.py": "7e128ce3d3faef623b5777f858ca0cd01c19ec5ef6b8366f100c4099a198aeb7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/evaluate_fast.py": "cca4b7c06491933a1ea1ad722640122fc658482b013cbe412b6a80b4f954427b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/verify_fast_actual.py": "9b3be93e995ca5d7a23cca20c31b45acc25966be156bd22a1c43638b107e839e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/EVAL_PREREG.json": "9161359c0beac5464f3403223d57a78b92afdbfa93a07a92fb4e56ebdbc6345f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/PREREG.json": "4fff5ccfdf6762c3cdb14da5565f994c151b8d14f4928dd57ac4c4af39d96ab6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/data5000.py": "24de33de9658f426a220f3dee399cc4155085be6af166231daeb04f2e3583184",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/check5000.py": "f51603f85030a49aeea25b7920071900bd265bd1fae6c928ef240d5be87e375d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/PREFLIGHT.json": "86af8def7d70d9c71d466458b4922734c6dae045d39888265441ba872dd3acc2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/train5000.py": "b56e394fe865db65c4411e39ebe1090d49e077afa4767ca97ee5ad934bd42e04",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/correction_fit5000/verify_saved5000.py": "81e107c36dc4c6e808205125f1773f9bbcb7179c978d6537c58b5021a27feea9"
+  },
+  "data_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz": "cab83bebf1778769118a25cc244badc140252f0f3cfbecc47038daa3b12b6029",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/ARTIFACT_SHA256.json": "14cb71b8d0a0740c2bb7f3b1aa17b7ad5a88b1277a005681a17ab37aff60c9b2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/RESULT.json": "6f3ede0da4ebabd63cebed5090e899b4b5abadf352fb68be08781603a4351a6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/left_full/SAMPLES_5MS.npz": "c055dea05a698840837e6f6be7177b25eb85b931901221d5ece94aadd9e73efb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json": "18158276aca6daf62c97724f887c77e5668d64dbe7d1dc3a9a13575c7d60d143",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/SAMPLES_5MS.npz": "120a7836c58821a543f97fd1647e81ba0fcc6f7049aa51aade0f55195a64f526",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/RESULT.json": "dd1b3044273566114225c733f8611c934bfcfc2c27de77e2108e5d57b2327940",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_085/SAMPLES_5MS.npz": "a27cca57085250fbe4160f68e09db6beaa59ac30f9eb3fb8ac07f84ba94c4047",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/RESULT.json": "705910d2760f5fadd206eea7e6a65c0a95dee7a92f0c2e3b0f77a5f5fa14d784",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/straight_090/SAMPLES_5MS.npz": "be71b8dab0e5324cec45eb2a365dee0816276b4e35c419d4b4ccf6f653052220",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/ARTIFACT_SHA256.json": "46e44c767cf9a3ad8d00a340072921307efe815940063dfcce9893776e95f1a2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/RESULT.json": "d14ab628406279634f1b7c8ad9024d8bbc57e37a676b428f27bfd9025711d2dc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/VERIFIED_SAMPLES.json": "ca380826dafdeda94f41f759222733b823bdb13fdbd1abcb9b9e1afc8f189a6c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/LABEL_REPLAY.json": "80d0fb8522585874765b105e3e879efcffdbcb2550bb9965d496492018656a4b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/SAMPLES_5MS.npz": "96c674fe38ce97e5772b5965ce09b74972d581a0d24ddf92fc271045d21a7a86",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/trace_1ms.npz": "675354c2fe511b192a9f4a0975e794eb905b4caba1b06f317c0c786b969b96ed",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_left/IDENTITY.json": "8c3302aeba56cf58fda89a8566b1985c6241b9da9bc2b21064b3a0b28cabda22",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/replay_labels.py": "17afeba339ebf8edc19323983538c50d54950c97939bf8baf433be5784b3214c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/turning_teacher.py": "4466ad8e0a43fd1c57c099f0f409fce27dd7a6f2ad1172161bb2eb37c4ca0fb4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/RESULT.json": "24a5ff831b8ae387683a9cf41212dfac4f64349881e407b1f44aa3fd4035e85a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/VERIFIED_SAMPLES.json": "9000436b5584552faac4b07d02ef953e3818a6450bd7d6dc0e6196ad267d8b57",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/LABEL_REPLAY.json": "916bd46ac2d4fdf853bab74714de061d8ac8c803f4acfef60165f41eae861331",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/SAMPLES_5MS.npz": "1650fb8ec2521cfe7c56d721cd78f07172380b35f043be338b6b73c9eca99f02",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/trace_1ms.npz": "a7e831084ae7bdfe5c1abb7e8dc8165834f5d93fdf39f7e914fe26823e9102c6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/recovery_data/COLLECT_right/IDENTITY.json": "3f58959c8fc28a2c491b8b7d0e7ec33c4b10950fc32fe8c2b9228d071d2a03b1"
+  },
+  "loss": "equal6 trajectory postprime boundedactionMSE averages; old4x1920 + corrective2x960; correctiveweight1/3; actualfailedmixedobs validteacherlabels only",
+  "architectures": {
+    "version": "frozen_gru128_fast_neural_residual242_128_128_42_v1",
+    "base_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+    "base_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "base_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/models.py",
+    "base_source_sha256": "2b5dfb95700e5c46735de91d3ce946406fb0cfe90f16b496f9180ade80c5f15e",
+    "command_order": [
+      "forward_scale_minus1",
+      "signed_turn"
+    ],
+    "command_normalization": [
+      0.15,
+      1.0
+    ],
+    "command_axis_bounds": [
+      [
+        -0.15,
+        0.0
+      ],
+      [
+        -1.0,
+        1.0
+      ]
+    ],
+    "state_dims": [
+      128
+    ],
+    "gate": "tanh(sum((command/scale)**2))",
+    "residual_bound": 1.0,
+    "base_frozen": true,
+    "residual_inputs": "112permittedphysical + actualcurrentbasehidden128 + normalizedcommand2",
+    "actor_excludes": [
+      "clock",
+      "phase",
+      "food_position",
+      "target_bearing",
+      "distance",
+      "teacher"
+    ],
+    "base_identity": {
+      "actor_input_transform": "physical_gru_slow_plus_trainable_inhibitory_target_v1",
+      "actor_mask_ranges": [
+        [
+          42,
+          84
+        ],
+        [
+          126,
+          168
+        ],
+        [
+          195,
+          237
+        ]
+      ],
+      "inhibitory_gain_parameterization": "softplus(raw_gain); all 42 trainable; no upper bound",
+      "gain_init_version": "native_actuator_halfspan_x10_v1",
+      "gain_init_H": [
+        0.43574999999999997,
+        0.6579,
+        0.3384583060121321,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2190555268149066,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.7458035036806745,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43263502486291344,
+        0.4745269371779961,
+        0.7379067053719459,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        1.2793495780011144,
+        0.73525,
+        1.0125,
+        0.8292499999999999,
+        1.01155,
+        0.43574999999999997,
+        0.6579,
+        0.9848645841986645,
+        0.73525,
+        1.0125,
+        0.8497330240243897,
+        1.01155
+      ],
+      "gain_init_tau_s": 0.05,
+      "gain_init_rate_rad_s": 2.0,
+      "initialization_prior": "trainable inhibitory -Tposition/H target-position prior; not anatomical",
+      "inhibitory_input_range": [
+        126,
+        168
+      ],
+      "inhibitory_input": "normalized target POSITION Tposition/H; excludes target error",
+      "residual_prior": "-softplus(raw_gain)*Tposition/H; fixed-hidden T derivative negative diagonal; no explicit +gain q path",
+      "residual": "238->128 tanh encoder; slow GRUCell128->128; 128 tanh->42 decoder; masked channels have zero drive",
+      "all_actor_weights_trainable": true,
+      "neural_integration_tau_s": 0.1,
+      "policy_dt_s": 0.005,
+      "neural_integration_alpha": 0.048770575499285984,
+      "neural_integration": "h_new=(1-alpha)*h+alpha*GRUCell(tanh(encoder(maskedobs)),h)",
+      "recurrent_state": "explicit zero initial_state; reset before step only at physical episode reset; valid padding freezes state; no hidden cache"
+    }
+  },
+  "prereg": {
+    "kind": "S4/S5 controlled fast neural residual experiment",
+    "goal_id": "goal-d3ce9a34-ed60-4720-9769-da757b6e602e",
+    "hypothesis": "The frozen verified base already supplies recurrent memory; remove the additional100ms residual GRU and learn an instantaneous neural correction from actual masked physical112 + basehidden128 + normalizedcommand2. This is a hypothesis, not an established failure cause.",
+    "base": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+    "base_sha256": "246f9fab7d21e2a1332a745fafd4a343b80ad5a70d2cafeeb900e876f7933809",
+    "network": "frozen SlowGRU128 base; residual242->128tanh->128tanh->42tanh, boundedlatent1.0; correction multiplied tanh(sum(normalizedcommand squared)); neutral exactzero. Base target inhibitory Jacobian unchanged.",
+    "command": "raw[forward_scale_minus1,signedturn]; fixed neural input normalization[1/.15,1]. Validate forward in[-.15,0], turn[-1,1]. Training covers axes separately; no claim for combined speed+turn or arbitraryduration.",
+    "data": "Authenticated teacher fullleft/fullright plus moderate straight.85/.90, all actual2880decisions with960actualneutralprime then1920post; originalall5/all6/strictNF0required. No clock/phase/foodposition/distance in deployment. Baseline hidden cache computed sequentially on actual fullteacherobservations; no future features.",
+    "training": {
+      "seed": 20261110,
+      "steps": 1000,
+      "lr": 0.001,
+      "optimizer": "Adam defaults float64 CPU1",
+      "loss": "equal fourepisode postprime boundedactionMSE",
+      "clip_grad_norm": 1.0,
+      "batch": "allpostprime features with frozen base cache; no additional trainable recurrence",
+      "save_every": 100,
+      "physical_eval_only_step": 1000
+    },
+    "checks": "All2880neutral mean/action/basehidden bitexact before/after unit optimizerstep. Actual nonzero finite gradients and frozenbase unchanged. Cached batched vs sequential production outputs/gradients within1e-12 (GEMMbatch rounding explicitly permitted for offline algebra check). Savedweights/Adam/RNG/curve exact roundtrip and independent verification. Negative direct target branch unchanged by masking target channels in residual.",
+    "physical": "unchanged71mesh/42finitePD/12.5usnative/1mstarget/5mspolicy; noadhesion/externalforces/rootwrites;1ssettle+4.8originalteacher+9.6ANN, nohandoverreset. Actualoriginalruntimeverified.",
+    "selection": "Fixed1000 only. Neutral/L/R originalall5+all6+strictNF0, fullturn proper signabs>=.01. Speed.85/.90 originalall5+all6+strictNF0 and forward<=.95 actualmatchedneutral speed. Allfive actualprofilesreported; no partialgateaveraging, no unsafe model for food.",
+    "next": "Only if physical conditions pass then command switching/heldout initialstates and food behavior. Failed source/checkpoints/results remain immutable. If no candidate passes continue controlled diagnosis, do not lowergates or claim bodyimpossibility.",
+    "scope": "Authorized replacement neural engineering, derived fullbody, NOT connectome/biological calibration/ingestion/satiety. FitMSE and algorithms are not neural physical acceptance."
+  },
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+  "parent_sha256": "17fd103492007dc4de4ae9832fa39e4098cef980c4bebb03425c99f7c2f093a8",
+  "continuation_prereg": {
+    "kind": "exact fixed1000 to fixed3000 fast residual continuation; replacementANN engineering",
+    "authorization": "parent session-80ccae55-a957-4374-b48e-7ba52c0ab34c explicitly authorized after actualfast1000 turn failures",
+    "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/TRAIN_FAST_1000/checkpoint_001000.pt",
+    "parent_sha256": "3dd80394239504ec8b88f4cfe07c79569cf08329a9320c749c3c7b25035fda28",
+    "starting_global_step": 1000,
+    "ending_global_step": 3000,
+    "additional_updates": 2000,
+    "sole_hyperparameter_change": {
+      "old_lr": 0.001,
+      "new_lr": 0.0001
+    },
+    "retained": "allmodelweights/frozen151636base/53034fastadapter/gate/residualbound1/masks/inhibition/same4authenticatedactualteacherdata/Adam6states+moments+counter1000/RNG/full0..1000curve/loss equalepisodepostprimeMSE/gradclip1",
+    "mechanism_hypothesis": "lossgradients align across4tasks while moments oscillate; smallerlr may reduceovershoot. Not proof of closedloop failure cause or guaranteedsuccess.",
+    "resume_verification": "model/optimizer/completecurve/RNG exact before lrchange; record originalandupdatedgroup lr and actual counters; no optimizer reset; compare first resumed pre-update metrics to parent1000postupdate metrics",
+    "checkpoints": [
+      1500,
+      2000,
+      2500,
+      3000
+    ],
+    "physical_eval_only_step": 3000,
+    "validation": "independent fresh process weights/optimizer6moments+counter/globalcurve/RNG reload every500; exact parentcurveprefix; no physical checkpoint shopping; unchanged neutral2880 means/actions/hidden and baseweights",
+    "physical": "fixed3000 actualneutralfirst thenleft/right andspeed085/speed090 max2concurrentCPU1. Original all5 gates+all6cycles+strictNF0; directional signabs>=.01; speed<=.95 matchingpassedneutral.1ssettle+4.8teacheractualprime+9.6ANN continuous noreset, noextraexternalforce/adhesion/rootwrites; full71opaque/42finitePD/native12.5us unchanged.",
+    "identity": "newwrapperexplicit3000stepcheck/newsourcecapture no relabel old1000. Frozenoldsourceanddatahashes verified before/after. Independent actualcheckpoint replay all2880 andfull15400rows/source/force/prefix/gates/cycles verification.",
+    "scope": "no foodbehavior training/ingestion/satiety/connectome or fullnativeD1-D8 claim. Holdoutbehavior and command-switchgeneralization remain separate evenif5fixedmotorconditionspass.",
+    "resource": "CPUfloat64 threads1; finite2000additional updates; wallcap4h; boundedarrays; alljobscollected; preserveallfailures. No automaticbound/networkchange."
+  },
+  "parent_steps": 3000,
+  "additional_steps": 2000,
+  "corrective_prereg": {
+    "kind": "NEW controlled failure-state corrective-label learning, not safe-demonstration admission",
+    "authorization": "Parent explicitly authorized new scientific scope after independent1920-label privateIK replay evidence; earlier recovery_fit5000 safety-gated preparation was stopped and remains not run",
+    "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+    "parent_sha256": "17fd103492007dc4de4ae9832fa39e4098cef980c4bebb03425c99f7c2f093a8",
+    "starting_step": 3000,
+    "ending_step": 5000,
+    "additional_updates": 2000,
+    "sole_intervention": "add exactly2 actual failedmixed-state/independentlyvalidatedteacherlabel corrective trajectories to original4teachertrajectories, equal6trajectory postprime mean losses",
+    "data_semantics": "COLLECT_left/right dataset_safety_admitted MUSTremainFALSE; slip.549528870/.55190802 failures retained immutable. These are UNSAFEOBS+VALIDTEACHERLABEL corrective examples, NOT passing demonstrations, neuralwalking, causal recovery or optimaloracle evidence.",
+    "corrective_eligibility": "Both prior actual1920model/hidden/source/force/prefix audits integritytrue; collectorcomplete/noearlystop and10600trace/1920decision rows; recordedoriginalNF0/support>=.90/COM>=1.20/slip>.5 andoriginalslipgateFALSE; safetyflagFALSE; teacherindependentorderedprivateIKlabelreplayall1920bitexact/maxerror0/rootresidualbitexact/max<=.02/above.02count0; everyreportedRESULT/SAMPLES/TRACE/source/identityhashverified. Rejectmissing/mismatched evidence. Does not alter original admission functions or final acceptance.",
+    "objective": "six equal trajectory weights1/6; original4 post1920 rows and corrective2 post960 rows each contribute their OWN average boundedactionMSE; corrective totalweight1/3; labels teacher_action forALLcorrectivepostrows regardlessstudent/teacherrecoverysource.960actualprime excludedloss but causalbasehistorycomputedthroughfull1920rows.",
+    "retained": "exactparentmodel/frozen151636base/53034fastadapter/Adam6moments+counter3000/RNG/full0..3000curve/lr.0001/gate/bound1/noinputstandardization/featuremask/targetinhibition/clip1.Onlydatasetobjective changes",
+    "actor_boundary": "actual238physical + normalized2commands + causalcurrentbasehidden128 only; teacherphase/time/controlsource/provenance never actorinput. Cached features exact production recurrence, noaddedhiddenstate or reset.",
+    "checkpoints": [
+      4000,
+      5000
+    ],
+    "physical_eval_only_step": 5000,
+    "resume_checks": "saveRESUME_STATEbeforeupdates, allparentweights/Adam/RNG/fullcurve exact; no lrreset; sameold4dataidentitiesretained andnew2 correctionevidencehashesadded; firstnewobjective metrics explicit notcompared toold4lossas ifsameobjective",
+    "physical": "only final5000 neutral then matched1ssmoothcommandramp left/right/speed085/speed090 max2CPU1, newpassedneutral5000 reference.1ssettle+4.8teacherprime+9.6ANN continuous, native12.5us/42finitePD/71opaque/noadhesion/noextra/rootwrites unchanged; originalall5/all6/strictNF0/signedturn>=.01/speed<=.95neutral unchanged. Previousstep/rampfailures never relabeled.",
+    "resource": "CPUfloat64singlethread; fixed2000additionalupdates wallcap4h; freshsavedstateverification4000/5000; noearliercheckpointphysicalselection; alljobscollected",
+    "not_claimed": [
+      "mixedtrajectorysafe",
+      "causalrecovery",
+      "optimalteacher",
+      "bodyinfeasibility",
+      "foodapproach",
+      "ingestion",
+      "satiety",
+      "originalconnectome",
+      "fullnativeD1-D8certification"
+    ]
+  },
+  "corrective_examples": [
+    {
+      "direction": "left",
+      "role": "FAILED_OBSERVATIONS_VALID_TEACHER_LABELS_ONLY",
+      "original_dataset_safety_admitted": false,
+      "whole_mixed_slip": 0.5495288700531669,
+      "label_rows": 1920,
+      "postprime_training_rows": 960,
+      "teacher_root_residual_max": 7.425784462943111e-05,
+      "samples_sha256": "96c674fe38ce97e5772b5965ce09b74972d581a0d24ddf92fc271045d21a7a86",
+      "actual_audit_sha256": "ca380826dafdeda94f41f759222733b823bdb13fdbd1abcb9b9e1afc8f189a6c",
+      "label_audit_sha256": "80d0fb8522585874765b105e3e879efcffdbcb2550bb9965d496492018656a4b",
+      "passing_demonstration": false
+    },
+    {
+      "direction": "right",
+      "role": "FAILED_OBSERVATIONS_VALID_TEACHER_LABELS_ONLY",
+      "original_dataset_safety_admitted": false,
+      "whole_mixed_slip": 0.5519080182902079,
+      "label_rows": 1920,
+      "postprime_training_rows": 960,
+      "teacher_root_residual_max": 0.00010321706343522758,
+      "samples_sha256": "1650fb8ec2521cfe7c56d721cd78f07172380b35f043be338b6b73c9eca99f02",
+      "actual_audit_sha256": "9000436b5584552faac4b07d02ef953e3818a6450bd7d6dc0e6196ad267d8b57",
+      "label_audit_sha256": "916bd46ac2d4fdf853bab74714de061d8ac8c803f4acfef60165f41eae861331",
+      "passing_demonstration": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status":"EXTERNAL_METADATA_CORRECTION_ORIGINAL_CHECKPOINT_IMMUTABLE",
+  "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T010218Z/train/TRAIN/checkpoint_002000.pt",
+  "checkpoint_sha256":"eeced49c5bdd50a7e5bce2cfd63d56d9929b3bf2d2cb00c1985019d91321e6df",
+  "wrong_field":"payload.config.parent_checkpoint incorrectly inherited parent_payload.config.parent_checkpoint, naming older500 ancestor rather than the actual frozen1500 parent",
+  "recorded_wrong_path":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+  "actual_parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+  "actual_parent_sha256":"c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+  "authoritative_proof":"payload.identity.parent_checkpoint and parent_sha256, strict model_io.load_parent using actual1500 path/SHA; all194878 frozen tensor values independently compared exactly to actual1500; source and data identities verified",
+  "not_changed":"Original training source/checkpoint/config/hashes retained byte-for-byte. This correction does not create a new model or alter physical acceptance.",
+  "other_limitations":"Curve recorded1..2000 with no step0. Savedstate independent reload checked, live-before-save fullAdam/RNG/curve proof not recorded; reload constructors consumed RNG after1000 but readout updates use no stochastic operations."
+}

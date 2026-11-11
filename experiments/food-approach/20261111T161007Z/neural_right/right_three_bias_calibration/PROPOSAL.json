@@ -1,0 +1,92 @@
+{
+  "kind": "RIGHT_THREE_BIAS_ACTUAL_V1",
+  "generation": 1,
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "sigma": [
+    0.005,
+    0.005,
+    0.005
+  ],
+  "bounds": [
+    -0.02,
+    0.02
+  ],
+  "rng_before": {
+    "bit_generator": "PCG64",
+    "state": {
+      "state": 245368278089016190756908565090228066448,
+      "inc": 85071008408849685235181752061910952603
+    },
+    "has_uint32": 0,
+    "uinteger": 0
+  },
+  "rng_after": {
+    "bit_generator": "PCG64",
+    "state": {
+      "state": 182734907093235088844613822534480248134,
+      "inc": 85071008408849685235181752061910952603
+    },
+    "has_uint32": 0,
+    "uinteger": 0
+  },
+  "normal_directions": [
+    [
+      0.909496223182975,
+      0.4368921870053414,
+      -1.7130113608398503
+    ],
+    [
+      0.8137729942762508,
+      0.7862912970043462,
+      0.49266733139445923
+    ]
+  ],
+  "deltas": [
+    [
+      0.004547481115914875,
+      0.002184460935026707,
+      -0.008565056804199252
+    ],
+    [
+      -0.004547481115914875,
+      -0.002184460935026707,
+      0.008565056804199252
+    ],
+    [
+      0.004068864971381254,
+      0.003931456485021731,
+      0.002463336656972296
+    ],
+    [
+      -0.004068864971381254,
+      -0.003931456485021731,
+      -0.002463336656972296
+    ]
+  ],
+  "order": [
+    "+d0",
+    "-d0",
+    "+d1",
+    "-d1"
+  ],
+  "seed": 20261111,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/PREREG.json": "c3c7f797c0fe0c14737c06b4a5444e113152d43ed2751ccff71956b9b10e666b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/EVAL_PREREG.json": "ff4aebd7fe1ae25af8f4495a97369fdddcb5c8fa85057c18f52ede8440e8a69e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/model_io.py": "58f6f250e4bc2a894669ed4a1f1a548309366ba469dd16a45b76677553358a6a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/prepare.py": "002aab275dd48f01618bd75fc532addd972c8ce623fc55abb782fa9160b6b1b2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/evaluate_motor.py": "76f3ead3c125c9a17a4ed9c2999cea7b069d6309988124cdbb40afbeff7bd5e7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/verify_actual.py": "da361d83f8a9f1448430894a59018c2ccda74147e22b2b5a8d7f76df1744faa1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_three_bias_calibration/pipeline.py": "98cf2b3cee313db73a644541be2c426cd6486a37ac579ad1e17679fe137de9be",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/model_io.py": "e79e04956d596d6fb1291576413c5c74ef446db83cd935d125bcf13914f34418",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/model.py": "7df293f8ccb46ff7fe936e254f9903db614cc0f4ad195baf6ec1422400c1bdc3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/evaluate_motor.py": "cd84d359e7affbbc83d484b1e904dab0c5dac2c73d332fe2641a78faf2970ff8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/verify_actual.py": "cd7cb091584794c4c02dd80a557d842e2b491fcbf44cfa7808723c45bedd22d0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-triad-pad/20261110T010000Z/MODEL_TRIAD_x200.xml": "d0839271100561cbd288cc662f0c94639755e6ed773a2b7a7d547f5fec2fe93a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/sources/repair_core.py": "357d52d8ea6d8677b9f8c639a00839d428392f3939dc30df34fb91c41da472bb"
+  }
+}

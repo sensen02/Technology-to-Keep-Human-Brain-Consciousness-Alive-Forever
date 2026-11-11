@@ -1,0 +1,37 @@
+{
+  "kind": "declared latent residualbound1 reachable-action envelope",
+  "cases": {
+    "left_full": {
+      "outside_fraction": 0.017373511904761905,
+      "irreducible_bounded_action_MSE": 1.4625916365119356e-06,
+      "max_unavoidable_action_error": 0.05087425913433474,
+      "gate_max": 0.7615941559557649
+    },
+    "right_full": {
+      "outside_fraction": 0.017199900793650795,
+      "irreducible_bounded_action_MSE": 1.2847549520481774e-06,
+      "max_unavoidable_action_error": 0.05001180281909383,
+      "gate_max": 0.7615941559557649
+    },
+    "straight_085": {
+      "outside_fraction": 0.020783730158730158,
+      "irreducible_bounded_action_MSE": 0.00016004967284531486,
+      "max_unavoidable_action_error": 0.5999349235951326,
+      "gate_max": 0.7615941559557651
+    },
+    "straight_090": {
+      "outside_fraction": 0.02724454365079365,
+      "irreducible_bounded_action_MSE": 0.00016829285305730433,
+      "max_unavoidable_action_error": 0.49999539185011443,
+      "gate_max": 0.41732165005887095
+    }
+  },
+  "physical_steps": 0,
+  "optimizer_updates": 0,
+  "sources": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/range_floor_fast.py": "bf7876f65a6cd260103a16d08389ae164d9c6ac67f45ca58eb69ae6ad8328faf",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/fast_motor.py": "7ae5718cf9124748ec29c7fd19f2a6a8edee4fb18a86db56eff7ee427fa323a9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/fast_data.py": "d0eae4a9c017251473f36e269b72470a6cae37a9f51d03faeaa6e615841624a4"
+  },
+  "interpretation": "algebraic fitting lower bound, not proof of physical success/failure or body infeasibility"
+}

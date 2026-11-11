@@ -1,0 +1,144 @@
+{
+  "status": "CODE_ONLY_CHECKS_NOT_MODEL_OR_PHYSICS_VALIDATION",
+  "all_passed": true,
+  "checks": {
+    "all_python_AST_parsed": true,
+    "three_states256": true,
+    "one_sharedbase_step_static": true,
+    "both_neural_branches_advance_static": true,
+    "no_step_reset_static": true,
+    "no_physics_calls_in_model": true,
+    "mock_three_state_layout_roundtrip": true,
+    "mock_gate_-1.0": true,
+    "mock_gate_-0.3": true,
+    "mock_gate_0.0": true,
+    "mock_both_inactive_memories_still_update": true,
+    "mock_gate_0.3": true,
+    "mock_gate_1.0": true,
+    "immutable_rollout_exact_replace_counts": true,
+    "rollout_layout_explicit256": true,
+    "immutable_saved_audit_exact_replace_counts": true,
+    "audit_key_full2880_threehidden_decisions": true,
+    "audit_key_full256_hidden_chain": true,
+    "audit_key_actual2880_checkpoint_threehidden_exact": true,
+    "no_old192_actual_schema": true,
+    "explicit256_schema": true,
+    "AMENDMENT03_source_and_bindings": true,
+    "AMENDMENT04_source_and_bindings": true,
+    "no_heavy_imports_executed": true,
+    "no_composed_artifact_created": true
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/check_codeonly.py": "4bd9405364f4b68b509639825550575f09f69f9713f4c4c69a35a599506cbffa",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/evaluate_motor.py": "6b6f8848fe2c535a341af53474625fbf2e4febc891762b1a5fde6f72de0b10a0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/model.py": "b7ac89e780ecfc0b70f6cace8dfcdade34b79cf55914709dd4214f46b6e91424",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/model_io.py": "db09187ad47e9110fbbe91bb1b2a67aa02cdc4bc2d0aa1dbfbbd19f9cd0008c7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/prepare.py": "377278189bef8d42525d364177692f7c5b8bc08b9723f70efcdc4df73bd53801",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/prepare_eval.py": "ce3b1ce029c9456fbc44c1a39dd0c9b38f14c67dad6fc89fbc96ffcd4e563023",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/verify_actual.py": "6ae3dd67b581a9a70dbc552348e6481ff587b75169cc00f4d12e3e22bbd0fbbf",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/verify_saved.py": "465fa0503e7a2d689628e435a957c22246a6cb34d5ecd9a01c866092fdd944fa",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/PREREG.json": "5b9075d2b598ca95d813dee1600bb9f49544d7e6bcf2815b6cf63dc7b3f061c9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/AMENDMENT_01_LEFT_PENDING_FEATURE_REFINE.json": "240533900c8e6385d0114fe44b5490c2f38d2f13391f272e276aa4d225a13687",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/AMENDMENT_02_CONDITIONAL_RIGHT_FEATURE_REFINE.json": "250c64c18dc91629f1ce00b5b9741c61018c1f16ccb19dd89dac5a6fcb8fd57c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/AMENDMENT_03_HONEST_DEMONSTRATION_COMPONENTS.json": "a9890fc7c0c77d468cbcfe1139a0b31037e35c5baa48eb25e932b96c094fd625",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/AMENDMENT_04_POSTHOC_VISUAL_RIGHT_COMPONENT.json": "bbf484529b97fbf1d638abfb93ee5ad85d1de13ed9df59c8ed78ae805cc8afc1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/COMPONENT_PLAN.json": "631aa5be161f48c0539aae9ebfbeb75743ebf14a60d39995d343bd401dfb86e5",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/combined_turning/EVAL_PREREG.json": "742d31f6aaff7ad13e37512c69ea80251ae29056633245d9256cee4ad683af20"
+  },
+  "state_layout": [
+    128,
+    64,
+    64
+  ],
+  "state_total": 256,
+  "gating_mocks": [
+    {
+      "turn": -1.0,
+      "command": [
+        0.0,
+        -1.0
+      ],
+      "cmdR": [
+        0.0,
+        -1.0
+      ],
+      "cmdL": [
+        0.0,
+        0.0
+      ],
+      "neutral_mean": null
+    },
+    {
+      "turn": -0.3,
+      "command": [
+        0.0,
+        -0.3
+      ],
+      "cmdR": [
+        0.0,
+        -0.3
+      ],
+      "cmdL": [
+        0.0,
+        0.0
+      ],
+      "neutral_mean": null
+    },
+    {
+      "turn": 0.0,
+      "command": [
+        0.0,
+        0.0
+      ],
+      "cmdR": [
+        0.0,
+        0.0
+      ],
+      "cmdL": [
+        0.0,
+        0.0
+      ],
+      "neutral_mean": 0.7
+    },
+    {
+      "turn": 0.3,
+      "command": [
+        0.09999999999999999,
+        0.3
+      ],
+      "cmdR": [
+        0.0,
+        -0.0
+      ],
+      "cmdL": [
+        0.09999999999999999,
+        0.3
+      ],
+      "neutral_mean": null
+    },
+    {
+      "turn": 1.0,
+      "command": [
+        0.3333333333333333,
+        1.0
+      ],
+      "cmdR": [
+        0.0,
+        -0.0
+      ],
+      "cmdL": [
+        0.3333333333333333,
+        1.0
+      ],
+      "neutral_mean": null
+    }
+  ],
+  "actual_component_loads": 0,
+  "Core_constructions": 0,
+  "model_preflights": 0,
+  "physics_integration_steps": 0,
+  "training_performed": false,
+  "composed_checkpoint_created": false,
+  "LEFT_formal_status": "knownangle+slipFAIL perAMENDMENT03",
+  "RIGHT_formal_status": "b4ed observedslip.503296FAIL, selected POSTHOC_VISUAL_ONLY perAMENDMENT04; qualified replacement rule history retained"
+}

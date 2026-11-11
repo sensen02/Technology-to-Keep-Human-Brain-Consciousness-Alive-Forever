@@ -1,0 +1,14 @@
+{
+ "kind":"controlled conservative slow-residual continuation, replacement ANN",
+ "parent":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/residual_candidate/TRAIN_RESIDUAL_500/checkpoint_000500.pt",
+ "parent_sha256":"040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+ "fixed_updates":{"start":500,"end":1500,"additional":1000},
+ "declared_changes":"lr .001 -> .0003 AND add two audited failed-state teacher-label corrective trajectories. This is an engineering candidate, not a single-factor architecture or data causal experiment.",
+ "retained":"original frozen base151636 / residual43242 / slowGRU64 alpha.048770575499285984 / bound.5 / command norm gate / physical masks / target inhibition / model+Adam actual coverage+moments+counter500 / RNG / full0..500curve",
+ "data":"original qualified full-left/full-right2880 rows + corrective left/right1920 rows. First960 actualprime retained in causal recurrent history and excludedloss; post1920/960 pertrajectory averages weighted1/4. source/phase/time never neural inputs.",
+ "corrective_policy":"Original dataset_safety_admitted FALSE immutable; actual mixed trajectories failed slip.5495/.5519. Use only as failed observations with independently exact ordered teacher labels, not safe passing demonstrations, optimal oracle or autonomous recovery. Require authenticated actual and label audits, all1920labels bitexact and rootresidual<=.02, complete1920/10600 source clocks, NF0/support>=.9/COM>=1.2; retain original slip failure.",
+ "implementation":"frozen base features cached once from entire actual causal histories; batch4 residual sequence padded to2880. Valid padding freezes only ended state and loss, never deployment gait/control. Compare all valid means/states and all adapter gradients against original sequential path <=1e-12 before training. No truncation or reset atwithdrawal.",
+ "optimization":"CPU1 float64 Adam .0003 default other hyperparameters retained, clip_grad_norm1.0; fixed1000additional no extension. Saveparent+RESUME_STATE and1000/1500 independent exactweights/moments/RNG/fullcurve reload. Only1500 physicallyselected byparent; no physical1000evaluation.",
+ "scope":"No physical runs by trainer, no gait scripts/root writes/forces/bodychanges; eventual original full-body physical gates unchanged. Candidate not proven better merely because old500 closer slip than fast models.",
+ "resource":"wall cap4h; logs persisted, managedjob collected; old source and checkpoint untouched; JSON native values"
+}

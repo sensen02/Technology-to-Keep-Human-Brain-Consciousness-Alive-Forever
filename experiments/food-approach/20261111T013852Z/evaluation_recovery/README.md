@@ -1,0 +1,9 @@
+# Recovery of pre-Core path failure
+
+Original parent-owned pipeline bash-18 exited1 before Core construction because frozen inherited source_paths required new root PREREG.json, which was absent. Parent created a truthful new root pointer preregistration; no old captured source was edited. Original empty condition directory, failure log and summary remain preserved. No original physical trajectory existed or is reconstructed.
+
+This directory reuses the identical frozen final10000 evaluator code object with explicit namespace changes only: HERE points to this fresh recovery scope and source_paths additionally binds new recovery wrapper, auditor, pipeline, prereg and readiness. ROOT/TRAIN/CHECKPOINT/control/physics/scoring functions remain original. The independent auditor executes the same frozen whole-run verification with this new evaluator import and therefore checks full15400 endpoints/2880 actual neural rows, two-memory state chain, actions, original gate/cycle metrics, force/source/runtime identity and qualifiedc6b1500 right trajectory preservation.
+
+Actual check_prepared exited0 before launch: inherited37 checks and all recorded original hashes remain valid; all31 actual runtime source paths exist before Core; newscope and oldcheckpoint/rightreference bound; evaluator code object exactly the frozen original; no physical backend imported. READINESS includes direct hashes of original and new preparation files, excluding only its own recursive self-hash.
+
+Managed recovery pipeline bash-19 launched after explicit parent authorization. It runs same fixed10000 neutral first and independent audit, then left/right max2CPU1 if neutral qualified. New outputs EVAL_neutral/EVAL_left/EVAL_right; final status FINAL_SUMMARY.json. No source edits while active. No additional model, command, dataset, gate or selection changes. No old failed data overwritten.

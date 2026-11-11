@@ -1,0 +1,91 @@
+{
+  "scope": "Read-only saved-data diagnosis; no physics, training or parameter changes",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right/RESULT.json": "d5e190c038b189b0226e52841cdba141c04d7525a8adf85f7d4fb33ee71e66ad",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right/IDENTITY.json": "bd5876db0d37e8e55e7dc5e0516905662ed2463be0ea34916e98cdc757f68493",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right/trace_1ms.npz": "aabc8d477ef98cfd88f93f7c43dcb24fce72036c1b4a7f78cd7281df385ec5dc",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right/neural_decisions.npz": "a8569178d281af5a7bda2897fabff5e7c2078da281af4f17cc1b57e4f6a17d4c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/EVAL_right/geometry_1ms.npz": "f97611959517d3b73fe82bac57242ff9865f0ed834c668eb82d3b55cc87c6289",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T072012Z/candidate.pt": "6a6c23feb9a4b36fcf761f62f9d63309b5c81763f950afe520f42c09a5855e2f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json": "18158276aca6daf62c97724f887c77e5668d64dbe7d1dc3a9a13575c7d60d143"
+  },
+  "right": {
+    "yaw_change_rad": -0.07642541452275556,
+    "yaw_change_deg": -4.378853699691722,
+    "window_s": 9.6,
+    "mean_yaw_deg_per_s": -0.4561305937178877,
+    "yaw_by_time": [
+      {
+        "after_handover_s": 0,
+        "actual_time_s": 5.800000000052099,
+        "yaw_change_deg": 0.0
+      },
+      {
+        "after_handover_s": 1,
+        "actual_time_s": 6.800000000085295,
+        "yaw_change_deg": -0.6242155808540762
+      },
+      {
+        "after_handover_s": 2,
+        "actual_time_s": 7.800000000118492,
+        "yaw_change_deg": -1.0229005873172832
+      },
+      {
+        "after_handover_s": 4,
+        "actual_time_s": 9.800000000184884,
+        "yaw_change_deg": -1.8244201899816401
+      },
+      {
+        "after_handover_s": 6,
+        "actual_time_s": 11.800000000251277,
+        "yaw_change_deg": -2.793041314560253
+      },
+      {
+        "after_handover_s": 8,
+        "actual_time_s": 13.80000000031767,
+        "yaw_change_deg": -3.743246363482732
+      },
+      {
+        "after_handover_s": 9.6,
+        "actual_time_s": 15.400000000370785,
+        "yaw_change_deg": -4.378853699691722
+      }
+    ],
+    "slip": 0.49501104818453806,
+    "forward_per_s": 0.07226220732834311
+  },
+  "command": {
+    "min": -1.0,
+    "max": -0.0,
+    "full_minus1_decisions": 1720,
+    "ANN_decisions": 1920,
+    "full_minus1_seconds": 8.6,
+    "command_at_1s_after_handover": -1.0,
+    "no_request_application_difference": true
+  },
+  "endpoint_limits": {
+    "sampling_s": 0.001,
+    "max_abs_normalized_action": 0.9065714521905743,
+    "abs_action_ge_099_count": 0,
+    "target_at_bound_count_tol1e10": 0,
+    "minimum_target_margin_rad": 0.000368746554174737,
+    "max_abs_torque_to_limit": 0.686465641925554,
+    "torque_ge_099limit_count": 0,
+    "joint_samples": 403200,
+    "limits": "1ms saved endpoints only; no full native torque/force certification"
+  },
+  "residual_on_saved_states": {
+    "max_abs_pre_tanh_correction": 0.3464062669455854,
+    "theoretical_fullcommand_bound": 0.3807970779778824,
+    "max_abs_head_tanh": 0.9096873032353087,
+    "action_delta_RMS": 0.05589128939313905,
+    "interpretation": "same saved-state arithmetic, NOT a physical zero-residual control"
+  },
+  "source_policy": {
+    "positive_readout_in_right": 0,
+    "old_yaw_gate_rad": 0.01,
+    "old_yaw_gate_deg": 0.5729577951308232,
+    "turn_command_units": "normalized modulation, not radians or rad/s"
+  },
+  "teacher_result_path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/right_full/RESULT.json"
+}

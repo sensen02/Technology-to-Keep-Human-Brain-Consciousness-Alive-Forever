@@ -1,0 +1,17 @@
+{
+ "status":"CODE_PREPARATION_ONLY_NOT_AUTHORIZED_PHYSICAL_RUN",
+ "kind":"training-only mixed-control actual student-state teacher labels",
+ "conditions":["left","right"],
+ "checkpoint_global_step":3000,
+ "settle_ms":1000,"prime_ms":4800,"collection_ms":4800,
+ "decision_ms":5,"burst_period_ms":200,"student_ms_per_period":25,"teacher_recovery_ms_per_period":175,
+ "expected_decisions":{"prime":960,"collection":960,"collection_student":120,"collection_recovery":840},
+ "teacher":"Original conditional teacher constructed once after actual settle, prime4.8s, speed1, yaw+/-.008; query EVERY5ms on actual current state, labels saved even when student action applied. Smooth1s command ramp after prime matches reference. No future labels.",
+ "neural_state":"explicit base128 carried continuously through prime/student/recovery; no burst or handover reset; actor inputs actual238 plus command2 only; teacher phase metadata never input",
+ "physics":"unchanged full71mesh/42finitePD/native12.5us/1mstarget/5msdecisions, adhesionOFF/externalforces0/no root writes",
+ "early_stop":"100 consecutive physical milliseconds COM<.8 or nonfoot>.5W, or exception/nonfinite; save partial arrays and reason",
+ "dataset_admission":"complete scheduled10.6s/no stop/no exception/strictnonfoot0/support>=.90/COMmin>=1.20/slip<=.5, whole4.8s collection; report originalall5 separately. No tiny student burst autonomy claim. Recovery efficacy separately diagnosed, not inferred from admission.",
+ "source":"settle0,teacherprime2,student3,teacherrecovery5; controller snapshots at actual handover and every burst boundary",
+ "execution_guard":"--run-diagnostic required plus future explicit fixed-run plan JSON matching checkpoint SHA/condition/seed/current draft; no executions during preparation",
+ "not_claimed":["autonomous walking pass","food response","valid learning data without actual safety evidence","successful recovery","trained model","ingestion","biological validation"]
+}

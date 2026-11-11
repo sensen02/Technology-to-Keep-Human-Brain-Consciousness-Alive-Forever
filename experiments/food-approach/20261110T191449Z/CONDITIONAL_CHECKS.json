@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all_2880_saved_means_bitexact": true,
+    "all_2880_saved_hidden_bitexact": true,
+    "zero_adapter_nonzero_command_has_no_hidden_drive": true,
+    "adapter_has_finite_nonzero_actual_gradient": true,
+    "adapter_update_keeps_all_baseline_weights_exact": true,
+    "trained_adapter_changes_nonzero_command_outputs": true,
+    "trained_adapter_neutral_still_bitexact": true,
+    "saved_state_reload_bitexact": true,
+    "optimizer_moments_reload_exact": true,
+    "reloaded_inference_bitexact": true,
+    "behavior_neutral_initialization": true,
+    "behavior_memory_driven_by_receptors": true,
+    "behavior_rejects_extra_target_channel": true
+  },
+  "baseline_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z/BC_GRU_ROLE_3000/checkpoint_002500.pt",
+  "source_arrays": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500/neural_decisions.npz",
+  "source_arrays_sha256": "cab83bebf1778769118a25cc244badc140252f0f3cfbecc47038daa3b12b6029",
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/conditional_motor.py": "006dd430f00a11b0bbf31485fb0aca6ad84f281a49a8159a5910f7a3065e9b10",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/check_conditional.py": "065806c0c04d80a7ff4ab3045af3fcb56efc51ebc79bbcded9437cca254107b6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/PREREG.json": "4a81e91f86a61a5f42be18e48f77a4673a4ab488556d3c874cd92d011cd9fb93"
+  },
+  "physical_steps": 0,
+  "interpretation": "offline neural interface and optimizer verification only; turning/food approach not established"
+}

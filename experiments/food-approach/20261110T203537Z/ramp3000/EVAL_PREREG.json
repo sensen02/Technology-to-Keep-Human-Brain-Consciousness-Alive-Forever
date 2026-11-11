@@ -1,0 +1,11 @@
+{
+  "status":"CODE_ONLY_DIAGNOSTIC_NOT_AUTHORIZED_TO_RUN",
+  "checkpoint_step":3000,
+  "checkpoint":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/TRAIN/checkpoint_003000.pt",
+  "conditions":{"left":[0,1],"right":[0,-1],"speed085":[-0.15,0],"speed090":[-0.10,0]},
+  "command_formula":"autonomous_elapsed=(decision_index-960)*.005; u=clip(elapsed/1s,0,1); command=COMMANDS[condition]*(3*u*u-2*u*u*u); neutral prime command0",
+  "timing":{"zero_settle_ms":1000,"original_teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+  "gates":"Original all5/all6/strictNF0 unchanged over FULL9.6s including ramp. Turns proper signed wholewindowyaw>=.01rad; speeds actualforward<=.95 passed same3000matchedneutral. Diagnostic only; no food qualification.",
+  "neutral_equivalence":"Use already measured step3000 neutral: multiplying zero command by any smoothstep remains EXACT zero. Same checkpoint and originalphysical runtime, same5800prefix, same4.8teacher warmup and sensoryhidden evolution. Evaluation source identities differ and are explicitly preserved, not asserted equal. Validate saved neutralRESULT SHA, all artifact SHA, identity, qualified condition/checkpoint and independent neutral audit before run.",
+  "no_execution":"Parent must first collect original current3000step tests then explicitly authorize launch. Exactly4cases,1s ramp only,no sweep,no redundantneutralphysics. CPU1 maximum2processes. No gait/force/root/teacher control after withdrawal."
+}

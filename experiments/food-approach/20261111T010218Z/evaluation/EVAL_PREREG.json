@@ -1,0 +1,23 @@
+{
+  "status": "CODE_ONLY_NO_ACTUAL_EXECUTION_AUTHORIZED",
+  "checkpoint_step": 2000,
+  "conditions": {"neutral":[0,0],"left":[0,1],"right":[0,-1]},
+  "command": "forward0; signedturn times fixed1ssmoothstep afterwithdrawal; identical prior qualified-parent ramp formula",
+  "timing": {"settle_ms":1000,"teacher_prime_ms":4800,"autonomous_ms":9600,"decision_ms":5,"native_dt_s":0.0000125},
+  "criteria": "Originalall5/all6/strictnonfoot0/properwholewindowyaw>=.01rad, FULL9.6includingramp; no gate/denominator/body/solver/PD change",
+  "model": "Onlyfinal2000 newleftreadout2730parameters; frozenparent194878parameters/tuple128+64; neutral/right are expected function-preserving but actualfullruns must be independently measured and audited",
+  "physical": "1szerosettle+4.8actualteacherprime+9.6ANN continuousbothmemories, full71opaque/42finitePD/native12.5us/1ms target/5ms policy, no adhesion/extraforce/rootwrites; immediateHANDOVER and finallypartialsave",
+  "parent_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+  "parent_sha256": "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+  "parent_right_run": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right",
+  "parent_right_audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_right.json",
+  "invariance_checks": "Newactualneutral vs originalverifiedwalkingbase shared15400physical/neuralbasehidden arrays; newactualright vs passedparentright ALLshared15400physical/geometry plus2880X/means/actions/source/full192hiddenbeforeafter exact. Recorddifferentold/newsourceidentity maps separately; no claim switchingpositive-to-right or arbitraryenvironment invariant",
+  "frozen_primary_sources": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/evaluate_motor.py":"2e91e11d71013a993cfdb6bcda7920d36a57ba5b3d82105bb05ece503609c012",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/evaluation/verify_actual.py":"1293cf1db7b61a90eeb13500a18eb53796b4ff8891a38502dbfac3f94e5e7245"
+  },
+  "loader": "newtrain/model_io.py load_checked(checkpoint,sha,require_final=True), exact newfinalpath checkpoint_002000.pt, explicit actualstep2000 and training/data/source identity verification before Core construction",
+  "audit": "Once-loadarchives; actualall2880newcheckpointmeans/actions/192statechain,15400clock/source/actions/forces/prefix/geometry/compiledidentity, wholewindow summary/cycleevents/yaw, derivedhandoverhashes. NoCoreconstruction/integration in audit.",
+  "execution": "Onlyparent --training-complete plus exactfinalSHA; actualneutral+audit first thenleft/rightmax2CPU1. Optionalnative recorder no fullnative claim withoutseparateaudit.",
+  "scope": "replacementANN engineeringonly, no speed/food/nativeD1D8/connectome/biology certification; oldleftFAIL preserved"
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "Fix environment-side receptor scheduling before behavior training, no changes to motor training/evaluation sources",
+  "old_source": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor_loop.py",
+  "old_sha256": "a5244d86d86cbc495f3a02143fb4ba92ac868be15ad2149b58c38d56029d5848",
+  "finding": "FoodObservation.receptors used the END t+5ms value returned by sensory.sample(current_pos,t,.005) immediately for action at t. No future location/source lookup occurred, but receptor dynamics advanced one interval relative to action timing.",
+  "old_behavior": "response=sensory.sample(current_pos,t,.005); return response",
+  "new_behavior": "return stored receptor response z(t); use sample(current_pos,t,.005) only to store pending z(t+dt) for next actual5ms tick. Position and concentration are zero-order-held over each interval; no future input queries. Diagnostics list z used for current decision.",
+  "historical_check": "ODOR_INTEGRATION_CHECKS.json prior source hash report is historical numerical-interface evidence, not behavior success. Preserve copy ODOR_INTEGRATION_PRE_TIMING_FIX.json before rerun. No physical behavior/learning has used old scheduling.",
+  "verification": "Recheck saved-pose receptor integration and exact neutral policy actions; explicitly require first response after stimulus onset remains zero until one physical interval has elapsed. Unit tests food_field.py unchanged."
+}

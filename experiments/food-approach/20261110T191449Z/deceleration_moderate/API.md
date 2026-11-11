@@ -1,0 +1,13 @@
+# Matched-control functional moderate-deceleration interfaces
+
+Module /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/deceleration_moderate/api.py is loaded with importlib.util.spec_from_file_location in a fresh process before conflicting baseline imports. It loads /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/teacher/turning_teacher.py explicitly and pins actual modules /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z. No simulation or training on import.
+
+Authoritative preregistration is initial PREREG.json PLUS AMENDMENT_BEFORE_EXECUTION.json. The amendment was saved before any physics, replaces historical-window reference with exactly1actualmatchedcontrol plus2fixedcandidate cases. Earlier historical threshold is superseded and never used for functional acceptance.
+
+- `CONDITIONS`: ordered straight_control_100, straight_085, straight_090. These are fullwavephase speeds, not sagittal stride scales.
+- `make_teacher(core,case_name)`: unchanged previous teacher calibrated from actual post1szero core, originalStaticTeacher/.36stride/.12lift/.8step/.01transition; wraps unchangedConditionalTwistReference with1ssmoothphase slowdown after4.8prime. No physical root/state writes, reset or extra forces.
+- `command2(reference,elapsed_s)`: separate `[smoothscale-1,0]`, nominalspeedyaw `[.075*smoothscale,0]`, integratedphaseprovenance. Finalcandidatecommands[-.15,0]/[-.10,0]; originalX238targetspeed.075 retained. Phase/time are teacherprivileged provenance, not neuralinputs.
+- `functional_gates(summary,cycles,control_forward=None,control_passed=True)`: all original5 unchanged plusstrictNF0,validslip,all6. Control has no decelerationgate. Candidates additionally require passedmatchedcontrol and actualforward<=.95control_forward. Originalforward>=.05 andslip<=.5 remain.
+- `load_verified_samples(case_name,post_only=False)`: savedarraysonly; requires independentverifiedpass and authenticates bothRESULT/SAMPLES hashes. Full2880rows include960neutralwarmup; post_only returns1920actualmodifieddecisions. All arrays copies. Control is baseline eligibleonlyif itsapplicablegatespass; candidates requirefunctionaldecelsuccess. Failedcase refused.
+
+Savedkeys X238/Y42/command2/command_speed_yaw/source_phase/actual_time/post_prime retain all actualcontinuous samples. No training, optimizer, neuralcheckpoint, foodfield/behavior or autonomy is authorized or claimed by these interfaces. Outputeligibility reflects actualsamecase gates afterindependentreplay, not nominalspeedlabels.1msendpoint engineering is not fullnativeD1-D8/SI/biology.

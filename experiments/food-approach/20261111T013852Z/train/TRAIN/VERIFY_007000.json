@@ -1,0 +1,26 @@
+{
+  "all_passed": true,
+  "step": 7000,
+  "checks": {
+    "parent_curve_prefix_exact": true,
+    "weights_exact": true,
+    "optimizer_exact": true,
+    "two_Adam_states": true,
+    "all_counters": true,
+    "finite_moments": true,
+    "lr_uniform": true,
+    "rng_roundtrip": true,
+    "neutral_mean": true,
+    "neutral_action": true,
+    "neutral_dual_state": true,
+    "right_mean": true,
+    "right_action": true,
+    "right_dual_state": true,
+    "actual_left_inference_cache_tol": true,
+    "frozen_parent_exact2000": true
+  },
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T013852Z/train/TRAIN/checkpoint_007000.pt",
+  "sha256": "34a80cfe7226faf4603eec59eed4c5e7b5a0d6a9caa573f6b8139f31ede2359d",
+  "physical_steps": 0,
+  "optimizer_updates": 0
+}

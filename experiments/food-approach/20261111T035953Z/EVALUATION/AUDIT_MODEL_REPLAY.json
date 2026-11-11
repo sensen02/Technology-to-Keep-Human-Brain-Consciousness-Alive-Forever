@@ -1,0 +1,53 @@
+{
+  "all_passed": true,
+  "checks": {
+    "input_only44x240x2": true,
+    "saved_receptors_bitexact": true,
+    "saved_checkpoint_identity": true,
+    "scope_remains_sensor_only": true,
+    "normal_all10560_turns_bitexact": true,
+    "normal_speed_structuralzero_every_step": true,
+    "normal_mean_step_and_step_state_exact": true,
+    "normal_latent_to_turn_exact": true,
+    "normal_all337920_hidden_values_bitexact": true,
+    "normal_initial_state_reset_only_episode": true,
+    "normal10560_latents_match_saved_hidden_readout_tol1e12": true,
+    "swapped_all10560_turns_bitexact": true,
+    "swapped_speed_structuralzero_every_step": true,
+    "swapped_mean_step_and_step_state_exact": true,
+    "swapped_latent_to_turn_exact": true,
+    "all_execution_inputs_unchanged": true,
+    "old_failed29_artifacts_unchanged": true
+  },
+  "metrics": {
+    "normal_turn_max_error": 0.0,
+    "normal_hidden_max_error": 0.0,
+    "normal_latent_from_saved_hidden_max_error": 0.0,
+    "swapped_turn_max_error": 0.0
+  },
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/TRAIN/checkpoint_003000.pt",
+  "checkpoint_sha256": "bfd65a3896d259496114695d7f7f3550272cf4c369895a4ddb34f3ddc3352c06",
+  "replay": {
+    "episodes": 44,
+    "steps_per_episode": 240,
+    "normal_predictions": 10560,
+    "swapped_predictions": 10560,
+    "normal_hidden_values": 337920,
+    "input_channels": 2,
+    "hidden_channels": 32
+  },
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/audit_model_replay.py": "b43896c6a16dd130bb7af0a3f0a90fa4d51fcbdef7ce36d53afe550613cff6db"
+  },
+  "bound_inputs": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/TRAIN/checkpoint_003000.pt": "bfd65a3896d259496114695d7f7f3550272cf4c369895a4ddb34f3ddc3352c06",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/fresh_test.npz": "723b1c6602b6e71cd3008618f08a1687b78c18c33e6408b9945bb4ae277950c7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/FRESH_TEST.json": "0b6e13b69db33db3a901a2be92c030cd0344ff03c34b7e8943c07d36e01f7eb3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/EVALUATION/PREDICTIONS.npz": "9900976d87ebac6d93e62a9eaca3ad4e6c1cc2bc70d2bb73217a11d10a37bfb8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T035953Z/EVALUATION/RESULT.json": "58dae45cb806b0064940b2fbd6eb79b323fd40b752fac2ca8724530a9bbd2080"
+  },
+  "physical_steps": 0,
+  "Core_constructions": 0,
+  "optimizer_updates": 0,
+  "limitation": "This replays existing fixed final-model evidence only. Existing artifact had no latent array; latent consistency uses saved current hidden through immutable head within1e-12. No new evaluation selection, training, physical navigation or deployment qualification."
+}

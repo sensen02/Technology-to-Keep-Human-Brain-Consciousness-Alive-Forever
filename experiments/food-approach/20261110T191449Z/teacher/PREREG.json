@@ -1,0 +1,22 @@
+{
+  "scope": "S2/S5 first food approach teacher demonstrations only; algorithm teacher NOT neural autonomy; native units absolute SI NOT_ESTABLISHED",
+  "baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152714Z",
+  "fixed_before_execution": true,
+  "settle_s": 1.0,
+  "baseline_teacher_prime_s": 4.8,
+  "modified_window_s": 9.6,
+  "conditions": [
+    {"name":"left_full", "speed_scale":1.0,"yaw_rate":0.008},
+    {"name":"right_full", "speed_scale":1.0,"yaw_rate":-0.008},
+    {"name":"left_half", "speed_scale":0.5,"yaw_rate":0.004},
+    {"name":"right_half", "speed_scale":0.5,"yaw_rate":-0.004}
+  ],
+  "teacher": "measuredwave .8s step .36 stride .12 lift .01 contact_transition_height; private IK and original finite PD only",
+  "extension": "Body-frame foot offset x maps to x*(ex + curvature*J*rest_xy), retaining measured lateral swing. curvature=yaw_rate/(.075*speed_scale). Gait phase integrates speed_scale. One-second smoothstep ramp from baseline to condition begins after prime; no reset or qpos/qvel/root writes. Reference remains teacher-only.",
+  "gates": "Unchanged physics.summarise all five engineering gates, cycle counts, nonfoot strict zero separately; full window retained. Slow conditions expected to fail original forward >=.05 gate. Report slip <=.5 without changing denominator. No D1-D8 certification claimed from 1ms endpoint diagnostics.",
+  "turn_diagnostic": "Unwrapped actual thorax atan2(R10,R00) signed yaw over whole modified window, actual COM displacement, average yaw rate, requested sign agreement abs(yaw)>.001 rad. Magnitude tracking not assumed.",
+  "early_stop": "MuJoCo exception/nonfinite or COM<.8 or nonfoot>.5W for 100 successive milliseconds; failures retain all evidence",
+  "no_extra_physics": "Core adhesion=False, 42 finite PD original torque/rate/geometry/gravity/friction/timestep; actual applied generalized and body forces checked zero each millisecond",
+  "actor_observation": "Original obs238 target_speed fixed .075; separate normalized command2=[actual_speed/.075-1,actual_yaw_request/.008]; all960 neutral prime decisions saved before1920 conditional decisions",
+  "outputs": "Actual 1ms qpos/qvel/contact load/speed/control trace and per5ms X238/Y42/commands teacher labels; input hashes and resolved module files; no actor training; no food field"
+}

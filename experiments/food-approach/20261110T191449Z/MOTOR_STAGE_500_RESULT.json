@@ -1,0 +1,70 @@
+{
+  "step": 500,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/TRAIN_FINETUNE_500/checkpoint_000500.pt",
+  "all_conditions_eligible": false,
+  "conditions": [
+    {
+      "name": "neutral",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/EVAL_MOTOR_500_neutral",
+      "eligible": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": -0.011125900303627558
+    },
+    {
+      "name": "left",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/EVAL_MOTOR_500_left",
+      "eligible": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": 0.059754751518437114
+    },
+    {
+      "name": "right",
+      "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/EVAL_MOTOR_500_right",
+      "eligible": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": -0.06992953058323396
+    }
+  ]
+}

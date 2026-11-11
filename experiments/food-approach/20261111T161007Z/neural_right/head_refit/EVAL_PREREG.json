@@ -1,0 +1,9 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"right":[0.0,-1.0]},
+ "checkpoint_step":4000,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"forward0; newyaw/.06 RIGHT_ONLY turn negative1s smoothstep afterdecision960; neutral0; oldyaw/.008 distinct",
+ "acceptance":"originalfive inclworldX>=.05/slip<=.5, strictnativeNF0, all6cycles, actualRIGHTsignedyaw>=30deg same9.6s",
+ "selection":"only final4000; save2000 integrity only; neutral thenRIGHT once each, sequentialCPU1; preserve failures and recover analysis without rerun",
+ "scope":"head-only uniform sameobjective candidate; source-bound original physics/trace/native recorder; no fullD1-D8 or biological/connectome/food certification"
+}

@@ -1,0 +1,48 @@
+{
+  "status": "UNEXECUTED_CORRECTIVE_ORACLE_QUERIES_NOT_QUALIFIED_TEACHER_PHYSICS",
+  "all_passed": true,
+  "Core_constructions": 1,
+  "mj_step_calls": 0,
+  "physics_integration_steps": 0,
+  "private_snapshot_restore_writes": 8681,
+  "max_warm_action_error": 0.0,
+  "max_prefix_geometry_error": 0.0,
+  "tolerance": 1e-10,
+  "post_labels": 1920,
+  "post_diagnostic_counts": {
+    "unsupported": 252,
+    "unbacked": 252,
+    "hypothetical": 252,
+    "rateclip": 97
+  },
+  "post_diagnostic_rates": {
+    "unsupported": 0.13125,
+    "unbacked": 0.13125,
+    "hypothetical": 0.13125,
+    "rateclip": 0.050520833333333334
+  },
+  "finite_all": true,
+  "input_source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/trace_1ms.npz": "a87de0d605fe8b115da1a8fda25e08ce88d4e5c335cd7a9b4015d3fb4cf3a461",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/neural_decisions.npz": "7c19bc79ad1ec6140140e59d6c8e812f6fbc6971364b98ec927d955f72636684",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/geometry_1ms.npz": "2c1deed74dbfdbb04285098ad4618b8ec86f7186b3143a89ffb413ff9f7b4095",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/IDENTITY.json": "16cda098807db106ce1f520539cd86ee9d3e5ab59973cab3b38b1535fd4dab6b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/EVAL_right/RESULT.json": "abd61921f042a19e3c214a29b2b799b8171dd595a59ae15f8ab5ad205c9daacd",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/left_hind_stance_refit/TRAIN/checkpoint_004000.pt": "ef768c788c94aeecbb49f0bd1ccb5c424333af36ec514941b72e49ab0d4917ff",
+    "/run/media/sensen/Data2/cell_wound_prototype/references/flybody-measured-2025/selected_reference.npz": "af2f1b6b323a8f97f2761660be2b721cd52754b07a5611141aa45e5dd3d39952",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/PREREG.json": "a0c7372bc56ce5741337062952ea3defaa95cf0c257655d30b09d797fd071f5e",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/oracle.py": "3cb710dda939754734689979fe8b7352bacac74ca150a248c7411e4244df9282",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02/turning_teacher.py": "4466ad8e0a43fd1c57c099f0f409fce27dd7a6f2ad1172161bb2eb37c4ca0fb4"
+  },
+  "artifacts": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/TEACHER_INITIAL.npz": "19267f6ea0167529dba45b827c7f1645a5c2fc16b539ad4329798d3269fbf0ef",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/PREFIX_GEOMETRY.npz": "d4f23e9bf8135cd29a195fd7d031393593482940363a88fd3a20672ecd902aee",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/PREFIX_AUDIT.json": "168edcb2feeca7bdabedf361b58ba251d1ee30abf38942f815049fad49fa6c1b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/POST_DIAGNOSTICS.jsonl": "2c7cfed1b35e7f677e7d075a2393956f6e48c712c5b0d64ed1545baff7d518bf",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/CORRECTIVE_EXAMPLES.npz": "0817e9b7a5b612697a87312e7ccf9b459a54ccefb63b3a94e308465e2ec9cc19",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/dagger_head_refit/ORACLE/ORACLE_REPLAY.npz": "9bd2277ade58f20abadc84f8a334a500decdc4125c360500a43bf74f0663d302"
+  },
+  "identity_sha256": "a00a301da1867eda129af7b232afc9f96ca0476a288c32065563396b2b33d531",
+  "unrecorded_solver_warmstart": "zeroed eachsnapshot; uniformpref labels do not consume constraint force solution",
+  "snapshot_time_not_a_new_physical_trajectory": true
+}

@@ -1,0 +1,9 @@
+{
+ "training":{"job_id":"bash-7","pid":375166,"status":"completed_collected_exit0","log":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/TRAIN.log","command":"OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python -B /run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/train.py","cpu_threads":1,"max_concurrent_training_physics":1},
+ "saved_audits":{"job_id":"bash-8","status":"collected_exit1_prepare_JSON_numpy_bool_after_all_save_audits_passed","recovery":"only prepare_eval.py json serialization corrected before any Core; standalone prepare exit0"},
+ "neutral_physics":{"job_id":"bash-9","status":"completed_collected_exit0_independent156checks_pass","log":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/EVAL_neutral.log"},
+ "right_physics":{"job_id":"bash-10","status":"completed_collected_exit0_independent132checks_pass_behavior_slipFAIL","log":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/EVAL_right.log"},
+ "right_audit_analysis":{"job_id":"bash-11","status":"completed_collected_exit0","right_integrity_checks":132,"behavior":"FAIL_slip"},
+ "supplemental_diagnostics":{"status":"foreground_exit0","physics_steps":0,"optimizer_updates":0,"no_remaining_jobs":true},
+ "recovery":"If interrupted first inspect checkpoint files, tool job and ps PID; do not restart TRAIN blindly; completed physics arrays must be recovered without rerunning."
+}

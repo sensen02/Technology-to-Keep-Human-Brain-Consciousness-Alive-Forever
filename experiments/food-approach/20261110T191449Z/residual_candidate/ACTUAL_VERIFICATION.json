@@ -1,0 +1,117 @@
+{
+  "integrity_all_pass": true,
+  "engineering_all3_pass": false,
+  "reports": {
+    "neutral": {
+      "integrity_pass": true,
+      "checks": {
+        "2880_checkpoint_means_exact": true,
+        "2880_checkpoint_actions_exact": true,
+        "2880_both_hidden_exact": true,
+        "2880_hidden_chain_exact": true,
+        "actual_action_equals_policy_afterwithdrawal": true,
+        "control_source_one_handover": true,
+        "prefix_command_zero": true,
+        "matched_neutral_prefix_allconditions": true,
+        "all15400_physical_endpoints": true,
+        "no_extra_body_or_generalized_force": true,
+        "neutral_all_shared_physical_arrays_bitexact": true,
+        "neutral_qpos_qvel_present": true,
+        "handover_exact_noreset": true
+      },
+      "engineering_pass": true,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": true
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": -0.006677607974098819,
+      "slip": 0.49278883265360646,
+      "result_sha256": "23ae98b93d77f42d72e537095b15bb83b1ef079eece7798e5ba9442d0ae39dba"
+    },
+    "left": {
+      "integrity_pass": true,
+      "checks": {
+        "2880_checkpoint_means_exact": true,
+        "2880_checkpoint_actions_exact": true,
+        "2880_both_hidden_exact": true,
+        "2880_hidden_chain_exact": true,
+        "actual_action_equals_policy_afterwithdrawal": true,
+        "control_source_one_handover": true,
+        "prefix_command_zero": true,
+        "matched_neutral_prefix_allconditions": true,
+        "all15400_physical_endpoints": true,
+        "no_extra_body_or_generalized_force": true,
+        "handover_exact_noreset": true
+      },
+      "engineering_pass": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": 0.06925241056558817,
+      "slip": 0.5396644403870411,
+      "result_sha256": "730158eba30a3c6b82c288e7475fa91fcaa1fe38248d97f8c9dbec5a1e9ba2ad"
+    },
+    "right": {
+      "integrity_pass": true,
+      "checks": {
+        "2880_checkpoint_means_exact": true,
+        "2880_checkpoint_actions_exact": true,
+        "2880_both_hidden_exact": true,
+        "2880_hidden_chain_exact": true,
+        "actual_action_equals_policy_afterwithdrawal": true,
+        "control_source_one_handover": true,
+        "prefix_command_zero": true,
+        "matched_neutral_prefix_allconditions": true,
+        "all15400_physical_endpoints": true,
+        "no_extra_body_or_generalized_force": true,
+        "handover_exact_noreset": true
+      },
+      "engineering_pass": false,
+      "gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw": -0.08055196670151982,
+      "slip": 0.5151628633704957,
+      "result_sha256": "0aa907a756953568061c6ecbdc27970c52c67076d0ba132d16061173f305fefd"
+    }
+  },
+  "checkpoint_sha256": "040b26b7ff0e48329c6f6f8f3461f5ced783f108db3d48c264cdf78c5e35e7e3",
+  "physical_steps": 0,
+  "optimizer_steps": 0,
+  "scope": "saved-run integrity verification, no new physical/native certification"
+}

@@ -1,0 +1,19 @@
+{
+  "all_passed": true,
+  "checks": {
+    "halfspeed_straight_all5_action_ticks_match_each_decision": true,
+    "halfspeed_straight_previous_actual_action_in_X238": true,
+    "halfspeed_straight_every_sample_array_has4800rows": true,
+    "halfspeed_straight_trace_has_expected_full_body_shape": true,
+    "halfspeed_smallleft_all5_action_ticks_match_each_decision": true,
+    "halfspeed_smallleft_previous_actual_action_in_X238": true,
+    "halfspeed_smallleft_every_sample_array_has4800rows": true,
+    "halfspeed_smallleft_trace_has_expected_full_body_shape": true,
+    "smallleft_first15p4s_original_half_failure_trace_bitexact": true,
+    "smallleft_first2880_teacher_samples_bitexact": true,
+    "halfspeed_straight_curriculum_admission_matches_independent_gates": true,
+    "halfspeed_smallleft_curriculum_admission_matches_independent_gates": true
+  },
+  "known_runner_failure_path_limitation": "Frozen run.py does not persist accumulated in-memory arrays after arbitrary exceptions; if encountered, no retry/substitution permitted and incomplete evidence must be reported. This limitation does not affect normally completed trajectories.",
+  "curriculum": "Preferred loader curriculum.py authenticates independently recomputed success and RESULT/SAMPLES hashes; frozen api.py weaker loader is not parent admission API."
+}

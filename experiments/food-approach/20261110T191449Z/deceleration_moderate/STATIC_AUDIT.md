@@ -1,0 +1,7 @@
+# Bounded read-only audit
+
+Independent auditor read exactly PREREG.json, AMENDMENT_BEFORE_EXECUTION.json, api.py, run.py, verify.py, check_reference.py; reused previously inspected turning_teacher and152714 semantics. It executed no imports/physics and changed no files. No concrete normal-path defect found.
+
+Amendment authoritatively fixes exactly3orderedtrajectories(control1,.85,.90) beforephysics; oldhistoricalthreshold retainedsuperseded. Originalwholephase integral/smooth1sramp/teacheroncepostsettle/fullstride/.12lift/.8step/.01transition correct. Exact15400ticks/2880decisions960+1920, all9600modified endpoints, unchanged4sdetector. Candidate gates retainoriginalall5>=.05/slip<=.5 plusstrictNF0/validslip/all6 and actualforward<=.95actualmatchedcontrol, requiringcontrolpass. Independent verifier recomputesmatchedcontrolfirst, schedule/allmetrics/denominators/cycleevents, fullactionholds/previousaction,5800physics/960samplesprefix vsoriginalandall3, allsource/artifact/preflightbinding hashes. Referencechecks result now frozen beforephysics, unlike earlierstrideexperiment. Loaderauthenticatesrecomputedpass plusRESULT/SAMPLES.
+
+Reporting limit: controladmission means passing baselinecontrol, notachieveddeceleration; no reductiongateappliestocontrol. All1msendpointmetrics remainengineeringdiagnostics, notnativepeak/fullD1-D8 certification. Savedevidencelogicalreplay is not a thirdphysicaltrajectory. No scopeexpansion or sourceedits needed.

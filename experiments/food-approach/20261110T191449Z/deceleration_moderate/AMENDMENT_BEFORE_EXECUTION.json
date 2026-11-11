@@ -1,0 +1,12 @@
+{
+ "fixed_before_any_physics":true,
+ "supersedes_initial_prereg_fields":["conditions","deceleration_reference","budget","gates.deceleration"],
+ "reason":"Parent requires actualmatchedunmodifiedstraightcontrol with identicalwindow; historicaltwo-cycle+.4tailteacherreport is lineageonly, not speedreductiondenominator. No moderateorcontrolphysics had executed beforethisamendment.",
+ "conditions":[{"name":"straight_control_100","speed_scale":1.0,"yaw_rate":0.0},{"name":"straight_085","speed_scale":0.85,"yaw_rate":0.0},{"name":"straight_090","speed_scale":0.90,"yaw_rate":0.0}],
+ "budget":"Exactly3totalphysicaltrajectories:onefixedmatchedcontrol followedbytwofixedmoderatecandidates. Controlisnotparametersearch; no otherconfigs/retries/expansion.",
+ "matched_control":"Sameactual1szero+4.8baseline+9.6postphysicalpipeline,15400ms/2880samples,seed/initialstate/reference/body/executor/observationidentical; speedscale1 yaw0 control. Originalall5+all6+strictNF0andvalidslip required. ControlpostoriginalsignedworldXforward onall9600endpoints supplies decelerationdenominator.",
+ "deceleration_gate":"CandidatesmustpassALLoriginal5includingforward>=.05andoriginalslip<=.5,strictNF0,validslip,all6cycles AND actualcandidatepostforward<=.95*actualmatchedcontrolpostforward. Controlmustalso passallapplicableoriginalgates/6cycles/strictNF0. Nohistoricalmeanorwindowmixing. No threshold selected afterseeingdata; rulefixednowbeforeanyexecution.",
+ "other_contract":"AllotherinitialPREREGtiming/previousConditionalTwistReference/fullstridewholewaveslowdown/physical/4scyclethresholds/samples/verification/immutabilityunchanged. EntireoriginalPREREGretainedtoshowamendment, notretroactivegate.",
+ "execution_order":["straight_control_100","straight_085","straight_090"],
+ "selection":"Reportall3casesseparately. Anycandidatepassingallfunctionalrequirementsiseligible, failedcasesretainedandloaderrejects. No bestmetricspooling. No trainingorfoodbehavior."
+}

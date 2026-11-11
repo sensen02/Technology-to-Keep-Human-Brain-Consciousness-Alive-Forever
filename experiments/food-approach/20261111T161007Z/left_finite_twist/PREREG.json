@@ -1,0 +1,20 @@
+{
+  "status": "CODEONLY_PREPARED_NOT_PHYSICALLY_EXECUTED",
+  "goal": "S4/S5 single-variable LEFT finite SE2 teacher candidate",
+  "root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_finite_twist",
+  "parent_attempt": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/attempt02",
+  "seed": 20261111,
+  "conditions": [{"name": "left_yaw_p060", "speed_scale": 1.0, "yaw_rate": 0.06}],
+  "primary_variable": "Only horizontal target mapping changes from linear rest tangent to finite common SE2 twist; old teacher remains immutable",
+  "formula": "r=restxy; s=base.target_x-rx; ell=base.target_y-ry; k=yaw/.075*smoothstep; theta=k*s; p=R(theta)r+[s*sinc(theta), .5*k*s*s*sinc(theta/2)^2]+ell*ey; sinc(z)=np.sinc(z/pi)",
+  "velocity": "Analytic chain derivative including kdot and base sdot/ell_dot; stable Taylor series near theta=0. Diagnostic only: original teacher IK q_des differences remain unchanged. k=0 returns original sample exactly.",
+  "hypothesis": "Constant k and shared stance s with ell=0 form a common rigid SE2 transform preserving pairwise stance spacing. Old first-order rest-tangent geometric mismatch is a hypothesis, not an established physical failure cause. Swing ell is not rotated.",
+  "unchanged": "Baseline identity, speed_scale1, .36 stride, .8 step, original lift/order/measured shape, target_z/velocity_z/stance/phase, teacher IK/finite PD, landing schedule, all physical parameters, zero root writes/extra forces/adhesion, seed, stop rules, command yaw/.06",
+  "schedule": {"settle_s":1.0,"prime_s":4.8,"diagnostic_s":9.6,"ramp_s":1.0,"decision_s":0.005,"tick_s":0.001,"native_s":0.0000125},
+  "acceptance": {"forward_world_X_signed_min":0.05,"max_per_leg_slip_ratio":0.5,"support_mean_min":0.90,"COM_min":1.20,"original_all5":true,"native_post_nonfoot_peak_strict":0.0,"all6_cycles_min":1,"left_actual_yaw_rad_min":0.5235987755982988,"no_early_stop":true},
+  "stop": "Original 100 consecutive 1ms COM<.8 or nonfoot>.5W, plus invalid/nonfinite/identity failure; all failed results retained",
+  "preflight": "CPU1 NumPy only; saved settle trace rest if available, no Core/FK/physics construction. Mirror, exact zero, s=0, analytic velocity centered finite differences, common-stance spacing and actual WaveReference nonhorizontal fields checked. Piecewise derivative knots excluded from centered finite-difference reference; mathematical tolerances recorded in report.",
+  "execution": "No physics, training, rendering or child agents in this preparation. Parent later runs one LEFT physically in sequence after its unique heavy job; diagnose requires explicit --run-physics. No automatic launch.",
+  "audit": "New saved-array verification recomputes original metrics, all-six cycles, yaw and eligibility. Native peak summaries are captured evidence, not independently reconstructed full native trajectories/D1-D8. No claim of actual new trajectory audit before a physical run.",
+  "source_freeze": "SOURCEHASH.json fixes new scripts/prereg and explicit baseline/legacy/input dependencies before any future Core. diagnose and verify reject drift. Mutable project tracker excluded."
+}

@@ -1,0 +1,10 @@
+{
+ "conditions":{"neutral":[0.0,0.0],"left":[0.3333333333333333,1.0]},
+ "checkpoint_step":2000,
+ "timing":{"settle_s":1.0,"teacher_prime_s":4.8,"ANN_s":9.6,"decision_s":0.005,"trace_s":0.001,"native_s":0.0000125,"handover_reset":false},
+ "command":"LEFT [b/3,b], b=smoothstep(clip((decision-960)*.005,0,1)); neutral zeros; X238 target_speed remains .075; teacher nominalv=.075+.025b/yaw=.06b",
+ "acceptance":"unchanged originalall5 worldX>=.05/slip<=.5, originalall6 positiveXcycles, strict1msNF0/every-nativeNF0, unrounded signedLEFTyaw>=30deg",
+ "selection":"only full-feature final2000 checkpoint; LEFT actual plus independent audit first; only dualPASS permits samecheckpointneutral; no automatic retrial/budget expansion",
+ "audit":"unchanged fullsavedactual132check ancestry with strict LEFT_FEATURE_REFINE_V1 loader; all preCore paths exist/hash; actualmean/actions/192hidden/geometry/handover/metrics/cycles/yaw/runtime/forces; neutral all shared baseline arrays exact",
+ "scope":"engineering substitute ANN, not fullD1-D8/food/biology or causal root-cause isolation"
+}

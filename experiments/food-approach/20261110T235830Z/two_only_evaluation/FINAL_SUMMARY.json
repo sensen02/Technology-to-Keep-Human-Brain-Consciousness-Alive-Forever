@@ -1,0 +1,529 @@
+{
+  "status": "COMPLETE",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+  "checkpoint_sha256": "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+  "conditions": {
+    "neutral": {
+      "engineering_pass": true,
+      "integrity_all_pass": true,
+      "execution": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/evaluate_motor.py",
+          "--checkpoint",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+          "--sha256",
+          "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+          "--condition",
+          "neutral",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_neutral",
+          "--training-complete"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_neutral.log"
+      },
+      "verification": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/verify_actual.py",
+          "--run",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_neutral",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_neutral.json"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_neutral.log"
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_neutral/RESULT.json",
+      "result_sha256": "e352fd643a670013d32aa1a40abb2ebf72a54e79b36807a8a843ec4ab736ea6c",
+      "criteria": {
+        "original_five": true,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": true
+      },
+      "autonomous": {
+        "native_steps": 768000,
+        "sample_count": 9600,
+        "duration_s": 9.599000000318654,
+        "forward_speed_native_per_s": 0.07138537650385153,
+        "forward_signed_native_per_s": 0.0713185963743811,
+        "lateral_speed_native_per_s": 0.003087035760200131,
+        "foot_support_mean": 1.0000510230455129,
+        "foot_support_min": 0.9963244532333562,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2561645312905225,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.2985585984879901,
+          "LH": 0.42989301159094295,
+          "LM": 0.41435824419699585,
+          "RF": 0.3294018921529801,
+          "RH": 0.49278883265360646,
+          "RM": 0.4492632754666321
+        },
+        "slip_ratio_max": 0.49278883265360646,
+        "slip_ratio_mean": 0.4023773090915246,
+        "com_start": 1.2758698497611711,
+        "com_end": 1.2758228842640547,
+        "com_xy_travel": 0.6852282290832181,
+        "slip_load_denominator_native": [
+          22082.04781659209,
+          57047.88634168239,
+          37011.90700117606,
+          20066.931708466105,
+          57327.40146933918,
+          41160.805662897306
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": true
+        },
+        "all_gates": true,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.0713185963743811,
+          "lateral_signed_native_per_s": 0.003087035760200131,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 15.400000000370785,
+          "sample_count": 9600
+        }
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": -0.006677607974098819,
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_neutral.json",
+      "audit_sha256": "a22d0b109ddfd54ae3d366a0ee333264a8d8649465cf312609d8b19008d20068",
+      "audit_checks": 124
+    },
+    "left": {
+      "engineering_pass": false,
+      "integrity_all_pass": true,
+      "execution": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/evaluate_motor.py",
+          "--checkpoint",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+          "--sha256",
+          "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+          "--condition",
+          "left",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_left",
+          "--training-complete"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_left.log"
+      },
+      "verification": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/verify_actual.py",
+          "--run",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_left",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_left.json"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_left.log"
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_left/RESULT.json",
+      "result_sha256": "3c60c554320c198ef6d7d7e9bb5a9d7cd5fdabe224f8136aea3d388c4add67c6",
+      "criteria": {
+        "original_five": false,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": false
+      },
+      "autonomous": {
+        "native_steps": 768000,
+        "sample_count": 9600,
+        "duration_s": 9.599000000318654,
+        "forward_speed_native_per_s": 0.070745202644026,
+        "forward_signed_native_per_s": 0.07074450563889899,
+        "lateral_speed_native_per_s": 0.0003140367050101591,
+        "foot_support_mean": 1.0000475650254346,
+        "foot_support_min": 0.9957373129519164,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.25653456691653,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.31596231524700663,
+          "LH": 0.4506257336556435,
+          "LM": 0.43525882666067606,
+          "RF": 0.36747757099000294,
+          "RH": 0.5380394078384092,
+          "RM": 0.49206744995688045
+        },
+        "slip_ratio_max": 0.5380394078384092,
+        "slip_ratio_mean": 0.43323855072476974,
+        "com_start": 1.2758698497611711,
+        "com_end": 1.2756439988252235,
+        "com_xy_travel": 0.6790832002025489,
+        "slip_load_denominator_native": [
+          22090.77063795645,
+          57202.20595391663,
+          37026.74103289524,
+          20102.156482767503,
+          57444.84972357215,
+          40829.44462358452
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": false
+        },
+        "all_gates": false,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07074450563889899,
+          "lateral_signed_native_per_s": -0.0003140367050101591,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 15.400000000370785,
+          "sample_count": 9600
+        }
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": 0.06053312601639441,
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_left.json",
+      "audit_sha256": "a869e51f52b56b998a997f771325d6f35a8be64abbbf6cf29821151aae56cb25",
+      "audit_checks": 100
+    },
+    "right": {
+      "engineering_pass": true,
+      "integrity_all_pass": true,
+      "execution": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/evaluate_motor.py",
+          "--checkpoint",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train_two_only_control/TRAIN/checkpoint_001500.pt",
+          "--sha256",
+          "c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+          "--condition",
+          "right",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right",
+          "--training-complete"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right.log"
+      },
+      "verification": {
+        "returncode": 0,
+        "argv": [
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T125712Z/env/bin/python",
+          "-B",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/verify_actual.py",
+          "--run",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right",
+          "--out",
+          "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_right.json"
+        ],
+        "log": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_right.log"
+      },
+      "result": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right/RESULT.json",
+      "result_sha256": "fa0bc1e3bd1338be7190b7013025cb8c742621e65cca37022dad4a935bd179fe",
+      "criteria": {
+        "original_five": true,
+        "all_six": true,
+        "strict_nonfoot_zero": true,
+        "turn_sign_magnitude": true,
+        "eligible": true
+      },
+      "autonomous": {
+        "native_steps": 768000,
+        "sample_count": 9600,
+        "duration_s": 9.599000000318654,
+        "forward_speed_native_per_s": 0.0725629344701259,
+        "forward_signed_native_per_s": 0.07226220732834311,
+        "lateral_speed_native_per_s": 0.006599458383181243,
+        "foot_support_mean": 1.000053594611483,
+        "foot_support_min": 0.9956764950834104,
+        "nonfoot_force_max_W": 0.0,
+        "nonfoot_force_max_native": 0.0,
+        "com_height_min": 1.2556600065496535,
+        "free_fall_fraction": 0.0,
+        "per_leg_slip_ratio": {
+          "LF": 0.30069576288234817,
+          "LH": 0.4499407699220522,
+          "LM": 0.4208195944998889,
+          "RF": 0.32896762723065276,
+          "RH": 0.49501104818453806,
+          "RM": 0.4505382676599231
+        },
+        "slip_ratio_max": 0.49501104818453806,
+        "slip_ratio_mean": 0.4076621783965672,
+        "com_start": 1.2758698497611711,
+        "com_end": 1.2761408536082575,
+        "com_xy_travel": 0.696531608001861,
+        "slip_load_denominator_native": [
+          22166.49557722504,
+          56965.55225540287,
+          36955.788535250416,
+          19977.97170943217,
+          57255.44747642585,
+          41376.32795439165
+        ],
+        "slip_valid_per_leg": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "slip_has_progress": true,
+        "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+        "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+        "sample_dt_s": 0.0010000000000331966,
+        "gates": {
+          "support": true,
+          "nonfoot": true,
+          "com": true,
+          "forward": true,
+          "slip": true
+        },
+        "all_gates": true,
+        "initial_heading_diagnostics": {
+          "status": "MEASURED",
+          "forward_signed_native_per_s": 0.07226220732834311,
+          "lateral_signed_native_per_s": 0.006599458383181243,
+          "heading_world_xy": [
+            1.0,
+            0.0
+          ],
+          "gate_applied": false
+        },
+        "native_peak_summary": null,
+        "roadmap_D1_D8": {
+          "D1": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D2": {
+            "status": "UNKNOWN",
+            "reason": "native low-pass acceleration and autonomous window not supplied"
+          },
+          "D3": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D4": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D4b": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          },
+          "D5": {
+            "status": "UNKNOWN",
+            "reason": "same-run auxiliary window absent"
+          },
+          "D6": {
+            "status": "UNKNOWN",
+            "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+          },
+          "D7": {
+            "status": "UNKNOWN",
+            "reason": "native window and loading-leg threshold absent"
+          },
+          "D8": {
+            "status": "UNKNOWN",
+            "reason": "autonomous native window not supplied"
+          }
+        },
+        "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+        "window": {
+          "first_sample_s": 5.801000000052132,
+          "last_sample_s": 15.400000000370785,
+          "sample_count": 9600
+        }
+      },
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "yaw_change_rad": -0.07642541452275556,
+      "audit": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_right.json",
+      "audit_sha256": "02994dcfa083ee314e5036026d4f47924b89eab2ec1f83614843a7a6d77096a1",
+      "audit_checks": 100
+    }
+  },
+  "all_conditions_eligible": false,
+  "saved_trajectory_verification": true,
+  "readiness": {
+    "status": "CODE_READY_NO_PHYSICAL_EXECUTION",
+    "source_hashes": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/pipeline.py": "1ee877e04d153a1e4e2984aedf614102b464a66be128e64806e22573ece9c3db",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/evaluate_motor.py": "7be4644b4200c9e5500062d395ecb463252b092b3127bf62b951fd85febd6f6e",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/verify_actual.py": "c1233fe437663fac6e7c981decd58cb0b061947555766fc266a1a9a8e6cd6458",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_PREREG.json": "48ede2474693535e3be2ad3f44eca4ba1b7ad26e9a0d3c565118fdcc30d1f983",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/check_prepared.py": "ee42989ae618de25728d508a0744047d83d430cfefe88431e5ac088b46b85b60"
+    },
+    "conditions": [
+      "neutral",
+      "left",
+      "right"
+    ],
+    "checkpoint_step": 1500,
+    "max_concurrent_processes": 2,
+    "cpu_threads_per_process": 1,
+    "physics_integration_steps": 0,
+    "offline_readiness_sha256": "79d731871964d376feaa024e2bbc54e005da942a567c61516f2c9c4debe034c5"
+  },
+  "elapsed_s": 348.4933115550084,
+  "scope": "three fixed conditions replacement ANN/derived body engineering; no speed/food/fullnative certification"
+}

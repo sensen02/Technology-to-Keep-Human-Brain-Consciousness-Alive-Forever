@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "checks": {
+    "Adam_exact": true,
+    "freshALL8_statecounters": true,
+    "RNG_exact": true,
+    "curve_exact": true,
+    "all_steps": true,
+    "productionmeans_exact": true,
+    "productionbasehidden_exact": true,
+    "productionresidualhidden_exact": true,
+    "scan_tolerance": true,
+    "base_cache_SHA": true,
+    "qualified_only_loss": true,
+    "neutral_means_exact": true,
+    "neutral_base_hidden_exact": true
+  },
+  "step": 2000,
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/neural_right/right_original_feature_refine/TRAIN/checkpoint_002000.pt",
+  "sha256": "b4ed3e0ce3b6309a7e69c2379a1959c873c072fb0ba7c4124cb7db9a39b275e2",
+  "max_errors": {
+    "means": 1.1102230246251565e-15,
+    "hidden": 2.220446049250313e-15
+  },
+  "postprime_action_MSE": 0.0001025490091223949,
+  "physics_steps": 0,
+  "optimizer_updates": 0
+}

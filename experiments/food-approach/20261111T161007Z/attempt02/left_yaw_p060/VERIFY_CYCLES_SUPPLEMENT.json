@@ -1,0 +1,46 @@
+{
+  "integrity_all_pass": true,
+  "checks": {
+    "trace_hash": true,
+    "samples_hash": true,
+    "full15400": true,
+    "finite_all": true,
+    "full2880samples": true,
+    "sources": true,
+    "clock1ms": true,
+    "clock5ms": true,
+    "actions_equal": true,
+    "samples_actions_held": true,
+    "no_extras": true,
+    "normalization": true,
+    "ramp": true,
+    "yaw_metric": true,
+    "metric_slip_ratio_max": true,
+    "metric_com_height_min": true,
+    "metric_foot_support_mean": true,
+    "metric_forward_signed_native_per_s": true,
+    "metric_nonfoot_force_max_native": true,
+    "all_cycle_counts_recomputed": true,
+    "native_count": true
+  },
+  "teacher_eligible": false,
+  "yaw_deg": 29.56679154637293,
+  "gates": {
+    "support": true,
+    "nonfoot": true,
+    "com": true,
+    "forward": true,
+    "slip": false
+  },
+  "slip": 0.5665441551255188,
+  "cycles": {
+    "LF": 1,
+    "LH": 2,
+    "LM": 0,
+    "RF": 2,
+    "RH": 2,
+    "RM": 2
+  },
+  "native_peak": 0.05467845497164346,
+  "scope": "saved-array independent audit and captured native summaries; no physics constructed"
+}

@@ -1,0 +1,14 @@
+{
+ "task":"Actual saved same-run first qualified RIGHT turn engineering video, whole platform NOT qualified",
+ "run":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/EVAL_right",
+ "audit":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/two_only_evaluation/VERIFY_right.json",
+ "out":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/visual_right_pass/ACTUAL_RIGHT_PASS",
+ "checkpoint_sha256":"c6b395f29676ef933e2f55ca5a92b7c5b55183a2d432226487b39e916b51acdb",
+ "expected":{"all5":true,"all6":true,"nonfoot":0,"slip":0.49501104818453806,"yaw_change_rad":-0.07642541452275556},
+ "camera":{"fixed_world":true,"distance":10,"azimuth":140,"elevation":-25,"lookat":"midpoint of full actual recorded COM coordinate extrema"},
+ "preview":"Six keyframe PNGs first at0,1,5.78,5.8,7.3,15.38 nominal seconds; actual opening before full video",
+ "render":{"frames":770,"fps":30,"sampling_ms":20,"slow_factor":1.6666666666666667,"settle_s":1,"teacher_s":4.8,"pureANN_s":9.6},
+ "verification":["identity/source hashes before after","compiled runtime/71opaque","existing checkpoint action dualhidden/ramp audit true","explicit192hidden chain and actual source-action alignment","geometry and runtime geometry hashes","exact restored qpos/qvel and mj_forward only","mj_step/mj_step1/mj_step2 blocked","all770 segmentation silhouettes within camera and outside panels","decodeall770","actually open decoded montage","desktop sha256"],
+ "scope":"RIGHT TURN ENGINEERING PASS / LEFT NOT QUALIFIED / NO FOOD BEHAVIOR; formal native audit not performed; no full goal claim",
+ "immutable":"No model changes, training or physical simulation; frozen generic and case sources untouched; no parent tracker/currentstate edits"
+}

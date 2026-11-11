@@ -1,0 +1,12 @@
+{
+ "task":"One actual saved failed speed085 recovery3000 render; no integration/training",
+ "run":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/continuation3000/RECOVERY_EVAL_speed085",
+ "out":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T203537Z/visual3000/ACTUAL_SPEED085_FAIL",
+ "reference":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/visual/render_motor.py",
+ "method":"Frozen generic renderer read and adapted in memory by new wrapper; never edits captured sources. Existing independent actual-checkpoint replay report verified, no repeated neural replay or physics.",
+ "checks":["source and runtime identity before/after","compiled arrays and 71 opaque meshes","saved qpos/qvel and mj_forward only","mj_step/mj_step1/mj_step2 blocked","all source and applied action alignment","hidden128 continuity","full15400 yaw endpoints","all770 frames decoded","actual montage opening","artifacts hashes and desktop copy hashes"],
+ "display":"ACTUAL FAIL / COLLAPSE / NO FOOD; all original five gates FAIL; actual per-frame COM/load/nonfoot/commands/yaw; fixed camera preserves failed body",
+ "expected":{"slip":3.3551791604991337,"forward_signed_native_per_s":-0.06022907354444164,"foot_support_mean":0.1317323324991692,"nonfoot_max_native":65.98258873382672,"COM_min":0.6966794474355018},
+ "timeline":{"settle_s":1,"teacher_s":4.8,"ANN_s":9.6,"frames":770,"fps":30,"sample_ms":20,"slow_factor":1.6666666666666667},
+ "scope":"Engineering failure only; full native certification UNKNOWN; no food behavior"
+}

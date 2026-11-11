@@ -1,0 +1,13 @@
+{
+ "all_passed":true,
+ "old_log":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train/TRAIN/TRAINING_ADDITIONAL.jsonl",
+ "recovery_log":"/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T235830Z/train/recovery1000/TRAINING_RECOVERY.jsonl",
+ "compared_rows":99,
+ "first_global_step":1001,
+ "last_global_step":1099,
+ "max_absolute_error":{"loss_before_update":0.0,"gradient_norm":0.0},
+ "declared_tolerance":1e-12,
+ "excluded_fields":["wall_s","recovery","optional_diagnostic_metrics"],
+ "method":"Restore actual validated1000 weights/8Adam/RNG/curve bitexact; recompute full causal4trajectory updates1001..1099. Compare fresh saved perupdate loss and gradient to preserved interrupted log, never reconstruct weights from log.",
+ "scope":"Replayed99previouslyunsaved updates are extra compute, not additionalmodelglobalsteps or physicalvalidation; only final1500 is eligible for parent physicalselection."
+}

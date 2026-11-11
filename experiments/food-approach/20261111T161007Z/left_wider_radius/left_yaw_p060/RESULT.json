@@ -1,0 +1,469 @@
+{
+  "native_steps": 768000,
+  "sample_count": 9600,
+  "duration_s": 9.599000000318654,
+  "forward_speed_native_per_s": 0.10252688877421424,
+  "forward_signed_native_per_s": 0.10113232865261569,
+  "lateral_speed_native_per_s": 0.01685274526655599,
+  "foot_support_mean": 0.9996956283420445,
+  "foot_support_min": 0.9910401110107833,
+  "nonfoot_force_max_W": 0.22290629471929183,
+  "nonfoot_force_max_native": 0.22290629471929183,
+  "com_height_min": 1.2534167683290376,
+  "free_fall_fraction": 0.0,
+  "per_leg_slip_ratio": {
+    "LF": 0.21506867320787185,
+    "LH": 0.3035136611065087,
+    "LM": 0.24768171440835265,
+    "RF": 0.3033284359947317,
+    "RH": 0.40690855076421645,
+    "RM": 0.3923840308279329
+  },
+  "slip_ratio_max": 0.40690855076421645,
+  "slip_ratio_mean": 0.31148084438493573,
+  "com_start": 1.2758696455401926,
+  "com_end": 1.2745700831476185,
+  "com_xy_travel": 0.9841556053763532,
+  "slip_load_denominator_native": [
+    21735.679803806484,
+    57586.84598961146,
+    36399.55395239505,
+    21278.370926705054,
+    58690.3661816621,
+    38922.757337979485
+  ],
+  "slip_valid_per_leg": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "slip_has_progress": true,
+  "legacy_gate_frame": "world X; slip denominator XY displacement norm/time",
+  "legacy_nonfoot_W_name": "raw native force, NOT normalized body weights",
+  "sample_dt_s": 0.0010000000000331966,
+  "gates": {
+    "support": true,
+    "nonfoot": true,
+    "com": true,
+    "forward": true,
+    "slip": true
+  },
+  "all_gates": true,
+  "initial_heading_diagnostics": {
+    "status": "MEASURED",
+    "forward_signed_native_per_s": 0.10113232865261569,
+    "lateral_signed_native_per_s": -0.01685274526655599,
+    "heading_world_xy": [
+      1.0,
+      0.0
+    ],
+    "gate_applied": false
+  },
+  "native_peak_summary": null,
+  "roadmap_D1_D8": {
+    "D1": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D2": {
+      "status": "UNKNOWN",
+      "reason": "native low-pass acceleration and autonomous window not supplied"
+    },
+    "D3": {
+      "status": "UNKNOWN",
+      "reason": "same-run auxiliary window absent"
+    },
+    "D4": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D4b": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    },
+    "D5": {
+      "status": "UNKNOWN",
+      "reason": "same-run auxiliary window absent"
+    },
+    "D6": {
+      "status": "UNKNOWN",
+      "reason": "original D6 excludes declared adhesion; force timing/filter contract unresolved"
+    },
+    "D7": {
+      "status": "UNKNOWN",
+      "reason": "native window and loading-leg threshold absent"
+    },
+    "D8": {
+      "status": "UNKNOWN",
+      "reason": "autonomous native window not supplied"
+    }
+  },
+  "original_acceptance": "UNKNOWN; derived triad body and finite-PD actuator; not frozen-body certification",
+  "window": {
+    "first_sample_s": 5.801000000052132,
+    "last_sample_s": 15.400000000370785,
+    "sample_count": 9600
+  },
+  "condition": {
+    "name": "left_yaw_p060",
+    "speed_scale": 1.0,
+    "yaw_rate": 0.06
+  },
+  "early_stop": null,
+  "cycles": {
+    "complete_per_leg": {
+      "LF": 1,
+      "LH": 2,
+      "LM": 2,
+      "RF": 2,
+      "RH": 2,
+      "RM": 2
+    },
+    "all_legs_completed": true,
+    "events": [
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 6.544000000076797,
+        "start_time": 5.981000000058107,
+        "lift": 0.0790041994319976,
+        "advance": 0.5677336614762619,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5160000000171294,
+        "duration": 0.5630000000186897,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 7.330000000102889,
+        "start_time": 6.809000000085594,
+        "lift": 0.07240849138033212,
+        "advance": 0.185752210374593,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4880000000161999,
+        "duration": 0.5210000000172954,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 8.595000000144882,
+        "start_time": 6.794000000085096,
+        "lift": 0.15744477637248716,
+        "advance": 0.5386502917941935,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.053000000034955,
+        "duration": 1.801000000059786,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 8.961000000157032,
+        "start_time": 8.36900000013738,
+        "lift": 0.09017609113748742,
+        "advance": 0.11586129199737921,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5410000000179593,
+        "duration": 0.5920000000196524,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 9.734000000182693,
+        "start_time": 9.1950000001648,
+        "lift": 0.05967606199212611,
+        "advance": 0.3698745801930481,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.509000000016897,
+        "duration": 0.5390000000178929,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "leg": "RF",
+        "time": 9.966000000190395,
+        "start_time": 9.268000000167223,
+        "reason": "recontact",
+        "lift": 0.0,
+        "advance": 0.0,
+        "unloaded_duration": 0.10600000000351884,
+        "duration": 0.6980000000231712
+      },
+      {
+        "type": "complete",
+        "leg": "RM",
+        "time": 11.352000000236405,
+        "start_time": 10.78400000021755,
+        "lift": 0.07805514294566557,
+        "advance": 0.7616060387208068,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.519000000017229,
+        "duration": 0.5680000000188556,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LF",
+        "time": 11.572000000243708,
+        "start_time": 9.141000000163007,
+        "lift": 0.11037894665615183,
+        "advance": 0.19025793116216927,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.1620000000385744,
+        "duration": 2.431000000080701,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LH",
+        "time": 12.130000000262232,
+        "start_time": 11.608000000244903,
+        "lift": 0.07320454971935941,
+        "advance": 0.18646775133911975,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.4890000000162331,
+        "duration": 0.5220000000173286,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RF",
+        "time": 13.395000000304226,
+        "start_time": 11.599000000244605,
+        "lift": 0.15048562758549172,
+        "advance": 0.5440372372510889,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 1.04800000003479,
+        "duration": 1.796000000059621,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "LM",
+        "time": 13.761000000316375,
+        "start_time": 13.169000000296723,
+        "lift": 0.08999791952043587,
+        "advance": 0.11582095616865584,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.5410000000179593,
+        "duration": 0.5920000000196524,
+        "bonus": 0.1
+      },
+      {
+        "type": "complete",
+        "leg": "RH",
+        "time": 14.534000000342036,
+        "start_time": 13.995000000324143,
+        "lift": 0.059658694253920876,
+        "advance": 0.3637829292932375,
+        "reload_dwell": 0.010000000000331966,
+        "initial_loaded_dwell": 0.01,
+        "unload_dwell": 0.005000000000165983,
+        "unloaded_duration": 0.509000000016897,
+        "duration": 0.5390000000178929,
+        "bonus": 0.1
+      },
+      {
+        "type": "abort",
+        "leg": "RF",
+        "time": 14.766000000349738,
+        "start_time": 14.0690000003266,
+        "reason": "recontact",
+        "lift": 0.0,
+        "advance": 0.0,
+        "unloaded_duration": 0.10300000000341925,
+        "duration": 0.697000000023138
+      },
+      {
+        "type": "abort",
+        "reason": "terminal",
+        "leg": "LF",
+        "time": 15.400000000370785,
+        "start_time": 13.94100000032235,
+        "lift": 0.11032225198191528,
+        "advance": 0.19018560572469156,
+        "unloaded_duration": 1.1620000000385744
+      }
+    ],
+    "config": {
+      "weight": 24.446354755878005,
+      "dt": 0.001,
+      "gamma": 0.999000499833375,
+      "loaded": 0.1,
+      "unloaded": 0.05,
+      "ground": 0.004,
+      "clearance": 0.015,
+      "advance": 0.03,
+      "loaded_dwell": 0.01,
+      "unload_dwell": 0.005,
+      "timeout": 4.0,
+      "phi_cap": 0.05,
+      "completion_bonus": 0.1
+    },
+    "interpretation": "strict sensed cycle diagnostic; no actions generated"
+  },
+  "algorithm_teacher_only": true,
+  "actual_signed_yaw_rad": 0.5250383705197047,
+  "actual_signed_yaw_deg": 30.08248271320502,
+  "actual_average_yaw_rate": 0.05469149692702354,
+  "requested_sign_agreement": true,
+  "actual_com_displacement": [
+    0.9708447616152512,
+    -0.1617691684311802,
+    -0.0012980288026054332
+  ],
+  "body_heading_projected_speed": 0.09376693589141749,
+  "original_all5_gates": true,
+  "strict_nonfoot_zero_1ms": false,
+  "trace": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_wider_radius/left_yaw_p060/TRACE_1MS.npz",
+    "sha256": "b5b54d0dc361e35209a4a646fc5e4fe6485706692f36bb2afbe8adc3ded6c0d3",
+    "samples": 15400
+  },
+  "samples": {
+    "path": "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261111T161007Z/left_wider_radius/left_yaw_p060/SAMPLES_5MS.npz",
+    "sha256": "753284f265b58c4dd6493825b042c7d5f57b4127e9eaf62b4a2d14a8cc62d731",
+    "decisions": 2880,
+    "post_prime_decisions": 1920
+  },
+  "native": {
+    "actual_native_steps": 1232000,
+    "post_native_steps": 768000,
+    "nonfoot_peak_native": 0.2242661322000606,
+    "post_nonfoot_peak_native": 0.2242661322000606,
+    "post_COM_min": 1.2534167513798797,
+    "extra_force_max": 0.0,
+    "full_arrays_retained": false,
+    "scope": "native peak summary, not full D1-D8",
+    "nonfoot_contact_pairs": {
+      "max_geom_pairs": 64,
+      "pairs": {
+        "0:72": {
+          "contact_observations": 37383,
+          "post_contact_observations": 37383,
+          "first_time_before_s": 11.631300000245677,
+          "last_time_before_s": 12.098575000261189,
+          "peak": {
+            "geom_ids": [
+              0,
+              72
+            ],
+            "geom_names": [
+              "floor",
+              "RHTarsus4_geom"
+            ],
+            "nonfoot_geom_id": 72,
+            "nonfoot_geom_name": "RHTarsus4_geom",
+            "nonfoot_body_id": 61,
+            "nonfoot_body_name": "RHTarsus4",
+            "time_before_s": 11.97300000025702,
+            "time_after_s": 11.97301250025702,
+            "positive_world_z_native": 0.2242661322000606,
+            "contact_normal_force_native": 0.2242661322000606,
+            "force_world_on_nonfoot_native": [
+              0.003247045515726587,
+              -0.0030147092062121454,
+              0.2242661322000606
+            ],
+            "contact_position_world": [
+              -0.7279374187219666,
+              -1.2365064572940117,
+              -0.00032880154268222217
+            ]
+          },
+          "post_peak": {
+            "geom_ids": [
+              0,
+              72
+            ],
+            "geom_names": [
+              "floor",
+              "RHTarsus4_geom"
+            ],
+            "nonfoot_geom_id": 72,
+            "nonfoot_geom_name": "RHTarsus4_geom",
+            "nonfoot_body_id": 61,
+            "nonfoot_body_name": "RHTarsus4",
+            "time_before_s": 11.97300000025702,
+            "time_after_s": 11.97301250025702,
+            "positive_world_z_native": 0.2242661322000606,
+            "contact_normal_force_native": 0.2242661322000606,
+            "force_world_on_nonfoot_native": [
+              0.003247045515726587,
+              -0.0030147092062121454,
+              0.2242661322000606
+            ],
+            "contact_position_world": [
+              -0.7279374187219666,
+              -1.2365064572940117,
+              -0.00032880154268222217
+            ]
+          }
+        }
+      },
+      "overflow_contact_observations": 0,
+      "overflow_peak": null,
+      "positive_native_steps": 37383,
+      "post_positive_native_steps": 37383,
+      "time_convention": "Contact force/pos are beginning-of-step integration solve; time_before_s is parent before(), time_after_s is d.time before mj_forward",
+      "force_convention": "positive world Z on nonfoot geom, same signed convention as parent PeakRecorder",
+      "counts": "per-pair contact_observations may exceed native-step count if multiple points for a pair",
+      "full_native_arrays": false
+    }
+  },
+  "source_runtime_unchanged": true,
+  "scope": "physical algorithm teacher, no ANN; 1ms engineering metrics plus native audit pending; no full D1-D8/biology certification",
+  "wall_s": 205.32174501603004,
+  "teacher_eligible": false,
+  "sourcehash_sha256": "665360c769dcde42a43968b24252ea4eb7858cdb05ed17f2ff71f784e99b28a9",
+  "mapping": "finite SE2 with smooth wider-radius stride",
+  "nominal_speed_schedule": ".075+.025*b",
+  "nominal_yaw_schedule": ".06*b",
+  "curvature_schedule": "(.06*b)/(.075+.025*b)",
+  "base_obs_target_speed_constant": 0.075,
+  "base_obs_note": "Historical input feature only; nominal desired speed ramps to .1; never used as actual measured speed gate",
+  "normalized_forward_domain": "v/.075-1 ramps0..1/3; diagnostic only, future ANN domain unqualified",
+  "slip_numerator_loadweighted_foot_speed": [
+    0.022050321936801308,
+    0.03111831137372157,
+    0.02539403558455187,
+    0.03109932081928822,
+    0.04171906772547953,
+    0.040229913885473326
+  ],
+  "slip_COM_speed_denominator": 0.10252688877421424,
+  "artifact_hashes": {
+    "YAW_1MS.npz": "e1412d8a398d8e44aa924b89af3c80d70df831143ad48c1e45f0cbbce62553fd",
+    "REFERENCE_WIDER_RADIUS.json": "bb00a9a6075aab84a2e0c84cdc93d332c93f6b48de5ff1f27d01311627bd3068",
+    "NATIVE_MANIFEST.json": "cc9f01b5f31479aba95d65f79eeb842a6d111cd9d86e3418eabf99431169d7ad",
+    "INITIAL_RUNTIME.npz": "576d0c096c3eedc0e2ad2ce4025bcd53af472502f65af5c5cf777df4d46f2541",
+    "IDENTITY.json": "46bf347afa46d27d1ef43c7c982e8a5cd91f395092a94c29a9c13265224e19a0"
+  },
+  "independent_saved_audit": "PENDING; unique AUDIT_WIDER_RADIUS_*.json only"
+}

@@ -1,0 +1,11 @@
+{
+  "scope":"READONLY saved left-turn RH/RM slip and neural readout diagnosis",
+  "cases":["qualified_teacher_left","head2000_left","head10000_left"],
+  "window":"Full original9600 endpoints indices5800..15399; no trimming or changed gates. Three fixed descriptive slices 0..3.2,3.2..6.4,6.4..9.6s with3200 endpoints each; each slice numerator share uses full-window load denominator and full original netXY speed denominator.",
+  "load_categories":"loaded>=.1W, unloaded<=.05W, intermediate(.05,.1)W, fixednativeW24.446354755878005",
+  "metrics":"Original vt=sum(load*pad_tangent_speed)/sum(load), slip=vt/(norm(COMendXY-COMstartXY)/(tend-tstart)). Also signedforward, all perleg contributions, loaded/unloaded integrals, teacher-vs-actor action/target/foot-coordinate differences at matcheddecisionindex explicitly descriptive, not causal phase alignment after divergence.",
+  "neural":"Load head2000 and10000 via their strict model_io source/data/ancestry loaders, construct noCore. Evaluate actualsaved readout on current savedresidualhidden64, preactivation/tanh/saturation andfractionof.25bound used. Replay allsaved2880outputs/192hidden for model binding. Teacher fullcausal frozenparent sequence for boundedaction fit/bound saturation only. No optimizer or new candidate artifact.",
+  "verification":"Source/RESULT/audit/identity/trace/neural/geometry hashes beforeafter; once-load each NPZ archive; exact whole metric reproduction and common5800physics/960prime prefix. Preserve all failure flags and UNKNOWN native labels.",
+  "interpretation":"No actualvelocity vector components available in scalar pad speed alone; do not claim cross-coordinate/rootcause proven. Future allowedphysical112+base128+res64+command2=306 nonlinearhead is hypothesis only; privileged scoring/time/source not deployment inputs.",
+  "physical_steps":0,"optimizer_updates":0
+}

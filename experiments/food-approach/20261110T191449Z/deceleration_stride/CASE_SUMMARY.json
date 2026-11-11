@@ -1,0 +1,277 @@
+{
+  "cases": {
+    "stride_018": {
+      "original_all5": false,
+      "original_gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": false,
+        "slip": false
+      },
+      "stride_gates": {
+        "forward": true,
+        "slip": false,
+        "support": true,
+        "com": true,
+        "strict_nonfoot_zero": true,
+        "valid_slip": true,
+        "all6cycles": true
+      },
+      "all_stride_gates": false,
+      "forward": 0.0369217144137807,
+      "forward_threshold": 0.025,
+      "slip_max": 0.9460449446457037,
+      "per_leg_slip": {
+        "LF": 0.5270958896188374,
+        "LH": 0.7442398347920872,
+        "LM": 0.8233685243121368,
+        "RF": 0.5880489244395573,
+        "RH": 0.9460449446457037,
+        "RM": 0.8362218199973841
+      },
+      "slip_load_denominator_native": [
+        21343.761546490256,
+        57079.647159564454,
+        37693.113539647646,
+        20536.751522274586,
+        56974.692405987334,
+        41065.57036014285
+      ],
+      "support_mean": 1.0000363503311787,
+      "com_min": 1.2570894747824912,
+      "nonfoot_max": 0.0,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "front_predicates": {
+        "LF": {
+          "load_min_W": 0.0,
+          "load_max_W": 0.19434791854211592,
+          "padz_max": 0.11056313354407207,
+          "padz_min": -0.01639430848170425,
+          "relativefoot_x_range": 0.17187397420661898,
+          "longest_loaded_grounded_ms": 770,
+          "complete_count": 1,
+          "abort_reasons": {
+            "timeout": 0,
+            "recontact": 0,
+            "terminal": 1
+          },
+          "events": [
+            {
+              "type": "complete",
+              "leg": "LF",
+              "time": 11.549000000242945,
+              "start_time": 9.139000000162941,
+              "lift": 0.11055472516198642,
+              "advance": 0.1408276028097667,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.1720000000389064,
+              "duration": 2.4100000000800037,
+              "bonus": 0.1
+            },
+            {
+              "type": "abort",
+              "reason": "terminal",
+              "leg": "LF",
+              "time": 15.400000000370785,
+              "start_time": 13.939000000322284,
+              "lift": 0.11056313354407207,
+              "advance": 0.14082224780292607,
+              "unloaded_duration": 1.1720000000389064
+            }
+          ]
+        },
+        "RF": {
+          "load_min_W": 0.0,
+          "load_max_W": 0.20430824528048008,
+          "padz_max": 0.1092294958345163,
+          "padz_min": -0.01779397141616442,
+          "relativefoot_x_range": 0.16667156522547855,
+          "longest_loaded_grounded_ms": 747,
+          "complete_count": 2,
+          "abort_reasons": {
+            "timeout": 0,
+            "recontact": 0,
+            "terminal": 0
+          },
+          "events": [
+            {
+              "type": "complete",
+              "leg": "RF",
+              "time": 9.94600000018973,
+              "start_time": 6.755000000083801,
+              "lift": 0.1092294958345163,
+              "advance": 0.1365613288334998,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.154000000038308,
+              "duration": 3.1910000001059293,
+              "bonus": 0.1
+            },
+            {
+              "type": "complete",
+              "leg": "RF",
+              "time": 14.746000000349074,
+              "start_time": 11.55400000024311,
+              "lift": 0.10922070473991224,
+              "advance": 0.13421848672315462,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.155000000038342,
+              "duration": 3.1920000001059634,
+              "bonus": 0.1
+            }
+          ]
+        }
+      }
+    },
+    "stride_027": {
+      "original_all5": false,
+      "original_gates": {
+        "support": true,
+        "nonfoot": true,
+        "com": true,
+        "forward": true,
+        "slip": false
+      },
+      "stride_gates": {
+        "forward": true,
+        "slip": false,
+        "support": true,
+        "com": true,
+        "strict_nonfoot_zero": true,
+        "valid_slip": true,
+        "all6cycles": true
+      },
+      "all_stride_gates": false,
+      "forward": 0.05424607724227364,
+      "forward_threshold": 0.04,
+      "slip_max": 0.6204679142089786,
+      "per_leg_slip": {
+        "LF": 0.3493276535480257,
+        "LH": 0.5091076736689104,
+        "LM": 0.5404672872211231,
+        "RF": 0.40520040798686946,
+        "RH": 0.6204679142089786,
+        "RM": 0.550987900888681
+      },
+      "slip_load_denominator_native": [
+        21732.41085801786,
+        57125.17854078009,
+        37302.899538222795,
+        20281.595409103178,
+        57144.589885904614,
+        41108.761305085885
+      ],
+      "support_mean": 1.0000444420411811,
+      "com_min": 1.2570132331051547,
+      "nonfoot_max": 0.0,
+      "cycles": {
+        "LF": 1,
+        "LH": 2,
+        "LM": 2,
+        "RF": 2,
+        "RH": 2,
+        "RM": 2
+      },
+      "front_predicates": {
+        "LF": {
+          "load_min_W": 0.0,
+          "load_max_W": 0.19745204071500824,
+          "padz_max": 0.11064096986782831,
+          "padz_min": -0.016440167105604385,
+          "relativefoot_x_range": 0.2554189577058863,
+          "longest_loaded_grounded_ms": 801,
+          "complete_count": 1,
+          "abort_reasons": {
+            "timeout": 0,
+            "recontact": 0,
+            "terminal": 1
+          },
+          "events": [
+            {
+              "type": "complete",
+              "leg": "LF",
+              "time": 11.547000000242878,
+              "start_time": 9.141000000163007,
+              "lift": 0.11062955059226695,
+              "advance": 0.2103409856162829,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.1670000000387404,
+              "duration": 2.406000000079871,
+              "bonus": 0.1
+            },
+            {
+              "type": "abort",
+              "reason": "terminal",
+              "leg": "LF",
+              "time": 15.400000000370785,
+              "start_time": 13.94100000032235,
+              "lift": 0.11064096986782831,
+              "advance": 0.21032807835466316,
+              "unloaded_duration": 1.1670000000387404
+            }
+          ]
+        },
+        "RF": {
+          "load_min_W": 0.0,
+          "load_max_W": 0.20560311197443112,
+          "padz_max": 0.10934745251622052,
+          "padz_min": -0.01789323236982731,
+          "relativefoot_x_range": 0.24706313514042944,
+          "longest_loaded_grounded_ms": 765,
+          "complete_count": 2,
+          "abort_reasons": {
+            "timeout": 0,
+            "recontact": 0,
+            "terminal": 0
+          },
+          "events": [
+            {
+              "type": "complete",
+              "leg": "RF",
+              "time": 9.95200000018993,
+              "start_time": 6.758000000083901,
+              "lift": 0.10934745251622052,
+              "advance": 0.202045636846362,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.1500000000381752,
+              "duration": 3.194000000106029,
+              "bonus": 0.1
+            },
+            {
+              "type": "complete",
+              "leg": "RF",
+              "time": 14.75100000034924,
+              "start_time": 11.55700000024321,
+              "lift": 0.10928785945726999,
+              "advance": 0.20094740636952257,
+              "reload_dwell": 0.010000000000331966,
+              "initial_loaded_dwell": 0.01,
+              "unload_dwell": 0.005000000000165983,
+              "unloaded_duration": 1.1510000000382092,
+              "duration": 3.19400000010603,
+              "bonus": 0.1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "interpretation": "Descriptive saved-evidence comparison only. All gates must pass in the samecase. No pooling fullstride/halfstride best columns or changing slip denominator/cycletimeout."
+}

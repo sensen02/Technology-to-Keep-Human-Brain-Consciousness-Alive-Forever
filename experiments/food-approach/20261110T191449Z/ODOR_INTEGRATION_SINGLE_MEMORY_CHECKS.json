@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all1920_sensor_updates_contiguous": true,
+    "receptors_finite_bounded": true,
+    "receptor_asymmetry_actual_geometry": true,
+    "causal_zero_onset": true,
+    "causal_response_after_elapsed_interval": true,
+    "response_used_matches_last_diagnostic": true,
+    "pending_response_applies_only_next_interval": true,
+    "zero_behavior_initialization_neutral": true,
+    "full1920_neural_actions_baseline_bitexact": true,
+    "no_physical_integration": true
+  },
+  "maximum_receptor_asymmetry": 0.17757435653960296,
+  "source_hashes": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/conditional_motor.py": "006dd430f00a11b0bbf31485fb0aca6ad84f281a49a8159a5910f7a3065e9b10",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor_loop.py": "3b7b4d1f360854e01b29a202ff55c17b7df76cdf8e4afff1fddc7d9121261f7d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/check_odor_integration.py": "69864a789b3bfeeb8ca8c84dfe5391d8a84ece6c4c3f0944c4dc492f571ce1ad",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/food_field.py": "d8bbee489d76cfc9ebaaf1bab8843f826025a09cd7d211dd6332ecc1c1205fe8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/food-approach/20261110T191449Z/odor/HEAD_GEOMETRY_AUDIT.json": "2f4b21c5dd26f0b9e445295b3f0b40c82bd9a963dd2efc1315957f9a0541678d"
+  },
+  "source_trajectory": "/run/media/sensen/Data2/cell_wound_prototype/experiments/banc-walking-recovery/20261110T152754Z/NATIVE_ROLE_2500",
+  "body_writes": "private saved-state replay for sensor test only, never physical deployment",
+  "physics_integration_steps": 0,
+  "odor_approach": "NOT_ESTABLISHED"
+}
