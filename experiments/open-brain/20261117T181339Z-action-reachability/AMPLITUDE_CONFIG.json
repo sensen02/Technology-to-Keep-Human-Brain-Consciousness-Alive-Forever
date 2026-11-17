@@ -1,0 +1,21 @@
+{
+  "source_ik_sha256": "e2e691a8c0552f15c040a0cddaa577e80c62bf8abc25140719425a1eac3eaff5",
+  "max_per_joint_delta_rad": [
+    0.015,
+    0.06,
+    0.15
+  ],
+  "physical_steps_per_case": 2000,
+  "planned_physics_steps": 36000,
+  "ramp_s": 0.03,
+  "hold_end_s": 0.12,
+  "return_end_s": 0.15,
+  "physical_lift_pass_native": 0.15,
+  "min_upright": 0.8,
+  "nonfoot_peak_max_bodyweight": 0.2,
+  "note": "Uniform prespecified amplitude sweep on same IK direction; no brain command or ANN claim; native joint angle limits remain absent.",
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/lift_amplitude.py": "a0fb5dec9d2c2c004948a452fc53b7ebc6f8a73e839d1e20145f7ed3c12bc609",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/context.py": "16120582d752c6e0a8fd38c462d3c54910c4d798a4b4db55f69b2a8d47eaeecc"
+  }
+}

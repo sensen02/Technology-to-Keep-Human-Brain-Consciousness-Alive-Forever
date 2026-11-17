@@ -1,0 +1,27 @@
+{
+  "project": "open_source_brain",
+  "status": "FIXED_DYNAMICS_NOMINAL_GROUND_VERIFIED",
+  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck",
+  "runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/fixed_neck.py",
+  "parameters": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/PARAMETERS.json",
+  "readout_calibration": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/READOUT.json",
+  "regression_entry": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/regress.py",
+  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/FINAL.json",
+  "plasticity": false,
+  "source_neck_ports": 52,
+  "source_structure": "BANC v888",
+  "physiology_status": "STRUCTURE_GROUNDED_FIXED_PARAMETER_ASSUMPTIONS",
+  "formal_pass_count": 57,
+  "independent_replays": 57,
+  "sensitivity": {
+    "pass": 29,
+    "total": 30,
+    "failed_condition": "leak12_ground_bluebell__dev__open"
+  },
+  "prior_baselines_preserved": true,
+  "final_acceptance": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/FINAL_ACCEPTANCE.json",
+  "final_acceptance_sha256": "f55d2c1337e671514d58825895e08868f52536c0161c6e7f1f4e16b4ef3cb6a5",
+  "body_entry": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/BODY_CURRENT.json",
+  "retrained_body_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FIT/epoch030.pt",
+  "retrained_body_sha256": "44e0ca425de238a95e0aafe8fa865ace39b5c3bbe5503039578910ea5f79af23"
+}

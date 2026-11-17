@@ -1,0 +1,56 @@
+"""Dedicated same-run ALGORITHM TEACHER video; explicit all dependencies/no fake neural signals."""
+from pathlib import Path
+import argparse,os,sys,json,hashlib,subprocess
+from contracts import *
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--condition',choices=CASES,required=True);p.add_argument('--execute-after-parent-release',action='store_true');a=p.parse_args()
+ if not a.execute_after_parent_release:print('CODE_ONLY noarrays/Core/render');return
+ for key in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS','LP_NUM_THREADS'):require(os.environ.get(key)=='1',key+'=1 required')
+ os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
+ import numpy as np
+ import mujoco as mj
+ from PIL import Image,ImageDraw,ImageFont
+ case=load(a.condition);t=case['trace'];g=case['geometry'];d=case['decisions'];r=case['result'];L=case['body_length']['length_native'];hashes=case['source_hashes'];sys.path.insert(0,str(BASE));from physics import Core
+ from identity import verify,verify_runtime
+ verify(case['identity']);attempts={'count':0}
+ def forbidden(*args,**kw):attempts['count']+=1;raise RuntimeError('Savedvideo forbids physicalintegration')
+ mj.mj_step=mj.mj_step1=mj.mj_step2=forbidden;c=Core(adhesion=False);model=c.plant;verify_runtime(case['identity'],c);require((model.nq,model.nv,model.nu)==(49,48,42),'Fullbodydimensions');mesh=model.geom_type==mj.mjtGeom.mjGEOM_MESH;require(mesh.sum()==71 and np.all(model.geom_rgba[mesh,3]==1),'Full71opaque');head=model.body('Head').id
+ look=(t['com'].min(0)+t['com'].max(0))/2;extent=0.
+ for i in range(0,15400,20):
+  c.d.qpos[:]=t['qpos'][i];c.d.qvel[:]=t['qvel'][i];c.d.time=float(t['time'][i]);mj.mj_forward(model,c.d);extent=max(extent,float(np.max(np.linalg.norm(c.d.geom_xpos[mesh]-look,axis=1)+model.geom_rbound[mesh])))
+ cam=mj.MjvCamera();cam.type=mj.mjtCamera.mjCAMERA_FREE;cam.distance=max(11.,extent/np.sin(np.deg2rad(float(model.vis.global_.fovy)/2))*1.6);cam.azimuth=135.;cam.elevation=-35.;cam.lookat[:]=look;option=mj.MjvOption();option.geomgroup[:]=1;option.flags[mj.mjtVisFlag.mjVIS_TENDON]=False
+ out=HERE/('VIDEO_'+a.condition);out.mkdir(exist_ok=False);path=out/'ACTUAL_ALGORITHM_TEACHER_STOP_PIVOT.mp4';oldbuffer=[int(model.vis.global_.offwidth),int(model.vis.global_.offheight)];model.vis.global_.offwidth=960;model.vis.global_.offheight=640;font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',16);small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',12);renderer=None;writer=None;mapping=[];boxes=[]
+ try:
+  renderer=mj.Renderer(model,height=640,width=960);writer=subprocess.Popen(['ffmpeg','-v','error','-threads','1','-filter_threads','1','-f','rawvideo','-pix_fmt','rgb24','-s','1280x720','-r','50','-i','pipe:0','-an','-c:v','libx264','-threads','1','-preset','fast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(path)],stdin=subprocess.PIPE)
+  for frame,i in enumerate(range(0,15400,20)):
+   physical_ms=i+1;now=float(t['time'][i]);elapsed=now-5.8;qi=None if physical_ms<1000 else min(2879,(physical_ms-1000)//5);gi=None if i<1000 else i-1000;require(qi is None or d['time'][qi]<=now+1e-8,'No future5msteacher sample');require(gi is None or abs(g['time'][gi]-now)<1e-8,'Geometry1msaftersettlemap')
+   c.d.qpos[:]=t['qpos'][i];c.d.qvel[:]=t['qvel'][i];c.d.time=now;mj.mj_forward(model,c.d);require(np.array_equal(c.d.qpos,t['qpos'][i]) and np.array_equal(c.d.qvel,t['qvel'][i]),'Savedposeunchanged');require(np.allclose(c.d.subtree_com[c.th],t['com'][i],atol=1e-10,rtol=0),'ActualCOMreconstruction');rot=c.d.xmat[c.th].reshape(3,3);angle=float(np.arctan2(rot[1,0],rot[0,0]))
+   if gi is not None:require(abs(np.arctan2(np.sin(angle-g['thorax_yaw'][gi]),np.cos(angle-g['thorax_yaw'][gi])))<1e-10 and np.allclose(rot,g['thorax_rotation'][gi],atol=1e-10,rtol=0),'Actualthoraxyawrotation');require(np.allclose(c.d.xpos[head],g['head_xyz'][gi],atol=1e-10,rtol=0) and np.allclose(c.d.xmat[head].reshape(3,3),g['head_rotation'][gi],atol=1e-10,rtol=0),'Actualarchivedheadreconstruction')
+   renderer.update_scene(c.d,camera=cam,scene_option=option);renderer.enable_segmentation_rendering();seg=renderer.render();renderer.disable_segmentation_rendering();mask=np.isin(seg[:,:,0],np.flatnonzero(mesh))&(seg[:,:,1]==int(mj.mjtObj.mjOBJ_GEOM));yy,xx=np.where(mask);require(len(xx)>0 and xx.min()>5 and xx.max()<954 and yy.min()>92 and yy.max()<540,'Wholebodyframecontainment');boxes.append([int(xx.min()),int(yy.min()),int(xx.max()),int(yy.max())])
+   # Spectator marker only: actual candidate-startCOM projected toground, never a physical lock.
+   if physical_ms>=5800:
+    mark=renderer.scene.geoms[renderer.scene.ngeom];mj.mjv_initGeom(mark,mj.mjtGeom.mjGEOM_CYLINDER,np.asarray([.06,.005,0.]),np.r_[t['com'][5799,:2],.01],np.eye(3).ravel(),np.asarray([.2,.8,1.,.8],dtype=np.float32));mark.objtype=int(mj.mjtObj.mjOBJ_UNKNOWN);mark.objid=-1;mark.segid=-1;mark.category=int(mj.mjtCatBit.mjCAT_DECOR);renderer.scene.ngeom+=1
+   body=Image.fromarray(renderer.render());bd=ImageDraw.Draw(body);bd.rectangle((0,0,960,90),fill='#fff0dd');bd.rectangle((0,544,960,640),fill='#f6f6f6');phase='SETTLE' if physical_ms<1000 else 'WALKING TEACHER WARMUP' if physical_ms<5800 else 'ALGORITHM CANDIDATE';label='SUPPORT9.6s VERIFIED / LEARNED STOP NOT VALIDATED' if a.condition=='stop' else 'PIVOT TEACHER GATES PASS / NEURAL PIVOT NOT VALIDATED'
+   lines=['ALGORITHM TEACHER — NOT ANN/NECK PIVOT',a.condition+' | '+phase+f' | actual {now:.3f}/15.400s |1.00x/50fps',label,'Savedfullbody physics; no pose/root lock, no added trajectory; spectator origin marker only']
+   for j,text in enumerate(lines):bd.text((10,2+22*j),text,font=font,fill='#151515')
+   finallegacy=r['original_five']['gates'];legacy=' / '.join(k+(' PASS' if v else ' FAIL') for k,v in finallegacy.items());bottom=[f'Actual yaw fromcandidate start {np.degrees(case["yaw"][i]):+.3f} deg | COM drift {case["drift"][i]:.5f} L_body',f'FINAL candidate maxdrift {r["candidate_metrics"]["max_COM_xy_drift_bodylength"]:.6f} L_body | native NFpeak {r["native"]["post_nonfoot_peak_native"]:.6g}',f'Legacy5 FINAL (not pivot success criterion): {legacy}','BL is compiled nativegeometry length, absolute SI NOT_ESTABLISHED; no eyeRGB or neuralstate exists']
+   for j,text in enumerate(bottom):bd.text((10,546+22*j),text,font=small if j in (2,3) else font,fill='#151515')
+   image=Image.new('RGB',(1280,720),'white');image.paste(body,(0,0));draw=ImageDraw.Draw(image);draw.text((972,10),'ACTUAL TEACHER SAMPLES',font=font,fill='black');requested=None if qi is None else float(d['requested_yaw_rate'][qi]);currentcounts=case['cycle_counts'][i].tolist();support=float(t['loads'][i].sum()/r['weight_native']);maxdrift=float(case['drift'][5800:i+1].max()) if i>=5800 else 0.
+   details=[f'Physical t {now:.3f}s',f'Candidate elapsed {elapsed:.3f}s',f'5ms teacher index {qi}',f'Request yawrate (rad/s): {requested}',f'Actual cumulative yaw {np.degrees(case["yaw"][i]):+.3f} deg',f'Actual drift now {case["drift"][i]:.6f} Lb',f'Actual max postdrift {maxdrift:.6f} Lb',f'L_body {L:.6f} native',f'Foot support current {support:.6f} W',f'COM height {float(t["com"][i,2]):.6f} native',f'Native nonfoot FINAL {r["native"]["post_nonfoot_peak_native"]:.6g}',f'Extra force FINAL {r["native"]["extra_force_max"]:.6g}', 'Actual eventtime cyclecounts:', 'NA (stop)' if a.condition=='stop' else 'LF/LH/LM/RF/RH/RM', 'NA' if a.condition=='stop' else str(currentcounts),'FINAL cyclecounts '+str(r['candidate_metrics']['pivot_cycle_counts']), 'No ANN / no learnedstop / no neck', 'No electrodes or biological claim']
+   for j,text in enumerate(details):draw.text((972,44+29*j),text,font=small,fill='black')
+   draw.text((12,666),'Actualsame-run recordedtrajectory; algorithmteacher proof only. Stable support is not a learned neural stop.',font=font,fill='black');draw.text((12,692),'Preserved initial failure experiments are archived; thisvideo uses qualifiedfixed-shadow actualsamples only.',font=small,fill='black');pixels=np.asarray(image).tobytes();writer.stdin.write(pixels);mapping.append(dict(frame=frame,trace_index=i,time_s=now,physical_ms=physical_ms,geometry_index=gi,head_check='derived_settle_nosavedhead' if gi is None else 'actual_savedhead_checked',teacher_index=qi,teacher_time_s=None if qi is None else float(d['time'][qi]),requested_yaw_rate=requested,actual_yaw_deg=float(np.degrees(case['yaw'][i])),actual_drift_Lbody=float(case['drift'][i]),actual_eventtime_cycles=currentcounts,phase=phase,qpos_sha256=hashlib.sha256(t['qpos'][i].tobytes()).hexdigest(),qvel_sha256=hashlib.sha256(t['qvel'][i].tobytes()).hexdigest(),rendered_RGB_sha256=hashlib.sha256(pixels).hexdigest()))
+  writer.stdin.close();encode_exit=writer.wait();require(encode_exit==0,'FFmpegencode')
+ finally:
+  if writer is not None and writer.poll() is None:writer.stdin.close();writer.wait()
+  if renderer is not None:renderer.close()
+  model.vis.global_.offwidth,model.vis.global_.offheight=oldbuffer
+ verify_runtime(case['identity'],c);require(attempts['count']==0,'No integration');unchanged(hashes);meta=json.loads(subprocess.run(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(path)],capture_output=True,text=True,check=True).stdout);stream=meta['streams'][0];require(int(stream['nb_read_frames'])==770 and stream['r_frame_rate']=='50/1' and abs(float(meta['format']['duration'])-15.4)<.001,'77050fps15.4s')
+ chosen=[0,49,50,289,290,330,430,530,650,769];montage=Image.new('RGB',(2560,3600));decoder=subprocess.Popen(['ffmpeg','-v','error','-threads','1','-filter_threads','1','-i',str(path),'-f','rawvideo','-pix_fmt','rgb24','pipe:1'],stdout=subprocess.PIPE);count=0
+ while True:
+  raw=decoder.stdout.read(1280*720*3)
+  if not raw:break
+  require(len(raw)==1280*720*3,'Shortdecodedframe')
+  if count in chosen:j=chosen.index(count);montage.paste(Image.frombytes('RGB',(1280,720),raw),((j%2)*1280,(j//2)*720))
+  count+=1
+ decoder.stdout.close();decode_exit=decoder.wait();require(decode_exit==0 and count==770,'Full770decode');mp=out/'DECODED_MONTAGE.png';montage.save(mp);unchanged(hashes);fresh(out/'FFPROBE.json',meta);fresh(out/'FRAME_MAPPING.json',mapping);fresh(out/'VIDEO.json',dict(condition=a.condition,source_run=str(case['folder']),source_hashes=hashes,video=str(path),video_sha256=sha(path),montage=str(mp),montage_sha256=sha(mp),frames=770,decoded_frames=count,fps=50,physical_seconds=15.4,playback_seconds=15.4,resolution=[1280,720],physics_steps=0,integration_attempts=0,policy_forward_calls=0,teacher_forward_calls=0,compiled_runtime_unchanged=True,source_unchanged=True,all_qpos_qvel_COM_checked=True,head_thoraxyaw_checked_after_settle=True,settle_head_reconstructed_from_savedpose_not_independentlyarchived=True,all71meshopaque=True,all_frame_fullbody_containment=True,body_silhouette_bounds=boxes,no_neural_or_eye_images_invented=True,ALGORITHM_TEACHER_ONLY=True,ANN_or_neck_pivot_qualified=False,learned_stop_qualified=False,nonfuture_teacherlookup=True,final_candidate_metrics=r['candidate_metrics'],original_five_preserved=r['original_five'],ffmpeg_exit=encode_exit,full_decode_exit=decode_exit,parent_actual_review='PENDING'));print(str(out/'VIDEO.json'))
+if __name__=='__main__':main()

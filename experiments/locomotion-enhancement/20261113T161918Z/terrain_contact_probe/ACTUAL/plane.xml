@@ -1,0 +1,10 @@
+<mujoco model="registered_terrain_plane">
+ <compiler angle="radian"/>
+ <option timestep="0.0000125" gravity="0 0 -9.81" integrator="Euler"/>
+ <default><geom condim="3" friction="1.5 0.005 0.0001" margin="0" solref="0.002 1"/></default>
+ <worldbody><geom name="terrain_plane" type="plane" size="0.1 0.1 0.001"/>
+  <body name="free_footprobe" pos="0 0 0.0079500000000000005"><freejoint name="probe_free"/>
+   <geom name="footprobe" type="sphere" size="0.008" mass="0.001"/>
+  </body>
+ </worldbody>
+</mujoco>

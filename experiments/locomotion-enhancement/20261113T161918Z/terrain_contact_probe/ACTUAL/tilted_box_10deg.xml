@@ -1,0 +1,10 @@
+<mujoco model="registered_terrain_tilted_box_10deg">
+ <compiler angle="radian"/>
+ <option timestep="0.0000125" gravity="0 0 -9.81" integrator="Euler"/>
+ <default><geom condim="3" friction="1.5 0.005 0.0001" margin="0" solref="0.002 1"/></default>
+ <worldbody><geom name="terrain_tilted_box_10deg" type="box" pos="0 0 0.002" size="0.1 0.1 0.002" quat="0.99619469809174555 0 0.087155742747658166 0"/>
+  <body name="free_footprobe" pos="0.0017277993677859568 0 0.01179883714247147"><freejoint name="probe_free"/>
+   <geom name="footprobe" type="sphere" size="0.008" mass="0.001"/>
+  </body>
+ </worldbody>
+</mujoco>

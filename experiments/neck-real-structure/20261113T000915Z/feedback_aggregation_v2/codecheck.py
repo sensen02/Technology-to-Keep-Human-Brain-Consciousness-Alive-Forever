@@ -1,0 +1,22 @@
+"""Stdlib source/entry contract preparation only, no numerical modules/arrays/models."""
+from pathlib import Path
+import ast,json,hashlib,sys,importlib.util
+HERE=Path(__file__).resolve().parent
+
+def sha(p):
+ with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def main():
+ files=('common.py','model.py','data.py','preflight.py','train.py','verify_saved.py','evaluate.py','run.py','codecheck.py');trees={};checks={}
+ for name in files:trees[name]=ast.parse((HERE/name).read_text());checks['syntax_'+name]=True
+ pr=json.loads((HERE/'PREREG.json').read_text());checks['newtimestamp']=str(HERE).endswith('/20261113T000915Z/feedback_aggregation_v2');checks['seven_actualtrain_sequences']=len(pr['train_sequences'])==7 and pr['train_sequences'][4:]==['P_empty','P_left_pulse','P_right_pulse'];checks['fixed400_batch7_history1920']=pr['training']['updates']==400 and pr['training']['batch']==7 and pr['training']['history_steps']==1920;checks['final400only_saves0_200_400']=pr['training']['save_steps']==[0,200,400] and pr['training']['validation_only_step']==400;checks['noauto_batchchange']=pr['training']['no_automatic_batch_reduction'] is True
+ for name in ('data.py','preflight.py','train.py','verify_saved.py','evaluate.py','run.py'):checks['public_main_'+name]=any(isinstance(n,ast.FunctionDef) and n.name=='main' for n in trees[name].body)
+ checks['public_eval_audit']=any(isinstance(n,ast.FunctionDef) and n.name=='audit' for n in trees['evaluate.py'].body)
+ spec=importlib.util.spec_from_file_location('_aggregation_stdlib_contract_common',HERE/'common.py');c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c);checks['parentactualeed1exists']=c.PARENT.is_file() and sha(c.PARENT)==pr['parent_sha256'];checks['sourcefile_dependencies_exist']=all(p.is_file() for p in c.sources());checks['same111mask']=c.MASK==list(range(0,42))+list(range(84,126))+list(range(168,195));checks['explicitoldbodypaths']=str(c.OLD)==pr['old_calibration'] and str(c.BODY)==pr['onpolicy_body_root']
+ r=importlib.util.spec_from_file_location('_aggregation_stdlib_run',HERE/'run.py');m=importlib.util.module_from_spec(r);r.loader.exec_module(m);checks['no_heavy_import']=not any(k in sys.modules for k in ('numpy','torch','mujoco','physics','model','student_wave'));checks['explicitflag']=any(isinstance(n,ast.Constant) and n.value=='--execute-parent-aggregation' for n in ast.walk(trees['run.py']))
+ data=(HERE/'data.py').read_text();model=(HERE/'model.py').read_text();pre=(HERE/'preflight.py').read_text();train=(HERE/'train.py').read_text();verify=(HERE/'verify_saved.py').read_text()
+ checks['actualonpolicy_suffix1160']='1160:3080' in data and "z['X238'].shape!=(3080,238)" in data;checks['old4_bitexact_check']="np.array_equal(trainbody[:,:4],base['body111'])" in data;checks['explicit_cue_teacher_offline']="teacher=.8*traincue" in data and "original_teacher=orig" in data;checks['same_normalizer_notrefitted']="mean=base['mean'],std=base['std']" in data;checks['balancedactionweights']='.5/on.sum()' in data and '.5/off.sum()' in data;checks['trainingonly_decoder_silence_prior']='model.decoder(dn.new_zeros((dn.shape[1],2)))' in model and '+.1*silent' in model;checks['reconstruction_weight001']='action+.01*feedback+.001*activity+.1*silent' in model;checks['preflight_allparams_grad_andAdam']='for (name,p),(other,q) in zip(m.named_parameters(),a.named_parameters())' in pre and 'Adamstate_' in pre;checks['batch7RSSguard']='RSSunder1800MiB_without_batchchange' in pre;checks['real_onpolicy_queue_9600']='real_queue_rollout(m,x[:,5:6]' in pre and "proof['actual_steps']==9600" in pre;checks['fresh400Adam_fromparent']='m,parent=initialize();scan=make_scan(m);opt=torch.optim.Adam' in train and 'range(1,401)' in train;checks['saved_rng_uses_actual_initialize']='torch.manual_seed(20261112);initial,parent=initialize()' in verify;checks['no_physical_claim']=pr['new_body_physics_steps']==0 and pr['full_neck_training_allowed'] is False
+ if not all(checks.values()):raise ValueError(str({k:v for k,v in checks.items() if not v}))
+ report=dict(all_passed=True,checks=checks,source_hashes={str(HERE/n):sha(HERE/n) for n in files+('PREREG.json',)},numerical_imports=False,arrays_read=False,model_constructions=0,training_updates=0,physics_steps=0)
+ with (HERE/'CODEONLY_CHECK.json').open('x') as f:json.dump(report,f,indent=2);f.write('\n')
+ print(json.dumps(dict(all_passed=True,checks=len(checks),heavy_imports=False)))
+if __name__=='__main__':main()

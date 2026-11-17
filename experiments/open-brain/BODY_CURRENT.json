@@ -1,0 +1,26 @@
+{
+  "project": "open_source_brain",
+  "status": "RETRAINED_FIXED_NECK_GROUND_VERIFIED",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FIT/epoch030.pt",
+  "sha256": "44e0ca425de238a95e0aafe8fa865ace39b5c3bbe5503039578910ea5f79af23",
+  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation",
+  "neck_implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck",
+  "frozen_neck_parameters": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/PARAMETERS.json",
+  "fixed_readout": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/READOUT.json",
+  "policy_loader": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T062447Z-body-commands/PHASE/phase.py",
+  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FINAL_ACCEPTANCE.json",
+  "evidence_sha256": "d0859be348369cdc9d6eab476726220b719c09b5f786804fcc414235bc0236c4",
+  "trained_components": [
+    "sensory_reflex_network",
+    "42_joint_phase_readout"
+  ],
+  "fixed_components": [
+    "Eon_brain",
+    "BANC_structure_and_dynamics",
+    "static_readout",
+    "intrinsic_CPG_dynamics"
+  ],
+  "static_readout_retained": true,
+  "plasticity": false,
+  "baseline_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T062447Z-body-commands/PHASE/FIT/epoch015.pt"
+}

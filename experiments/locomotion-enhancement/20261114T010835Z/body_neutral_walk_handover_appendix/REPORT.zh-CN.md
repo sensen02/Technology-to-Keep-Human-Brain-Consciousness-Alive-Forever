@@ -1,0 +1,7 @@
+# 中性walk匹配来源附录
+
+中性命令[1,0]确有actual index8 old_walk_control训练覆盖。原source是冻结789f直接驱动／007d仅shadow；本次new41fa预测参考仅EVAL[0,8]与CONDITIONAL600 old_walk_control8输出。
+
+保存初输入匹配：True；首输出测量≤1e−12：True；受控状态：EXPECTED_EXACT_GIVEN_MATCHED_SAVED_WARM_HISTORY_AND_CALIBRATION_PRIME_PROOFS。
+
+仅初始一致不证明后续闭环或行为成功，四源主报告和95行为FAIL均保持。Source后96属于007d不能当新600状态参考；此genericcase_report只比较source前256及new600 conditional输出。

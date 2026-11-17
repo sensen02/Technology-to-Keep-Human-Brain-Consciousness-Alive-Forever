@@ -30,9 +30,17 @@ MUJOCO_LOG.TXT
 *.jpeg
 *.mp4
 *.gif
+*.mov
+*.avi
+*.webm
 *.npy
 *.npz
 *.parquet
+*.feather
+*.pkl
+*.swc
+*.headers
+*.head
 
 # ---- experiment payloads: per-run evidence stays on disk, not in git ----
 # `experiments/` keeps the CODE and the small JSON/markdown evidence.  The following are
@@ -72,3 +80,31 @@ references/**/*.h5
 
 # Third-party checkout under an experiment run; provenance is its own SOURCE.json + commit id.
 experiments/**/official-flybody/
+
+# Per-step / per-worker experiment payloads.  Keep the compact RESULT / FINAL /
+# REPORT files, but regenerate these from the checked-in scripts and manifests.
+experiments/**/TRANSPORT.json
+experiments/**/SOURCE_QUEUE.json
+experiments/**/*.jsonl
+experiments/**/*.log
+experiments/**/*.exit
+experiments/**/*.out
+experiments/**/worker_*/
+experiments/**/terrain_identity/
+experiments/**/saved_model.pb
+experiments/**/variables/
+
+# Large generated diagnostics and duplicated run snapshots.  The concise RESULT,
+# FINAL, REPORT and checked-in programs remain the reviewable experiment record.
+# JSON evidence remains in the immutable local experiment directories; only the
+# explicitly curated current/final summaries are force-added to git.
+experiments/**/*.json
+experiments/**/*.json_*
+experiments/**/*.csv
+experiments/**/*.tsv
+experiments/**/CAPTURES.json
+experiments/**/*QUEUE.json
+experiments/**/STAT.json
+experiments/**/CANDIDATE_GRAPH.json
+experiments/**/IDENTITY.json
+experiments/**/PREFLIGHT.json

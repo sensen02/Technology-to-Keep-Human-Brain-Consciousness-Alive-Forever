@@ -1,0 +1,25 @@
+"""Stdlib preparation checks only, never actualtrialarrays/Core/render/model."""
+from pathlib import Path
+import ast,json,hashlib,sys,importlib.util
+HERE=Path(__file__).resolve().parent
+NAMES=('contracts.py','render.py','plot_sync.py','check_codeonly.py')
+def sha(p):
+ with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def main():
+ checks={};texts={}
+ def check(k,v):
+  checks[k]=bool(v)
+  if not checks[k]:raise ValueError('VisualevidenceCODEONLY '+k)
+ for name in NAMES:
+  text=(HERE/name).read_text();tree=ast.parse(text);compile(tree,str(HERE/name),'exec');texts[name]=text;check(name+'_syntax',True);check(name+'_no_eager_heavyimports',not any(isinstance(n,(ast.Import,ast.ImportFrom)) and any(x.name.split('.')[0] in ('torch','numpy','mujoco','physics') for x in n.names) for n in tree.body))
+ sp=importlib.util.spec_from_file_location('_actualrgbneck_evidence_codeonly_contracts',HERE/'contracts.py');m=importlib.util.module_from_spec(sp);sp.loader.exec_module(m);pr=json.loads((HERE/'PREREG.json').read_text())
+ check('actualnewBODYROOT',m.ROOT==HERE.parent/'visual_body');check('actualsummaryKIND',m.SUMMARY_KIND=='ACTUAL_RGB_SOURCE_NECK_VISUAL_BODY_SUMMARY_V1');check('actualweightsallfour',m.BRAIN_SHA==pr['actual_brain_sha256'] and m.VISION_SHA==pr['visual_sha256'] and m.NECK_SHA==pr['neck_sha256'] and m.MOTOR_SHA==pr['motor_sha256']);check('tenconditions_fourrepresentatives',len(m.IDS)==10 and m.VIDEO_IDS==('V_empty','V_left_to_right','V_left_DN_cut','V_left_occluded'))
+ check('strict22stagegate',"len(jobs)==22" in texts['contracts.py']);check('all10integrity_artifact_parentreview',all(x in texts['contracts.py'] for x in ('all10_integrity_verified','PARENT_READY_REVIEW.json','all(a[\'checks\'].values())','saved_actual_RGB_source_queue_brain_motor_replay')));check('source304and3080notoldschema','(3080,304)' in texts['contracts.py'] and 'r[\'state_total\']==304' in texts['contracts.py']);check('sourceRGB770exact','(770,2,32,32,3)' in texts['contracts.py']);check('initialinvalid_minus1_contract','not d[\'image_valid\'][:4].any()' in texts['contracts.py'])
+ check('functionalFAILnotadmissiongate',"require(s['normal6_all_functional_pass']" not in texts['contracts.py'] and "require(s['control2_all_pass']" not in texts['contracts.py']);check('fullheadpose_COMyaw_beforedecors',all(x in texts['render.py'] for x in ('COMreconstruction','Yawreconstruction','Actualheadreconstruction','Fullbodycroppedorheaderoverlap')));check('integrationprohibited',"mj.mj_step=mj.mj_step1=mj.mj_step2=forbidden" in texts['render.py']);check('same77050fps_full_decode',all(x in texts['render.py'] for x in ('range(0,15400,20)','count==770',"'50/1'",'abs(float(meta[\'format\'][\'duration\'])-15.4)')))
+ check('nominal_neural_frame_mapping','physical_ms=i+1' in texts['render.py'] and 'qi=min(3079,physical_ms//5)' in texts['render.py']);check('real_actor_and_raw_images_not_synthetic','rgb[actor,eye]' in texts['render.py'] and 'rgb[raw,eye]' in texts['render.py']);check('invalid_no_negative_index_actor',all(x in texts['render.py'] for x in ('if valid:','0<=actor<770','NO RELEASED RGB','None if actor is None else caps[actor]')));check('futureactorframe_rejected','No futureactororrawimage' in texts['render.py']);check('farclosedcovers_not_oldnearwall','[.18,.18,1.4]' in texts['render.py'] and "capture['cover_rotation']" in texts['render.py'] and "g['target_centers_xyz'][i][:2]" in texts['render.py']);check('nativeunits_notmeters','NATIVE_NOT_SI' in texts['render.py'] and 'native units' in texts['render.py'])
+ check('originalslip_and_functionFAIL_displayed',"'PASS' if r['engineering_pass'] else 'FAIL'" in texts['render.py'] and "'PASS' if case['functional_pass'] else 'FAIL'" in texts['render.py']);check('304_real_visionAN_DN_sidebar',all(x in texts['render.py'] for x in ('304 memories','visual_raw_turn','brain_hidden_after','DN_held','AN_held','raw_released_image_capture_id')));check('ten_case_andpaired_actualplots',all(x in texts['plot_sync.py'] for x in ('plt.subplots(10,4','SOURCE_CUT_AND_FIXED_IMAGE_ACTUAL_COMPARISONS','V_left_to_right','V_flip_fixedframe')));check('actual_reliable_prior_sources_inledger',all(p.is_file() for p in (m.OLD_RENDER,m.NEURAL_RENDER,m.NEURAL_CORE)))
+ check('no_arrays_models_render_imported',not any(k in sys.modules for k in ('numpy','torch','mujoco','physics','student_wave','flygym')));check('no_actual_visual_outputs',not any((HERE/n).exists() for n in ('SYNCHRONIZED_EVIDENCE','VIDEO_V_empty','VIDEO_V_left_to_right','VIDEO_V_left_DN_cut','VIDEO_V_left_occluded')))
+ report=dict(all_passed=True,checks=checks,source_hashes={str(HERE/n):sha(HERE/n) for n in NAMES+('PREREG.json',)},heavy_imports=0,arrays_loaded=0,models_deserialized=0,NN_forward_calls=0,Core_constructions=0,render_calls=0,physics_steps=0,parent_execution_only_after_actual22stages=True)
+ with (HERE/'CODEONLY_CHECK.json').open('x') as f:json.dump(report,f,indent=2);f.write('\n')
+ print(json.dumps(dict(all_passed=True,checks=len(checks),heavy_imports=0,arrays=0,models=0,Core=0,render=0)))
+if __name__=='__main__':main()

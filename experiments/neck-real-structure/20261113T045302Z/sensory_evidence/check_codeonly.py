@@ -1,0 +1,27 @@
+"""Stdlib checks for actualmultisensory evidence; no arrays/models/Core/render."""
+from pathlib import Path
+import ast,json,hashlib,sys,importlib.util
+HERE=Path(__file__).resolve().parent
+NAMES=('contracts.py','adapter.py','render.py','plot_sync.py','check_codeonly.py')
+def sha(p):
+ with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def main():
+ checks={};texts={}
+ def check(k,v):
+  checks[k]=bool(v)
+  if not checks[k]:raise ValueError('SensoryevidenceCODEONLY '+k)
+ for name in NAMES:
+  text=(HERE/name).read_text();tree=ast.parse(text);compile(tree,str(HERE/name),'exec');texts[name]=text;check(name+'_syntax',True);check(name+'_no_eager_heavyimports',not any(isinstance(n,(ast.Import,ast.ImportFrom)) and any(x.name.split('.')[0] in ('torch','numpy','mujoco','physics') for x in n.names) for n in tree.body))
+ import contracts,adapter
+ pr=json.loads((HERE/'PREREG.json').read_text());check('14cases4fixedrepresentatives',len(contracts.IDS)==14 and list(contracts.VIDEO_IDS)==pr['videos']);check('newROOTandactualsummarykind',contracts.ROOT==HERE.parent/'sensory_body' and contracts.SUMMARY_KIND=='SOURCE_NECK_MULTISENSORY_BODY_SUMMARY_V1');check('actualallfiveidentities',contracts.BRAIN_SHA==pr['weights']['brain'] and contracts.VISION_SHA==pr['weights']['vision'] and contracts.ODOR_SHA==pr['weights']['odor'] and contracts.NECK_SHA==pr['weights']['neck'] and contracts.MOTOR_SHA==pr['weights']['motor'])
+ check('strict30stage14auditgates','len(jobs)==30' in texts['contracts.py'] and 'all14_integrity_verified' in texts['contracts.py'] and "all(a['checks'].values())" in texts['contracts.py']);check('actual3363080and14replay','same_actualRGB_receptors_X_sourcequeue_full336_replay' in texts['contracts.py'] and '(3080,336)' in texts['contracts.py']);check('actualenvironmentproxies_and_pendingfields',all(x in texts['contracts.py'] for x in ('sensor_xyz','odor_source_xy','actor_receptors','receptors_used','filter_before','filter_after','pending_before','pending_after')));check('first20invalidnegativeguard','First20msnotgenuineRGB' in texts['contracts.py']);check('functionalFAILnotadmissiongate',"require(s['visual_normal6']['all_functional_pass']" not in texts['contracts.py']);check('strictnativeandfoodlimits','not s[\'food_arrival_or_parking_claim\']' in texts['contracts.py'])
+ tree,changes=adapter.tree();compile(tree,str(HERE/'render.py')+'::compiledonly','exec');ns=adapter.namespace();check('actualrendererpublicmain',callable(ns['main']) and ns['main'].__code__.co_filename.endswith('::immutableRGBcore_multisensory_sidebar'));check('actualrenderernewnamespace',ns['ROOT']==contracts.ROOT and ns['HERE']==HERE and ns['VIDEO_IDS']==contracts.VIDEO_IDS)
+ body=ast.unparse(tree);oldtree=ast.parse(adapter.OLD.read_text())
+ def numeric(t):return [n.value for n in ast.walk(t) if isinstance(n,ast.Constant) and type(n.value) in (int,float)]
+ oldnums=numeric(oldtree);newnums=numeric(tree);check('sameactual770frames_fps_duration','range(0, 15400, 20)' in body and 'count == 770' in body and "'50/1'" in body and '15.4' in body);check('nointegrationcore','mj.mj_step = mj.mj_step1 = mj.mj_step2 = forbidden' in body);check('originalreconstructionchecksretained',all(x in body for x in ('COMreconstruction','Yawreconstruction','Actualheadreconstruction','Fullbodycroppedorheaderoverlap')))
+ check('baselineOnoodor_notVempty',changes['baseline']==1 and "load('O_noodor')" in body);check('336metadata_notold304','neural_state_total=336' in body and 'neural_state_total=304' not in body);check('noabsentfrozenframeorANcutfields',"d['actor_frame_frozen']" not in body and "d['AN_cut']" not in body);check('nominal5msframeid','physical_ms // 5' in body);check('actualeyepixels_notodorimage',"rgb[actor, eye]" in body and "rgb[raw, eye]" in body and 'NO RELEASED RGB' in body);check('environmentmarks_explicit_notactorRGB','Spectator-only odor marks' in texts['adapter.py'] and 'not eyeRGB' in body and "g['sensor_xyz'][i]" in body and "g['odor_source_xy'][i]" in body);check('receiver_actor_filterpending_sidebar',all(x in body for x in ('ENV receptors','ACTOR receptors','Filter before','Filter after','Pending before','Pending after','Odor cap/consume','odor_raw_turn','AN_held','DN_held')))
+ check('nativeunits_notSI','NATIVE_NOT_SI' in body);check('originalFAILlabelpreserved',"'PASS' if r['engineering_pass'] else 'FAIL'" in body);check('14x4actualplots_andthreepairs',all(x in texts['plot_sync.py'] for x in ('plt.subplots(14,4','F_left_DN_cut','O_left_odorcut','O_left_swap','O_noodor')));check('immutableoldverifiedcore_exists',adapter.OLD.is_file());check('noheavyimports',not any(k in sys.modules for k in ('numpy','torch','mujoco','physics','student_wave','flygym')));check('novisualoutputs_yet',not any((HERE/n).exists() for n in ('SYNCHRONIZED_EVIDENCE',)+tuple('VIDEO_'+x for x in contracts.VIDEO_IDS)))
+ report=dict(all_passed=True,checks=checks,source_hashes={str(HERE/n):sha(HERE/n) for n in NAMES+('PREREG.json',)},adaptation_counts=changes,oldverified_renderer_sha256=sha(adapter.OLD),heavy_imports=0,array_payloads_read=0,models_deserialized=0,Core_constructions=0,render_calls=0,NN_forward_calls=0,physics_steps=0,required_actual_stages=30)
+ with (HERE/'CODEONLY_CHECK.json').open('x') as f:json.dump(report,f,indent=2);f.write('\n')
+ print(json.dumps(dict(all_passed=True,checks=len(checks),arrays=0,models=0,Core=0,render=0)))
+if __name__=='__main__':main()

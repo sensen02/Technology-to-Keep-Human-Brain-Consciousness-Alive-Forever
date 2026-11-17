@@ -1,0 +1,21 @@
+# 远距离单绿盒绕行实验
+
+本实验属于人工搭建大脑项目。用户在上轮回放指出绿盒太近，原距下初次转向已于 2.58125 s 让右前足垫碰盒。本轮将相同绿盒向前平移 .43 原生长度，近面为世界 x=1.419089，外侧终点面 x=1.509089。静态站姿当时足垫前缘到盒近面的差为 .521，全身网格最前缘差为 .511。盒保持实体碰撞，身体、42 路有限 PD、原站姿及来自 BANC 的 DNa02、DNg97 下行传输沿用，视觉 20 ms、身体决策 5 ms、原生步 12.5 µs。
+
+红标设在头前 6.0 原生长度，为包括全部足垫和腹部远端的通行预留距离。32×32 真实双眼独立校正时，240 组留出中 162 组可见，出现判断 95.4%、方位 MAE 1.24°、距离 MAE .132 原生长度。脑看到绿盒触发有限的侧转和斜走。斜走结束后由红标方位闭环接管，继续走近时根据视觉距离减速、站稳。此课程用固定尺寸红标、固定单绿盒、同一站姿和左绕原语，两套限定路线长度。完整颈束与生理传递待验。
+
+同场关闭绿盒响应时，身体用同一红标视觉与下行直走。实测 13 秒、1,040,000 原生步，8.555125 秒首次触碰，峰值 .031106 倍体重。近邻归档几何显示最先接触的是口器。 [关闭组结果](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/FAR_BLIND/RESULT.json) · [原生接触几何诊断](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/BLIND_FIRST_CONTACT.json)
+
+启用方案 A 完整跑 92.0 秒，共 7,360,000 原生子步，全部绿盒接触力实测为 0。实际第一转 +68.17°，初转足垫净空最小 .321。整个路程每 5 ms 核查 71 个身体几何与 18 个足垫，保守轴间隙最小仍为 .321。侧移达 2.166，斜走最大逐腿滑移 .436，六足各至少六个完整周期。末端稳定，但停在红标前 5.438 原生长度，尚无重追推进和全身越过盒远缘。 [A 实验](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/DETOUR_A/RESULT.json) · [A 连续几何](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/GEOMETRY_A.json) · [A 原生步态](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/QUALITY_A.json)
+
+A 末 5 秒内，1,000 次脑请求与颈后解码都持续给右转 −1，250 帧全部检出红色；网络置信 logit 1.772，方向 −11.82°。同一窗口身体偏航跨度只有 3.32×10⁻⁷°，位置最大变化 1.07×10⁻⁸，最大广义速度 1.52×10⁻⁶，执行器目标和实际控制量的最大变化分别为 9.85×10⁻⁹ 和 6.93×10⁻⁷。量到的卡滞位于下行解码之后，体侧确切机制待分离。 [末 5 秒信号和物理](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/STALL_A.json)
+
+启用方案 B 完整跑 87.0 秒，共 6,960,000 原生子步，全部绿盒接触力实测为 0。初转 +46.69°，净空 .321，侧移 1.542。全程几何保守最小轴间隙 .0751，出现在 39.030 秒第二次转向时的右前足。斜走滑移 .439，六足各至少五个完整周期，末端稳定。剩余红标距离 4.745 原生长度，仍未恢复推进或完整越过盒远缘。 [B 实验](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/DETOUR_B/RESULT.json) · [B 连续几何](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/GEOMETRY_B.json) · [B 原生步态](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/QUALITY_B.json)
+
+B 末 5 秒内，1,000 次脑请求与颈后解码都为 (0,0)。实际 250 帧全部有可辨红差，模型置信 logit −1.700，进入不可见分支。同期偏航跨度 1.15×10⁻⁸°，最大位置变化 5.00×10⁻¹⁰，最大广义速度 8.73×10⁻⁸。B 的停步发生在脑侧视觉判别。A 与 B 的完整回合均未通过重追和全身越过的行为门。 [B 末窗口](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/STALL_B.json)
+
+两条启用线路与关闭线路的场景几何、目标、初态、身体记录以及图像逐项匹配直至第一次颈后输出差异。截止 545 ms，独立确认 27 帧相同双眼输入、43,600 个子步触盒力逐项一致。下一次优先在 B 同一场景用可见红像素稳住识别与转走交接。A 的体侧持转须用退转—站稳—复起与持续右转的配对物理来定位。 [A 配对](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/PAIR_A.json) · [B 配对](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/PAIR_B.json)
+
+B 的同一张末帧经改进的色差确认和有界重追模块，离线重复 55 次，地标方位回退为 −3.56°，40 帧交接后有 15 次给出前进 .08318。真实空场帧连续输入时从未请求前进，第 271 帧撤销扫视。相同图像中 A 仍持续请求右转，说明这项视觉修复直接回应 B 的停步。下一最小物理实验从 B 的归档停滞姿态复建同一实体场景，做约 2 秒原策略／新视觉读出配对，检查 DNg97 可达和实际推进，再从原站姿验收零触盒、全身越远缘及恢复趋近的完整回合。 [离线重追 A](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/REJOIN_A.json) · [离线重追 B](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/REJOIN_B.json)
+
+A、B 和关闭回放分别为 1,151、1,089、164 帧，均全解码并实看关键帧。播放 2 倍，每帧依据同次物理姿态和图像实际采样。归档运行器在完整物理与 RESULT 已写后因重复写元数据返回 1，独立脚本对三方结果、物理数组和运行输入的文件指纹校验均返回 0。 [同次 A 回放](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/VIDEO_A/远距离避障.mp4) · [同次 B 回放](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/VIDEO_B/远距离避障.mp4) · [关闭对照回放](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/VIDEO_BLIND/远距离避障.mp4) · [运行检查表](/run/media/sensen/Data2/cell_wound_prototype/experiments/visual-orientation/20261116T191700Z-far-obstacle/RUN_CHECKLIST.zh-CN.md)

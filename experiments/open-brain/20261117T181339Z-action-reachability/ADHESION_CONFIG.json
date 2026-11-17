@@ -1,0 +1,28 @@
+{
+  "status": "ENGINEERING_FUNCTIONAL_BENCH",
+  "gain_per_pad_native": 5.0242405499999965,
+  "gain_per_pad_bodyweight": 0.5,
+  "bench_load_fraction_bodyweight": 0.16666666666666666,
+  "pad_radius_native": 0.03,
+  "pad_geometry": "effective sphere; not anatomical claw/pad",
+  "friction": 1.0,
+  "gravity_native": -9810.0,
+  "timesteps": [
+    0.0001,
+    5e-05
+  ],
+  "duration_s": 0.1,
+  "release_s": 0.05,
+  "off_displacement_min_native": 1.0,
+  "on_displacement_max_native": 0.02,
+  "release_displacement_min_native": 0.1,
+  "no_contact_force_max_native": 1e-12,
+  "full_body_zero_adhesion_steps": 300,
+  "derivative_qpos_tolerance": 1e-12,
+  "neural_ticks": 0,
+  "training_updates": 0,
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/adhesion.py": "b6a91a86edfe27d719e208c66a4d7959752765b0da5eab64505926a6b26f1b57",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/context.py": "16120582d752c6e0a8fd38c462d3c54910c4d798a4b4db55f69b2a8d47eaeecc"
+  }
+}

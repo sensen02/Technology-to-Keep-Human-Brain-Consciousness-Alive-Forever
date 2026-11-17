@@ -1,0 +1,21 @@
+{
+  "change": "Append tarsus5 obstacle sensing during swing only; preserve original three-link stumbling and all original gains.",
+  "scenes": [
+    "flat",
+    "block015"
+  ],
+  "seeds": [
+    119,
+    227
+  ],
+  "physical_steps": 68000,
+  "input_trace_sha256": "ffa9a2053aede440039fee6dd998e41f234c11b9d7ca1c26c6d3feab409d3b41",
+  "teacher_only": true,
+  "training_updates": 0,
+  "anatomical_joint_limits": "UNKNOWN_NOT_CONFIGURED",
+  "gates": "Same reach.py diagnostic gates; do not relax after run.",
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/foot_teacher.py": "16258068e26ede0394a6a3bd2f26bd7440e90831dd6c5b0ca3792e8265f0d8a9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/reach.py": "1430546c537a56a6771baec5efb13d9663b3c72a2c1028bfbc01edcffa4b32ea"
+  }
+}
