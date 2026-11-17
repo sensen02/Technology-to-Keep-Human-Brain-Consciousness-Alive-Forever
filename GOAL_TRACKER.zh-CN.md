@@ -6152,4 +6152,5 @@ Goal rev7 active/armed未完成；下一等同一144的750fresh／900实际权�
 - `AGENTS.md` 不再引用已从当前树移除的巨型日期归档，历史复核统一指向上述清理前提交。
 - 发现并保留并行完成的新研究目录 `experiments/open-brain/20261117T184709Z-body-terrain-repair/`；等待其 `verify.py` 与 `media.py` 自行结束后读取 `FINAL_ACCEPTANCE.json`，未中断或删除运行产物。该证据记载限定教师6/6、独立精确重放3/3、单垫8/8、训练更新0、完整69项ANN回归未运行；据此把 `experiments/open-brain/TERRAIN_BODY_CURRENT.json` 更新为教师已资格化但身体尚未重训，未扩大结论。
 - 已执行命令：`git status --short --branch`、`git ls-tree`/`git ls-files` 精确清点、当前清单与 import 引用扫描、相关进程检查、精确根文件 `git rm`，均退出0。一次 `rg -h` 误触帮助输出后用 `rg -I` 重跑退出0，未修改文件。
-- 验证：README相对链接缺失0；`git diff --cached --check`在修正tracker末尾空行后通过；`venv_body/bin/python -B verify_fly_interoception.py`退出0并报告15400归档帧、最大体积误差4.77e-14。尚未提交、推送或改动 `main`；未删除任何项目子目录，也未做 Git 历史重写。下一最小动作是编译本次保留/新增源码，审阅diff后提交并推送。
+- 验证：README相对链接缺失0；`git diff --cached --check`在修正tracker末尾空行后通过；`venv_body/bin/python -B verify_fly_interoception.py`退出0并报告15400归档帧、最大体积误差4.77e-14；新增Python编译、JSON解析和Shell语法检查均退出0；两张地形资格图已实际打开。
+- Git结果：清理内容提交 `a23d05155d34d44402ee5b468a446fd1e7e1aca0`（1,869文件变化，新增8,100行、删除314,922行），`git fetch origin main`及祖先检查确认可快进；一次 `git push origin HEAD:refs/heads/main HEAD:refs/heads/food-approach-20261110` 退出0。远端和本地 `main` 均指向该提交，ahead/behind为0/0，工作区切回`main`。未删除任何项目子目录，也未做Git历史重写；旧根文件仍可由清理前提交恢复。
