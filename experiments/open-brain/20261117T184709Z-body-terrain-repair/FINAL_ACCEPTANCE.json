@@ -1,0 +1,95 @@
+{
+  "status": "LIMITED_BODY_AND_LOW_BLOCK_TEACHER_QUALIFIED",
+  "formal_pass": 6,
+  "formal_total": 6,
+  "native_metric_checks": [
+    {
+      "name": "terminal_block015_383",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 5.091342768678343,
+      "pad_reconstruction_error": 1.4210854715202004e-14,
+      "target_boundary_fraction": 0.0005182072829131652,
+      "joint_excess": 0.0,
+      "stand_rms": 0.0209151857719998
+    },
+    {
+      "name": "terminal_block015_941",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 4.13851891401762,
+      "pad_reconstruction_error": 1.4210854715202004e-14,
+      "target_boundary_fraction": 0.00037815126050420167,
+      "joint_excess": 0.00499609790207331,
+      "stand_rms": 0.024872440877953216
+    },
+    {
+      "name": "terminal_block030_383",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 4.959906506210718,
+      "pad_reconstruction_error": 1.4210854715202004e-14,
+      "target_boundary_fraction": 0.0010224089635854341,
+      "joint_excess": 0.0,
+      "stand_rms": 0.02693933007529253
+    },
+    {
+      "name": "terminal_block030_941",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 4.454597042610083,
+      "pad_reconstruction_error": 1.4210854715202004e-14,
+      "target_boundary_fraction": 0.001134453781512605,
+      "joint_excess": 0.006023055102691022,
+      "stand_rms": 0.1548214591915597
+    },
+    {
+      "name": "terminal_flat_383",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 5.55583504413921,
+      "pad_reconstruction_error": 1.0658141036401503e-14,
+      "target_boundary_fraction": 0.0,
+      "joint_excess": 0.0,
+      "stand_rms": 0.02061886727845022
+    },
+    {
+      "name": "terminal_flat_941",
+      "pass_": true,
+      "all_metrics_match": true,
+      "final_all_feet_min_x": 5.853547730934081,
+      "pad_reconstruction_error": 1.0658141036401503e-14,
+      "target_boundary_fraction": 0.0,
+      "joint_excess": 0.0,
+      "stand_rms": 0.021025676952859673
+    }
+  ],
+  "replays": [
+    {
+      "name": "terminal_block015_383",
+      "arrays": 22,
+      "all_exact": true
+    },
+    {
+      "name": "terminal_block030_383",
+      "arrays": 22,
+      "all_exact": true
+    },
+    {
+      "name": "terminal_flat_383",
+      "arrays": 22,
+      "all_exact": true
+    }
+  ],
+  "isolated_limit_checks": 132,
+  "all_hinge_limits": 66,
+  "position_target_limits": 42,
+  "zero_adhesion_reference": "New canonical non-fused 42 vs48 actuator model, not the old frozen fused model",
+  "static_and_dynamic_zero_adhesion_exact": true,
+  "single_pad_tests_pass": 8,
+  "teacher_only": true,
+  "training_updates": 0,
+  "biological_hard_joint_limits": "UNKNOWN_ENGINEERING_ENVELOPE",
+  "full_69_ANN_regression": "NOT_RUN",
+  "flight": "DEFERRED"
+}

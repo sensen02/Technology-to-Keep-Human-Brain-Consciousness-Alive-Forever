@@ -1,0 +1,1164 @@
+{
+  "type": "SOURCE_LABELLED_ENGINEERING_OPERATING_ENVELOPE",
+  "joints": {
+    "nmf/c_thorax-lf_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        -0.18701697961354238,
+        0.1921669313203295
+      ],
+      "joint_range_rad": [
+        -0.6870169796135424,
+        0.6921669313203295
+      ],
+      "control_range_rad": [
+        -0.6570169796135423,
+        0.6621669313203294
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lf_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        0.10943344649754344,
+        0.7134144957799091
+      ],
+      "joint_range_rad": [
+        -0.39056655350245656,
+        1.2134144957799091
+      ],
+      "control_range_rad": [
+        -0.3605665535024566,
+        1.183414495779909
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lf_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        0.6457001637365205,
+        1.3540228859571066
+      ],
+      "joint_range_rad": [
+        0.1457001637365205,
+        1.8540228859571066
+      ],
+      "control_range_rad": [
+        0.1757001637365205,
+        1.8240228859571066
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_coxa-lf_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -2.7409802076771435,
+        -1.7340327351192792
+      ],
+      "joint_range_rad": [
+        -3.2409802076771435,
+        -1.2340327351192792
+      ],
+      "control_range_rad": [
+        -3.2109802076771436,
+        -1.2640327351192793
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_coxa-lf_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        0.5822462501806456,
+        1.0474194265270715
+      ],
+      "joint_range_rad": [
+        0.08224625018064557,
+        1.5474194265270715
+      ],
+      "control_range_rad": [
+        0.11224625018064557,
+        1.5174194265270715
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_trochanterfemur-lf_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.251595610750227,
+        2.1664367960953674
+      ],
+      "joint_range_rad": [
+        0.7515956107502271,
+        2.6664367960953674
+      ],
+      "control_range_rad": [
+        0.7815956107502271,
+        2.6364367960953676
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_tibia-lf_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.9028685372438116,
+        -0.4119821799583553
+      ],
+      "joint_range_rad": [
+        -1.4028685372438114,
+        0.08801782004164471
+      ],
+      "control_range_rad": [
+        -1.3728685372438114,
+        0.05801782004164471
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_tarsus1-lf_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.3003678711922287,
+        -0.08552039781206817
+      ],
+      "joint_range_rad": [
+        -0.6503678711922287,
+        0.2644796021879318
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_tarsus2-lf_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.23165235439006954,
+        -0.08365655862528999
+      ],
+      "joint_range_rad": [
+        -0.5816523543900696,
+        0.26634344137471
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_tarsus3-lf_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.18126669019374156,
+        -0.08564021452738904
+      ],
+      "joint_range_rad": [
+        -0.5312666901937415,
+        0.26435978547261096
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lf_tarsus4-lf_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.13252996841306117,
+        -0.08676763257645213
+      ],
+      "joint_range_rad": [
+        -0.48252996841306117,
+        0.26323236742354783
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lm_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        0.6539791939283943,
+        0.9923391281429396
+      ],
+      "joint_range_rad": [
+        0.15397919392839432,
+        1.4923391281429397
+      ],
+      "control_range_rad": [
+        0.18397919392839432,
+        1.4623391281429396
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lm_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.2195784282698455,
+        0.4115431780002737
+      ],
+      "joint_range_rad": [
+        -0.7195784282698455,
+        0.9115431780002736
+      ],
+      "control_range_rad": [
+        -0.6895784282698455,
+        0.8815431780002736
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lm_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        1.7287566571745705,
+        1.924367520340956
+      ],
+      "joint_range_rad": [
+        1.2287566571745705,
+        2.4243675203409563
+      ],
+      "control_range_rad": [
+        1.2587566571745705,
+        2.3943675203409565
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_coxa-lm_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -1.8179661517264363,
+        -1.1002097933354533
+      ],
+      "joint_range_rad": [
+        -2.317966151726436,
+        -0.6002097933354533
+      ],
+      "control_range_rad": [
+        -2.2879661517264362,
+        -0.6302097933354533
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_coxa-lm_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        -0.4352007137966049,
+        0.48208358085450814
+      ],
+      "joint_range_rad": [
+        -0.935200713796605,
+        0.9820835808545081
+      ],
+      "control_range_rad": [
+        -0.9052007137966049,
+        0.9520835808545081
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_trochanterfemur-lm_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.7767791359186436,
+        2.2231600632643316
+      ],
+      "joint_range_rad": [
+        1.2767791359186436,
+        2.7231600632643316
+      ],
+      "control_range_rad": [
+        1.3067791359186436,
+        2.6931600632643318
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_tibia-lm_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -1.0718214547769944,
+        -0.5376421745025657
+      ],
+      "joint_range_rad": [
+        -1.5718214547769944,
+        -0.037642174502565684
+      ],
+      "control_range_rad": [
+        -1.5418214547769944,
+        -0.06764217450256568
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_tarsus1-lm_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.23141485984379662,
+        -0.08487393562931934
+      ],
+      "joint_range_rad": [
+        -0.5814148598437966,
+        0.26512606437068065
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_tarsus2-lm_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.1780127286626555,
+        -0.08624803693731743
+      ],
+      "joint_range_rad": [
+        -0.5280127286626555,
+        0.26375196306268256
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_tarsus3-lm_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.14402400979906135,
+        -0.08611160421065907
+      ],
+      "joint_range_rad": [
+        -0.49402400979906136,
+        0.2638883957893409
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lm_tarsus4-lm_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.1173356542642063,
+        -0.08685146561074387
+      ],
+      "joint_range_rad": [
+        -0.46733565426420626,
+        0.2631485343892561
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lh_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        0.2368008661167104,
+        0.5183013598436278
+      ],
+      "joint_range_rad": [
+        -0.26319913388328964,
+        1.018301359843628
+      ],
+      "control_range_rad": [
+        -0.23319913388328964,
+        0.9883013598436279
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lh_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        0.25534363239278474,
+        0.8526789607058183
+      ],
+      "joint_range_rad": [
+        -0.24465636760721526,
+        1.3526789607058183
+      ],
+      "control_range_rad": [
+        -0.21465636760721526,
+        1.3226789607058183
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-lh_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        2.201168683289504,
+        2.638822892822009
+      ],
+      "joint_range_rad": [
+        1.701168683289504,
+        3.138822892822009
+      ],
+      "control_range_rad": [
+        1.7311686832895041,
+        3.108822892822009
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_coxa-lh_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -2.189719732957892,
+        -1.3740456572418382
+      ],
+      "joint_range_rad": [
+        -2.689719732957892,
+        -0.8740456572418382
+      ],
+      "control_range_rad": [
+        -2.659719732957892,
+        -0.9040456572418383
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_coxa-lh_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        -0.45135754631787806,
+        -0.18923006906634468
+      ],
+      "joint_range_rad": [
+        -0.9513575463178781,
+        0.31076993093365535
+      ],
+      "control_range_rad": [
+        -0.921357546317878,
+        0.2807699309336553
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_trochanterfemur-lh_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.2032056825186808,
+        2.324769269968359
+      ],
+      "joint_range_rad": [
+        0.7032056825186808,
+        2.824769269968359
+      ],
+      "control_range_rad": [
+        0.7332056825186808,
+        2.7947692699683593
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_tibia-lh_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.2562603206092727,
+        0.14835043800091713
+      ],
+      "joint_range_rad": [
+        -0.7562603206092726,
+        0.6483504380009171
+      ],
+      "control_range_rad": [
+        -0.7262603206092726,
+        0.618350438000917
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_tarsus1-lh_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.2995938385816645,
+        -0.07767861794111282
+      ],
+      "joint_range_rad": [
+        -0.6495938385816644,
+        0.2723213820588872
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_tarsus2-lh_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.213231666740633,
+        -0.07938983086196205
+      ],
+      "joint_range_rad": [
+        -0.563231666740633,
+        0.2706101691380379
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_tarsus3-lh_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.16855975994808456,
+        -0.07473674508365771
+      ],
+      "joint_range_rad": [
+        -0.5185597599480846,
+        0.2752632549163423
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/lh_tarsus4-lh_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.13768394575866405,
+        -0.06701618494176953
+      ],
+      "joint_range_rad": [
+        -0.48768394575866403,
+        0.28298381505823045
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rf_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        -0.18701697961354238,
+        0.190488708138304
+      ],
+      "joint_range_rad": [
+        -0.6870169796135424,
+        0.690488708138304
+      ],
+      "control_range_rad": [
+        -0.6570169796135423,
+        0.660488708138304
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rf_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        0.07310304386929749,
+        0.7134144957799091
+      ],
+      "joint_range_rad": [
+        -0.4268969561307025,
+        1.2134144957799091
+      ],
+      "control_range_rad": [
+        -0.3968969561307025,
+        1.183414495779909
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rf_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        0.6457001637365205,
+        1.3572384136292772
+      ],
+      "joint_range_rad": [
+        0.1457001637365205,
+        1.8572384136292772
+      ],
+      "control_range_rad": [
+        0.1757001637365205,
+        1.8272384136292772
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_coxa-rf_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -2.7409802076771435,
+        -1.7340327351192792
+      ],
+      "joint_range_rad": [
+        -3.2409802076771435,
+        -1.2340327351192792
+      ],
+      "control_range_rad": [
+        -3.2109802076771436,
+        -1.2640327351192793
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_coxa-rf_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        0.5822462501806456,
+        1.0424259319418794
+      ],
+      "joint_range_rad": [
+        0.08224625018064557,
+        1.5424259319418794
+      ],
+      "control_range_rad": [
+        0.11224625018064557,
+        1.5124259319418794
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_trochanterfemur-rf_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.2544059222773587,
+        2.1664367960953674
+      ],
+      "joint_range_rad": [
+        0.7544059222773587,
+        2.6664367960953674
+      ],
+      "control_range_rad": [
+        0.7844059222773587,
+        2.6364367960953676
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_tibia-rf_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.9067080462498198,
+        -0.4119821799583553
+      ],
+      "joint_range_rad": [
+        -1.4067080462498198,
+        0.08801782004164471
+      ],
+      "control_range_rad": [
+        -1.3767080462498198,
+        0.05801782004164471
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_tarsus1-rf_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.2899077434926375,
+        -0.08529787461627118
+      ],
+      "joint_range_rad": [
+        -0.6399077434926375,
+        0.2647021253837288
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_tarsus2-rf_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.23039779329362375,
+        -0.08339510301495777
+      ],
+      "joint_range_rad": [
+        -0.5803977932936237,
+        0.2666048969850422
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_tarsus3-rf_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.18235491434726267,
+        -0.08552151925375762
+      ],
+      "joint_range_rad": [
+        -0.5323549143472627,
+        0.26447848074624236
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rf_tarsus4-rf_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.13251309382332116,
+        -0.08673197061875586
+      ],
+      "joint_range_rad": [
+        -0.48251309382332114,
+        0.2632680293812441
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rm_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        0.6539791939283943,
+        0.9745504133351938
+      ],
+      "joint_range_rad": [
+        0.15397919392839432,
+        1.4745504133351939
+      ],
+      "control_range_rad": [
+        0.18397919392839432,
+        1.4445504133351939
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rm_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.21174172336073657,
+        0.4087148646879764
+      ],
+      "joint_range_rad": [
+        -0.7117417233607366,
+        0.9087148646879764
+      ],
+      "control_range_rad": [
+        -0.6817417233607366,
+        0.8787148646879763
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rm_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        1.7352426727547008,
+        1.920384482606906
+      ],
+      "joint_range_rad": [
+        1.2352426727547008,
+        2.420384482606906
+      ],
+      "control_range_rad": [
+        1.2652426727547008,
+        2.390384482606906
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_coxa-rm_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -1.803200248173588,
+        -1.1002097933354533
+      ],
+      "joint_range_rad": [
+        -2.303200248173588,
+        -0.6002097933354533
+      ],
+      "control_range_rad": [
+        -2.273200248173588,
+        -0.6302097933354533
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_coxa-rm_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        -0.4352007065406447,
+        0.48208358085450814
+      ],
+      "joint_range_rad": [
+        -0.9352007065406447,
+        0.9820835808545081
+      ],
+      "control_range_rad": [
+        -0.9052007065406447,
+        0.9520835808545081
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_trochanterfemur-rm_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.8412430978967176,
+        2.2231600632643316
+      ],
+      "joint_range_rad": [
+        1.3412430978967176,
+        2.7231600632643316
+      ],
+      "control_range_rad": [
+        1.3712430978967176,
+        2.6931600632643318
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_tibia-rm_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -1.068342066596145,
+        -0.5376421745025657
+      ],
+      "joint_range_rad": [
+        -1.568342066596145,
+        -0.037642174502565684
+      ],
+      "control_range_rad": [
+        -1.538342066596145,
+        -0.06764217450256568
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_tarsus1-rm_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.22088777977725058,
+        -0.08503633927237099
+      ],
+      "joint_range_rad": [
+        -0.5708877797772506,
+        0.264963660727629
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_tarsus2-rm_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.17079593564936707,
+        -0.08629210004170272
+      ],
+      "joint_range_rad": [
+        -0.520795935649367,
+        0.26370789995829724
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_tarsus3-rm_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.13908623217383007,
+        -0.08591400527765312
+      ],
+      "joint_range_rad": [
+        -0.48908623217383007,
+        0.26408599472234684
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rm_tarsus4-rm_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.1135905401771222,
+        -0.08678143038925407
+      ],
+      "joint_range_rad": [
+        -0.4635905401771222,
+        0.2632185696107459
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rh_coxa-yaw": {
+      "active": true,
+      "observed_range_rad": [
+        0.2368008661167104,
+        0.5156436732296132
+      ],
+      "joint_range_rad": [
+        -0.26319913388328964,
+        1.0156436732296132
+      ],
+      "control_range_rad": [
+        -0.23319913388328964,
+        0.9856436732296132
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rh_coxa-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        0.25534363239278474,
+        0.8411417816307222
+      ],
+      "joint_range_rad": [
+        -0.24465636760721526,
+        1.3411417816307223
+      ],
+      "control_range_rad": [
+        -0.21465636760721526,
+        1.3111417816307223
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/c_thorax-rh_coxa-roll": {
+      "active": true,
+      "observed_range_rad": [
+        2.201168683289504,
+        2.6388228742184685
+      ],
+      "joint_range_rad": [
+        1.701168683289504,
+        3.1388228742184685
+      ],
+      "control_range_rad": [
+        1.7311686832895041,
+        3.1088228742184687
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_coxa-rh_trochanterfemur-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -2.1924190328349984,
+        -1.3740456572418382
+      ],
+      "joint_range_rad": [
+        -2.6924190328349984,
+        -0.8740456572418382
+      ],
+      "control_range_rad": [
+        -2.6624190328349986,
+        -0.9040456572418383
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_coxa-rh_trochanterfemur-roll": {
+      "active": true,
+      "observed_range_rad": [
+        -0.4427773683273767,
+        -0.19092876297454295
+      ],
+      "joint_range_rad": [
+        -0.9427773683273767,
+        0.309071237025457
+      ],
+      "control_range_rad": [
+        -0.9127773683273767,
+        0.279071237025457
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_trochanterfemur-rh_tibia-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        1.2075650496564314,
+        2.324769269968359
+      ],
+      "joint_range_rad": [
+        0.7075650496564314,
+        2.824769269968359
+      ],
+      "control_range_rad": [
+        0.7375650496564314,
+        2.7947692699683593
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_tibia-rh_tarsus1-pitch": {
+      "active": true,
+      "observed_range_rad": [
+        -0.2511972057034766,
+        0.14835043800091713
+      ],
+      "joint_range_rad": [
+        -0.7511972057034766,
+        0.6483504380009171
+      ],
+      "control_range_rad": [
+        -0.7211972057034766,
+        0.618350438000917
+      ],
+      "engineering_margin_rad": 0.5,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_tarsus1-rh_tarsus2-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.31070312712900194,
+        -0.08550854391704697
+      ],
+      "joint_range_rad": [
+        -0.6607031271290019,
+        0.264491456082953
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_tarsus2-rh_tarsus3-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.2193118665876525,
+        -0.08653143804816606
+      ],
+      "joint_range_rad": [
+        -0.5693118665876524,
+        0.26346856195183394
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_tarsus3-rh_tarsus4-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.17242881488303552,
+        -0.08695243105381463
+      ],
+      "joint_range_rad": [
+        -0.5224288148830355,
+        0.26304756894618536
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    },
+    "nmf/rh_tarsus4-rh_tarsus5-pitch": {
+      "active": false,
+      "observed_range_rad": [
+        -0.14033839923014318,
+        -0.08022680567173457
+      ],
+      "joint_range_rad": [
+        -0.49033839923014316,
+        0.2697731943282654
+      ],
+      "control_range_rad": null,
+      "engineering_margin_rad": 0.35,
+      "biological_hard_range": "UNKNOWN",
+      "coordinate": "Original P1 NMF yaw-pitch-roll; named joints, no P2 angle transfer"
+    }
+  },
+  "source_episodes": 39,
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_allcut/TRACE.npz": "2e06a83173b136168f49409fae1b67e167aa351ecd1c689a5ca3771f5b832d31",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_left_0/TRACE.npz": "c3532e41e9316871d6bdaa8c4b767e8852ca2409e69aa78c48b2831e2c0daafb",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_left_1/TRACE.npz": "26c50fb9467ca23cc040c7474a6885e4083ed47ad95565e3e97e26d90f290723",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_left_2/TRACE.npz": "2ae1de9b84a182c019ac7490c57b78630d22e6d62c13174127d1c1c39deade94",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_right_0/TRACE.npz": "21e8747d90c60489f02e229ecbc1237015f23e800ff10958e3ed527eb7a7c9d0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_right_1/TRACE.npz": "48cacb0da68a3ac9b83c8b2dec404d8a7f66ed54a1dcce9097d1f070c792132c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_arc_right_2/TRACE.npz": "9ce2c53498b7b5dd6f6de567a95711f46df7eb9e849c89766246492a635b5f9c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_back_0/TRACE.npz": "2bea2d07d8d342a175fbb09af5098055fe190e90e113de3117b542c1e8a195a0",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_back_1/TRACE.npz": "1e3601c8cf9be1fbdc9ceac42dfbcc0d95cda57b51f9ec046463144806bf7ea6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_back_2/TRACE.npz": "950aabf766d949b2b75e8605d1800b920b5ab40ff8e34d7992a91f2910ca9b4d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_bluebell_0/TRACE.npz": "acd6037f972146c5c4101fe8bbbeca918171feacc6f73bd137b84811d2bcce59",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_bluebell_1/TRACE.npz": "44a69df7667a6aa831f91b2a9ba8d77ef6e73c6f9bf2b05193d18066aeaa2c17",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_bluebell_2/TRACE.npz": "1e8d623a4a64b62be3e485f1b4e9563026b48e80443a8b69658f309a5eacba02",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_brake_0/TRACE.npz": "16938cf3807502efe19f630f568df265b1a4f0a328ac74cb8d3f5623ad090d59",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_brake_1/TRACE.npz": "c5c788a5e07aa42b98be20b5f7cd9bb2b34be0bcd8f35270fce14611448fc59f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_brake_2/TRACE.npz": "6711c735fdeae3150d9b5e946d6528835828c21ac14239d4f9a46708e3e22fe8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_cruise_0/TRACE.npz": "ffa9a2053aede440039fee6dd998e41f234c11b9d7ca1c26c6d3feab409d3b41",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_cruise_1/TRACE.npz": "0e1ecf30b7c85fbb806404e7f1fdedada1bec391b0ea64bca27d0bccabd34bca",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_cruise_2/TRACE.npz": "cb9147d4dea1b85eeef7038f680200d4c7a1ef8b87673a1f98a3230ef54768c1",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_cut_mid/TRACE.npz": "01f50e2da4df572d6dcde55f9f7b96bce0b0c00443571fd7f4bf6b65121b463a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_a01_left/TRACE.npz": "9c4e4c43477ae1818eadc52a6e0a2dd6c81ea02486aef2960c48bf7361bc28b3",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_a01_right/TRACE.npz": "f6b23b0abf19b1911abdeba9bc0626b0296357a29b1acaee66fc8826a97faf55",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_a02_left/TRACE.npz": "c7a45ad169807a4672ad6da45214141a6034118042f8baaf56db21dc4d7157ae",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_a02_right/TRACE.npz": "6ef71be6e73feda05e801c28dbd7c500ac4b657c338aa3f483fd9fef3787cc9d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_cruise/TRACE.npz": "f178ea5c25e037c094693b44bd2518dde1b8476a333b2b2d2dc9975a6aba90c8",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_eon_fast/TRACE.npz": "5b9cabc70ef971eec551e15779a1ea72cdd6df34d424a768d36f99c2fbc4410d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_fast_0/TRACE.npz": "f35efbf6b9ae89f48351dd715e46d81e9531692a5122a97835bdeaa522cee60f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_fast_1/TRACE.npz": "0c5c4674b4f586343bd5460f478faceb55aa2c30e0180f82a83faebc384cf825",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_fast_2/TRACE.npz": "9e3011760802b0a8995e82b70fe0dd9fd71ba33df1d7e4a1267d60906cc6419a",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_restore/TRACE.npz": "b77a6e2541474815cc88b3e5db9564efd9c21a5c4fd757fe00784aa8c86d3844",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_left_0/TRACE.npz": "ea3978bca50a500b8d9e79a8f532e501d048323fd9bed3480e10a537bd642e14",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_left_1/TRACE.npz": "c3d3345e2895896757ca34b779c9f0735cb97666593eff1cde90baa5442de303",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_left_2/TRACE.npz": "52cf5301b2b10e2b218bd0ad07140566ab3d7c345541108e5b407a5c819d8e10",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_right_0/TRACE.npz": "296623b4eb81ddf328be0b45b8ce45426e2c0f18150ca536e3ca14fd5f76f698",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_right_1/TRACE.npz": "c9b6fb784bbd9c1c6af126dcf8a1ee006fb34852814fb5016302e464993f2fe4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_stride_right_2/TRACE.npz": "6a067b6528ad300c92f3af21fc75a84add9eec5b1b3d34bc17a41e30dde3f545",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_web_b_0/TRACE.npz": "580c0cab9f7afc8ad1d81986bc099a615305030a0bdf935c5dee5b7b385a09c7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_web_b_1/TRACE.npz": "c1f14335129e2395f9d3222fca0e408d8d552aaea4f7cbab337a1969e30552ff",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/TEACHER/tr_web_b_2/TRACE.npz": "4046d989f33eb15cf7d47c312844cb11e1e81ff5b586f08c21338d81cbf0c900"
+  },
+  "statement": "Finite protection ranges from same-coordinate qualified physical/official gait data, with declared engineering margin; not measured anatomical stops."
+}

@@ -6143,3 +6143,13 @@ Goal rev7 active/armed未完成；下一等同一144的750fresh／900实际权�
 - 原因分级：已实证为上一动作自回归捷径会放大微小误差、单步监督低MSE不预测闭环稳定、约25ms后进入训练外状态且5通道触及标准化裁剪；高概率但待新实验验证为教师状态覆盖过窄、教师强制分布与自主分布不一致、动作MSE没有直接约束承重／相位／防碰撞／滑移，且多个教师来源可能给共享网络带来条件歧义。不能据现有证据归因于颈部、真实解剖、PPO或身体机械损坏，因为本两轮均未接入颈部、未运行PPO，而相同身体和教师预热通过。
 - 实际命令／环境：`sed`读取两个REPORT与roadmap，`tail`读取tracker，`git status --short`退出0；`diff -u policy.py`退出1（预期单因素差异），两个`cmp -s`退出0；`find ... RESULT.json -exec sed`退出0。一次 `rg` 指向不存在的根级`TRAINING.json/jsonl`退出2，未产生修改；正确训练证据位于各自`TRAIN/`与报告。
 - 下一最小动作不变：新时间戳采集多个真实自主偏离时刻／多初态的教师纠正轨迹，先做有限DAgger式闭环监督和独立恢复验收；不盲目追加同分布BC轮数。通过后再考虑带真实损失／GAE／裁剪／回退审计的PPO。当前人工脑⇄真实来源颈部⇄身体仍未部署，不把身体台架结果写成颈部通过。
+# 2026-11-17 Git 当前版本根目录清理（P1/P2 共享工程）
+
+- 用户明确将根目录大量旧轮次文档和一次性脚本判为垃圾，授权清理并要求重写 README。本轮只清理当前 Git 树，不重写历史。
+- 以清理前提交 `362369566be365b9290416b122f855cef26bb069` 为可恢复边界；精确枚举并 `git rm` 根目录 1,827 个旧文件。没有递归删除 `engine/`、`experiments/`、身体资产、真实颈部资产、训练权重目录或本地大型证据。
+- 强制保留两个项目的共同入口与资产：`BODY_MUSCLE_REVIEW.zh-CN.md`、`NECK_CURRENT_STATE.json`、`NECK_REAL_STRUCTURE_REQUIREMENTS.zh-CN.md`、`RECOVERY_DESIGN.zh-CN.md`、`WALKING_CURRENT_STATE.json`、行走协议/清单、依赖文件和 `verify_fly_interoception.py`。
+- 完整重写 `README.md`，明确开源脑适配与人工大脑学习是两个项目，写清“身体 ⇄ 真实来源颈部 ⇄ 脑”约束、当前已验证边界、未完成项和目录入口；删除旧 README 中已经失效的“尚未自主行走”等首页结论。
+- `AGENTS.md` 不再引用已从当前树移除的巨型日期归档，历史复核统一指向上述清理前提交。
+- 发现并保留并行完成的新研究目录 `experiments/open-brain/20261117T184709Z-body-terrain-repair/`；等待其 `verify.py` 与 `media.py` 自行结束后读取 `FINAL_ACCEPTANCE.json`，未中断或删除运行产物。该证据记载限定教师6/6、独立精确重放3/3、单垫8/8、训练更新0、完整69项ANN回归未运行；据此把 `experiments/open-brain/TERRAIN_BODY_CURRENT.json` 更新为教师已资格化但身体尚未重训，未扩大结论。
+- 已执行命令：`git status --short --branch`、`git ls-tree`/`git ls-files` 精确清点、当前清单与 import 引用扫描、相关进程检查、精确根文件 `git rm`，均退出0。一次 `rg -h` 误触帮助输出后用 `rg -I` 重跑退出0，未修改文件。
+- 验证：README相对链接缺失0；`git diff --cached --check`在修正tracker末尾空行后通过；`venv_body/bin/python -B verify_fly_interoception.py`退出0并报告15400归档帧、最大体积误差4.77e-14。尚未提交、推送或改动 `main`；未删除任何项目子目录，也未做 Git 历史重写。下一最小动作是编译本次保留/新增源码，审阅diff后提交并推送。

@@ -1,194 +1,105 @@
-# Technology to Keep a Human Brain Conscious — 果蝇级原型工作台
+# 果蝇真实颈部闭环实验平台
 
-> 目标（原作者一句话，原样保留在文末）：
-宗旨：
-不采用“复制大脑/意识上传”的路线，而是保留原来的大脑，通过替代身体和人工感觉输入，探索意识连续性能否在身体被替换后继续维持。
- 
-总体路线：
-1. 先在果蝇虚拟环境中做缩小验证
-用连接组驱动的闭环仿真，让果蝇在虚拟空间中产生可观察的行为，作为“神经活动能否驱动替代身体”的第一步原型验证。
-2. 训练一个能替代身体的 AI 模型
-目标是让这个模型承接大脑的输出，并把感觉反馈送回大脑。
-3. 人体受试者阶段（远期概念）
-	• 后颈部植入电极阵列，接收大脑输出并施加刺激输入；
-	• 用相机或穿戴设备记录四肢运动、皮肤触觉；
-	• 头部佩戴摄像机记录视觉数据；
-	• 眼部根部植入电极，用于刺激和传感；
-	• 同时记录体内激素、血氧等生理变化；
-	• 受试者经过约 2–3 周行为训练，采集多模态数据。
-4. 用这些数据训练替代身体 AI 模型
-把神经信号、运动、触觉、视觉、生理变化联合起来，训练一个能替代原身体、并与大脑形成闭环的模型。
-5. 体外营养维持摘除身体的大脑
-最终设想是：摘除身体，用体外营养维持大脑，让大脑通过电极阵列与替代身体 AI 模型交互，从而探索“保留原脑、替换身体”的连续性路线。 
-一句话概括：
-先以果蝇虚拟闭环做原型验证，再训练替代身体的 AI 模型，最终设想保留原大脑、用人工感觉输入和体外维持来探索意识连续性——不是复制上传，而是替换身体、保留原脑。 
+本仓库研究一个明确的问题：如何让脑模型与仿真果蝇身体通过具有来源依据的真实颈部神经结构交换信息，并在闭环中学习感觉与运动行为。
 
-本仓库是这套设想在**果蝇尺度**上的**无头（headless）工程原型**：不是成品，而是把每一层都做成**可测量、可证伪**的实验台，并把测量结果与失败一起记下来。
+当前工作只限于果蝇仿真和软件实验。它不是意识证明、生物脑替代、真实动物植入方案或临床系统。
 
----
+## 两个项目，严格分开
 
-## 长期目标与持续追踪
+| 项目 | 脑侧 | 目标 | 当前入口 |
+|---|---|---|---|
+| 开源果蝇脑模型适配 | 已有开源脑模型；训练翻译层或有限微调 | 让原模型经真实颈部接口接收感觉、下达身体指令 | [`experiments/open-brain/`](experiments/open-brain/) |
+| 人工大脑学习 | 独立训练的人工神经网络 | 学习意图、感觉整合与行为决策，并经真实颈部接口控制身体 | [`experiments/neck-real-structure/`](experiments/neck-real-structure/) |
 
-后续工作先读 `/run/media/sensen/Data2/cell_wound_prototype/GOAL_ROADMAP.zh-CN.md`（目标与验收路线）和 `/run/media/sensen/Data2/cell_wound_prototype/GOAL_TRACKER.zh-CN.md`（进度、证据与下一步）。项目级 `/run/media/sensen/Data2/cell_wound_prototype/AGENTS.md` 要求每轮更新追踪记录。当前优先交付为新版闭环证据包、固定输入数值诊断、脑—腹神经索—肌肉缺口清单；提示文件不等于无人值守调度。
+两个项目可以复用身体物理模型、颈部来源数据和验收工具，但不得混用模型身份、权重、训练日志或验收结论。
 
-## 当前进展摘要（2026-11，最新一次）
+## 强制架构
 
-- **验收判据已换**：静态平衡不可行（33 个标准姿态全部无解），改用**动态支撑判据 D1–D8**——只认足承重、非足接触单独计，加速度在原生 12.5 µs 上差分。见 `GOAL_ROADMAP.zh-CN.md`。
-- **测量链已验证**：足/非足力分解与记录值一致到 **1e-14**；受控落体、已知外力符合解析值；负对照（漏腿/缩放/反号）可检出。
-- **闭环训练现状**：连接组→肌肉，参数侧共 **114 维**（池级 24 ＋ 每执行器读出 90）已跑 **1040 次全量评估**；足载 **0.109→0.318** 体重、非足占比 **0.785→0.642**。**仍未过门、未自主行走。**
-- **参数侧已到头**：多重启策略追加 320 次评估**无改进**，J≈3.39 是这套参数空间的实质平台，不是优化器调度问题。
-- **真实数据**：已下载并组装关节级步行数据集（CC0，16 试次 / 4480 帧 / 90 关节列），覆盖 42 铰链中的 26 个，股节与胫节用本地非拴系数据补齐。
-- **逆动力学审计**：关节力矩可精确逆算（1e-14），但单块肌力不可唯一反推（零空间 48 维），且肌肉对浮动基座力臂为 0——「哪块肌肉托住身体」不是良定义问题。
-- **视频**：`/home/sensen/Desktop/engine修复验收/s5-joint-readout-video/20261103T133000Z/`（基线 vs 最优，16×/80×/160× 慢放，纯回放，质心误差 0）。
-- **下一步**：改撤辅时序（撤辅瞬间仅 3 条腿着地、质心仍在上升）。
-
-## 当前神经直接驱动实验入口（优先阅读）
-
-**用户要求禁止算法控制运动：以下入口不使用 CPG、PD、姿态控制器或预设运动命令。**
-身体接触/关节观测 → 感觉通道电流 → BANC 脉冲网络 → 运动细胞池 → 肌肉激活 → MuJoCo 身体 → 下一轮观测。
-脉冲到肌肉的速率滤波是声明的接口假设，不是目标运动控制器，也尚未获得生物学标定。
-
-```bash
-# 仿真依赖，不要只装下方解析侧 requirements.txt
-venv_body/bin/pip install -r requirements-body.txt
-# 默认 50 ms，当前入口含八臂（含重复与重放基线）；结果路径打印到终端
-MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python run_experiment_platform.py --duration .05
-# 隔离各模块，防止进程级内存上限污染后续测试
-MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python tools_run_tests.py --output outputs/experiment_platform/tests.json
+```text
+仿真身体与其他感觉
+        ⇅
+真实来源的颈部神经结构
+        ⇅
+脑模型
 ```
 
-入口明确使用**编译模型零控制下限派生分支**，冻结 XML 不改；初始化姿态仅投影到原标量关节范围，不按站立表现搜索，不在运行中修正姿态。背景电流为零、未知感觉通道禁用。机械外力是实验刺激，不是运动驱动；重放臂仅作为对照。
+- 脑—身体控制不得绕过颈部直接写入关节动作。
+- 颈部神经元、纤维和连接必须具有可追溯来源；工程假设必须显式标注。
+- 编码器和解码器属于两端接口，可以训练，但不能冒充真实颈部结构。
+- 当前颈部可塑性关闭；固定传导延迟、突触电流和膜动力学仍含待标定参数。
+- 解剖结构真实不等于生理动力学、植入接口或生物有效性已经验证。
 
-此前记录的实际运行：六臂完成，零下限/感觉切断/运动切断/输出静默检查通过，正常臂存在运动脉冲与肌肉命令。当前入口已包含八臂；代码入口更新不等于八臂已重新完成验收。
-**但正常臂约 34.4 ms 跌破初始胸部高度的 90%，尚未稳定站立或自主行走；步长收敛与生物映射仍未解决，不宣称平台目标全部完成。**
-详情与失败清单见 [EXPERIMENT_PLATFORM_STATUS.zh-CN.md](EXPERIMENT_PLATFORM_STATUS.zh-CN.md)。
+权威约束见 [`NECK_REAL_STRUCTURE_REQUIREMENTS.zh-CN.md`](NECK_REAL_STRUCTURE_REQUIREMENTS.zh-CN.md)，当前状态见 [`NECK_CURRENT_STATE.json`](NECK_CURRENT_STATE.json)。
 
-工程回归不等于实验重现：历史结果校验必须区分冻结归档字节的完整性和当前源码的新鲜度。不能把当前源码摘要填入旧产物来制造通过；归档匹配也不证明环境、大型输入或历史数值实验已重现。
+## 当前实证边界
 
-只读归档入口：`/run/media/sensen/Data2/cell_wound_prototype/tools_verify_historical_sources.py`。默认核对五个历史源码目录和当前闭环源码ZIP；可指定结果JSON路径。`--output` 只允许在项目及历史输入目录之外新建文件，不覆盖已有文件。退出码0只表示所选归档字节匹配，不表示当前源码一致或实验已复现。
+### 已完成或已限定通过
 
-`Pipeline` 严格模式按端口单位在下游读取边界转换数值，保存状态仍使用上游声明单位；`strict_units=False` 是显式绕过单位检查/转换，不可作为严格验收。运行时层或回调失败后，同一管线拒绝重跑：需要新建管线及层实例，不保证自动回滚。接线和时钟前置校验失败仍可修正后重试；成功运行后的重复调用是否清零由各层生命周期定义。
+- 派生完整身体上的站立、恢复、行走和转向基线已经形成；当前认可的限定行走结果见 [`WALKING_CURRENT_STATE.json`](WALKING_CURRENT_STATE.json)。
+- 行走结果使用用户授权的替代 ANN、完整派生身体和有限 PD；它不等于原连接组直接产生步态，也不证明任意时长或任意扰动鲁棒性。
+- 固定颈部动力学已包含逐通道传导延迟、突触电流和膜状态，并完成一组地面动作回归。
+- 开源脑项目的身体侧已针对固定颈部重新训练，现有地面命令基线通过限定验收。
+- 内感觉接口已实现于 [`engine/embodied/interoception.py`](engine/embodied/interoception.py)，独立检查入口为 [`verify_fly_interoception.py`](verify_fly_interoception.py)。
 
-以下表格和快速开始包含历史 CPG 基线，**不满足本次“禁止算法控制运动”的要求**，仅供历史测量复现，不作为默认闭环入口。
+### 正在进行
 
-## 现在能跑通什么（历史记录，有各自限制）
+- 开源脑项目已经完成工程关节范围、零附着动力学一致性、单足垫台架以及平地/0.15/0.30 mm 低凸块教师的限定资格检查；这仍是教师结果，身体 ANN 尚未据此重训。
+- 当前地形身体入口见 [`experiments/open-brain/TERRAIN_BODY_CURRENT.json`](experiments/open-brain/TERRAIN_BODY_CURRENT.json)，本轮协议见 [`experiments/open-brain/20261117T184709Z-body-terrain-repair/PROTOCOL.zh-CN.md`](experiments/open-brain/20261117T184709Z-body-terrain-repair/PROTOCOL.zh-CN.md)。
+- 下一步是采集合格教师数据、加入偏离纠正、重训身体网络并复验原 69 项地面命令；之后才扩展到斜坡、粗糙地面、树干和墙面。
 
-| 层 | 内容 | 状态 |
-|---|---|---|
-| 身体 | FlyGym `NeuroMechFly`（MuJoCo 3.9） | 质量 **1.02431 mg**，与真实成蝇一致（差 3%） |
-| 场景 | 草地（三层高度场：20 µm 枯叶层 + 显式草叶脊 + 莲座；CC0 贴图带出处 sidecar） | `grass_scene.py` / `meadow_scene.py` |
-| 六相机 arena | r=22 mm 环、fovy 50°、12 个静态 fiducial（三层） | 静态重建 RMS **0.0249 mm**（对半切分标定，held-out） |
-| 肢体 | 20 个自发光机载 marker + 四闸门身份安全跟踪 | 六条腿 tibia 关节角中位 **0.74–1.45°**（对仿真器真值） |
-| 触觉 | 接触力 + 穿透 + 几何面积 `A = π(2Rh − h²)`，Hertz / Greenwood-Williamson 双区 | 面积–穿透 α = **0.954, r² = 0.999**（未封顶段）；**力/压强不可引用**（见下第 2 条） |
-| 神经/组织 | 七层神经-组织栈；**闭环**：接触力+关节角 → 机械感受器 → **BANC 连接体**（真连接组，12000 神经元，脉冲）→ 解码器 → CPG → 身体 | 闭环自检 **49/49**；见 `ALL_LAYERS_STATUS.zh-CN.md` |
-| 工作台 | 本地服务（8766），场景清单 `/api/scene/manifest.json` | 可视化在果蝇**体内**，不另开面板 |
+### 尚未完成
 
-**平台对现实的逐项核对见 [`PLATFORM_VS_REALITY.zh-CN.md`](PLATFORM_VS_REALITY.zh-CN.md)** —— 那里同时写着哪一项对得上、哪一项对不上。
+- 完整颈部神经结构及全部上下行通道的生理标定。
+- 人工脑与真实颈部结构、完整身体之间的全链路验收。
+- 飞行气动、起飞、空中转向和着陆；这些任务暂缓。
+- 颈部在线可塑性、真实电极双向映射和生物实验验证。
+- 意识、身份连续性或离体意识维持的任何实证结论。
 
----
+## 身体侧与脑侧的职责
 
-## 平台对现实：核对结果摘要
+身体侧负责快速局部闭环：本体感觉、接触、负载分配、中央模式发生、足端附着、站立恢复和对地形偏差的快速纠正。身体网络不保存用于任务规划的长期记忆。
 
-**对得上**
-- 质量 1.02431 mg（3%）、体长 2.87 × 3.00 × 1.11 mm、腿节长度（来源即 NeuroMechFly 对真实雌蝇的测量）
-- 摔倒前的步态：每帧 **4.91/6** 条腿着地、**0%** 无腿着地的帧、单腿占空比 0.69–0.95
+脑侧负责意图和跨感觉决策：目标选择、速度和方向意图、停止/后退、视觉或嗅觉导航，以及需要跨时间整合的信息。
 
-**对不上（必须写在最前面）**
-1. **果蝇在 t ≈ 0.65 s 翻倒仰面躺死，再没恢复。** 所以 **3 秒级记录里 80% 是躺着不动的果蝇**；行为统计只能在 **t < 0.45 s** 的窗口里做。
-2. **站立姿态下六足法向力之和是体重的 13–16 倍**——**已解释**：读自由关节的完整力平衡可见，约束力（地面顶上来 +221）与执行器力（伺服把身体往下拉 −240）**等大反向**，二者都是体重的 10–25 倍。其中只有约 **4.5%** 是真正的"承载体重"。所以触觉记录的"地面反作用力"主要是**控制器把果蝇按进地面的内应力**，**绝对力/压强数值不可引用**（但原因已明确）。几何路线（面积 ← 穿透）不经过力，不受影响。
-3. **我录的那批数据用的是开环基线，所以那里的果蝇永远不会自己站起来——但这不是整个项目的样子。** 仓库里有**两套**驱动方式，我此前把它们混为一谈了：
-   - `arm="cpg_baseline"`：FlyGym 自带 demo CPG，`CPGController.step(self)` 不接受任何观测。**`run_arena_record.py` / `run_tactile_record.py` 全走这一支** —— 我报的所有运动学/触觉数字都来自这里。
-   - `arm="neural_modulated"`（`engine/embodied/loop.py`、`run_vision_into_tier.py`）：**闭环存在** —— 体态/关节角/接触力 → `MechanoReceptorBank`（每腿 1 个接触受体 + 1 个本体受体）→ `NeuralTier`（**真实 BANC 连接体**，`data/flywire/banc_connectome.npz`，≤12000 神经元，dt 0.5 ms，电导型脉冲）→ `CommandDecoder` → `CommandedTripodCPG` → 身体。自检 **49/49 通过**，因果性已验证（镜像转向命令使身体朝向变化 −92.72° vs +115.08°）。
-   - **但即使在这一支，连接体也只是"调制"CPG 的频率与左右不对称，不产生步态**（`loop.py` 自己的 docstring 明确写了这一点，任何结果不得描述成"连接体产生了步态"）。
-   - 视觉：`add_vision=True` 的复眼相机 + `get_raw_vision()` 通路存在；视觉进入神经层的种子（`visual_projection` / `visual_centrifugal` / `optic_lobe_intrinsic`）**默认关闭**（实测只给到 ~11 个神经元）。
-   - 开环位置伺服持续把腿往地里压，正是它把自己弹起翻转的原因（与第 2 项同源）。重力本身已三重验证正确（自由落体 a = −9810；已知质量静止 Σ|Fn|/(m·g) = 1.0000；约束力与我逐接触求和逐帧吻合）。
+颈部传递的是神经活动，不是抽象的“左转”字符串。工程接口负责在脑模型、真实来源颈部通路和身体读出之间学习可识别的编码。
 
-4. **没有粘附模型**（真实果蝇靠爪垫附着）；接触面积上限 `max_footprint_fraction = 0.5` 是**声明值**，而干净窗口里 **37.7%** 的接触已撞上限，对这部分面积只是下界。
+## 关键入口
 
-**曾经报错、已更正**（保留，不删）
-- "行走 GRF = 11,400 × 体重" → 实际 **均值 2.89 ×**（单位换算错误：模型质量单位是**克**）。
-- "80% 悬空 ⇒ 在弹跳" → 实际是**摔倒躺地**，不是悬空。
-- "tibia 骨长 0.961 mm" → 那是 tibia + 跗节链；解剖学 tibia 只有 **0.518 mm**。
-- marker 半径按**米**传入（模型长度单位是 **mm**）→ 亚微米球，等于没渲染。这是"marker 看不见"的真正原因。
-- 加 marker **body** 会把 `c_rostrum` / `c_haustellum` / 两只眼**删掉**；改成在已有 segment body 上加 geom。
+- [`BODY_MUSCLE_REVIEW.zh-CN.md`](BODY_MUSCLE_REVIEW.zh-CN.md)：身体、腿部几何、肌肉—肌腱和运动映射资产审计。
+- [`RECOVERY_DESIGN.zh-CN.md`](RECOVERY_DESIGN.zh-CN.md)：人工大脑项目的恢复与三部分架构设计。
+- [`WALKING_RESEARCH_PROTOCOL.zh-CN.md`](WALKING_RESEARCH_PROTOCOL.zh-CN.md)：行走训练与评估规范。
+- [`GOAL_ROADMAP.zh-CN.md`](GOAL_ROADMAP.zh-CN.md)：当前研究路线。
+- [`GOAL_TRACKER.zh-CN.md`](GOAL_TRACKER.zh-CN.md)：运行记录、证据和下一最小动作。
+- [`engine/embodied/`](engine/embodied/)：共享身体、感觉和闭环实现。
+- [`experiments/banc-walking-recovery/`](experiments/banc-walking-recovery/)：已验收行走的代码和证据。
+- [`experiments/open-brain/`](experiments/open-brain/)：开源脑模型适配项目。
+- [`experiments/body-motor-learning/`](experiments/body-motor-learning/)：身体运动学习实验。
+- [`experiments/locomotion-enhancement/`](experiments/locomotion-enhancement/)：复杂地形与运动增强实验。
 
----
-
-## 快速开始
+## 环境
 
 ```bash
-cd <this repo>
-python3 -m venv venv        && venv/bin/pip install numpy scipy matplotlib pillow  # 解析侧
-python3 -m venv venv_body   && venv_body/bin/pip install -r requirements.txt       # 仿真侧
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-body.txt
 ```
+
+不同实验可能固定了不同的 Python、MuJoCo、FlyGym 或模型版本。运行前应先阅读对应目录中的 `PROTOCOL`、`PREREG`、`RUN_CHECKLIST` 和 `REPORT`，不要用一个环境静默重放全部历史实验。
+
+内感觉基础检查：
 
 ```bash
-# 平台对现实的核对
-OPENBLAS_NUM_THREADS=1 venv_body/bin/python tools_reality_check.py
-
-# 录一集六相机（草地 + marker）
-MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 venv_body/bin/python run_arena_record.py \
-    --seeds 3 --seconds 0.15 --fps 300 --width 800 --height 640 --rigs bare \
-    --gl egl --marker-radius-mm 0.12
-
-# 肢体关节角（四闸门身份安全跟踪）
-OPENBLAS_NUM_THREADS=1 venv/bin/python limb_tracking.py --episode outputs/arena/arena_bare_seed3
-
-# 触觉
-OPENBLAS_NUM_THREADS=1 venv_body/bin/python run_tactile_record.py --rigs bare --seconds 3
-OPENBLAS_NUM_THREADS=1 venv/bin/python tools_test_tactile.py     # 33 项自检
+.venv/bin/python verify_fly_interoception.py
 ```
 
-**两个环境是分开的**：解析侧（numpy/scipy/matplotlib）不需要 MuJoCo；仿真侧需要 FlyGym。凡是 import `flygym` 的工具都必须在 `venv_body` 里跑。
+## 证据纪律
 
-**`MUJOCO_GL=egl` 必须在 python 启动前设好。** `BodyBackend(gl_backend=...)` 会设这个环境变量，但在某些 import 顺序下 MuJoCo 已经选定了后端，症状是离根因很远的 `GLFWError: X11: The DISPLAY environment variable is missing`。
+- 训练、验证和最终重放使用不同身份，保存权重后必须独立加载复验。
+- 失败结果保留在 Git 历史或本地实验目录，不改写成成功。
+- 大型权重、原生逐步轨迹、视频和下载数据不进入 Git；仓库只保留实现、协议、报告与小型汇总证据。
+- 任何“真实”表述都必须区分连接组结构、工程动力学假设、生理测量和行为验收。
 
----
+## 仓库清理说明
 
-## 模型单位（踩过坑，所以写在这里）
+旧的 wound-calcium、逐轮 `S*`、`AUTONOMOUS_LOOP_*`、`ARENA_FIX_*` 以及一次性根目录分析脚本已从当前版本移除。它们没有被改写；需要历史复核时可从清理前提交 `362369566be365b9290416b122f855cef26bb069` 读取。
 
-长度 = **mm**，质量 = **克**（果蝇 1.02431e-3，即 1.02431 mg），重力 −9810，因此
-**`m·g = 10.0485` 就是模型自己的"一个体重"**，任何静息姿态下六足法向力之和都必须等于它。
-
-- 把半径按**米**传进这个模型 → 小 1000 倍 → 亚微米球（"marker 看不见"的根因）。
-- 把模型力单位当 mN → 得到"11,400 × 体重"这种假数字。
-
----
-
-## 测量纪律（本项目最重要的一部分）
-
-1. **每个参数都带出处标签**：`DERIVED` / `DECLARED` / `TAKEN` / `MEASURED`。声明值与测量值不混用。
-2. **预注册的判据不回退**；被推翻的结论**保留**并标注替代它的新结论（见上面的"曾经报错"）。
-3. **说不出来的就写"未解决"**，不猜。上面那 13 倍力偏差就是 unresolved 状态。
-4. **长任务成果必须看图验证**，不是看日志。
-5. **样本交付到桌面**，仓库只留代码与小 JSON：`/home/sensen/Desktop/cell_wound_prototype/`。
-
----
-
-## 不要声称
-
-- 解剖学配准（CNS 位置是 landmark 配准；脑/VNC 划分只是显示划分）
-- 与真实果蝇的生物学同步
-- 测量到真实的果蝇神经活动
-- 意识 / 身份 / 存活
-- 硬件就绪（bench 状态 `NOT_RUN`，`measurement_count = 0`，`readiness_claim = false`）
-- 触觉与真实果蝇的相似度（见"平台对现实"第 2、3 条）
-
-## 物种 / 数据纪律
-
-BANC 与 FAFB 是**不同标本**，不做 ID 或坐标拼接。BANC 为 CC BY 4.0（doi:10.7910/DVN/7WTH1N），使用需署名。密钥文件（`.flywire_api_token`、`.flywire_cookies.txt`）**永不入库、永不外发**，已在 `.gitignore` 中。
-
-## 未做
-
-Spike sorting / 源分离；飞行、嗅觉、肌肉、睡眠；灌流闭环（P9）；P7 三维多层（超出棱柱堆叠）；P8 免疫/再生；P4 未批准；**束缚张力**未建模（只有 `tether_supported` 标志）；实验室/仪器侧（滤波、ADC、噪声预算、硬件接口）**有意不做**。
-
-## 下一步（按证据排序）
-
-1. **修摔倒**：0.65 s 后仰面躺死，使所有长记录不可用。
-2. **解释 13 倍力偏差**——很可能与第 1 项同源（`solref` 过硬 → 约束力虚高 → 弹起 → 翻转）。两个问题一起查。
-3. 修完后重录 tactile，并把每个记录**截断到干净窗口**，再谈触觉相似度。
-4. 然后才是粘附模型与接触面积上限的物理化。
-
----
-
-> 原方案（保留）：大概方案就是用电极记录神经元活动，摄像机记录运动，计算触觉，在生物正常生活中训练能取代身体的 AI 模型，再分离大脑，人工调配血液供给，虚拟世界模拟，用训练好的 AI 去电极刺激等，维持意识和正常生活。
+当前根目录只保留项目入口和强制资产。新的实验实现应放在对应项目目录中，不再把轮次脚本或报告堆到仓库根目录。

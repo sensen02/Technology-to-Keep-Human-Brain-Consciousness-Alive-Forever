@@ -1,0 +1,9 @@
+{
+  "steps_per_arm": 3000,
+  "control": "neutral + .08*sin(2*pi*8*t + arange(42)*.2), clipped to fixed joint target bounds",
+  "tolerance": 1e-12,
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair/pair_motion.py": "200dde1f3f4359b7cd2fffba1d8ac1b896a9208c531169dc49f19ac43dbe891c",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair/body_model.py": "89187d78bb526ebde2dde43131e2eeec9e71a786311c4e1f7328f3f6a97f02a2"
+  }
+}

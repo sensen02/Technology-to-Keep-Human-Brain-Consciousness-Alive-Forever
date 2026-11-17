@@ -1,0 +1,1598 @@
+{
+  "status": "STATIC_LIMIT_CONSTRAINT_CHECK",
+  "pass_": false,
+  "conditions": 132,
+  "results": [
+    {
+      "joint": "nmf/c_thorax-lf_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lf_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lf_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lf_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lf_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lf_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_coxa-lf_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_coxa-lf_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_coxa-lf_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_coxa-lf_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_trochanterfemur-lf_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_trochanterfemur-lf_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 44.33892767559081,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/lf_tibia-lf_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tibia-lf_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus1-lf_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus1-lf_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus2-lf_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus2-lf_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus3-lf_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus3-lf_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus4-lf_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lf_tarsus4-lf_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lm_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_coxa-lm_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_coxa-lm_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_coxa-lm_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_coxa-lm_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_trochanterfemur-lm_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_trochanterfemur-lm_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 74.67952182016036,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/lm_tibia-lm_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tibia-lm_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus1-lm_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus1-lm_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus2-lm_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus2-lm_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus3-lm_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus3-lm_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus4-lm_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lm_tarsus4-lm_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-lh_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_coxa-lh_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_coxa-lh_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_coxa-lh_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_coxa-lh_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_trochanterfemur-lh_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_trochanterfemur-lh_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 57.26117973483374,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/lh_tibia-lh_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tibia-lh_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus1-lh_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus1-lh_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus2-lh_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus2-lh_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus3-lh_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus3-lh_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus4-lh_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/lh_tarsus4-lh_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rf_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_coxa-rf_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_coxa-rf_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_coxa-rf_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_coxa-rf_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_trochanterfemur-rf_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_trochanterfemur-rf_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 43.52316791168658,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/rf_tibia-rf_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tibia-rf_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus1-rf_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus1-rf_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus2-rf_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus2-rf_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus3-rf_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus3-rf_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus4-rf_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rf_tarsus4-rf_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rm_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_coxa-rm_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_coxa-rm_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_coxa-rm_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_coxa-rm_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_trochanterfemur-rm_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_trochanterfemur-rm_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 74.54650944212071,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/rm_tibia-rm_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tibia-rm_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus1-rm_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus1-rm_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus2-rm_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus2-rm_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus3-rm_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus3-rm_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus4-rm_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rm_tarsus4-rm_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-yaw",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-yaw",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/c_thorax-rh_coxa-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_coxa-rh_trochanterfemur-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_coxa-rh_trochanterfemur-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_coxa-rh_trochanterfemur-roll",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_coxa-rh_trochanterfemur-roll",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_trochanterfemur-rh_tibia-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_trochanterfemur-rh_tibia-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 57.28608592048163,
+          "restoring": true
+        }
+      ],
+      "pass_": true
+    },
+    {
+      "joint": "nmf/rh_tibia-rh_tarsus1-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tibia-rh_tarsus1-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus1-rh_tarsus2-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus1-rh_tarsus2-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus2-rh_tarsus3-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus2-rh_tarsus3-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus3-rh_tarsus4-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus3-rh_tarsus4-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus4-rh_tarsus5-pitch",
+      "side": 0,
+      "checks": [
+        {
+          "jacobian": 1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    },
+    {
+      "joint": "nmf/rh_tarsus4-rh_tarsus5-pitch",
+      "side": 1,
+      "checks": [
+        {
+          "jacobian": -1.0,
+          "force": 0.0,
+          "restoring": false
+        }
+      ],
+      "pass_": false
+    }
+  ],
+  "physics_steps": 0,
+  "forward_calls": 132,
+  "biological_ranges": "UNKNOWN_ENGINEERING_GUARDS",
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair/limit_probe.py": "f4fb47193e6957b180aa1401f131fe8ae31f16c54bea79bc66a4057078e56a1d",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair/JOINT_LIMITS.json": "6d2af47042730d437b20eac0d513eb7577589e2454978411a73b0e6b4efd2a03"
+  }
+}

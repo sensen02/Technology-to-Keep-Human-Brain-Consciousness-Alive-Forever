@@ -1,18 +1,24 @@
 {
   "project": "P1_open_source_brain",
-  "status": "NOT_READY_FOR_TERRAIN_TRAINING",
-  "diagnosis": "ACTION_REACHABILITY_CHECKED",
-  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability",
-  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/FINAL_DIAGNOSTIC.json",
-  "report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T181339Z-action-reachability/REPORT.zh-CN.md",
+  "status": "LIMITED_BODY_AND_LOW_BLOCK_TEACHER_QUALIFIED",
+  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair",
+  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T184709Z-body-terrain-repair/FINAL_ACCEPTANCE.json",
+  "evidence_sha256": "5739573eb336cb28e27fb4854ba707d43908feef941fa0cfb0bd3408f23f227a",
   "production_body_entry": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/BODY_CURRENT.json",
+  "scope": "Derived non-fused 42/48-actuator body, source-labelled engineering joint envelopes, zero-adhesion parity, single-pad bench and flat/0.15/0.30 mm block teacher qualification.",
+  "formal_teacher_pass": "6/6",
+  "independent_exact_replays": "3/3",
+  "single_pad_tests_pass": "8/8",
+  "static_and_dynamic_zero_adhesion_exact": true,
+  "teacher_only": true,
   "trained_updates": 0,
-  "active_joint_angle_limits": "ABSENT_IN_CURRENT_P1_BODY",
-  "terrain_teacher": "FAILED_LOW_BLOCK",
-  "adhesion_derivative": "FAILED_ZERO_ADHESION_EQUIVALENCE",
+  "biological_hard_joint_limits": "UNKNOWN_ENGINEERING_ENVELOPE",
+  "full_69_ANN_regression": "NOT_RUN",
+  "flight": "DEFERRED",
   "next_actions": [
-    "source_and_map_joint_angle_limits",
-    "restore_zero_adhesion_dynamics_equivalence",
-    "qualify_foot_touch_and_whole_body_lift_teacher"
+    "collect_qualified_terrain_teacher_dataset",
+    "train_body_student_with_deviation_corrections",
+    "run_full_69_ground_command_regression",
+    "extend_qualification_to_slopes_and_rough_terrain"
   ]
 }
