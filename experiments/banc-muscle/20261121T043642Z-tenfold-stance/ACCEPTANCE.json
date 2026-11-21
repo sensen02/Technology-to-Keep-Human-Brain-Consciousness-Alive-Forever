@@ -1,0 +1,931 @@
+{
+  "time_multiplier": 10.01514683985099,
+  "budget": {
+    "previous_log_intervals_s": {
+      "training": 19.16727638244629,
+      "strict": 56.44298315048218,
+      "transfer": 32.51656699180603,
+      "sweep0": 78.86137413978577,
+      "sweep1": 85.4284884929657,
+      "correction": 54.70895290374756
+    },
+    "previous_total_s": 327.1256420612335,
+    "target_training_s": 3272,
+    "workers": 8,
+    "population": 12,
+    "development_vx": [
+      0.0,
+      -0.03,
+      0.03
+    ],
+    "held_out_vx": [
+      -0.045,
+      0.015,
+      0.045
+    ],
+    "parent_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+    "cma_wheel_sha256": "1de77d2175045389680619c1e9b6d59d90e7888524d9e440e1704ba001de9fcc"
+  },
+  "training": {
+    "parent": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+    "best": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+    "metrics": [
+      [
+        151.3,
+        157.4,
+        -152.8687935029455
+      ],
+      [
+        75.8,
+        84.2,
+        -76.60508923935201
+      ],
+      [
+        150.4,
+        156.7,
+        -151.9617024560219
+      ]
+    ],
+    "completed_blocks": 87,
+    "training_seconds": 3276.211340323789,
+    "candidates": 8340,
+    "episodes": 25020,
+    "updates": 695
+  },
+  "frozen": {
+    "winner": "primary",
+    "sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+    "metrics": [
+      [
+        151.3,
+        157.4,
+        -152.8687935029455
+      ],
+      [
+        75.8,
+        84.2,
+        -76.60508923935201
+      ],
+      [
+        150.4,
+        156.7,
+        -151.9617024560219
+      ]
+    ],
+    "development_candidates": [
+      [
+        "primary",
+        "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+        [
+          [
+            151.3,
+            157.4,
+            -152.8687935029455
+          ],
+          [
+            75.8,
+            84.2,
+            -76.60508923935201
+          ],
+          [
+            150.4,
+            156.7,
+            -151.9617024560219
+          ]
+        ]
+      ],
+      [
+        "exploration",
+        "e4e3cfef7363ceb468b2f8ce168f55aa6be2e130e6a1449ae1bcd513f3f7dfa0",
+        [
+          [
+            154.6,
+            158.2,
+            -156.17637835129273
+          ],
+          [
+            66.6,
+            85.3,
+            -67.42603562622813
+          ],
+          [
+            160.4,
+            163.5,
+            -162.02541061880726
+          ]
+        ]
+      ]
+    ],
+    "parallel_training": {
+      "accepted": "e4e3cfef7363ceb468b2f8ce168f55aa6be2e130e6a1449ae1bcd513f3f7dfa0",
+      "eligible_metrics": [
+        [
+          154.6,
+          158.2,
+          -156.17637835129273
+        ],
+        [
+          66.6,
+          85.3,
+          -67.42603562622813
+        ],
+        [
+          160.4,
+          163.5,
+          -162.02541061880726
+        ]
+      ],
+      "incumbent": "e4e3cfef7363ceb468b2f8ce168f55aa6be2e130e6a1449ae1bcd513f3f7dfa0",
+      "metrics": [
+        [
+          154.6,
+          158.2,
+          -156.17637835129273
+        ],
+        [
+          66.6,
+          85.3,
+          -67.42603562622813
+        ],
+        [
+          160.4,
+          163.5,
+          -162.02541061880726
+        ]
+      ],
+      "candidates": 2048,
+      "episodes": 6144,
+      "updates": 256,
+      "blocks": 43,
+      "workers": 2,
+      "parallel_wall_s": 2422.3046627279837
+    }
+  },
+  "replay_arrays": 14,
+  "changed_from_parent": {
+    "exc_fraction": 0,
+    "inh_fraction": 0,
+    "load_gain": 0,
+    "feco_gain": 0,
+    "vnc_gain_uS": 0,
+    "motor_gain": 1207
+  },
+  "cases": {
+    "parent_0": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.0,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06499999999937084,
+        0.37032005864325757,
+        0.17002957524947576,
+        0.10863823435772176,
+        0.2438412350825952,
+        0.04217089666755701
+      ],
+      "pre_max_penetration_mm": 0.0038837300174834263,
+      "pre_drift_mm": 3.73352238677374e-13,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 141.1,
+      "first_nonfoot_ms": 159.4,
+      "first_com_drop_10pct_ms": 146.2,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.07446193631375105,
+      "first_failure_detail": {
+        "feet": [
+          0.4388012838993656,
+          0.26051732488952223,
+          0.0,
+          0.09303783753072345,
+          0.0,
+          0.0
+        ],
+        "total": 0.7923564463196113,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9391360611450325,
+        "upright": 0.97773550131381,
+        "depth_mm": -0.002740939235361353
+      },
+      "first_step_load": 1.1461950187573262
+    },
+    "new_0": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.0,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06499999999937084,
+        0.37032005864325757,
+        0.17002957524947576,
+        0.10863823435772176,
+        0.2438412350825952,
+        0.04217089666755701
+      ],
+      "pre_max_penetration_mm": 0.0038837300174834263,
+      "pre_drift_mm": 3.73352238677374e-13,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 151.3,
+      "first_nonfoot_ms": 173.6,
+      "first_com_drop_10pct_ms": 154.1,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.18567141329527587,
+      "first_failure_detail": {
+        "feet": [
+          0.2711181252877758,
+          0.5983083030580955,
+          0.0,
+          0.0,
+          0.07649577610674593,
+          0.0
+        ],
+        "total": 0.9459222044526172,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9130014327272525,
+        "upright": 0.9499920562217745,
+        "depth_mm": -0.008004100899155257
+      },
+      "first_step_load": 1.1392061632809103
+    },
+    "parent_1": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": -0.03,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 99,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9391,
+      "pre_foot_fraction": [
+        0.06497020051911975,
+        0.3703592209144846,
+        0.17003017991605585,
+        0.10863696184966011,
+        0.24384709219500042,
+        0.04215634303856959
+      ],
+      "pre_max_penetration_mm": 0.0038858510480443004,
+      "pre_drift_mm": 6.441457914815986e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 42.2,
+      "first_nonfoot_ms": 64.5,
+      "first_com_drop_10pct_ms": 58.1,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.004120227981519452,
+      "first_failure_detail": {
+        "feet": [
+          0.0,
+          0.6226806302273459,
+          0.0,
+          0.0,
+          0.24942444160889263,
+          0.06217496452857293
+        ],
+        "total": 0.9342800363648115,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.989569642907142,
+        "upright": 0.9498947395416484,
+        "depth_mm": -0.0027248482820830325
+      },
+      "first_step_load": 1.176745315018375
+    },
+    "new_1": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": -0.03,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 99,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9391,
+      "pre_foot_fraction": [
+        0.06497020051911975,
+        0.3703592209144846,
+        0.17003017991605585,
+        0.10863696184966011,
+        0.24384709219500042,
+        0.04215634303856959
+      ],
+      "pre_max_penetration_mm": 0.0038858510480443004,
+      "pre_drift_mm": 6.441457914815986e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 75.8,
+      "first_nonfoot_ms": 91.8,
+      "first_com_drop_10pct_ms": 82.9,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.32673673346038234,
+      "first_failure_detail": {
+        "feet": [
+          0.0,
+          0.35737550344309,
+          0.0,
+          0.07110226090113722,
+          0.22680981910222425,
+          0.16817751293733652
+        ],
+        "total": 0.8234650963837881,
+        "loaded": 4,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9722738763335756,
+        "upright": 0.9497573112246035,
+        "depth_mm": -0.0042330454062742065
+      },
+      "first_step_load": 1.165343327666127
+    },
+    "parent_2": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.03,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06502903864124282,
+        0.3702806086257123,
+        0.17002882225148488,
+        0.10864064751687427,
+        0.24383471123720082,
+        0.04218616536183125
+      ],
+      "pre_max_penetration_mm": 0.0038860076482066658,
+      "pre_drift_mm": 6.579205095755153e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 142.4,
+      "first_nonfoot_ms": 159.6,
+      "first_com_drop_10pct_ms": 148.1,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.07590977094296955,
+      "first_failure_detail": {
+        "feet": [
+          0.43822796205723136,
+          0.22639407901282502,
+          0.0,
+          0.09167114431364387,
+          0.0,
+          0.0
+        ],
+        "total": 0.7562931853837003,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9461287760248338,
+        "upright": 0.9658100352856277,
+        "depth_mm": -0.0019877388331056844
+      },
+      "first_step_load": 1.1461838100589694
+    },
+    "new_2": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.03,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06502903864124282,
+        0.3702806086257123,
+        0.17002882225148488,
+        0.10864064751687427,
+        0.24383471123720082,
+        0.04218616536183125
+      ],
+      "pre_max_penetration_mm": 0.0038860076482066658,
+      "pre_drift_mm": 6.579205095755153e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 150.4,
+      "first_nonfoot_ms": 172.7,
+      "first_com_drop_10pct_ms": 153.4,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.17022691758525482,
+      "first_failure_detail": {
+        "feet": [
+          0.2649989053357017,
+          0.6053713938485696,
+          0.0,
+          0.0,
+          0.07645922786539355,
+          0.0
+        ],
+        "total": 0.9468295270496649,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9142382240996924,
+        "upright": 0.9497819310955319,
+        "depth_mm": -0.008339513383766865
+      },
+      "first_step_load": 1.1391952201826583
+    },
+    "parent_3": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": -0.045,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 99,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9391,
+      "pre_foot_fraction": [
+        0.06495614616414053,
+        0.37037775097011705,
+        0.17003039630890723,
+        0.1086364435912047,
+        0.24384972777625025,
+        0.04214953186734789
+      ],
+      "pre_max_penetration_mm": 0.003886798474385042,
+      "pre_drift_mm": 9.679800330612796e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 42.0,
+      "first_nonfoot_ms": 64.5,
+      "first_com_drop_10pct_ms": 57.7,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.1935011741900987,
+      "first_failure_detail": {
+        "feet": [
+          0.024468643066715524,
+          0.6239252943878878,
+          0.0,
+          0.0,
+          0.2408851810040371,
+          0.060801560182779546
+        ],
+        "total": 0.95008067864142,
+        "loaded": 4,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9895744436289536,
+        "upright": 0.9499924906300002,
+        "depth_mm": -0.002730147937037457
+      },
+      "first_step_load": 1.1767500748648005
+    },
+    "new_3": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": -0.045,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 99,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9391,
+      "pre_foot_fraction": [
+        0.06495614616414053,
+        0.37037775097011705,
+        0.17003039630890723,
+        0.1086364435912047,
+        0.24384972777625025,
+        0.04214953186734789
+      ],
+      "pre_max_penetration_mm": 0.003886798474385042,
+      "pre_drift_mm": 9.679800330612796e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 75.8,
+      "first_nonfoot_ms": 91.8,
+      "first_com_drop_10pct_ms": 82.9,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.32601966530105975,
+      "first_failure_detail": {
+        "feet": [
+          0.0,
+          0.3572180300136435,
+          0.0,
+          0.07128209910882105,
+          0.22679106442054217,
+          0.16817301848449823
+        ],
+        "total": 0.8234642120275049,
+        "loaded": 4,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9723077437350757,
+        "upright": 0.9497448675246952,
+        "depth_mm": -0.004230030101540369
+      },
+      "first_step_load": 1.1653479602844172
+    },
+    "parent_4": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.015,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06501499790377861,
+        0.37030029718192936,
+        0.1700292826963663,
+        0.10863900518606194,
+        0.2438381563524777,
+        0.04217825724725303
+      ],
+      "pre_max_penetration_mm": 0.00388486853293004,
+      "pre_drift_mm": 3.290549317863987e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 145.1,
+      "first_nonfoot_ms": 160.3,
+      "first_com_drop_10pct_ms": 147.1,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.09019294006614144,
+      "first_failure_detail": {
+        "feet": [
+          0.5006313099686939,
+          0.18346671292952474,
+          0.0,
+          0.045113853226927625,
+          0.0,
+          0.06718047031584344
+        ],
+        "total": 0.7963923464409897,
+        "loaded": 4,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9170703079570968,
+        "upright": 0.9743572327119978,
+        "depth_mm": -0.0015288122116041969
+      },
+      "first_step_load": 1.1461894255982652
+    },
+    "new_4": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.015,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06501499790377861,
+        0.37030029718192936,
+        0.1700292826963663,
+        0.10863900518606194,
+        0.2438381563524777,
+        0.04217825724725303
+      ],
+      "pre_max_penetration_mm": 0.00388486853293004,
+      "pre_drift_mm": 3.290549317863987e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 140.9,
+      "first_nonfoot_ms": 167.1,
+      "first_com_drop_10pct_ms": 153.0,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.1328195966517302,
+      "first_failure_detail": {
+        "feet": [
+          0.19373675676302454,
+          0.6941807043180234,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "total": 0.8879174610810479,
+        "loaded": 2,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9698605369191821,
+        "upright": 0.9971324552083269,
+        "depth_mm": -0.0035603423192204567
+      },
+      "first_step_load": 1.1392007123715806
+    },
+    "parent_5": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.045,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06504271329587681,
+        0.3702610204478529,
+        0.1700282967981831,
+        0.10864261018571687,
+        0.24383108634743095,
+        0.04219426362162063
+      ],
+      "pre_max_penetration_mm": 0.003887146967142513,
+      "pre_drift_mm": 9.867009240319518e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 129.9,
+      "first_nonfoot_ms": 168.0,
+      "first_com_drop_10pct_ms": 152.2,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.15689189606557336,
+      "first_failure_detail": {
+        "feet": [
+          0.3528601916115762,
+          0.5333561080561333,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "total": 0.8862162996677095,
+        "loaded": 2,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9682701071053013,
+        "upright": 0.9760108619382983,
+        "depth_mm": -0.004637444755390761
+      },
+      "first_step_load": 1.1461781745722204
+    },
+    "new_5": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.045,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06504271329587681,
+        0.3702610204478529,
+        0.1700282967981831,
+        0.10864261018571687,
+        0.24383108634743095,
+        0.04219426362162063
+      ],
+      "pre_max_penetration_mm": 0.003887146967142513,
+      "pre_drift_mm": 9.867009240319518e-05,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 151.5,
+      "first_nonfoot_ms": 173.8,
+      "first_com_drop_10pct_ms": 155.4,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.19514243404892223,
+      "first_failure_detail": {
+        "feet": [
+          0.2669079283566466,
+          0.6113153804072873,
+          0.0,
+          0.0,
+          0.0716927457233159,
+          0.0
+        ],
+        "total": 0.9499160544872498,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9175970355321341,
+        "upright": 0.9498020676975085,
+        "depth_mm": -0.007520934895094027
+      },
+      "first_step_load": 1.1391897036124718
+    },
+    "replay": {
+      "mode": "warm_release",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.0,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06499999999937084,
+        0.37032005864325757,
+        0.17002957524947576,
+        0.10863823435772176,
+        0.2438412350825952,
+        0.04217089666755701
+      ],
+      "pre_max_penetration_mm": 0.0038837300174834263,
+      "pre_drift_mm": 3.73352238677374e-13,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 151.3,
+      "first_nonfoot_ms": 173.6,
+      "first_com_drop_10pct_ms": 154.1,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.18567141329527587,
+      "first_failure_detail": {
+        "feet": [
+          0.2711181252877758,
+          0.5983083030580955,
+          0.0,
+          0.0,
+          0.07649577610674593,
+          0.0
+        ],
+        "total": 0.9459222044526172,
+        "loaded": 3,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9130014327272525,
+        "upright": 0.9499920562217745,
+        "depth_mm": -0.008004100899155257
+      },
+      "first_step_load": 1.1392061632809103
+    },
+    "cut": {
+      "mode": "motor_cut",
+      "contact_time_ms": 1.0,
+      "dt_s": 0.0001,
+      "settle_ms": 250,
+      "warm_ms": 250,
+      "post_ms": 250,
+      "native_steps": 7500,
+      "neural_ticks": 1500,
+      "initial_vx_mm_s": 0.0,
+      "body_xml_sha256": "65d3904dce9802f46997a92cb3f80cd13c032f847c1e1f6710694d65cfdd73b6",
+      "pose_sha256": "7926dff625f137eb24ff484ecea4d838defaeaf32eb6791474ce7cfb098e8f67",
+      "checkpoint_sha256": "78b658f2a9413ea00f22b81797921a0e43428eab5d1c340d9b9918f7e1fdf1f3",
+      "hull_margin_mm": 0.15057005566793058,
+      "closed_loop_linear_radius": 0.9992708180561156,
+      "warm_all_six": true,
+      "warm_spikes": 98,
+      "warm_active_receptors": 12,
+      "warm_motor_spikes": 9517,
+      "pre_foot_fraction": [
+        0.06499999999937084,
+        0.37032005864325757,
+        0.17002957524947576,
+        0.10863823435772176,
+        0.2438412350825952,
+        0.04217089666755701
+      ],
+      "pre_max_penetration_mm": 0.0038837300174834263,
+      "pre_drift_mm": 3.73352238677374e-13,
+      "post_teacher_ticks": 0,
+      "first_stance_violation_ms": 12.1,
+      "first_nonfoot_ms": 35.7,
+      "first_com_drop_10pct_ms": 15.7,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_tail_feet": 0.373843264399779,
+      "first_failure_detail": {
+        "feet": [
+          0.17014063540928076,
+          0.11658581650081437,
+          0.10201523115655933,
+          0.19808411057794592,
+          0.11972171800780312,
+          0.09276372619230064
+        ],
+        "total": 0.7993112378447043,
+        "loaded": 6,
+        "nonfoot": 0.0,
+        "com_ratio": 0.9417438042473845,
+        "upright": 0.9787871934703509,
+        "depth_mm": -0.000290659591098405
+      },
+      "first_step_load": 0.9393647651685783
+    }
+  }
+}

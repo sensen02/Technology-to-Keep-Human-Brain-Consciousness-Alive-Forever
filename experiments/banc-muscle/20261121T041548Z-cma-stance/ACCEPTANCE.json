@@ -1,0 +1,229 @@
+{
+  "selected": "correction",
+  "checkpoint_sha256": "f0397fa26cb0aa68b0906226eebebb75da3491e8d73a7b58a40618670a66c693",
+  "replay_fields": 14,
+  "changes": {
+    "exc_fraction": {
+      "n": 4096,
+      "min": -0.07784333299006366,
+      "max": 0.07796208609878023
+    },
+    "inh_fraction": {
+      "n": 0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "feco_gain": {
+      "n": 296,
+      "min": -0.29056952553362153,
+      "max": 0.5472844114138863
+    },
+    "load_gain": {
+      "n": 0,
+      "min": 0.5,
+      "max": 0.5
+    },
+    "vnc_gain_uS": {
+      "n": 436,
+      "min": -0.0024856594133629197,
+      "max": 0.00550636240469778
+    },
+    "motor_gain": {
+      "n": 1219,
+      "min": 0.0,
+      "max": 28.63697133376552
+    }
+  },
+  "warm_cma_candidates": 15620,
+  "closed_loop_cma_candidates": 2258,
+  "correction_label_candidates": 8640,
+  "nominal": {
+    "base": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 57.0,
+      "first_nonfoot_ms": 60.3,
+      "post_tail_feet": 0.186858093826812,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 97,
+      "warm_motor_spikes": 9062
+    },
+    "stage1": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 52.6,
+      "first_nonfoot_ms": 60.0,
+      "post_tail_feet": 0.12500142368728037,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 112,
+      "warm_motor_spikes": 10287
+    },
+    "stage2": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 96.8,
+      "first_nonfoot_ms": 100.2,
+      "post_tail_feet": 0.06077338457475506,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 104,
+      "warm_motor_spikes": 9562
+    },
+    "impact": {
+      "first_stance_violation_ms": 40.9,
+      "first_com_drop_10pct_ms": 55.5,
+      "first_nonfoot_ms": 68.7,
+      "post_tail_feet": 0.171333042803764,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 104,
+      "warm_motor_spikes": 9562
+    },
+    "stage3": {
+      "first_stance_violation_ms": 73.8,
+      "first_com_drop_10pct_ms": 79.1,
+      "first_nonfoot_ms": 90.5,
+      "post_tail_feet": 0.07588723930397794,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "sweep0": {
+      "first_stance_violation_ms": 136.1,
+      "first_com_drop_10pct_ms": 136.1,
+      "first_nonfoot_ms": 156.1,
+      "post_tail_feet": 0.07706563280779954,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "sweep1": {
+      "first_stance_violation_ms": 136.1,
+      "first_com_drop_10pct_ms": 136.1,
+      "first_nonfoot_ms": 156.1,
+      "post_tail_feet": 0.07706563280779954,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "correction": {
+      "first_stance_violation_ms": 141.1,
+      "first_com_drop_10pct_ms": 146.2,
+      "first_nonfoot_ms": 159.4,
+      "post_tail_feet": 0.07446193631375105,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    }
+  },
+  "checks": {
+    "replay": {
+      "first_stance_violation_ms": 141.1,
+      "first_com_drop_10pct_ms": 146.2,
+      "first_nonfoot_ms": 159.4,
+      "post_tail_feet": 0.07446193631375105,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "positive": {
+      "first_stance_violation_ms": 142.4,
+      "first_com_drop_10pct_ms": 148.1,
+      "first_nonfoot_ms": 159.6,
+      "post_tail_feet": 0.07590977094296955,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "negative": {
+      "first_stance_violation_ms": 42.2,
+      "first_com_drop_10pct_ms": 58.1,
+      "first_nonfoot_ms": 64.5,
+      "post_tail_feet": 0.004120227981519452,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 99,
+      "warm_motor_spikes": 9391
+    },
+    "cut": {
+      "first_stance_violation_ms": 12.1,
+      "first_com_drop_10pct_ms": 15.7,
+      "first_nonfoot_ms": 35.7,
+      "post_tail_feet": 0.373843264399779,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 98,
+      "warm_motor_spikes": 9517
+    },
+    "reset_existing": {
+      "first_stance_violation_ms": 29.0,
+      "first_com_drop_10pct_ms": 86.0,
+      "first_nonfoot_ms": 97.4,
+      "post_tail_feet": 0.07443157330583508,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 104,
+      "warm_motor_spikes": 9448
+    },
+    "reset_interfaces": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 56.9,
+      "first_nonfoot_ms": 60.1,
+      "post_tail_feet": 0.07562832741462747,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 104,
+      "warm_motor_spikes": 9562
+    }
+  },
+  "heldout_baselines": {
+    "base_0": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 57.0,
+      "first_nonfoot_ms": 60.3,
+      "post_tail_feet": 0.1867171854071154,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 97,
+      "warm_motor_spikes": 9062
+    },
+    "base_1": {
+      "first_stance_violation_ms": 0.1,
+      "first_com_drop_10pct_ms": 57.0,
+      "first_nonfoot_ms": 60.3,
+      "post_tail_feet": 0.18700411101493722,
+      "post_entire_stand": false,
+      "post_tail_stand": false,
+      "post_teacher_ticks": 0,
+      "warm_spikes": 97,
+      "warm_motor_spikes": 9062
+    }
+  },
+  "first_bad_feet": 0.7923564463196113,
+  "first_bad_nonfoot": 0.0,
+  "first_bad_loaded": 3,
+  "first_bad_com": 0.9391360611450325,
+  "first_bad_upright": 0.97773550131381,
+  "first_bad_depth_mm": -0.002740939235361353,
+  "first_step_feet": 1.1461950187573262
+}

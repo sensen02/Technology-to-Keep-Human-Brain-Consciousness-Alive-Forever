@@ -49,7 +49,7 @@ class ConductanceParams:
 
 class ConductanceNetwork:
     def __init__(self, n_neurons, params=None, dt_ms=0.1, voltage_method='backward_euler',
-                 threshold_offset_mV=None):
+                 threshold_offset_mV=None, *, threshold_adaptation=None):
         if voltage_method not in ('backward_euler', 'frozen_exact'):
             raise ValueError('unknown voltage integration method')
         self.voltage_method = voltage_method
@@ -65,6 +65,7 @@ class ConductanceNetwork:
             raise ValueError('effective threshold must remain above reset')
         self.threshold_offset_mV = offset.copy()
         self.threshold_offset_mV.flags.writeable = False
+        self._threshold_history = None
         self.dt = float(dt_ms)
         if not np.isfinite(self.dt) or self.dt <= 0:
             raise ValueError('positive finite dt required')
@@ -72,6 +73,8 @@ class ConductanceNetwork:
         if d < 1 or not np.isclose(d, round(d), rtol=0, atol=1e-9):
             raise ValueError('delay must be an integer number of steps, at least one')
         self.delay_steps = int(round(d))
+        if threshold_adaptation is not None:
+            self._init_threshold_adaptation(threshold_adaptation)
         self._ring = np.zeros((self.delay_steps + 1, self.n), dtype=bool)
         self._ring_i = 0
         self.v = np.full(self.n, self.p.rest_mV)
@@ -84,6 +87,25 @@ class ConductanceNetwork:
         self.Wi = sparse.csr_matrix((self.n, self.n))
         self.t_ms = 0.0
         self.steps = 0
+
+    def _init_threshold_adaptation(self, adaptation):
+        """Optional spike-triggered exponential threshold components.
+
+        ``adaptation`` is (time_constants_ms, increments_mV). Increments may
+        be shared across cells or supplied as a components-by-neurons array.
+        """
+        time_constants, increments = (np.asarray(value, float) for value in adaptation)
+        if (time_constants.ndim != 1 or not time_constants.size
+                or not np.isfinite(time_constants).all() or np.any(time_constants <= 0)):
+            raise ValueError('threshold time constants must be a positive finite vector')
+        if increments.shape == time_constants.shape:
+            increments = increments[:, None]
+        if (increments.shape not in ((time_constants.size, 1), (time_constants.size, self.n))
+                or not np.isfinite(increments).all() or np.any(increments < 0)):
+            raise ValueError('threshold increments must be nonnegative and finite per component and cell')
+        self._threshold_increments = np.broadcast_to(increments, (time_constants.size, self.n)).copy()
+        self._threshold_decay = np.exp(-self.dt / time_constants)[:, None]
+        self._threshold_history = np.zeros_like(self._threshold_increments)
 
     def set_connectivity(self, exc_uS, inh_uS):
         matrices = []
@@ -146,7 +168,13 @@ class ConductanceNetwork:
             fraction = -np.expm1(-dt * G / p.capacitance_nF)
             self.v[active] += ((equilibrium - self.v) * fraction)[active]
         self.v[own & ~active] = p.reset_mV
-        spiked = active & (self.v >= p.threshold_mV + self.threshold_offset_mV)
+        threshold = p.threshold_mV + self.threshold_offset_mV
+        if self._threshold_history is not None:
+            self._threshold_history[:, own] *= self._threshold_decay
+            threshold += self._threshold_history.sum(axis=0)
+        spiked = active & (self.v >= threshold)
+        if self._threshold_history is not None:
+            self._threshold_history[:, spiked] += self._threshold_increments[:, spiked]
         self.steps += 1
         self.t_ms = self.steps * dt
         self.v[spiked] = p.reset_mV
