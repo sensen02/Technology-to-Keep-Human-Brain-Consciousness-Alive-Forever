@@ -1,0 +1,129 @@
+{
+  "project": "P1",
+  "scope": "healthy source mesh ground-003 two routes; held-out neural seed 37",
+  "status": "PHYSICAL_CURRICULUM_COMPLETE_MEAL_GATE_UNMET",
+  "report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261119T205558Z-orchard-curriculum/REPORT.zh-CN.md",
+  "experiment": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261119T205558Z-orchard-curriculum",
+  "selected_for_evaluation": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261119T205558Z-orchard-curriculum/S3_REPLAY/POLICY.npz",
+  "body_parameters": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261119T205558Z-orchard-curriculum/BODY_SEARCH/SELECTED.json",
+  "accepted_baseline": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/NECK_ODOR_CURRENT.json",
+  "novel_orchard_ingestion_training": 0.0,
+  "stages": {
+    "S1": {
+      "parent_sha256": "11a0901394a2f04cbf60dfd6c79bc488920e17580121f9c4fdc3105e5ee9f2ee",
+      "policy_sha256": "5d9a8243b8c1a007b32fa5ff5a5efcbf625d28ea636a6067ddfebf57cb4232c6",
+      "transitions": 22,
+      "selected_update": 12
+    },
+    "S2": {
+      "parent_sha256": "65499961f6ea6e9e99a0aa20ff1d88edb0324bf87f096d8c8b713e03df102f50",
+      "policy_sha256": "45a091fa9dbc706c0805e8df857e42b1f72b29314eee8bf87a7176d75c5fb91a",
+      "transitions": 62,
+      "selected_update": 20
+    },
+    "S3": {
+      "parent_sha256": "45faed0daf61b2946b1935ac44dbb3452bc8fd18729821229ee6edba5068668e",
+      "policy_sha256": "b3cec9f616f1370805bcbeca2ed17831471ff58036521086ef2e64daf8e1dde4",
+      "transitions": 116,
+      "selected_update": 4
+    },
+    "S3_REPLAY": {
+      "parent_sha256": "45faed0daf61b2946b1935ac44dbb3452bc8fd18729821229ee6edba5068668e",
+      "policy_sha256": "4a61d3870ba71a48925394516db6fc4648606b967a4ce232c847ff34e0851359",
+      "transitions": 181,
+      "selected_update": 4
+    }
+  },
+  "matched": {
+    "REF_CLEAR": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 3.2662106037310816,
+      "rings": 1,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 0.56,
+      "time_s": 0.56,
+      "standing": false
+    },
+    "HOLD_CLEAR": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 2.3534717103327396,
+      "rings": 1,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 0.47140000000000004,
+      "time_s": 0.48000000000000004,
+      "standing": false
+    },
+    "COMBINED_CLEAR": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 2.3282454481346844,
+      "rings": 1,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 0.4722,
+      "time_s": 0.48000000000000004,
+      "standing": false
+    },
+    "REPLAY_CLEAR": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 2.3282454481346844,
+      "rings": 1,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 0.4722,
+      "time_s": 0.48000000000000004,
+      "standing": false
+    },
+    "REF_DEBRIS": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 0.577650393798875,
+      "rings": 0,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 4.46,
+      "time_s": 4.46,
+      "standing": false
+    },
+    "HOLD_DEBRIS": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 0.43793930655797775,
+      "rings": 0,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": null,
+      "time_s": 6.4,
+      "standing": false
+    },
+    "COMBINED_DEBRIS": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 2.091426604347021,
+      "rings": 0,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 1.1894,
+      "time_s": 1.2,
+      "standing": false
+    },
+    "REPLAY_DEBRIS": {
+      "walk_gate": false,
+      "initial_stand": true,
+      "walk_advance_mm": 2.091426604347021,
+      "rings": 0,
+      "intake": 0.0,
+      "meal_pass": false,
+      "fall_s": 1.1894,
+      "time_s": 1.2,
+      "standing": false
+    }
+  },
+  "physical_steps": 586400,
+  "body_search_replay_steps": 406400
+}

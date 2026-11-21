@@ -1,0 +1,83 @@
+{
+  "dynamic": {
+    "passes": true,
+    "baseline_archived_AN_bitexact": true,
+    "others_bitexact": true,
+    "every_arrival_matches_source_delay_and_gate": true,
+    "delayed_left_pulses": 78,
+    "extra_delay_max_ticks": 5,
+    "baseline_left_delay_ticks": 13,
+    "first_fresh_open_tick": 9025,
+    "returned_DN_roots": [
+      "720575941500851362",
+      "720575941535086424"
+    ],
+    "batch_ticks": 20000,
+    "lane_ticks": 60000,
+    "trace_sha256": "cf4aab316effbed7cc7ad277de8266ffb1c2e4caad7549621ea0c59ee4ef07a7",
+    "source_sha256": {
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/replay_dynamic.py": "e856f600d0821382f356e41c5dd48e3c0690b172e766aa42215c63e8ae6564f6",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/dynamic_timing.py": "19b9369eeaa75122c095b7778923d59be1671252ccc756459e4fe3b573b51ca6",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/dynamic_transport.py": "f49b687b405f5f05f6bc451a7bd27892e41e53bd41aba64d53937160c9d2d927",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/PROTOCOL.zh-CN.md": "49c7f3d0e207a120be3c5cb68c3971ea0b44ac1a29c78d5387a27dba7f676dc1",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/FORMAL/seed11701/NEURAL.npz": "edcfb4e5711870f37b057e3801cc4dfad7335aa5f241352fa0adffac5bb85c7a",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/FORMAL/seed11701/intact/TRACE.npz": "f1359740a0bda9e13a391fcae6d9987a7b9ede4f373ad8ddc87f84378178c329",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T051249Z-bidirectional/CATALOG.json": "75f5cf7a8bcc65b1a31ad9bd02cb19ea60b547a3ddb58062b57ca19702094a5b",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/PARAMETERS.json": "49b39b1a9a6664d08e8cf96058d4f41005b85512f0d6c2e458ceaf0017999430",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/BINDING.json": "ccf8aca9d23368d3abe3b34584efda3138445d08c6cff61d8566ae338ff83da7",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/assay_timing.py": "b652a8dc8908d98fd8b1330d9f22b91d439920d3230fae013f2a87b1003e9bc8",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/assay_transport.py": "61789c63c49af1b50d27884c5a607848a0579807f80eb7fda6056ae0b2c41a88",
+      "/run/media/sensen/Data2/cell_wound_prototype/data/banc888/banc_888_meta.feather": "86ccf5df0c67419f8c5f43e93a7ed38d23a080e9f7fde26737290252f3780098"
+    }
+  },
+  "observer": {
+    "metrics": {
+      "drift_raw_hz": 31.69535031256769,
+      "drift_corrected_hz": 22.247291219189396,
+      "healthy_change_hz": 0.5114036897842904,
+      "no_drift_before_onset_change_hz": 0.9531828623518037,
+      "after_drift_release_change_hz": 5.680754505735777,
+      "brief_real_change_preserved_error_hz": 0.21796683284710422,
+      "fit_mean_predictor_hz": 36.915342218106304,
+      "motor_predictor_hz": 35.31020803066935,
+      "other_predictor_hz": 37.040305239927456,
+      "fused_predictor_hz": 31.145247040236324
+    },
+    "gates": {
+      "observed_cut_not_imputed": true,
+      "gain_updates": 1700,
+      "drift_improv_20pct": true,
+      "clean_change_at_most_5hz": true,
+      "novel_transient_error_at_most_5hz": true,
+      "fusion_beats_both_inputs": true
+    },
+    "train_seeds": [
+      10901,
+      11311
+    ],
+    "held_seed": 11701,
+    "processed_samples": 80000,
+    "ridge_fits": 3,
+    "training_rows": 40000,
+    "observation_only": true,
+    "inputs_sha256": {
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/FORMAL/seed10901/NEURAL.npz": "312f9773891a536541f8f637b3e30fafe533e87e0458972af5bc8a95202af75f",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/FORMAL/seed11311/NEURAL.npz": "95a00073a92eeb9299727d23e684a9d5622fe1907428f7e317467c2b79a56bf1",
+      "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/FORMAL/seed11701/NEURAL.npz": "edcfb4e5711870f37b057e3801cc4dfad7335aa5f241352fa0adffac5bb85c7a",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/evaluate_observer.py": "508f5feb95ddda33b2284a35cae8a3b21d5e1769356e730d615a1c08b16f788e",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/archive_io.py": "7e4fc19260977fc274ddd6345339312a5199498b1e826a0582044ffba401adca",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/adaptive_observer.py": "150890c94abf722b39d5383f75e6b4fdfb8172efe83aaa6b44a89c742b4096e7",
+      "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/PROTOCOL.zh-CN.md": "49c7f3d0e207a120be3c5cb68c3971ea0b44ac1a29c78d5387a27dba7f676dc1"
+    },
+    "trace_sha256": "867e2cb082e5cd51c643a09ae4135862887e9554d3857a93cb76ebf4ccb25e63",
+    "fit_sha256": "bb7c633331ef45bd4a96f69b28c3b74b1fde02043f95005c429de9eedf6362af"
+  },
+  "replay_exact_arrays": {
+    "dynamic": 4,
+    "observer": 46
+  },
+  "observer_fit_equal": true,
+  "new_eon_steps": 0,
+  "new_walking_steps": 0,
+  "new_flight_steps": 11200
+}

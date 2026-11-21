@@ -49,7 +49,9 @@ MUJOCO_LOG.TXT
 # IDENTITY.json / RESULT.json, so the repository does not need to carry the bytes.
 experiments/**/env/
 experiments/**/.venv/
-experiments/**/.venv*/ 
+experiments/**/.venv*/
+experiments/**/flight_env/
+experiments/**/site-packages/
 experiments/**/node_modules/
 experiments/**/.git/
 # Virtualenv interpreters link to the host python; never archive them.
@@ -80,6 +82,10 @@ references/**/*.h5
 
 # Third-party checkout under an experiment run; provenance is its own SOURCE.json + commit id.
 experiments/**/official-flybody/
+experiments/**/deps/*.whl
+experiments/**/20261120T041127Z-dual-eye-splats/brush-*/
+experiments/**/20261120T041127Z-dual-eye-splats/cv/
+experiments/**/20261117T235930Z-ascending-reference-fit/sources/*.html
 
 # Per-step / per-worker experiment payloads.  Keep the compact RESULT / FINAL /
 # REPORT files, but regenerate these from the checked-in scripts and manifests.
@@ -91,6 +97,9 @@ experiments/**/*.exit
 experiments/**/*.out
 experiments/**/worker_*/
 experiments/**/terrain_identity/
+experiments/**/logs/*.lock
+experiments/**/*.prof
+experiments/**/20261121T044921Z-twenty-food-teachers/live-*-on-previous
 experiments/**/saved_model.pb
 experiments/**/variables/
 

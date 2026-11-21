@@ -1,0 +1,587 @@
+{
+  "project": "P1_open_source_brain",
+  "target": "720575941633589179",
+  "rows": [
+    {
+      "seed": 10901,
+      "control_parity": true,
+      "prior_baseline_exact": true,
+      "untreated_baseline_qualified": true,
+      "restored_target_traffic_observed": true,
+      "paired_prefixes_exact": true,
+      "physical_transport_verified": true,
+      "intervention": {
+        "tick": {
+          "left_neck_arrival": 4564,
+          "left_brain_AN": 4616,
+          "DN": 5256,
+          "neck_motor_command": 5275,
+          "qpos": 5280,
+          "own_foot_feedback": 5280
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 456.40000000000003,
+          "left_brain_AN": 461.6,
+          "DN": 525.6,
+          "neck_motor_command": 527.5000000000001,
+          "qpos": 528.0,
+          "own_foot_feedback": 528.0
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "recovery": {
+        "tick": {
+          "left_neck_arrival": 9072,
+          "left_brain_AN": 9072,
+          "DN": 9234,
+          "neck_motor_command": 9505,
+          "qpos": 9510,
+          "own_foot_feedback": 9510
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 907.2,
+          "left_brain_AN": 907.2,
+          "DN": 923.4,
+          "neck_motor_command": 950.5,
+          "qpos": 951.0000000000001,
+          "own_foot_feedback": 951.0000000000001
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "target_counts": {
+        "intact": {
+          "source_spikes_during_shared_cut": 44,
+          "arrivals_during_shared_cut": 44,
+          "arrivals_after_reopen_until_stop": 58,
+          "brain_AN_events_after_reopen_until_stop": 58
+        },
+        "sham": {
+          "source_spikes_during_shared_cut": 44,
+          "arrivals_during_shared_cut": 44,
+          "arrivals_after_reopen_until_stop": 58,
+          "brain_AN_events_after_reopen_until_stop": 58
+        },
+        "sustained_cut": {
+          "source_spikes_during_shared_cut": 43,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 0,
+          "brain_AN_events_after_reopen_until_stop": 0
+        },
+        "restore": {
+          "source_spikes_during_shared_cut": 43,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 54,
+          "brain_AN_events_after_reopen_until_stop": 52
+        }
+      },
+      "yaw_1p8_degrees": {
+        "intact": 44.06127876252269,
+        "sham": 44.06127876252269,
+        "sustained_cut": 48.77708399701798,
+        "restore": 36.759012017699305
+      },
+      "sustained_minus_sham_yaw_deg": 4.715805234495292,
+      "restore_minus_sham_yaw_deg": -7.302266744823385,
+      "recovery_reduces_abs_yaw_error": false,
+      "signed_effect_at_least_threshold": false,
+      "xy_sustained_sham_1p8_mm": 0.35866054611523773,
+      "xy_restore_sham_1p8_mm": 0.7452011272627223,
+      "first_fresh_left_spike_at_brain_input_tick": 9072,
+      "metrics": {
+        "intact": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.222382530411583,
+          "yaw_degrees": 44.100165980590816,
+          "stand_rms_mm_s": 0.0324149683294894,
+          "min_height_mm": 0.790934447317481
+        },
+        "sham": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.222382530411583,
+          "yaw_degrees": 44.100165980590816,
+          "stand_rms_mm_s": 0.0324149683294894,
+          "min_height_mm": 0.790934447317481
+        },
+        "sustained_cut": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 11.993882747040528,
+          "yaw_degrees": 48.8147553889994,
+          "stand_rms_mm_s": 0.04992935911407357,
+          "min_height_mm": 0.790934447317481
+        },
+        "restore": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.419633193446032,
+          "yaw_degrees": 36.794216512731175,
+          "stand_rms_mm_s": 0.025678442575525023,
+          "min_height_mm": 0.790934447317481
+        }
+      }
+    },
+    {
+      "seed": 11311,
+      "control_parity": true,
+      "prior_baseline_exact": true,
+      "untreated_baseline_qualified": true,
+      "restored_target_traffic_observed": true,
+      "paired_prefixes_exact": true,
+      "physical_transport_verified": true,
+      "intervention": {
+        "tick": {
+          "left_neck_arrival": 4518,
+          "left_brain_AN": 4532,
+          "DN": 4831,
+          "neck_motor_command": 4850,
+          "qpos": 4850,
+          "own_foot_feedback": 4850
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 451.8,
+          "left_brain_AN": 453.20000000000005,
+          "DN": 483.1,
+          "neck_motor_command": 485.00000000000006,
+          "qpos": 485.00000000000006,
+          "own_foot_feedback": 485.00000000000006
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "recovery": {
+        "tick": {
+          "left_neck_arrival": 9072,
+          "left_brain_AN": 9072,
+          "DN": 9334,
+          "neck_motor_command": 9540,
+          "qpos": 9540,
+          "own_foot_feedback": 9540
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 907.2,
+          "left_brain_AN": 907.2,
+          "DN": 933.4,
+          "neck_motor_command": 954.0000000000001,
+          "qpos": 954.0000000000001,
+          "own_foot_feedback": 954.0000000000001
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "target_counts": {
+        "intact": {
+          "source_spikes_during_shared_cut": 41,
+          "arrivals_during_shared_cut": 41,
+          "arrivals_after_reopen_until_stop": 53,
+          "brain_AN_events_after_reopen_until_stop": 53
+        },
+        "sham": {
+          "source_spikes_during_shared_cut": 41,
+          "arrivals_during_shared_cut": 41,
+          "arrivals_after_reopen_until_stop": 53,
+          "brain_AN_events_after_reopen_until_stop": 53
+        },
+        "sustained_cut": {
+          "source_spikes_during_shared_cut": 40,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 0,
+          "brain_AN_events_after_reopen_until_stop": 0
+        },
+        "restore": {
+          "source_spikes_during_shared_cut": 40,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 54,
+          "brain_AN_events_after_reopen_until_stop": 52
+        }
+      },
+      "yaw_1p8_degrees": {
+        "intact": 23.517771512391487,
+        "sham": 23.517771512391487,
+        "sustained_cut": 21.628822066042908,
+        "restore": 26.19637420846823
+      },
+      "sustained_minus_sham_yaw_deg": -1.8889494463485796,
+      "restore_minus_sham_yaw_deg": 2.6786026960767444,
+      "recovery_reduces_abs_yaw_error": false,
+      "signed_effect_at_least_threshold": false,
+      "xy_sustained_sham_1p8_mm": 0.1538926824044616,
+      "xy_restore_sham_1p8_mm": 0.2912376522855127,
+      "first_fresh_left_spike_at_brain_input_tick": 9072,
+      "metrics": {
+        "intact": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 13.57857024525378,
+          "yaw_degrees": 23.57036425610842,
+          "stand_rms_mm_s": 0.08011098575874338,
+          "min_height_mm": 0.7579302080478584
+        },
+        "sham": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 13.57857024525378,
+          "yaw_degrees": 23.57036425610842,
+          "stand_rms_mm_s": 0.08011098575874338,
+          "min_height_mm": 0.7579302080478584
+        },
+        "sustained_cut": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 13.6667316760197,
+          "yaw_degrees": 21.665895007883268,
+          "stand_rms_mm_s": 0.0787116932832023,
+          "min_height_mm": 0.7579302080478584
+        },
+        "restore": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 13.395767117588584,
+          "yaw_degrees": 26.24500889198238,
+          "stand_rms_mm_s": 0.08065024053745566,
+          "min_height_mm": 0.7579302080478584
+        }
+      }
+    },
+    {
+      "seed": 11701,
+      "control_parity": true,
+      "prior_baseline_exact": null,
+      "untreated_baseline_qualified": true,
+      "restored_target_traffic_observed": true,
+      "paired_prefixes_exact": true,
+      "physical_transport_verified": true,
+      "intervention": {
+        "tick": {
+          "left_neck_arrival": 4564,
+          "left_brain_AN": 4634,
+          "DN": 4750,
+          "neck_motor_command": 4770,
+          "qpos": 4770,
+          "own_foot_feedback": 4770
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 456.40000000000003,
+          "left_brain_AN": 463.40000000000003,
+          "DN": 475.00000000000006,
+          "neck_motor_command": 477.00000000000006,
+          "qpos": 477.00000000000006,
+          "own_foot_feedback": 477.00000000000006
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "recovery": {
+        "tick": {
+          "left_neck_arrival": 9072,
+          "left_brain_AN": 9072,
+          "DN": 9410,
+          "neck_motor_command": 9430,
+          "qpos": 9430,
+          "own_foot_feedback": 9430
+        },
+        "first_millisecond": {
+          "left_neck_arrival": 907.2,
+          "left_brain_AN": 907.2,
+          "DN": 941.0000000000001,
+          "neck_motor_command": 943.0000000000001,
+          "qpos": 943.0000000000001,
+          "own_foot_feedback": 943.0000000000001
+        },
+        "complete_observed_chain": true,
+        "all_observed_differences_ordered": true
+      },
+      "target_counts": {
+        "intact": {
+          "source_spikes_during_shared_cut": 46,
+          "arrivals_during_shared_cut": 46,
+          "arrivals_after_reopen_until_stop": 55,
+          "brain_AN_events_after_reopen_until_stop": 55
+        },
+        "sham": {
+          "source_spikes_during_shared_cut": 46,
+          "arrivals_during_shared_cut": 46,
+          "arrivals_after_reopen_until_stop": 55,
+          "brain_AN_events_after_reopen_until_stop": 55
+        },
+        "sustained_cut": {
+          "source_spikes_during_shared_cut": 46,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 0,
+          "brain_AN_events_after_reopen_until_stop": 0
+        },
+        "restore": {
+          "source_spikes_during_shared_cut": 46,
+          "arrivals_during_shared_cut": 0,
+          "arrivals_after_reopen_until_stop": 55,
+          "brain_AN_events_after_reopen_until_stop": 53
+        }
+      },
+      "yaw_1p8_degrees": {
+        "intact": 45.486516840015334,
+        "sham": 45.486516840015334,
+        "sustained_cut": 60.507778647267855,
+        "restore": 47.87065513611772
+      },
+      "sustained_minus_sham_yaw_deg": 15.021261807252522,
+      "restore_minus_sham_yaw_deg": 2.3841382961023854,
+      "recovery_reduces_abs_yaw_error": true,
+      "signed_effect_at_least_threshold": true,
+      "xy_sustained_sham_1p8_mm": 1.8815178663735563,
+      "xy_restore_sham_1p8_mm": 1.433852859962329,
+      "first_fresh_left_spike_at_brain_input_tick": 9072,
+      "metrics": {
+        "intact": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.758073289760517,
+          "yaw_degrees": 45.45370558775755,
+          "stand_rms_mm_s": 0.041911586061933,
+          "min_height_mm": 0.7578151166997512
+        },
+        "sham": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.758073289760517,
+          "yaw_degrees": 45.45370558775755,
+          "stand_rms_mm_s": 0.041911586061933,
+          "min_height_mm": 0.7578151166997512
+        },
+        "sustained_cut": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 11.453543235081769,
+          "yaw_degrees": 60.481960564713354,
+          "stand_rms_mm_s": 0.05510591337433139,
+          "min_height_mm": 0.7576282571470571
+        },
+        "restore": {
+          "safety_pass": true,
+          "safety_gates": {
+            "complete": true,
+            "finite": true,
+            "no_warning": true,
+            "upright": true,
+            "height": true,
+            "nonfoot": true,
+            "joint_limit": true,
+            "target_limits": true
+          },
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "forward_dx_mm": 12.014707817654916,
+          "yaw_degrees": 47.842996931565146,
+          "stand_rms_mm_s": 0.035657764399003665,
+          "min_height_mm": 0.7576282571470571
+        }
+      }
+    }
+  ],
+  "intervention_cut_tick": 4500,
+  "reopen_tick": 9000,
+  "yaw_sample_tick": 17999,
+  "yaw_primary_threshold_deg": 5.0,
+  "repeated_primary_behavior_effect": false,
+  "sham_yaw_range_deg": [
+    23.517771512391487,
+    45.486516840015334
+  ],
+  "same_sign": false,
+  "exact_replay": {
+    "neural": {
+      "dn_emitted": true,
+      "dn_arrived": true,
+      "an_emitted": true,
+      "an_arrived": true,
+      "brain_an_events": true,
+      "rates": true,
+      "population": true,
+      "central_hits": true,
+      "target_blocked": true,
+      "scheduled_event": true
+    },
+    "intact": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "sham": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "sustained_cut": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "restore": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    }
+  },
+  "body_episodes": 16,
+  "body_steps": 320000,
+  "brain_batch_ticks": 80000,
+  "brain_lane_ticks": 320000,
+  "neck_batch_ticks": 81500,
+  "neck_lane_ticks": 323000,
+  "optimizer_updates": 0
+}

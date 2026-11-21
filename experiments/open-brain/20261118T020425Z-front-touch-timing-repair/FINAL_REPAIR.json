@@ -1,0 +1,507 @@
+{
+  "project": "P1_open_source_brain",
+  "rows": [
+    {
+      "seed": 10901,
+      "old": {
+        "native": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": false,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.8878976354174148,
+          "yaw_difference_degrees": 18.4520130531302,
+          "active_speed_difference_mm_s": -0.34823044173471374
+        },
+        "controlled": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": false,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.9818981506907698,
+          "yaw_difference_degrees": 13.96389260367549,
+          "active_speed_difference_mm_s": -0.48520582697461734
+        }
+      },
+      "prior_yaw": {
+        "native": 39.612045531136104,
+        "controlled": 44.100165980590816,
+        "translated": 58.064058584266306
+      },
+      "transport_audit": true,
+      "matched_boundary_exact": {
+        "brain_an_events": true,
+        "dn_emitted": true,
+        "dn_arrived": true,
+        "population": true
+      },
+      "modes": {
+        "repaired": {
+          "yaw_degrees": 44.100165980590816,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 12.222382530411583,
+          "final_stand_rms_mm_s": 0.0324149683294894,
+          "native": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.11521363719386278,
+            "yaw_difference_degrees": 4.488120449454712,
+            "active_speed_difference_mm_s": 0.1369753852399036
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.0,
+            "yaw_difference_degrees": 0.0,
+            "active_speed_difference_mm_s": 0.0
+          },
+          "full_body_exact_to_controlled": true,
+          "AN_event_differences_to_controlled": 64,
+          "DN_event_differences_to_controlled": 0,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            83,
+            65
+          ]
+        },
+        "fixed_canonical": {
+          "yaw_degrees": 41.1806466211187,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 11.888726827189766,
+          "final_stand_rms_mm_s": 0.04103144427259674,
+          "native": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.2592607055452287,
+            "yaw_difference_degrees": 1.568601089982593,
+            "active_speed_difference_mm_s": -0.15241438781454697
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.3678825998931316,
+            "yaw_difference_degrees": -2.919519359472119,
+            "active_speed_difference_mm_s": -0.28938977305445057
+          },
+          "full_body_exact_to_controlled": false,
+          "AN_event_differences_to_controlled": 1044,
+          "DN_event_differences_to_controlled": 872,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            86,
+            62
+          ]
+        },
+        "fixed_raw": {
+          "yaw_degrees": 49.010736652597856,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 11.634045273364077,
+          "final_stand_rms_mm_s": 0.03646549014928144,
+          "native": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.48431372930948824,
+            "yaw_difference_degrees": 9.398691121461752,
+            "active_speed_difference_mm_s": -0.18314419886127986
+          },
+          "controlled": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.5994085525721954,
+            "yaw_difference_degrees": 4.91057067200704,
+            "active_speed_difference_mm_s": -0.32011958410118346
+          },
+          "full_body_exact_to_controlled": false,
+          "AN_event_differences_to_controlled": 1081,
+          "DN_event_differences_to_controlled": 891,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            87,
+            65
+          ]
+        },
+        "matched_reference_boundary": {
+          "yaw_degrees": 44.100165980590816,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 12.222382530411583,
+          "final_stand_rms_mm_s": 0.0324149683294894,
+          "native": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.11521363719386278,
+            "yaw_difference_degrees": 4.488120449454712,
+            "active_speed_difference_mm_s": 0.1369753852399036
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.0,
+            "yaw_difference_degrees": 0.0,
+            "active_speed_difference_mm_s": 0.0
+          },
+          "full_body_exact_to_controlled": true,
+          "AN_event_differences_to_controlled": 0,
+          "DN_event_differences_to_controlled": 0,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            83,
+            65
+          ]
+        }
+      }
+    },
+    {
+      "seed": 11311,
+      "old": {
+        "native": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": true,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 0.6767666913296922,
+          "yaw_difference_degrees": -1.2883102811840246,
+          "active_speed_difference_mm_s": -0.08685282374215753
+        },
+        "controlled": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": true,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.3121729921513459,
+          "yaw_difference_degrees": 2.201551058881769,
+          "active_speed_difference_mm_s": -0.5398311199601427
+        }
+      },
+      "prior_yaw": {
+        "native": 35.31527269012867,
+        "controlled": 31.82541135006288,
+        "translated": 34.02696240894465
+      },
+      "transport_audit": true,
+      "matched_boundary_exact": {
+        "brain_an_events": true,
+        "dn_emitted": true,
+        "dn_arrived": true,
+        "population": true
+      },
+      "modes": {
+        "repaired": {
+          "yaw_degrees": 23.57036425610842,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 13.57857024525378,
+          "final_stand_rms_mm_s": 0.08011098575874338,
+          "native": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": false,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 1.8635876935882525,
+            "yaw_difference_degrees": -11.744908434020253,
+            "active_speed_difference_mm_s": 0.45297829621798513
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.2728434704141086,
+            "yaw_difference_degrees": -8.25504709395446,
+            "active_speed_difference_mm_s": 0.0
+          },
+          "full_body_exact_to_controlled": false,
+          "AN_event_differences_to_controlled": 259,
+          "DN_event_differences_to_controlled": 21,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            87,
+            64
+          ]
+        },
+        "fixed_canonical": {
+          "yaw_degrees": 34.02970001168013,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 13.482962523339777,
+          "final_stand_rms_mm_s": 0.051540658855144375,
+          "native": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 1.8455036752108822,
+            "yaw_difference_degrees": -1.2855726784485455,
+            "active_speed_difference_mm_s": 0.47583579004198384
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.3628429711590132,
+            "yaw_difference_degrees": 2.204288661617248,
+            "active_speed_difference_mm_s": 0.02285749382399871
+          },
+          "full_body_exact_to_controlled": false,
+          "AN_event_differences_to_controlled": 1006,
+          "DN_event_differences_to_controlled": 882,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            83,
+            64
+          ]
+        },
+        "fixed_raw": {
+          "yaw_degrees": 24.688245812771136,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 13.29267870662461,
+          "final_stand_rms_mm_s": 0.09072337566024805,
+          "native": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": false,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 2.2127754017856844,
+            "yaw_difference_degrees": -10.627026877357537,
+            "active_speed_difference_mm_s": 0.1278639227456182
+          },
+          "controlled": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.8717426478012905,
+            "yaw_difference_degrees": -7.137165537291743,
+            "active_speed_difference_mm_s": -0.32511437347236694
+          },
+          "full_body_exact_to_controlled": false,
+          "AN_event_differences_to_controlled": 1047,
+          "DN_event_differences_to_controlled": 900,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            82,
+            64
+          ]
+        },
+        "matched_reference_boundary": {
+          "yaw_degrees": 31.82541135006288,
+          "stand_pass": true,
+          "advance_pass": true,
+          "safety_pass": true,
+          "forward_mm": 13.73456117116036,
+          "final_stand_rms_mm_s": 0.06775167298105429,
+          "native": {
+            "pass_": false,
+            "gates": {
+              "final_xy": false,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 1.779597599019421,
+            "yaw_difference_degrees": -3.4898613400657936,
+            "active_speed_difference_mm_s": 0.45297829621798513
+          },
+          "controlled": {
+            "pass_": true,
+            "gates": {
+              "final_xy": true,
+              "yaw": true,
+              "active_speed": true,
+              "height": true,
+              "student_safety": true
+            },
+            "final_xy_difference_mm": 0.0,
+            "yaw_difference_degrees": 0.0,
+            "active_speed_difference_mm_s": 0.0
+          },
+          "full_body_exact_to_controlled": true,
+          "AN_event_differences_to_controlled": 0,
+          "DN_event_differences_to_controlled": 0,
+          "actual_DN_arrived_on_AN_feedback_ports": [
+            87,
+            64
+          ]
+        }
+      }
+    }
+  ],
+  "controlled_pass_per_seed": [
+    true,
+    true
+  ],
+  "native_pass_per_seed": [
+    true,
+    false
+  ],
+  "exact_replay": {
+    "neural": {
+      "dn_emitted": true,
+      "dn_arrived": true,
+      "an_emitted": true,
+      "an_arrived": true,
+      "brain_an_events": true,
+      "rates": true,
+      "population": true,
+      "central_hits": true
+    },
+    "body": {
+      "repaired": {
+        "qpos": true,
+        "qvel": true,
+        "position": true,
+        "yaw": true,
+        "upright": true,
+        "nonfoot": true,
+        "control": true,
+        "pads": true,
+        "normal_load": true,
+        "command": true,
+        "initial_position": true
+      },
+      "fixed_canonical": {
+        "qpos": true,
+        "qvel": true,
+        "position": true,
+        "yaw": true,
+        "upright": true,
+        "nonfoot": true,
+        "control": true,
+        "pads": true,
+        "normal_load": true,
+        "command": true,
+        "initial_position": true
+      },
+      "fixed_raw": {
+        "qpos": true,
+        "qvel": true,
+        "position": true,
+        "yaw": true,
+        "upright": true,
+        "nonfoot": true,
+        "control": true,
+        "pads": true,
+        "normal_load": true,
+        "command": true,
+        "initial_position": true
+      },
+      "matched_reference_boundary": {
+        "qpos": true,
+        "qvel": true,
+        "position": true,
+        "yaw": true,
+        "upright": true,
+        "nonfoot": true,
+        "control": true,
+        "pads": true,
+        "normal_load": true,
+        "command": true,
+        "initial_position": true
+      }
+    }
+  },
+  "optimizer_updates": 0,
+  "brain_batch_ticks": 60000,
+  "brain_lane_ticks": 240000,
+  "body_episodes": 12,
+  "body_steps": 240000,
+  "fixed_neck_live_batch_ticks": 60000,
+  "fixed_neck_live_lane_ticks": 240000,
+  "diagnostic_neck_lane_ticks": 40500,
+  "cut_passed": true,
+  "returned_DN_conductance_verified": true
+}

@@ -1,0 +1,157 @@
+{
+  "project": "P1 Open Brain",
+  "goal": "S5",
+  "status": "PASS_SHARED_BODY_LOCOMOTION_CHOICE",
+  "same_initial_physical_state": true,
+  "closed_loop_block_s": 0.02,
+  "scheduled_dnp11": false,
+  "brain_weight_updates": 0,
+  "gates": {
+    "elevated_eon_takeoff": true,
+    "elevated_perch_and_intake": true,
+    "clipped_low_target_remains_visible_without_flight_evidence": true,
+    "low_walk_and_intake": true,
+    "elevated_without_adapter_walks": true,
+    "cut_preserves_sources_blocks_takeoff": true,
+    "high_physical_and_neural_replay_identical": true
+  },
+  "results": {
+    "HIGH": {
+      "intake": 0.248499999999997,
+      "first_intake_s": 0.9109999999999079,
+      "takeoff_s": 0.06180000000000126,
+      "first_air_s": 0.08344999999999897,
+      "touch_s": 0.6474499999999369,
+      "first_bilateral_threshold_s": 0.0618,
+      "brain_pulses": [
+        8,
+        5
+      ],
+      "neck_arrivals": [
+        8,
+        5
+      ],
+      "max_height_mm": 9.73087877692152,
+      "final_support": [
+        0.0,
+        6.0,
+        0.0
+      ],
+      "continuous_six_s": 0.8148000000000001,
+      "minimum_horizontal_distance_to_food_mm": 0.11514675329178549,
+      "file_sha256": {
+        "INITIAL.npy": "42448b6b87975ee725d426ad496c53babcaac3b649833b72fcf54ad1cf9e442c",
+        "QPOS.npy": "fd99bcd2f40f278b3a2e36e1b9af0d7b539dc8bb5339197bfc3862654e3608b2",
+        "TRACE.npy": "a7b6d6bcc9d222fa217036754594cf69e1b74fa81535937fd60a79be0395c061",
+        "OBS.npy": "248c373a4899334185e553595edf06bd9e57123d9c48bbca94c23ab664699edd",
+        "NEURAL.npz": "37cca67076e047fbc79968fe97633a0e3ac16189fdfccdb1dd699cf5fb114749",
+        "RESULT.json": "2666fd4b58304f5a6b69eb1c49b72662fea64bf206bdf16a294b214b9526a4db"
+      }
+    },
+    "LOW": {
+      "intake": 0.3044999999999996,
+      "first_intake_s": 3.570999999998347,
+      "takeoff_s": null,
+      "first_air_s": null,
+      "touch_s": null,
+      "first_bilateral_threshold_s": null,
+      "brain_pulses": [
+        0,
+        0
+      ],
+      "neck_arrivals": [
+        0,
+        0
+      ],
+      "max_height_mm": 1.254033037135218,
+      "final_support": [
+        6.0,
+        0.0,
+        0.0
+      ],
+      "continuous_six_s": 0.0,
+      "minimum_horizontal_distance_to_food_mm": 7.5299337261801895,
+      "file_sha256": {
+        "INITIAL.npy": "42448b6b87975ee725d426ad496c53babcaac3b649833b72fcf54ad1cf9e442c",
+        "QPOS.npy": "37489917b3722832ae7c211b320ead7cbfff396133cd6bacd47e2147262473ab",
+        "TRACE.npy": "d9801dd2b54b7ede107d9baf145e86fd035fed5ee39042904af432d09054e112",
+        "OBS.npy": "c463a6696c62c1eb428caa348695bc49013e2e36af071bf009a1c3446d0dfa49",
+        "NEURAL.npz": "b5c5972888821f1da1b095dc2af12ab8f483dcf123113519af1b45bb30902086",
+        "RESULT.json": "698085a6d40af3e83866df7daa6afc1f27a407b559477ba2050ecd6df9112912"
+      }
+    },
+    "NO_ADAPTER": {
+      "intake": 0.0,
+      "first_intake_s": null,
+      "takeoff_s": null,
+      "first_air_s": null,
+      "touch_s": null,
+      "first_bilateral_threshold_s": null,
+      "brain_pulses": [
+        0,
+        0
+      ],
+      "neck_arrivals": [
+        0,
+        0
+      ],
+      "max_height_mm": 1.2199520111877247,
+      "final_support": [
+        6.0,
+        0.0,
+        0.0
+      ],
+      "continuous_six_s": 0.0,
+      "minimum_horizontal_distance_to_food_mm": 0.09244040092280283,
+      "file_sha256": {
+        "INITIAL.npy": "42448b6b87975ee725d426ad496c53babcaac3b649833b72fcf54ad1cf9e442c",
+        "QPOS.npy": "25cb4cad98f8bef7b1496202151870ce2152ee803993f4e96d4c4f40c4bb1304",
+        "TRACE.npy": "28d4fd27d94325dd39b4ddf52553f41c172f474e61f402ba4563e3374909cb8e",
+        "OBS.npy": "b5e07f99143cb714660c7dd4836df7593a24d478ef02f28bde24854afda68384",
+        "NEURAL.npz": "042c1a60ebbd465db71690b3dbb8f2bc45a73f8fb6d79b28c6fbe8fa3610eb92",
+        "RESULT.json": "47dd9ce00419d32a357fce0d7dd3841309ee092026325192f0707524d5a23802"
+      }
+    },
+    "CUT": {
+      "intake": 0.0,
+      "first_intake_s": null,
+      "takeoff_s": null,
+      "first_air_s": null,
+      "touch_s": null,
+      "first_bilateral_threshold_s": null,
+      "brain_pulses": [
+        92,
+        77
+      ],
+      "neck_arrivals": [
+        0,
+        0
+      ],
+      "max_height_mm": 1.178642002172117,
+      "final_support": [
+        6.0,
+        0.0,
+        0.0
+      ],
+      "continuous_six_s": 0.0,
+      "minimum_horizontal_distance_to_food_mm": 80.47073637770484,
+      "file_sha256": {
+        "INITIAL.npy": "42448b6b87975ee725d426ad496c53babcaac3b649833b72fcf54ad1cf9e442c",
+        "QPOS.npy": "e147bb1383295831192e1587a0b79d7e47fe29999f4de38f50591f11f51da874",
+        "TRACE.npy": "ca14b91a6ba37488a145c65e04dfacb136bab1a1b62dc736c10f044f0c06640f",
+        "OBS.npy": "7c300d4ca1acd862c822ae0de70cb70fcb8c7230b31a783c98c0b6fc346fa843",
+        "NEURAL.npz": "0d81642042a231dd43715ed3a9f76147c6cfdd94934ae786946554e127ae5669",
+        "RESULT.json": "4c30b2b347d56cd050cca3c693a4e84216fe9a8aeead929dfc08cf3a2c725a75"
+      }
+    }
+  },
+  "run": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261119T001532Z-locomotion-choice",
+  "report": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261119T001532Z-locomotion-choice/REPORT.zh-CN.md",
+  "replay": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261119T001532Z-locomotion-choice/REPLAY.sh",
+  "delivery": "/home/sensen/Desktop/engine修复验收/悬空果步行与起飞选择-20261119T001532Z",
+  "decoded_frames": {
+    "HIGH": 150,
+    "LOW": 177
+  },
+  "manifest_sha256": "d44ad1e4cc008120749e8c46d559466a9f0d3d90b0ed03ef3c122f996ccef935"
+}

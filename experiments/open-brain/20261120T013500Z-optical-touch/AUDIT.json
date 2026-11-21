@@ -1,0 +1,65 @@
+{
+  "samples": 66,
+  "state_counts": {
+    "contact_compatible": 42,
+    "clear": 24
+  },
+  "transition_brackets": 21,
+  "ground_absolute_error_um": {
+    "median": 0.6816812745000789,
+    "p90": 1.761355041708157,
+    "max": 2.29870092789497
+  },
+  "marker_gap_absolute_error_um": {
+    "median": 6.9959203535221235,
+    "p90": 17.548353957460144,
+    "max": 28.025454875689526
+  },
+  "reference_marker_gap_range_um": [
+    25.81465661356469,
+    402.9619801112599
+  ],
+  "minimum_reference_tarsus_vertex_height_um": 67.11483001708984,
+  "tarsus_mesh_intersections": 0,
+  "covered": 66,
+  "gauge": [
+    {
+      "leg": "LF",
+      "reference_um": 180,
+      "estimated_um": 180.06168739740042,
+      "state": "clear"
+    },
+    {
+      "leg": "LM",
+      "reference_um": 0,
+      "estimated_um": 6.679273432981969,
+      "state": "contact_compatible"
+    },
+    {
+      "leg": "LH",
+      "reference_um": 25,
+      "estimated_um": 23.257789534599393,
+      "state": "contact_compatible"
+    },
+    {
+      "leg": "RF",
+      "reference_um": 25,
+      "estimated_um": 23.613982665809996,
+      "state": "contact_compatible"
+    },
+    {
+      "leg": "RM",
+      "reference_um": 180,
+      "estimated_um": 181.21046928948454,
+      "state": "clear"
+    },
+    {
+      "leg": "RH",
+      "reference_um": 0,
+      "estimated_um": -1.9999999957153736,
+      "state": "contact_compatible"
+    }
+  ],
+  "predictions_sha256": "4def0069d748a8e7a62ad5bdf07f8c30f1e3db9faf24243f2239bb18ef781365",
+  "same_bytes_replay": true
+}

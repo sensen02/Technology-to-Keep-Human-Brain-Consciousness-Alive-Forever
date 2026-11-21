@@ -1,0 +1,91 @@
+{
+  "project": "P1 Open Brain",
+  "goal": "S5",
+  "status": "PASS_STRAIGHT_FLIGHT_PERCH_FEED",
+  "limits": {
+    "continuous_perch_s": 0.3,
+    "min_intake": 0.07
+  },
+  "results": {
+    "near": {
+      "gates": {
+        "visual_trigger_matches_causal_prefix": true,
+        "flight_before_fruit": true,
+        "six_feet_continuously_perched": true,
+        "no_off_fruit_support_after_touch": true,
+        "contact_gates_actual_intake": true,
+        "no_external_load": true
+      },
+      "first_command_to_vnc_s": 0.40640000000000004,
+      "prefix_steps": 2025,
+      "seed": 29,
+      "fruit": {
+        "x_cm": 8.03,
+        "y_cm": 0.0,
+        "radius_cm": 0.89,
+        "top_cm": 0.3
+      },
+      "takeoff_s": 0.09159999999999807,
+      "eye_trigger_s": 0.405,
+      "landing_command_s": 0.41579999999996237,
+      "first_fruit_contact_s": 0.6731999999999341,
+      "first_all_six_s": 0.6905499999999322,
+      "confirmed_perch_s": 0.5880000000000001,
+      "final_six": true,
+      "end_xy_mm": [
+        82.97744851711474,
+        0.2655691012478657
+      ],
+      "first_intake_s": 0.8721999999999122,
+      "intake": 0.1917650000000025,
+      "absorbed_nutrient": 0.005523792118521725,
+      "mn9_spikes": 86
+    },
+    "far": {
+      "gates": {
+        "visual_trigger_matches_causal_prefix": true,
+        "flight_before_fruit": true,
+        "six_feet_continuously_perched": true,
+        "no_off_fruit_support_after_touch": true,
+        "contact_gates_actual_intake": true,
+        "no_external_load": true
+      },
+      "first_command_to_vnc_s": 0.4414,
+      "prefix_steps": 2200,
+      "seed": 53,
+      "fruit": {
+        "x_cm": 8.68,
+        "y_cm": 0.0,
+        "radius_cm": 0.89,
+        "top_cm": 0.3
+      },
+      "takeoff_s": 0.09159999999999807,
+      "eye_trigger_s": 0.44,
+      "landing_command_s": 0.4507999999999585,
+      "first_fruit_contact_s": 0.7060999999999304,
+      "first_all_six_s": 0.7261499999999282,
+      "confirmed_perch_s": 0.5551,
+      "final_six": true,
+      "end_xy_mm": [
+        87.42004750817196,
+        0.29494018672620803
+      ],
+      "first_intake_s": 0.8938999999999098,
+      "intake": 0.18417000000000092,
+      "absorbed_nutrient": 0.005123893369885866,
+      "mn9_spikes": 90
+    }
+  },
+  "controls": {
+    "vision_blocked": true,
+    "neck_cut": true,
+    "food_blocked": true,
+    "replay_identical": true
+  },
+  "source": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T234622Z-flight-fruit",
+  "report": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T234622Z-flight-fruit/REPORT.zh-CN.md",
+  "replay": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T234622Z-flight-fruit/REPLAY.sh",
+  "delivery": "/home/sensen/Desktop/engine修复验收/飞行停果摄入-20261118T234622Z",
+  "video_frames": 197,
+  "source_manifest_sha256": "37c40183c559f2b24e8566323fc82999e4e1d6a28c5ff03730f731a650415621"
+}

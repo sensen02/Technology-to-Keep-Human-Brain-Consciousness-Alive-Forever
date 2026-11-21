@@ -1,0 +1,40 @@
+{
+  "project": "P1_open_source_brain",
+  "status": "ENGINEERING_REFERENCE_TRANSLATION_VERIFIED",
+  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit",
+  "report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/REPORT.zh-CN.md",
+  "teacher_kind": "NEW_BANC_RECEPTOR_GRAPH_WITH_ORIGINAL_EON_LIF_ENGINEERING_REFERENCE",
+  "source_binding": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/BINDING.json",
+  "trained_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/FIT/update250.pt",
+  "checkpoint_sha256": "4a862130d5ba3dff6637e2ec7939a17fbba7430b7d4254af9e7bd0ddb5449380",
+  "encoder_runtime": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/encoder.py",
+  "acceptance": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/FINAL_ACCEPTANCE.json",
+  "optimizer_updates": 250,
+  "trained_parameters": 8,
+  "original_brain_weights_frozen": true,
+  "body_and_neck_frozen": true,
+  "plasticity_in_neck": false,
+  "flight": "DEFERRED",
+  "channels": [
+    "front_touch_body_left",
+    "front_touch_body_right"
+  ],
+  "causal_input_feature_taus_s": [
+    0.005,
+    0.02,
+    0.05
+  ],
+  "engineering_output_cap_hz": 1000.0,
+  "brain_boundary": "two externally owned AN output sources; 14 incoming feedback edges excluded",
+  "autonomous_behavior_verified": false,
+  "biological_conformance": "UNKNOWN",
+  "deployable_as_complete_brain_body": false,
+  "new_fixed_neck_ticks": 40000,
+  "reference_lif_ticks": 80000,
+  "brain_batch_ticks": 12000,
+  "brain_lane_ticks": 48000,
+  "new_physical_steps": 0,
+  "qualification_shadow_updates": 1,
+  "body_weight_sha256": "5e513353ecf72878ef2ebc02660dd1a2f804ce3feca9b6cc2a73ed5ca05ff57e",
+  "raw_neck_parameters_sha256": "49b39b1a9a6664d08e8cf96058d4f41005b85512f0d6c2e458ceaf0017999430"
+}

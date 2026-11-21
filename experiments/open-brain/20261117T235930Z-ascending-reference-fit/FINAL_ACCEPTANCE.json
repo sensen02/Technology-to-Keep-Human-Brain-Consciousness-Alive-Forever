@@ -1,0 +1,155 @@
+{
+  "status": "ENGINEERING_REFERENCE_TRANSLATION_VERIFIED",
+  "project": "P1_open_source_brain",
+  "pass_": true,
+  "gates": {
+    "checkpoint_ledger": true,
+    "held_labels_after_freeze": true,
+    "heldout_reference_agreement": true,
+    "actual_supervised_gradients": true,
+    "actual_adam": true,
+    "checkpoint_resume": true,
+    "independent_arrays": true,
+    "original_brain_receiving_response": true,
+    "actual_cut_recovery": true
+  },
+  "evaluations": {
+    "train_left": {
+      "pass_": true,
+      "gates": {
+        "loss_improved": true,
+        "each_source_nrmse": true,
+        "silence_zero": true,
+        "channel_isolation": true,
+        "finite": true,
+        "bounded": true
+      },
+      "relative_reduction": 0.906483949303083,
+      "nrmse": [
+        0.13416665536637434,
+        0.1418882906977802
+      ],
+      "mse_hz2": 275.016557019547,
+      "initial_mse_hz2": 2940.848709606742
+    },
+    "train_right": {
+      "pass_": true,
+      "gates": {
+        "loss_improved": true,
+        "each_source_nrmse": true,
+        "silence_zero": true,
+        "channel_isolation": true,
+        "finite": true,
+        "bounded": true
+      },
+      "relative_reduction": 0.9061579417566022,
+      "nrmse": [
+        0.15000326286323087,
+        0.13120921731196816
+      ],
+      "mse_hz2": 283.5243385422892,
+      "initial_mse_hz2": 3021.2928387281677
+    },
+    "held_left": {
+      "pass_": true,
+      "gates": {
+        "loss_improved": true,
+        "each_source_nrmse": true,
+        "silence_zero": true,
+        "channel_isolation": true,
+        "finite": true,
+        "bounded": true
+      },
+      "relative_reduction": 0.8978302160233186,
+      "nrmse": [
+        0.137111514393488,
+        0.14573476616876416
+      ],
+      "mse_hz2": 286.1098185336914,
+      "initial_mse_hz2": 2800.336923478191
+    },
+    "held_right": {
+      "pass_": true,
+      "gates": {
+        "loss_improved": true,
+        "each_source_nrmse": true,
+        "silence_zero": true,
+        "channel_isolation": true,
+        "finite": true,
+        "bounded": true
+      },
+      "relative_reduction": 0.9032279388251447,
+      "nrmse": [
+        0.1545530023012779,
+        0.13158684428184422
+      ],
+      "mse_hz2": 286.4001654935293,
+      "initial_mse_hz2": 2959.5335886877433
+    }
+  },
+  "replay_arrays": {
+    "predictions": {
+      "prediction": true,
+      "initial": true,
+      "target": true,
+      "time_s": true
+    },
+    "brain": {
+      "rates": true,
+      "boundary_events": true,
+      "receiver_voltage": true,
+      "dn_events": true,
+      "population": true,
+      "source_indices": true,
+      "target_indices": true
+    },
+    "cut_restore": {
+      "emitted": true,
+      "arrivals": true,
+      "features_hz": true,
+      "prediction": true,
+      "normal_prediction": true
+    }
+  },
+  "candidate": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T235930Z-ascending-reference-fit/FIT/update250.pt",
+  "candidate_sha256": "4a862130d5ba3dff6637e2ec7939a17fbba7430b7d4254af9e7bd0ddb5449380",
+  "parameters": {
+    "mix_logits": [
+      [
+        -1.7096840782730276,
+        2.244265109694049,
+        1.432563803207413
+      ],
+      [
+        -1.5847594345194973,
+        2.420534591068633,
+        1.185892382509758
+      ]
+    ],
+    "log_gain": [
+      -0.3225393248048315,
+      -0.3932732409061907
+    ]
+  },
+  "optimizer_updates": 250,
+  "qualification_shadow_optimizer_updates": 1,
+  "reference_lif_ticks": 80000,
+  "new_fixed_neck_ticks": 40000,
+  "prior_fixed_neck_ticks_reused": 80000,
+  "brain_batch_ticks": 12000,
+  "brain_lane_ticks": 48000,
+  "new_physical_steps": 0,
+  "receiver_nrmse": 0.04912007227540016,
+  "excluded_feedback_edges": 14,
+  "actual_dn_events": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "brain_weights_trained": false,
+  "teacher_kind": "NEW_BANC_RECEPTOR_GRAPH_WITH_ORIGINAL_EON_LIF_ENGINEERING_REFERENCE",
+  "boundary_scope": "prescribed AN output-event sources: inject once into original outgoing edges; native AN source membrane excluded. Original inputs back onto the two externally owned ANs are not simulated; this is a declared input-boundary intervention, not an unmodified full-brain/neck feedback loop.",
+  "biological_validation": "UNKNOWN",
+  "autonomous_sensory_behavior": "NOT_RUN_NOT_CLAIMED"
+}

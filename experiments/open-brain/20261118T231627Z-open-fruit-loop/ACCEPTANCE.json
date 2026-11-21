@@ -1,0 +1,92 @@
+{
+  "status": "OPEN_FRUIT_INTAKE_PASS",
+  "cases": {
+    "FORMAL_L": {
+      "scene": "left",
+      "mode": "intact",
+      "first_intake_s": 0.67,
+      "ingested": 0.794499999999996,
+      "min_oral_distance": 0.15704614723691193,
+      "eon_source": 228,
+      "actual_neck_arrival": 228,
+      "ascending_arrival": 954,
+      "min_upright": 0.9857198397945853,
+      "navigation_accepted": true
+    },
+    "FORMAL_R": {
+      "scene": "right",
+      "mode": "intact",
+      "first_intake_s": 0.5800000000000001,
+      "ingested": 0.790999999999996,
+      "min_oral_distance": 0.19521649239130842,
+      "eon_source": 235,
+      "actual_neck_arrival": 235,
+      "ascending_arrival": 979,
+      "min_upright": 0.9757678052914804,
+      "navigation_accepted": true
+    },
+    "CUT_L": {
+      "scene": "left",
+      "mode": "cut_dn",
+      "first_intake_s": null,
+      "ingested": 0.0,
+      "min_oral_distance": 4.8030200524472235,
+      "eon_source": 1305,
+      "actual_neck_arrival": 0,
+      "ascending_arrival": 1012,
+      "min_upright": 0.9997848652259026,
+      "navigation_accepted": false
+    },
+    "VISION_L": {
+      "scene": "left",
+      "mode": "vision_only",
+      "first_intake_s": 0.66,
+      "ingested": 0.8189999999999956,
+      "min_oral_distance": 0.2712527217790159,
+      "eon_source": 227,
+      "actual_neck_arrival": 227,
+      "ascending_arrival": 961,
+      "min_upright": 0.9880027618317829,
+      "navigation_accepted": true
+    },
+    "ODOR_L": {
+      "scene": "left",
+      "mode": "odor_only",
+      "first_intake_s": 0.78,
+      "ingested": 0.7804999999999962,
+      "min_oral_distance": 0.32603648575923755,
+      "eon_source": 242,
+      "actual_neck_arrival": 242,
+      "ascending_arrival": 946,
+      "min_upright": 0.9818839237757889,
+      "navigation_accepted": true
+    },
+    "BLANK_L": {
+      "scene": "left",
+      "mode": "blank",
+      "first_intake_s": null,
+      "ingested": 0.0,
+      "min_oral_distance": 4.8030200524472235,
+      "eon_source": 0,
+      "actual_neck_arrival": 0,
+      "ascending_arrival": 1012,
+      "min_upright": 0.9997848652259026,
+      "navigation_accepted": false
+    }
+  },
+  "sensor_fit": {
+    "train": {
+      "samples": 150,
+      "vision_angle_mae_deg": 0.6361316784874046,
+      "vision_inverse_range_mae": 0.012168762594624448,
+      "odor_angle_mae_deg": 3.0324778733349915
+    },
+    "holdout": {
+      "samples": 65,
+      "vision_angle_mae_deg": 0.999247131101161,
+      "vision_inverse_range_mae": 0.01857714087753833,
+      "odor_angle_mae_deg": 2.8265181312445278
+    }
+  },
+  "wall_validated": false
+}

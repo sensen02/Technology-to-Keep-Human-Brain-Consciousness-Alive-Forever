@@ -1,0 +1,339 @@
+{
+  "project": "P1_open_source_brain",
+  "physical_event_route_repaired": true,
+  "analog_amplitude_repair_requires_independent_event_stream": true,
+  "rows": [
+    {
+      "seed": 11701,
+      "exact_conditional_repair": {
+        "clean_on": {
+          "neural": {
+            "dn_emitted": true,
+            "dn_arrived": true,
+            "an_emitted": true,
+            "an_arrived": true,
+            "brain_an_events": true,
+            "rates": true,
+            "population": true,
+            "left_used_hz": true
+          },
+          "physical": {
+            "qpos": true,
+            "qvel": true,
+            "position": true,
+            "yaw": true,
+            "upright": true,
+            "nonfoot": true,
+            "control": true,
+            "pads": true,
+            "normal_load": true,
+            "command": true,
+            "initial_position": true
+          }
+        },
+        "drift_on": {
+          "neural": {
+            "dn_emitted": true,
+            "dn_arrived": true,
+            "an_emitted": true,
+            "an_arrived": true,
+            "brain_an_events": true,
+            "rates": true,
+            "population": true,
+            "left_used_hz": true
+          },
+          "physical": {
+            "qpos": true,
+            "qvel": true,
+            "position": true,
+            "yaw": true,
+            "upright": true,
+            "nonfoot": true,
+            "control": true,
+            "pads": true,
+            "normal_load": true,
+            "command": true,
+            "initial_position": true
+          }
+        }
+      },
+      "legacy_archives_identical": true,
+      "first_drift_confirmation_ms": 798.2,
+      "real_applied_readout_plateau_error_hz": 0.0,
+      "raw_readout_plateau_error_hz": 31.69535031256769,
+      "advisory_plateau_error_hz": 0.0,
+      "old_adapted_candidate_different_event_bits": 350,
+      "metrics": {
+        "clean_off": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.041911586061933,
+          "yaw_degrees": 45.45370558775755,
+          "forward_dx_mm": 12.758073289760517
+        },
+        "clean_on": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.041911586061933,
+          "yaw_degrees": 45.45370558775755,
+          "forward_dx_mm": 12.758073289760517
+        },
+        "drift_off": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.07716480431712683,
+          "yaw_degrees": 42.80139817323131,
+          "forward_dx_mm": 13.201781256831335
+        },
+        "drift_on": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.041911586061933,
+          "yaw_degrees": 45.45370558775755,
+          "forward_dx_mm": 12.758073289760517
+        }
+      },
+      "original_legacy_outcome_facts": {
+        "clean_off": {
+          "yaw_degrees": 45.45370558775755,
+          "forward_dx_mm": 12.758073289760517,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.041911586061933
+        },
+        "clean_on": {
+          "yaw_degrees": 48.26623904757662,
+          "forward_dx_mm": 12.35315842085265,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.0609563776027597
+        },
+        "drift_off": {
+          "yaw_degrees": 42.80139817323131,
+          "forward_dx_mm": 13.201781256831335,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.07716480431712683
+        },
+        "drift_on": {
+          "yaw_degrees": 36.85232189322884,
+          "forward_dx_mm": 13.301447980900388,
+          "final_stand_pass": true,
+          "stand_rms_mm_s": 0.05068352907327244
+        }
+      }
+    },
+    {
+      "seed": 11903,
+      "exact_conditional_repair": {
+        "clean_on": {
+          "neural": {
+            "dn_emitted": true,
+            "dn_arrived": true,
+            "an_emitted": true,
+            "an_arrived": true,
+            "brain_an_events": true,
+            "rates": true,
+            "population": true,
+            "left_used_hz": true
+          },
+          "physical": {
+            "qpos": true,
+            "qvel": true,
+            "position": true,
+            "yaw": true,
+            "upright": true,
+            "nonfoot": true,
+            "control": true,
+            "pads": true,
+            "normal_load": true,
+            "command": true,
+            "initial_position": true
+          }
+        },
+        "drift_on": {
+          "neural": {
+            "dn_emitted": true,
+            "dn_arrived": true,
+            "an_emitted": true,
+            "an_arrived": true,
+            "brain_an_events": true,
+            "rates": true,
+            "population": true,
+            "left_used_hz": true
+          },
+          "physical": {
+            "qpos": true,
+            "qvel": true,
+            "position": true,
+            "yaw": true,
+            "upright": true,
+            "nonfoot": true,
+            "control": true,
+            "pads": true,
+            "normal_load": true,
+            "command": true,
+            "initial_position": true
+          }
+        }
+      },
+      "legacy_archives_identical": true,
+      "first_drift_confirmation_ms": 798.2,
+      "real_applied_readout_plateau_error_hz": 0.0,
+      "raw_readout_plateau_error_hz": 45.61630860347865,
+      "advisory_plateau_error_hz": 0.0,
+      "old_adapted_candidate_different_event_bits": 45,
+      "metrics": {
+        "clean_off": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 12.083209074456514,
+          "yaw_degrees": 89.55598843850308,
+          "forward_dx_mm": 4.656226354652518
+        },
+        "clean_on": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 12.083209074456514,
+          "yaw_degrees": 89.55598843850308,
+          "forward_dx_mm": 4.656226354652518
+        },
+        "drift_off": {
+          "safety_pass": true,
+          "advance_pass": false,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 17.802070150168085,
+          "yaw_degrees": 241.61958196122004,
+          "forward_dx_mm": 1.623191378052675
+        },
+        "drift_on": {
+          "safety_pass": true,
+          "advance_pass": true,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 12.083209074456514,
+          "yaw_degrees": 89.55598843850308,
+          "forward_dx_mm": 4.656226354652518
+        }
+      },
+      "original_legacy_outcome_facts": {
+        "clean_off": {
+          "yaw_degrees": 89.55598843850308,
+          "forward_dx_mm": 4.656226354652518,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 12.083209074456514
+        },
+        "clean_on": {
+          "yaw_degrees": 92.22354237819074,
+          "forward_dx_mm": 4.680294156923056,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 12.091788236048078
+        },
+        "drift_off": {
+          "yaw_degrees": 241.61958196122004,
+          "forward_dx_mm": 1.623191378052675,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 17.802070150168085
+        },
+        "drift_on": {
+          "yaw_degrees": 224.45754272438828,
+          "forward_dx_mm": 1.3357295587772509,
+          "final_stand_pass": false,
+          "stand_rms_mm_s": 15.320620928877506
+        }
+      }
+    }
+  ],
+  "anchor_fixture": {
+    "changed_real_delay_event_bits": 152,
+    "cut_has_no_recreated_events": true,
+    "restored_after_reopen": true,
+    "advisory_deficit_detection_tick": 7099,
+    "advisory_expansion_detection_tick": 7099,
+    "amplitude_restoration_exact_with_independent_timestamps": true,
+    "healthy_and_unverified_readings_untouched": true,
+    "no_stale_correction_after_release": true,
+    "actual_archive": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/DYNAMIC/TRACE.npz",
+    "actual_archive_sha256": "cf4aab316effbed7cc7ad277de8266ffb1c2e4caad7549621ea0c59ee4ef07a7",
+    "observational_samples": 20000,
+    "new_brain_or_neck_or_body_ticks": 0
+  },
+  "independent_parity": {
+    "neural": {
+      "dn_emitted": true,
+      "dn_arrived": true,
+      "an_emitted": true,
+      "an_arrived": true,
+      "brain_an_events": true,
+      "rates": true,
+      "population": true,
+      "central_hits": true,
+      "left_raw_hz": true,
+      "left_used_hz": true,
+      "estimated_gain": true,
+      "fused_left_prediction": true,
+      "physical_encoded_events": true,
+      "advisory_left_hz": true,
+      "confirmed_readout_drift": true,
+      "legacy_candidate_events": true
+    },
+    "clean_off": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "clean_on": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "drift_off": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "drift_on": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    }
+  },
+  "independent_exact_arrays": 60,
+  "brain_batch_ticks": 60000,
+  "body_steps": 240000,
+  "optimizer_updates": 0
+}

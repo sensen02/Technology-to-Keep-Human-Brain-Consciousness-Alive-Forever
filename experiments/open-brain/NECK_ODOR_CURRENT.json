@@ -1,0 +1,42 @@
+{
+  "project": "P1_open_source_brain",
+  "milestone": "20261119T202650Z-neck-odor-integration",
+  "path_base": "experiments/open-brain",
+  "research_report": "20261119T202650Z-neck-odor-integration/REPORT.zh-CN.md",
+  "joint_runner": "20261119T202650Z-neck-odor-integration/run.py",
+  "reproduction": "20261119T202650Z-neck-odor-integration/REPRODUCE.zh-CN.md",
+  "omnisim": {
+    "scope": "single diagnostic shaft, two offsets, BANC v888, frozen receiver replay",
+    "source_snapshot": "20261119T202650Z-neck-odor-integration/omnisim_source",
+    "profiles": "20261119T202650Z-neck-odor-integration/profiles",
+    "ports": 52,
+    "target": "720575941510475536",
+    "array_behavior": "unverified",
+    "physiology": "engineering damage model"
+  },
+  "odor_navigation": {
+    "scope": "two intact mirror trials on the controlled wall, fruit RGB excluded from decisions",
+    "experiment": "20261119T190005Z-odor-sac",
+    "policy": "20261119T190005Z-odor-sac/TRAIN_DETOUR/POLICY.npz",
+    "policy_sha256": "c86133119a4613c242adbaff52b6a69df3b8019770e14e5bb6591fdd6dbd7980",
+    "audit": "20261119T190005Z-odor-sac/PHYSICAL_AUDIT.json",
+    "orchard_transfer": "20261119T194948Z-orchard-odor-transfer/ORCHARD_AUDIT.json",
+    "intact_orchard_primary_meals": "0/2"
+  },
+  "joint_behavior": {
+    "evidence": "20261119T202650Z-neck-odor-integration/JOINT_AUDIT.json",
+    "scope": "one controlled left detour, course 89217, neural seed 29, fixed lesions from the start",
+    "ground_circuit_ports": 23,
+    "exposed_ground_dn_streams": 17,
+    "arms": [
+      "intact",
+      "target_partial",
+      "target_block",
+      "shaft"
+    ],
+    "right_mirror_after_injury": "untested",
+    "orchard_after_injury": "untested",
+    "status": "paired_left_detour_simulation_completed",
+    "native_steps": 398000
+  }
+}

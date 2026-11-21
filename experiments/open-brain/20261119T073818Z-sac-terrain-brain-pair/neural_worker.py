@@ -1,0 +1,68 @@
+"""Apply an audited Eon weight branch and run the original BANC dynamics."""
+import json
+from pathlib import Path
+import sys
+
+import numpy as np
+
+from brain_probe import digest, patchable
+
+HERE=Path(__file__).resolve().parent
+sys.path.insert(0,str(HERE.parent/'20261119T001532Z-locomotion-choice'))
+from live_brain import Brain
+
+
+def main():
+    settings=json.loads(sys.stdin.readline())
+    model=Brain(settings)
+    calibration=json.loads(Path(settings['calibration']).read_text())
+    weights=model.brain.outgoing.data
+    assert digest(weights)==calibration['original_weights_sha256']
+    if settings['arm']=='tuned':
+        indices,edges=patchable(model.index,model.brain.outgoing,model.inputs,model.neck)
+        assert edges==calibration['edges']
+        weights[indices]*=calibration['tuned_gain']
+        assert digest(weights)==calibration['tuned_weights_sha256']
+    proposed=(0.,0.)
+    original_rates=model.head.rates
+    original_update=model.neck.update
+    model.head.rates=lambda _pace,_turn,odor: original_rates(*proposed,odor)
+    n=model.ticks
+    emitted=np.zeros((n,len(model.neck.columns)),dtype=bool)
+    arrived=np.zeros_like(emitted)
+    ascending=np.zeros((n,2),dtype=bool)
+
+    def capture(tick,dn,front):
+        emitted[tick]=dn
+        response=original_update(tick,dn,front)
+        arrived[tick]=model.neck.last_dn
+        ascending[tick]=model.neck.last_an
+        return response
+
+    model.neck.update=capture
+    print(json.dumps(dict(ready=True,weights=digest(weights))),flush=True)
+    for line in sys.stdin:
+        row=json.loads(line)
+        proposed=row.pop('intent')
+        nutrient=row.pop('circulating')
+        row['seen']=nutrient<.295 and (proposed[0]>.008 or abs(proposed[1])>.015)
+        # Preserve the archived ground feeding behavior.
+        model.ground_taste=0.
+        first=model.tick
+        packet=model.advance(row)
+        packet['arrived_an']=ascending[first:model.tick].sum(axis=0).tolist()
+        print(json.dumps(packet,separators=(',',':')),flush=True)
+        if model.tick==n:
+            break
+    assert model.tick==n
+    delays=model.neck.model.neck_delay[model.neck.columns]
+    for i,d in enumerate(delays):
+        assert not arrived[:d,i].any()
+        assert np.array_equal(emitted[:-d,i],arrived[d:,i])
+    np.savez_compressed(settings['stream'],emitted=emitted,arrived=arrived,
+                       ascending=ascending,delays=delays,drive=model.ground,
+                       feeding=model.feed,weights=digest(weights))
+
+
+if __name__=='__main__':
+    main()

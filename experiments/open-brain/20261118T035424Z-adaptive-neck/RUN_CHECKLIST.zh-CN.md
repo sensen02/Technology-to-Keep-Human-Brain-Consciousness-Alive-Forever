@@ -1,0 +1,6 @@
+# 动态颈部与飞行底座检查表
+
+- P1/S1/S3/S5 手动原型，本工作树目录 `/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T035424Z-adaptive-neck/`。父实验在主工作区 `/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261118T031132Z-flat-neck-assay/`。旧权重和联合验收不变。两阶段保留真脉冲、预测、建议三个字段；校正器未接控制。
+- Python3.12.14、Torch2.5.1 CPU、OMP/OPENBLAS/MKL单线程。 `python3 derive_transport.py /run/media/sensen/Data2/cell_wound_prototype`、`bash drive.sh replay_dynamic.py <新的输出目录>`、`bash drive.sh evaluate_observer.py <新的输出目录>`，正式和独立重放各一次。首次各一次输出保留；首次颈协议文本快照和首次校正文档计数字段的脚本快照保留。所有退出0。FINAL实验40000颈批/120000lane tick；加DYNAMIC_INITIAL总计60000批/180000lane tick。校正正式含复验共六岭回归、160000读数；加首版总九岭回归、240000读数，单次训练40000旧帧。没有Eon新积分、行走新物理或PPO/GAE。
+- 飞行采用档案 FlyBody TensorFlow CPU 2.17.1、TFP0.24.0、dm-control1.0.20、MuJoCo3.1.6，EGL与TF/OMP单线程。调用父目录的 `flight_env/bin/python -uB free_flight.py intact/cut_restore <新的输出目录> --gate <父目录>/FLIGHT_GATE_RECOVERY` 两次exit0，原生11200步。独立载入旧与新轨迹，两个回合状态/读数数组精确，记录两条不同 gate 的来源。
+- `bash drive.sh verify.py` 与 `bash drive.sh plot_results.py` exit0。动态四数组及校正46数组旧新复验精确，源、轨迹、模型权重、八飞行轴突形态SHA复核。ADAPTIVE_NECK.png及FLIGHT_BASELINE.png实际打开，未生成视频。下一最小步用新真实足端突变确认冲突处理，另开空中翼幅差动校对。完整脑侧飞行控制、内生生理可塑性和新行走测试未执行。

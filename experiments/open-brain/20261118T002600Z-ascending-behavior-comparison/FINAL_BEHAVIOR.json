@@ -1,0 +1,279 @@
+{
+  "project": "P1_open_source_brain",
+  "status": "BEHAVIOR_TEST_COMPLETED",
+  "rows": [
+    {
+      "seed": 10901,
+      "metrics": {
+        "native_full": {
+          "safety_pass": true,
+          "forward_dx_mm": 12.108491600378562,
+          "yaw_degrees": 39.612045531136104,
+          "active_forward_mm_s": 10.713146173232712,
+          "stand_rms_mm_s": 0.025756619001997508,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.790934447317481
+        },
+        "reference_boundary": {
+          "safety_pass": true,
+          "forward_dx_mm": 12.222382530411583,
+          "yaw_degrees": 44.100165980590816,
+          "active_forward_mm_s": 10.850121558472615,
+          "stand_rms_mm_s": 0.0324149683294894,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.790934447317481
+        },
+        "translated": {
+          "safety_pass": true,
+          "forward_dx_mm": 10.773883865627681,
+          "yaw_degrees": 58.064058584266306,
+          "active_forward_mm_s": 10.364915731497998,
+          "stand_rms_mm_s": 0.06497359131345402,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.790934447317481
+        },
+        "no_up": {
+          "safety_pass": true,
+          "forward_dx_mm": 12.25204513138597,
+          "yaw_degrees": 39.877719566292676,
+          "active_forward_mm_s": 10.56580175252539,
+          "stand_rms_mm_s": 0.02798312251425078,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.7796994306388382
+        }
+      },
+      "comparisons": {
+        "native_full": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": false,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.8878976354174148,
+          "yaw_difference_degrees": 18.4520130531302,
+          "active_speed_difference_mm_s": -0.34823044173471374
+        },
+        "reference_boundary": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": false,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.9818981506907698,
+          "yaw_difference_degrees": 13.96389260367549,
+          "active_speed_difference_mm_s": -0.48520582697461734
+        }
+      },
+      "reference_sensory_influence": {
+        "dn_event_differences": 882,
+        "speed_difference_mm_s": 0.2843198059472254,
+        "yaw_difference_degrees": 4.22244641429814,
+        "speed_threshold_pass": false,
+        "yaw_threshold_pass": false,
+        "pass_": false
+      },
+      "dn_totals": [
+        460,
+        471,
+        450,
+        445
+      ],
+      "actual_candidate_an_arrivals": [
+        344,
+        329
+      ],
+      "native_full_an_spikes": [
+        222,
+        207
+      ]
+    },
+    {
+      "seed": 11311,
+      "metrics": {
+        "native_full": {
+          "safety_pass": true,
+          "forward_dx_mm": 12.559203642122583,
+          "yaw_degrees": 35.31527269012867,
+          "active_forward_mm_s": 10.591724887154777,
+          "stand_rms_mm_s": 0.042362765899139225,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.7579302080478584
+        },
+        "reference_boundary": {
+          "safety_pass": true,
+          "forward_dx_mm": 13.73456117116036,
+          "yaw_degrees": 31.82541135006288,
+          "active_forward_mm_s": 11.044703183372762,
+          "stand_rms_mm_s": 0.06775167298105429,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.7579302080478584
+        },
+        "translated": {
+          "safety_pass": true,
+          "forward_dx_mm": 12.600888484437128,
+          "yaw_degrees": 34.02696240894465,
+          "active_forward_mm_s": 10.50487206341262,
+          "stand_rms_mm_s": 0.07975454180127092,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.7579302080478584
+        },
+        "no_up": {
+          "safety_pass": true,
+          "forward_dx_mm": 13.481912298209219,
+          "yaw_degrees": 21.816407197127003,
+          "active_forward_mm_s": 10.90800272597486,
+          "stand_rms_mm_s": 0.071819377680089,
+          "advance_pass": true,
+          "final_stand_pass": true,
+          "min_height_mm": 0.7434911359305459
+        }
+      },
+      "comparisons": {
+        "native_full": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": true,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 0.6767666913296922,
+          "yaw_difference_degrees": -1.2883102811840246,
+          "active_speed_difference_mm_s": -0.08685282374215753
+        },
+        "reference_boundary": {
+          "pass_": false,
+          "gates": {
+            "final_xy": false,
+            "yaw": true,
+            "active_speed": true,
+            "height": true,
+            "student_safety": true
+          },
+          "final_xy_difference_mm": 1.3121729921513459,
+          "yaw_difference_degrees": 2.201551058881769,
+          "active_speed_difference_mm_s": -0.5398311199601427
+        }
+      },
+      "reference_sensory_influence": {
+        "dn_event_differences": 908,
+        "speed_difference_mm_s": 0.13670045739790204,
+        "yaw_difference_degrees": 10.009004152935876,
+        "speed_threshold_pass": false,
+        "yaw_threshold_pass": true,
+        "pass_": true
+      },
+      "dn_totals": [
+        447,
+        478,
+        451,
+        458
+      ],
+      "actual_candidate_an_arrivals": [
+        328,
+        322
+      ],
+      "native_full_an_spikes": [
+        219,
+        205
+      ]
+    }
+  ],
+  "controlled_reference_agreement": false,
+  "native_full_reference_agreement": false,
+  "repeated_reference_sensory_behavior_influence": false,
+  "repeated_speed_influence": false,
+  "repeated_yaw_influence": false,
+  "independent_replay": {
+    "native_full": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "reference_boundary": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "translated": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "no_up": {
+      "qpos": true,
+      "qvel": true,
+      "position": true,
+      "yaw": true,
+      "upright": true,
+      "nonfoot": true,
+      "control": true,
+      "pads": true,
+      "normal_load": true,
+      "command": true,
+      "initial_position": true
+    },
+    "neural": {
+      "dn_emitted": true,
+      "dn_arrived": true,
+      "an_emitted": true,
+      "an_arrived": true,
+      "brain_an_events": true,
+      "rates": true,
+      "population": true,
+      "full_an_spikes": true,
+      "central_hits": true
+    }
+  },
+  "replay_exact": true,
+  "broad_behavior_expectation_met": false,
+  "biological_behavior_validation": "NOT_CLAIMED",
+  "optimizer_updates": 0,
+  "native_body_steps": 240000,
+  "body_episodes": 12,
+  "brain_batch_ticks": 63200,
+  "brain_lane_ticks": 252800,
+  "neck_batch_ticks": 60000,
+  "neck_lane_ticks": 240000,
+  "local_reference_lif_ticks": 60000,
+  "native_receptor_lif_ticks": 60000,
+  "interpretation": "Agreement with a reference and actual sensory-driven behavioral influence are independent endpoints. Original full-brain control uses a newly declared engineering sensory interface, not the unpublished Eon body interface."
+}

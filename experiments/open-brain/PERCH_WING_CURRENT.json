@@ -1,0 +1,84 @@
+{
+  "project": "P1 Open Brain",
+  "goal": "S5",
+  "status": "PASS_PERCH_WING_STOW",
+  "unchanged_flight_before_fold": true,
+  "independent_replay_identical": true,
+  "results": [
+    {
+      "case": "NEAR",
+      "trigger_s": 0.405,
+      "touchdown_s": 0.6731999999999341,
+      "terminal_wing_error_deg": {
+        "original": 13.978146569228883,
+        "corrected": 0.003669685747859727
+      },
+      "terminal_wing_abdomen_samples": {
+        "original": 1000,
+        "corrected": 0,
+        "total": 1000
+      },
+      "wing_abdomen_contact_pairs": {
+        "original": [
+          [
+            "walker/abdomen_4_collision",
+            "walker/wing_left_membrane_collision"
+          ],
+          [
+            "walker/abdomen_4_collision",
+            "walker/wing_right_membrane_collision"
+          ]
+        ],
+        "corrected": []
+      },
+      "abdomen_tip_relative_to_thorax_mm": {
+        "original": 0.6229075847566741,
+        "corrected": -0.6289904280770807
+      },
+      "continuous_six_foot_perch_s": 0.5216500000000001,
+      "first_intake_s": 0.9348999999999053,
+      "simulated_food_intake": 0.16981999999999794,
+      "flight_prefix_control_steps": 3371
+    },
+    {
+      "case": "FAR",
+      "trigger_s": 0.44,
+      "touchdown_s": 0.7060999999999304,
+      "terminal_wing_error_deg": {
+        "original": 13.978171021624943,
+        "corrected": 0.0036725184497984277
+      },
+      "terminal_wing_abdomen_samples": {
+        "original": 1000,
+        "corrected": 0,
+        "total": 1000
+      },
+      "wing_abdomen_contact_pairs": {
+        "original": [
+          [
+            "walker/abdomen_4_collision",
+            "walker/wing_left_membrane_collision"
+          ],
+          [
+            "walker/abdomen_4_collision",
+            "walker/wing_right_membrane_collision"
+          ]
+        ],
+        "corrected": []
+      },
+      "abdomen_tip_relative_to_thorax_mm": {
+        "original": 0.6220558287538211,
+        "corrected": -0.6275534243477787
+      },
+      "continuous_six_foot_perch_s": 0.48845000000000005,
+      "first_intake_s": 0.9670999999999017,
+      "simulated_food_intake": 0.1585499999999956,
+      "flight_prefix_control_steps": 3537
+    }
+  ],
+  "source": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261119T000140Z-perch-wing-audit",
+  "previous": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261118T234622Z-flight-fruit",
+  "delivery": "/home/sensen/Desktop/engine修复验收/停果收翅修复-20261119T000140Z",
+  "report": "/home/sensen/.codex/worktrees/4528/cell_wound_prototype/experiments/open-brain/20261119T000140Z-perch-wing-audit/REPORT.zh-CN.md",
+  "manifest_sha256": "f2575635218e366c6b6a3a97530cfc7e919122f5c641ab45d85751105f45b48e"
+}

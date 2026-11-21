@@ -1,0 +1,1695 @@
+{
+  "behavior_pass": {
+    "181_off_open": true,
+    "271_a01_left_open": true,
+    "271_a01_left_steer": true,
+    "271_a01_right_open": true,
+    "271_a01_right_steer": true,
+    "271_a02_left_all": true,
+    "271_a02_left_open": true,
+    "271_a02_left_steer": true,
+    "271_a02_right_open": true,
+    "271_a02_right_steer": true,
+    "271_cruise_open": true,
+    "271_cruise_speed": true,
+    "271_fast_open": true,
+    "362_a01_left_open": true,
+    "362_a01_left_steer": true,
+    "362_a01_right_open": true,
+    "362_a01_right_steer": true,
+    "362_a02_left_open": true,
+    "362_a02_left_steer": true,
+    "362_a02_right_open": true,
+    "362_a02_right_steer": true,
+    "362_cruise_open": true,
+    "362_fast_open": true
+  },
+  "behaviors": {
+    "181_off_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "no_drive": true
+      },
+      "native_steps": 17000,
+      "first_still_drift_mm": 1.2303194526460134e-07,
+      "last_still_drift_mm": 2.051133202138237e-07,
+      "last_still_rms_mm_s": 1.0258230889075658e-06,
+      "min_height_mm": 0.9882424220906958,
+      "min_up": 0.9997422441462293,
+      "net_x_mm": 1.744235247125303e-06,
+      "active_speed_mm_s": 1.026085721024066e-06,
+      "axial_contact_steps": 0,
+      "support_fraction": 1.0,
+      "active_contact_starts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_contact_ends": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode": "open",
+      "case": {
+        "name": "off",
+        "family": "off",
+        "seed": 181,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "a81180e1196258436ddf8c53c0bf72b9c94649834abf704763fa8025928804d5",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "7c3baa7567d0d16bbc84d85d8fb6d53fab2563398729ff5616926597447241d5",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/181_off"
+    },
+    "271_a01_left_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 3.28027955875847,
+      "active_speed_mm_s": 3.75182863521231,
+      "yaw_degrees": 27.344225843071232,
+      "peak_excursion_mm": 3.3302447669824424,
+      "last_still_rms_mm_s": 0.02766216932907393,
+      "last_still_drift_mm": 0.0007775952512679587,
+      "min_height_mm": 0.8080127385823512,
+      "min_up": 0.9890408916453477,
+      "axial_contact_steps": 0,
+      "cycles": [
+        538,
+        445,
+        383,
+        544,
+        757,
+        601
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a01_left",
+        "family": "arc_left",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "1e2f5f6024b592e93e2d73836d32e5fc4d90cb8fa978d08f578e2a4c034532b6",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "39a969ce9b292318b6b3b574166aad8026ba62e830a2842e22981ab7fa55beca",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a01_left"
+    },
+    "271_a01_left_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.386795258935155,
+      "active_speed_mm_s": 4.7319497814839435,
+      "yaw_degrees": -4.612588705611311,
+      "peak_excursion_mm": 4.516692209046353,
+      "last_still_rms_mm_s": 0.021482214482483216,
+      "last_still_drift_mm": 0.0009670101779071297,
+      "min_height_mm": 0.8140158962138754,
+      "min_up": 0.9916095388740019,
+      "axial_contact_steps": 0,
+      "cycles": [
+        533,
+        617,
+        487,
+        586,
+        656,
+        463
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a01_left",
+        "family": "arc_left",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941535862506"
+      ],
+      "trace_sha256": "67c251273fe14fac05ba68e3d49e0ce0e4be00c9fe9c1827a83127a067171951",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "39a969ce9b292318b6b3b574166aad8026ba62e830a2842e22981ab7fa55beca",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a01_left"
+    },
+    "271_a01_right_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 3.1497350900440515,
+      "active_speed_mm_s": 4.061840911167118,
+      "yaw_degrees": -34.300579389336484,
+      "peak_excursion_mm": 3.6495448582415126,
+      "last_still_rms_mm_s": 0.03239464782103758,
+      "last_still_drift_mm": 0.0015180096104770485,
+      "min_height_mm": 0.8102143573812317,
+      "min_up": 0.9878971830380672,
+      "axial_contact_steps": 0,
+      "cycles": [
+        548,
+        734,
+        569,
+        536,
+        490,
+        350
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a01_right",
+        "family": "arc_right",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "d56814805c18b6d13206a6e297129cf45b46912de0c5d84b2f20df9a655a4df8",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "7df0d8dd27b7f66455aa3c1e62acf11d6a1adb88b6b90ec6febf3272c922c45d",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a01_right"
+    },
+    "271_a01_right_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.3888660351678155,
+      "active_speed_mm_s": 4.7319497814839435,
+      "yaw_degrees": -4.6055652377466165,
+      "peak_excursion_mm": 4.516588142194398,
+      "last_still_rms_mm_s": 0.021499794863466825,
+      "last_still_drift_mm": 0.0009673576528687609,
+      "min_height_mm": 0.8140158962138754,
+      "min_up": 0.9916095388740019,
+      "axial_contact_steps": 0,
+      "cycles": [
+        533,
+        617,
+        487,
+        586,
+        656,
+        463
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a01_right",
+        "family": "arc_right",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941432123640"
+      ],
+      "trace_sha256": "dd290a180610570f580f583093f41c5e7ae33b879719ad283fee5f3c39ff8a90",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "7df0d8dd27b7f66455aa3c1e62acf11d6a1adb88b6b90ec6febf3272c922c45d",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a01_right"
+    },
+    "271_a02_left_all": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "no_drive": true
+      },
+      "native_steps": 17000,
+      "first_still_drift_mm": 1.2303194526460134e-07,
+      "last_still_drift_mm": 2.051133202138237e-07,
+      "last_still_rms_mm_s": 1.0258230889075658e-06,
+      "min_height_mm": 0.9882424220906958,
+      "min_up": 0.9997422441462293,
+      "net_x_mm": 1.744235247125303e-06,
+      "active_speed_mm_s": 1.026085721024066e-06,
+      "axial_contact_steps": 0,
+      "support_fraction": 1.0,
+      "active_contact_starts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_contact_ends": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode": "all",
+      "case": {
+        "name": "a02_left",
+        "family": "arc_left",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941626500746",
+        "720575941500851362",
+        "720575941519464046",
+        "720575941572713886",
+        "720575941510475536",
+        "720575941456897005",
+        "720575941535862506",
+        "720575941432123640",
+        "720575941445859754",
+        "720575941535086424",
+        "720575941515969123",
+        "720575941538336381",
+        "720575941652728049",
+        "720575941492471502",
+        "720575941572471454",
+        "720575941563183016",
+        "720575941491012809",
+        "720575941551589181",
+        "720575941478215985",
+        "720575941559104813",
+        "720575941473793322",
+        "720575941539809997",
+        "720575941558607396",
+        "720575941440683743",
+        "720575941593683051"
+      ],
+      "trace_sha256": "e8764fe263f7bb595c10e5267ad529ca62b7f6b703de28b4df19e2880388d1ad",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b18dbf2a7d0d740ac3a2dd4f304b7abc7349ae6bd7a15da55a71e8cb489fc45e",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a02_left"
+    },
+    "271_a02_left_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 3.0816701890334506,
+      "active_speed_mm_s": 3.601887456136232,
+      "yaw_degrees": 29.91326224569526,
+      "peak_excursion_mm": 3.129357904262574,
+      "last_still_rms_mm_s": 0.023879452949765612,
+      "last_still_drift_mm": 0.0008165331016739006,
+      "min_height_mm": 0.8110067162922929,
+      "min_up": 0.9900275394174681,
+      "axial_contact_steps": 0,
+      "cycles": [
+        512,
+        396,
+        345,
+        541,
+        761,
+        612
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a02_left",
+        "family": "arc_left",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "b2acf9ac78f2ddd66c302faacc9f1ce1096f2742463d83e9534ed318ed5e5060",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b18dbf2a7d0d740ac3a2dd4f304b7abc7349ae6bd7a15da55a71e8cb489fc45e",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a02_left"
+    },
+    "271_a02_left_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.3904492411878175,
+      "active_speed_mm_s": 4.7319497814839435,
+      "yaw_degrees": -4.6327004264985545,
+      "peak_excursion_mm": 4.517172965853446,
+      "last_still_rms_mm_s": 0.021493491434877398,
+      "last_still_drift_mm": 0.0009673952401214057,
+      "min_height_mm": 0.8140158962138754,
+      "min_up": 0.9916095388740019,
+      "axial_contact_steps": 0,
+      "cycles": [
+        533,
+        617,
+        487,
+        586,
+        656,
+        463
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a02_left",
+        "family": "arc_left",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941510475536"
+      ],
+      "trace_sha256": "1a5d970ad0657102583e92faaff9b4719a520e18b96a97c8afe6c6f835f0fb80",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b18dbf2a7d0d740ac3a2dd4f304b7abc7349ae6bd7a15da55a71e8cb489fc45e",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a02_left"
+    },
+    "271_a02_right_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 2.8373790685801525,
+      "active_speed_mm_s": 3.6822514996617697,
+      "yaw_degrees": -39.30952111602748,
+      "peak_excursion_mm": 3.3787537476639904,
+      "last_still_rms_mm_s": 0.03404081885189189,
+      "last_still_drift_mm": 0.0015334384222762413,
+      "min_height_mm": 0.8117452332503946,
+      "min_up": 0.9876342678499932,
+      "axial_contact_steps": 0,
+      "cycles": [
+        572,
+        785,
+        605,
+        509,
+        417,
+        308
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a02_right",
+        "family": "arc_right",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "1a594a6d8ef09b6eec908e7c97b1e8f593359bd1c781f7989f159b7c2d4a7ccf",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "67b13cc7f7bf0517bb47153cec0bc01e666214b8c684bb9c4f42f65c4b522719",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a02_right"
+    },
+    "271_a02_right_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.392752141881495,
+      "active_speed_mm_s": 4.7319497814839435,
+      "yaw_degrees": -4.251976392937876,
+      "peak_excursion_mm": 4.519146467467951,
+      "last_still_rms_mm_s": 0.021492595169600823,
+      "last_still_drift_mm": 0.0009671559211637995,
+      "min_height_mm": 0.8140158962138754,
+      "min_up": 0.9916095388740019,
+      "axial_contact_steps": 0,
+      "cycles": [
+        533,
+        617,
+        487,
+        586,
+        656,
+        463
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a02_right",
+        "family": "arc_right",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941456897005"
+      ],
+      "trace_sha256": "304739a14831b26765d1bc693d09f7ef4a1969a9f87495fe32724ec58aa8d499",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "67b13cc7f7bf0517bb47153cec0bc01e666214b8c684bb9c4f42f65c4b522719",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_a02_right"
+    },
+    "271_cruise_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.3904492411878175,
+      "active_speed_mm_s": 4.7319497814839435,
+      "yaw_degrees": -4.6327004264985545,
+      "peak_excursion_mm": 4.517172965853446,
+      "last_still_rms_mm_s": 0.021493491434877398,
+      "last_still_drift_mm": 0.0009673952401214057,
+      "min_height_mm": 0.8140158962138754,
+      "min_up": 0.9916095388740019,
+      "axial_contact_steps": 0,
+      "cycles": [
+        533,
+        617,
+        487,
+        586,
+        656,
+        463
+      ],
+      "mode": "open",
+      "case": {
+        "name": "cruise",
+        "family": "cruise",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "629b3a79ce4db43f9bd6f3d7920e6fdf91ce578591a3d0f7cad95f8646fbb1b3",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "36dd97e4529fdc30e9e9c1f260d68d63bb49067cf27437828310571bc81061cc",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_cruise"
+    },
+    "271_cruise_speed": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "no_drive": true
+      },
+      "native_steps": 17000,
+      "first_still_drift_mm": 1.2303194526460134e-07,
+      "last_still_drift_mm": 2.051133202138237e-07,
+      "last_still_rms_mm_s": 1.0258230889075658e-06,
+      "min_height_mm": 0.9882424220906958,
+      "min_up": 0.9997422441462293,
+      "net_x_mm": 1.744235247125303e-06,
+      "active_speed_mm_s": 1.026085721024066e-06,
+      "axial_contact_steps": 0,
+      "support_fraction": 1.0,
+      "active_contact_starts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_contact_ends": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mode": "speed",
+      "case": {
+        "name": "cruise",
+        "family": "cruise",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [
+        "720575941519464046",
+        "720575941572713886"
+      ],
+      "trace_sha256": "9e308fe66be62e9d33d30479d4c7c203e5a58cbc05a33377615012601567ba19",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "36dd97e4529fdc30e9e9c1f260d68d63bb49067cf27437828310571bc81061cc",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_cruise"
+    },
+    "271_fast_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 9.211868651230944,
+      "active_speed_mm_s": 10.380983175722099,
+      "yaw_degrees": -5.543462803677687,
+      "peak_excursion_mm": 9.526993814823392,
+      "last_still_rms_mm_s": 0.07214804875192118,
+      "last_still_drift_mm": 0.003280497798154154,
+      "min_height_mm": 0.6953136117328688,
+      "min_up": 0.9772208229507424,
+      "axial_contact_steps": 0,
+      "cycles": [
+        519,
+        801,
+        831,
+        594,
+        744,
+        680
+      ],
+      "mode": "open",
+      "case": {
+        "name": "fast",
+        "family": "fast",
+        "seed": 271,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": 0
+      },
+      "cut": [],
+      "trace_sha256": "65f21cb535c9ac60bce11f452dd0e221b245c01217a145b69f34855e6d6e0717",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "9272213ee6cde17b04e405ff4fe67da3a70d4797c75d9183a3905114c16cdec0",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/271_fast"
+    },
+    "362_a01_left_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 2.6153595225958512,
+      "active_speed_mm_s": 3.136040606652501,
+      "yaw_degrees": 37.36889575502975,
+      "peak_excursion_mm": 2.901384005975402,
+      "last_still_rms_mm_s": 0.030425794343484833,
+      "last_still_drift_mm": 0.0012547539160769115,
+      "min_height_mm": 0.810292425364903,
+      "min_up": 0.9888231554930047,
+      "axial_contact_steps": 0,
+      "cycles": [
+        432,
+        295,
+        326,
+        571,
+        753,
+        604
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a01_left",
+        "family": "arc_left",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "597bf7b79fb43dfdd71b25aefcd3c8c45cf881b7f11ac189fd1a505dbf0e9493",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b779b947c8df1576c51320ab8b52644e44e43bee7f7db4e758b27aba74b93345",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a01_left"
+    },
+    "362_a01_left_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.339424877532442,
+      "active_speed_mm_s": 4.456405839616846,
+      "yaw_degrees": 1.326955716898925,
+      "peak_excursion_mm": 4.348359376420413,
+      "last_still_rms_mm_s": 0.029940707946470593,
+      "last_still_drift_mm": 0.0009067644434535859,
+      "min_height_mm": 0.8517722002318799,
+      "min_up": 0.995421561783491,
+      "axial_contact_steps": 0,
+      "cycles": [
+        505,
+        561,
+        497,
+        555,
+        595,
+        443
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a01_left",
+        "family": "arc_left",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": -1
+      },
+      "cut": [
+        "720575941535862506"
+      ],
+      "trace_sha256": "b4c9db3093c7f54b5c273e90a71629ae7ac5ad06edc016a6e80a605de0cf43df",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b779b947c8df1576c51320ab8b52644e44e43bee7f7db4e758b27aba74b93345",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a01_left"
+    },
+    "362_a01_right_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 3.0953176289612694,
+      "active_speed_mm_s": 3.576031488351661,
+      "yaw_degrees": -30.15898921563836,
+      "peak_excursion_mm": 3.421585717808657,
+      "last_still_rms_mm_s": 0.03911193578245944,
+      "last_still_drift_mm": 0.0013391017543171915,
+      "min_height_mm": 0.8124855206783083,
+      "min_up": 0.9888867697169959,
+      "axial_contact_steps": 0,
+      "cycles": [
+        510,
+        666,
+        633,
+        567,
+        359,
+        349
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a01_right",
+        "family": "arc_right",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "fedfaf7472b1692b92a106f8449c6a5c27a0d4bb1d9246dbd0a5a264056e3f85",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b13695fc0fb833b44e63ef8b56f125bad9b16a615b95129613058c14252aec94",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a01_right"
+    },
+    "362_a01_right_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.327037671108681,
+      "active_speed_mm_s": 4.445907378771384,
+      "yaw_degrees": 1.8217333550257837,
+      "peak_excursion_mm": 4.336766400889263,
+      "last_still_rms_mm_s": 0.029927519408034692,
+      "last_still_drift_mm": 0.0009067711690638099,
+      "min_height_mm": 0.8510603020246604,
+      "min_up": 0.9955137040712602,
+      "axial_contact_steps": 0,
+      "cycles": [
+        502,
+        559,
+        499,
+        549,
+        594,
+        443
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a01_right",
+        "family": "arc_right",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": -1
+      },
+      "cut": [
+        "720575941432123640"
+      ],
+      "trace_sha256": "1266f326b3650234ba0b46fa3d122eadce969f6489a8e92830659dd18a3e6994",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "b13695fc0fb833b44e63ef8b56f125bad9b16a615b95129613058c14252aec94",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a01_right"
+    },
+    "362_a02_left_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 2.7707647869151364,
+      "active_speed_mm_s": 3.3488044582752607,
+      "yaw_degrees": 35.45774334340525,
+      "peak_excursion_mm": 3.026160300293986,
+      "last_still_rms_mm_s": 0.030926709894543863,
+      "last_still_drift_mm": 0.0012977350235017385,
+      "min_height_mm": 0.808864160388665,
+      "min_up": 0.9894057638391239,
+      "axial_contact_steps": 0,
+      "cycles": [
+        447,
+        353,
+        349,
+        548,
+        725,
+        576
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a02_left",
+        "family": "arc_left",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "841602506b1ce0ea0286a77a9cbfb3930b9e1fde11307fb3912211caf4f8ebd0",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "4b6e5ca2244889e73065114607e34285fe0f290f38655a38ed20de919b94cc6b",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a02_left"
+    },
+    "362_a02_left_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.322063782512141,
+      "active_speed_mm_s": 4.445907378771384,
+      "yaw_degrees": 1.8136248674962243,
+      "peak_excursion_mm": 4.332864774366255,
+      "last_still_rms_mm_s": 0.02932293703786041,
+      "last_still_drift_mm": 0.0009133029459940644,
+      "min_height_mm": 0.8543145382635597,
+      "min_up": 0.9957251121708828,
+      "axial_contact_steps": 0,
+      "cycles": [
+        502,
+        559,
+        499,
+        549,
+        594,
+        443
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a02_left",
+        "family": "arc_left",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": -1
+      },
+      "cut": [
+        "720575941510475536"
+      ],
+      "trace_sha256": "9db31c5cbf9a6bb3dcbec66c646ee483c615b2a95efd2ddbc0ff94494b364534",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "4b6e5ca2244889e73065114607e34285fe0f290f38655a38ed20de919b94cc6b",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a02_left"
+    },
+    "362_a02_right_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "yaw": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 2.6724583416899277,
+      "active_speed_mm_s": 3.2507309904613484,
+      "yaw_degrees": -35.842666542632955,
+      "peak_excursion_mm": 3.04945883993432,
+      "last_still_rms_mm_s": 0.04682376548005876,
+      "last_still_drift_mm": 0.0018362175947913963,
+      "min_height_mm": 0.8030349124055035,
+      "min_up": 0.987130536210793,
+      "axial_contact_steps": 0,
+      "cycles": [
+        516,
+        696,
+        650,
+        547,
+        302,
+        304
+      ],
+      "mode": "open",
+      "case": {
+        "name": "a02_right",
+        "family": "arc_right",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "89240210a162c95ca9b2dca16d6011f38fa44917e3bf04ad258619c4c3b6f437",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "a15c7bc4e026a6e926ba384c135012c9927916dfcd2a0670fdbabe51e7f3fc6f",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a02_right"
+    },
+    "362_a02_right_steer": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true,
+        "turn_absent": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.324363456408201,
+      "active_speed_mm_s": 4.445907378771384,
+      "yaw_degrees": 1.9345694828356241,
+      "peak_excursion_mm": 4.334701856881913,
+      "last_still_rms_mm_s": 0.029268789734063244,
+      "last_still_drift_mm": 0.000912468458063784,
+      "min_height_mm": 0.8553424454034756,
+      "min_up": 0.9958429842112415,
+      "axial_contact_steps": 0,
+      "cycles": [
+        502,
+        559,
+        499,
+        549,
+        594,
+        443
+      ],
+      "mode": "steer",
+      "case": {
+        "name": "a02_right",
+        "family": "arc_right",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": true,
+        "push_side": -1
+      },
+      "cut": [
+        "720575941456897005"
+      ],
+      "trace_sha256": "3cb6792630d918ea499103dbd8a180131619720f5d768f8bcd8a78bc40d4cdb2",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "a15c7bc4e026a6e926ba384c135012c9927916dfcd2a0670fdbabe51e7f3fc6f",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_a02_right"
+    },
+    "362_cruise_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 4.330880752612253,
+      "active_speed_mm_s": 4.45675133766832,
+      "yaw_degrees": 1.4384706598559,
+      "peak_excursion_mm": 4.341071755335102,
+      "last_still_rms_mm_s": 0.02932272673685889,
+      "last_still_drift_mm": 0.0009133127187310758,
+      "min_height_mm": 0.8542195491397915,
+      "min_up": 0.9957301467559216,
+      "axial_contact_steps": 0,
+      "cycles": [
+        503,
+        559,
+        500,
+        550,
+        593,
+        441
+      ],
+      "mode": "open",
+      "case": {
+        "name": "cruise",
+        "family": "cruise",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "658ebef03972a368ab083be3460ef92c398efb5f1ea3cc15cd769a5886949705",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "41f8c144fcc0236614e7173d7ebe41f460205ab10e1a4eea41533c0d204a618d",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_cruise"
+    },
+    "362_fast_open": {
+      "pass_": true,
+      "gates": {
+        "stand": true,
+        "height": true,
+        "upright": true,
+        "axial_contact": true,
+        "calm": true,
+        "cycle": true,
+        "advance": true
+      },
+      "native_steps": 17000,
+      "net_x_mm": 9.773330911328836,
+      "active_speed_mm_s": 10.525886584895595,
+      "yaw_degrees": -3.9591234834272138,
+      "peak_excursion_mm": 9.816821868122329,
+      "last_still_rms_mm_s": 0.09351082727746679,
+      "last_still_drift_mm": 0.0027023513781996456,
+      "min_height_mm": 0.7858750677487301,
+      "min_up": 0.9885303298565111,
+      "axial_contact_steps": 0,
+      "cycles": [
+        579,
+        757,
+        839,
+        605,
+        743,
+        706
+      ],
+      "mode": "open",
+      "case": {
+        "name": "fast",
+        "family": "fast",
+        "seed": 362,
+        "pulse_every": 0,
+        "start": 2300,
+        "stop": 11800,
+        "steer_cut": false,
+        "push_side": -1
+      },
+      "cut": [],
+      "trace_sha256": "5a6a7b48f30f5dcbda31155364c4a32260228d1139d3327c4dd7fa5f93252673",
+      "calibration_sha256": "7f6df2d2ef7185963ceb0e3f96ce3405364273c5dfde9175768ab53372d32f59",
+      "body_weight_sha256": "aee03ac22e167fe1c2269fd694042f115261b6312deb0f7397f87b6f7922a73a",
+      "initial_sha256": "d449eee9d6ae001d3da9eb4403db5138ea00e0f8e89a3df03d38be274d369034",
+      "brain_sha256": "8cddfd29ae959aeeeb4a3f231345f93d0ca471eda0df65ff8d8d64c8388482f0",
+      "neural_input": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/BRAIN/362_fast"
+    }
+  },
+  "delivery": {
+    "181_off_open": {
+      "emitted": 0,
+      "arrived": 0,
+      "exact_named_delays": true
+    },
+    "271_a01_left_open": {
+      "emitted": 326,
+      "arrived": 326,
+      "exact_named_delays": true
+    },
+    "271_a01_left_steer": {
+      "emitted": 326,
+      "arrived": 237,
+      "exact_named_delays": true
+    },
+    "271_a01_right_open": {
+      "emitted": 341,
+      "arrived": 341,
+      "exact_named_delays": true
+    },
+    "271_a01_right_steer": {
+      "emitted": 341,
+      "arrived": 239,
+      "exact_named_delays": true
+    },
+    "271_a02_left_all": {
+      "emitted": 355,
+      "arrived": 0,
+      "exact_named_delays": true
+    },
+    "271_a02_left_open": {
+      "emitted": 355,
+      "arrived": 355,
+      "exact_named_delays": true
+    },
+    "271_a02_left_steer": {
+      "emitted": 355,
+      "arrived": 233,
+      "exact_named_delays": true
+    },
+    "271_a02_right_open": {
+      "emitted": 333,
+      "arrived": 333,
+      "exact_named_delays": true
+    },
+    "271_a02_right_steer": {
+      "emitted": 333,
+      "arrived": 234,
+      "exact_named_delays": true
+    },
+    "271_cruise_open": {
+      "emitted": 235,
+      "arrived": 235,
+      "exact_named_delays": true
+    },
+    "271_cruise_speed": {
+      "emitted": 235,
+      "arrived": 64,
+      "exact_named_delays": true
+    },
+    "271_fast_open": {
+      "emitted": 518,
+      "arrived": 518,
+      "exact_named_delays": true
+    },
+    "362_a01_left_open": {
+      "emitted": 340,
+      "arrived": 340,
+      "exact_named_delays": true
+    },
+    "362_a01_left_steer": {
+      "emitted": 340,
+      "arrived": 229,
+      "exact_named_delays": true
+    },
+    "362_a01_right_open": {
+      "emitted": 326,
+      "arrived": 326,
+      "exact_named_delays": true
+    },
+    "362_a01_right_steer": {
+      "emitted": 326,
+      "arrived": 228,
+      "exact_named_delays": true
+    },
+    "362_a02_left_open": {
+      "emitted": 322,
+      "arrived": 322,
+      "exact_named_delays": true
+    },
+    "362_a02_left_steer": {
+      "emitted": 322,
+      "arrived": 223,
+      "exact_named_delays": true
+    },
+    "362_a02_right_open": {
+      "emitted": 315,
+      "arrived": 315,
+      "exact_named_delays": true
+    },
+    "362_a02_right_steer": {
+      "emitted": 315,
+      "arrived": 220,
+      "exact_named_delays": true
+    },
+    "362_cruise_open": {
+      "emitted": 222,
+      "arrived": 222,
+      "exact_named_delays": true
+    },
+    "362_fast_open": {
+      "emitted": 571,
+      "arrived": 571,
+      "exact_named_delays": true
+    }
+  },
+  "replays": {
+    "181_off_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a01_left_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a01_left_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a01_right_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a01_right_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a02_left_all": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a02_left_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a02_left_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a02_right_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_a02_right_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_cruise_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_cruise_speed": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "271_fast_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a01_left_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a01_left_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a01_right_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a01_right_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a02_left_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a02_left_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a02_right_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_a02_right_steer": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_cruise_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    },
+    "362_fast_open": {
+      "trace": true,
+      "emitted": true,
+      "arrived": true,
+      "levels": true,
+      "ctrl": true,
+      "qpos": true
+    }
+  },
+  "speed_pair": {
+    "271": {
+      "cruise": 4.7319497814839435,
+      "fast": 10.380983175722099,
+      "pass_": true
+    },
+    "362": {
+      "cruise": 4.45675133766832,
+      "fast": 10.525886584895595,
+      "pass_": true
+    }
+  },
+  "cuts": {
+    "271_a01_left": {
+      "affected_roots": [
+        "720575941535862506"
+      ],
+      "emitted": 89,
+      "arrived_open": 89,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": 27.344225843071232,
+      "yaw_cut": -4.612588705611311,
+      "proper_body_effect": true
+    },
+    "271_a01_right": {
+      "affected_roots": [
+        "720575941432123640"
+      ],
+      "emitted": 102,
+      "arrived_open": 102,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": -34.300579389336484,
+      "yaw_cut": -4.6055652377466165,
+      "proper_body_effect": true
+    },
+    "271_a02_left": {
+      "affected_roots": [
+        "720575941510475536"
+      ],
+      "emitted": 122,
+      "arrived_open": 122,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": 29.91326224569526,
+      "yaw_cut": -4.6327004264985545,
+      "proper_body_effect": true
+    },
+    "271_a02_right": {
+      "affected_roots": [
+        "720575941456897005"
+      ],
+      "emitted": 99,
+      "arrived_open": 99,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": -39.30952111602748,
+      "yaw_cut": -4.251976392937876,
+      "proper_body_effect": true
+    },
+    "362_a01_left": {
+      "affected_roots": [
+        "720575941535862506"
+      ],
+      "emitted": 111,
+      "arrived_open": 111,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": 37.36889575502975,
+      "yaw_cut": 1.326955716898925,
+      "proper_body_effect": true
+    },
+    "362_a01_right": {
+      "affected_roots": [
+        "720575941432123640"
+      ],
+      "emitted": 98,
+      "arrived_open": 98,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": -30.15898921563836,
+      "yaw_cut": 1.8217333550257837,
+      "proper_body_effect": true
+    },
+    "362_a02_left": {
+      "affected_roots": [
+        "720575941510475536"
+      ],
+      "emitted": 99,
+      "arrived_open": 99,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": 35.45774334340525,
+      "yaw_cut": 1.8136248674962243,
+      "proper_body_effect": true
+    },
+    "362_a02_right": {
+      "affected_roots": [
+        "720575941456897005"
+      ],
+      "emitted": 95,
+      "arrived_open": 95,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "yaw_open": -35.842666542632955,
+      "yaw_cut": 1.9345694828356241,
+      "proper_body_effect": true
+    },
+    "oDN1": {
+      "affected_roots": [
+        "720575941519464046",
+        "720575941572713886"
+      ],
+      "emitted": 171,
+      "arrived_open": 171,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "proper_body_effect": true
+    },
+    "all": {
+      "affected_roots": [
+        "720575941626500746",
+        "720575941500851362",
+        "720575941519464046",
+        "720575941572713886",
+        "720575941510475536",
+        "720575941456897005",
+        "720575941535862506",
+        "720575941432123640",
+        "720575941445859754",
+        "720575941535086424",
+        "720575941515969123",
+        "720575941538336381",
+        "720575941652728049",
+        "720575941492471502",
+        "720575941572471454",
+        "720575941563183016",
+        "720575941491012809",
+        "720575941551589181",
+        "720575941478215985",
+        "720575941559104813",
+        "720575941473793322",
+        "720575941539809997",
+        "720575941558607396",
+        "720575941440683743",
+        "720575941593683051"
+      ],
+      "emitted": 355,
+      "arrived_open": 355,
+      "arrived_cut": 0,
+      "other_dn_exact": true,
+      "intact_body": true,
+      "cut_body": true,
+      "proper_body_effect": true
+    }
+  },
+  "actual_native_steps": 782000,
+  "pass_": true
+}

@@ -1,0 +1,416 @@
+{
+  "project": "P1_open_source_brain",
+  "audit_type": "READ_ONLY_GAP_INVENTORY",
+  "body_checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FIT/epoch030.pt",
+  "body_sha256": "44e0ca425de238a95e0aafe8fa865ace39b5c3bbe5503039578910ea5f79af23",
+  "flygym_version": "2.1.0",
+  "counts": {
+    "DN": 27,
+    "AN": 11,
+    "SA": 14
+  },
+  "ground_groups": {
+    "forward": [
+      {
+        "id": "720575941626500746",
+        "direction": "DN",
+        "cell_type": "DNg100",
+        "side": "left"
+      },
+      {
+        "id": "720575941500851362",
+        "direction": "DN",
+        "cell_type": "DNg100",
+        "side": "right"
+      }
+    ],
+    "forward_speed": [
+      {
+        "id": "720575941519464046",
+        "direction": "DN",
+        "cell_type": "DNg97",
+        "side": "left"
+      },
+      {
+        "id": "720575941572713886",
+        "direction": "DN",
+        "cell_type": "DNg97",
+        "side": "right"
+      }
+    ],
+    "walking_steer": [
+      {
+        "id": "720575941510475536",
+        "direction": "DN",
+        "cell_type": "DNa02",
+        "side": "left"
+      },
+      {
+        "id": "720575941456897005",
+        "direction": "DN",
+        "cell_type": "DNa02",
+        "side": "right"
+      }
+    ],
+    "walking_steer_context": [
+      {
+        "id": "720575941535862506",
+        "direction": "DN",
+        "cell_type": "DNa01",
+        "side": "left"
+      },
+      {
+        "id": "720575941432123640",
+        "direction": "DN",
+        "cell_type": "DNa01",
+        "side": "right"
+      }
+    ],
+    "walking_outer_stride": [
+      {
+        "id": "720575941445859754",
+        "direction": "DN",
+        "cell_type": "DNg13",
+        "side": "left"
+      },
+      {
+        "id": "720575941535086424",
+        "direction": "DN",
+        "cell_type": "DNg13",
+        "side": "right"
+      }
+    ],
+    "halt_bluebell": [
+      {
+        "id": "720575941515969123",
+        "direction": "DN",
+        "cell_type": "DNg60",
+        "side": "left"
+      },
+      {
+        "id": "720575941538336381",
+        "direction": "DN",
+        "cell_type": "DNg60",
+        "side": "right"
+      }
+    ],
+    "halt_web_a": [
+      {
+        "id": "720575941652728049",
+        "direction": "DN",
+        "cell_type": "DNg74_a",
+        "side": "left"
+      },
+      {
+        "id": "720575941492471502",
+        "direction": "DN",
+        "cell_type": "DNg74_a",
+        "side": "right"
+      }
+    ],
+    "halt_web_b": [
+      {
+        "id": "720575941572471454",
+        "direction": "DN",
+        "cell_type": "DNg74_b",
+        "side": "left"
+      },
+      {
+        "id": "720575941563183016",
+        "direction": "DN",
+        "cell_type": "DNg74_b",
+        "side": "right"
+      }
+    ],
+    "backward_moonwalker": [
+      {
+        "id": "720575941491012809",
+        "direction": "DN",
+        "cell_type": "MDN",
+        "side": "left"
+      },
+      {
+        "id": "720575941499708745",
+        "direction": "DN",
+        "cell_type": "MDN",
+        "side": "right"
+      },
+      {
+        "id": "720575941614906387",
+        "direction": "DN",
+        "cell_type": "MDN",
+        "side": "right"
+      }
+    ]
+  },
+  "flight_groups": {
+    "flight_steer": [
+      {
+        "id": "720575941539809997",
+        "direction": "DN",
+        "cell_type": "DNp03",
+        "side": "left"
+      },
+      {
+        "id": "720575941558607396",
+        "direction": "DN",
+        "cell_type": "DNp03",
+        "side": "right"
+      }
+    ],
+    "landing": [
+      {
+        "id": "720575941440683743",
+        "direction": "DN",
+        "cell_type": "DNp10",
+        "side": "left"
+      },
+      {
+        "id": "720575941593683051",
+        "direction": "DN",
+        "cell_type": "DNp10",
+        "side": "right"
+      }
+    ],
+    "takeoff": [
+      {
+        "id": "720575941551589181",
+        "direction": "DN",
+        "cell_type": "DNp11",
+        "side": "left"
+      },
+      {
+        "id": "720575941478215985",
+        "direction": "DN",
+        "cell_type": "DNp11",
+        "side": "right"
+      }
+    ],
+    "wing_amplitude": [
+      {
+        "id": "720575941559104813",
+        "direction": "DN",
+        "cell_type": "DNg02_a",
+        "side": "left"
+      },
+      {
+        "id": "720575941473793322",
+        "direction": "DN",
+        "cell_type": "DNg02_a",
+        "side": "right"
+      }
+    ]
+  },
+  "ascending_groups": {
+    "front_touch": [
+      {
+        "id": "720575941633589179",
+        "direction": "AN",
+        "cell_type": "AN06B002",
+        "side": "left"
+      },
+      {
+        "id": "720575941626534090",
+        "direction": "AN",
+        "cell_type": "AN06B002",
+        "side": "right"
+      }
+    ],
+    "front_load": [
+      {
+        "id": "720575941685691375",
+        "direction": "AN",
+        "cell_type": "AN19B004",
+        "side": "left"
+      },
+      {
+        "id": "720575941565099623",
+        "direction": "AN",
+        "cell_type": "AN19B004",
+        "side": "right"
+      }
+    ],
+    "leg_vibration": [
+      {
+        "id": "720575941514658906",
+        "direction": "AN",
+        "cell_type": "AN08B018",
+        "side": "right"
+      }
+    ],
+    "joint_position": [
+      {
+        "id": "720575941456024883",
+        "direction": "AN",
+        "cell_type": "AN07B005",
+        "side": "left"
+      }
+    ],
+    "joint_position_alt": [
+      {
+        "id": "720575941504354754",
+        "direction": "AN",
+        "cell_type": "AN19A038",
+        "side": "right"
+      }
+    ],
+    "joint_movement": [
+      {
+        "id": "720575941620740991",
+        "direction": "AN",
+        "cell_type": "AN12B001",
+        "side": "left"
+      },
+      {
+        "id": "720575941477894686",
+        "direction": "AN",
+        "cell_type": "AN12B001",
+        "side": "right"
+      }
+    ],
+    "haltere_strain": [
+      {
+        "id": "720575941597645097",
+        "direction": "SA",
+        "cell_type": "SApp22",
+        "side": "left"
+      },
+      {
+        "id": "720575941637903733",
+        "direction": "SA",
+        "cell_type": "SApp08",
+        "side": "right"
+      },
+      {
+        "id": "720575941688550895",
+        "direction": "SA",
+        "cell_type": "SApp09",
+        "side": "left"
+      },
+      {
+        "id": "720575941678584253",
+        "direction": "SA",
+        "cell_type": "SApp16",
+        "side": "right"
+      }
+    ],
+    "wing_strain": [
+      {
+        "id": "720575941450261831",
+        "direction": "SA",
+        "cell_type": "SApp10",
+        "side": "left"
+      },
+      {
+        "id": "720575941569338106",
+        "direction": "SA",
+        "cell_type": "SApp04",
+        "side": "right"
+      },
+      {
+        "id": "720575941483100099",
+        "direction": "SA",
+        "cell_type": "SApp13",
+        "side": "left"
+      },
+      {
+        "id": "720575941561453171",
+        "direction": "SA",
+        "cell_type": "SApp14",
+        "side": "right"
+      }
+    ],
+    "front_taste": [
+      {
+        "id": "720575941454037555",
+        "direction": "SA",
+        "cell_type": "LgAG7",
+        "side": "left"
+      },
+      {
+        "id": "720575941535166913",
+        "direction": "SA",
+        "cell_type": "SAch02",
+        "side": "right"
+      }
+    ],
+    "abdomen_touch": [
+      {
+        "id": "720575941542469724",
+        "direction": "AN",
+        "cell_type": "AN01B002",
+        "side": "left"
+      },
+      {
+        "id": "720575941578509401",
+        "direction": "AN",
+        "cell_type": "AN01B002",
+        "side": "right"
+      }
+    ],
+    "abdomen_oxygen_candidate": [
+      {
+        "id": "720575941565008384",
+        "direction": "SA",
+        "cell_type": "SAabg01",
+        "side": "left"
+      },
+      {
+        "id": "720575941538256355",
+        "direction": "SA",
+        "cell_type": "SAabg01",
+        "side": "right"
+      },
+      {
+        "id": "720575941552165255",
+        "direction": "SA",
+        "cell_type": "SAabg01",
+        "side": "left"
+      },
+      {
+        "id": "720575941586999518",
+        "direction": "SA",
+        "cell_type": "SAabg01",
+        "side": "right"
+      }
+    ]
+  },
+  "baseline_result": {
+    "regression_pass": 57,
+    "new_conditions_pass": 12,
+    "independent_replays": 69,
+    "sensitivity_pass": 29,
+    "sensitivity_total": 30
+  },
+  "gaps": [
+    "continuous_speed_and_transitions",
+    "speed_turn_combinations",
+    "brake_phases_and_restart",
+    "low_translation_pivot",
+    "local_terrain_recovery",
+    "CPG_frequency_modulation_unvalidated",
+    "channel_specific_combination_semantics",
+    "Eon_full_ground_readout_and_ascending_feedback"
+  ],
+  "new_physics_steps": 0,
+  "new_neural_ticks": 0,
+  "new_training_updates": 0,
+  "source_sha256": {
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/BODY_CURRENT.json": "4fdadfe8917d2da7b2700d2f1a6f318d3d6a6885ddd838c34e9336feeb416557",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FINAL_ACCEPTANCE.json": "d0859be348369cdc9d6eab476726220b719c09b5f786804fcc414235bc0236c4",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T051249Z-bidirectional/CATALOG.json": "75f5cf7a8bcc65b1a31ad9bd02cb19ea60b547a3ddb58062b57ca19702094a5b",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/FIT/epoch030.pt": "44e0ca425de238a95e0aafe8fa865ace39b5c3bbe5503039578910ea5f79af23",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/PARAMETERS.json": "49b39b1a9a6664d08e8cf96058d4f41005b85512f0d6c2e458ceaf0017999430",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/tasks.py": "13bc028bf05e9894fd55f8493a728f37604f72d53bd234c762a9084f74ba13d6",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T170820Z-body-readaptation/SENSITIVITY.json": "b15cb632fa53c18e375eb7e9cb444c1b22fcb39c20f7482d476d7080f2df4ba7",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T062447Z-body-commands/expansion.py": "6a2f40196e800f72880d17d507147550ec91531c685457bb8ac370f38168c6e9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T062447Z-body-commands/PHASE/phase.py": "c33736305f2fc702ee8e307aca59ef3e06732d4552fbe485af00153ef66065c2",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T062447Z-body-commands/PHASE/FINAL.json": "1ed65ff5ee3912addf5f1be136942bf189935a67e370f081b271e245dff35780",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T051249Z-bidirectional/physical.py": "368f35632bb5a7f6a9b6ea182f614db78d55347a21235cd0da20326a0856a4f9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T064507Z-eon-overlap/overlap.py": "7ad5e7ca84e208dcc89494b5fad54a169a4e2fb44de96ba56b915ca8074960e9",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T164207Z-fixed-neck/adapters.py": "62de9571592758cca626df4b33ba60c940de020fac9a4feb49b51b9ef2b6d64f",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T175740Z-body-gap-audit/REPORT.zh-CN.md": "a7f7c2015248d586bd18792c1102982b626fa2f787cb3525e5bbb63290b61096",
+    "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T175740Z-body-gap-audit/audit.py": "dbb39970fec87fb0904622d282e02e956df01eac2c0d95a2193c60c2615896b9",
+    "/run/media/sensen/Data2/cell_wound_prototype/venv_body/lib/python3.12/site-packages/flygym-2.1.0.dist-info/METADATA": "4031376ddae8efc0792578329d0fc6f3a236e0efb46e0e57078d5b2af8525246"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "project": "P1_open_source_brain",
+  "status": "LIMITED_PIVOT_AND_THREE_ACTIVE_BRAKES_TEACHER_RELATIVE_VERIFIED",
+  "checkpoint": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T211320Z-body-command-calibration/FIT/epoch040.pt",
+  "sha256": "5e513353ecf72878ef2ebc02660dd1a2f804ce3feca9b6cc2a73ed5ca05ff57e",
+  "policy_loader": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T202200Z-body-stop-repair/policy_repair.py",
+  "implementation_root": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T224845Z-pivot-active-stop",
+  "body_model_entry": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/BODY_MODEL_CURRENT.json",
+  "evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T224845Z-pivot-active-stop/FINAL_ACCEPTANCE.json",
+  "report": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T224845Z-pivot-active-stop/REPORT.zh-CN.md",
+  "teacher_relative_pass": true,
+  "absolute_student_pass": "3/5; pivot transient height fails",
+  "pivot_scope": "DNa02 single-side period120ticks / 250ms pulse train, completed finite-angle turn and stand; continuous large-angle low-translation not passed",
+  "active_brake_groups": [
+    "DNg60",
+    "DNg74_a",
+    "DNg74_b"
+  ],
+  "preferred_brake_release": "stop forward spikes then retain brake spikes200ms before release",
+  "sequenced_brake_evidence": "/run/media/sensen/Data2/cell_wound_prototype/experiments/open-brain/20261117T224845Z-pivot-active-stop/SEQUENCE_ACCEPTANCE.json"
+}

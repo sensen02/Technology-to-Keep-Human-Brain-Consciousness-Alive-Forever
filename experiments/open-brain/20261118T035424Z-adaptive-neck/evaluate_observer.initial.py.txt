@@ -1,0 +1,103 @@
+"""Fit on two archived phases. Run an unseen phase with masked and drifting observation."""
+import argparse
+from pathlib import Path
+
+import numpy as np
+
+from archive_io import HERE, digest, load_case, write
+from adaptive_observer import AdaptiveObserver, cues, fit, predict
+
+TRAIN=(10901,11311)
+HELD=11701
+
+
+def rmse(a,b,where):
+    return float(np.sqrt(np.mean((a[where]-b[where])**2)))
+
+
+def online(data,lane,models,raw):
+    x=cues(data,lane)
+    pred={name:predict(model,x[name]) for name,model in models.items()}
+    observer=AdaptiveObserver()
+    rows=[observer.step(float(raw[t]),float(pred["motor"][t]),float(pred["other"][t]),
+                        float(pred["fused"][t]),available=not bool(data["target_blocked"][t,lane]))
+          for t in range(len(raw))]
+    result={key:np.array([getattr(r,key) if getattr(r,key) is not None else np.nan for r in rows])
+            for key in rows[0].__dataclass_fields__}
+    result.update({f"prediction_{name}": value for name,value in pred.items()})
+    return result
+
+
+def main(out):
+    out.mkdir()
+    pins={}
+    training=[]
+    target=[]
+    for seed in TRAIN:
+        case,_,record=load_case(seed)
+        pins[str(case/"NEURAL.npz")]=digest(case/"NEURAL.npz")
+        training.append(cues(record,0))
+        target.append(record["rates"][:,0,0])
+    fit_target=np.concatenate(target)
+    models={name:fit(np.concatenate([x[name] for x in training]),fit_target)
+            for name in ("motor","other","fused")}
+    write(out/"FIT.json",{name:{k:v.tolist() if isinstance(v,np.ndarray) else v
+                               for k,v in model.items()} for name,model in models.items()})
+    case,_,record=load_case(HELD)
+    pins[str(case/"NEURAL.npz")]=digest(case/"NEURAL.npz")
+    truth=record["rates"][:,0,0]
+    assert not record["target_blocked"][:,0].any()
+    ticks=np.arange(len(truth))
+    gain=np.interp(ticks,[0,6100,9100,14000,16200,len(truth)-1],[1.,1.,.66,.66,1.,1.])
+    drift=online(record,0,models,truth*gain)
+    clean=online(record,0,models,truth)
+    cut=online(record,3,models,record["rates"][:,3,0])
+    # This independent readout-only step tests whether evidence persistence
+    # unintentionally normalizes a brief genuine departure from a prior.
+    transient=truth.copy()
+    transient[8000:8300]+=65.
+    brief=online(record,0,models,transient)
+    masked=record["target_blocked"][:,3]
+    assert np.isnan(cut["estimate"][masked]).all() and not cut["updated"][masked].any()
+    assert (cut["gain"][masked]==1.).all()
+    assert np.array_equal(cut["raw"],record["rates"][:,3,0])
+    assert np.array_equal(drift["raw"],truth*gain)
+    assert np.array_equal(drift["prediction"],clean["prediction"])
+    active=(ticks>=3500)&(ticks<14500)
+    plateau=(ticks>=10500)&(ticks<14000)
+    before=(ticks>=3500)&(ticks<6100)
+    after=(ticks>=17500)
+    transient_window=(ticks>=8000)&(ticks<8300)
+    required={
+        "drift_raw_hz":rmse(drift["raw"],truth,plateau),
+        "drift_corrected_hz":rmse(drift["estimate"],truth,plateau),
+        "healthy_change_hz":rmse(clean["estimate"],truth,active),
+        "no_drift_before_onset_change_hz":rmse(drift["estimate"],truth,before),
+        "after_drift_release_change_hz":rmse(drift["estimate"],truth,after),
+        "brief_real_change_preserved_error_hz":rmse(brief["estimate"]-clean["estimate"],
+                                                   transient-truth,transient_window),
+        "fit_mean_predictor_hz":rmse(np.full_like(truth,fit_target.mean()),truth,active),
+        **{f"{name}_predictor_hz":rmse(drift[f"prediction_{name}"],truth,active)
+           for name in models},
+    }
+    gates=dict(observed_cut_not_imputed=True,gain_updates=int(drift["updated"].sum()),
+               drift_improv_20pct=required["drift_corrected_hz"]<=.8*required["drift_raw_hz"],
+               clean_change_at_most_5hz=required["healthy_change_hz"]<=5.,
+               novel_transient_error_at_most_5hz=required["brief_real_change_preserved_error_hz"]<=5.,
+               fusion_beats_both_inputs=required["fused_predictor_hz"] <
+                   min(required["motor_predictor_hz"],required["other_predictor_hz"]))
+    assert np.isfinite(drift["estimate"]).all()
+    np.savez_compressed(out/"TRACE.npz",truth=truth,actual_synthetic_gain=gain,
+        **{f"{condition}_{key}":v for condition,result in (("drift",drift),("clean",clean),("cut",cut),("brief",brief))
+              for key,v in result.items()})
+    pins.update({str(path):digest(path) for path in (
+        Path(__file__),HERE/"archive_io.py",HERE/"adaptive_observer.py",HERE/"PROTOCOL.zh-CN.md")})
+    write(out/"RESULT.json",dict(metrics=required,gates=gates,train_seeds=TRAIN,held_seed=HELD,
+          processed_samples=4*len(truth),ridge_fits=3,calibration_period_samples=80000,
+          observation_only=True,inputs_sha256=pins,trace_sha256=digest(out/"TRACE.npz"),
+          fit_sha256=digest(out/"FIT.json")))
+    print(required,gates,flush=True)
+
+
+if __name__=="__main__":
+    p=argparse.ArgumentParser();p.add_argument("out",type=Path);main(p.parse_args().out)

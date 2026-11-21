@@ -1,0 +1,151 @@
+{
+  "passed": true,
+  "trials": [
+    {
+      "seed": 4339,
+      "result": {
+        "intact": {
+          "total_ingested": 0.16100000000000012,
+          "switches": 4,
+          "stop_ms": 300.0,
+          "first_arrival_ms": 1.5,
+          "confirmed_off_ms": 670.0,
+          "crop_at_stop": 0.5964499999999986,
+          "food_remaining_at_stop": 1.9159999999999986,
+          "end_command_fraction": 0.9,
+          "min_prediction": -0.037645715699798965,
+          "max_prediction": 0.9195662693175439,
+          "mean_prediction_mid": 0.5222281897356625,
+          "max_used_control": 0.7803332784127819,
+          "terminal_spikes": 518
+        },
+        "cut": {
+          "total_ingested": 0.4025000000000003,
+          "switches": 1,
+          "stop_ms": null,
+          "first_arrival_ms": null,
+          "confirmed_off_ms": null,
+          "crop_at_stop": null,
+          "food_remaining_at_stop": null,
+          "end_command_fraction": 1.0,
+          "min_prediction": -0.1268683970969352,
+          "max_prediction": 0.46898401073023005,
+          "mean_prediction_mid": 0.3152997466675445,
+          "max_used_control": 0.2999741513785143,
+          "terminal_spikes": 123
+        },
+        "restored": {
+          "total_ingested": 0.23100000000000018,
+          "switches": 2,
+          "stop_ms": 720.0,
+          "first_arrival_ms": 622.0,
+          "confirmed_off_ms": 490.0,
+          "crop_at_stop": 0.7035499999999961,
+          "food_remaining_at_stop": 1.7689999999999961,
+          "end_command_fraction": 0.0,
+          "min_prediction": -0.1268683970969352,
+          "max_prediction": 1.031101727787466,
+          "mean_prediction_mid": 0.3152997466675445,
+          "max_used_control": 1.1235055938829064,
+          "terminal_spikes": 526
+        },
+        "low_fill": {
+          "total_ingested": 0.4025000000000003,
+          "switches": 1,
+          "stop_ms": null,
+          "first_arrival_ms": null,
+          "confirmed_off_ms": null,
+          "crop_at_stop": null,
+          "food_remaining_at_stop": null,
+          "end_command_fraction": 1.0,
+          "min_prediction": -0.1268683970969352,
+          "max_prediction": 0.46898401073023005,
+          "mean_prediction_mid": 0.3152997466675445,
+          "max_used_control": 0.2999741513785143,
+          "terminal_spikes": 123
+        }
+      },
+      "gates": {
+        "intact_stop": true,
+        "restore_stop": true,
+        "cut_continues": true,
+        "low_continues": true,
+        "reduced_intake": true
+      },
+      "passed": true
+    },
+    {
+      "seed": 7213,
+      "result": {
+        "intact": {
+          "total_ingested": 0.07700000000000004,
+          "switches": 2,
+          "stop_ms": 280.0,
+          "first_arrival_ms": 1.6,
+          "confirmed_off_ms": 930.0,
+          "crop_at_stop": 0.5913499999999987,
+          "food_remaining_at_stop": 1.9229999999999987,
+          "end_command_fraction": 0.0,
+          "min_prediction": -0.037645715699798965,
+          "max_prediction": 0.9156448497732805,
+          "mean_prediction_mid": 0.5286720278854463,
+          "max_used_control": 0.810189527090212,
+          "terminal_spikes": 474
+        },
+        "cut": {
+          "total_ingested": 0.4025000000000003,
+          "switches": 1,
+          "stop_ms": null,
+          "first_arrival_ms": null,
+          "confirmed_off_ms": null,
+          "crop_at_stop": null,
+          "food_remaining_at_stop": null,
+          "end_command_fraction": 1.0,
+          "min_prediction": -0.037645715699798965,
+          "max_prediction": 0.48928387037123305,
+          "mean_prediction_mid": 0.24243351892118267,
+          "max_used_control": 0.29542903723663994,
+          "terminal_spikes": 138
+        },
+        "restored": {
+          "total_ingested": 0.23800000000000018,
+          "switches": 2,
+          "stop_ms": 740.0,
+          "first_arrival_ms": 625.8000000000001,
+          "confirmed_off_ms": 470.00000000000006,
+          "crop_at_stop": 0.708649999999996,
+          "food_remaining_at_stop": 1.761999999999996,
+          "end_command_fraction": 0.0,
+          "min_prediction": -0.037645715699798965,
+          "max_prediction": 0.886239427366508,
+          "mean_prediction_mid": 0.24243351892118267,
+          "max_used_control": 1.0006205740079335,
+          "terminal_spikes": 488
+        },
+        "low_fill": {
+          "total_ingested": 0.4025000000000003,
+          "switches": 1,
+          "stop_ms": null,
+          "first_arrival_ms": null,
+          "confirmed_off_ms": null,
+          "crop_at_stop": null,
+          "food_remaining_at_stop": null,
+          "end_command_fraction": 1.0,
+          "min_prediction": -0.037645715699798965,
+          "max_prediction": 0.48928387037123305,
+          "mean_prediction_mid": 0.24243351892118267,
+          "max_used_control": 0.29542903723663994,
+          "terminal_spikes": 138
+        }
+      },
+      "gates": {
+        "intact_stop": true,
+        "restore_stop": true,
+        "cut_continues": true,
+        "low_continues": true,
+        "reduced_intake": true
+      },
+      "passed": true
+    }
+  ]
+}
