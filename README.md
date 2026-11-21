@@ -1,6 +1,6 @@
 # 果蝇真实颈部闭环实验平台
 
-本仓库研究一个明确的问题：如何让脑模型与仿真果蝇身体通过具有来源依据的真实颈部神经结构交换信息，并在闭环中学习感觉与运动行为。
+本仓库以虚拟果蝇为验证对象，研究原身体退出后，双向颈部接口和学习式替代身体能否保持感觉运动功能。当前目标和下一项同脑实例切换试验见 [研究路线图](GOAL_ROADMAP.zh-CN.md)。
 
 当前工作只限于果蝇仿真和软件实验。它不是意识证明、生物脑替代、真实动物植入方案或临床系统。
 
@@ -12,6 +12,12 @@
 | 人工大脑学习 | 独立训练的人工神经网络 | 学习意图、感觉整合与行为决策，并经真实颈部接口控制身体 | [`experiments/neck-real-structure/`](experiments/neck-real-structure/) |
 
 两个项目可以复用身体物理模型、颈部来源数据和验收工具，但不得混用模型身份、权重、训练日志或验收结论。
+
+P1 已将 OmniSim 单针的 BANC v888 损伤结果接入冻结的 Eon、嗅觉 SAC 与 FlyBody。研究入口收录单针诊断、受控镜像墙、果园迁移和左绕受损闭环的配对证据。[当前入口](experiments/open-brain/NECK_ODOR_CURRENT.json) · [联合实验报告](experiments/open-brain/20261119T202650Z-neck-odor-integration/REPORT.zh-CN.md)
+
+P1 的替代身体可从仿真电极读出下行活动，并通过模拟刺激返回前足感觉。保留下行响应的收步候选在 4 个平地场景均达到摄入门槛，3 个完成摄入后站稳。这是短时仿真功能保持证据，切换期间和长期连续运行仍待验证。[接触后收步实验](experiments/open-brain/20261121T060600Z-postcontact-settling/REPORT.zh-CN.md) · [验收汇总](experiments/open-brain/20261121T060600Z-postcontact-settling/acceptance.json)
+
+另有独立的 [BANC—肌肉身体研究](experiments/banc-muscle/README.zh-CN.md)，研究局部感觉、腹神经索到运动输出与六足承重。各实验的本地数据和模型权重随归档保存，部分运行入口依赖这些资产及固定版本的仿真环境。
 
 ## 强制架构
 
@@ -43,7 +49,7 @@
 
 ### 正在进行
 
-- 开源脑项目已经完成工程关节范围、零附着动力学一致性、单足垫台架以及平地/0.15/0.30 mm 低凸块教师的限定资格检查；这仍是教师结果，身体 ANN 尚未据此重训。
+- 开源脑项目已有低凸块物理教师以及据其训练的地形身体候选。候选在开发集和留出集均通过 5/6，尚未通过完整资格检查。
 - 当前地形身体入口见 [`experiments/open-brain/TERRAIN_BODY_CURRENT.json`](experiments/open-brain/TERRAIN_BODY_CURRENT.json)，本轮协议见 [`experiments/open-brain/20261117T184709Z-body-terrain-repair/PROTOCOL.zh-CN.md`](experiments/open-brain/20261117T184709Z-body-terrain-repair/PROTOCOL.zh-CN.md)。
 - 下一步是采集合格教师数据、加入偏离纠正、重训身体网络并复验原 69 项地面命令；之后才扩展到斜坡、粗糙地面、树干和墙面。
 
